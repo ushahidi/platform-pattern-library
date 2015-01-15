@@ -25,6 +25,12 @@ http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and
 
 ### Navigate to project root and run Gulp
 
+`gulp build`
+
+* compiles sass
+* compiles js
+* generates fonts
+
 `gulp`
 
 * starts a webserver
