@@ -3,11 +3,12 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifyCSS = require('gulp-minify-css'),
+    uglify = require('gulp-uglify'),
+    concat = require('gulp-concat');
     livereload = require('gulp-livereload'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
-    notify = require('gulp-notify'),
-    browserify = require('browserify');
+    notify = require('gulp-notify');
 
 function errorHandler (err) {
     gutil.beep();
@@ -64,17 +65,15 @@ gulp.task('sass', function() {
 });
 
 /**
-* Task: `browserify`
-* Bundle js with browserify
+* Task: `uglify`
+* Minimizes and concatenates js files
 */
-gulp.task('browserify', function() {
-    browserify(helpers.getBrowserifyConfig())
-        .bundle()
-        .pipe(source('bundle.js'))
-        .pipe(gulp.dest('/js'))
-        .pipe(notify('JS compiled'))
-        .pipe(livereload())
-        ;
+gulp.task('uglifyJS', function() {
+    gulp.src('./assets/js/custom/*')
+    .pipe(uglify())
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('./assets/js'))
+    ;
 });
 
 /**
@@ -112,5 +111,5 @@ gulp.task('default', ['webserver'], function() {
 * Task: `build`
 * Builds sass, fonts and js
 */
-gulp.task('build', ['sass', 'font', 'browserify'], function() {
+gulp.task('build', ['font', 'sass', 'uglifyJS'], function() {
 });
