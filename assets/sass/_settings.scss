@@ -1,0 +1,115 @@
+/*------------------------------------*\
+COLORS
+\*------------------------------------*/
+
+$black-base: #313131;
+$black-heading: #232323;
+$black-title: #000000;
+$black-text: #4A4A4A;
+
+$white-base: #ffffff;
+
+$grey-base: #f7f7f7;
+$grey-heading: #f1f2f6;
+$grey-border: #dddddd;
+
+$blue-base: #323A45;
+$blue-heading: #D9EDF7;
+$blue-border: #BCE8F1;
+$blue-text: #3A87AD;
+$blue-link: #3498DB;
+
+
+$yellow-heading: #FCF8E3;
+$yellow-border: #FBEED5;
+$yellow-text: #C09853;
+
+$teal-base: #4dc1c1;
+
+$green-base: #8fc266;
+$green-heading: #8EC165;
+$green-border: #6A914B;
+$green-text: #43894E;
+
+$green-light-heading: #DFF0D8;
+$green-light-border: #D6E9C6;
+
+$gold-base: #ffc334;
+
+$red-base: #fa6c60;
+$red-heading: #F2DEDE;
+$red-border: #D0021B;
+$red-text: #B94A48;
+
+$red-light-border: #EED3D7;
+
+
+
+
+
+/*-------------------------------------------
+    Sizes
+-------------------------------------------*/
+$base: 15px;
+$base-sm: $base/2;
+$base-med: $base * 2;
+$base-lg: $base * 3;
+$base-xl: $base * 4;
+$base-xxl: $base * 5;
+
+$base-font-size: 15px;
+$base-font-rem: 1.4rem;
+$base-line-height: 2em;
+
+/*-------------------------------------------
+    Grid Dimensions
+-------------------------------------------*/
+$grid-col: 46px;
+$grid-col-wide: 138px;
+$grid-num: 14;
+$grid-gutter: 25px;
+$grid-space: $grid-gutter/2;
+$max-page-width: ($grid-col * 12) + ($grid-col-wide * 2) + ($grid-gutter * ($grid-num + 1));
+
+$grid-col-small: 60px;
+$grid-gutter-small: 16px;
+$grid-space-small: $grid-gutter-small/2;
+
+@mixin percent($col-num: 6, $gutter-num: 4, $context: $max-page-width) {
+    width: percentage((($grid-col * $col-num)+($grid-gutter * $gutter-num))/$context);
+}
+
+$maxContentWidth: $max-page-width - ($grid-gutter * 2);
+
+@mixin wrap {
+    max-width: $maxContentWidth;
+    margin: 0 auto;
+}
+
+// Breakpoints
+$bk1: 320px;
+$bk2: 400px;
+$bk3: 650px;
+$bk4: 1000px;
+
+
+
+
+
+/*-------------------------------------------
+Fonts
+-------------------------------------------*/
+@mixin typeBase {
+    font-weight: 400;
+    font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+@mixin typeAlpha {
+    font-weight: 700;
+    font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+@mixin typeBeta {
+    font-weight: 600;
+    font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+}
