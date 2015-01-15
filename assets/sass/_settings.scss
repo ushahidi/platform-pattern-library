@@ -1,5 +1,33 @@
 /*------------------------------------*\
-COLORS
+    $GRID
+\*------------------------------------*/
+
+$grid-columns: 12;
+$gutter: 1.6888em;
+$max-width: 1580px;
+$mobile-min-width: (30em) !default; // 480px
+$mobile-up-min-width: (30.063em) !default; // 481px
+$small-min-width: (48em) !default; // 768px
+$medium-min-width: (64em) !default; // 1024px
+$large-min-width: (64.063em) !default; // 1025px
+$xlarge-min-width: (90em) !default; // 1440px
+$xxlarge-min-width: (120em) !default; // 1920px
+
+// Breakpoints
+$mobile: new-breakpoint(min-width $mobile-min-width);
+$mobile-up: new-breakpoint(min-width $mobile-up-min-width);
+$small: new-breakpoint(min-width $small-min-width);
+$medium: new-breakpoint(min-width $medium-min-width);
+$large: new-breakpoint(min-width $large-min-width);
+$xlarge: new-breakpoint(min-width $xlarge-min-width);
+$xxlarge: new-breakpoint(min-width $xxlarge-min-width);
+
+
+
+
+
+/*------------------------------------*\
+    $COLORS
 \*------------------------------------*/
 
 $black-base: #313131;
@@ -47,69 +75,62 @@ $red-light-border: #EED3D7;
 
 
 
-/*-------------------------------------------
-    Sizes
--------------------------------------------*/
-$base: 15px;
-$base-sm: $base/2;
-$base-med: $base * 2;
-$base-lg: $base * 3;
-$base-xl: $base * 4;
-$base-xxl: $base * 5;
+/*------------------------------------*\
+    $TYPE
+\*------------------------------------*/
+
+$base-font-family: 'Open Sans', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$base-font-color: $black-base;
+$sub-base-font-color: $black-text;
+$body-font-weight: normal;
+$body-font-style: normal;
 
 $base-font-size: 15px;
 $base-font-rem: 1.4rem;
 $base-line-height: 2em;
 
-/*-------------------------------------------
-    Grid Dimensions
--------------------------------------------*/
-$grid-col: 46px;
-$grid-col-wide: 138px;
-$grid-num: 14;
-$grid-gutter: 25px;
-$grid-space: $grid-gutter/2;
-$max-page-width: ($grid-col * 12) + ($grid-col-wide * 2) + ($grid-gutter * ($grid-num + 1));
+$small-font-size: .8em;
 
-$grid-col-small: 60px;
-$grid-gutter-small: 16px;
-$grid-space-small: $grid-gutter-small/2;
-
-@mixin percent($col-num: 6, $gutter-num: 4, $context: $max-page-width) {
-    width: percentage((($grid-col * $col-num)+($grid-gutter * $gutter-num))/$context);
-}
-
-$maxContentWidth: $max-page-width - ($grid-gutter * 2);
-
-@mixin wrap {
-    max-width: $maxContentWidth;
-    margin: 0 auto;
-}
-
-// Breakpoints
-$bk1: 320px;
-$bk2: 400px;
-$bk3: 650px;
-$bk4: 1000px;
-
-
-
-
-
-/*-------------------------------------------
-Fonts
--------------------------------------------*/
 @mixin typeBase {
     font-weight: 400;
-    font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: $base-font-family;
 }
 
 @mixin typeAlpha {
     font-weight: 700;
-    font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: $base-font-family;
 }
 
 @mixin typeBeta {
     font-weight: 600;
-    font-family: 'Open Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: $base-font-family;
 }
+
+
+
+
+
+/*------------------------------------*\
+    $Z-INDEX
+\*------------------------------------*/
+
+$offcanvas: 600;
+$topbar: 500;
+$filter: 400;
+$map: 300;
+$body: 200;
+
+
+
+
+
+/*------------------------------------*\
+    $MISC
+\*------------------------------------*/
+
+//Transition
+$transition-duration: 0.1s;
+
+//Layout
+$global-radius: 3px;
+$base-spacing: 20px;
