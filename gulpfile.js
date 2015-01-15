@@ -34,6 +34,7 @@ gulp.task('html', function() {
     return gulp.src([
         './index.html'
         ])
+        .pipe(notify('HTML reloaded'))
         .pipe(livereload());
     });
 
@@ -60,8 +61,7 @@ gulp.task('sass', function() {
         .pipe(minifyCSS({keepBreaks:true}))
         .pipe(gulp.dest('./assets/css'))
         .pipe(notify('CSS compiled'))
-        .pipe(livereload())
-        ;
+        .pipe(livereload());
 });
 
 /**
@@ -70,10 +70,15 @@ gulp.task('sass', function() {
 */
 gulp.task('uglifyJS', function() {
     gulp.src('./assets/js/custom/*')
+    .pipe(plumber({
+        errorHandler: errorHandler
+    }))
     .pipe(uglify())
     .pipe(concat('app.js'))
+    .pipe(plumber.stop())
     .pipe(gulp.dest('./assets/js'))
-    ;
+    .pipe(notify('JS minified and concatenated'))
+    .pipe(livereload());
 });
 
 /**
@@ -83,8 +88,7 @@ gulp.task('uglifyJS', function() {
 gulp.task('font', function() {
     gulp.src(['bower_components/fontawesome/fonts/fontawesome-*', 'bower_components/fontawesome/fonts/FontAwesome*'])
         .pipe(gulp.dest('./assets/fonts'))
-        .pipe(livereload())
-        ;
+        .pipe(livereload());
 });
 
 /**
@@ -96,14 +100,13 @@ gulp.task('default', ['webserver'], function() {
     livereload.listen();
 
     // Watch JS
-    gulp.watch('./assets/js/main.js', ['uglifyjs']);
+    gulp.watch('./assets/js/custom/*', ['uglifyJS']);
 
     // Watch Sass
     gulp.watch(['./assets/sass/**/*.scss'], ['sass']);
 
     // Watch HTML and livereload
     gulp.watch('./index.html', ['html']);
-
 
 });
 

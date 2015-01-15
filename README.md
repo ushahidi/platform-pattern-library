@@ -27,15 +27,15 @@ http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and
 
 `gulp build`
 
-* compiles sass
-* compiles js
 * generates fonts
+* compiles sass
+* minifies and concatenates js
 
 `gulp`
 
 * starts a webserver
 * watches for changes
 * compiles sass
-* compiles js
-* live reloads `index.html`
+* minifies and concatenates js
+* live reloads appropriate files (sass, js or html)
 * sends a success notification
