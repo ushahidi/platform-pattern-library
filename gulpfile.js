@@ -114,5 +114,5 @@ gulp.task('default', ['webserver'], function() {
 * Task: `build`
 * Builds sass, fonts and js
 */
-gulp.task('build', ['font', 'sass', 'uglifyJS'], function() {
+gulp.task('build', ['sass', 'uglifyJS',  'font'], function() {
 });
