@@ -1,0 +1,100 @@
+
+
+
+/*------------------------------------*\
+    $HEADER
+\*------------------------------------*/
+.pl {
+    background: #000000;
+}
+
+.pl-page-header {
+    background: #000000;
+    color: $white;
+
+    h1, h3{
+        padding: $base-spacing;
+        font-weight: 400;
+    }
+
+    img {
+        max-width: 60px;
+        float: left;
+        fill: $white;
+        color: $white;
+        margin: -10px 10px 0 0;
+    }
+}
+
+.pl-nav{
+    background: $dark-bg;
+    padding: $base-spacing;
+    @include clearfix;
+    @include media($small-min-width) {
+        padding: $base-spacing $base-spacing 0;
+    }
+
+
+    ul{
+
+        li {
+            color: $white;
+            font-weight: $bold;
+            line-height: 2;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+
+            &:last-child{
+                @include clearfix;
+            }
+
+            a{
+            color: $link-color-dark-bg;
+            
+            padding-left: 12px;
+            margin-top: 8px;
+                &:hover {
+                    border-color: $white;
+                    color: $white;
+                }
+                @include media($small-min-width) {
+                    display: block;
+                    float: left;
+                    border-left: 0px;
+                    border-bottom: $blue 0px solid;
+                    padding: 0 $base-spacing $base-spacing;
+                }
+            }
+           
+        }
+    }
+
+    .active {
+        border-left: $yellow 3px solid;
+        padding-left: 10px;
+        line-height: 2;
+        &:hover {
+            border-left: $border-color 3px solid;
+        }
+         @include media($small-min-width) {
+            display: block;
+            float: left;
+            border-left: 0px;
+            border-bottom: $yellow 3px solid;
+            padding: 0 $base-spacing $base-spacing;
+            &:hover {
+                border-left: 0px;
+            }
+        }
+    }
+}
+
+/*------------------------------------*\
+    $LAYOUT
+\*------------------------------------*/
+
+section {
+    padding: $base-spacing;
+    background-color: $white;
+    min-height: 3000px;
+}
