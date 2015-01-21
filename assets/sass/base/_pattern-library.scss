@@ -1,20 +1,21 @@
-
-
-
 /*------------------------------------*\
     $HEADER
 \*------------------------------------*/
 .pl {
-    background: #000000;
+    background: $lt-black;
 }
 
 .pl-page-header {
-    background: #000000;
+    background: $lt-black;
     color: $white;
 
-    h1, h3{
+    h3 {
         padding: $base-spacing;
         font-weight: 400;
+
+        a {
+            color: $white;
+        }
     }
 
     img {
@@ -22,20 +23,24 @@
         float: left;
         fill: $white;
         color: $white;
-        margin: -10px 10px 0 0;
+        margin: -$sm-spacing $sm-spacing 0 0;
     }
 }
 
-.pl-nav{
+/*------------------------------------*\
+    $NAVIGATION
+\*------------------------------------*/
+
+.pl-nav {
     background: $dark-bg;
     padding: $base-spacing;
     @include clearfix;
-    @include media($small-min-width) {
+
+    @include media($small) {
         padding: $base-spacing $base-spacing 0;
     }
 
-
-    ul{
+    ul {
 
         li {
             color: $white;
@@ -44,20 +49,21 @@
             text-transform: uppercase;
             letter-spacing: .1em;
 
-            &:last-child{
+            &:last-child {
                 @include clearfix;
             }
 
-            a{
+            a {
             color: $link-color-dark-bg;
-            
             padding-left: 12px;
             margin-top: 8px;
+
                 &:hover {
                     border-color: $white;
                     color: $white;
                 }
-                @include media($small-min-width) {
+
+                @include media($small) {
                     display: block;
                     float: left;
                     border-left: 0px;
@@ -65,18 +71,19 @@
                     padding: 0 $base-spacing $base-spacing;
                 }
             }
-           
         }
     }
 
     .active {
         border-left: $yellow 3px solid;
-        padding-left: 10px;
+        padding-left: $sm-spacing;
         line-height: 2;
+
         &:hover {
             border-left: $border-color 3px solid;
         }
-         @include media($small-min-width) {
+
+        @include media($small) {
             display: block;
             float: left;
             border-left: 0px;
@@ -89,12 +96,103 @@
     }
 }
 
+.pl-jump-nav {
+    background: $white;
+    padding: $base-spacing;
+
+    ul {
+        padding-bottom: $base-spacing;
+        border-bottom: 1px solid $border-color;
+        padding-left: $base-spacing;
+    }
+
+    li {
+        display: inline;
+        padding-right: 8px;
+        margin-right: 5px;
+        border-right: 3px solid $border-color;
+        line-height: 1.75em;
+        &:last-child {
+            border-right: 0px;
+        }
+    }
+}
+
 /*------------------------------------*\
     $LAYOUT
 \*------------------------------------*/
 
-section {
+.pl-pattern {
     padding: $base-spacing;
     background-color: $white;
-    min-height: 3000px;
+    @include clearfix;
+    @include outer-container;
+}
+
+.pl-pattern-description {
+    text-align: center;
+
+    h2 {
+        text-align: center;
+        margin: $base-spacing 0;
+    }
+
+    @include media($small) {
+        @include span-columns(6);
+        @include shift(3);
+        margin-bottom: $base-spacing;
+    }
+}
+
+.pl-divider {
+    clear: both;
+    margin: $base-spacing auto;
+    width: $base-spacing;
+    height: 3px;
+    border: 0;
+    background: $highlight;
+}
+
+
+/*------------------------------------*\
+    $BASICS
+\*------------------------------------*/
+
+li.pl-color {
+    padding-top: 70px;
+    margin-bottom: $sm-spacing;
+
+    @include media($small) {
+        padding: 0;
+        @include block-grid(4 of 8);
+    }
+    @include media($medium) {
+        @include block-grid(4 of 12);
+    }
+}
+
+.pl-color-info {
+    background-color: $white;
+    border: 1px solid $border-color;
+    padding: $base-spacing;
+    @include media($small) {
+        width: 50%;
+    }
+}
+
+.pl-black {
+    background-color: $black;
+}
+.pl-blue {
+    background-color: $blue;
+}
+.pl-yellow {
+    background-color: $yellow;
+}
+.pl-lt-gray {
+    background-color: $lt-gray;
+}
+.pl-white {
+    background-color: $white;
+    border: 1px solid $border-color;
 }
