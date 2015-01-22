@@ -5,6 +5,12 @@
     background: $lt-black;
 }
 
+.sticky-nav {
+    @include media($tall){
+        margin-top: 68px;
+    }
+}
+
 .pl-page-header {
     background: $lt-black;
     color: $white;
@@ -19,7 +25,7 @@
     }
 
     img {
-        max-width: 60px;
+        max-width: 35px;
         float: left;
         fill: $white;
         color: $white;
@@ -37,7 +43,7 @@
     @include clearfix;
 
     @include media($small) {
-        padding: $base-spacing $base-spacing 0;
+        padding: $base-spacing 0 0;
     }
 
     ul {
@@ -68,7 +74,7 @@
                     float: left;
                     border-left: 0px;
                     border-bottom: $blue 0px solid;
-                    padding: 0 $base-spacing $base-spacing;
+                    padding: 0 ($base-spacing+10px) $base-spacing;
                 }
             }
         }
@@ -88,7 +94,7 @@
             float: left;
             border-left: 0px;
             border-bottom: $yellow 3px solid;
-            padding: 0 $base-spacing $base-spacing;
+            padding: 0 ($base-spacing+10px) $base-spacing;
             &:hover {
                 border-left: 0px;
             }
@@ -99,11 +105,13 @@
 .pl-jump-nav {
     background: $white;
     padding: $base-spacing;
+    width: 100%;
+    max-width: $max-width;
 
     ul {
         padding-bottom: $base-spacing;
         border-bottom: 1px solid $border-color;
-        padding-left: $base-spacing;
+        padding-left: $sm-spacing;
     }
 
     li {
@@ -115,6 +123,16 @@
         &:last-child {
             border-right: 0px;
         }
+    }
+}
+
+.pl-fixed {
+    @include media($tall){
+        position: fixed; 
+        top: 0px; 
+        margin-top: 0px;
+        height: 68px;
+        z-index: 1;
     }
 }
 
