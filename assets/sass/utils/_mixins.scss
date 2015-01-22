@@ -2,25 +2,12 @@
     $MIXINS
 \*------------------------------------*/
 
-@mixin block-grid(
-$span: $columns of $container-columns,
-$inner-flex-padding: false
-) {
-    // ***unset** the $fg-gutter
-    $fg-gutter: 0em;
-
-    @include span-columns($span, block-collapse);
-
-    @include omega(nth($span, 1) + n);
-
-
-    @if ($inner-flex-padding == true) {
-        @include pad( 0 #{flex-gutter()} );
-    }
-
-    // **reset** the $fg-gutter
-    $fg-gutter: $gutter;
-}
+// Bourbon Omega Reset - for use with "block grids"
+// http://www.joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat/
+ @mixin omega-reset($nth) {
+     &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+     &:nth-child(#{$nth}+1) { clear: none }
+ }
 
 @mixin clearfix {
 
