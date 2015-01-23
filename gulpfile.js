@@ -2,6 +2,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
+    insert = require('gulp-insert'),
     minifyCSS = require('gulp-minify-css'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat');
@@ -59,6 +60,10 @@ gulp.task('sass', function() {
         .pipe(autoprefixer())
         .pipe(plumber.stop())
         .pipe(minifyCSS({keepBreaks:true}))
+        // Since we need the style.css file in the repo for gh-pages, but we do not review the file in Phabricator
+        // gulp-insert appends '/* @generated */' to the style.css file
+        // which automatically folds file in Phabricator
+        .pipe(insert.append('/* @generated */'))
         .pipe(gulp.dest('./assets/css'))
         .pipe(notify('CSS compiled'))
         .pipe(livereload());

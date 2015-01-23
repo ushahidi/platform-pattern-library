@@ -1,0 +1,105 @@
+/*------------------------------------*\
+$NAVIGATION
+\*------------------------------------*/
+
+.pl-nav {
+    @include clearfix;
+    background: $dark-bg;
+    padding: $base-spacing;
+
+    @include media($small) {
+        padding: $base-spacing 0 0;
+    }
+
+    ul {
+
+        li {
+            color: $white;
+            font-weight: $bold;
+            line-height: 2;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+
+            &:last-child {
+                @include clearfix;
+            }
+
+            a {
+                color: $link-color-dark-bg;
+                padding-left: 12px;
+                margin-top: 8px;
+
+                &:hover {
+                    border-color: $white;
+                    color: $white;
+                }
+
+                @include media($small) {
+                    display: block;
+                    float: left;
+                    border-left: 0px;
+                    border-bottom: $blue 0px solid;
+                    padding: 0 ($base-spacing+10px) $base-spacing;
+                }
+            }
+        }
+    }
+
+    .active {
+        border-left: $yellow 3px solid;
+        padding-left: $sm-spacing;
+        line-height: 2;
+
+        &:hover {
+            border-left: $border-color 3px solid;
+        }
+
+        @include media($small) {
+            display: block;
+            float: left;
+            border-left: 0px;
+            border-bottom: $yellow 3px solid;
+            padding: 0 ($base-spacing+10px) $base-spacing;
+
+            &:hover {
+                border-left: 0px;
+            }
+        }
+    }
+}
+
+.pl-jump-nav {
+    background: $white;
+    padding: $base-spacing;
+    width: 100%;
+    max-width: $max-width;
+
+    ul {
+        padding-bottom: $base-spacing;
+        border-bottom: 1px solid $border-color;
+        padding-left: $sm-spacing;
+    }
+
+    li {
+        display: inline;
+        padding-right: 8px;
+        margin-right: 5px;
+        border-right: 3px solid $border-color;
+        line-height: 1.75em;
+
+        &:last-child {
+            border-right: 0px;
+        }
+    }
+}
+
+.pl-fixed {
+
+    @include media($tall){
+        position: fixed;
+        top: 0px;
+        margin-top: 0px;
+        height: 68px;
+        z-index: 1;
+    }
+}
