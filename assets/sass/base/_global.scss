@@ -33,7 +33,12 @@ body {
 
 p {
     line-height: 1.25;
-    font-size: $base-font-rem;
+    font-size: em(16);
+
+    @include media($small) {
+        font-size: em(18);
+    }
+
 }
 
 
@@ -80,6 +85,14 @@ a {
     &:focus {
         cursor: pointer;
         color: $link-hover-color;
+    }
+}
+
+p a {
+    border-bottom: 1px dotted $border-color;
+
+    &:hover {
+        border-bottom: 1px dotted $link-hover-color;
     }
 }
 
