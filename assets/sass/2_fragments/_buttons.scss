@@ -1,0 +1,93 @@
+/*------------------------------------*\
+    $BUTTONS
+\*------------------------------------*/
+
+button,
+[class*="button-"] {
+    display: inline-block;
+    outline: none;
+    background-color: $button-bg-color;
+    color: $button-text-color;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 15px 12px;
+    border: 0px;
+    font-family: $base-font-family;
+    font-weight: $bold;
+    @include border-top-radius($global-radius);
+    @include border-bottom-radius($global-radius);
+    @include transition;
+    font-size: em(16);
+
+    @include media($small) {
+        font-size: em(18);
+    }
+
+    i {
+        padding-right: 10px;
+    }
+    
+    &:hover {
+        cursor: pointer;
+        background-color: $button-hover-color;
+    }
+
+    &:active {
+        background-color: $button-active-color;
+        @include no-transition;
+    }
+
+}
+
+.button-create {
+    background-color: $button-bg-create-post;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 22px 15px 20px;
+    font-size: em(14);
+    
+    @include media($small) {
+        font-size: em(16);
+        padding: 14px 25px 18px 20px;
+    }
+
+    i {
+        color: $highlight;
+        padding-right: 14px;
+        font-size: em(22);
+        position: relative;
+        bottom: -2px;
+    }
+
+    &:hover {
+       background-color: $button-bg-create-post-hover;
+    }
+
+    &:active {
+        background-color: $button-bg-create-post-active;
+    }
+
+}
+
+.button-secondary {
+    background-color: $white;
+    color: $black;
+    border: 1px solid $border-color;
+    padding: 8px 10px;
+    font-weight: 400;
+    font-size: em(15);
+
+    i {
+        color: $highlight;
+    }
+
+    &:hover {
+       background-color: $white;
+       border: 1px solid $border-color-hover;
+    }
+
+    &:active {
+        border: 1px solid $border-color-active;
+    }
+
+}

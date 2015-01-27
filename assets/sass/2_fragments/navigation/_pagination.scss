@@ -1,1 +1,51 @@
+.pagination, .stepper {
+	
+	li {
+		display: inline-block;
+		float: left;
+		color: $link-color;
+		font-weight: $bold;
+		padding: 0 $sm-spacing;
+		cursor: pointer;
+	}
 
+	.active {
+		color: $base-color;
+		cursor: default;
+
+		&:hover {
+			color: $base-color;
+		}
+
+	}
+
+	li.pg-number {
+
+		&:hover {
+			color: $link-hover-color;
+		}
+
+	}
+
+	.prev, .next {
+		border: 1px solid $border-color;
+		@include border-top-radius($global-radius);
+    	@include border-bottom-radius($global-radius);
+    	color: $highlight;
+    	padding: 10px;
+    	position: relative;
+    	top: -10px;
+
+    	&:hover{
+    		border: 1px solid $border-color-hover;
+    	}
+	}
+
+	.prev {
+		margin-right: $sm-spacing;
+	}
+
+	.next {
+		margin-left: $sm-spacing;
+	}
+}

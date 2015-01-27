@@ -5,12 +5,22 @@ $LAYOUT
 .pl-pattern {
     @include clearfix;
     @include outer-container;
-    padding: $base-spacing;
+    padding: 0 $base-spacing;
     background-color: $white;
+
+    @include media($small) {
+        padding: $base-spacing $base-spacing $lg-spacing;
+    }
+
+    p {
+        margin-bottom: $sm-spacing;
+    }
+
 }
 
 .pl-pattern-description {
     text-align: center;
+    margin-bottom: $base-spacing;
 
     h2 {
         text-align: center;
@@ -20,7 +30,6 @@ $LAYOUT
     @include media($small) {
         @include span-columns(6);
         @include shift(3);
-        margin-bottom: $base-spacing;
     }
 }
 
@@ -31,4 +40,14 @@ $LAYOUT
     height: 3px;
     border: 0;
     background: $highlight;
+}
+
+.pl-sub-pattern {
+    margin-bottom: $lg-spacing;
+
+    h4 {
+        border-bottom: 1px solid $border-color;
+        padding-bottom: $sm-spacing;
+        margin: $base-spacing 0 $sm-spacing;
+    }
 }
