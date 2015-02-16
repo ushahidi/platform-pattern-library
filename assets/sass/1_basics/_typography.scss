@@ -2,10 +2,19 @@
     $TYPOGRAPHY
 \*------------------------------------*/
 
+p {
+    line-height: 1.25;
+    font-size: em(16);
+
+    @include media($small) {
+        font-size: em(18);
+    }
+}
+
 h1, .alpha {
 	font-size: em(28);
 	font-weight: $body-font-weight;
-	margin: $sm-spacing 0;
+	margin: $base-spacing 0 $sm-spacing;
 	
 	@include media($small) {
 		font-size: em(42);
@@ -15,7 +24,7 @@ h1, .alpha {
 
 h2, .beta {
 	font-size: em(24);
-	margin: $sm-spacing 0;
+	margin: $base-spacing 0 $sm-spacing;
 
 	@include media($small) {
 		font-size: em(32);
@@ -25,7 +34,7 @@ h2, .beta {
 
 h3, .gamma {
 	font-size: em(20);
-	margin: $sm-spacing 0;
+	margin: $base-spacing 0 $sm-spacing;
 
 	@include media($small) {
 		font-size: em(24);
@@ -34,13 +43,13 @@ h3, .gamma {
 }
 
 h4, .delta {
-	font-size: em(14);
+	font-size: em(13);
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	margin: $sm-spacing 0;
+	margin: $base-spacing 0 $sm-spacing;
 	
 	@include media($small) {
-		font-size: em(16);
+		font-size: em(14);
 	}
 		
 }
@@ -48,7 +57,7 @@ h4, .delta {
 h5, .epsilon {
 	font-size: em(18);
 	font-weight: $body-font-weight;
-	margin: $sm-spacing 0;
+	margin: $base-spacing 0 $sm-spacing;
 	
 	@include media($small) {
 		font-size: em(20);
@@ -58,11 +67,49 @@ h5, .epsilon {
 
 h6, .zeta {
 	font-size: em(14);
-	margin: $sm-spacing 0;
+	margin: $base-spacing 0 $sm-spacing;
 
 	@include media($small) {
 		font-size: em(16);
 	}
 
+}
+
+ul {
+
+    li {
+        list-style-type: none;
+    }
+}
+
+ol, ul.bullets {
+    font-size: em(16);
+    margin-left: $base-spacing;
+    color: $highlight;
+
+    @include media($small) {
+        font-size: em(18);
+        margin-left: 0;
+    }
+
+    li {
+    	color: $base-color;
+    	line-height: 1.25;
+    	margin-bottom: $sm-spacing;
+    }
+
+}
+
+ul.bullets {
+	li {
+		list-style: disc;
+	}
+}
+
+blockquote {
+	@extend p;
+	border-left: 4px solid $border-color;
+	padding-left: $sm-spacing;
+	font-style: italic;
 }
 
