@@ -37,7 +37,19 @@ button,
         @include no-transition;
     }
 
+    &.disabled {
+        background-color: $button-bg-disabled-color;
+        cursor: default;
+    }
+
+    &.icon-only {
+         i {
+            padding: 0px $tiny-spacing;
+        }
+    }
+
 }
+
 
 .button-create {
     background-color: $button-bg-create-post;
@@ -88,6 +100,31 @@ button,
 
     &:active {
         border: 1px solid $border-color-active;
+    }
+
+    &.disabled {
+        background-color: $white;
+        cursor: default;
+        color: $dk-gray;
+
+        i {
+            color: $dk-gray;
+        }
+
+        &:hover {
+            border: 1px solid $border-color;
+        }
+
+        &:active {
+            border: 1px solid $border-color;
+        }
+
+    }
+
+    &.alt {
+        i {
+            color: $link-color;
+        }
     }
 
 }

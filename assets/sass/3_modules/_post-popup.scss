@@ -1,0 +1,71 @@
+.post-popup {
+    padding: $base-spacing;
+    @include border-top-radius($global-radius);
+    @include border-bottom-radius($global-radius);
+    @include box-shadow($top: 0px, $left: 0, $blur: 7px, $spread: 2px, $color: rgba(0,0,0,.1), $inset: false);
+    max-width: 400px;
+    position: relative;
+
+    .actions {
+        border-top: $base-border;
+        padding-top: $base-spacing;
+        margin-top: $base-spacing;
+
+        button {
+            margin-right: $tiny-spacing;
+        }
+    }
+
+    // TRIANLES AT THE BOTTOM - I CAN'T GET THEM TO WORK!
+    //&:after {
+    //     content: ' ';
+    //     border: 25px solid transparent; /* arrow size */
+    //     border-top-color: $white;  /* arrow color */
+    //     position: absolute;
+    //     bottom: -49px;
+    //     left: 176px;
+    //     z-index: 2;
+    // }
+
+    &.has-image {
+        position: relative;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1;
+        @include box-shadow($top: 150px, $left: 0, $blur: 100px, $spread: 0px, $color: rgba(0,0,0,1), $inset: true);
+        text-shadow: 0px 1px 0px $black;
+
+        &:after {
+            border-top-color: rgba(0, 0, 0, 0.8);  /* arrow color */
+        }
+
+        a {
+            color: $link-color-lt;
+
+            &:hover{
+                color: $link-color-dark-bg-hover;
+            }
+
+        }
+
+        img {
+            opacity: .3;
+            top: 0;
+            left: 0;
+            min-height: 100%;
+            min-width: 100%;
+            position: absolute;
+            z-index: -3;
+        }
+
+        .meta-data, p {
+            z-index: 1;
+            color: $white;
+        }
+
+        .actions {
+            border-top: 1px solid $black;
+        }
+
+    }
+
+}

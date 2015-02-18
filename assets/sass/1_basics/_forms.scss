@@ -2,49 +2,52 @@
     $FORMS
 \*------------------------------------*/
 
+label.input-label, label.filter-label {
+    @extend .delta-alt;
+    display: block;
+    padding: 0 $sm-spacing 0 0;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="search"],
 textarea {
-    font-size: em(16);
-    outline-color: #4AA6E2;
+    display: block;
+    font-size: em(18);
+    outline-color: $white;
     resize: none;
-    //border: 1px solid $grey-border;
-    @include equal-radius;
+    border: 1px solid $border-color-dark;
+    color: $text-color;
     @include typeBase;
-    padding: 5px 10px;
+    display: block;
+    padding: $tiny-spacing $sm-spacing;
     @include border-box;
     @include transition;
+    @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.1), $inset: true);
+    
     &.error {
-        //outline-color: $red-border;
-        @include box-shadow($top: 0, $left: 0, $blur: 2px, $spread: 0, $color: rgba(208,2,27,1), $inset: false);
-        //border-color: $red-border;
+        border-color: red;
     }
+
+}
+
+input[type="checkbox"], 
+input[type="radio"] {
+    display: inline-block;
+    margin: 0 $sm-spacing $sm-spacing 0;
 }
 
 ::-webkit-input-placeholder,
 :-moz-placeholder,
 ::-moz-placeholder,
 :-ms-input-placeholder {
-    font-size: em(16);
+    font-size: em(18);
 }
 
 textarea {
-    @include typeBase;
-    padding: 1em;
-}
-
-label {
-    @include typeBase;
-    //color: $black-text;
-    font-size: em(16);
-/*
-    + input,
-    + textarea {
-        margin-top: 8px;
-    }
-*/
+    width: 100%;
+    height: 120px;
 }
 
 select {
@@ -61,138 +64,142 @@ form {
     }
 }
 
-.ui-checkbox {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    @include equal-radius;
-    //border: 1px solid $grey-border;
-    //background-color: $white-base;
-    &:hover {
-        cursor: pointer;
-    }
-    .ui-checkbox-checkmark {
-        //color: $white-base;
-    }
-    input[type="checkbox"] {
-        display: none;
-    }
-    &.checked {
-        //border-color: $green-base;
-        .ui-checkbox-checkmark {
-            //color: $green-base;
-        }
-    }
-    &.ui-toggleswitch {
-        width: auto;
-        border-color: transparent;
-        li {
-            display: inline-block;
-            //border: 1px solid $grey-border;
-            //background-color: $grey-base;
-            padding: 5px 10px;
-            &:first-child {
-                @include radius($top-left: 3px, $top-right: 0, $bottom-right: 0, $bottom-left: 3px);
-            }
-            &:last-child {
-                //color: $white-base;
-                @include radius($top-left: 0, $top-right: 3px, $bottom-right: 3px, $bottom-left: 0);
-                //border-color: $green-base;
-                //background-color: $green-base;
-            }
-        }
-        &.checked {
-            li {
-                &:first-child {
-                    //color: $white-base;
-                   // border-color: $green-base;
-                    //background-color: $green-base;
-                }
-                &:last-child {
-                    //color: $black-text;
-                    //border-color: $grey-border;
-                    //background-color: $grey-base;
-                }
-            }
-        }
-    }
-}
 
-.ui-radio {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    @include equal-radius(100%);
-    //border: 2px solid $grey-border;
-    //background-color: $white-base;
-    &:hover {
-        cursor: pointer;
-    }
-    input[type="radio"] {
-        display: none;
-    }
-    &.checked {
-        //border-color: $green-base;
-        //background-color: $green-base;
-    }
-    &.disabled {
-        //border-color: $grey-heading;
-        &.checked {
-            //background-color: $grey-heading;
-        }
-    }
-}
+// COMMENTING OUT BRANDON'S OLD CODE FOR NOW
 
-.ui-select {
-    display: inline-block;
-    position: relative;
-    @include equal-radius;
-    //border: 1px solid $grey-border;
-    //background-color: $white-base;
-    &:hover {
-        cursor: pointer;
-        //background-color: $grey-base;
-    }
-    select,
-    .ui-select-options {
-        display: none;
-    }
-    span {
-        float: right;
-        //color: $black-text;
-        //border-left: 1px solid $grey-border;
-        padding: 8px 10px;
-    }
-    .ui-select-selected {
-        float: left;
-        padding: 8px 10px;
-        strong {
-            //color: $black-title;
-            font-weight: 600;
-        }
-    }
-    .ui-select-options {
-        position: absolute;
-        z-index: 2;
-        top: 115%;
-        left: 0;
-        @include equal-radius;
-        //border: 1px solid $grey-border;
-        @include box-shadow;
-        //background-color: $white-base;
-        li {
-            display: block;
-            padding: 0.5em 1em;
-            &.selected,
-            &:hover {
-                //background-color: $grey-base;
-            }
-            &:first-child {
-                margin-top: 0.25em;
-            }
-            &:last-child {
-                margin-bottom: 0.25em;
-            }
-        }
-    }
-}
+//.ui-checkbox {
+//    display: inline-block;
+//    width: 15px;
+//    height: 15px;
+//    @include equal-radius;
+//    //border: 1px solid $grey-border;
+//    //background-color: $white-base;
+//    &:hover {
+//        cursor: pointer;
+//    }
+//    .ui-checkbox-checkmark {
+//        //color: $white-base;
+//    }
+//    input[type="checkbox"] {
+//        display: none;
+//    }
+//    &.checked {
+//        //border-color: $green-base;
+//        .ui-checkbox-checkmark {
+//            //color: $green-base;
+//        }
+//    }
+//    &.ui-toggleswitch {
+//        width: auto;
+//        border-color: transparent;
+//        li {
+//            display: inline-block;
+//            //border: 1px solid $grey-border;
+//            //background-color: $grey-base;
+//            padding: 5px 10px;
+//            &:first-child {
+//                @include radius($top-left: 3px, $top-right: 0, $bottom-right: 0, $bottom-left: 3px);
+//            }
+//            &:last-child {
+//                //color: $white-base;
+//                @include radius($top-left: 0, $top-right: 3px, $bottom-right: 3px, $bottom-left: 0);
+//                //border-color: $green-base;
+//                //background-color: $green-base;
+//            }
+//        }
+//        &.checked {
+//            li {
+//                &:first-child {
+//                    //color: $white-base;
+//                   // border-color: $green-base;
+//                    //background-color: $green-base;
+//                }
+//                &:last-child {
+//                    //color: $black-text;
+//                    //border-color: $grey-border;
+//                    //background-color: $grey-base;
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//.ui-radio {
+//    display: inline-block;
+//    width: 15px;
+//    height: 15px;
+//    @include equal-radius(100%);
+//    //border: 2px solid $grey-border;
+//    //background-color: $white-base;
+//    &:hover {
+//        cursor: pointer;
+//    }
+//    input[type="radio"] {
+//        display: none;
+//    }
+//    &.checked {
+//        //border-color: $green-base;
+//        //background-color: $green-base;
+//    }
+//    &.disabled {
+//        //border-color: $grey-heading;
+//        &.checked {
+//            //background-color: $grey-heading;
+//        }
+//    }
+//}
+//
+//.ui-select {
+//    display: inline-block;
+//    position: relative;
+//    @include equal-radius;
+//    //border: 1px solid $grey-border;
+//    //background-color: $white-base;
+//    &:hover {
+//        cursor: pointer;
+//        //background-color: $grey-base;
+//    }
+//    select,
+//    .ui-select-options {
+//        display: none;
+//    }
+//    span {
+//        float: right;
+//        //color: $black-text;
+//        //border-left: 1px solid $grey-border;
+//        padding: 8px 10px;
+//    }
+//    .ui-select-selected {
+//        float: left;
+//        padding: 8px 10px;
+//        strong {
+//            //color: $black-title;
+//            font-weight: 600;
+//        }
+//    }
+//    .ui-select-options {
+//        position: absolute;
+//        z-index: 2;
+//        top: 115%;
+//        left: 0;
+//        @include equal-radius;
+//        //border: 1px solid $grey-border;
+//        @include box-shadow;
+//        //background-color: $white-base;
+//        li {
+//            display: block;
+//            padding: 0.5em 1em;
+//            &.selected,
+//            &:hover {
+//                //background-color: $grey-base;
+//            }
+//            &:first-child {
+//                margin-top: 0.25em;
+//            }
+//            &:last-child {
+//                margin-bottom: 0.25em;
+//            }
+//        }
+//    }
+//}
+//
