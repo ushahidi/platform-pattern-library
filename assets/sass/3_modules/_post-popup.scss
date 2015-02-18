@@ -16,16 +16,21 @@
         }
     }
 
-    // TRIANLES AT THE BOTTOM - I CAN'T GET THEM TO WORK!
-    //&:after {
-    //     content: ' ';
-    //     border: 25px solid transparent; /* arrow size */
-    //     border-top-color: $white;  /* arrow color */
-    //     position: absolute;
-    //     bottom: -49px;
-    //     left: 176px;
-    //     z-index: 2;
-    // }
+    &:after {
+         content: ' ';
+         //border: 25px solid transparent; /* arrow size */
+         //border-top-color: $white;  /* arrow color */
+         border: 15px solid black;
+         border-color: transparent transparent $white $white;
+         position: absolute;
+         bottom: -30px;
+         left: 50%;
+         margin-left: -15px;
+         z-index: 2;
+         transform-origin: 0 0;
+        transform: rotate(-45deg);
+        @include box-shadow($top: 3px, $left: -3px, $blur: 5px, $spread: 0px, $color: rgba(0,0,0,.08), $inset: false);
+    }
 
     &.has-image {
         position: relative;
@@ -35,7 +40,7 @@
         text-shadow: 0px 1px 0px $black;
 
         &:after {
-            border-top-color: rgba(0, 0, 0, 0.8);  /* arrow color */
+            border-color: transparent transparent $black $black;
         }
 
         a {
