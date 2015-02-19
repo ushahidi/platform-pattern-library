@@ -15,9 +15,11 @@
 
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-	<link href="../../assets/css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+	<link rel="alternate stylesheet" type="text/css" title="rtl" href="../../assets/css/rtl-style.css">
 </head>
 
+<!-- dynamically add the rtl body class -->
 <body class="pl">
 
 <div class="wrapper">
@@ -30,14 +32,15 @@
 			</a>
 		</h3>
 		<nav class="pl-nav">
-		<ul>
-			<li><a href="../1_basics/">Basics</a></li>
-			<li class="active">Fragments</li>
-			<li><a href="../3_modules/">Modules</a></li>
-			<li><a href="../4_blocks/">Blocks</a></li>
-			<li><a href="../5_layouts/">Layouts</a></li>
-		</ul>
-	</nav>
+			<ul>
+				<li><a href="../1_basics/">Basics</a></li>
+				<li class="active">Fragments</li>
+				<li><a href="../3_modules/">Modules</a></li>
+				<li><a href="../4_blocks/">Blocks</a></li>
+				<li><a href="../5_layouts/">Layouts</a></li>
+			</ul>
+		</nav>
+
 	</header>
 
 	<nav class="pl-jump-nav">
@@ -50,6 +53,21 @@
 			<li><a href="#pl-pattern-filters-count">Filters Count</a></li>
 			<li><a href="#pl-pattern-user-credit">User Credit</a></li>
 		</ul>
+
+		<ul class="pl-read-direction-nav">
+			<span>View: </span>
+			<li>
+				<a class="remove-rtl" href="#" onclick="setActiveStyleSheet('default'); return false;">
+					LTR
+				</a>
+			</li>
+			<li>
+				<a class="add-rtl" href="#" onclick="setActiveStyleSheet('rtl'); return false;">
+					RTL
+				</a>
+			</li>
+		</ul>
+
 	</nav>
 
 	<section class="pl-pattern" id="pl-pattern-buttons">

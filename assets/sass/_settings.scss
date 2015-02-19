@@ -24,6 +24,43 @@ $xlarge: new-breakpoint(min-width $xlarge-min-width);
 $xxlarge: new-breakpoint(min-width $xxlarge-min-width);
 $tall: new-breakpoint(min-width $small-min-width min-height $tall-min-height);
 
+
+
+
+
+/*------------------------------------*\
+    $RTL SUPPORT
+\*------------------------------------*/
+
+$start: left; // start = beginning reading position
+$end: right; // end = end reading position
+
+body.rtl {
+    $start: right;
+    $end: left;
+
+    // this is just for testing that the switcher works.
+    // TODO: delete
+    text-align: $start;
+
+    .pl-jump-nav {
+        text-align: left;
+    }
+
+    .pl-read-direction-nav {
+        text-align: left;
+
+        @include media($small) {
+            text-align: right;
+        }
+    }
+    // end testing
+}
+
+
+
+
+
 /*------------------------------------*\
     $COLORS
 \*------------------------------------*/

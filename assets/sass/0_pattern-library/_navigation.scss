@@ -69,16 +69,25 @@ $NAVIGATION
 }
 
 .pl-jump-nav {
+    @include span-columns(12);
     background: $white;
-    background: rgba(255,255,255,0.98);
-    padding: $base-spacing;
-    width: 100%;
     max-width: $max-width;
 
-    ul {
-        padding-bottom: $base-spacing;
+    @include media($small) {
         border-bottom: 1px solid $border-color;
-        padding-left: $sm-spacing;
+    }
+
+    ul {
+        @include span-columns(12);
+        padding: $base-spacing;
+
+        @include media($small) {
+            @include span-columns(9);
+        }
+
+        @include media($large) {
+            @include span-columns(10);
+        }
     }
 
     li {
@@ -94,13 +103,33 @@ $NAVIGATION
     }
 }
 
+ul.pl-read-direction-nav {
+    @include span-columns(12);
+    padding: $base-spacing;
+
+    @include media($small) {
+        @include span-columns(3);
+        text-align: right;
+    }
+
+    @include media($large) {
+        @include span-columns(2);
+    }
+
+    li {
+        margin: 0;
+        padding: 0 0 0 10px;
+        border: none;
+    }
+}
+
 .pl-fixed {
 
     @include media($tall){
         position: fixed;
         top: 0px;
         margin-top: 0px;
-        height: 68px;
+        /* height: 68px; */
         z-index: 1;
     }
 }

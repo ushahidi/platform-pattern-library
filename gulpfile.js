@@ -4,8 +4,9 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     insert = require('gulp-insert'),
     minifyCSS = require('gulp-minify-css'),
+    rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
-    concat = require('gulp-concat');
+    concat = require('gulp-concat'),
     livereload = require('gulp-livereload'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
@@ -42,9 +43,10 @@ gulp.task('html', function() {
 
 /**
 * Task: `sass`
-* Converts SASS files to CSS
+* Converts SASS files to CSS (includes RTL support)
 */
-gulp.task('sass', function() {
+
+gulp.task('sass', ['rtl'], function() {
     gulp.src(['./assets/sass/style.scss'])
         .pipe(plumber({
             errorHandler: errorHandler
@@ -67,6 +69,31 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('./assets/css'))
         .pipe(notify('CSS compiled'))
         .pipe(livereload());
+});
+
+/**
+* Task: `rtl`
+* Converts RTL SASS files to RTL CSS
+*/
+
+gulp.task('rtl', function() {
+    gulp.src(['./assets/sass/style.scss'])
+        .pipe(sass({
+            includePaths : [
+                'bower_components/bourbon/app/assets/stylesheets',
+                'bower_components/neat/app/assets/stylesheets',
+                'bower_components/font-awesome/scss'
+            ],
+            sourceComments: 'map'
+        }))
+        .pipe(autoprefixer())
+        .pipe(minifyCSS({keepBreaks:true}))
+        // Since we need the style.css file in the repo for gh-pages, but we do not review the file in Phabricator
+        // gulp-insert appends '/* @generated */' to the style.css file
+        // which automatically folds file in Phabricator
+        .pipe(insert.append('/* @generated */'))
+        .pipe(rename('rtl-style.css'))
+        .pipe(gulp.dest('./assets/css'));
 });
 
 /**
