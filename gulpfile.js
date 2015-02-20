@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
+    fileinclude = require('gulp-file-include'),
     livereload = require('gulp-livereload'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
@@ -32,14 +33,24 @@ gulp.task('webserver', function() {
 * Task: `gulp html`
 * livereloads when html changes
 */
-gulp.task('html', function() {
+gulp.task('html', ['fileinclude'], function() {
     return gulp.src([
-        './index.html'
+        './index.html',
+        './pattern-library/**/*.html'
         ])
         .pipe(notify('HTML reloaded'))
         .pipe(livereload());
-    });
+});
 
+gulp.task('fileinclude', function() {
+    gulp.src([
+        './index.html',
+        './pattern-library/**/*.html',
+        '!./pattern-library/partials/*.html'
+        ])
+    .pipe(fileinclude())
+    .pipe(gulp.dest('./assets/html/'));
+});
 
 /**
 * Task: `sass`
@@ -109,7 +120,7 @@ gulp.task('uglifyJS', function() {
     .pipe(concat('app.js'))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./assets/js'))
-    .pipe(notify('JS minified and concatenated'))
+    .pipe(notify('JS minified and concatenated into app.js'))
     .pipe(livereload());
 });
 
@@ -138,7 +149,7 @@ gulp.task('default', ['webserver'], function() {
     gulp.watch(['./assets/sass/**/*.scss'], ['sass']);
 
     // Watch HTML and livereload
-    gulp.watch('./index.html', ['html']);
+    gulp.watch(['./index.html', './pattern-library/**/*.html'], ['html']);
 
 });
 
