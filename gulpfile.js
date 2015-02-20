@@ -157,5 +157,5 @@ gulp.task('default', ['webserver'], function() {
 * Task: `build`
 * Builds sass, fonts and js
 */
-gulp.task('build', ['sass', 'uglifyJS',  'font'], function() {
+gulp.task('build', ['sass', 'uglifyJS', 'html', 'font'], function() {
 });
