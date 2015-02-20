@@ -44,7 +44,6 @@ gulp.task('html', ['fileinclude'], function() {
 
 gulp.task('fileinclude', function() {
     gulp.src([
-        './index.html',
         './pattern-library/**/*.html',
         '!./pattern-library/partials/*.html'
         ])
