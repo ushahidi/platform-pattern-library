@@ -111,7 +111,7 @@ gulp.task('rtl', function() {
 * Minimizes and concatenates js files
 */
 gulp.task('uglifyJS', function() {
-    gulp.src('./assets/js/custom/*')
+    gulp.src(['./assets/js/pattern-library/*','./assets/js/custom/*'])
     .pipe(plumber({
         errorHandler: errorHandler
     }))
@@ -142,7 +142,7 @@ gulp.task('default', ['webserver'], function() {
     livereload.listen();
 
     // Watch JS
-    gulp.watch('./assets/js/custom/*', ['uglifyJS']);
+    gulp.watch(['./assets/js/pattern-library/*','./assets/js/custom/*'], ['uglifyJS']);
 
     // Watch Sass
     gulp.watch(['./assets/sass/**/*.scss'], ['sass']);
