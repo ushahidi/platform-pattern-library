@@ -1,0 +1,94 @@
+.progress {
+    border: $base-border;
+    @include border-top-radius($global-radius);
+    @include border-bottom-radius($global-radius);
+    overflow: auto;
+    display: inline-block;
+    background: $border-color;
+    font-size: em(14);
+    font-weight: $bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    a {
+        display: block;
+        float: left;
+        background: $white;
+        padding: 23px 30px;
+        height: 60px;
+        margin-right: 31px;
+        position: relative;
+
+        &.active {
+            color: $black;
+            cursor: default;
+            background:  $border-color;
+            
+            &:after {
+                border-color:  $border-color;
+            }
+
+            &:before {
+                border-color: $progress-active-color;
+                z-index: -1;
+            }
+
+        }
+
+        &.completed i {
+            color: $confirmation-color;
+            padding-left: 3px;
+        }
+
+        &.disabled {
+            color: $dk-gray;
+            cursor: default;
+        }
+
+        &:last-of-type {
+            margin-right: 0px;
+            padding-right: 40px;
+            
+            &:after {
+                border: none;
+            }
+
+        }
+        
+        &:before {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            left: -30px;
+            border: 30px solid transparent;
+            border-color: $white;
+            border-left-color: transparent;
+        }
+        
+        &:after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            top: 0;
+            right: -60px;
+            border: 30px solid transparent;
+            border-left-color: $white;
+        }
+        
+        &:first-of-type {
+            padding-left: 40px;
+            
+            &:before {
+                display: none;
+            }
+
+        }
+
+    }
+
+}
