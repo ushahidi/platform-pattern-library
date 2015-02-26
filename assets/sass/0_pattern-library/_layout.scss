@@ -53,6 +53,7 @@ $LAYOUT
 
     .pl-sub-pattern-sample {
         margin-bottom: $sm-spacing;
+        position: relative;
         
     	.pl-sub-pattern-sample-toggle-controls {
     		color: $dk-gray;
@@ -68,9 +69,11 @@ $LAYOUT
             -webkit-user-select: none;
             -ms-user-select: none;
 
-            @include media($small) {
-                float: right;
-                margin-top: -23px;
+            @include media($mobile) {
+                position: absolute;
+                right: 0;
+                top: -23px;
+                z-index: 0;
             }
 
 			&:hover {
