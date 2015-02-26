@@ -26,7 +26,7 @@ button,
     i {
         padding-right: 10px;
     }
-    
+
     &:hover {
         cursor: pointer;
         background-color: $button-hover-color;
@@ -57,7 +57,7 @@ button,
     letter-spacing: 1px;
     padding: 12px 22px 15px 20px;
     font-size: em(14);
-    
+
     @include media($small) {
         font-size: em(16);
         padding: 14px 25px 18px 20px;
@@ -84,7 +84,7 @@ button,
 .button-secondary {
     background-color: $white;
     color: $black;
-    border: 1px solid $border-color;
+    border: $base-border;
     padding: 8px 10px;
     font-weight: 400;
     font-size: em(15);
@@ -95,11 +95,11 @@ button,
 
     &:hover {
        background-color: $white;
-       border: 1px solid $border-color-hover;
+       border: $base-border-hover;
     }
 
     &:active {
-        border: 1px solid $border-color-active;
+        border: $base-border-active;
     }
 
     &.disabled {
@@ -112,11 +112,11 @@ button,
         }
 
         &:hover {
-            border: 1px solid $border-color;
+            border: $base-border;
         }
 
         &:active {
-            border: 1px solid $border-color;
+            border: $base-border;
         }
 
     }
@@ -125,6 +125,34 @@ button,
         i {
             color: $link-color;
         }
+    }
+
+}
+
+.button-toggle {
+    @extend .button-secondary;
+    position: relative;
+    z-index: 2;
+
+    &:before {
+        float: right;
+        display: inline-block;
+        font-family: FontAwesome;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: normal;
+        content: "\f077";
+        @include transition;
+        color: $yellow;
+
+        @include media($small) {
+            content: "\f078";
+        }
+
+    }
+
+    &.open:before {
+        @include transform(rotate(180deg));
     }
 
 }

@@ -1,0 +1,125 @@
+.filters {
+    position: relative;
+
+    .button-toggle {
+       // float: right;
+        @include no-transition();
+
+        @include media($small) {
+            //float: left;
+        }
+    }
+
+    .filters-count {
+        margin-right: 0;
+        padding: $sm-spacing 0 $sm-spacing $sm-spacing;
+        text-align: left;
+        border-top: $base-border;
+        /* max-width: 300px; */
+
+        @include media($small) {
+            border: 0;
+            padding: 0;
+
+            .button-toggle {
+                border: 1px solid #d8d8d8;
+
+                &.open {
+                    @include border-bottom-radius(0);
+                    padding-bottom: 19px;
+                    margin-bottom: -19px;
+                    border-bottom: 0px;
+                }
+
+            }
+
+        }
+
+        .count {
+          background: none;
+          margin: 0;
+
+          @include media($small) {
+            background: $yellow;
+            margin: 0 $sm-spacing 0 $tiny-spacing;
+          }
+
+        }
+
+    }
+
+    .filters-container {
+        display: none;
+        float: left;
+        width: 100%;
+        position: absolute;
+        bottom: 48px;
+        border-top: 5px solid $black;
+        background: $white;
+        padding: $base-spacing;
+        @include box-shadow($top: -3px, $left: 0, $blur: 3px, $spread: 1px, $color: rgba(0,0,0,.1));
+        @include transition;
+
+
+        @include media($small) {
+            position: absolute;
+            top: 37px;
+            bottom: inherit;
+            width: 100%;
+            max-width: 300px;
+            border: $base-border;
+            border-top: 5px solid $black;
+            @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
+
+            &:after {
+                width: 100%;
+            }
+
+        }
+
+        &.open {
+            display: block;
+        }
+
+        #{$all-text-inputs} {
+          width: 100%;
+        }
+
+        .filter-start-date {
+            @include span-columns(6);
+            position: relative;
+        }
+
+        .filter-end-date {
+            @include span-columns(6);
+            @include omega();
+            position: relative;
+        }
+
+        .filter-start-date:before,
+        .filter-end-date:before {
+            position: absolute;
+            top: 35px;
+            right: 10px;
+            font-family: FontAwesome;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: normal;
+            content: "\f073";
+            color: $dk-gray;
+            opacity: .5;
+        }
+
+        .filter-actions {
+            padding-top: $base-spacing;
+            text-align: right;
+
+            .cta {
+                margin-right: $sm-spacing;
+            }
+
+        }
+
+    }
+
+}

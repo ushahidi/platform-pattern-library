@@ -1,0 +1,85 @@
+.tabs-with-filter {
+    @include span-columns(12);
+    position: relative;
+    clear: both;
+    padding: $sm-spacing 0;
+
+    .tabs:not(.tabs-full-width) {
+        width: 50%;
+        float: left;
+        margin-right: 0;
+        padding: $sm-spacing 0;
+        border-right: $base-border;
+        border-top: $base-border;
+
+        @include media($small) {
+            border: 0;
+            padding: 0;
+        }
+
+        .button-toggle {
+            margin-right: $sm-spacing;
+        }
+
+        .tabs-menu-list.open {
+            position: absolute;
+            bottom: 52px;
+
+            @include media($small) {
+                position: relative;
+            }
+
+        }
+
+    }
+
+    .tabs-menu {
+
+        label {
+            display: none;
+            float: left;
+            margin: $sm-spacing $sm-spacing $sm-spacing 0;
+
+            @include media($small) {
+                display: block;
+            }
+
+        }
+
+    }
+
+    .button-toggle {
+        float: right;
+    }
+
+    .filters-count {
+        width: 50%;
+        float: right;
+
+        @include media($small) {
+            text-align: right;
+        }
+
+    }
+
+    .filters-container {
+        bottom: -1px;
+
+        &:after {
+            width: 50%;
+            position: absolute;
+            bottom: 0px;
+            height: 20px;
+            content:'';
+            border-bottom: $base-border;
+            margin-left: -$base-spacing;
+        }
+
+        @include media($small) {
+            right: 0;
+            bottom: inherit;
+        }
+
+    }
+
+}

@@ -66,12 +66,11 @@ gulp.task('sass', ['rtl'], function() {
                 'bower_components/bourbon/app/assets/stylesheets',
                 'bower_components/neat/app/assets/stylesheets',
                 'bower_components/font-awesome/scss'
-            ],
-            sourceComments: 'map'
+            ]
         }))
         .pipe(autoprefixer())
         .pipe(plumber.stop())
-        .pipe(minifyCSS({keepBreaks:true}))
+        // .pipe(minifyCSS({keepBreaks:true}))
         // Since we need the style.css file in the repo for gh-pages, but we do not review the file in Phabricator
         // gulp-insert appends '/* @generated */' to the style.css file
         // which automatically folds file in Phabricator
@@ -88,16 +87,19 @@ gulp.task('sass', ['rtl'], function() {
 
 gulp.task('rtl', function() {
     gulp.src(['./assets/sass/style.scss'])
+        .pipe(plumber({
+            errorHandler: errorHandler
+        }))
         .pipe(sass({
             includePaths : [
                 'bower_components/bourbon/app/assets/stylesheets',
                 'bower_components/neat/app/assets/stylesheets',
                 'bower_components/font-awesome/scss'
-            ],
-            sourceComments: 'map'
+            ]
         }))
         .pipe(autoprefixer())
-        .pipe(minifyCSS({keepBreaks:true}))
+        .pipe(plumber.stop())
+        // .pipe(minifyCSS({keepBreaks:true}))
         // Since we need the style.css file in the repo for gh-pages, but we do not review the file in Phabricator
         // gulp-insert appends '/* @generated */' to the style.css file
         // which automatically folds file in Phabricator

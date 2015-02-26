@@ -1,164 +1,206 @@
 .tabs {
+    position: relative;
 
-	.tabs-menu {
+    .tabs-menu {
 
-		li {
-			display: inline-block;
-			border: $base-border;
-			padding: 8px $sm-spacing;
-			margin-right: $tiny-spacing;
-			@include border-top-radius($global-radius);
-    		@include border-bottom-radius($global-radius);
-    		color: $link-color;
-			
-			&:hover {
-				cursor: pointer;
-				border: 1px solid $border-color-hover;
-				color: $link-hover-color;
-			}
+        li {
+            display: inline-block;
+            border: $base-border;
+            padding: 8px $sm-spacing;
+            margin-right: $tiny-spacing;
+            @include border-top-radius($global-radius);
+            @include border-bottom-radius($global-radius);
+            color: $link-color;
 
-			&:active {
-				background: $tab-active-color;
-			}
+            &:hover {
+                cursor: pointer;
+                border: $base-border-hover;
+                color: $link-hover-color;
+            }
 
-			&.active {
-				color: $black;
-				background-color: $lt-gray;
-				border: 1px solid $border-color-dark;
-				position: relative;
-				margin-bottom: $base-spacing;
+            &:active {
+                background: $tab-active-color;
+            }
 
-				&:before, &:after {
-					content: ' ';
-					height: 0;
-					position: absolute;
-					width: 0;
-					border: 10px solid transparent; /* arrow size */
-				}
+            &.active {
+                color: $black;
+                background-color: $lt-gray;
+                border: $base-border-dark;
+                position: relative;
 
-				&:before {
-					border-top-color: $lt-gray;  /* arrow color */
-					position: absolute;
-					top: 30px;
-					left: 50%;
-					margin-left: -10px;
-					z-index: 2;
-				}
+                &:before, &:after {
+                    content: ' ';
+                    height: 0;
+                    position: absolute;
+                    width: 0;
+                    border: 10px solid transparent; /* arrow size */
+                }
 
-				&:after {
-					border-top-color: $border-color-dark;  /* arrow color */
-					position: absolute;
-					top: 31px;
-					left: 50%;
-					margin-left: -10px;
-					z-index: 1;
-				}
+                &:before {
+                    border-top-color: $lt-gray;  /* arrow color */
+                    position: absolute;
+                    top: 30px;
+                    left: 50%;
+                    margin-left: -10px;
+                    z-index: 2;
+                }
 
-				&:active {
-					border-color: $dk-gray;
-				}
+                &:after {
+                    border-top-color: $border-color-dark;  /* arrow color */
+                    position: absolute;
+                    top: 31px;
+                    left: 50%;
+                    margin-left: -10px;
+                    z-index: 1;
+                }
 
-			}
-		}
-	}
+                &:active {
+                    border-color: $dk-gray;
+                }
 
-	.tabs-tab {
-		margin-bottom: 2em;
-		
-		.tabs-tab-title {
-			
-			i {
-				margin-right: 6px;
-			}
+            }
 
-		}
+        }
 
-	}
-	
-	&.tabs-init {
-		
-		.tabs-menu {
-			display: none;
-		}
+        label {
+            float: left;
+            margin: $sm-spacing $sm-spacing $sm-spacing 0;
+        }
 
-		.tabs-tab {
-			margin-bottom: 0;
-			
-			.tabs-tab-title {
-				@include typeBeta;
-				padding: 0.5em 1em;
-				
-				&:hover {
-					cursor: pointer;
-				}
+        .tabs-menu-selection {
+            display: block;
+            float: left;
+            padding: 8px 5px 8px 0;
 
-			}
-			
-			.tabs-tab-content {
-				display: none;
-			}
+            @include media($small) {
+                display: none;
+            }
 
-		}
+        }
 
-	}
+        .tabs-menu-list {
+            display: none;
+            width: 100%;
+            padding: $base-spacing;
+            border-top: 5px solid $black;
+            background: $white;
+            @include box-shadow($top: -3px, $left: 0, $blur: 3px, $spread: 1px, $color: rgba(0,0,0,.1));
 
-	&.tabs-filter {
-		//border: 1px solid $grey-border;
-		//background-color: $grey-heading;
-		padding: 0.75em 1em;
-		
-		> .ui-select {
-			margin-bottom: 1em;
-			
-			.ui-select-selected {
-				text-transform: uppercase;
-			}
-		
-		}
-		
-		.tabs-menu {
-			//color: $black-text;
-			background-color: transparent;
-			
-			li {
-				//color: $black-title;
-				@include typeBeta;
-				text-transform: uppercase;
-				//border-color: $grey-border;
-				padding: 17px 20px;
-				margin-left: -4px;
-				
-				&:first-child {
-					border-color: transparent;
-					margin-left: 0;
-				}
-				
-				&:hover {
-					//background-color: $grey-base;
-				}
-				
-				&.active {
-					//color: $white-base;
-					//background-color: $gold-base;
-				}
-				
-			}
+            @include media($small) {
+                display: block;
+                position: relative;
+                top: 0;
+                float: none;
+                width: inherit;
+                padding: 0;
+                border: none;
+                background: none;
+                box-shadow: none;
+            }
 
-		}
-		
-		.form-field-bar {
-			input[type="text"],
-			input[type="email"],
-			input[type="password"],
-			input[type="search"],
-			select,
-			
-			.ui-select {
-				margin-bottom: 0.5em;
-			}
+            &.open {
+                position: absolute;
+                bottom: 52px;
+                display: block;
+                padding: 0;
 
-		}
+                li:hover {
+                    background: $lt-gray;
+                }
 
-	}
+            }
+
+            li {
+                display: block;
+                padding: 15px;
+                color: $link-color;
+                border: none;
+                border-radius: 0;
+
+                @include media($small) {
+                    display: inline-block;
+                    padding: 8px $sm-spacing;
+                    margin-right: $tiny-spacing;
+                    border: $base-border;
+                    @include border-top-radius($global-radius);
+                    @include border-bottom-radius($global-radius);
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    border: none;
+
+                    @include media($small) {
+                        border: $base-border;
+                        color: $link-hover-color;
+                    }
+
+                }
+
+                &:active {
+                    background: none;
+
+                    @include media($small) {
+                        background: $tab-active-color;
+                    }
+
+                }
+
+                &.active {
+                    background-color: transparent;
+                    border: none;
+
+                    @include media($small) {
+                        color: $black;
+                        background-color: $lt-gray;
+                        border: $base-border-dark;
+                        position: relative;
+                    }
+
+                    &:before, &:after,
+                    &:before,
+                    &:after {
+                        display: none;
+
+                        @include media($small) {
+                            display: inherit;
+                        }
+
+                    }
+
+                    &:active {
+
+                        @include media($small) {
+                            border-color: $dk-gray;
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        button {
+            display: block;
+
+            @include media($small) {
+                display: none;
+            }
+
+        }
+
+    }
+
+    .tab-content {
+        display: none;
+        padding: 30px 0 0;
+
+        &.active {
+            display: block;
+        }
+
+    }
 
 }
