@@ -9,20 +9,26 @@
     font-weight: $bold;
     text-transform: uppercase;
     letter-spacing: 1px;
+    width: 100%;
+
+    @include media($small) {
+        width: auto;
+    }
     
     a {
         display: block;
-        float: left;
         background: $white;
-        padding: 23px 30px;
-        height: 60px;
-        margin-right: 31px;
+        padding: $base-spacing;
         position: relative;
+
+        &:hover {
+            background: $progress-hover-color;
+        }
 
         &.active {
             color: $black;
             cursor: default;
-            background:  $border-color;
+            background: $border-color;
             
             &:after {
                 border-color:  $border-color;
@@ -31,6 +37,10 @@
             &:before {
                 border-color: $progress-active-color;
                 z-index: -1;
+            }
+
+            &:hover {
+                background: $border-color;
             }
 
         }
@@ -43,51 +53,63 @@
         &.disabled {
             color: $dk-gray;
             cursor: default;
-        }
+        }        
 
-        &:last-of-type {
-            margin-right: 0px;
-            padding-right: 40px;
+        @include media($small) {
+            padding: 23px 30px;
+            float: left;
+            margin-right: 31px;
+            height: 60px;
+
+            &:hover {
+                background: $white;
+            }
+
+            &:before {
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 0;
+                left: -30px;
+                border: 30px solid transparent;
+                border-color: $white;
+                border-left-color: transparent;
+            }
             
             &:after {
-                border: none;
+                content: "";
+                display: block;
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 0;
+                right: -60px;
+                border: 30px solid transparent;
+                border-left-color: $white;
             }
-
-        }
-        
-        &:before {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            position: absolute;
-            top: 0;
-            left: -30px;
-            border: 30px solid transparent;
-            border-color: $white;
-            border-left-color: transparent;
-        }
-        
-        &:after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            position: absolute;
-            top: 0;
-            right: -60px;
-            border: 30px solid transparent;
-            border-left-color: $white;
-        }
-        
-        &:first-of-type {
-            padding-left: 40px;
             
-            &:before {
-                display: none;
+            &:first-of-type {
+                padding-left: 40px;
+                
+                &:before {
+                    display: none;
+                }
+
             }
 
-        }
+            &:last-of-type {
+                margin-right: 0px;
+                padding-right: 40px;
+                
+                &:after {
+                    border: none;
+                }
+
+            }
+
+        } //end of media query
 
     }
 

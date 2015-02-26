@@ -1,0 +1,39 @@
+.dashboard-stats {
+    border-top: $base-border;
+    border-bottom: $base-border;
+    padding: $sm-spacing 0;
+
+    @include media($small) {
+        padding: $base-spacing 0;
+    }
+
+}
+
+.stat {
+    @include span-columns(6);
+    @include omega(2n);
+
+    @include media($small) {
+        @include omega-reset(2n);
+        @include span-columns(3);
+    }
+
+    .big-number {
+        display: block;
+
+        @include media($mobile) {
+            display: inline;
+        }
+
+        @include media($small) {
+            display: block;
+        }
+
+        @include media($medium) {
+            display: inline;
+        }
+
+    }
+
+}
+
