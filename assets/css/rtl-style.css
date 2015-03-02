@@ -279,7 +279,7 @@ $LAYOUT
         .pl-sub-pattern .pl-sub-pattern-sample .pl-sub-pattern-sample-toggle-controls {
           position: absolute;
           right: 0;
-          top: -23px;
+          top: -24px;
           z-index: 0; } }
       .pl-sub-pattern .pl-sub-pattern-sample .pl-sub-pattern-sample-toggle-controls:hover {
         cursor: pointer;
@@ -295,6 +295,8 @@ $LAYOUT
       display: inline; }
     .pl-sub-pattern .pl-sub-pattern-sample.visible .pl-sub-pattern-sample-toggle-target {
       display: block; }
+  .pl-sub-pattern pre[class*="language-"] {
+    padding: 1em 1em 0em 1em; }
 
 .pl-note {
   font-size: 0.875em;
@@ -577,6 +579,184 @@ li.pl-icon {
         clear: left; } }
   li.pl-icon [class*='fa-'] {
     margin-right: 20px; }
+
+/* http://prismjs.com/download.html?themes=prism-twilight&languages=markup */
+/**
+ * prism.js Twilight theme
+ * Based (more or less) on the Twilight theme originally of Textmate fame.
+ * @author Remy Bach
+ */
+code[class*="language-"], pre[class*="language-"] {
+  color: white;
+  direction: ltr;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
+  text-align: left;
+  text-shadow: 0 -0.1em 0.2em black;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  position: relative;
+  z-index: 0; }
+
+pre[class*="language-"], :not(pre) > code[class*="language-"] {
+  background: #141414;
+  /* #141414 */ }
+
+/* Code blocks */
+pre[class*="language-"] {
+  border-radius: 0.5em;
+  border: 0.3em solid #545454;
+  /* #282A2B */
+  box-shadow: 1px 1px 0.5em black inset;
+  margin: 0.5em 0;
+  overflow: auto;
+  padding: 1em; }
+
+pre[class*="language-"]::-moz-selection {
+  /* Safari */
+  background: #27292a;
+  /* #282A2B */ }
+
+pre[class*="language-"]::selection {
+  /* Safari */
+  background: #27292a;
+  /* #282A2B */ }
+
+pre[class*="language-"]::-moz-selection {
+  /* Firefox */
+  background: #27292a;
+  /* #282A2B */ }
+
+pre[class*="language-"]::selection {
+  /* Firefox */
+  background: #27292a;
+  /* #282A2B */ }
+
+/* Text Selection colour */
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection, code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+  text-shadow: none;
+  background: rgba(237, 237, 237, 0.15);
+  /* #EDEDED */ }
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection, code[class*="language-"]::selection, code[class*="language-"] ::selection {
+  text-shadow: none;
+  background: rgba(237, 237, 237, 0.15);
+  /* #EDEDED */ }
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  border-radius: 0.3em;
+  border: 0.13em solid #545454;
+  /* #545454 */
+  box-shadow: 1px 1px 0.3em -0.1em black inset;
+  padding: 0.15em 0.2em 0.05em; }
+
+.token.comment, .token.prolog, .token.doctype, .token.cdata {
+  color: #787878;
+  /* #777777 */ }
+
+.token.punctuation {
+  opacity: 0.7; }
+
+.namespace {
+  opacity: 0.7; }
+
+.token.tag, .token.boolean, .token.number, .token.deleted {
+  color: #cf694a;
+  /* #CF6A4C */ }
+
+.token.keyword, .token.property, .token.selector, .token.constant, .token.symbol, .token.builtin {
+  color: #f9ee9a;
+  /* #F9EE98 */ }
+
+.token.attr-name, .token.attr-value, .token.string, .token.char, .token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string, .token.variable, .token.inserted {
+  color: #919e6b;
+  /* #8F9D6A */ }
+
+.token.atrule {
+  color: #7386a5;
+  /* #7587A6 */ }
+
+.token.regex, .token.important {
+  color: #e9c163;
+  /* #E9C062 */ }
+
+.token.important, .token.bold {
+  font-weight: bold; }
+
+.token.italic {
+  font-style: italic; }
+
+.token.entity {
+  cursor: help; }
+
+pre[data-line] {
+  padding: 1em 0 1em 3em;
+  position: relative; }
+
+/* Markup */
+.language-markup .token.tag, .language-markup .token.attr-name, .language-markup .token.punctuation {
+  color: #ad895c;
+  /* #AC885B */ }
+
+/* Make the tokens sit above the line highlight so the colours don't look faded. */
+.token {
+  position: relative;
+  z-index: 1; }
+
+.line-highlight {
+  /* #545454 */
+  /* #545454 */
+  /* #545454 */
+  background: rgba(84, 84, 84, 0.25);
+  /* #545454 */
+  background: linear-gradient(left, rgba(84, 84, 84, 0.1) 70%, rgba(84, 84, 84, 0));
+  /* #545454 */
+  border-bottom: 1px dashed #545454;
+  /* #545454 */
+  border-top: 1px dashed #545454;
+  /* #545454 */
+  left: 0;
+  line-height: inherit;
+  margin-top: 0.75em;
+  /* Same as .prism’s padding-top */
+  padding: inherit 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  white-space: pre;
+  z-index: 0; }
+
+.line-highlight:before, .line-highlight[data-end]:after {
+  background-color: #8794a6;
+  /* #8794A6 */
+  border-radius: 999px;
+  box-shadow: 0 1px white;
+  color: #f5f2f0;
+  /* #F5F2F0 */
+  content: attr(data-start);
+  font: bold 65%/1.5 sans-serif;
+  left: 0.6em;
+  min-width: 1em;
+  padding: 0 0.5em;
+  position: absolute;
+  text-align: center;
+  text-shadow: none;
+  top: 0.4em;
+  vertical-align: 0.3em; }
+
+.line-highlight[data-end]:after {
+  bottom: 0.4em;
+  content: attr(data-end);
+  top: auto; }
 
 /*------------------------------------*\
     $BASICS
