@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/*@import "css3/selection";*/
+/* @import "css3/selection"; */
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -186,11 +186,17 @@ $LAYOUT
 .hidden {
   display: none !important; }
 
+.fade-out {
+  opacity: 0 !important; }
+
 .fixed-bottom {
   padding-bottom: 52px; }
   @media screen and (min-width: 48em)  {
     .fixed-bottom {
       padding-bottom: 0; } }
+
+.has-full-header {
+  margin-top: 320px; }
 
 /*------------------------------------*\
     $MIXINS
@@ -312,14 +318,6 @@ $LAYOUT
   border-left: 2px solid red;
   clear: both; }
 
-.pl .tabs-with-filter {
-  position: relative;
-  margin-bottom: 20px; }
-.pl .pagination {
-  margin: 0; }
-.pl .wrapper {
-  margin: 0 auto; }
-
 /*------------------------------------*\
 $HEADER
 \*------------------------------------*/
@@ -345,6 +343,12 @@ $HEADER
     fill: #ffffff;
     color: #ffffff;
     margin: -10px 10px 0 0; }
+
+.main-content {
+  line-height: 10;
+  max-width: 1580px;
+  margin: 250px auto 0;
+  text-align: center; }
 
 /*------------------------------------*\
 $NAVIGATION
@@ -493,6 +497,24 @@ ul.pl-read-direction-nav {
     margin-top: 0px;
     /* height: 68px; */
     z-index: 1; } }
+
+/*------------------------------------*\
+
+These overrides are to keep the general code
+clean, but so that patterns can be displayed 
+in the pattern library. (For things like fixed
+positioning, etc.)
+
+\*------------------------------------*/
+.pl .tabs-with-filter {
+  position: relative;
+  margin-bottom: 20px; }
+.pl .pagination {
+  margin: 0; }
+.pl .wrapper {
+  margin: 0 auto; }
+.pl .header, .pl .header-compact, .pl .header-full {
+  position: relative !important; }
 
 /*------------------------------------*\
 $COLORS
@@ -1054,6 +1076,23 @@ button, [class*="button-"] {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+
+button.user-admin {
+  position: relative;
+  top: 0;
+  right: 0;
+  display: block;
+  background: transparent;
+  border: none;
+  color: #ffffff; }
+  button.user-admin span {
+    padding: 0 10px 0 0; }
+  @media screen and (min-width: 48em)  {
+    button.user-admin {
+      position: absolute;
+      margin: 18px 10px 0 0; } }
+  button.user-admin.button-toggle:before {
+    content: "\f078"; }
 
 .pagination, .stepper {
   padding: 10px 0; }
@@ -1797,6 +1836,195 @@ ul.breadcrumb {
       .stat .big-number {
         display: inline; } }
 
+.header {
+  position: relative;
+  height: auto;
+  color: #ffffff;
+  text-shadow: 0px 1px 1px #181c21; }
+  .header .container, .header .container-centered {
+    max-width: 1580px;
+    position: relative; }
+  .header.overlay:after {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 100;
+    background-color: rgba(38, 44, 52, 0.5); }
+  .header img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    /* opacity: 0.5; */
+    z-index: 50; }
+  .header .nav-icon, .header .beta, .header .header-description, .header .button-create, .header button.user-admin {
+    z-index: 200; }
+  .header .nav-icon {
+    position: relative;
+    float: left;
+    width: 31px;
+    height: 34px;
+    margin: 20px 10px 15px 15px;
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer; }
+    @media screen and (min-width: 64em)  {
+      .header .nav-icon {
+        display: none; } }
+    .header .nav-icon span {
+      display: block;
+      position: absolute;
+      height: 4px;
+      width: 100%;
+      background: #ffc334;
+      opacity: 1;
+      left: 0;
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+      transition: all 0.25s ease-in-out; }
+    .header .nav-icon span:nth-child(1) {
+      top: 0px;
+      -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+      transform-origin: left center; }
+    .header .nav-icon span:nth-child(2) {
+      top: 10px;
+      -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+      transform-origin: left center; }
+    .header .nav-icon span:nth-child(3) {
+      top: 20px;
+      -webkit-transform-origin: left center;
+      -ms-transform-origin: left center;
+      transform-origin: left center; }
+    .header .nav-icon.open span:nth-child(1) {
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+      top: 0px; }
+    .header .nav-icon.open span:nth-child(2) {
+      width: 0%;
+      opacity: 0; }
+    .header .nav-icon.open span:nth-child(3) {
+      -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      top: 22px; }
+  .header .beta {
+    position: relative;
+    margin: 20px 0 10px;
+    font-weight: 900; }
+    @media screen and (min-width: 48em)  {
+      .header .beta {
+        margin: 20px 10px;
+        font-size: 1.8em; } }
+    @media screen and (min-width: 64em)  {
+      .header .beta {
+        margin: 20px; } }
+  .header .header-description {
+    position: relative;
+    text-align: center; }
+  .header .button-create {
+    position: relative;
+    display: block;
+    color: #ffffff;
+    font-weight: 900;
+    border: none;
+    margin: auto; }
+  .header .button-toggle:hover {
+    background-color: transparent;
+    border: none; }
+  .header.header-full {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 293px;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+    z-index: 600; }
+    @media screen and (min-width: 48em)  {
+      .header.header-full button.user-admin {
+        top: -50px; } }
+    .header.header-full .nav-icon {
+      display: none; }
+    .header.header-full .beta {
+      font-size: 2em;
+      text-align: center;
+      margin-top: 50px;
+      transition: all 0.3s ease-in-out; }
+      @media screen and (min-width: 48em)  {
+        .header.header-full .beta {
+          font-size: 3em; } }
+    .header.header-full .header-description {
+      margin-bottom: 20px; }
+    .header.header-full .button-create {
+      margin-bottom: 20px;
+      padding: 14px 25px 18px 20px; }
+      @media screen and (min-width: 64em)  {
+        .header.header-full .button-create {
+          margin-bottom: 50px; } }
+      .header.header-full .button-create i {
+        padding: 0 10px 0 0; }
+    .header.header-full button.user-admin {
+      margin: 18px auto 50px auto; }
+      @media screen and (min-width: 64em)  {
+        .header.header-full button.user-admin {
+          margin: 18px 10px 0 0; } }
+  .header.header-compact {
+    overflow: hidden;
+    height: 67px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+    z-index: 600; }
+    .header.header-compact .beta {
+      display: inline-block;
+      transition: all 0.3s ease-in-out; }
+    .header.header-compact .header-description {
+      display: none; }
+    .header.header-compact .button-create {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 8px 10px 7px 10px;
+      margin: 18px;
+      opacity: 1;
+      font-size: 0.75em; }
+      @media screen and (min-width: 64em)  {
+        .header.header-compact .button-create {
+          padding: 8px 10px 10px 10px;
+          margin: 18px 150px 0 0; } }
+      .header.header-compact .button-create i {
+        padding: 0 5px;
+        bottom: 0; }
+        @media screen and (min-width: 48em)  {
+          .header.header-compact .button-create i {
+            padding: 0 10px 0 0;
+            bottom: -2px; } }
+      .header.header-compact .button-create span {
+        display: none; }
+        @media screen and (min-width: 48em)  {
+          .header.header-compact .button-create span {
+            display: inline-block; } }
+    .header.header-compact button.user-admin {
+      display: none; }
+      @media screen and (min-width: 64em)  {
+        .header.header-compact button.user-admin {
+          display: inline-block; } }
+
 /*------------------------------------*\
     $LAYOUTS
 \*------------------------------------*/
@@ -1806,7 +2034,9 @@ header.placeholder-header {
 
 .main-menu {
   display: none;
-  background: #737373;
+  border-right: 1px solid #f2f2f2;
+  height: 1000px;
+  padding: 20px;
   width: 20%;
   float: left; }
   @media screen and (min-width: 64em)  {

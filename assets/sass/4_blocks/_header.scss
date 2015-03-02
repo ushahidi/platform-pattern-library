@@ -1,0 +1,264 @@
+.header {
+    position: relative;
+    height: auto;
+    color: $white;
+    text-shadow: 0px 1px 1px $black;
+
+    .container {
+        max-width: $max-width;
+        position: relative;
+    }
+
+    &.overlay:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: $overlay;
+        background-color: $dark-overlay;
+    }
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 100%;
+        min-width: 100%;
+        /* opacity: 0.5; */
+        z-index: $bg-img;
+    }
+
+    .nav-icon,
+    .beta,
+    .header-description,
+    .button-create,
+    button.user-admin {
+        z-index: $body;
+    }
+
+    .nav-icon {
+        position: relative;
+        float: left;
+        width: 31px;
+        height: 34px;
+        margin: $base-spacing $sm-spacing 15px 15px;
+        @include rotate(0deg);
+        @include transition(all, .5s);
+        cursor: pointer;
+
+        @include media($medium) {
+            display: none;
+        }
+
+        span {
+            display: block;
+            position: absolute;
+            height: 4px;
+            width: 100%;
+            background: $highlight;
+            opacity: 1;
+            left: 0;
+            @include rotate(0deg);
+            @include transition(all, .25s)
+        }
+
+        span:nth-child(1) {
+            top: 0px;
+            @include transform-origin(left center);
+        }
+
+        span:nth-child(2) {
+            top: 10px;
+            @include transform-origin(left center);
+        }
+
+        span:nth-child(3) {
+            top: 20px;
+            @include transform-origin(left center);
+        }
+
+        &.open span:nth-child(1) {
+            @include rotate(45deg);
+            top: 0px;
+        }
+
+        &.open span:nth-child(2) {
+            width: 0%;
+            opacity: 0;
+        }
+
+        &.open span:nth-child(3) {
+            @include rotate(-45deg);
+            top:22px;
+        }
+
+    }
+
+    .beta {
+        position: relative;
+        margin: $base-spacing 0 $sm-spacing;
+        font-weight: $bold;
+
+        @include media($small) {
+            margin: $base-spacing $sm-spacing;
+            font-size: 1.8em
+        }
+
+        @include media($medium) {
+            margin: $base-spacing;
+        }
+
+    }
+
+    .header-description {
+        position: relative;
+        text-align: center;
+    }
+
+    .button-create {
+        position: relative;
+        display: block;
+        color: $white;
+        font-weight: $bold;
+        border: none;
+        margin: auto;
+    }
+
+    .button-toggle:hover {
+        background-color: transparent;
+        border: none;
+    }
+
+    &.header-full {
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 293px;
+        overflow: hidden;
+        @include transition(height, .3s);
+        z-index: $topbar;
+
+        button.user-admin {
+
+            @include media($small) {
+                top: -50px;
+            }
+
+        }
+
+        .nav-icon {
+            display: none;
+        }
+
+        .beta {
+            font-size: 2em;
+            text-align: center;
+            margin-top: 50px;
+            @include transition(all, .3s);
+
+            @include media($small) {
+                font-size: 3em;
+            }
+        }
+
+        .header-description {
+            margin-bottom: $base-spacing;
+        }
+
+        .button-create {
+            margin-bottom: $base-spacing;
+            padding: 14px 25px 18px $base-spacing;
+
+            @include media($medium) {
+                margin-bottom: $base-spacing + 30;
+            }
+
+            i {
+                padding: 0 10px 0 0;
+            }
+        }
+
+        button.user-admin {
+            margin: 18px auto 50px auto;
+
+            @include media($medium) {
+                margin: 18px 10px 0 0;
+            }
+
+        }
+
+    }
+
+    &.header-compact {
+        overflow: hidden;
+        height: 67px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        @include transition(height, .3s);
+        z-index: $topbar;
+
+        .beta {
+            display: inline-block;
+            @include transition(all, .3s);
+        }
+
+        .header-description {
+            display: none;
+        }
+
+        .button-create {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 8px 10px 7px 10px;
+            margin: 18px;
+            opacity: 1;
+            font-size: em(12);
+
+            @include media($medium) {
+                padding: 8px 10px 10px 10px;
+                margin: 18px 150px 0 0;
+            }
+
+            i {
+                padding: 0 5px;
+                bottom: 0;
+
+                @include media($small) {
+                    padding: 0 10px 0 0;
+                    bottom: -2px;
+                }
+
+            }
+
+            span {
+                display: none;
+
+                @include media($small) {
+                    display: inline-block;
+                }
+
+            }
+
+        }
+
+        button.user-admin {
+            display: none;
+
+            @include media($medium) {
+                display: inline-block;
+            }
+
+        }
+
+    }
+
+}
