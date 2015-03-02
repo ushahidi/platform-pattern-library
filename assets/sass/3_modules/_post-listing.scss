@@ -1,0 +1,134 @@
+.single-post-listing {
+    border-top: $base-border;
+    overflow: auto;
+
+    .post-summary {
+        padding: $sm-spacing $sm-spacing 0 0;
+    }
+
+    @include media($small) {
+        border-left: $base-border;
+        border-right: $base-border;
+
+        .post-summary {
+            padding: $sm-spacing $base-spacing;
+        }
+
+    }
+
+    @include media($medium) {
+
+        .post-summary {
+            padding: $base-spacing;
+        }
+
+    }
+
+    &:nth-child(even) {
+        background: $lt-gray-bg;
+    }
+
+    &:last-of-type {
+        border-bottom: $base-border;
+    }
+
+    .post-summary, .stage-and-actions {
+        margin-left: 20px;
+        overflow: auto;
+
+        @include media($small) {
+            margin-left: 35px;
+        }
+
+        @include media($large) {
+            margin-left: 0;
+        }
+
+    }
+
+    .post-summary {
+        @include border-box;
+        padding-bottom: $sm-spacing;
+
+        @include media($small) {
+            border-left: $base-border;
+        }
+
+        @include media($large) {
+           width: 77%;
+           float: left;
+           border-right: $base-border;
+        }
+
+    }
+
+}
+
+.select-post {
+    float: left;
+    margin: 0;
+    padding-top: $sm-spacing;
+    @include border-box;
+
+    @include media($small) {
+        width: 3%;
+        padding: $base-spacing $sm-spacing 0;
+    }
+
+    @include media($large) {
+        
+    }
+
+    input {
+        margin: 0;
+    }
+
+}
+
+.stage-and-actions {
+    border-top: $base-border;
+
+    @include media($large) {
+       width: 20%;
+       float: left;
+       border-top: 0px;
+    }
+
+    .stage {
+        width: 50%;
+        float: left;
+        padding: $sm-spacing 0;
+        border-right: $base-border;
+
+        @include media($small) {
+            border-left: $base-border;
+            padding-left: $base-spacing;
+        }
+
+        @include media($large) {
+            width: 100%;
+            clear: both;
+            border-left: 0;
+            border-bottom: $base-border;
+            border-right: 0;
+            padding: $base-spacing;
+        }
+
+        .delta-alt, p {
+            margin: $tiny-spacing 0;
+        }
+
+    }
+
+    .actions {
+        width: 50%;
+        float: right;
+        padding: ($sm-spacing+7px) 0 $sm-spacing $sm-spacing;
+
+        @include media($large) {
+            width: 100%;
+            clear: both;
+            padding: $base-spacing;
+        }
+    }
+}

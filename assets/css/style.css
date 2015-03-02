@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -166,8 +166,7 @@ $LAYOUT
 \*------------------------------------*/
 .wrapper {
   background-color: #ffffff;
-  max-width: 1580px;
-  margin: 0 auto; }
+  max-width: 1580px; }
 
 .container, .container-centered {
   clear: both;
@@ -186,6 +185,12 @@ $LAYOUT
 
 .hidden {
   display: none !important; }
+
+.fixed-bottom {
+  padding-bottom: 52px; }
+  @media screen and (min-width: 48em)  {
+    .fixed-bottom {
+      padding-bottom: 0; } }
 
 /*------------------------------------*\
     $MIXINS
@@ -307,6 +312,14 @@ $LAYOUT
   border-left: 2px solid red;
   clear: both; }
 
+.pl .tabs-with-filter {
+  position: relative;
+  margin-bottom: 20px; }
+.pl .pagination {
+  margin: 0; }
+.pl .wrapper {
+  margin: 0 auto; }
+
 /*------------------------------------*\
 $HEADER
 \*------------------------------------*/
@@ -424,7 +437,7 @@ $NAVIGATION
         width: 74.41059%; }
         .pl-jump-nav ul:last-child {
           margin-right: 0; } }
-    @media screen and (min-width: 64.063em)  {
+    @media screen and (min-width: 80em)  {
       .pl-jump-nav ul {
         float: left;
         display: block;
@@ -458,7 +471,7 @@ ul.pl-read-direction-nav {
       text-align: right; }
       ul.pl-read-direction-nav:last-child {
         margin-right: 0; } }
-  @media screen and (min-width: 64.063em)  {
+  @media screen and (min-width: 80em)  {
     ul.pl-read-direction-nav {
       float: left;
       display: block;
@@ -1075,6 +1088,10 @@ button, [class*="button-"] {
   .pagination .next, .stepper .next {
     margin-left: 10px; }
 
+.pagination {
+  margin: 40px auto;
+  width: 258px; }
+
 ul.breadcrumb {
   padding: 10px 0; }
   ul.breadcrumb li {
@@ -1334,14 +1351,12 @@ ul.breadcrumb {
       .filters .filters-count {
         border: 0;
         padding: 0; }
-        .filters .filters-count .button-toggle {
-          border: 1px solid #d8d8d8; }
-          .filters .filters-count .button-toggle.open {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
-            padding-bottom: 19px;
-            margin-bottom: -19px;
-            border-bottom: 0px; } }
+        .filters .filters-count .button-toggle.open {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          padding-bottom: 19px;
+          margin-bottom: -19px;
+          border-bottom: 0px; } }
     .filters .filters-count .count {
       background: none;
       margin: 0; }
@@ -1562,10 +1577,18 @@ ul.breadcrumb {
   width: 100%;
   position: relative;
   clear: both;
-  padding: 10px 0;
-  margin-bottom: 20px; }
+  padding: 0 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #ffffff; }
   .tabs-with-filter:last-child {
     margin-right: 0; }
+  @media screen and (min-width: 48em)  {
+    .tabs-with-filter {
+      position: relative;
+      margin-bottom: 20px;
+      padding: 10px 0; } }
   .tabs-with-filter .tabs:not(.tabs-full-width) {
     width: 50%;
     float: left;
@@ -1625,26 +1648,108 @@ ul.breadcrumb {
 .post-summary .post-img {
   padding: 5px 10px 5px 0;
   float: left;
-  max-width: 30%; }
-  .post-summary .post-img img {
-    max-height: 200px; }
+  width: 25%; }
   @media screen and (min-width: 48em)  {
     .post-summary .post-img {
-      width: 200px;
       padding: 0 20px 20px 0;
       margin-top: -20px; } }
   @media screen and (min-width: 64em)  {
     .post-summary .post-img {
-      width: 250px;
       padding: 0 40px 20px 0; } }
 @media screen and (min-width: 48em)  {
   .post-summary.has-img .meta-data {
-    margin-left: 200px; }
+    margin-left: 25%; }
  }
-@media screen and (min-width: 64em)  {
-  .post-summary.has-img .meta-data {
-    margin-left: 250px; }
+
+.single-post-listing {
+  border-top: 1px solid #f2f2f2;
+  overflow: auto; }
+  .single-post-listing .post-summary {
+    padding: 10px 10px 0 0; }
+  @media screen and (min-width: 48em)  {
+    .single-post-listing {
+      border-left: 1px solid #f2f2f2;
+      border-right: 1px solid #f2f2f2; }
+      .single-post-listing .post-summary {
+        padding: 10px 20px; } }
+  @media screen and (min-width: 64em)  {
+    .single-post-listing .post-summary {
+      padding: 20px; }
  }
+  .single-post-listing:nth-child(even) {
+    background: #fafafa; }
+  .single-post-listing:last-of-type {
+    border-bottom: 1px solid #f2f2f2; }
+  .single-post-listing .post-summary, .single-post-listing .stage-and-actions {
+    margin-left: 20px;
+    overflow: auto; }
+    @media screen and (min-width: 48em)  {
+      .single-post-listing .post-summary, .single-post-listing .stage-and-actions {
+        margin-left: 35px; } }
+    @media screen and (min-width: 80em)  {
+      .single-post-listing .post-summary, .single-post-listing .stage-and-actions {
+        margin-left: 0; } }
+  .single-post-listing .post-summary {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-bottom: 10px; }
+    @media screen and (min-width: 48em)  {
+      .single-post-listing .post-summary {
+        border-left: 1px solid #f2f2f2; } }
+    @media screen and (min-width: 80em)  {
+      .single-post-listing .post-summary {
+        width: 77%;
+        float: left;
+        border-right: 1px solid #f2f2f2; } }
+
+.select-post {
+  float: left;
+  margin: 0;
+  padding-top: 10px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+  @media screen and (min-width: 48em)  {
+    .select-post {
+      width: 3%;
+      padding: 20px 10px 0; } }
+  .select-post input {
+    margin: 0; }
+
+.stage-and-actions {
+  border-top: 1px solid #f2f2f2; }
+  @media screen and (min-width: 80em)  {
+    .stage-and-actions {
+      width: 20%;
+      float: left;
+      border-top: 0px; } }
+  .stage-and-actions .stage {
+    width: 50%;
+    float: left;
+    padding: 10px 0;
+    border-right: 1px solid #f2f2f2; }
+    @media screen and (min-width: 48em)  {
+      .stage-and-actions .stage {
+        border-left: 1px solid #f2f2f2;
+        padding-left: 20px; } }
+    @media screen and (min-width: 80em)  {
+      .stage-and-actions .stage {
+        width: 100%;
+        clear: both;
+        border-left: 0;
+        border-bottom: 1px solid #f2f2f2;
+        border-right: 0;
+        padding: 20px; } }
+    .stage-and-actions .stage .delta-alt, .stage-and-actions .stage label.input-label, .stage-and-actions .stage label.filter-label, .stage-and-actions .stage p, .stage-and-actions .stage blockquote {
+      margin: 5px 0; }
+  .stage-and-actions .actions {
+    width: 50%;
+    float: right;
+    padding: 17px 0 10px 10px; }
+    @media screen and (min-width: 80em)  {
+      .stage-and-actions .actions {
+        width: 100%;
+        clear: both;
+        padding: 20px; } }
 
 /*------------------------------------*\
     $BLOCKS
@@ -1695,6 +1800,69 @@ ul.breadcrumb {
 /*------------------------------------*\
     $LAYOUTS
 \*------------------------------------*/
+header.placeholder-header {
+  background: #181c21;
+  padding: 50px 0; }
+
+.main-menu {
+  display: none;
+  background: #737373;
+  width: 20%;
+  float: left; }
+  @media screen and (min-width: 64em)  {
+    .main-menu {
+      display: block; } }
+  @media screen and (min-width: 80em)  {
+    .main-menu {
+      width: 15%; } }
+
+.page-content {
+  padding: 0 10px;
+  max-width: 1580px;
+  margin-left: auto;
+  margin-right: auto; }
+  .page-content:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0; }
+  .lt-ie8 .page-content {
+    zoom: 1; }
+  @media screen and (min-width: 48em)  {
+    .page-content {
+      padding: 0 20px; } }
+  @media screen and (min-width: 64em)  {
+    .page-content {
+      width: 80%;
+      float: right; } }
+  @media screen and (min-width: 80em)  {
+    .page-content {
+      width: 85%;
+      margin-right: 0%; } }
+  .page-content .main-col {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%; }
+    .page-content .main-col:last-child {
+      margin-right: 0; }
+  .page-content.has-aside .main-col {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 74.41059%; }
+    .page-content.has-aside .main-col:last-child {
+      margin-right: 0; }
+  .page-content.has-aside aside {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%; }
+    .page-content.has-aside aside:last-child {
+      margin-right: 0; }
+
 .layout-a > [class*="layout-"] {
   margin: 3.125%; }
 

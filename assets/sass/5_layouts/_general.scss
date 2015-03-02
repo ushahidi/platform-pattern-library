@@ -1,0 +1,53 @@
+header.placeholder-header {
+    background: $black;
+    padding: 50px 0; 
+}
+
+.main-menu {
+    display: none;
+    background: $dk-gray;
+    width: 20%;
+    float: left;
+
+    @include media($medium) {
+        display: block;
+    }
+
+    @include media($large) {
+        width: 15%;
+    }
+
+}
+
+.page-content {
+    padding: 0 $sm-spacing;
+    @include outer-container;  
+
+    @include media($small) {
+        padding: 0 $base-spacing;
+    }
+
+    @include media($medium) {
+        width: 80%;
+        float: right;
+    }
+
+    @include media($large) {
+        width: 85%;
+        margin-right: 0%;
+    }
+
+    .main-col {
+        @include span-columns(12);
+    }
+
+    &.has-aside {
+        .main-col {
+            @include span-columns(9);
+        }
+
+        aside {
+            @include span-columns(3);
+        }
+    }
+}
