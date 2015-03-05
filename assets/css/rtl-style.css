@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -196,7 +196,7 @@ $LAYOUT
       padding-bottom: 0; } }
 
 .has-full-header {
-  margin-top: 320px; }
+  margin-top: 330px; }
 
 /*------------------------------------*\
     $MIXINS
@@ -509,6 +509,9 @@ positioning, etc.)
   margin: 0 auto; }
 .pl .header, .pl .header-compact, .pl .header-full {
   position: relative !important; }
+.pl .stage-list {
+  border-left: 1px solid #f2f2f2;
+  max-width: 300px; }
 
 /*------------------------------------*\
 $COLORS
@@ -865,7 +868,7 @@ h1, .alpha {
   clear: both; }
   @media screen and (min-width: 48em)  {
     h1, .alpha {
-      font-size: 2.625em; } }
+      font-size: 2.375em; } }
 
 h2, .beta {
   font-size: 1.5em;
@@ -931,7 +934,15 @@ blockquote {
   font-style: italic; }
 
 .meta-data {
-  font-size: 0.875em; }
+  font-size: 0.875em;
+  padding-right: 10px; }
+  .meta-data.has-categories {
+    display: block;
+    padding-bottom: 10px; }
+    @media screen and (min-width: 48em)  {
+      .meta-data.has-categories {
+        float: left;
+        padding: 2px 20px 0 0; } }
 
 span.date {
   font-weight: 900;
@@ -1228,8 +1239,7 @@ ul.breadcrumb {
 .categories-list-inline {
   overflow: auto; }
   .categories-list-inline .category {
-    display: inline;
-    float: left; }
+    display: inline; }
 
 .tabs {
   position: relative; }
@@ -1496,21 +1506,19 @@ ul.breadcrumb {
     float: left;
     width: 45px;
     margin-right: 10px;
-    margin-top: -25px; }
-    @media screen and (min-width: 64em)  {
+    margin-top: -20px; }
+    @media screen and (min-width: 80em)  {
       .user-credit-has-label img {
         width: 70px;
-        margin-top: 10px;
+        margin: 10px 0;
         float: none; } }
+  .user-credit-has-label p, .user-credit-has-label blockquote {
+    margin: 0; }
   .user-credit-has-label .delta-alt, .user-credit-has-label label.input-label, .user-credit-has-label label.filter-label {
-    padding-left: 55px;
-    margin-bottom: 5px; }
-    @media screen and (min-width: 64em)  {
+    padding-left: 55px; }
+    @media screen and (min-width: 80em)  {
       .user-credit-has-label .delta-alt, .user-credit-has-label label.input-label, .user-credit-has-label label.filter-label {
         padding-left: 0px; } }
-  @media screen and (min-width: 64em)  {
-    .user-credit-has-label .name {
-      padding-top: 10px; } }
 
 .alert {
   font-style: italic;
@@ -1525,6 +1533,23 @@ ul.breadcrumb {
   .alert.confirmation {
     border-color: #4fab2f;
     background-color: #e7f7e2; }
+
+.selection-card {
+  border-width: 2px;
+  border-style: solid;
+  border-color: #f2f2f2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 20px;
+  transition: all 0.25s ease-in-out; }
+  .selection-card:hover {
+    border-color: #d8d8d8; }
+  .selection-card p, .selection-card blockquote {
+    color: #181c21; }
+  .selection-card h3 {
+    margin: 5px 0; }
 
 /*------------------------------------*\
     $MODULES
@@ -1678,6 +1703,8 @@ ul.breadcrumb {
     float: left;
     margin-right: 20px;
     margin-top: 11px; } }
+.post-summary .category {
+  float: left; }
 .post-summary .post-img {
   padding: 5px 10px 5px 0;
   float: left;
@@ -1783,6 +1810,42 @@ ul.breadcrumb {
         width: 100%;
         clear: both;
         padding: 20px; } }
+
+.stage-list {
+  padding: 20px;
+  border-top: 1px solid #f2f2f2; }
+  .stage-list li {
+    margin-bottom: 10px; }
+  .stage-list p.small, .stage-list blockquote.small {
+    color: #181c21; }
+  .stage-list .disabled h6, .stage-list .disabled p, .stage-list .disabled blockquote {
+    color: #737373;
+    cursor: default; }
+  .stage-list .active {
+    position: relative; }
+    .stage-list .active a {
+      color: #181c21; }
+    .stage-list .active:after {
+      content: ' ';
+      border: 10px solid black;
+      border-color: transparent transparent #ffffff #ffffff;
+      position: absolute;
+      bottom: 50%;
+      left: -20px;
+      margin-bottom: -10px;
+      z-index: 2;
+      -webkit-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+              transform-origin: 0 0;
+      -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+      box-shadow: -1px 1px 0px 0px rgba(0, 0, 0, 0.08); }
+  .stage-list .complete:after {
+    padding-left: 5px;
+    font-family: FontAwesome;
+    content: "\f00c";
+    color: #4fab2f; }
 
 /*------------------------------------*\
     $BLOCKS
@@ -2019,6 +2082,18 @@ ul.breadcrumb {
         .header.header-compact button.user-admin {
           display: inline-block; } }
 
+aside.is-right .published-to, aside.is-right .user-credit-has-label {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 20px 0; }
+  @media screen and (min-width: 48em)  {
+    aside.is-right .published-to, aside.is-right .user-credit-has-label {
+      padding: 20px; } }
+aside.is-right .actions {
+  padding: 20px; }
+  aside.is-right .actions button {
+    display: block;
+    margin-bottom: 10px; }
+
 /*------------------------------------*\
     $LAYOUTS
 \*------------------------------------*/
@@ -2072,20 +2147,26 @@ header.placeholder-header {
     width: 100%; }
     .page-content .main-col:last-child {
       margin-right: 0; }
-  .page-content.has-aside .main-col {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 74.41059%; }
-    .page-content.has-aside .main-col:last-child {
-      margin-right: 0; }
-  .page-content.has-aside aside {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%; }
-    .page-content.has-aside aside:last-child {
-      margin-right: 0; }
+  @media screen and (min-width: 48em)  {
+    .page-content.has-aside .main-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .page-content.has-aside .main-col:last-child {
+        margin-right: 0; }
+
+    .page-content.has-aside aside {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%;
+      border-left: 1px solid #f2f2f2; }
+      .page-content.has-aside aside:last-child {
+        margin-right: 0; }
+      .page-content.has-aside aside.is-right {
+        float: right; }
+ }
 
 .layout-a > [class*="layout-"] {
   margin: 3.125%; }

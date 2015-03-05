@@ -1,0 +1,56 @@
+.stage-list {
+    padding: $base-spacing;
+    border-top: $base-border;
+
+    li {
+        margin-bottom: $sm-spacing;
+    }
+
+    p.small {
+        color: $black;
+    }
+
+    .disabled {
+
+        h6, p {
+            color: $dk-gray;
+            cursor: default;
+        }
+
+    }
+
+    .active {
+        position: relative;
+
+        a {
+            color: $black;
+        }
+
+        &:after {
+            content: ' ';
+            border: 10px solid black;
+            border-color: transparent transparent $white $white;
+            position: absolute;
+            bottom: 50%;
+            left: -20px;
+            margin-bottom: -10px;
+            z-index: 2;
+            transform-origin: 0 0;
+            transform: rotate(45deg);
+            @include box-shadow($top: 1px, $left: -1px, $blur: 0px, $spread: 0px, $color: rgba(0,0,0,.08), $inset: false);
+        }
+
+    }
+
+    .complete {
+
+        &:after {
+            padding-left: $tiny-spacing;
+            font-family: FontAwesome;
+            content: "\f00c";
+            color: $confirmation-color;
+        }
+
+    }
+
+}

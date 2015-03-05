@@ -44,12 +44,25 @@ header.placeholder-header {
     }
 
     &.has-aside {
-        .main-col {
-            @include span-columns(9);
+        
+        @include media($small) {
+        
+            .main-col {
+                @include span-columns(8);
+            }
+
+            aside {
+                @include span-columns(3);
+                border-left: $base-border;
+
+                &.is-right { //specific styling for this column in 4_blocks/_aside.css
+                    float: right;
+                }
+
+            }
+
         }
 
-        aside {
-            @include span-columns(3);
-        }
     }
+
 }
