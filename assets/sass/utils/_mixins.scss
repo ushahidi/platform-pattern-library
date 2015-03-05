@@ -52,12 +52,12 @@
     hyphens: auto;
 }
 
-@mixin transition($trans: all, $time: 0.25s, $ease: ease-in-out) {
-    -webkit-transition: $trans $time $ease;
-    -moz-transition: $trans $time $ease;
-    -ms-transition: $trans $time $ease;
-    -o-transition: $trans $time $ease;
-    transition: $trans $time $ease;
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
 }
 
 @mixin no-transition() {

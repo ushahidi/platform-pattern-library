@@ -1,0 +1,82 @@
+// For adding font icons to elements using CSS pseudo-elements
+// http://jaydenseric.com/blog/fun-with-sass-and-font-icons
+
+/*------------------------------------*\
+
+// Basic Usage
+
+button {
+    @include icon(before, plus);
+}
+
+// Customize Styles (in addition to default styles)
+
+button {
+    @include icon(before, plus) {
+        margin-right: 20px;
+        color: $highlight;
+    }
+}
+
+// Before & After
+
+.user-admin {
+    @include icon(both) {
+        color: $highlight;
+    }
+    @include icon(before, user, false) {
+        margin-right: 10px;
+    }
+    @include icon(after, chevron-down, false) {
+        margin-left: 10px;
+    }
+}
+
+\*------------------------------------*/
+
+@mixin icon($position: before, $icon: false, $styles: true) {
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    // Either a :before or :after pseudo-element, or both, defaulting to :before
+    &:#{$position} {
+        @if $icon {
+            // A particular icon has been specified
+            content: "#{map-get($icons, $icon)}";
+        }
+        @if $styles {
+            // Supportive icon styles required
+            font-family: FontAwesome;
+            font-size: em(14);
+            font-style: normal;
+            font-weight: normal;
+            color: $highlight;
+            display: inline-block;
+            text-decoration: inherit;
+            line-height: 1;
+            padding-right: 5px;
+            speak: none;
+            @include transition(content, .25s);
+        }
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}
+
+
+// Ushahidi Icons map
+
+$icons: (
+    bookmark: "\f02e",
+    chevron-up: "\f077",
+    chevron-down: "\f078",
+    chevron-right: "\f054",
+    chevron-left: "\f053",
+    user: "\f007",
+    plus: "\f067",
+    pencil: "\f040",
+    trash: "\f1f8",
+    filter: "\f0b0",
+    check: "\f00c",
+    share: "\f064"
+);

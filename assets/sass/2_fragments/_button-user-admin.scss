@@ -7,8 +7,9 @@ button.user-admin {
     border: none;
     color: $white;
 
-    span {
-        padding: 0 10px 0 0;
+    @include icon(before, user) {
+        padding-right: 10px;
+        color: $black;
     }
 
     @include media($small) {
@@ -16,7 +17,15 @@ button.user-admin {
         margin: 18px 10px 0 0;
     }
 
-    &.button-toggle:before {
-        content: "\f078";
+    span {
+        padding: 0 10px 0 0;
     }
+
+    &.button-toggle {
+        @include icon(after, chevron-down) {
+            padding: 0;
+        }
+
+    }
+
 }

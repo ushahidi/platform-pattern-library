@@ -43,9 +43,16 @@ button,
     }
 
     &.icon-only {
-         i {
-            padding: 0px $tiny-spacing;
+
+         &:before {
+            padding: 0;
+
+            @include media($small) {
+                padding: 0 $tiny-spacing 0 0;
+            }
+
         }
+
     }
 
 }
@@ -57,18 +64,15 @@ button,
     letter-spacing: 1px;
     padding: 12px 22px 15px 20px;
     font-size: em(14);
+    @include icon(before, plus) {
+        position: relative;
+        bottom: -2px;
+        font-size: em(22);
+    }
 
     @include media($small) {
         font-size: em(16);
         padding: 14px 25px 18px 20px;
-    }
-
-    i {
-        color: $highlight;
-        padding-right: 14px;
-        font-size: em(22);
-        position: relative;
-        bottom: -2px;
     }
 
     &:hover {
@@ -81,6 +85,17 @@ button,
 
 }
 
+.button-primary {
+
+    &.has-icon {
+        @include icon(before, share) {
+            color: $white;
+        }
+
+    }
+
+}
+
 .button-secondary {
     background-color: $white;
     color: $black;
@@ -89,8 +104,8 @@ button,
     font-weight: 400;
     font-size: em(15);
 
-    i {
-        color: $highlight;
+    &.has-icon {
+        @include icon(before, pencil);
     }
 
     &:hover {
@@ -107,8 +122,11 @@ button,
         cursor: default;
         color: $dk-gray;
 
-        i {
-            color: $dk-gray;
+        &.has-icon {
+            @include icon(before, pencil) {
+                color: $dk-gray;
+            }
+
         }
 
         &:hover {
@@ -121,8 +139,18 @@ button,
 
     }
 
+    &.icon-only {
+
+        @include icon(before, chevron-down) {
+            padding: 0;
+        }
+
+    }
+
     &.alt {
-        i {
+
+        @include icon(before, chevron-down) {
+            padding: 0;
             color: $link-color;
         }
     }
@@ -134,24 +162,17 @@ button,
     position: relative;
     z-index: 2;
 
-    &:before {
-        float: right;
-        display: inline-block;
-        font-family: FontAwesome;
-        font-size: 14px;
-        font-style: normal;
-        font-weight: normal;
-        content: "\f077";
-        @include transition;
-        color: $yellow;
-
-        @include media($small) {
-            content: "\f078";
-        }
-
+    @include icon(after, chevron-up) {
+        padding: 0;
     }
 
-    &.open:before {
+    @include media($small) {
+        @include icon(after, chevron-down) {
+            padding: 0;
+        }
+    }
+
+    &.open:after {
         @include transform(rotate(180deg));
     }
 

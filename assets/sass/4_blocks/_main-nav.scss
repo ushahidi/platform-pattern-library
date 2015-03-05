@@ -1,0 +1,168 @@
+.navigation {
+    left: -200px;
+    visibility: hidden;
+    float: left;
+    padding: $base-spacing;
+    width: 60%;
+    @include transition(all .25s, margin .4s);
+    position: absolute;
+    
+    @include media($xtall) {
+        position: fixed;
+    }
+
+    @include media($medium) {
+        width: 20%;
+        left: 0;
+        visibility: visible;
+        display: block;
+        margin: $sm-spacing 0 0;
+        padding-top: 0;
+    }
+
+    /* five items */
+    &:nth-last-child(6),
+    &:nth-last-child(6) ~ ul {
+        position: absolute;
+    }
+
+    &.open {
+        visibility: visible;
+        left: 0;
+    }
+
+    .button-create {
+
+        @include media($medium) {
+            display: none;
+        }
+
+    }
+
+    button {
+        border-top: $base-border;
+        border-bottom: $base-border;
+
+        &.user-admin {
+            position: relative;
+            display: block;
+            color: $black;
+            padding: 15px 0;
+            border: 0;
+            border-top: $base-border;
+            border-bottom: $base-border;
+            border-radius: 0;
+
+            @include media($medium) {
+                display: none;
+            }
+
+        }
+
+    }
+
+    ul {
+        margin: $base-spacing*2 0;
+    }
+
+    li {
+        padding: 8px 0;
+
+        a {
+            padding: $sm-spacing 0;
+
+            &.active {
+                color: $black;
+            }
+
+        }
+
+    }
+
+    .main-nav {
+
+        @include media($medium) {
+            padding-top: $sm-spacing;
+            margin-top: 0;
+        }
+
+        li {
+            padding: $sm-spacing 0;
+
+            a {
+                text-transform: uppercase;
+                font-weight: $bold;
+                letter-spacing: 1.5px;
+            }
+
+        }
+
+    }
+
+    .sets-nav {
+
+        li a {
+
+            &:before {
+                font-family: FontAwesome;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: normal;
+                content: "\f0b0";
+                padding-right: 3px;
+                color: lighten($dk-gray, 35);
+            }
+
+        }
+
+        button {
+            margin: $sm-spacing 0 0 0;
+
+            &.button-secondary.has-icon {
+                @include icon (before, plus) {
+                    padding-right: 10px;
+                }
+
+            }
+
+        }
+
+    }
+
+    .all-sets-nav {
+
+        li a {
+
+            &:before {
+                font-family: FontAwesome;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: normal;
+                content: "\f0b0";
+                padding-right: 3px;
+                color: lighten($dk-gray, 35);
+            }
+
+            &.has-bookmark:after {
+                position: relative;
+                bottom: -2px;
+                float: left;
+                font-family: FontAwesome;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: normal;
+                content: "\f02e";
+                padding-right: 3px;
+                color: lighten($dk-gray, 35);
+            }
+
+        }
+
+    }
+
+    .header-compact + .wrapper & {
+        margin-top: -231px;
+        @include transition(all .25s, margin .4s);
+    }
+
+}

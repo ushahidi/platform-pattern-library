@@ -5,7 +5,9 @@
     text-shadow: 0px 1px 1px $black;
 
     .container {
-        max-width: $max-width;
+        float: left;
+        width: 100%;
+        max-width: none;
         position: relative;
     }
 
@@ -46,7 +48,7 @@
         height: 34px;
         margin: $base-spacing $sm-spacing 15px 15px;
         @include rotate(0deg);
-        @include transition(all, .5s);
+        @include transition(all, .4s);
         cursor: pointer;
 
         @include media($medium) {
@@ -132,6 +134,13 @@
         border: none;
     }
 
+    button.user-admin {
+
+        &:before {
+            content: none;
+        }
+    }
+
     &.header-full {
         overflow: hidden;
         position: fixed;
@@ -140,26 +149,14 @@
         width: 100%;
         height: 293px;
         overflow: hidden;
-        @include transition(height, .3s);
+        @include transition(height, .4s);
         z-index: $topbar;
-
-        button.user-admin {
-
-            @include media($small) {
-                top: -50px;
-            }
-
-        }
-
-        .nav-icon {
-            display: none;
-        }
 
         .beta {
             font-size: 2em;
             text-align: center;
             margin-top: 50px;
-            @include transition(all, .3s);
+            @include transition(all, .4s);
 
             @include media($small) {
                 font-size: 3em;
@@ -202,12 +199,12 @@
         left: 0;
         width: 100%;
         overflow: hidden;
-        @include transition(height, .3s);
+        @include transition(height, .4s);
         z-index: $topbar;
 
         .beta {
             display: inline-block;
-            @include transition(all, .3s);
+            @include transition(all, .4s);
         }
 
         .header-description {

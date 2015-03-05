@@ -14,7 +14,7 @@
     @include media($small) {
         width: auto;
     }
-    
+
     a {
         display: block;
         background: $white;
@@ -29,7 +29,7 @@
             color: $black;
             cursor: default;
             background: $border-color;
-            
+
             &:after {
                 border-color:  $border-color;
             }
@@ -45,15 +45,10 @@
 
         }
 
-        &.completed i {
-            color: $confirmation-color;
-            padding-left: 3px;
-        }
-
         &.disabled {
             color: $dk-gray;
             cursor: default;
-        }        
+        }
 
         @include media($small) {
             padding: 23px 30px;
@@ -77,7 +72,7 @@
                 border-color: $white;
                 border-left-color: transparent;
             }
-            
+
             &:after {
                 content: "";
                 display: block;
@@ -89,10 +84,10 @@
                 border: 30px solid transparent;
                 border-left-color: $white;
             }
-            
+
             &:first-of-type {
                 padding-left: 40px;
-                
+
                 &:before {
                     display: none;
                 }
@@ -102,7 +97,7 @@
             &:last-of-type {
                 margin-right: 0px;
                 padding-right: 40px;
-                
+
                 &:after {
                     border: none;
                 }
@@ -110,6 +105,20 @@
             }
 
         } //end of media query
+
+        span {
+
+            &.completed {
+
+                @include icon(after, check) {
+                    color: $confirmation-color;
+                    padding-left: 10px;
+                    font-size: em(16);
+                }
+
+            }
+
+        }
 
     }
 

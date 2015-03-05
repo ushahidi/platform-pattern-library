@@ -1,6 +1,6 @@
 header.placeholder-header {
     background: $black;
-    padding: 50px 0; 
+    padding: 50px 0;
 }
 
 .main-menu {
@@ -22,21 +22,34 @@ header.placeholder-header {
 }
 
 .page-content {
+    @include outer-container;
     padding: 0 $sm-spacing;
-    @include outer-container;  
-
-    @include media($small) {
-        padding: 0 $base-spacing;
-    }
+    position: relative;
+    left: 0;
+    height: 100%;
+    opacity: 1;
+    @include transition(all, .25s);
 
     @include media($medium) {
-        width: 80%;
+        position: relative;
         float: right;
+        width: 80%;
+        padding: 0 $sm-spacing 0 70px;
     }
 
     @include media($large) {
         width: 85%;
         margin-right: 0%;
+    }
+
+    &.slide {
+        left: 300px;
+        opacity: .5;
+
+        @include media($medium) {
+            left: 0;
+            opacity: 1;
+        }
     }
 
     .main-col {
