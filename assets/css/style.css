@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/*@import "css3/selection";*/
+/* @import "css3/selection"; */
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -241,6 +241,35 @@ button {
 }
 
 \*------------------------------------*/
+div#map.map.leaflet-container {
+  font-weight: 400;
+  font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-size: inherit; }
+
+.pl-popup .leaflet-popup-content-wrapper {
+  padding: 0px;
+  text-align: left;
+  border-radius: 5px; }
+
+.pl-popup .leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  box-shadow: none; }
+
+.pl-popup a.leaflet-popup-close-button {
+  z-index: 400; }
+
+.pl-popup .leaflet-popup-content {
+  margin: 0;
+  width: 280px !important; }
+  @media screen and (min-width: 48em)  {
+    .pl-popup .leaflet-popup-content {
+      width: 400px !important; } }
+
+.pop-up.has-class .leaflet-popup-tip {
+  background: #181c21; }
+
+.leaflet-popup-tip.black-arrow {
+  background: #181c21; }
+
 /*------------------------------------*\
 $PATTERN LIBRARY
 this file creates the layout and
@@ -1741,7 +1770,8 @@ ul.breadcrumb {
   border-bottom-right-radius: 5px;
   box-shadow: 0 0px 7px 2px rgba(0, 0, 0, 0.1);
   max-width: 400px;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   .post-popup .actions {
     border-top: 1px solid #f2f2f2;
     padding-top: 20px;
@@ -2231,6 +2261,18 @@ ul.breadcrumb {
         .header.header-compact button.user-admin {
           display: inline-block; } }
 
+.map {
+  height: 500px; }
+
+.custom-map-marker {
+  width: 30px;
+  height: 70px; }
+  .custom-map-marker .map-marker-icon {
+    fill: #2274b4; }
+  .custom-map-marker .map-marker-shadow {
+    fill: #181c21;
+    opacity: 0.5; }
+
 .navigation {
   left: -200px;
   visibility: hidden;
@@ -2341,6 +2383,18 @@ ul.breadcrumb {
   .header-compact + .wrapper .navigation {
     margin-top: -231px;
     transition: all 0.25s, margin 0.4s; }
+
+aside.is-right .published-to, aside.is-right .user-credit-has-label {
+  border-bottom: 1px solid #f2f2f2;
+  padding: 20px 0; }
+  @media screen and (min-width: 48em)  {
+    aside.is-right .published-to, aside.is-right .user-credit-has-label {
+      padding: 20px; } }
+aside.is-right .actions {
+  padding: 20px; }
+  aside.is-right .actions button {
+    display: block;
+    margin-bottom: 10px; }
 
 .dashboard-stats {
   border-top: 1px solid #f2f2f2;
