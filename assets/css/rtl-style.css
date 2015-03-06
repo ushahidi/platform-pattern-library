@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -167,7 +167,8 @@ $LAYOUT
 \*------------------------------------*/
 .wrapper {
   background-color: #ffffff;
-  max-width: 1580px; }
+  max-width: 1580px;
+  margin: 0 auto; }
 
 .container, .container-centered {
   clear: both;
@@ -888,9 +889,6 @@ form p, form blockquote {
     $ICONS
 \*------------------------------------*/
 /*------------------------------------*\
-    $MISC
-\*------------------------------------*/
-/*------------------------------------*\
     $TYPOGRAPHY
 \*------------------------------------*/
 p, blockquote {
@@ -1069,16 +1067,16 @@ button, [class*="button-"] {
     font-size: 0.875em;
     font-style: normal;
     font-weight: normal;
-    color: #ffc334;
     display: inline-block;
     text-decoration: inherit;
     line-height: 1;
-    padding-right: 5px;
+    padding: 0 5px 0 1px;
     speak: none;
     transition: content, 0.25s;
     position: relative;
     bottom: -2px;
-    font-size: 1.375em; }
+    font-size: 1.375em;
+    color: #ffc334; }
   @media screen and (min-width: 48em)  {
     .button-create {
       font-size: 1em;
@@ -1088,21 +1086,6 @@ button, [class*="button-"] {
   .button-create:active {
     background-color: #434e5c; }
 
-.button-primary.has-icon:before {
-  content: "\f064";
-  font-family: FontAwesome;
-  font-size: 0.875em;
-  font-style: normal;
-  font-weight: normal;
-  color: #ffc334;
-  display: inline-block;
-  text-decoration: inherit;
-  line-height: 1;
-  padding-right: 5px;
-  speak: none;
-  transition: content, 0.25s;
-  color: #ffffff; }
-
 .button-secondary, .button-toggle {
   background-color: #ffffff;
   color: #181c21;
@@ -1110,19 +1093,8 @@ button, [class*="button-"] {
   padding: 8px 10px;
   font-weight: 400;
   font-size: 0.9375em; }
-  .button-secondary.has-icon:before, .has-icon.button-toggle:before {
-    content: "\f040";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
-    color: #ffc334;
-    display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding-right: 5px;
-    speak: none;
-    transition: content, 0.25s; }
+  .button-secondary:before, .button-toggle:before, .button-secondary:after, .button-toggle:after {
+    color: #ffc334; }
   .button-secondary:hover, .button-toggle:hover {
     background-color: #ffffff;
     border: 1px solid #d8d8d8; }
@@ -1132,53 +1104,16 @@ button, [class*="button-"] {
     background-color: #ffffff;
     cursor: default;
     color: #737373; }
-    .button-secondary.disabled.has-icon:before, .disabled.has-icon.button-toggle:before {
-      content: "\f040";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      color: #ffc334;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding-right: 5px;
-      speak: none;
-      transition: content, 0.25s;
+    .button-secondary.disabled:before, .disabled.button-toggle:before, .button-secondary.disabled:after, .disabled.button-toggle:after {
       color: #737373; }
     .button-secondary.disabled:hover, .disabled.button-toggle:hover {
       border: 1px solid #f2f2f2; }
     .button-secondary.disabled:active, .disabled.button-toggle:active {
       border: 1px solid #f2f2f2; }
-  .button-secondary.icon-only:before, .icon-only.button-toggle:before {
-    content: "\f078";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
-    color: #ffc334;
-    display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding-right: 5px;
-    speak: none;
-    transition: content, 0.25s;
-    padding: 0; }
-  .button-secondary.alt:before, .alt.button-toggle:before {
-    content: "\f078";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
-    color: #ffc334;
-    display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding-right: 5px;
-    speak: none;
-    transition: content, 0.25s;
-    padding: 0;
+  .button-secondary.alt:before, .alt.button-toggle:before, .button-secondary.alt:after, .alt.button-toggle:after {
     color: #2274b4; }
+  .button-secondary.icon-only, .icon-only.button-toggle {
+    padding-left: 14px; }
 
 .button-toggle {
   position: relative;
@@ -1189,11 +1124,10 @@ button, [class*="button-"] {
     font-size: 0.875em;
     font-style: normal;
     font-weight: normal;
-    color: #ffc334;
     display: inline-block;
     text-decoration: inherit;
     line-height: 1;
-    padding-right: 5px;
+    padding: 0 5px 0 1px;
     speak: none;
     transition: content, 0.25s;
     padding: 0; }
@@ -1204,19 +1138,94 @@ button, [class*="button-"] {
       font-size: 0.875em;
       font-style: normal;
       font-weight: normal;
-      color: #ffc334;
       display: inline-block;
       text-decoration: inherit;
       line-height: 1;
-      padding-right: 5px;
+      padding: 0 5px 0 1px;
       speak: none;
       transition: content, 0.25s;
       padding: 0; }
  }
-  .button-toggle.open:after {
+  .button-toggle.open {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
+
+/*------------------------------------*\
+    $CLASSES FOR BUTTONS WITH ICONS
+\*------------------------------------*/
+button.dropdown:before, button.add-to-set:before {
+  content: "\f078";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
+button.edit:before {
+  content: "\f040";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
+button.bookmark:before {
+  content: "\f02e";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
+button.share:before {
+  content: "\f064";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
+button.trash:before {
+  content: "\f1f8";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
+button.plus:before {
+  content: "\f067";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
 
 button.user-admin {
   position: relative;
@@ -1232,11 +1241,10 @@ button.user-admin {
     font-size: 0.875em;
     font-style: normal;
     font-weight: normal;
-    color: #ffc334;
     display: inline-block;
     text-decoration: inherit;
     line-height: 1;
-    padding-right: 5px;
+    padding: 0 5px 0 1px;
     speak: none;
     transition: content, 0.25s;
     padding-right: 10px;
@@ -1253,11 +1261,10 @@ button.user-admin {
     font-size: 0.875em;
     font-style: normal;
     font-weight: normal;
-    color: #ffc334;
     display: inline-block;
     text-decoration: inherit;
     line-height: 1;
-    padding-right: 5px;
+    padding: 0 5px 0 1px;
     speak: none;
     transition: content, 0.25s;
     padding: 0; }
@@ -1392,11 +1399,10 @@ ul.breadcrumb {
       font-size: 0.875em;
       font-style: normal;
       font-weight: normal;
-      color: #ffc334;
       display: inline-block;
       text-decoration: inherit;
       line-height: 1;
-      padding-right: 5px;
+      padding: 0 5px 0 1px;
       speak: none;
       transition: content, 0.25s;
       color: #4fab2f;
@@ -1669,11 +1675,9 @@ ul.breadcrumb {
     @media screen and (min-width: 64em)  {
       .user-credit img {
         width: 60px; } }
-  .user-credit .name {
-    padding-top: 10px; }
-    @media screen and (min-width: 64em)  {
-      .user-credit .name {
-        padding-top: 18px; } }
+  @media screen and (min-width: 64em)  {
+    .user-credit .name {
+      padding-top: 10px; } }
 
 .user-credit-has-label {
   overflow: auto; }
@@ -1690,7 +1694,8 @@ ul.breadcrumb {
   .user-credit-has-label p, .user-credit-has-label blockquote {
     margin: 0; }
   .user-credit-has-label .delta-alt, .user-credit-has-label label.input-label, .user-credit-has-label label.filter-label {
-    padding-left: 55px; }
+    padding-left: 55px;
+    padding-top: 10px; }
     @media screen and (min-width: 80em)  {
       .user-credit-has-label .delta-alt, .user-credit-has-label label.input-label, .user-credit-has-label label.filter-label {
         padding-left: 0px; } }
@@ -1744,48 +1749,6 @@ ul.breadcrumb {
     .post-popup .actions button {
       margin-right: 5px;
       font-size: 0.9375em; }
-    .post-popup .actions .post-edit:before {
-      content: "\f040";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      color: #ffc334;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding-right: 5px;
-      speak: none;
-      transition: content, 0.25s;
-      color: #ffc334; }
-    .post-popup .actions .post-bookmark:before {
-      content: "\f02e";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      color: #ffc334;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding-right: 5px;
-      speak: none;
-      transition: content, 0.25s;
-      color: #ffc334; }
-    .post-popup .actions .post-add-to-set:before {
-      content: "\f078";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      color: #ffc334;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding-right: 5px;
-      speak: none;
-      transition: content, 0.25s;
-      color: #ffc334; }
   .post-popup:after {
     content: ' ';
     border: 15px solid black;
@@ -1839,35 +1802,6 @@ ul.breadcrumb {
       padding: 10px 20px; } }
   .post-list-actions .bulk-actions {
     float: right; }
-    .post-list-actions .bulk-actions .bulk-mark:before {
-      content: "\f078";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      color: #ffc334;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding-right: 5px;
-      speak: none;
-      transition: content, 0.25s;
-      color: #737373; }
-    .post-list-actions .bulk-actions .bulk-delete:before {
-      content: "\f1f8";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      color: #ffc334;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding-right: 5px;
-      speak: none;
-      transition: content, 0.25s;
-      color: #2274b4;
-      padding: 0; }
   .post-list-actions .cta {
     float: left;
     padding-top: 10px; }
@@ -2062,11 +1996,10 @@ ul.breadcrumb {
       font-size: 0.875em;
       font-style: normal;
       font-weight: normal;
-      color: #ffc334;
       display: inline-block;
       text-decoration: inherit;
       line-height: 1;
-      padding-right: 5px;
+      padding: 0 5px 0 1px;
       speak: none;
       transition: content, 0.25s;
       color: #737373; }
@@ -2318,6 +2251,10 @@ ul.breadcrumb {
       display: block;
       margin: 10px 0 0;
       padding-top: 0; } }
+  @media screen and (min-width: 90em)  {
+    .navigation {
+      width: 25%;
+      left: 30px; } }
   .navigation:nth-last-child(6), .navigation:nth-last-child(6) ~ ul {
     position: absolute; }
   .navigation.open {
@@ -2375,11 +2312,10 @@ ul.breadcrumb {
       font-size: 0.875em;
       font-style: normal;
       font-weight: normal;
-      color: #ffc334;
       display: inline-block;
       text-decoration: inherit;
       line-height: 1;
-      padding-right: 5px;
+      padding: 0 5px 0 1px;
       speak: none;
       transition: content, 0.25s;
       padding-right: 10px; }
@@ -2461,27 +2397,71 @@ aside.is-right .actions {
     display: block;
     margin-bottom: 10px; }
 
+.cards-select {
+  max-width: 1580px;
+  margin-left: auto;
+  margin-right: auto; }
+  .cards-select:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0; }
+  .lt-ie8 .cards-select {
+    zoom: 1; }
+  .cards-select .selection-card {
+    margin-bottom: 10px; }
+    @media screen and (min-width: 48em)  {
+      .cards-select .selection-card {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 48.82117%;
+        margin-bottom: 20px; }
+        .cards-select .selection-card:last-child {
+          margin-right: 0; }
+        .cards-select .selection-card:nth-child(2n) {
+          margin-right: 0; }
+        .cards-select .selection-card:nth-child(2n+1) {
+          clear: left; } }
+    @media screen and (min-width: 64em)  {
+      .cards-select .selection-card {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .cards-select .selection-card:nth-child(2n) {
+          margin-right: 2.35765%; }
+        .cards-select .selection-card:nth-child(2n+1) {
+          clear: none; }
+        .cards-select .selection-card:last-child {
+          margin-right: 0; }
+        .cards-select .selection-card:nth-child(3n) {
+          margin-right: 0; }
+        .cards-select .selection-card:nth-child(3n+1) {
+          clear: left; } }
+    @media screen and (min-width: 80em)  {
+      .cards-select .selection-card {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        margin-bottom: 30px; }
+        .cards-select .selection-card:nth-child(3n) {
+          margin-right: 2.35765%; }
+        .cards-select .selection-card:nth-child(3n+1) {
+          clear: none; }
+        .cards-select .selection-card:last-child {
+          margin-right: 0; }
+        .cards-select .selection-card:nth-child(4n) {
+          margin-right: 0; }
+        .cards-select .selection-card:nth-child(4n+1) {
+          clear: left; } }
+
 /*------------------------------------*\
     $LAYOUTS
 \*------------------------------------*/
-header.placeholder-header {
-  background: #181c21;
-  padding: 50px 0; }
-
-.main-menu {
-  display: none;
-  border-right: 1px solid #f2f2f2;
-  height: 1000px;
-  padding: 20px;
-  width: 20%;
-  float: left; }
-  @media screen and (min-width: 64em)  {
-    .main-menu {
-      display: block; } }
-  @media screen and (min-width: 80em)  {
-    .main-menu {
-      width: 15%; } }
-
 .page-content {
   max-width: 1580px;
   margin-left: auto;
@@ -2501,16 +2481,20 @@ header.placeholder-header {
     font-size: 0; }
   .lt-ie8 .page-content {
     zoom: 1; }
+  @media screen and (min-width: 48em)  {
+    .page-content {
+      padding: 0 20px; } }
   @media screen and (min-width: 64em)  {
     .page-content {
       position: relative;
       float: right;
-      width: 80%;
-      padding: 0 10px 0 70px; } }
+      width: 78%;
+      padding: 0;
+      margin-right: 20px; } }
   @media screen and (min-width: 80em)  {
     .page-content {
-      width: 85%;
-      margin-right: 0%; } }
+      width: 82%;
+      margin-right: 30px; } }
   .page-content.slide {
     left: 300px;
     opacity: 0.5; }
@@ -2527,10 +2511,11 @@ header.placeholder-header {
       margin-right: 0; }
   @media screen and (min-width: 48em)  {
     .page-content.has-aside .main-col {
+      padding-right: 40px;
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 65.88078%; }
+      width: 74.41059%; }
       .page-content.has-aside .main-col:last-child {
         margin-right: 0; }
 
@@ -2545,13 +2530,46 @@ header.placeholder-header {
       .page-content.has-aside aside.is-right {
         float: right; }
  }
+  @media screen and (min-width: 64em)  {
+    .page-content.has-aside .main-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .page-content.has-aside .main-col:last-child {
+        margin-right: 0; }
 
-.layout-a > [class*="layout-"] {
-  margin: 3.125%; }
+    .page-content.has-aside aside {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      .page-content.has-aside aside:last-child {
+        margin-right: 0; }
+ }
+  @media screen and (min-width: 80em)  {
+    .page-content.has-aside .main-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 74.41059%;
+      padding-right: 120px; }
+      .page-content.has-aside .main-col:last-child {
+        margin-right: 0; }
 
-.layout-b > [class*="layout-"] {
-  margin: 3.125%; }
+    .page-content.has-aside aside {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .page-content.has-aside aside:last-child {
+        margin-right: 0; }
+ }
 
-.layout-c > [class*="layout-"] {
-  margin: 3.125%; }
+.post-detail .main-col {
+  margin-top: 40px; }
+  .post-detail .main-col p, .post-detail .main-col blockquote {
+    line-height: 1.5; }
+  .post-detail .main-col h1 {
+    margin: 20px 0; }
 /* @generated */

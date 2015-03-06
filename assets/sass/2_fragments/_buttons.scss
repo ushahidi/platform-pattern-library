@@ -68,6 +68,7 @@ button,
         position: relative;
         bottom: -2px;
         font-size: em(22);
+        color: $highlight;
     }
 
     @include media($small) {
@@ -85,17 +86,6 @@ button,
 
 }
 
-.button-primary {
-
-    &.has-icon {
-        @include icon(before, share) {
-            color: $white;
-        }
-
-    }
-
-}
-
 .button-secondary {
     background-color: $white;
     color: $black;
@@ -104,8 +94,8 @@ button,
     font-weight: 400;
     font-size: em(15);
 
-    &.has-icon {
-        @include icon(before, pencil);
+    &:before, &:after {
+        color: $highlight; //icon colors
     }
 
     &:hover {
@@ -122,11 +112,8 @@ button,
         cursor: default;
         color: $dk-gray;
 
-        &.has-icon {
-            @include icon(before, pencil) {
-                color: $dk-gray;
-            }
-
+        &:before, &:after {
+            color: $dk-gray; //icon colors
         }
 
         &:hover {
@@ -139,20 +126,16 @@ button,
 
     }
 
-    &.icon-only {
+    &.alt {
 
-        @include icon(before, chevron-down) {
-            padding: 0;
+        &:before, &:after {
+            color: $link-color;
         }
 
     }
 
-    &.alt {
-
-        @include icon(before, chevron-down) {
-            padding: 0;
-            color: $link-color;
-        }
+    &.icon-only {
+        padding-left: 14px;
     }
 
 }
@@ -172,8 +155,39 @@ button,
         }
     }
 
-    &.open:after {
+    &.open {
         @include transform(rotate(180deg));
+    }
+
+}
+
+/*------------------------------------*\
+    $CLASSES FOR BUTTONS WITH ICONS
+\*------------------------------------*/
+button {
+
+    &.dropdown, &.add-to-set {
+        @include icon (before, chevron-down);
+    }
+
+    &.edit {
+        @include icon(before, pencil);
+    }
+
+    &.bookmark {
+        @include icon(before, bookmark);
+    }
+
+    &.share {
+        @include icon(before, share);
+    }
+
+    &.trash {
+        @include icon(before, trash);
+    }
+
+    &.plus {
+        @include icon(before, plus);
     }
 
 }
