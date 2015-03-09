@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>The Ushahidi Platform Pattern Library</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" type="image/ico" href="../../assets/favicon.ico" />
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/style.css">
+    <link rel="alternate stylesheet" type="text/css" title="rtl" href="../../css/rtl-style.css">
+
+    <!-- TODO: install leaflet via npm for off line availabilty -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+</head>
+
+
+<body class="fixed-bottom has-dynamic-header">
+
+    <header class="header header-full overlay">
+    <div class="container">
+        <div class="nav-icon nav-icon-js">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <h1 class="beta">Syria Tracker</h1>
+        <p class="header-description">This is a deployment description</p>
+        <button type="button" class="button-create icon-only">
+            <span>Create Post</span>
+        </button>
+        <button type="button" class="button-toggle user-admin">
+            <span>Jonathan Doe</span>
+        </button>
+    </div>
+    <img src="../../img/header-bk.jpg" alt="" />
+</header>
+
+    <div class="wrapper has-full-header">
+        
+        <div class="navigation">
+    <button type="button" class="button-create">
+        <span>Create Post</span>
+    </button>
+    <ul class="main-nav">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Tools</a></li>
+    </ul>
+    <button type="button" class="button-toggle user-admin">
+        <span>Jonathan Doe</span>
+    </button>
+    <ul class="sets-nav">
+        <h6 class="zeta">My Sets</h6>
+        <li><a href=""> Public Posts</a></li>
+        <li><a href=""> Unstructured Posts</a></li>
+        <li><a href=""> Private Posts</a></li>
+        <li><a href=""> Translated Posts</a></li>
+        <button type="button" class="button-secondary plus">
+            <span>Create New Set</span>
+        </button>
+    </ul>
+    <ul class="featured-sets-nav">
+        <h6 class="zeta">Featured Sets</h6>
+        <li><a href=""> Set 3</a></li>
+        <li><a href=""> Set 5</a></li>
+    </ul>
+    <ul class="all-sets-nav">
+        <h6 class="zeta">All Sets</h6>
+        <li><a href="" class="has-bookmark"> Set 1</a></li>
+        <li><a href=""> Accidents</a></li>
+        <li><a href=""> Set 3</a></li>
+        <li><a href=""> Set 5</a></li>
+    </ul>
+</div>
+
+
+        <div class="page-content">
+
+            <div class="main-col">
+
+                <h1>All Posts</h1>
+
+                <div class="tabs-with-filter">
+                    <div class="tabs">
+                        <nav class="tabs-menu">
+
+                            <label class="delta-alt">View </label>
+                            <button type="button" class="button-toggle tabs-menu-button-js">
+                            </button>
+                            <span id="tabs-menu-selection" class="tabs-menu-selection">List</span>
+
+                            <ul class="tabs-menu-list">
+                                <li>List</li>
+                                <li class="active">Map</li>
+                                <li>Photos</li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="filters">
+                        <div class="filters-count">
+                            <label class="delta-alt">Filters</label>
+                            <span class="count has-filters">2</span>
+                            <button type="button" class="button-toggle filter-button-js">
+                            </button>
+                        </div>
+                        <div class="filters-container">
+                            <div class="tabs tabs-full-width">
+                                <nav class="tabs-menu">
+                                    <ul>
+                                        <li class="active"><a href="#tab-1">Categories</a></li>
+                                        <li><a href="#tab-2">Sets</a></li>
+                                        <li><a href="#tab-3">More</a></li>
+                                    </ul>
+                                </nav>
+
+                                <div id="tab-1" class="tab-content active">
+                                    <form action="" method="get">
+                                        <input type="checkbox" name="show-all" value="Show All Categories"> Show All Categories<br>
+                                        <input type="checkbox" name="category1" value="Category1" checked="checked">    <i class="fa fa-circle" style="color: #da60a2;">  </i> Accident<br>
+                                        <input type="checkbox" name="category2" value="Category2">
+                                        <i class="fa fa-circle" style="color: #679a63;">  </i> Safe Location<br>
+                                        <input type="checkbox" name="category3" value="Category3">
+                                        <i class="fa fa-circle" style="color: #9a4126;">  </i> Hospital Status<br>
+                                    </form>
+                                </div>
+                                <div id="tab-2" class="tab-content">
+                                    This is the Sets tab.
+                                </div>
+                                <div id="tab-3" class="tab-content">
+                                    <label for="keyword" class="delta-alt">Keyword</label>
+                                    <input type="text" name="keyword" placeholder="keyword">
+
+                                    <div class="filter-start-date">
+                                        <label for="start" class="delta-alt">Start Date</label>
+                                        <input type="text" name="start">
+                                    </div>
+                                    <div class="filter-end-date">
+                                        <label for="end" class="delta-alt">End Date</label>
+                                        <input type="text" name="end">
+                                    </div>
+
+                                    <label for="location" class="delta-alt">Location</label>
+                                    <input type="text" name="location" placeholder="select a location">
+                                    <select>
+                                        <option selected="">within 1 km</option>
+                                        <option>within 10 km</option>
+                                        <option>within 50 km</option>
+                                        <option>within 100 km</option>
+                                        <option>within 500 km</option>
+                                    </select>
+                                    <div class="filter-actions">
+                                        <a href="" class="cta">Clear Fields</a>
+                                        <input class="apply-filter-button button-primary" type="button" name="apply-filter-button" value="Apply" disabled="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!--end view with filter-->
+
+                <div id="map" class="map leaflet-container leaflet-fade-anim" tabindex="0" style="position: relative;"><div class="leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-tile-pane"><div class="leaflet-layer"><div class="leaflet-tile-container"></div><div class="leaflet-tile-container leaflet-zoom-animated"><img class="leaflet-tile leaflet-tile-loaded" src="http://c.tile.openstreetmap.org/5/7/13.png" style="height: 256px; width: 256px; left: 670px; top: 205px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://b.tile.openstreetmap.org/5/6/13.png" style="height: 256px; width: 256px; left: 414px; top: 205px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://a.tile.openstreetmap.org/5/7/14.png" style="height: 256px; width: 256px; left: 670px; top: 461px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://a.tile.openstreetmap.org/5/8/13.png" style="height: 256px; width: 256px; left: 926px; top: 205px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://b.tile.openstreetmap.org/5/7/12.png" style="height: 256px; width: 256px; left: 670px; top: -51px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://a.tile.openstreetmap.org/5/6/12.png" style="height: 256px; width: 256px; left: 414px; top: -51px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://b.tile.openstreetmap.org/5/8/14.png" style="height: 256px; width: 256px; left: 926px; top: 461px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://c.tile.openstreetmap.org/5/8/12.png" style="height: 256px; width: 256px; left: 926px; top: -51px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://c.tile.openstreetmap.org/5/6/14.png" style="height: 256px; width: 256px; left: 414px; top: 461px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://a.tile.openstreetmap.org/5/5/13.png" style="height: 256px; width: 256px; left: 158px; top: 205px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://b.tile.openstreetmap.org/5/9/13.png" style="height: 256px; width: 256px; left: 1182px; top: 205px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://c.tile.openstreetmap.org/5/9/14.png" style="height: 256px; width: 256px; left: 1182px; top: 461px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://b.tile.openstreetmap.org/5/5/14.png" style="height: 256px; width: 256px; left: 158px; top: 461px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://a.tile.openstreetmap.org/5/9/12.png" style="height: 256px; width: 256px; left: 1182px; top: -51px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://c.tile.openstreetmap.org/5/5/12.png" style="height: 256px; width: 256px; left: 158px; top: -51px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://c.tile.openstreetmap.org/5/10/13.png" style="height: 256px; width: 256px; left: 1438px; top: 205px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://c.tile.openstreetmap.org/5/4/13.png" style="height: 256px; width: 256px; left: -98px; top: 205px;"><img class="leaflet-tile leaflet-tile-loaded" src="http://a.tile.openstreetmap.org/5/4/14.png" style="height: 256px; width: 256px; left: -98px; top: 461px;"><img class="leaflet-tile" src="http://b.tile.openstreetmap.org/5/10/12.png" style="height: 256px; width: 256px; left: 1438px; top: -51px;"><img class="leaflet-tile" src="http://b.tile.openstreetmap.org/5/4/12.png" style="height: 256px; width: 256px; left: -98px; top: -51px;"><img class="leaflet-tile" src="http://a.tile.openstreetmap.org/5/10/14.png" style="height: 256px; width: 256px; left: 1438px; top: 461px;"></div></div></div><div class="leaflet-objects-pane"><div class="leaflet-shadow-pane"></div><div class="leaflet-overlay-pane"></div><div class="leaflet-marker-pane"><div class="leaflet-marker-icon custom-map-marker leaflet-zoom-animated leaflet-clickable" tabindex="0" style="transform: translate3d(750px, 250px, 0px); z-index: 250;"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200"><ellipse class="map-marker-shadow" cx="59.7" cy="178.7" rx="46.3" ry="14.6"></ellipse><path class="map-marker-icon" d="M101.9,18.4C90.3,6.8,76.3,1,60,1C43.6,1,29.7,6.8,18.1,18.4C6.4,30,0.6,44,0.6,60.4
+    c0,10.7,2.5,20.4,7.6,29.1l48.4,87.8c0.7,1.2,1.8,1.9,3.3,1.9c1.5,0,2.6-0.6,3.3-1.9l48.4-87.8c5.1-9.1,7.6-18.8,7.6-29.1
+    C119.4,44,113.6,30,101.9,18.4z M59.7,90.3c-16.2,0-29.3-13.1-29.3-29.3c0-16.2,13.1-29.3,29.3-29.3C75.9,31.7,89,44.8,89,61
+    C89,77.2,75.9,90.3,59.7,90.3z"></path></svg></div><div class="leaflet-marker-icon custom-map-marker leaflet-zoom-animated leaflet-clickable" tabindex="0" style="transform: translate3d(1158px, 92px, 0px); z-index: 92;"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200"><ellipse class="map-marker-shadow" cx="59.7" cy="178.7" rx="46.3" ry="14.6"></ellipse><path class="map-marker-icon" d="M101.9,18.4C90.3,6.8,76.3,1,60,1C43.6,1,29.7,6.8,18.1,18.4C6.4,30,0.6,44,0.6,60.4
+    c0,10.7,2.5,20.4,7.6,29.1l48.4,87.8c0.7,1.2,1.8,1.9,3.3,1.9c1.5,0,2.6-0.6,3.3-1.9l48.4-87.8c5.1-9.1,7.6-18.8,7.6-29.1
+    C119.4,44,113.6,30,101.9,18.4z M59.7,90.3c-16.2,0-29.3-13.1-29.3-29.3c0-16.2,13.1-29.3,29.3-29.3C75.9,31.7,89,44.8,89,61
+    C89,77.2,75.9,90.3,59.7,90.3z"></path></svg></div></div><div class="leaflet-popup-pane"></div></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a class="leaflet-control-zoom-in" href="#" title="Zoom in">+</a><a class="leaflet-control-zoom-out" href="#" title="Zoom out">-</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"><a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> | © <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors</div></div></div></div>
+                
+
+            </div> <!--end main column-->
+
+        </div> <!--end layout a-->
+
+    </div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../js/app.js"/></script>
+
+</body>
+
+</html>
