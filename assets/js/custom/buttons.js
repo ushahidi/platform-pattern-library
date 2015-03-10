@@ -1,6 +1,6 @@
 $('.toggle-js').click(function() {
 	$(this).toggleClass('open');
-    $(this).parent().children('.toggle-content').toggleClass('open');
+    $(this).parent().children('.toggle-content').toggleClass('visible');
 });
 
 $('.toggle-content ul li a').click(function() {
