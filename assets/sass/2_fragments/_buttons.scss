@@ -161,6 +161,39 @@ button,
 
 }
 
+.dropdown-group {
+
+    .toggle-content {
+        position: absolute;
+        display: none;
+        min-width: 160px;
+        padding: $base-spacing $base-spacing 0 $base-spacing ;
+        margin: 5px 0 0;
+        background-color: $white;
+        border: $base-border;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
+        z-index: $top;
+
+        .header & {
+            text-shadow: none;
+        }
+
+        li {
+            padding: 0 0 $base-spacing 0;
+        }
+
+        &.visible {
+            display: block;
+        }
+
+    }
+
+}
+
+
+
+
+
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
 \*------------------------------------*/
@@ -168,6 +201,11 @@ button {
 
     &.dropdown, &.add-to-set {
         @include icon (before, chevron-down);
+
+        &.open {
+            @include icon(before, chevron-up);
+        }
+
     }
 
     &.edit {
