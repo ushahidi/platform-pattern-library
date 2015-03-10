@@ -19,6 +19,11 @@ $NAVIGATION
             line-height: 2;
             text-transform: uppercase;
             letter-spacing: .1em;
+            border-left: 3px solid transparent;
+
+            @include media($small) {
+                border-left: 0;
+            }
 
             &:last-child {
                 @include clearfix;
@@ -47,8 +52,11 @@ $NAVIGATION
 
     .active {
         border-left: $yellow 3px solid;
-        padding-left: $sm-spacing;
         line-height: 2;
+
+        a {
+            color: $white;
+        }
 
         &:hover {
             border-left: $border-color 3px solid;
@@ -59,7 +67,6 @@ $NAVIGATION
             float: left;
             border-left: 0px;
             border-bottom: $yellow 3px solid;
-            padding: 0 ($base-spacing+10px) $base-spacing;
 
             &:hover {
                 border-left: 0px;
