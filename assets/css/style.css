@@ -88,7 +88,7 @@ a {
   color: #2274b4;
   text-decoration: none;
   transition: all 0.15s ease-out 0s; }
-  a:hover, a:focus {
+  a:hover {
     cursor: pointer;
     color: #123d5e; }
 
@@ -205,6 +205,9 @@ $LAYOUT
 
 .absolute {
   position: absolute !important; }
+
+.visible {
+  display: block !important; }
 
 /*------------------------------------*\
     $MIXINS
@@ -1205,8 +1208,6 @@ button, [class*="button-"] {
     text-shadow: none; }
   .dropdown-group .toggle-content li {
     padding: 0 0 20px 0; }
-  .dropdown-group .toggle-content.visible {
-    display: block; }
 
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
@@ -2495,6 +2496,32 @@ ul.breadcrumb {
   @media screen and (min-width: 64em)  {
     .navigation .button-create {
       display: none; } }
+  .navigation .hidden-content-trigger:before {
+    content: "\f067";
+    font-family: FontAwesome;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    padding: 0 5px 0 1px;
+    speak: none;
+    transition: content, 0.25s; }
+  .navigation .hidden-content-trigger.open:before {
+    content: "\f068";
+    font-family: FontAwesome;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    padding: 0 5px 0 1px;
+    speak: none;
+    transition: content, 0.25s; }
+  .navigation .hidden-content-trigger.open:focus {
+    color: #123d5e; }
   .navigation button {
     border-top: 1px solid #ebebeb;
     border-bottom: 1px solid #ebebeb; }
@@ -2528,6 +2555,13 @@ ul.breadcrumb {
       text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 1.5px; }
+  .navigation .main-nav .hidden-content {
+    display: none;
+    margin: 10px 0 0 0; }
+    .navigation .main-nav .hidden-content li a {
+      font-weight: normal;
+      text-transform: none;
+      letter-spacing: normal; }
   .navigation .sets-nav li a:before {
     font-family: FontAwesome;
     font-size: 14px;
