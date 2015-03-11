@@ -161,6 +161,19 @@ button,
 
 }
 
+
+.upvote-downvote {
+    
+    button {
+        display: block;
+        padding: 8px 10px;
+
+        &.upvote {
+            margin-bottom: $sm-spacing;
+        }
+
+}
+
 .dropdown-group {
 
     .toggle-content {
@@ -191,15 +204,12 @@ button,
 }
 
 
-
-
-
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
 \*------------------------------------*/
 button {
 
-    &.dropdown, &.add-to-set {
+    &.dropdown, &.add-to-set, &.down, &.downvote {
         @include icon (before, chevron-down);
 
         &.open {
@@ -226,6 +236,10 @@ button {
 
     &.plus {
         @include icon(before, plus);
+    }
+
+    &.up, &.upvote {
+        @include icon(before, chevron-up);
     }
 
 }
