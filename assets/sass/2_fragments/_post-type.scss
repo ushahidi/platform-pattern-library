@@ -3,11 +3,20 @@
     border-width: 2px;
     @include border-top-radius($global-radius);
     @include border-bottom-radius($global-radius);
-    padding: $base-spacing;
     @include transition;
 
     &:hover {
         border-color:$border-color-hover;
+    }
+
+    a{
+        display: block;
+        padding: $sm-spacing;
+
+        @include media($small) {
+            padding: $base-spacing;
+        }
+
     }
 
     p {
@@ -17,4 +26,19 @@
     h3 {
         margin: $tiny-spacing 0;
     }
+
+    &.custom {
+
+        h3 {
+            @include icon(before, plus);
+            
+            &:before {
+                color: $highlight;
+                padding-right: $sm-spacing;
+            }
+
+        }
+        
+    }
+
 }

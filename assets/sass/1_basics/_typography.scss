@@ -98,6 +98,16 @@ ol, ul.bullets {
     @include media($small) {
         font-size: em(18);
         margin-left: 0;
+        
+        &.no-offset {
+            margin-left: $base-spacing;
+            
+            li {
+                margin-bottom: 0;
+            }
+
+        }
+
     }
 
     li {
@@ -121,3 +131,21 @@ blockquote {
 	font-style: italic;
 }
 
+.cta {
+   border-bottom: 1px solid $link-color-lt;
+   font-size: em(14);
+
+    &:hover {
+        border-bottom: 1px solid $link-hover-color;
+    }
+
+    &.hidden-content-trigger {
+        @include icon(before, plus);
+        border-bottom: 0px;
+    }
+
+    &.open {
+        @include icon(before, minus);
+    }
+
+}

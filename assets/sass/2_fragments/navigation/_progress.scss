@@ -10,15 +10,17 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     width: 100%;
+    margin: $sm-spacing 0;
 
     @include media($small) {
         width: auto;
+        margin: $base-spacing 0;
     }
 
     a {
         display: block;
         background: $white;
-        padding: $base-spacing;
+        padding: $sm-spacing;
         position: relative;
 
         &:hover {
@@ -51,14 +53,21 @@
         }
 
         @include media($small) {
-            padding: 23px 30px;
+            padding: $base-spacing;
             float: left;
-            margin-right: 31px;
-            height: 60px;
+            
 
             &:hover {
                 background: $white;
             }
+
+        } //end of small mq
+
+        @include media(1190px) {
+            padding: 19px 10px 19px 25px;
+            float: left;
+            margin-right: 26px;
+            height: 50px;
 
             &:before {
                 content: "";
@@ -67,8 +76,8 @@
                 height: 0;
                 position: absolute;
                 top: 0;
-                left: -30px;
-                border: 30px solid transparent;
+                left: -25px;
+                border: 25px solid transparent;
                 border-color: $white;
                 border-left-color: transparent;
             }
@@ -80,13 +89,13 @@
                 height: 0;
                 position: absolute;
                 top: 0;
-                right: -60px;
-                border: 30px solid transparent;
+                right: -50px;
+                border: 25px solid transparent;
                 border-left-color: $white;
             }
 
             &:first-of-type {
-                padding-left: 40px;
+                padding-left: 30px;
 
                 &:before {
                     display: none;
@@ -96,7 +105,7 @@
 
             &:last-of-type {
                 margin-right: 0px;
-                padding-right: 40px;
+                padding-right: 30px;
 
                 &:after {
                     border: none;
@@ -104,7 +113,7 @@
 
             }
 
-        } //end of media query
+        } //end of medium mq
 
         span {
 

@@ -24,6 +24,14 @@ $LAYOUT
     display: none !important;
 }
 
+.hidden-content {
+    display: none;
+}
+
+.clearfix {
+    clear: both;
+}
+
 .fade-out {
     opacity: 0 !important;
 }
@@ -32,11 +40,29 @@ $LAYOUT
     opacity: 1 !important;
 }
 
-.fixed-bottom {
+.has-fixed-bottom { //this goes on the body when something gets fixed to the bottom
     padding-bottom: 52px;
 
     @include media($small) {
         padding-bottom: 0;
+    }
+
+}
+
+.fixed-bottom {
+    width: 100%;
+    border-top: $base-border;
+    background: $white;
+    position: fixed;
+    bottom: 0;
+    padding: $sm-spacing;
+    
+    @include media($small) {
+        width: auto;
+        border-top: 0px;
+        background: transparent;
+        position: relative;
+        padding: 0;
     }
 
 }
@@ -51,4 +77,18 @@ $LAYOUT
 
 .visible {
     display: block !important;
+}
+
+.zebra-list { //this is a helper class for lists of gray & white (most list pages)
+    background: $white;
+    border-top: $base-border;
+
+    &:nth-child(odd) {
+        background: $lt-gray-bg;
+    }
+
+    &:last-of-type {
+        border-bottom: $base-border;
+    }
+
 }

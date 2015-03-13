@@ -1,0 +1,85 @@
+.post-type-field {
+    @extend .zebra-list;
+    overflow: auto;
+    padding: $base-spacing 90px $base-spacing $sm-spacing;
+    position: relative;
+
+    @include media($large) {
+        padding: $base-spacing 140px $base-spacing $base-spacing; //this has lots of padding so the buttons don't sit on top of the label if it gets long
+    }
+
+    .upvote-downvote, .plus {
+        float: left;
+        margin-right: $base-spacing;
+    }
+
+    .plus {
+        margin: ($base-spacing - 4px) $base-spacing $base-spacing 0;
+    }
+
+    .actions {
+        position: absolute;
+        right: $sm-spacing;
+        top: $base-spacing;
+
+        button {
+            margin-bottom: $sm-spacing;
+            display: block;
+            text-align: right;
+
+            &.open {
+                @include icon(before, close);
+            }
+        
+        }
+
+        @include media($large) {
+            top: $lg-spacing;
+            right: $base-spacing;
+                       
+            button {
+                display: inline-block;
+                margin-left: $sm-spacing;
+            }
+
+        }
+
+    }
+
+    .form {
+        padding: 0 0 $base-spacing 64px;
+
+        .select {
+            @include media($mobile) {
+                float: left;
+                margin: -$base-spacing $base-spacing $base-spacing 0;
+            }
+        }
+
+        .button-primary {
+            margin-top: $base-spacing;
+        }
+
+    }
+
+    .beta {
+
+        @include media($small) {
+            font-size: em(24); //overrides beta's global size increase
+        }
+
+    }
+
+}
+
+.fixed-bottom {
+    .button-primary {
+        float: right;
+        margin: 0 $sm-spacing;
+
+        @include media($small) {
+            float: none;
+            margin: 0;
+        }
+    }
+}
