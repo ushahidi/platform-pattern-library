@@ -8,10 +8,6 @@ $('.nav-icon-js').click(function(){
 	findParent.find('.page-content').toggleClass('slide');
 });
 
-$('.button-toggle').click(function() {
-	$(this).toggleClass('open');
-});
-
 $(function() {
     //caches a jQuery object containing the header element
     var header = $('.has-dynamic-header .header');

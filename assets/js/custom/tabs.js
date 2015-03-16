@@ -7,7 +7,6 @@ $('.tabs-menu ul li').click(function() {
 // Tabs Mobile
 // Toggle arrow icon and open views container
 $('.tabs-menu-button-js').click(function() {
-    $(this).toggleClass('open');
 
     if ( $('.filters-container').hasClass('open') ) {
         $('.filter-button-js').toggleClass('open');
