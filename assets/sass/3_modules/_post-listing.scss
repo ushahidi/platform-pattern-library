@@ -1,6 +1,10 @@
 .single-post-listing {
     @extend .zebra-list;
     overflow: auto;
+    position: relative;
+    border-top: $base-border;
+    border-left: $base-border;
+    border-right: $base-border;
 
     .post-summary {
         padding: $sm-spacing $sm-spacing 0 0;
@@ -22,15 +26,12 @@
             padding: $base-spacing;
         }
 
+    @include media($large) {
+        overflow: auto;
     }
 
     .post-summary, .stage-and-actions {
-        margin-left: 20px;
         overflow: auto;
-
-        @include media($small) {
-            margin-left: 35px;
-        }
 
         @include media($large) {
             margin-left: 0;
@@ -40,16 +41,18 @@
 
     .post-summary {
         @include border-box;
-        padding-bottom: $sm-spacing;
+        padding: $base-spacing 0;
 
         @include media($small) {
+            padding: $sm-spacing $base-spacing;
             border-left: $base-border;
         }
 
         @include media($large) {
            width: 75%;
            float: left;
-           border-right: $base-border;
+           /* border-right: 0; */
+           /* border-left: 0; */
         }
 
     }
@@ -59,17 +62,8 @@
 .select-post {
     float: left;
     margin: 0;
-    padding-top: $sm-spacing;
+    padding: 5px;
     @include border-box;
-
-    @include media($small) {
-        width: 3%;
-        padding: $base-spacing $sm-spacing 0;
-    }
-
-    @include media($large) {
-
-    }
 
     input {
         margin: 0;
@@ -84,18 +78,14 @@
        width: 22%;
        float: left;
        border-top: 0px;
+       border-left: $base-border;
     }
 
     .stage {
         width: 50%;
         float: left;
-        padding: $sm-spacing 0;
+        padding: $base-spacing;
         border-right: $base-border;
-
-        @include media($small) {
-            border-left: $base-border;
-            padding-left: $base-spacing;
-        }
 
         @include media($large) {
             width: 100%;
@@ -115,19 +105,84 @@
     .actions {
         width: 50%;
         float: right;
-        padding: ($sm-spacing+7px) 0 $sm-spacing $sm-spacing;
+        padding: $base-spacing;
 
         @include media($large) {
             width: 100%;
             clear: both;
-            padding: $base-spacing;
+            padding: 0;
         }
 
-        .button-secondary.choose-options {
-            @include icon (before, chevron-down) {
-                color: $dk-gray;
+        .button-hide {
+            display: block;
+            position: relative;
+            top: 50%;
+            transform: translateY(25%);
+
+            @include media($large) {
+                display: none;
             }
 
+        }
+
+    }
+
+    .toggle-content {
+        display: none;
+        float: left;
+        width: 100%;
+        box-shadow: none;
+        padding: $sm-spacing;
+        border-top: $base-border;
+
+        @include media($large) {
+            display: block;
+            padding: $sm-spacing    ;
+            border: none;
+
+        }
+
+        li {
+            float: left;
+            padding: 0 $sm-spacing $sm-spacing 0;
+
+            @include media($large) {
+                float: none;
+                padding-right: 0;
+            }
+
+            &:last-child {
+                padding: 0;
+            }
+
+        }
+
+        .button-secondary.dropdown {
+
+            &.open {
+                border-bottom: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
+        }
+
+    }
+
+    .toggle-content-secondary {
+        display: none;
+        position: absolute;
+        background-color: $white;
+        margin: 0;
+        width: auto;
+        min-width: 150px;
+        max-height: 150px;
+        overflow: auto;
+        border: $base-border;
+        z-index: $offcanvas;
+
+        li {
+            float: none;
         }
 
     }
