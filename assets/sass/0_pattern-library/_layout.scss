@@ -18,6 +18,12 @@ $LAYOUT
 
 }
 
+.pl-divider {
+    height: 1px;
+    width: 100%;
+    background: $lt-gray;
+}
+
 .pl-pattern-description {
     text-align: center;
     margin-bottom: $base-spacing;
@@ -31,20 +37,30 @@ $LAYOUT
         @include span-columns(6);
         @include shift(3);
     }
+    .pl-divider {
+        clear: both;
+        margin: $base-spacing auto;
+        width: $base-spacing;
+        height: 3px;
+        border: 0;
+        background: $highlight;
+    }
+
 }
 
-.pl-divider {
-    clear: both;
-    margin: $base-spacing auto;
-    width: $base-spacing;
-    height: 3px;
-    border: 0;
-    background: $highlight;
-}
+
 
 .pl-sub-pattern {
     margin: $lg-spacing 0;
     clear: both;
+
+    .note {
+        background: $lt-gray-bg;
+        color: $dark-text-color;
+        padding: $tiny-spacing $sm-spacing;
+        margin: $tiny-spacing;
+        font-size: em(12);
+    }
 
     .pl-sub-pattern-markup {
         border-top: $base-border;
@@ -102,7 +118,9 @@ $LAYOUT
 			.pl-sub-pattern-sample-toggle-target {
 				display: block;
 			}
+
 		}
+
     }
 
     pre[class*="language-"] {
