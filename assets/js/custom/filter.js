@@ -1,6 +1,6 @@
 // Toggle arrow icon and open filter container
 $('.filter-button-js').click(function() {
-    $(this).toggleClass('open');
+    $(this).toggleClass('opentest');
 
     if ( $('.tabs-menu-list').hasClass('open') ) {
         $('.tabs-menu-button-js').toggleClass('open');
