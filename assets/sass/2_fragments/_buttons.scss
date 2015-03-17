@@ -16,7 +16,7 @@ button,
     font-weight: $bold;
     @include border-top-radius($global-radius);
     @include border-bottom-radius($global-radius);
-    @include transition;
+    @include transition(0.3s);
     font-size: em(16);
 
     @include media($small) {
@@ -60,7 +60,6 @@ button,
     }
 
 }
-
 
 .button-create {
     background-color: $button-bg-create-post;
@@ -146,6 +145,7 @@ button,
 
 .button-toggle {
     @extend .button-secondary;
+    @include transition(0.3s);
     position: relative;
     z-index: $bottom + 2;
 
@@ -186,21 +186,32 @@ button,
         position: absolute;
         display: none;
         min-width: 160px;
-        padding: $base-spacing $base-spacing 0 $base-spacing ;
-        margin: 5px 0 0;
+        margin-top: -1px;
         background-color: $white;
         border: $base-border;
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.176);
         z-index: $topbar;
+        padding: $sm-spacing 0;
 
         .header & {
             text-shadow: none;
         }
 
         li {
-            padding: 0 0 $base-spacing 0;
+            
+            a {
+                display: block;
+                padding: $sm-spacing $base-spacing;
+            }
+
+            &:hover {
+                background: $lt-gray;
+            }
         }
 
+    }
+
+    .dropdown.open {
+        @include border-bottom-radius(0);
     }
 
 }
@@ -214,8 +225,8 @@ button {
     &.dropdown, &.add-to-set, &.down, &.downvote {
         @include icon (before, chevron-down);
 
-        &.open {
-            @include icon(before, chevron-up);
+        &.open:before {
+            @include transform(rotate(-180deg));
         }
 
     }
