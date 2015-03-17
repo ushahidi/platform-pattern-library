@@ -3,38 +3,48 @@ $COLORS
 \*------------------------------------*/
 
 li.pl-color {
-    padding-top: 70px;
     margin-bottom: $sm-spacing;
     text-align: center;
+    @include border-top-radius($global-radius);
+    @include border-bottom-radius($global-radius);
+    @include span-columns(6);
+    @include omega(2n);
 
     @include media($small) {
-        @include span-columns(6);
-        @include omega(2n);
-        padding: 0;
-        text-align: left;
-    }
-
-    @include media($medium) {
         @include omega-reset(2n);
         @include span-columns(4);
         @include omega(3n);
     }
 
+    @include media($medium) {
+        @include omega-reset(3n);
+        @include span-columns(2);
+        @include omega(6n);
+        margin-bottom: $base-spacing;
+    }
 
 }
 
 .pl-color-info {
-    background-color: $white;
-    border: $base-border;
     padding: $base-spacing;
+    color: $white;
 
-    @include media($small) {
-        width: 60%;
+    &.dark-text {
+        color: $black;
     }
+
+    p {
+        margin: 0;
+    }
+
 }
 
 .pl-black {
     background-color: $black;
+}
+
+.pl-lt-black {
+    background-color: $lt-black;
 }
 
 .pl-blue {
@@ -43,6 +53,14 @@ li.pl-color {
 
 .pl-yellow {
     background-color: $yellow;
+}
+
+.pl-red {
+    background-color: $red;
+}
+
+.pl-green {
+    background-color: $green;
 }
 
 .pl-lt-gray {
