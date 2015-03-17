@@ -48,8 +48,6 @@ $LAYOUT
 
 }
 
-
-
 .pl-sub-pattern {
     margin: $lg-spacing 0;
     clear: both;
@@ -63,12 +61,10 @@ $LAYOUT
     }
 
     .pl-sub-pattern-markup {
-        border-top: $base-border;
         padding-top: $sm-spacing;
     }
 
     .pl-sub-pattern-sample {
-        margin-bottom: $sm-spacing;
         position: relative;
 
     	.pl-sub-pattern-sample-toggle-controls {
@@ -76,19 +72,23 @@ $LAYOUT
             font-size: em(13);
             text-transform: uppercase;
             letter-spacing: 1px;
-            border: $base-border;
-            @include border-top-radius($global-radius);
-            padding: $tiny-spacing;
-            height: 24px;
             display: inline-block;
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
+            border-bottom: $base-border;
+            width: 100%;
+            position: relative;
+            top: 0;
 
-            @include media($mobile) {
+            span {
+                border: $base-border;
+                border-bottom: 0px;
+                @include border-top-radius($global-radius);
+                padding: $tiny-spacing;
                 position: absolute;
+                bottom: 0;
                 right: 0;
-                top: -24px;
             }
 
 			&:hover {
@@ -104,13 +104,11 @@ $LAYOUT
 
     	.pl-sub-pattern-sample-toggle-target {
     		display: none;
-			margin-top: $sm-spacing;
 		}
 
 		&.visible {
 
 			.pl-sub-pattern-sample-toggle-controls {
-
 				.show {display: none;}
 				.hide {display: inline;}
 			}
