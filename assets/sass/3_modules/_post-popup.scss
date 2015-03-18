@@ -1,37 +1,84 @@
 .post-popup {
+    float: left;
     padding: $base-spacing;
     @include border-top-radius($global-radius);
     @include border-bottom-radius($global-radius);
     @include box-shadow($top: 0px, $left: 0, $blur: 7px, $spread: 2px, $color: rgba(0,0,0,.1), $inset: false);
-    max-width: 400px;
+    max-width: 250px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    background: $white;
 
-    .actions {
-        border-top: $base-border;
-        padding-top: $base-spacing;
-        margin-top: $base-spacing;
+    @include media($small) {
+        max-width: 400px;
+    }
 
-        button {
-            margin-right: $tiny-spacing;
-            font-size: em(15);
+    p {
+        display: none;
+
+        @include media($small) {
+            display: block;
         }
 
     }
 
-    &:after {
-         content: ' ';
-         //border: 25px solid transparent; /* arrow size */
-         //border-top-color: $white;  /* arrow color */
-         border: 15px solid black;
-         border-color: transparent transparent $white $white;
-         position: absolute;
-         bottom: -30px;
-         left: 50%;
-         margin-left: -15px;
-         transform-origin: 0 0;
-        transform: rotate(-45deg);
-        @include box-shadow($top: 3px, $left: -3px, $blur: 5px, $spread: 0px, $color: rgba(0,0,0,.08), $inset: false);
+    .actions-inline {
+        padding: $base-spacing 0 0;
+
+        @include media($small) {
+            border-top: $base-border;
+            padding: 0;
+        }
+
+    }
+
+    .button-hide {
+
+        @include media($small) {
+            display: none;
+        }
+
+    }
+
+    .actions-inline {
+
+        + .toggle-content {
+            padding: $base-spacing 0 0;
+
+            @include media($small) {
+                display: block;
+                border: none;
+            }
+
+            li {
+                float: none;
+
+                @include media($small) {
+                    float: left;
+                }
+
+                a {
+                    color: $black;
+                }
+
+            }
+
+        }
+
+        + .toggle-content .toggle-content-secondary {
+
+            li {
+                float: none;
+
+                a {
+                    color: $link-color;
+                    text-shadow: none;
+                }
+
+            }
+
+        }
+
     }
 
     &.has-image {
