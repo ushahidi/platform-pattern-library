@@ -5,22 +5,26 @@
     text-shadow: 0px 1px 1px $black;
 
     .container {
-        float: left;
+        position: relative;
+        overflow: hidden;
         width: 100%;
         max-width: none;
-        position: relative;
+        z-index: $topbar;
     }
 
-    &.overlay:after {
-        content: " ";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: block;
-        z-index: $overlay;
-        background-color: $dark-overlay;
+    &.overlay {
+
+        > .container:after {
+            content: " ";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            z-index: $overlay;
+            background-color: $dark-overlay;
+        }
     }
 
     img {
@@ -33,6 +37,7 @@
         z-index: $bg-img;
     }
 
+/*
     .nav-icon,
     .beta,
     .header-description,
@@ -40,67 +45,20 @@
     button.user-admin {
         z-index: $body;
     }
+*/
 
     .nav-icon {
-        position: relative;
         float: left;
-        width: 31px;
-        height: 34px;
         margin: $base-spacing $sm-spacing 15px 15px;
-        @include rotate(0deg);
-        @include transition(all, .4s);
-        cursor: pointer;
 
         @include media($medium) {
             display: none;
         }
 
-        span {
-            display: block;
-            position: absolute;
-            height: 4px;
-            width: 100%;
-            background: $highlight;
-            opacity: 1;
-            left: 0;
-            @include rotate(0deg);
-            @include transition(all, .25s)
-        }
-
-        span:nth-child(1) {
-            top: 0px;
-            @include transform-origin(left center);
-        }
-
-        span:nth-child(2) {
-            top: 10px;
-            @include transform-origin(left center);
-        }
-
-        span:nth-child(3) {
-            top: 20px;
-            @include transform-origin(left center);
-        }
-
-        &.open span:nth-child(1) {
-            @include rotate(45deg);
-            top: 0px;
-        }
-
-        &.open span:nth-child(2) {
-            width: 0%;
-            opacity: 0;
-        }
-
-        &.open span:nth-child(3) {
-            @include rotate(-45deg);
-            top:22px;
-        }
-
     }
 
     .beta {
-        position: relative;
+        display: inline-block;
         margin: $base-spacing 0 $sm-spacing;
         font-weight: $bold;
 
@@ -116,17 +74,47 @@
     }
 
     .header-description {
-        position: relative;
+        display: none;
         text-align: center;
     }
 
-    .button-create {
-        position: relative;
+   .button-create {
         display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
         color: $white;
         font-weight: $bold;
+        font-size: em(12);
         border: none;
-        margin: auto;
+        padding: 8px 10px 7px 10px;
+        margin: 18px;
+
+        @include media($medium) {
+            padding: 8px 10px 10px 10px;
+            margin: 18px 150px 0 0;
+        }
+
+        i {
+            padding: 0 5px;
+            bottom: 0;
+
+            @include media($small) {
+                padding: 0 10px 0 0;
+                bottom: -2px;
+            }
+
+        }
+
+        span {
+            display: none;
+
+            @include media($small) {
+                display: inline-block;
+            }
+
+        }
+
     }
 
     .button-toggle:hover {
@@ -135,28 +123,34 @@
     }
 
     button.user-admin {
+        display: none;
 
         &:before {
             content: none;
         }
     }
 
+    .parallax {
+        position: relative;
+        z-index: $body;
+        bottom: 0;
+        padding-top: 1px;
+        @include outer-container;
+    }
+
     &.header-full {
-        overflow: hidden;
-        position: fixed;
-        top: 0;
-        left: 0;
         width: 100%;
-        height: 293px;
-        overflow: hidden;
-        @include transition(height, .4s);
         z-index: $topbar;
 
+        .container {
+
+        }
+
         .beta {
+            display: block;
             font-size: 2em;
             text-align: center;
             margin-top: 50px;
-            @include transition(all, .4s);
 
             @include media($small) {
                 font-size: 3em;
@@ -164,12 +158,19 @@
         }
 
         .header-description {
+            display: block;
             margin-bottom: $base-spacing;
         }
 
         .button-create {
+            position: static;
+            margin: auto;
             margin-bottom: $base-spacing;
             padding: 14px 25px 18px $base-spacing;
+
+            span {
+                display: inline;
+            }
 
             @include media($medium) {
                 margin-bottom: $base-spacing + 30;
@@ -180,7 +181,9 @@
             }
         }
 
+
         button.user-admin {
+            display: block;
             margin: 18px auto 50px auto;
 
             @include media($medium) {
@@ -191,60 +194,30 @@
 
     }
 
-    &.header-compact {
-        overflow: hidden;
-        height: 67px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        overflow: hidden;
-        @include transition(height, .4s);
-        z-index: $topbar;
+    &.header-transition {
 
-        .beta {
-            display: inline-block;
-            @include transition(all, .4s);
+        .container {
+            position: fixed;
+            top: -150px;
+            @include transition(all, .5s);
         }
 
-        .header-description {
-            display: none;
+        .parallax {
+            opacity: 1 !important;
+            bottom: 0 !important;
+        }
+    }
+
+    &.header-compact {
+
+        .container {
+            position: fixed;
+            top: 0;
+            @include transition(all, .5s);
         }
 
         .button-create {
-            position: absolute;
-            top: 0;
-            right: 0;
-            padding: 8px 10px 7px 10px;
-            margin: 18px;
-            opacity: 1;
-            font-size: em(12);
-
-            @include media($medium) {
-                padding: 8px 10px 10px 10px;
-                margin: 18px 150px 0 0;
-            }
-
-            i {
-                padding: 0 5px;
-                bottom: 0;
-
-                @include media($small) {
-                    padding: 0 10px 0 0;
-                    bottom: -2px;
-                }
-
-            }
-
-            span {
-                display: none;
-
-                @include media($small) {
-                    display: inline-block;
-                }
-
-            }
-
+            opacity: 1 !important;
         }
 
         button.user-admin {
@@ -254,6 +227,11 @@
                 display: inline-block;
             }
 
+        }
+
+        .parallax {
+            opacity: 1 !important;
+            bottom: 0 !important;
         }
 
     }
