@@ -1,7 +1,12 @@
 .post-detail {
 	
     .main-col {
-        margin-top: $lg-spacing;
+        padding-top: $lg-spacing;
+        border-top: $base-border;
+
+        @include media($small) {
+            border-top: 0px;
+        }
 
         p {
             line-height: 1.5;
@@ -23,19 +28,70 @@
 
     aside.is-right {
     
-        .published-to, .user-credit-has-label, .actions {
-            border-bottom: $base-border;
-            padding: $base-spacing 0;
+        .user-credit-has-label {
+            padding: $sm-spacing 0;
+            width: 60%;
+            border-right: $base-border;
+            float: left;
 
-            button {
-                display: block;
-                margin-bottom: $sm-spacing;
+            @include media($small) {
+                padding: $sm-spacing 0 $base-spacing;
+                width: 100%;
+                float: none;
+                border-right: 0px;
+                border-bottom: $base-border;
             }
 
         }
 
-        .actions {
-            border-bottom: 0px;
+        .actions-stacked {
+            float: right;
+            padding: $base-spacing 0 0;
+            margin: 0;
+
+            @include media($small) {
+                float: none;
+            }
+
+        }
+
+        .toggle-content {
+            border-top: $base-border;
+            width: 100%;
+            padding-top: $base-spacing;
+
+            @include media($small) {
+                border-top: 0px;
+            }
+        }
+
+        .toggle-content-secondary {
+            width: auto;
+        }
+
+        .published-to {
+
+            @include media($small) {
+                border-bottom: $base-border;
+                padding-bottom: $base-spacing;
+            }
+
+            
+            h4 {
+                float: left;
+                margin: $sm-spacing $sm-spacing 0 0;
+
+                @include media($small) {
+                    float: none;
+                    margin: $base-spacing 0 $sm-spacing;
+                }
+
+            }
+
+            button {
+                margin-bottom: 0;
+            }
+
         }
 
     }
