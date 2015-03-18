@@ -1,13 +1,14 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
-       box-sizing: border-box; }
+  box-sizing: border-box; }
 
-*, *::after, *::before {
+*, *:before, *:after {
   -moz-box-sizing: inherit;
-       box-sizing: inherit; }
+  box-sizing: inherit; }
 
 /*------------------------------------*\
     $CONFIG
@@ -1929,7 +1930,7 @@ ul.breadcrumb {
           width: 100%; } }
     .filters .filters-container.open {
       display: block; }
-    .filters .filters-container input[type="color"], .filters .filters-container input[type="date"], .filters .filters-container input[type="datetime"], .filters .filters-container input[type="datetime-local"], .filters .filters-container input[type="email"], .filters .filters-container input[type="month"], .filters .filters-container input[type="number"], .filters .filters-container input[type="password"], .filters .filters-container input[type="search"], .filters .filters-container input[type="tel"], .filters .filters-container input[type="text"], .filters .filters-container input[type="time"], .filters .filters-container input[type="url"], .filters .filters-container input[type="week"], .filters .filters-container textarea {
+    .filters .filters-container input[type="email"], .filters .filters-container input[type="number"], .filters .filters-container input[type="password"], .filters .filters-container input[type="search"], .filters .filters-container input[type="tel"], .filters .filters-container input[type="text"], .filters .filters-container input[type="url"], .filters .filters-container input[type="color"], .filters .filters-container input[type="date"], .filters .filters-container input[type="datetime"], .filters .filters-container input[type="datetime-local"], .filters .filters-container input[type="month"], .filters .filters-container input[type="time"], .filters .filters-container input[type="week"] {
       width: 100%; }
     .filters .filters-container .filter-start-date {
       float: left;
@@ -3146,7 +3147,11 @@ ul.breadcrumb {
  }
 
 .post-detail .main-col {
-  margin-top: 40px; }
+  padding-top: 40px;
+  border-top: 1px solid #ebebeb; }
+  @media screen and (min-width: 48em)  {
+    .post-detail .main-col {
+      border-top: 0px; } }
   .post-detail .main-col p, .post-detail .main-col blockquote {
     line-height: 1.5; }
   .post-detail .main-col h1 {
@@ -3154,12 +3159,45 @@ ul.breadcrumb {
 @media screen and (min-width: 80em)  {
   .post-detail .page-content .main-col {
     padding-right: 120px; } }
-.post-detail aside.is-right .published-to, .post-detail aside.is-right .user-credit-has-label, .post-detail aside.is-right .actions {
-  border-bottom: 1px solid #ebebeb;
-  padding: 20px 0; }
-  .post-detail aside.is-right .published-to button, .post-detail aside.is-right .user-credit-has-label button, .post-detail aside.is-right .actions button {
-    display: block;
-    margin-bottom: 10px; }
-.post-detail aside.is-right .actions {
-  border-bottom: 0px; }
+.post-detail aside.is-right .user-credit-has-label {
+  padding: 10px 0;
+  width: 60%;
+  border-right: 1px solid #ebebeb;
+  float: left; }
+  @media screen and (min-width: 48em)  {
+    .post-detail aside.is-right .user-credit-has-label {
+      padding: 10px 0 20px;
+      width: 100%;
+      float: none;
+      border-right: 0px;
+      border-bottom: 1px solid #ebebeb; } }
+.post-detail aside.is-right .actions-stacked {
+  float: right;
+  padding: 20px 0 0;
+  margin: 0; }
+  @media screen and (min-width: 48em)  {
+    .post-detail aside.is-right .actions-stacked {
+      float: none; } }
+.post-detail aside.is-right .toggle-content {
+  border-top: 1px solid #ebebeb;
+  width: 100%;
+  padding-top: 20px; }
+  @media screen and (min-width: 48em)  {
+    .post-detail aside.is-right .toggle-content {
+      border-top: 0px; } }
+.post-detail aside.is-right .toggle-content-secondary {
+  width: auto; }
+@media screen and (min-width: 48em)  {
+  .post-detail aside.is-right .published-to {
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 20px; } }
+.post-detail aside.is-right .published-to h4 {
+  float: left;
+  margin: 10px 10px 0 0; }
+  @media screen and (min-width: 48em)  {
+    .post-detail aside.is-right .published-to h4 {
+      float: none;
+      margin: 20px 0 10px; } }
+.post-detail aside.is-right .published-to button {
+  margin-bottom: 0; }
 /* @generated */
