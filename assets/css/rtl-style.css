@@ -206,6 +206,8 @@ $LAYOUT
   background: #ffffff;
   position: fixed;
   bottom: 0;
+  left: 0;
+  right: 0;
   padding: 10px; }
   @media screen and (min-width: 48em)  {
     .fixed-bottom {
@@ -214,6 +216,8 @@ $LAYOUT
       background: transparent;
       position: relative;
       padding: 0; } }
+  .fixed-bottom button.button-primary {
+    margin: 0; }
 
 .absolute {
   position: absolute !important; }
@@ -1894,7 +1898,6 @@ ul.breadcrumb {
     margin-right: 0;
     padding: 10px 0 10px 10px;
     text-align: left;
-    border-top: 1px solid #ebebeb;
     /* max-width: 300px; */ }
     @media screen and (min-width: 48em)  {
       .filters .filters-count {
@@ -2194,8 +2197,7 @@ ul.breadcrumb {
     float: left;
     margin-right: 0;
     padding: 10px 0;
-    border-right: 1px solid #ebebeb;
-    border-top: 1px solid #ebebeb; }
+    border-right: 1px solid #ebebeb; }
     @media screen and (min-width: 48em)  {
       .tabs-with-filter .tabs:not(.tabs-full-width) {
         border: 0;
@@ -2488,8 +2490,6 @@ ul.breadcrumb {
 
 .stage-list {
   padding: 0 20px 20px;
-  margin-bottom: 20px;
-  border-bottom: 1px solid #ebebeb;
   margin-left: -20px; }
   .stage-list li {
     margin-bottom: 10px; }
@@ -3048,22 +3048,7 @@ ul.breadcrumb {
   margin-left: auto;
   margin-right: auto;
   padding: 0 10px;
-  position: relative;
-  left: 0;
-  height: 100%;
-  opacity: 1;
-  transition: all, 0.25s;
-  /*
-    &.slide {
-        left: 300px;
-        opacity: .5;
-
-        @include media($medium) {
-            left: 0;
-            opacity: 1;
-        }
-    }
-*/ }
+  margin-top: 10px; }
   .page-content:after {
     content: ".";
     display: block;
@@ -3078,28 +3063,26 @@ ul.breadcrumb {
       padding: 0 20px; } }
   @media screen and (min-width: 64em)  {
     .page-content {
-      position: relative;
       float: right;
-      width: 77%;
-      padding: 0;
-      margin-right: 20px; } }
-  @media screen and (min-width: 80em)  {
-    .page-content {
-      margin-right: 30px; } }
+      width: 80%;
+      padding: 0 20px 0 0;
+      margin-top: 20px; } }
   .page-content .main-col {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 100%;
-    padding-top: 20px; }
+    border-top: 1px solid #ebebeb; }
     .page-content .main-col:last-child {
       margin-right: 0; }
+    @media screen and (min-width: 48em)  {
+      .page-content .main-col {
+        border-top: 0px; } }
   .page-content.has-aside aside {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 100%;
-    margin-top: 20px; }
+    width: 100%; }
     .page-content.has-aside aside:last-child {
       margin-right: 0; }
   @media screen and (min-width: 48em)  {
@@ -3118,6 +3101,7 @@ ul.breadcrumb {
       display: block;
       margin-right: 2.35765%;
       width: 23.23176%;
+      margin-right: 0;
       border-left: 1px solid #ebebeb;
       padding: 20px 0 40px 20px; }
       .page-content.has-aside aside:last-child {
@@ -3159,20 +3143,6 @@ ul.breadcrumb {
       .page-content.has-aside aside:last-child {
         margin-right: 0; }
  }
-
-.main-col {
-  border-top: 1px solid #ebebeb; }
-  @media screen and (min-width: 48em)  {
-    .main-col {
-      border-top: 0px; } }
-  .main-col p, .main-col blockquote {
-    line-height: 1.5; }
-  .main-col h1 {
-    margin: 20px 0 10px; }
-
-@media screen and (min-width: 80em)  {
-  .page-content .main-col {
-    padding-right: 120px; } }
 
 aside.is-right .user-credit-has-label {
   padding: 10px 0;
@@ -3217,4 +3187,17 @@ aside.is-right .published-to {
         margin: 20px 0 10px; } }
   aside.is-right .published-to button {
     margin-bottom: 0; }
+@media screen and (min-width: 48em)  {
+  aside.is-right .save-buttons {
+    border-top: 1px solid #ebebeb;
+    padding-top: 40px; } }
+
+.post-detail p, .post-detail blockquote {
+  line-height: 1.5; }
+@media screen and (min-width: 80em)  {
+  .post-detail .page-content .main-col {
+    padding-right: 40px; } }
+@media screen and (min-width: 80em)  {
+  .post-detail .page-content .main-col {
+    padding-right: 200px; } }
 /* @generated */

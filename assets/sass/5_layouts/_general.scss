@@ -1,50 +1,33 @@
 .page-content {
     @include outer-container;
     padding: 0 $sm-spacing;
-    position: relative;
-    left: 0;
-    height: 100%;
-    opacity: 1;
-    @include transition(all, .25s);
+    margin-top: $sm-spacing;
 
     @include media($small) {
         padding: 0 $base-spacing;
     }
 
     @include media($medium) {
-        position: relative;
         float: right;
-        width: 77%;
-        padding: 0;
-        margin-right: $base-spacing;
+        width: 80%;
+        padding: 0 $base-spacing 0 0;
+        margin-top: $base-spacing;
     }
-
-    @include media($large) {
-        margin-right: 30px;
-    }
-
-/*
-    &.slide {
-        left: 300px;
-        opacity: .5;
-
-        @include media($medium) {
-            left: 0;
-            opacity: 1;
-        }
-    }
-*/
 
     .main-col {
         @include span-columns(12);
-        padding-top: $base-spacing;
+        border-top: $base-border;
+
+        @include media($small) {
+            border-top: 0px;
+        }
+
     }
 
     &.has-aside {
 
         aside {
             @include span-columns(12);
-            margin-top: $base-spacing;
         }
 
         @include media($small) {
@@ -53,10 +36,11 @@
                 padding-right: $lg-spacing;
                 margin-top: $base-spacing;
                 @include span-columns(9);
-            }
+            }        
 
             aside {
                 @include span-columns(3);
+                @include omega();
                 border-left: $base-border;
                 padding: $base-spacing 0 $lg-spacing $base-spacing;
 
