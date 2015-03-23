@@ -1,8 +1,21 @@
+popupActions = function() {
+    $('.post-popup .toggle-js').click(function() {
+        $(this).toggleClass('open');
+        $(this).parent().siblings('.toggle-content').toggleClass('visible');
+        $(this).parent().find('.toggle-content').toggleClass('visible');
+    });
+
+    $('.toggle-content-secondary ul li a').click(function() {
+        $(this).closest('.toggle-content').removeClass('visible');
+        $(this).parents('ul, li, .toggle-content').siblings('.toggle-js').removeClass('open');
+    });
+};
+
 if ($('#map').length) {
+
     if ( $('.post-popup').hasClass('has-image') ) {
         $('.post-popup').parents('.leaflet-popup-content-wrapper').siblings('.leaflet-popup-tip-container').children('.leaflet-popup-tip').addClass('black-arrow');
     }
-
 
     var map = L.map('map', {
         center: [30.267153, -97.743061],
@@ -25,37 +38,75 @@ if ($('#map').length) {
         <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
         </p>
-        <div class="actions">
-            <button type="button" class="button-secondary edit">
-                Edit
+        <div class="actions-inline">
+            <button type="button" class="button-secondary dropdown toggle-js button-hide">
+                <span>Options</span>
             </button>
-            <button type="button" class="button-secondary bookmark">
-                Bookmark
-            </button>
-            <button type="button" class="button-secondary add-to-set">
-                Add to Set
-            </button>
+        </div>
+        <div class="toggle-content">
+            <ul class="dropdown-menu" role="menu">
+                <li>
+                    <button type="button" class="button-secondary edit">
+                        <a href="#!">Edit</a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="button-secondary bookmark">
+                        <a href="#!">Bookmark</a>
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="button-secondary dropdown toggle-js">
+                        <a href="#!">Add to Set</a>
+                    </button>
+                    <div class="toggle-content toggle-content-secondary">
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#!">Set #1</a></li>
+                            <li><a href="#!">Set #2</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>';
 
     var popupHasImage = '<div class="post-popup has-image">
-        <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-        <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-        </p>
-        <div class="actions">
-            <button type="button" class="button-secondary edit">
-                Edit
-            </button>
-            <button type="button" class="button-secondary bookmark">
-                Bookmark
-            </button>
-            <button type="button" class="button-secondary add-to-set">
-                Add to Set
-            </button>
-        </div>
+    <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
+    <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
+    </p>
+    <div class="actions-inline">
+        <button type="button" class="button-secondary dropdown toggle-js button-hide">
+            <span>Options</span>
+        </button>
+    </div>
+    <div class="toggle-content">
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <button type="button" class="button-secondary edit">
+                    <a href="#!">Edit</a>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="button-secondary bookmark">
+                    <a href="#!">Bookmark</a>
+                </button>
+            </li>
+            <li>
+                <button type="button" class="button-secondary dropdown toggle-js">
+                    <a href="#!">Add to Set</a>
+                </button>
+                <div class="toggle-content toggle-content-secondary">
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#!">Set #1</a></li>
+                        <li><a href="#!">Set #2</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
         <img src="https://photos.travelblog.org/Photos/11053/262872/f/2165432-Deserted-main-road-of-Quneitra-Syria-1.jpg">
+    </div>
     </div>';
 
     var popupOptions =
@@ -80,11 +131,13 @@ if ($('#map').length) {
         icon: customIcon
     })
     .addTo(map)
-    .bindPopup(popupHasImage, popupOptions);
+    .bindPopup(popupHasImage, popupOptions)
+    .on('popupopen', popupActions);
 
     var marker = L.marker([36.072635, -79.791975], {
             icon: customIcon
     })
     .addTo(map)
-    .bindPopup(popup, popupOptions);
+    .bindPopup(popup, popupOptions)
+    .on('popupopen', popupActions);
 }
