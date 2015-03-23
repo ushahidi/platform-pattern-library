@@ -1,5 +1,6 @@
 var gulp = require('gulp'),
     connect = require('gulp-connect'),
+    sourcemaps = require('gulp-sourcemaps'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     insert = require('gulp-insert'),
@@ -61,12 +62,14 @@ gulp.task('sass', ['rtl'], function() {
         .pipe(plumber({
             errorHandler: errorHandler
         }))
+        .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths : [
                 'bower_components/bourbon/app/assets/stylesheets',
                 'bower_components/neat/app/assets/stylesheets',
                 'bower_components/font-awesome/scss'
-            ]
+            ],
+            sourceComments: 'map'
         }))
         .pipe(autoprefixer())
         .pipe(plumber.stop())
@@ -75,6 +78,7 @@ gulp.task('sass', ['rtl'], function() {
         // gulp-insert appends '/* @generated */' to the style.css file
         // which automatically folds file in Phabricator
         .pipe(insert.append('/* @generated */'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./assets/css'))
         .pipe(notify('CSS compiled'))
         .pipe(livereload());
