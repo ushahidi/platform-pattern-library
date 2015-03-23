@@ -60,7 +60,4 @@ $(document).ready(function(){
         $('body').toggleClass('navigation-open');
     });
 
-    $('.button-toggle').click(function() {
-        $(this).toggleClass('open');
-    });
 });

@@ -1,29 +1,91 @@
-button.user-admin {
+.user-admin {
     position: relative;
     top: 0;
     right: 0;
-    display: block;
-    background: transparent;
-    border: none;
-    color: $white;
-
-    @include icon(before, user) {
-        padding-right: 10px;
-        color: $black;
-    }
+    z-index: 1000;
 
     @include media($small) {
         position: absolute;
         margin: 18px 10px 0 0;
     }
 
-    span {
-        padding: 0 10px 0 0;
+    .toggle-wrapper {
+        cursor: pointer;
+        height: 30px;
+        user-select: none;
     }
 
-    &.button-toggle {
-        @include icon(after, chevron-down) {
+    .user-avatar {
+        display: inline-block;
+
+        img {
+            position: relative;
+            height: 30px;
+            min-width: 30px;
+            @include equal-radius(100px);
+        }
+    }
+
+    span {
+        position: relative;
+        top: -10px;
+        display: inline-block;
+        font-weight: bold;
+        padding: 0 10px 0 0;
+        margin-left: $sm-spacing;
+    }
+
+    .button-toggle {
+        position: relative;
+        top: -10px;
+        background: transparent;
+        border: none;
+        padding-bottom: 15px;
+        @include radius(5px, 5px, 0, 0);
+
+        &.open {
+            @include border-bottom-radius(0);
+            background: $white;
+            border-bottom: 0px;
+            opacity: 1;
+
+            &:hover {
+                background-color: $white;
+            }
+
+        }
+
+    }
+
+    .dropdown-menu {
+        position: relative;
+        top: -10px;
+        background: $white;
+        margin-top: 17px;
+        padding: $sm-spacing;
+        text-shadow: none;
+        opacity: 0;
+        @include transition(opacity .25s);
+
+        li {
+            padding: 10px;
+        }
+
+        &.open {
+            opacity: 1;
+            @include transition(opacity .25s);
+        }
+
+        .navigation & {
+            display: none;
+            margin: 10px 0 0;
             padding: 0;
+            top: 0;
+
+            &.open {
+                display: block;
+            }
+
         }
 
     }

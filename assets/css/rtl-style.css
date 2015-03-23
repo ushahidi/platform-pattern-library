@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/*@import "css3/selection";*/
+/* @import "css3/selection"; */
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -1537,47 +1537,72 @@ button.up:before, button.upvote:before {
   speak: none;
   transition: content, 0.25s; }
 
-button.user-admin {
+.user-admin {
   position: relative;
   top: 0;
   right: 0;
-  display: block;
-  background: transparent;
-  border: none;
-  color: #ffffff; }
-  button.user-admin:before {
-    content: "\f007";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding: 0 5px 0 1px;
-    speak: none;
-    transition: content, 0.25s;
-    padding-right: 10px;
-    color: #181c21; }
+  z-index: 1000; }
   @media screen and (min-width: 48em)  {
-    button.user-admin {
+    .user-admin {
       position: absolute;
       margin: 18px 10px 0 0; } }
-  button.user-admin span {
-    padding: 0 10px 0 0; }
-  button.user-admin.button-toggle:after {
-    content: "\f078";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
+  .user-admin .toggle-wrapper {
+    cursor: pointer;
+    height: 30px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; }
+  .user-admin .user-avatar {
+    display: inline-block; }
+    .user-admin .user-avatar img {
+      position: relative;
+      height: 30px;
+      min-width: 30px;
+      border-radius: 100px; }
+  .user-admin span {
+    position: relative;
+    top: -10px;
     display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding: 0 5px 0 1px;
-    speak: none;
-    transition: content, 0.25s;
-    padding: 0; }
+    font-weight: bold;
+    padding: 0 10px 0 0;
+    margin-left: 10px; }
+  .user-admin .button-toggle {
+    position: relative;
+    top: -10px;
+    background: transparent;
+    border: none;
+    padding-bottom: 15px;
+    border-radius: 5px 5px 0 0; }
+    .user-admin .button-toggle.open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      background: #ffffff;
+      border-bottom: 0px;
+      opacity: 1; }
+      .user-admin .button-toggle.open:hover {
+        background-color: #ffffff; }
+  .user-admin .dropdown-menu {
+    position: relative;
+    top: -10px;
+    background: #ffffff;
+    margin-top: 17px;
+    padding: 10px;
+    text-shadow: none;
+    opacity: 0;
+    transition: opacity 0.25s; }
+    .user-admin .dropdown-menu li {
+      padding: 10px; }
+    .user-admin .dropdown-menu.open {
+      opacity: 1;
+      transition: opacity 0.25s; }
+    .navigation .user-admin .dropdown-menu {
+      display: none;
+      margin: 10px 0 0;
+      padding: 0;
+      top: 0; }
+      .navigation .user-admin .dropdown-menu.open {
+        display: block; }
 
 .pagination, .stepper {
   padding: 10px 0; }
@@ -2532,16 +2557,7 @@ ul.breadcrumb {
   position: relative;
   height: auto;
   color: #ffffff;
-  text-shadow: 0px 1px 1px #181c21;
-  /*
-    .nav-icon,
-    .beta,
-    .header-description,
-    .button-create,
-    button.user-admin {
-        z-index: $body;
-    }
-*/ }
+  text-shadow: 0px 1px 1px #181c21; }
   .header .container, .header .container-centered {
     position: relative;
     overflow: hidden;
@@ -2564,8 +2580,9 @@ ul.breadcrumb {
     left: 0;
     min-height: 100%;
     min-width: 100%;
-    /* opacity: 0.5; */
     z-index: 50; }
+  .header .nav-icon, .header .beta, .header .header-description, .header .button-create, .header .user-admin {
+    z-index: 200; }
   .header .nav-icon {
     float: left;
     margin: 20px 10px 15px 15px; }
@@ -2600,7 +2617,7 @@ ul.breadcrumb {
     @media screen and (min-width: 64em)  {
       .header .button-create {
         padding: 8px 10px 10px 10px;
-        margin: 18px 150px 0 0; } }
+        margin: 18px 210px 0 0; } }
     .header .button-create i {
       padding: 0 5px;
       bottom: 0; }
@@ -2616,10 +2633,8 @@ ul.breadcrumb {
   .header .button-toggle:hover {
     background-color: transparent;
     border: none; }
-  .header button.user-admin {
-    display: none; }
-    .header button.user-admin:before {
-      content: none; }
+  .header .user-admin:before {
+    content: none; }
   .header .parallax {
     position: relative;
     z-index: 200;
@@ -2663,11 +2678,11 @@ ul.breadcrumb {
           margin-bottom: 50px; } }
       .header.header-full .button-create i {
         padding: 0 10px 0 0; }
-    .header.header-full button.user-admin {
-      display: block;
-      margin: 18px auto 50px auto; }
+    .header.header-full .user-admin {
+      display: none; }
       @media screen and (min-width: 64em)  {
-        .header.header-full button.user-admin {
+        .header.header-full .user-admin {
+          display: block;
           margin: 18px 10px 0 0; } }
   .header.header-transition .container, .header.header-transition .container-centered {
     position: fixed;
@@ -2682,10 +2697,10 @@ ul.breadcrumb {
     transition: all, 0.5s; }
   .header.header-compact .button-create {
     opacity: 1 !important; }
-  .header.header-compact button.user-admin {
+  .header.header-compact .user-admin {
     display: none; }
     @media screen and (min-width: 64em)  {
-      .header.header-compact button.user-admin {
+      .header.header-compact .user-admin {
         display: inline-block; } }
   .header.header-compact .parallax {
     opacity: 1 !important;
@@ -2806,21 +2821,20 @@ ul.breadcrumb {
     transition: content, 0.25s; }
   .navigation .hidden-content-trigger.open:focus {
     color: #123d5e; }
-  .navigation button {
+  .navigation .user-admin {
+    position: relative;
+    display: block;
+    color: #181c21;
+    padding: 15px 0;
+    border: 0;
     border-top: 1px solid #ebebeb;
-    border-bottom: 1px solid #ebebeb; }
-    .navigation button.user-admin {
-      position: relative;
-      display: block;
-      color: #181c21;
-      padding: 15px 0;
-      border: 0;
-      border-top: 1px solid #ebebeb;
-      border-bottom: 1px solid #ebebeb;
-      border-radius: 0; }
-      @media screen and (min-width: 64em)  {
-        .navigation button.user-admin {
-          display: none; } }
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 0; }
+    @media screen and (min-width: 64em)  {
+      .navigation .user-admin {
+        display: none; } }
+    .navigation .user-admin .button-toggle:after {
+      content: "\f078"; }
   .navigation ul {
     margin: 40px 0; }
   .navigation li {
