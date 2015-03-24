@@ -140,6 +140,23 @@ button {
         padding-left: 14px;
     }
 
+    &.icon-only-when-small {
+        padding-left: 14px;
+
+        @include media($small) {
+            padding-left: 10px;
+        }
+
+        span {
+            display: none;
+
+            @include media($small) {
+                display: inline;
+            }
+
+        }
+    }
+
 }
 
 .button-toggle {
@@ -167,9 +184,9 @@ button {
 
 .upvote-downvote {
 
-    button {
+    button.icon-only {
         display: block;
-        padding: 8px 10px;
+        padding: 5px 6px 7px 10px;
 
         &.upvote {
             margin-bottom: $sm-spacing;
@@ -248,6 +265,10 @@ button {
 
     &.check {
         @include icon(before, check);
+    }
+
+    &.export {
+        @include icon(before, external-link);
     }
 
     &.up, &.upvote {

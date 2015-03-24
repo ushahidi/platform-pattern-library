@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -1392,6 +1392,16 @@ button {
     color: #2274b4; }
   .button-secondary.icon-only, .icon-only.button-toggle {
     padding-left: 14px; }
+  .button-secondary.icon-only-when-small, .icon-only-when-small.button-toggle {
+    padding-left: 14px; }
+    @media screen and (min-width: 48em)  {
+      .button-secondary.icon-only-when-small, .icon-only-when-small.button-toggle {
+        padding-left: 10px; } }
+    .button-secondary.icon-only-when-small span, .icon-only-when-small.button-toggle span {
+      display: none; }
+      @media screen and (min-width: 48em)  {
+        .button-secondary.icon-only-when-small span, .icon-only-when-small.button-toggle span {
+          display: inline; } }
 
 .button-toggle {
   transition: 0.3s;
@@ -1430,10 +1440,10 @@ button {
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
 
-.upvote-downvote button {
+.upvote-downvote button.icon-only {
   display: block;
-  padding: 8px 10px; }
-  .upvote-downvote button.upvote {
+  padding: 5px 6px 7px 10px; }
+  .upvote-downvote button.icon-only.upvote {
     margin-bottom: 10px; }
 
 .dropdown-group .toggle-content {
@@ -1525,6 +1535,18 @@ button.plus:before {
   transition: content, 0.25s; }
 button.check:before {
   content: "\f00c";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
+button.export:before {
+  content: "\f08e";
   font-family: FontAwesome;
   font-size: 0.875em;
   font-style: normal;
@@ -2168,10 +2190,12 @@ ul.breadcrumb {
 .post-list-actions {
   padding: 10px 0;
   border-top: 1px solid #ebebeb;
-  border-right: 1px solid #ebebeb;
-  border-left: 1px solid #ebebeb;
-  padding: 10px 20px;
   overflow: auto; }
+  @media screen and (min-width: 48em)  {
+    .post-list-actions {
+      border-right: 1px solid #ebebeb;
+      border-left: 1px solid #ebebeb;
+      padding: 10px 20px; } }
   .post-list-actions .bulk-actions {
     float: right; }
   .post-list-actions .cta {
