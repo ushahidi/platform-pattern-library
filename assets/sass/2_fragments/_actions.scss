@@ -1,13 +1,3 @@
-[class*='actions-'] .button-hide {
-    display: block;
-    position: relative;
-
-    @include media($large) {
-        display: none;
-    }
-
-}
-
 .toggle-content {
     display: none;
     float: left;
@@ -16,11 +6,6 @@
     @include media($large) {
         display: block;
         border: none;
-    }
-
-    li {
-        float: left;
-        padding: 0 $sm-spacing $sm-spacing 0;
     }
 
     .button-secondary.dropdown {
@@ -35,13 +20,24 @@
 
 }
 
+.actions-inline + .toggle-content {
+    
+    li {
+        float: left;
+        padding: 0 $sm-spacing $sm-spacing 0;
+    }
+
+}
+
 .actions-stacked + .toggle-content {
 
     li {
+        float: left;
+        padding: 0 $sm-spacing $sm-spacing 0;
 
         @include media($large) {
             float: none;
-            padding-right: 0;
+            padding: 0 0 $sm-spacing 0;
         }
 
         &:last-child {
@@ -75,3 +71,22 @@
     }
 
 }
+
+body.post-detail, body.create-post {
+
+    .actions-stacked + .toggle-content, .actions-inline + .toggle-content {
+        display: none;
+
+        @include media($small) {
+            display: block;
+
+            li {
+                float: none;
+            }
+
+        }
+
+    }
+
+}
+

@@ -1,0 +1,57 @@
+.post-detail { //body class
+
+    .page-content .main-col {
+        border-top: $base-border;
+        padding-top: $base-spacing;
+
+        @include media($small) {
+            border-top: 0px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: em(17);
+
+            @include media($small) {
+                font-size: em(19);
+            }
+            
+        }
+
+    }
+
+}
+
+.post-detail, .create-post {
+
+    .page-content .main-col {
+
+        @include media($medium) {
+            padding-right: ($lg-spacing);
+        }
+
+        @include media($large) {
+            padding-right: ($lg-spacing*5);
+        }
+
+    }
+
+}
+
+.create-post {
+
+    .dropdown-group .toggle-content {
+        display: none;
+        float: left;
+        padding: $sm-spacing 0;
+        position: relative;
+
+        @include media($small) { // for other toggle content, this is large. overriding for this page.
+            display: block;
+            border: none;
+            position: relative;
+        }
+
+    }
+
+}

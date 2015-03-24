@@ -1,9 +1,16 @@
 .stage-list {
-    padding: 0 $base-spacing $base-spacing;
-    margin-left: -20px;
+    margin-top: -$base-spacing;
+    padding: $sm-spacing 0;
+    
+    @include media($small) {
+        padding: 0;
+        margin-left: -20px;
+        border: 0px;
+        display: block;
+    }
 
-    li {
-        margin-bottom: $sm-spacing;
+    h6, p {
+        margin: 0;
     }
 
     h4 {
@@ -30,17 +37,23 @@
             color: $black;
         }
 
-        &:after {
-            content: ' ';
-            border: 10px solid black;
-            border-color: transparent transparent $white $white;
-            position: absolute;
-            bottom: 50%;
-            left: -20px;
-            margin-bottom: -10px;
-            transform-origin: 0 0;
-            transform: rotate(45deg);
-            @include box-shadow($top: 1px, $left: -1px, $blur: 0px, $spread: 0px, $color: rgba(0,0,0,.08), $inset: false);
+        @include media($small) {
+            &:after {
+                content: ' ';
+                border: 10px solid black;
+                border-color: transparent transparent $white $white;
+                position: absolute;
+                bottom: 50%;
+                left: 0px;
+                margin-bottom: -10px;
+                transform-origin: 0 0;
+                transform: rotate(45deg);
+                @include box-shadow($top: 2px, $left: -2px, $blur: 0px, $spread: 0px, $color: rgba(0,0,0,.08), $inset: false);
+            }
+        }
+
+        &:hover {
+            background: $white !important;
         }
 
     }

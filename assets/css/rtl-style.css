@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -181,6 +181,20 @@ $LAYOUT
 
 .hidden {
   display: none !important; }
+
+.hide-when-small {
+  display: block;
+  position: relative; }
+  @media screen and (min-width: 48em)  {
+    .hide-when-small {
+      display: none; } }
+
+.hide-when-large {
+  display: block;
+  position: relative; }
+  @media screen and (min-width: 80em)  {
+    .hide-when-large {
+      display: none; } }
 
 .hidden-content {
   display: none; }
@@ -1225,13 +1239,6 @@ span.date {
 /*------------------------------------*\
     $FRAGMENTS
 \*------------------------------------*/
-[class*='actions-'] .button-hide {
-  display: block;
-  position: relative; }
-  @media screen and (min-width: 80em)  {
-    [class*='actions-'] .button-hide {
-      display: none; } }
-
 .toggle-content {
   display: none;
   float: left;
@@ -1240,20 +1247,24 @@ span.date {
     .toggle-content {
       display: block;
       border: none; } }
-  .toggle-content li {
-    float: left;
-    padding: 0 10px 10px 0; }
   .toggle-content .button-secondary.dropdown.open, .toggle-content .dropdown.open.button-toggle {
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
 
-@media screen and (min-width: 80em)  {
-  .actions-stacked + .toggle-content li {
-    float: none;
-    padding-right: 0; } }
-.actions-stacked + .toggle-content li:last-child {
-  padding: 0; }
+.actions-inline + .toggle-content li {
+  float: left;
+  padding: 0 10px 10px 0; }
+
+.actions-stacked + .toggle-content li {
+  float: left;
+  padding: 0 10px 10px 0; }
+  @media screen and (min-width: 80em)  {
+    .actions-stacked + .toggle-content li {
+      float: none;
+      padding: 0 0 10px 0; } }
+  .actions-stacked + .toggle-content li:last-child {
+    padding: 0; }
 
 .toggle-content.toggle-content-secondary {
   display: none;
@@ -1272,10 +1283,18 @@ span.date {
     .toggle-content.toggle-content-secondary li:last-child {
       padding: 10px; }
 
+body.post-detail .actions-stacked + .toggle-content, body.post-detail .actions-inline + .toggle-content, body.create-post .actions-stacked + .toggle-content, body.create-post .actions-inline + .toggle-content {
+  display: none; }
+  @media screen and (min-width: 48em)  {
+    body.post-detail .actions-stacked + .toggle-content, body.post-detail .actions-inline + .toggle-content, body.create-post .actions-stacked + .toggle-content, body.create-post .actions-inline + .toggle-content {
+      display: block; }
+      body.post-detail .actions-stacked + .toggle-content li, body.post-detail .actions-inline + .toggle-content li, body.create-post .actions-stacked + .toggle-content li, body.create-post .actions-inline + .toggle-content li {
+        float: none; } }
+
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
-button, [class*="button-"] {
+button {
   display: inline-block;
   outline: none;
   background-color: #2274b4;
@@ -1293,25 +1312,25 @@ button, [class*="button-"] {
   transition: 0.3s;
   font-size: 1em; }
   @media screen and (min-width: 48em)  {
-    button, [class*="button-"] {
+    button {
       font-size: 1.125em; } }
-  button a, [class*="button-"] a {
+  button a {
     color: #181c21; }
-  button i, [class*="button-"] i {
+  button i {
     padding-right: 10px; }
-  button:hover, [class*="button-"]:hover {
+  button:hover {
     cursor: pointer;
     background-color: #1a5889; }
-  button:active, [class*="button-"]:active {
+  button:active {
     background-color: #0e2f49;
     transition: none; }
-  button.disabled, [class*="button-"].disabled {
+  button.disabled {
     background-color: #737373;
     cursor: default; }
-  button.icon-only:before, [class*="button-"].icon-only:before {
+  button.icon-only:before {
     padding: 0; }
     @media screen and (min-width: 48em)  {
-      button.icon-only:before, [class*="button-"].icon-only:before {
+      button.icon-only:before {
         padding: 0 5px 0 0; } }
 
 .button-create {
@@ -1424,7 +1443,7 @@ button, [class*="button-"] {
   margin-top: -1px;
   background-color: #ffffff;
   border: 1px solid #ebebeb;
-  z-index: 600;
+  z-index: 0;
   padding: 10px 0; }
   .header .dropdown-group .toggle-content {
     text-shadow: none; }
@@ -2103,9 +2122,6 @@ ul.breadcrumb {
       .post-popup .actions-inline {
         border-top: 1px solid #ebebeb;
         padding: 0; } }
-  @media screen and (min-width: 48em)  {
-    .post-popup .button-hide {
-      display: none; } }
   .post-popup .actions-inline + .toggle-content {
     padding: 20px 0 0; }
     @media screen and (min-width: 48em)  {
@@ -2486,10 +2502,16 @@ ul.breadcrumb {
  }
 
 .stage-list {
-  padding: 0 20px 20px;
-  margin-left: -20px; }
-  .stage-list li {
-    margin-bottom: 10px; }
+  margin-top: -20px;
+  padding: 10px 0; }
+  @media screen and (min-width: 48em)  {
+    .stage-list {
+      padding: 0;
+      margin-left: -20px;
+      border: 0px;
+      display: block; } }
+  .stage-list h6, .stage-list p, .stage-list blockquote {
+    margin: 0; }
   .stage-list h4 {
     margin-top: 0; }
   .stage-list p.small, .stage-list blockquote.small {
@@ -2501,21 +2523,25 @@ ul.breadcrumb {
     position: relative; }
     .stage-list .active a {
       color: #181c21; }
-    .stage-list .active:after {
-      content: ' ';
-      border: 10px solid black;
-      border-color: transparent transparent #ffffff #ffffff;
-      position: absolute;
-      bottom: 50%;
-      left: -20px;
-      margin-bottom: -10px;
-      -webkit-transform-origin: 0 0;
-          -ms-transform-origin: 0 0;
-              transform-origin: 0 0;
-      -webkit-transform: rotate(45deg);
-          -ms-transform: rotate(45deg);
-              transform: rotate(45deg);
-      box-shadow: -1px 1px 0px 0px rgba(0, 0, 0, 0.08); }
+    @media screen and (min-width: 48em)  {
+      .stage-list .active:after {
+        content: ' ';
+        border: 10px solid black;
+        border-color: transparent transparent #ffffff #ffffff;
+        position: absolute;
+        bottom: 50%;
+        left: 0px;
+        margin-bottom: -10px;
+        -webkit-transform-origin: 0 0;
+            -ms-transform-origin: 0 0;
+                transform-origin: 0 0;
+        -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+                transform: rotate(45deg);
+        box-shadow: -2px 2px 0px 0px rgba(0, 0, 0, 0.08); }
+ }
+    .stage-list .active:hover {
+      background: #ffffff !important; }
   .stage-list .complete:after {
     padding-left: 5px;
     font-family: FontAwesome;
@@ -2726,7 +2752,7 @@ ul.breadcrumb {
   float: left;
   background-color: white;
   padding: 20px;
-  width: 90%;
+  width: 70%;
   transition: all 0.25s, margin 0.4s;
   /* five items */
   /*
@@ -3046,77 +3072,74 @@ ul.breadcrumb {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 100%;
-    border-top: 1px solid #ebebeb; }
+    width: 100%; }
     .page-content .main-col:last-child {
       margin-right: 0; }
+  .page-content.has-aside {
+    padding-top: 20px; }
+    .page-content.has-aside aside {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%; }
+      .page-content.has-aside aside:last-child {
+        margin-right: 0; }
     @media screen and (min-width: 48em)  {
-      .page-content .main-col {
-        border-top: 0px; } }
-  .page-content.has-aside aside {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 100%; }
-    .page-content.has-aside aside:last-child {
-      margin-right: 0; }
-  @media screen and (min-width: 48em)  {
-    .page-content.has-aside .main-col {
-      padding-right: 40px;
-      margin-top: 20px;
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 74.41059%; }
-      .page-content.has-aside .main-col:last-child {
-        margin-right: 0; }
+      .page-content.has-aside .main-col {
+        padding-right: 40px;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%; }
+        .page-content.has-aside .main-col:last-child {
+          margin-right: 0; }
 
-    .page-content.has-aside aside {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%;
-      margin-right: 0;
-      border-left: 1px solid #ebebeb;
-      padding: 20px 0 40px 20px; }
-      .page-content.has-aside aside:last-child {
-        margin-right: 0; }
-      .page-content.has-aside aside.is-right {
-        float: right; }
+      .page-content.has-aside aside {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%;
+        margin-right: 0;
+        border-left: 1px solid #ebebeb;
+        padding: 20px 0 40px 20px; }
+        .page-content.has-aside aside:last-child {
+          margin-right: 0; }
+        .page-content.has-aside aside.is-right {
+          float: right; }
  }
-  @media screen and (min-width: 64em)  {
-    .page-content.has-aside .main-col {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 65.88078%; }
-      .page-content.has-aside .main-col:last-child {
-        margin-right: 0; }
+    @media screen and (min-width: 64em)  {
+      .page-content.has-aside .main-col {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 65.88078%; }
+        .page-content.has-aside .main-col:last-child {
+          margin-right: 0; }
 
-    .page-content.has-aside aside {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%; }
-      .page-content.has-aside aside:last-child {
-        margin-right: 0; }
+      .page-content.has-aside aside {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        .page-content.has-aside aside:last-child {
+          margin-right: 0; }
  }
-  @media screen and (min-width: 80em)  {
-    .page-content.has-aside .main-col {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 74.41059%; }
-      .page-content.has-aside .main-col:last-child {
-        margin-right: 0; }
+    @media screen and (min-width: 80em)  {
+      .page-content.has-aside .main-col {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%; }
+        .page-content.has-aside .main-col:last-child {
+          margin-right: 0; }
 
-    .page-content.has-aside aside {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%; }
-      .page-content.has-aside aside:last-child {
-        margin-right: 0; }
+      .page-content.has-aside aside {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 23.23176%; }
+        .page-content.has-aside aside:last-child {
+          margin-right: 0; }
  }
 
 aside.is-right .user-credit-has-label {
@@ -3140,8 +3163,6 @@ aside.is-right .actions-stacked {
     aside.is-right .actions-stacked {
       float: none; } }
 aside.is-right .toggle-content {
-  border-top: 1px solid #ebebeb;
-  width: 100%;
   padding-top: 20px; }
   @media screen and (min-width: 48em)  {
     aside.is-right .toggle-content {
@@ -3152,7 +3173,8 @@ aside.is-right .published-to {
   float: left; }
   @media screen and (min-width: 48em)  {
     aside.is-right .published-to {
-      padding-bottom: 20px; } }
+      padding-bottom: 20px;
+      float: none; } }
   aside.is-right .published-to h4 {
     float: left;
     margin: 10px 10px 0 0; }
@@ -3165,16 +3187,46 @@ aside.is-right .published-to {
 @media screen and (min-width: 48em)  {
   aside.is-right .save-buttons {
     border-top: 1px solid #ebebeb;
-    padding-top: 40px; } }
+    padding-top: 20px;
+    clear: both; } }
 
+<<<<<<< HEAD
+.post-detail .page-content .main-col {
+  border-top: 1px solid #ebebeb;
+  padding-top: 20px; }
+  @media screen and (min-width: 48em)  {
+    .post-detail .page-content .main-col {
+      border-top: 0px; } }
+  .post-detail .page-content .main-col p, .post-detail .page-content .main-col blockquote {
+    line-height: 1.5;
+    font-size: 1.0625em; }
+    @media screen and (min-width: 48em)  {
+      .post-detail .page-content .main-col p, .post-detail .page-content .main-col blockquote {
+        font-size: 1.1875em; } }
+
+@media screen and (min-width: 64em)  {
+  .post-detail .page-content .main-col, .create-post .page-content .main-col {
+=======
 .post-detail p, .post-detail blockquote {
   line-height: 1.5; }
 .post-detail .map {
   height: 400px; }
 @media screen and (min-width: 80em)  {
   .post-detail .page-content .main-col {
+>>>>>>> gh-pages
     padding-right: 40px; } }
 @media screen and (min-width: 80em)  {
-  .post-detail .page-content .main-col {
+  .post-detail .page-content .main-col, .create-post .page-content .main-col {
     padding-right: 200px; } }
+
+.create-post .dropdown-group .toggle-content {
+  display: none;
+  float: left;
+  padding: 10px 0;
+  position: relative; }
+  @media screen and (min-width: 48em)  {
+    .create-post .dropdown-group .toggle-content {
+      display: block;
+      border: none;
+      position: relative; } }
 /* @generated */
