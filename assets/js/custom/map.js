@@ -51,11 +51,6 @@ if ($('#map').length) {
                     </button>
                 </li>
                 <li>
-                    <button type="button" class="button-secondary bookmark">
-                        <a href="#!">Bookmark</a>
-                    </button>
-                </li>
-                <li>
                     <button type="button" class="button-secondary dropdown toggle-js">
                         <a href="#!">Add to Set</a>
                     </button>
@@ -86,11 +81,6 @@ if ($('#map').length) {
             <li>
                 <button type="button" class="button-secondary edit">
                     <a href="#!">Edit</a>
-                </button>
-            </li>
-            <li>
-                <button type="button" class="button-secondary bookmark">
-                    <a href="#!">Bookmark</a>
                 </button>
             </li>
             <li>
