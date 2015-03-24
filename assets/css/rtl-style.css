@@ -1911,28 +1911,21 @@ ul.breadcrumb {
   position: relative; }
   .filters .button-toggle {
     transition: none; }
-  .filters .filters-count {
+  .filters .filters-wrapper {
     margin-right: 0;
     padding: 10px 0 10px 10px;
     text-align: left;
     /* max-width: 300px; */ }
     @media screen and (min-width: 48em)  {
-      .filters .filters-count {
+      .filters .filters-wrapper {
         border: 0;
         padding: 0; }
-        .filters .filters-count .button-toggle.open {
+        .filters .filters-wrapper .button-toggle.open {
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
           padding-bottom: 19px;
           margin-bottom: -19px;
           border-bottom: 0px; } }
-    .filters .filters-count .count {
-      background: none;
-      margin: 0; }
-      @media screen and (min-width: 48em)  {
-        .filters .filters-count .count {
-          background: #ffc334;
-          margin: 0 10px 0 5px; } }
   .filters .filters-container {
     display: none;
     float: left;
@@ -1996,22 +1989,6 @@ ul.breadcrumb {
     border-top: 1px solid #ebebeb;
     padding: 20px 0 0;
     margin: 20px 0 0; }
-
-.filters-count .count {
-  color: #ffffff;
-  background: #737373;
-  font-weight: 900;
-  padding: 6px 5px 5px 5px;
-  margin-left: 5px;
-  margin-right: 10px;
-  height: 28px;
-  width: 28px;
-  display: inline-block;
-  border-radius: 50%;
-  text-align: center; }
-  .filters-count .count.has-filters {
-    background: #ffc334;
-    color: #181c21; }
 
 .user-credit {
   overflow: auto; }
@@ -2236,11 +2213,14 @@ ul.breadcrumb {
         display: block; } }
   .tabs-with-filter .button-toggle {
     float: right; }
-  .tabs-with-filter .filters-count {
+    @media screen and (min-width: 48em)  {
+      .tabs-with-filter .button-toggle {
+        float: none; } }
+  .tabs-with-filter .filters-wrapper {
     width: 50%;
     float: right; }
     @media screen and (min-width: 48em)  {
-      .tabs-with-filter .filters-count {
+      .tabs-with-filter .filters-wrapper {
         text-align: right; } }
   .tabs-with-filter .filters-container {
     bottom: -1px; }
