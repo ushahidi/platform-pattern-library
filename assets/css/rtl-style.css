@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -664,9 +664,10 @@ positioning, etc.)
   position: relative;
   left: 0;
   visibility: visible; }
-.pl .stage-list {
-  border-left: 1px solid #ebebeb;
-  max-width: 300px; }
+@media screen and (min-width: 48em)  {
+  .pl .stage-list .toggle-content {
+    border-left: 1px solid #ebebeb !important;
+    max-width: 300px; } }
 
 /*------------------------------------*\
 $COLORS
@@ -1536,6 +1537,18 @@ button.share:before {
   transition: content, 0.25s; }
 button.trash:before {
   content: "\f1f8";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s; }
+button.check:before {
+  content: "\f00c";
   font-family: FontAwesome;
   font-size: 0.875em;
   font-style: normal;
@@ -2553,7 +2566,7 @@ ul.breadcrumb {
  }
 
 .stage-list {
-  margin-top: -20px;
+  margin-top: -10px;
   padding: 10px 0; }
   @media screen and (min-width: 48em)  {
     .stage-list {
@@ -2561,10 +2574,28 @@ ul.breadcrumb {
       margin-left: -20px;
       border: 0px;
       display: block; } }
-  .stage-list h6, .stage-list p, .stage-list blockquote {
+  .stage-list button.open {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+  .stage-list .toggle-content {
+    border: 1px solid #ebebeb;
+    padding: 10px;
+    margin-top: -1px;
+    display: none; }
+    @media screen and (min-width: 48em)  {
+      .stage-list .toggle-content {
+        display: block;
+        border: none;
+        position: relative;
+        padding-left: 20px; } }
+  .stage-list li {
+    padding: 10px 0; }
+  .stage-list p, .stage-list blockquote {
     margin: 0; }
   .stage-list h4 {
     margin-top: 0; }
+  .stage-list h6 {
+    margin: 0 0 5px; }
   .stage-list p.small, .stage-list blockquote.small {
     color: #181c21; }
   .stage-list .disabled h6, .stage-list .disabled p, .stage-list .disabled blockquote {
@@ -2581,7 +2612,7 @@ ul.breadcrumb {
         border-color: transparent transparent #ffffff #ffffff;
         position: absolute;
         bottom: 50%;
-        left: 0px;
+        left: -20px;
         margin-bottom: -10px;
         -webkit-transform-origin: 0 0;
             -ms-transform-origin: 0 0;
@@ -2594,9 +2625,18 @@ ul.breadcrumb {
     .stage-list .active:hover {
       background: #ffffff !important; }
   .stage-list .complete:after {
-    padding-left: 5px;
-    font-family: FontAwesome;
     content: "\f00c";
+    font-family: FontAwesome;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    padding: 0 5px 0 1px;
+    speak: none;
+    transition: content, 0.25s;
+    font-size: 1em;
     color: #4fab2f; }
 
 .applied-filters {
@@ -3265,11 +3305,6 @@ aside.is-right .actions-stacked {
   @media screen and (min-width: 48em)  {
     aside.is-right .actions-stacked {
       float: none; } }
-aside.is-right .toggle-content {
-  padding-top: 20px; }
-  @media screen and (min-width: 48em)  {
-    aside.is-right .toggle-content {
-      border-top: 0px; } }
 aside.is-right .toggle-content-secondary {
   width: auto; }
 aside.is-right .published-to {
@@ -3312,15 +3347,4 @@ aside.is-right .published-to {
 @media screen and (min-width: 80em)  {
   .post-detail .page-content .main-col, .create-post .page-content .main-col {
     padding-right: 200px; } }
-
-.create-post .dropdown-group .toggle-content {
-  display: none;
-  float: left;
-  padding: 10px 0;
-  position: relative; }
-  @media screen and (min-width: 48em)  {
-    .create-post .dropdown-group .toggle-content {
-      display: block;
-      border: none;
-      position: relative; } }
 /* @generated */
