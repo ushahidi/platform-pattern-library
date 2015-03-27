@@ -171,6 +171,22 @@
 
     .sub-nav {
 
+        .saved-searches {
+            @include icon(before, filter) {
+                color: $mid-gray;
+                font-size: em(18);
+                padding-right: 8px;
+            }
+        }
+
+        .collections {
+            @include icon(before, collection) {
+                color: $mid-gray;
+                font-size: em(18);
+                padding-right: 8px;
+            }
+        }
+
         button {
             margin: $sm-spacing 0 0 0;
 
@@ -186,6 +202,29 @@
         li {
             padding: $sm-spacing 0;
             border-width: 3px;
+        }
+
+        .star {
+            @include icon(after, star);
+            color: $mid-gray;
+            padding-left: 5px;
+            opacity: 0;
+
+
+            &:hover {
+                color: $yellow;
+            }
+
+            &.yellow {
+                color: $yellow;
+                opacity: 1;
+            }
+
+        }
+
+        a:hover + .star, .star:hover{
+            @include transition(opacity .25s);
+            opacity: 1;
         }
 
         .credit {
