@@ -1,5 +1,5 @@
 // this removes any active classes then adds the active class to clicked element
-$('.main-nav').find('li a').click(function(e) {
+$('.main-nav').find('li a').not('.hidden-content-trigger').click(function(e) {
     $('.main-nav').find('li a').removeClass('active');
     $(this).addClass('active');
 });
