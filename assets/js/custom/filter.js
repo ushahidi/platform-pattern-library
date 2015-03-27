@@ -1,3 +1,9 @@
+// if #map exists, open filters by default
+if( $('#map').length ) {
+    $('.filters').find('.filters-wrapper').children('.filter-button-js').addClass('open');
+    $('.filters').find('.filters-container').addClass('open');
+}
+
 // Toggle arrow icon and open filter container
 $('.filter-button-js').click(function() {
 
