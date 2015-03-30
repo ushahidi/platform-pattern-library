@@ -1,0 +1,78 @@
+.activity-listing {
+    border: $base-border;
+    border-width: 2px;
+    padding: $base-spacing $sm-spacing;
+    position: relative;
+    margin: $sm-spacing 0;
+
+    @include media($small) {
+        padding: $base-spacing;
+    }
+
+    &:after {
+        content: ' ';
+        border: 6px solid black;
+        border-color: transparent transparent $white $white;
+        position: absolute;
+        top: 10px;
+        left: 0px;
+        transform-origin: 0 0;
+        transform: rotate(45deg);
+        @include box-shadow($top: 2px, $left: -2px, $blur: 0px, $spread: 0px, $color: rgba(0,0,0,.08), $inset: false);
+    }
+
+    h3 {
+        margin: 0;
+    }
+        
+    .listing-summary {
+        
+        @include media($small) {
+             @include span-columns(8);
+        }
+
+    }
+
+
+    .activity-type {
+        @extend .delta;
+        margin: $sm-spacing 0 0;
+
+        @include media($small) {
+             @include span-columns(3);
+             float: right
+        }
+
+        %gray-icon {
+            color: $mid-gray;
+            font-size: em(18);
+            padding-right: 4px;
+        }
+
+        &.post {
+            @include icon(before, pencil);
+        }
+
+        &.comment {
+            @include icon(before, comment);
+        }
+
+        &.collection {
+            @include icon(before, collection);
+        }
+
+        &.saved-search {
+            @include icon(before, filter);
+        }
+
+        &.post:before, &.comment:before, &.collection:before, &.saved-search:before {
+            color: $mid-gray;
+            font-size: em(18);
+            padding-right: 4px;
+        }
+
+    }
+
+}
+
+
