@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/*@import "css3/selection";*/
+/* @import "css3/selection"; */
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -1022,6 +1022,42 @@ form p, form blockquote {
   font-size: 0.875em;
   margin-bottom: 1em; }
 
+.custom-select {
+  position: relative;
+  display: inline-block; }
+  .custom-select:after {
+    content: "\f078";
+    font-family: FontAwesome;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    padding: 0 5px 0 1px;
+    speak: none;
+    transition: content, 0.25s;
+    border-radius: 0 5px 5px 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    line-height: 30px;
+    text-shadow: none;
+    padding: 0 8px;
+    pointer-events: none;
+    color: #ffc334; }
+
+.custom-select select {
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #ebebeb;
+  background: #ffffff;
+  padding: 5px 30px 5px 10px;
+  font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 0.9375em;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
 /*------------------------------------*\
     $ICONS
 \*------------------------------------*/
@@ -1471,7 +1507,7 @@ button {
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
 \*------------------------------------*/
-button.dropdown:before, button.add-to-set:before, button.down:before, button.downvote:before {
+button.dropdown:before, button.add-to-collection:before, button.down:before, button.downvote:before {
   content: "\f078";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1483,7 +1519,7 @@ button.dropdown:before, button.add-to-set:before, button.down:before, button.dow
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.dropdown.open:before, button.add-to-set.open:before, button.down.open:before, button.downvote.open:before {
+button.dropdown.open:before, button.add-to-collection.open:before, button.down.open:before, button.downvote.open:before {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg); }
@@ -2059,7 +2095,7 @@ ul.breadcrumb {
       text-align: right; }
       .filters .filters-container .filter-actions .cta {
         margin-right: 10px; }
-  .filters .save-as-set {
+  .filters .save-as-collection {
     border-top: 1px solid #ebebeb;
     padding: 20px 0 0;
     margin: 20px 0 0; }

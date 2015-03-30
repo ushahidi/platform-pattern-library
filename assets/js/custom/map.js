@@ -51,14 +51,12 @@ if ($('#map').length) {
                     </button>
                 </li>
                 <li>
-                    <button type="button" class="button-secondary dropdown toggle-js">
-                        <a href="#!">Add to Set</a>
-                    </button>
-                    <div class="toggle-content toggle-content-secondary">
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#!">Set #1</a></li>
-                            <li><a href="#!">Set #2</a></li>
-                        </ul>
+                    <div class="custom-select">
+                        <select>
+                            <option>Add to Collection</option>
+                            <option>Collection #1</option>
+                            <option>Collection #2</option>
+                        </select>
                     </div>
                 </li>
             </ul>
@@ -84,14 +82,12 @@ if ($('#map').length) {
                 </button>
             </li>
             <li>
-                <button type="button" class="button-secondary dropdown toggle-js">
-                    <a href="#!">Add to Set</a>
-                </button>
-                <div class="toggle-content toggle-content-secondary">
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#!">Set #1</a></li>
-                        <li><a href="#!">Set #2</a></li>
-                    </ul>
+                <div class="custom-select">
+                    <select>
+                        <option>Add to Collection</option>
+                        <option>Collection #1</option>
+                        <option>Collection #2</option>
+                    </select>
                 </div>
             </li>
         </ul>
