@@ -239,10 +239,23 @@ button {
 button {
 
     &.dropdown, &.add-to-collection, &.down, &.downvote {
-        @include icon (before, chevron-down);
+        padding: 8px;
+        @include icon (before, chevron-down) {
+            padding: 0 3px;
+        }
 
         &.open:before {
             @include transform(rotate(-180deg));
+        }
+
+    }
+
+    &.tabbed {
+
+        &.open {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: 0px;
         }
 
     }
