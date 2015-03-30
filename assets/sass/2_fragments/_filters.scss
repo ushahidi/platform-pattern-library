@@ -14,16 +14,25 @@
         @include media($small) {
             border: 0;
             padding: 0;
+        }
 
-            .button-toggle {
+        .button-toggle {
 
-                &.open {
-                    @include border-bottom-radius(0);
-                    padding-bottom: 19px;
-                    margin-bottom: -19px;
-                    border-bottom: 0px;
-                }
+            @include icon(after, chevron-up) {
+                padding: 0;
+            }
 
+            @include media($small) {
+                @include border-bottom-radius(0);
+                padding-bottom: 19px;
+                margin-bottom: -19px;
+                border-bottom: 0px;
+            }
+
+            &.open {
+                @include border-bottom-radius($global-radius);
+                padding: 8px 10px;
+                border: $base-border;
             }
 
         }
@@ -44,6 +53,7 @@
 
 
         @include media($small) {
+            display: block;
             position: absolute;
             top: 37px;
             bottom: inherit;
@@ -61,6 +71,11 @@
 
         &.open {
             display: block;
+
+            @include media($small) {
+                display: none;
+            }
+
         }
 
         #{$all-text-inputs} {
