@@ -20,16 +20,14 @@
             <aside class="is-right">
                 <div class="published-to fixed-bottom">
                     <h4 class="delta-alt">
-                        View as:
+                        View as Published to 
                     </h4>
-                    <button type="button" class="button-secondary dropdown toggle-js">
-                        <a href="#!">Published To Everyone</a>
-                    </button>
-                    <div class="toggle-content toggle-content-secondary">
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#!">An Administrator</a></li>
-                            <li><a href="#!">A Verified User</a></li>
-                        </ul>
+                    <div class="custom-select">
+                        <select>
+                            <option>Everyone</option>
+                            <option>Administrators</option>
+                            <option>Only You</option>
+                        </select>
                     </div>
                 </div>
                 <div class="user-credit-has-label">
@@ -40,7 +38,7 @@
                     </a>
                 </div>
                 <div class="actions-stacked">
-                    <button type="button" class="button-secondary dropdown toggle-js hide-when-small">
+                    <button type="button" class="button-secondary plus toggle-js hide-when-small">
                          <span>Options</span>
                      </button>
                  </div>
@@ -52,15 +50,19 @@
                             </button>
                         </li>
                         <li>
-                            @@include('../partials/_add-to-collection.html')
-                        </li>
-                        <li>
                             <button type="button" class="button-secondary share">
                                 <a href="#!">Share</a>
                             </button>
                         </li>
+                        <li>
+                            @@include('../partials/_add-to-collection.html')
+                        </li>
                     </ul>
-                </div>
+                    <div class="clearfix stage">
+                        <p class="delta-alt">Current Stage</p>
+                        <p>Unverified <a href="" class="cta">Update</a></p>
+                    </div>
+                </div> 
             </aside>
 
             <div class="main-col">
