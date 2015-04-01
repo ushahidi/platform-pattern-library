@@ -18,21 +18,51 @@
 
         .button-toggle {
 
-            @include icon(after, chevron-up) {
+            @include icon(after, chevron-down) {
                 padding: 0;
             }
 
             @include media($small) {
-                @include border-bottom-radius(0);
-                padding-bottom: 19px;
-                margin-bottom: -19px;
-                border-bottom: 0px;
-            }
-
-            &.open {
                 @include border-bottom-radius($global-radius);
                 padding: 8px 10px;
                 border: $base-border;
+            }
+
+            &.open {
+
+                @include media($small) {
+                    @include border-bottom-radius(0);
+                    padding-bottom: 19px;
+                    margin-bottom: -19px;
+                    border-bottom: 0px;
+                }
+            }
+
+            &.closed {
+                @include border-bottom-radius($global-radius);
+                padding: 8px 10px;
+                border: $base-border;
+                @include icon(after, chevron-up) {
+                    padding: 0;
+                }
+
+                @include media($small) {
+                    @include icon(after, chevron-down) {
+                        padding: 0;
+                    }
+                }
+
+                &.open {
+
+                    @include media($small) {
+                        @include border-bottom-radius(0);
+                        padding-bottom: 19px;
+                        margin-bottom: -19px;
+                        border-bottom: 0px;
+                    }
+
+                }
+
             }
 
         }
@@ -40,7 +70,7 @@
     }
 
     .filters-container {
-        display: none;
+        display: block;
         float: left;
         width: 100%;
         position: absolute;
@@ -53,7 +83,7 @@
 
 
         @include media($small) {
-            display: block;
+            display: none;
             position: absolute;
             top: 37px;
             bottom: inherit;
@@ -70,10 +100,19 @@
         }
 
         &.open {
-            display: block;
+            display: none;
 
             @include media($small) {
-                display: none;
+                display: block;
+            }
+
+        }
+
+        &.closed {
+            display: none;
+
+            &.open {
+                display: block;
             }
 
         }

@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/*@import "css3/selection";*/
+/* @import "css3/selection"; */
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -2085,7 +2085,7 @@ ul.breadcrumb {
         border: 0;
         padding: 0; } }
     .filters .filters-wrapper .button-toggle:after {
-      content: "\f077";
+      content: "\f078";
       font-family: FontAwesome;
       font-size: 0.875em;
       font-style: normal;
@@ -2099,18 +2099,59 @@ ul.breadcrumb {
       padding: 0; }
     @media screen and (min-width: 48em)  {
       .filters .filters-wrapper .button-toggle {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding: 8px 10px;
+        border: 1px solid #ebebeb; } }
+    @media screen and (min-width: 48em)  {
+      .filters .filters-wrapper .button-toggle.open {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         padding-bottom: 19px;
         margin-bottom: -19px;
         border-bottom: 0px; } }
-    .filters .filters-wrapper .button-toggle.open {
+    .filters .filters-wrapper .button-toggle.closed {
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
       padding: 8px 10px;
       border: 1px solid #ebebeb; }
+      .filters .filters-wrapper .button-toggle.closed:after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-size: 0.875em;
+        font-style: normal;
+        font-weight: normal;
+        display: inline-block;
+        text-decoration: inherit;
+        line-height: 1;
+        padding: 0 5px 0 1px;
+        speak: none;
+        transition: content, 0.25s;
+        padding: 0; }
+      @media screen and (min-width: 48em)  {
+        .filters .filters-wrapper .button-toggle.closed:after {
+          content: "\f078";
+          font-family: FontAwesome;
+          font-size: 0.875em;
+          font-style: normal;
+          font-weight: normal;
+          display: inline-block;
+          text-decoration: inherit;
+          line-height: 1;
+          padding: 0 5px 0 1px;
+          speak: none;
+          transition: content, 0.25s;
+          padding: 0; }
+ }
+      @media screen and (min-width: 48em)  {
+        .filters .filters-wrapper .button-toggle.closed.open {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          padding-bottom: 19px;
+          margin-bottom: -19px;
+          border-bottom: 0px; } }
   .filters .filters-container {
-    display: none;
+    display: block;
     float: left;
     width: 100%;
     position: absolute;
@@ -2121,7 +2162,7 @@ ul.breadcrumb {
     box-shadow: 0 -3px 3px 1px rgba(0, 0, 0, 0.1); }
     @media screen and (min-width: 48em)  {
       .filters .filters-container {
-        display: block;
+        display: none;
         position: absolute;
         top: 37px;
         bottom: inherit;
@@ -2133,10 +2174,14 @@ ul.breadcrumb {
         .filters .filters-container:after {
           width: 100%; } }
     .filters .filters-container.open {
-      display: block; }
+      display: none; }
       @media screen and (min-width: 48em)  {
         .filters .filters-container.open {
-          display: none; } }
+          display: block; } }
+    .filters .filters-container.closed {
+      display: none; }
+      .filters .filters-container.closed.open {
+        display: block; }
     .filters .filters-container input[type="email"], .filters .filters-container input[type="number"], .filters .filters-container input[type="password"], .filters .filters-container input[type="search"], .filters .filters-container input[type="tel"], .filters .filters-container input[type="text"], .filters .filters-container input[type="url"], .filters .filters-container input[type="color"], .filters .filters-container input[type="date"], .filters .filters-container input[type="datetime"], .filters .filters-container input[type="datetime-local"], .filters .filters-container input[type="month"], .filters .filters-container input[type="time"], .filters .filters-container input[type="week"] {
       width: 100%; }
     .filters .filters-container .filter-start-date {

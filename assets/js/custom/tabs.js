@@ -8,10 +8,19 @@ $('.tabs-menu ul li').click(function() {
 // Toggle arrow icon and open views container
 $('.tabs-menu-button-js').click(function() {
 
-    if ( $('.filters-container').hasClass('open') ) {
-        $('.filter-button-js').toggleClass('open');
-        $('.filters-container').removeClass('open');
+    if( !$('#map').length ) {
+        if ( $('.filters-container').hasClass('closed open') ) {
+            $('.filter-button-js').toggleClass('closed open');
+            $('.filters-container').toggleClass('open');
+        }
+    } else {
+        if ( !$('.filters-container').hasClass('open') ) {
+            $('.filter-button-js').toggleClass('open');
+            $('.filters-container').toggleClass('open');
+        }
     }
+
+
 
     $(this).siblings('.tabs-menu-list').toggleClass('open');
 });
