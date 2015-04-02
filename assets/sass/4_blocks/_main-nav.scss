@@ -85,15 +85,6 @@
 
     }
 
-    .hidden-content-trigger {
-        @include icon(before, plus);
-
-        &.open {
-            @include icon(before, minus);
-        }
-
-    }
-
     .user-admin {
         position: relative;
         display: block;
@@ -114,7 +105,7 @@
 
     }
 
-    ul {
+    ul:not(.hidden-content) {
         margin: $base-spacing*2 0;
     }
 
@@ -143,6 +134,8 @@
             padding: $sm-spacing 0;
 
             a {
+                display: inline;
+                padding: 0;
                 text-transform: uppercase;
                 font-weight: $bold;
                 letter-spacing: 1.5px;
@@ -151,18 +144,16 @@
         }
 
         .hidden-content {
-            display: none;
-            margin: $sm-spacing 0 0 0;
+            margin: 10px 0 30px 0;
 
             li {
-                padding: 10px 0 0 18px;
+                padding: $tiny-spacing;
+            }
 
-                a {
-                    font-weight: normal;
-                    text-transform: none;
-                    letter-spacing: normal;
-                }
-
+            a {
+                text-transform: none;
+                font-weight: normal;
+                letter-spacing: inherit;
             }
 
         }

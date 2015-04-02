@@ -16,6 +16,34 @@
             padding: 0;
         }
 
+        label {
+            padding-right: $sm-spacing;
+
+            span:not(.search-icon) {
+                display: none;
+
+                @include media($small) {
+                    display: inline-block;
+                }
+
+            }
+
+        }
+
+        .search-icon {
+            @include icon(before, search);
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 14px 45px 0 0;
+            font-size: 19px;
+
+            @include media($small) {
+                display: none;
+            }
+
+        }
+
         .button-toggle {
 
             @include icon(after, chevron-down) {
@@ -77,10 +105,9 @@
         bottom: 48px;
         border-top: 5px solid $black;
         background: $white;
-        padding: $base-spacing;
+        padding: $base-spacing $base-spacing 0;
         @include box-shadow($top: -3px, $left: 0, $blur: 3px, $spread: 1px, $color: rgba(0,0,0,.1));
         @include transition;
-
 
         @include media($small) {
             display: none;
@@ -121,6 +148,32 @@
           width: 100%;
         }
 
+        .keyword-search {
+
+            .keyword-input {
+                @include span-columns(10);
+            }
+
+            button {
+                @include span-columns(2);
+                margin-top: $sm-spacing;
+                padding-left: $sm-spacing;
+
+                &:before {
+                    @include rotate(90deg);
+                }
+            }
+
+        }
+
+        .accordion-menu {
+
+            .hidden-content {
+                margin-top: 0;
+            }
+
+        }
+
         .filter-start-date {
             @include span-columns(6);
             position: relative;
@@ -147,21 +200,49 @@
         }
 
         .filter-actions {
+            @include span-columns(12);
             padding-top: $base-spacing;
             text-align: right;
 
-            .cta {
-                margin-right: $sm-spacing;
+            .apply-filter-button {
+                display: inline;
             }
 
         }
 
     }
 
-    .save-as-collection {
-        border-top: $base-border;
-        padding: $base-spacing 0 0;
-        margin: $base-spacing 0 0;
+}
+
+.filters.aside {
+
+    &.fixed-bottom {
+        position: fixed;
+        z-index: $fixed-at-bottom;
+
+        @include media($small) {
+            position: relative;
+            z-index: $filter;
+        }
+    }
+
+    .filters-wrapper {
+        text-align: right;
+
+        @include media($small) {
+            display: none;
+        }
+    }
+
+    .filters-container {
+        display: none;
+
+        @include media($small) {
+            display: block;
+            position: relative;
+            top: 0;
+        }
+
     }
 
 }
