@@ -5,11 +5,11 @@ $LAYOUT
 .pl-pattern {
     @include clearfix;
     @include outer-container;
-    padding: 0 $base-spacing;
+    padding: $base-spacing $base-spacing 0;
     background-color: $white;
 
     @include media($small) {
-        padding: $base-spacing $lg-spacing $lg-spacing;
+        padding: $lg-spacing $base-spacing $base-spacing;
     }
 
     p {
@@ -53,6 +53,11 @@ $LAYOUT
     margin: $lg-spacing 0;
     clear: both;
 
+    .pl-h4 {
+        border-bottom: $base-border;
+        padding: $sm-spacing 110px $sm-spacing 0;
+    }
+
     .note {
         background: $lt-gray-bg;
         color: $dark-text-color;
@@ -61,12 +66,7 @@ $LAYOUT
         font-size: em(12);
     }
 
-    .pl-sub-pattern-markup {
-        padding-top: $sm-spacing;
-    }
-
     .pl-sub-pattern-sample {
-        position: relative;
 
     	.pl-sub-pattern-sample-toggle-controls {
     		color: $dk-gray;
@@ -77,10 +77,10 @@ $LAYOUT
             -moz-user-select: none;
             -webkit-user-select: none;
             -ms-user-select: none;
-            border-bottom: $base-border;
+            //border-bottom: $base-border;
             width: 100%;
             position: relative;
-            top: 0;
+            top: -24px;
 
             span {
                 border: $base-border;
@@ -116,6 +116,7 @@ $LAYOUT
 
 			.pl-sub-pattern-sample-toggle-target {
 				display: block;
+                margin-top: -32px;
 			}
 
 		}
@@ -124,16 +125,8 @@ $LAYOUT
 
     pre[class*="language-"] {
         padding: 1em 1em 0em 1em;
+        max-height: 300px;
+        overflow: scroll;
     }
 
-}
-
-.pl-note {
-    font-size: em(14);
-    font-style: italic;
-    padding: $tiny-spacing $sm-spacing;
-    background-color: #ffe7e7;
-    display: inline-block;
-    border-left: 2px solid red;
-    clear: both;
 }
