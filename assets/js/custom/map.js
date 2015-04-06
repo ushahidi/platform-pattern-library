@@ -33,44 +33,13 @@ if ($('#map').length) {
         }).addTo(map);
 
     var popup = '<div class="post-popup">
-        <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-        <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-        </p>
-        <div class="actions-inline">
-            <button type="button" class="button-secondary dropdown toggle-js button-hide">
-                <span>Options</span>
-            </button>
-        </div>
-        <div class="toggle-content">
-            <ul class="dropdown-menu" role="menu">
-                <li>
-                    <button type="button" class="button-secondary edit">
-                        <a href="#!">Edit</a>
-                    </button>
-                </li>
-                <li>
-                    <div class="custom-select">
-                        <select>
-                            <option>Add to Collection</option>
-                            <option>Collection #1</option>
-                            <option>Collection #2</option>
-                        </select>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>';
-
-    var popupHasImage = '<div class="post-popup has-image">
     <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
     <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
     </p>
     <div class="actions-inline">
-        <button type="button" class="button-secondary dropdown toggle-js button-hide">
+        <button type="button" class="button-secondary plus toggle-js hide-when-small">
             <span>Options</span>
         </button>
     </div>
@@ -83,17 +52,50 @@ if ($('#map').length) {
             </li>
             <li>
                 <div class="custom-select">
-                    <select>
-                        <option>Add to Collection</option>
-                        <option>Collection #1</option>
-                        <option>Collection #2</option>
-                    </select>
-                </div>
+    <select>
+        <option>Add to Collection</option>
+        <option>Collection #1</option>
+        <option>Collection #2</option>
+    </select>
+</div>
+
             </li>
         </ul>
-        <img src="https://photos.travelblog.org/Photos/11053/262872/f/2165432-Deserted-main-road-of-Quneitra-Syria-1.jpg">
     </div>
-    </div>';
+</div>';
+
+    var popupHasImage = '<div class="post-popup has-image">
+    <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
+    <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
+    </p>
+    <div class="actions-inline">
+        <button type="button" class="button-secondary plus toggle-js hide-when-small">
+            <span>Options</span>
+        </button>
+    </div>
+    <div class="toggle-content">
+        <ul class="dropdown-menu" role="menu">
+            <li>
+                <button type="button" class="button-secondary edit">
+                    <a href="#!">Edit</a>
+                </button>
+            </li>
+            <li>
+                <div class="custom-select">
+    <select>
+        <option>Add to Collection</option>
+        <option>Collection #1</option>
+        <option>Collection #2</option>
+    </select>
+</div>
+
+            </li>
+        </ul>
+    </div>
+    <img src="https://photos.travelblog.org/Photos/11053/262872/f/2165432-Deserted-main-road-of-Quneitra-Syria-1.jpg">
+</div>';
 
     var popupOptions =
         {

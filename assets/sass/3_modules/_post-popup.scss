@@ -6,7 +6,7 @@
     @include box-shadow($top: 0px, $left: 0, $blur: 7px, $spread: 2px, $color: rgba(0,0,0,.1), $inset: false);
     max-width: 250px;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     background: $white;
 
     @include media($small) {
@@ -23,50 +23,27 @@
     }
 
     .actions-inline {
-        padding: $base-spacing 0 0;
+        padding: $sm-spacing 0 0;
+        display: block;
 
         @include media($small) {
+            margin-top: $base-spacing;
             border-top: $base-border;
             padding: 0;
         }
 
-    }
-
-    .actions-inline {
-
         + .toggle-content {
-            padding: $base-spacing 0 0;
+            padding: $sm-spacing 0 0;
 
             @include media($small) {
+                padding: $base-spacing 0 0;
+                border-top: $base-border;
                 display: block;
                 border: none;
             }
 
-            li {
-                float: none;
-
-                @include media($small) {
-                    float: left;
-                }
-
-                a {
+            li a {
                     color: $black;
-                }
-
-            }
-
-        }
-
-        + .toggle-content .toggle-content-secondary {
-
-            li {
-                float: none;
-
-                a {
-                    color: $link-color;
-                    text-shadow: none;
-                }
-
             }
 
         }
@@ -94,12 +71,13 @@
         }
 
         img {
+            position: absolute;
             opacity: .3;
             top: 0;
             left: 0;
             min-height: 100%;
             min-width: 100%;
-            position: absolute;
+            max-height: 100%;
             z-index: $below;
         }
 
@@ -107,8 +85,10 @@
             color: $white;
         }
 
-        .actions {
-            border-top: 1px solid $black;
+        .actions-inline {
+            @include media($small) {
+                border-top: 1px solid $black;
+            }
         }
 
     }
