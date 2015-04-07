@@ -118,7 +118,7 @@
             max-width: 300px;
             border: $base-border;
             border-top: 5px solid $black;
-            @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
+            @include box-shadow($top: 0px, $left: 0, $blur: 0px, $spread: 0px, $color: rgba(0,0,0,.08));
 
             &:after {
                 width: 100%;
@@ -131,6 +131,7 @@
 
             @include media($small) {
                 display: block;
+                @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
             }
 
         }
@@ -150,14 +151,22 @@
 
         .keyword-search {
 
+            label {
+                display: block;
+                margin: 0;
+            }
+
             .keyword-input {
-                @include span-columns(10);
+                @include span-columns(9);
+                height: 30px;
             }
 
             button {
-                @include span-columns(2);
+                @include span-columns(3);
                 margin-top: $sm-spacing;
-                padding-left: $sm-spacing;
+                height: 30px;
+                padding: 0;
+                text-align: center;
 
                 &:before {
                     @include rotate(90deg);
@@ -203,9 +212,17 @@
             @include span-columns(12);
             padding-top: $base-spacing;
             text-align: right;
+        }
 
-            .apply-filter-button {
-                display: inline;
+        .apply-filter-button {
+            display: inline-block;
+            float: none;
+        }
+
+        .location {
+
+            .custom-select {
+                margin: 0 $sm-spacing $sm-spacing 0;
             }
 
         }

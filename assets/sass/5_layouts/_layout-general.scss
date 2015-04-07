@@ -29,18 +29,21 @@
         @include media($small) {
 
             .main-col {
-                padding-right: $lg-spacing;
                 @include span-columns(9);
             }        
 
             aside {
                 @include span-columns(3);
                 @include omega();
-                border-left: $base-border;
-                padding: $base-spacing 0 $lg-spacing $base-spacing;
+                padding: $base-spacing 0 $lg-spacing;                
 
-                &.is-right { //specific styling for 
+                &.is-right { //specific styling for when the aside comes first in the source order
                     float: right;
+                }
+
+                &.has-border { //specific styling for when you want the aside to have a border
+                    border-left: $base-border;
+                    padding: $base-spacing 0 $lg-spacing $base-spacing;
                 }
 
             }
@@ -74,3 +77,4 @@
     }
 
 }
+
