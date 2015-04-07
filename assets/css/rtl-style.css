@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/*@import "css3/selection";*/
+/* @import "css3/selection"; */
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -236,7 +236,7 @@ $LAYOUT
       background: transparent;
       position: relative;
       padding: 0; } }
-  .fixed-bottom button.button-primary {
+  .fixed-bottom button.button-primary, .fixed-bottom a.button-primary.button {
     margin: 0; }
 
 .absolute {
@@ -791,7 +791,7 @@ li.pl-icon {
   li.pl-icon [class*='fa-'] {
     margin-right: 20px; }
 
-/* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+scss */
+/* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript&plugins=autolinker */
 /**
  * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
@@ -944,6 +944,83 @@ pre[data-line] code {
 
 pre .line-highlight {
   margin-top: 0; }
+
+.token a {
+  color: inherit; }
+
+.pl-sass-guidelines {
+  background: #ebebeb; }
+  .pl-sass-guidelines .page-content {
+    float: none;
+    background-color: #ffffff;
+    padding: 0; }
+    .pl-sass-guidelines .page-content.has-aside {
+      padding: 0; }
+      .pl-sass-guidelines .page-content.has-aside aside {
+        padding: 0; }
+        @media screen and (min-width: 48em)  {
+          .pl-sass-guidelines .page-content.has-aside aside {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 31.76157%;
+            border: none; }
+            .pl-sass-guidelines .page-content.has-aside aside:last-child {
+              margin-right: 0; } }
+        @media screen and (min-width: 64em)  {
+          .pl-sass-guidelines .page-content.has-aside aside {
+            padding: 40px 10px 0 20px; } }
+        @media screen and (min-width: 90em)  {
+          .pl-sass-guidelines .page-content.has-aside aside {
+            float: left;
+            display: block;
+            margin-right: 2.35765%;
+            width: 23.23176%; }
+            .pl-sass-guidelines .page-content.has-aside aside:last-child {
+              margin-right: 0; } }
+      @media screen and (min-width: 48em)  {
+        .pl-sass-guidelines .page-content.has-aside .main-col {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 65.88078%; }
+          .pl-sass-guidelines .page-content.has-aside .main-col:last-child {
+            margin-right: 0; } }
+      @media screen and (min-width: 90em)  {
+        .pl-sass-guidelines .page-content.has-aside .main-col {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 74.41059%; }
+          .pl-sass-guidelines .page-content.has-aside .main-col:last-child {
+            margin-right: 0; } }
+    .pl-sass-guidelines .page-content .side-nav ul li {
+      border: 1px solid #ebebeb;
+      border-bottom: none; }
+      .pl-sass-guidelines .page-content .side-nav ul li:last-child {
+        border-bottom: 1px solid #ebebeb; }
+      .pl-sass-guidelines .page-content .side-nav ul li a {
+        display: block;
+        padding: 10px;
+        border-left: 3px solid transparent;
+        background-color: #ffffff; }
+        .pl-sass-guidelines .page-content .side-nav ul li a:hover {
+          background-color: #f8f8f8; }
+        .pl-sass-guidelines .page-content .side-nav ul li a.active {
+          border-left: 3px solid #CC6699;
+          background-color: #f8f8f8;
+          color: #181c21;
+          font-weight: bold; }
+  .pl-sass-guidelines .container, .pl-sass-guidelines .container-centered {
+    max-width: 1000px; }
+  .pl-sass-guidelines code[class*="language-"] {
+    margin-left: -140px; }
+
+a.button.sass-guidelines-button {
+  background-color: #CC6699;
+  margin-top: 10px; }
+  a.button.sass-guidelines-button:hover {
+    background-color: #993366; }
 
 /*------------------------------------*\
     $BASICS
@@ -1306,7 +1383,7 @@ body.post-detail .actions-stacked + .toggle-content, body.post-detail .actions-i
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
-button {
+button, a.button {
   display: inline-block;
   outline: none;
   background-color: #2274b4;
@@ -1324,25 +1401,25 @@ button {
   transition: 0.3s;
   font-size: 1em; }
   @media screen and (min-width: 48em)  {
-    button {
+    button, a.button {
       font-size: 1.125em; } }
-  button a {
+  button a, a.button a {
     color: #181c21; }
-  button i {
+  button i, a.button i {
     padding-right: 10px; }
-  button:hover {
+  button:hover, a.button:hover {
     cursor: pointer;
     background-color: #1a5889; }
-  button:active {
+  button:active, a.button:active {
     background-color: #0e2f49;
     transition: none; }
-  button.disabled {
+  button.disabled, a.disabled.button {
     background-color: #737373;
     cursor: default; }
-  button.icon-only:before {
+  button.icon-only:before, a.icon-only.button:before {
     padding: 0; }
     @media screen and (min-width: 48em)  {
-      button.icon-only:before {
+      button.icon-only:before, a.icon-only.button:before {
         padding: 0 5px 0 0; } }
 
 .button-create {
@@ -1452,10 +1529,10 @@ button {
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
 
-.upvote-downvote button.icon-only {
+.upvote-downvote button.icon-only, .upvote-downvote a.icon-only.button {
   display: block;
   padding: 5px 6px 7px 10px; }
-  .upvote-downvote button.icon-only.upvote {
+  .upvote-downvote button.icon-only.upvote, .upvote-downvote a.icon-only.upvote.button {
     margin-bottom: 10px; }
 
 .dropdown-group .toggle-content {
@@ -1481,9 +1558,9 @@ button {
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
 \*------------------------------------*/
-button.dropdown, button.add-to-collection, button.down, button.downvote {
+button.dropdown, a.dropdown.button, button.add-to-collection, a.add-to-collection.button, button.down, a.down.button, button.downvote, a.downvote.button {
   padding: 8px; }
-  button.dropdown:before, button.add-to-collection:before, button.down:before, button.downvote:before {
+  button.dropdown:before, a.dropdown.button:before, button.add-to-collection:before, a.add-to-collection.button:before, button.down:before, a.down.button:before, button.downvote:before, a.downvote.button:before {
     content: "\f078";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -1496,15 +1573,15 @@ button.dropdown, button.add-to-collection, button.down, button.downvote {
     speak: none;
     transition: content, 0.25s;
     padding: 0 3px; }
-  button.dropdown.open:before, button.add-to-collection.open:before, button.down.open:before, button.downvote.open:before {
+  button.dropdown.open:before, a.dropdown.open.button:before, button.add-to-collection.open:before, a.add-to-collection.open.button:before, button.down.open:before, a.down.open.button:before, button.downvote.open:before, a.downvote.open.button:before {
     -webkit-transform: rotate(-180deg);
     -ms-transform: rotate(-180deg);
     transform: rotate(-180deg); }
-button.tabbed.open {
+button.tabbed.open, a.tabbed.open.button {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 0px; }
-button.edit:before {
+button.edit:before, a.edit.button:before {
   content: "\f040";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1516,9 +1593,9 @@ button.edit:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.close {
+button.close, a.close.button {
   margin: 5px 5px 0 0; }
-  button.close:before {
+  button.close:before, a.close.button:before {
     content: "\f057";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -1531,9 +1608,9 @@ button.close {
     speak: none;
     transition: content, 0.25s;
     font-size: 1.125em; }
-  button.close em {
+  button.close em, a.close.button em {
     color: #737373; }
-button.share:before {
+button.share:before, a.share.button:before {
   content: "\f064";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1545,7 +1622,7 @@ button.share:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.trash:before {
+button.trash:before, a.trash.button:before {
   content: "\f1f8";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1557,7 +1634,7 @@ button.trash:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.check:before {
+button.check:before, a.check.button:before {
   content: "\f00c";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1569,7 +1646,7 @@ button.check:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.plus:before {
+button.plus:before, a.plus.button:before {
   content: "\f067";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1581,14 +1658,14 @@ button.plus:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.plus.open:before {
+button.plus.open:before, a.plus.open.button:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   -webkit-transform-origin: 35% 50%;
       -ms-transform-origin: 35% 50%;
           transform-origin: 35% 50%; }
-button.check:before {
+button.check:before, a.check.button:before {
   content: "\f00c";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1600,7 +1677,7 @@ button.check:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.export:before {
+button.export:before, a.export.button:before {
   content: "\f08e";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1612,7 +1689,7 @@ button.export:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.up:before, button.upvote:before {
+button.up:before, a.up.button:before, button.upvote:before, a.upvote.button:before {
   content: "\f077";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1624,7 +1701,7 @@ button.up:before, button.upvote:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.search:before {
+button.search:before, a.search.button:before {
   content: "\f002 ";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -1932,7 +2009,7 @@ ul.breadcrumb {
     margin-bottom: 0; }
   .hidden-content.location input[type="text"] {
     margin-top: 0; }
-  .hidden-content.location button {
+  .hidden-content.location button, .hidden-content.location a.button {
     float: right; }
 
 .category {
@@ -2080,10 +2157,10 @@ ul.breadcrumb {
         @media screen and (min-width: 48em)  {
           .tabs .tabs-menu .tabs-menu-list li.active:active {
             border-color: #737373; } }
-  .tabs .tabs-menu button {
+  .tabs .tabs-menu button, .tabs .tabs-menu a.button {
     display: block; }
     @media screen and (min-width: 48em)  {
-      .tabs .tabs-menu button {
+      .tabs .tabs-menu button, .tabs .tabs-menu a.button {
         display: none; } }
   .tabs .tab-content {
     display: none;
@@ -2278,7 +2355,7 @@ ul.breadcrumb {
       height: 30px; }
       .filters .filters-container .keyword-search .keyword-input:last-child {
         margin-right: 0; }
-    .filters .filters-container .keyword-search button {
+    .filters .filters-container .keyword-search button, .filters .filters-container .keyword-search a.button {
       float: left;
       display: block;
       margin-right: 2.35765%;
@@ -2287,9 +2364,9 @@ ul.breadcrumb {
       height: 30px;
       padding: 0;
       text-align: center; }
-      .filters .filters-container .keyword-search button:last-child {
+      .filters .filters-container .keyword-search button:last-child, .filters .filters-container .keyword-search a.button:last-child {
         margin-right: 0; }
-      .filters .filters-container .keyword-search button:before {
+      .filters .filters-container .keyword-search button:before, .filters .filters-container .keyword-search a.button:before {
         -webkit-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
         transform: rotate(90deg); }
@@ -2548,14 +2625,14 @@ ul.breadcrumb {
     float: right; }
     .post-list-actions .bulk-actions .dropdown-group {
       display: inline; }
-      .post-list-actions .bulk-actions .dropdown-group button {
+      .post-list-actions .bulk-actions .dropdown-group button, .post-list-actions .bulk-actions .dropdown-group a.button {
         margin: 0; }
-        .post-list-actions .bulk-actions .dropdown-group button:before {
+        .post-list-actions .bulk-actions .dropdown-group button:before, .post-list-actions .bulk-actions .dropdown-group a.button:before {
           color: #2274b4; }
   .post-list-actions .cta {
     float: left;
     padding-top: 10px; }
-  .post-list-actions button {
+  .post-list-actions button, .post-list-actions a.button {
     margin-left: 10px; }
 
 .tabs-with-filter {
@@ -2857,7 +2934,7 @@ ul.breadcrumb {
       padding: 0;
       border: 0px;
       display: block; } }
-  .stage-list button.open {
+  .stage-list button.open, .stage-list a.open.button {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
   .stage-list .toggle-content {
@@ -3291,9 +3368,9 @@ ul.breadcrumb {
     color: #999999;
     font-size: 1.125em;
     padding-right: 8px; }
-  .navigation .sub-nav button {
+  .navigation .sub-nav button, .navigation .sub-nav a.button {
     margin: 10px 0 0 0; }
-    .navigation .sub-nav button.button-secondary.has-icon:before, .navigation .sub-nav button.has-icon.button-toggle:before {
+    .navigation .sub-nav button.button-secondary.has-icon:before, .navigation .sub-nav a.button-secondary.has-icon.button:before, .navigation .sub-nav a.has-icon.button.button-toggle:before, .navigation .sub-nav button.has-icon.button-toggle:before {
       content: "\f067";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -3529,11 +3606,11 @@ footer {
     position: absolute;
     right: 10px;
     top: 20px; }
-    .post-type-field .actions button {
+    .post-type-field .actions button, .post-type-field .actions a.button {
       margin-bottom: 10px;
       display: block;
       text-align: right; }
-      .post-type-field .actions button.open:before {
+      .post-type-field .actions button.open:before, .post-type-field .actions a.open.button:before {
         content: "\f00d";
         font-family: FontAwesome;
         font-size: 0.875em;
@@ -3549,7 +3626,7 @@ footer {
       .post-type-field .actions {
         top: 40px;
         right: 20px; }
-        .post-type-field .actions button {
+        .post-type-field .actions button, .post-type-field .actions a.button {
           display: inline-block;
           margin-left: 10px; } }
   .post-type-field .form {
@@ -3750,7 +3827,7 @@ aside.is-right .published-to {
       aside.is-right .published-to h4 {
         float: none;
         margin: 20px 0 10px; } }
-  aside.is-right .published-to button {
+  aside.is-right .published-to button, aside.is-right .published-to a.button {
     margin-bottom: 0; }
 @media screen and (min-width: 48em)  {
   aside.is-right .save-buttons {
