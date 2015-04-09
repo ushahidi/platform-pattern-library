@@ -22,7 +22,7 @@
 </head>
 
 
-<body class="has-fixed-bottom">
+<body>
 
     <header class="header header-full overlay">
     <div class="container">
@@ -158,16 +158,119 @@
                         <p class="statistic"><span class="big-number">456</span> Posts</p>
                     </div>
                     <div class="stat">
-                        <p class="statistic"><span class="big-number">231</span> Comments</p>
-                    </div>
-                    <div class="stat">
                         <p class="statistic"><span class="big-number">16</span> Sets</p>
                     </div>
                     <div class="stat">
                         <p class="statistic"><span class="big-number">28</span> Users</p>
                     </div>
+                    <div class="stat">
+                        <p class="statistic"><span class="big-number">231</span> Comments</p>
+                    </div>
                 </div>
             </div>
+
+            <aside class="is-right">
+                <div class="filters">
+                    <div class="filters-show-hide">
+                        <label class="delta-alt"><span class="search-icon"></span><span>Search &amp; Filter Activity</span></label>
+                        <button type="button" class="button-toggle filter-button-js"></button>
+                    </div>
+                    <div class="filters-container closed">
+                        <div class="keyword-search">
+                            <!--<label for="keyword" class="delta-alt">By Keyword</label>-->
+                            <input type="text" name="keyword" class="keyword-input" placeholder="Search...">
+                            <button type="button" class="button-secondary icon-only alt search"></button>
+                        </div>
+                        <nav class="accordion-menu">
+                            <ul class="accordion-menu-list">
+                                <li class="accordion-menu-list__item">
+                                    <div class="trigger-container">
+                                        <a href="#!" class="hidden-content-trigger delta">Categories</a>
+                                    </div>
+                                    <ul class="hidden-content">
+                                        <form action="" method="get">
+                                            <input type="checkbox" name="show-all-categories" value="Show All Categories"> Show All Categories<br>
+                                            <input type="checkbox" name="category1" value="Category1" checked="checked">    <i class="fa fa-circle" style="color: #da60a2;"> &nbsp;</i> Accident<br>
+                                            <input type="checkbox" name="category2" value="Category2">
+                                            <i class="fa fa-circle" style="color: #679a63;"> &nbsp;</i> Safe Location<br>
+                                            <input type="checkbox" name="category3" value="Category3">
+                                            <i class="fa fa-circle" style="color: #9a4126;"> &nbsp;</i> Hospital Status<br>
+                                        </form>
+                                    </ul>
+                                </li>
+                                <li class="accordion-menu-list__item">
+                                    <div class="trigger-container">
+                                        <a href="#!" class="hidden-content-trigger delta">Activity Type</a>
+                                    </div>
+                                    <ul class="hidden-content">
+                                        <form action="" method="get">
+                                            <input type="checkbox" name="show-all-stages" value="New Post">New Post<br>
+                                            <input type="checkbox" name="structure" value="Edited Post">Edited Post<br>
+                                            <input type="checkbox" name="verification" value="Comment"></i>Comment<br>
+                                            <input type="checkbox" name="translation" value="Updated Stage">Updated Stage<br>
+                                            <input type="checkbox" name="disabled stage" value="New Collection">New Collection<br>
+                                            <input type="checkbox" name="disabled stage" value="Edited Collection">Edited Collection<br>
+                                        </form>
+                                    </ul>
+                                </li>
+                                <li class="accordion-menu-list__item">
+                                    <div class="trigger-container">
+                                        <a href="#!" class="hidden-content-trigger delta">Stages</a>
+                                    </div>
+                                    <ul class="hidden-content">
+                                        <form action="" method="get">
+                                            <input type="checkbox" name="show-all-stages" value="Show All Stages">Show All Stages<br>
+                                            <input type="checkbox" name="structure" value="Structure">Structure<br>
+                                            <input type="checkbox" name="verification" value="Verification" checked="checked"></i>Verification<br>
+                                            <input type="checkbox" name="translation" value="Translation">Translation<br>
+                                            <input type="checkbox" name="disabled stage" value="Disabled Stage">Disabled Stage<br>
+                                        </form>
+                                    </ul>
+                                </li>
+                                <li class="accordion-menu-list__item">
+                                    <div class="trigger-container">
+                                        <a href="#!" class="hidden-content-trigger delta">Date Range</a>
+                                    </div>
+                                    <ul class="hidden-content date-range">
+                                        <div class="filter-start-date">
+                                            <label for="start" class="delta-alt">Start Date</label>
+                                            <input type="text" name="start">
+                                        </div>
+                                        <div class="filter-end-date">
+                                            <label for="end" class="delta-alt">End Date</label>
+                                            <input type="text" name="end">
+                                        </div>
+
+                                        <div class="filter-actions">
+                                            <button class="apply-filter-button button-primary">Apply</button>
+                                        </div>
+                                    </ul>
+                                </li>
+                                <li class="accordion-menu-list__item">
+                                    <div class="trigger-container">
+                                        <a href="#!" class="hidden-content-trigger delta">Location</a>
+                                    </div>
+                                    <ul class="hidden-content location">
+                                        <label for="location" class="delta-alt hidden">Location</label>
+                                        <input type="text" name="location" placeholder="Enter city or postal code">
+                                        <div class="custom-select">
+                                            <select>
+                                                <option selected>within 1 km</option>
+                                                <option>within 10 km</option>
+                                                <option>within 50 km</option>
+                                                <option>within 100 km</option>
+                                                <option>within 500 km</option>
+                                            </select>
+                                        </div>
+                                        <button class="apply-filter-button button-primary">Apply</button>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </aside>
 
             <div class="main-col">
 
@@ -292,96 +395,6 @@
                 </nav>
 
             </div> <!--end main column-->
-
-            <aside>
-                <h4 class="delta-alt">Filter &amp; Search Activity</h4>
-                <div class="filters aside fixed-bottom">
-    <div class="filters-wrapper">
-        <label class="delta-alt">Search & Filter</label>
-        <button type="button" class="button-toggle filter-button-js open"></button>
-    </div>
-
-    <div class="filters-container open">
-        <div class="keyword-search">
-            <label for="keyword" class="delta-alt">By Keyword:</label>
-            <input type="text" name="keyword" class="keyword-input">
-            <button type="button" class="button-secondary icon-only alt search"></button>
-        </div>
-        <nav class="accordion-menu">
-            <ul class="accordion-menu-list">
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Categories</a>
-                    </div>
-                    <ul class="hidden-content">
-                        <form action="" method="get">
-                            <input type="checkbox" name="show-all-categories" value="Show All Categories"> Show All Categories<br>
-                            <input type="checkbox" name="category1" value="Category1" checked="checked">    <i class="fa fa-circle" style="color: #da60a2;"> &nbsp;</i> Accident<br>
-                            <input type="checkbox" name="category2" value="Category2">
-                            <i class="fa fa-circle" style="color: #679a63;"> &nbsp;</i> Safe Location<br>
-                            <input type="checkbox" name="category3" value="Category3">
-                            <i class="fa fa-circle" style="color: #9a4126;"> &nbsp;</i> Hospital Status<br>
-                        </form>
-                    </ul>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Stages</a>
-                    </div>
-                    <ul class="hidden-content">
-                        <form action="" method="get">
-                            <input type="checkbox" name="show-all-stages" value="Show All Stages">Show All Stages<br>
-                            <input type="checkbox" name="structure" value="Structure">Structure<br>
-                            <input type="checkbox" name="verification" value="Verification" checked="checked"></i>Verification<br>
-                            <input type="checkbox" name="translation" value="Translation">Translation<br>
-                            <input type="checkbox" name="disabled stage" value="Disabled Stage">Disabled Stage<br>
-                        </form>
-                    </ul>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Date Range</a>
-                    </div>
-                    <ul class="hidden-content date-range">
-                        <div class="filter-start-date">
-                            <label for="start" class="delta-alt">Start Date</label>
-                            <input type="text" name="start">
-                        </div>
-                        <div class="filter-end-date">
-                            <label for="end" class="delta-alt">End Date</label>
-                            <input type="text" name="end">
-                        </div>
-
-                        <div class="filter-actions">
-                            <button class="apply-filter-button button-primary">Apply</button>
-                        </div>
-                    </ul>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Location</a>
-                    </div>
-                    <ul class="hidden-content location">
-                        <label for="location" class="delta-alt hidden">Location</label>
-                        <input type="text" name="location" placeholder="select a location">
-                        <div class="custom-select">
-                            <select>
-                                <option selected>within 1 km</option>
-                                <option>within 10 km</option>
-                                <option>within 50 km</option>
-                                <option>within 100 km</option>
-                                <option>within 500 km</option>
-                            </select>
-                        </div>
-                        <button class="apply-filter-button button-primary">Apply</button>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </div>
-</div>
-
-            </aside>
 
         </div> <!--end layout a-->
 

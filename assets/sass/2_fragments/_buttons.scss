@@ -165,18 +165,12 @@ button {
 
 .button-toggle {
     @extend .button-secondary;
-    @include transition(0.3s);
     position: relative;
     z-index: $bottom + 2;
+    @include transition(0);
 
-    @include icon(after, chevron-up) {
+    @include icon(after, chevron-down) {
         padding: 0;
-    }
-
-    @include media($small) {
-        @include icon(after, chevron-down) {
-            padding: 0;
-        }
     }
 
     &.open:after {

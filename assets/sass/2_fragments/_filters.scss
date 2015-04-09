@@ -1,14 +1,11 @@
 .filters {
     position: relative;
 
-    .button-toggle {
-        @include no-transition();
-    }
-
-    .filters-wrapper {
-        margin-right: 0;
-        padding: $sm-spacing 0 $sm-spacing $sm-spacing;
-        text-align: left;
+    .filters-show-hide {
+        padding: $sm-spacing;
+        overflow: auto;
+        border: $base-border;
+        border-left: 0;
         /* max-width: 300px; */
 
         @include media($small) {
@@ -16,79 +13,24 @@
             padding: 0;
         }
 
-        label {
-            padding-right: $sm-spacing;
-
-            span:not(.search-icon) {
-                display: none;
-
-                @include media($small) {
-                    display: inline-block;
-                }
-
-            }
-
+        label.delta-alt {
+            display: inline-block;
+            margin: $sm-spacing $sm-spacing 0 0;
         }
 
-        .search-icon {
-            @include icon(before, search);
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 14px 45px 0 0;
-            font-size: 19px;
+        .button-toggle {            
+            float: right;
 
             @include media($small) {
-                display: none;
-            }
-
-        }
-
-        .button-toggle {
-
-            @include icon(after, chevron-down) {
-                padding: 0;
-            }
-
-            @include media($small) {
-                @include border-bottom-radius($global-radius);
-                padding: 8px 10px;
-                border: $base-border;
+                float: none;
             }
 
             &.open {
 
                 @include media($small) {
+                    padding-bottom: 20px;
                     @include border-bottom-radius(0);
-                    padding-bottom: 19px;
-                    margin-bottom: -19px;
-                    border-bottom: 0px;
-                }
-            }
-
-            &.closed {
-                @include border-bottom-radius($global-radius);
-                padding: 8px 10px;
-                border: $base-border;
-                @include icon(after, chevron-up) {
-                    padding: 0;
-                }
-
-                @include media($small) {
-                    @include icon(after, chevron-down) {
-                        padding: 0;
-                    }
-                }
-
-                &.open {
-
-                    @include media($small) {
-                        @include border-bottom-radius(0);
-                        padding-bottom: 19px;
-                        margin-bottom: -19px;
-                        border-bottom: 0px;
-                    }
-
+                    border-bottom: 0;
                 }
 
             }
@@ -98,27 +40,30 @@
     }
 
     .filters-container {
-        display: block;
+        display: none;
         float: left;
         width: 100%;
-        position: absolute;
-        bottom: 48px;
-        border-top: 5px solid $black;
+        position: relative;
         background: $white;
-        padding: $base-spacing $base-spacing 0;
-        @include box-shadow($top: -3px, $left: 0, $blur: 3px, $spread: 1px, $color: rgba(0,0,0,.1));
-        @include transition;
+        padding: $sm-spacing $sm-spacing 0;
+        border: $base-border;
+        border-top: 0;
+
+        &:after {
+            width: 50%;
+            height: 1px; 
+            background: $border-color;
+        }
 
         @include media($small) {
-            display: none;
+            padding: $sm-spacing $base-spacing;
             position: absolute;
             top: 37px;
             bottom: inherit;
             width: 100%;
             max-width: 300px;
-            border: $base-border;
             border-top: 5px solid $black;
-            @include box-shadow($top: 0px, $left: 0, $blur: 0px, $spread: 0px, $color: rgba(0,0,0,.08));
+            @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
 
             &:after {
                 width: 100%;
@@ -127,19 +72,9 @@
         }
 
         &.open {
-            display: none;
+            display: block;
 
             @include media($small) {
-                display: block;
-                @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
-            }
-
-        }
-
-        &.closed {
-            display: none;
-
-            &.open {
                 display: block;
             }
 
@@ -217,6 +152,7 @@
         .apply-filter-button {
             display: inline-block;
             float: none;
+            right: 0;
         }
 
         .location {
@@ -231,33 +167,32 @@
 
 }
 
-.filters.aside {
+aside {
 
-    &.fixed-bottom {
-        position: fixed;
-        z-index: $fixed-at-bottom;
-
-        @include media($small) {
-            position: relative;
-            z-index: $filter;
-        }
+    .filters {
+        border-left: $base-border;
+        margin-bottom: $sm-spacing;
     }
 
-    .filters-wrapper {
-        text-align: right;
+    .filters-show-hide {
+
+        &.half {
+            width: 55%;
+            float: right;
+            margin-top: -54px;
+        }
 
         @include media($small) {
-            display: none;
+            display: none !important;
         }
+
     }
 
     .filters-container {
-        display: none;
 
         @include media($small) {
-            display: block;
-            position: relative;
-            top: 0;
+            top: 0 !important;
+            display: block !important;
         }
 
     }
