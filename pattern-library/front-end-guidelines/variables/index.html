@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>The Ushahidi Platform Pattern Library</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" type="image/ico" href="../../../favicon.ico" />
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="alternate stylesheet" type="text/css" title="rtl" href="../../../css/rtl-style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+
+
+<body class="pl-front-end-guidelines">
+
+<div class="page-content has-aside">
+
+    @@include('../../partials/front-end-guidelines/_header.html')
+
+    @@include('../../partials/front-end-guidelines/_side-nav.html')
+
+    <div class="main-col">
+
+        <section class="pl-pattern" id="basics">
+            <div class="pl-pattern-description">
+                <h2>
+                    Variables
+                </h2>
+                <div class="pl-divider"></div>
+            </div>
+
+            <div class="container">
+                <h3>Color Variables</h3>
+                <p>When using a color more than once, store it in a variable with a meaningful name representing the color.</p>
+                <pre>
+                    <code class="language-css">
+                        $blue: #2274b4;
+                    </code>
+                </pre>
+                <p>Then use that variable wherever you would like.</p>
+                <pre>
+                    <code class="language-css">
+                        $link-color: $blue;
+                    </code>
+                </pre>
+
+                <h3>Lightening and Darkening Colors</h3>
+                <p>This is an example of lighten/darken color functions and color variables.</p>
+                <pre>
+                    <code class="language-css">
+                        $link-color: $blue;
+                        $link-hover-color: darken( $link-color, 20% );
+                        $link-color-lt: lighten( $link-color, 25% );
+                        $link-color-dark-bg: $link-color-lt;
+                        $link-color-dark-bg-hover: lighten( $link-color-lt, 10% );
+                    </code>
+                </pre>
+            </div>
+
+        </section>
+
+    </div>
+
+</div><!--end wrapper-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../../js/app.js"></script>
+
+</body>
+
+</html>

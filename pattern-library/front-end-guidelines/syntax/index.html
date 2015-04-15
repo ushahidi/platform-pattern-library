@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>The Ushahidi Platform Pattern Library</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" type="image/ico" href="../../../favicon.ico" />
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="alternate stylesheet" type="text/css" title="rtl" href="../../../css/rtl-style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+
+
+<body class="pl-front-end-guidelines">
+
+<div class="page-content has-aside">
+
+    @@include('../../partials/front-end-guidelines/_header.html')
+
+    @@include('../../partials/front-end-guidelines/_side-nav.html')
+
+    <div class="main-col">
+
+        <section class="pl-pattern" id="syntax-and-formatting">
+            <div class="pl-pattern-description">
+                <h2>
+                    Syntax and Formatting
+                </h2>
+                <div class="pl-divider"></div>
+            </div>
+
+            <div class="container">
+                <p>
+                    The Ushahidi Platform uses the SCSS syntax because it is more consistent and familiar with vanilla CSS.
+                </p>
+                <p>Indentation should be 4 space tabs. CSS rules should be written on multi-lines.</p>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        .foo {
+                            display: block;
+                            overflow: hidden;
+                            padding: 0 1em;
+                        }
+
+                        // No
+                        .foo {
+                          display: block; overflow: hidden;
+
+                          padding: 0 1em;
+                        }
+                    </code>
+                </pre>
+
+                <p>White space after each declaration and after each ending curly brace.</p>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        p {
+                            font-size: em(16);
+
+                            @include media($small) {
+                                font-size: em(18);
+                            }
+
+                        }
+
+                        // No
+                        p {
+                            font-size: em(16);
+                            @include media($small) {
+                                font-size: em(18);
+                            }
+                        }
+                    </code>
+                </pre>
+            </div>
+
+            <div class="container">
+                <h3>Color Formats</h3>
+                <h4>Hex</h4>
+                <p>Hex values should be written in all caps.</p>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        .foo {
+                          color: #FF0000;
+                        }
+
+                        // No
+                        .foo {
+                          color: red;
+                        }
+                    </code>
+                </pre>
+
+                <h4>RGB</h4>
+                <p>When using RGB, single space after commas and no spaces after parentheses.</p>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        .foo {
+                          color: rgba(0, 0, 0, 0.1);
+                        }
+
+                        // No
+                        .foo {
+                          color: rgba( 0,0,0,0.1 );
+                        }
+                    </code>
+                </pre>
+                
+            </div>
+
+            <div class="container">
+                <h3>Numbers</h3>
+                <p>Numbers should display leading zeros before a decimal value less than one and never display trailing zeros.</p>
+                <h4>Zeros:</h4>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        .foo {
+                          padding: 2em;
+                          opacity: 0.5;
+                        }
+
+                        // No
+                        .foo {
+                          padding: 2.0em;
+                          opacity: .5;
+                        }
+                    </code>
+                </pre>
+
+                <h4>Units:</h4>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        $length: 0;
+
+                        // No
+                        $length: 0em;
+                    </code>
+                </pre>
+
+                <h4>Calculations</h4>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        .foo {
+                          width: (100% / 3);
+                        }
+
+                        // No
+                        .foo {
+                          width: 100% / 3;
+                        }
+                    </code>
+                </pre>
+            </div>
+
+            <div class="container">
+                <h3>Strings</h3>
+                <p>Single quotes should be used with strings.</p>
+                <h4>Font Stack Example:</h4>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        $font-stack: 'Helvetica Neue Light', 'Helvetica', 'Arial', sans-serif;
+
+                        // No
+                        $font-stack: "Helvetica Neue Light", "Helvetica", "Arial", sans-serif;
+
+                        // No
+                        $font-stack: Helvetica Neue Light, Helvetica, Arial, sans-serif;
+                    </code>
+                </pre>
+
+                <h4>Image URL Example:</h4>
+                <pre>
+                    <code class="language-css">
+                        // Yes
+                        .foo {
+                          background-image: url('/images/kittens.jpg');
+                        }
+
+                        // No
+                        .foo {
+                          background-image: url(/images/kittens.jpg);
+                        }
+                    </code>
+                </pre>
+            </div>
+
+        </section>
+
+
+    </div>
+
+</div><!--end wrapper-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../../js/app.js"></script>
+
+</body>
+
+</html>
