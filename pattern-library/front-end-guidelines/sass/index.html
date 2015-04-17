@@ -45,22 +45,62 @@
                     <a href="http://bourbon.io/docs/">Bourbon</a> - A Sass mixin library
                 </p>
 
-                <h4>Nesting</h4>
+                <h3>Nesting</h3>
+                <p>
+                    Nesting is one of the best features in SASS, but it can be overused and create unwanted CSS. A best practice is to not exceed 3 levels of nesting.
+                </p>
+
+                <h4>SASS</h4>
+                <pre>
+                    <code class="language-css">
+                        .unordered-list {
+                            list-style-type: none;
+
+                            .unordered-list__item {
+                                display: inline;
+
+                                a {
+                                    color: blue;
+
+                                    span {
+                                        text-decoration: underline;
+                                    }
+
+                                }
+
+                            }
+
+                        }
+                    </code>
+                </pre>
+
+                <h4>Compiled CSS Output</h4>
+                <pre>
+                    <code class="language-css">
+                        .unordered-list {
+                            list-style-type: none;
+                        }
+                        .unordered-list .unordered-list__item {
+                            display: inline;
+                        }
+                        .unordered-list .unordered-list__item a {
+                            color: blue;
+                        }
+                        .unordered-list .unordered-list__item a span {
+                            text-decoration: underline;
+                        }
+                    </code>
+                </pre>
 
                 <h4>Declaration Order</h4>
 
                 <ul class="bullets">
                     <li><code>@includes</code></li>
                     <li><code>@include media($breakpoint)</code></li>
-                    <li></li>
+                    <li>nested psuedo classes</li>
                     <li></li>
                     <li></li>
                 </ul>
-
-                <h4>Commenting & Titling</h4>
-
-                <h4>Shorthand CSS</h4>
-                
             </div>
 
         </section>

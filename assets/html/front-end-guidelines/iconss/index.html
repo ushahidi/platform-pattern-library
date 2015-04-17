@@ -60,16 +60,38 @@
         <section class="pl-pattern" id="basics">
             <div class="pl-pattern-description">
                 <h2>
-                    Grid
+                    Icons
                 </h2>
                 <div class="pl-divider"></div>
             </div>
 
             <div class="container">
                 <p>
-                    The Ushahidi Platform grid system is built with <a href="http://neat.bourbon.io/">Neat</a> by <a href="https://thoughtbot.com/">Thoughtbot</a>. Neat is a lightweight semantic grid framework for Sass and Bourbon. Click <a href="http://neat.bourbon.io/examples/">here</a> for examples and syntax.
+                    The Ushahidi Platform icons are from the <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> set, an <a href="http://fortawesome.github.io/Font-Awesome/license/">open source</a> icon font made by <a href="https://twitter.com/davegandy">Dave Gandy</a>. We are using <a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/sass/utils/mixins/_font-awesome.scss">a mixin</a> to create a Sass map of our icons. This mixin allows for a <code>:before</code> & <code>:after</code> placement of the icon, as well as custom styles. We then add them to elements via a Sass @import.
                 </p>
+
+                <h3>Sass @import</h3>
+                <pre>
+                    <code class="language-css">
+                        button.dropdown {
+                            @include icon (before, chevron-down);
+                        }
+                    </code>
+                </pre>
+
+                <h3>Sass @import with custom styles</h3>
+                <pre>
+                    <code class="language-css">
+                        button.dropdown {
+                            @include icon (before, chevron-down) {
+                                padding: 3px;
+                                color: $yellow;
+                            }
+                        }
+                    </code>
+                </pre>
             </div>
+
         </section>
 
     </div>

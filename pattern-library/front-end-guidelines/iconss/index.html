@@ -26,50 +26,47 @@
 
 <div class="page-content has-aside">
 
-    <header class="pl-page-header">
-    <h3>
-        <a href="../../../../index.html">
-            <img src="../../../img/ushahidi-logo.svg" alt="">
-            Ushahidi Platform Pattern Library
-        </a>
-    </h3>
-</header>
+    @@include('../../partials/front-end-guidelines/_header.html')
 
-
-    <aside>
-    <nav class="side-nav">
-        <ul>
-            <li><a href="../basics/">Basics</a></li>
-            <li><a href="../installation/">Installation/Set Up</a></li>
-            <li><a href="../file-structure/">File Structure</a></li>
-            <li><a href="../sass/">Sass</a></li>
-            <li><a href="../syntax/">Syntax and Formatting</a></li>
-            <li><a href="../grid/">Grid</a></li>
-            <li><a href="../breakpoints/">Breakpoints & Media Queries</a></li>
-            <li><a href="../variables/">Variables</a></li>
-            <li><a href="../mixins/">Mixins</a></li>
-            <li><a href="../buttons/">Buttons</a></li>
-            <li><a href="../iconss/">Icons</a></li>
-        </ul>
-    </nav>
-</aside>
-
+    @@include('../../partials/front-end-guidelines/_side-nav.html')
 
     <div class="main-col">
 
         <section class="pl-pattern" id="basics">
             <div class="pl-pattern-description">
                 <h2>
-                    Grid
+                    Icons
                 </h2>
                 <div class="pl-divider"></div>
             </div>
 
             <div class="container">
                 <p>
-                    The Ushahidi Platform grid system is built with <a href="http://neat.bourbon.io/">Neat</a> by <a href="https://thoughtbot.com/">Thoughtbot</a>. Neat is a lightweight semantic grid framework for Sass and Bourbon. Click <a href="http://neat.bourbon.io/examples/">here</a> for examples and syntax.
+                    The Ushahidi Platform icons are from the <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> set, an <a href="http://fortawesome.github.io/Font-Awesome/license/">open source</a> icon font made by <a href="https://twitter.com/davegandy">Dave Gandy</a>. We are using <a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/sass/utils/mixins/_font-awesome.scss">a mixin</a> to create a Sass map of our icons. This mixin allows for a <code>:before</code> & <code>:after</code> placement of the icon, as well as custom styles. We then add them to elements via a Sass @import.
                 </p>
+
+                <h3>Sass @import</h3>
+                <pre>
+                    <code class="language-css">
+                        button.dropdown {
+                            @include icon (before, chevron-down);
+                        }
+                    </code>
+                </pre>
+
+                <h3>Sass @import with custom styles</h3>
+                <pre>
+                    <code class="language-css">
+                        button.dropdown {
+                            @include icon (before, chevron-down) {
+                                padding: 3px;
+                                color: $yellow;
+                            }
+                        }
+                    </code>
+                </pre>
             </div>
+
         </section>
 
     </div>
