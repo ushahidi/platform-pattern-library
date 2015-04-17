@@ -54,7 +54,7 @@ gulp.task('fileinclude', function() {
 
 /**
 * Task: `sass`
-* Converts SASS files to CSS (includes RTL support)
+* Converts Sass files to CSS (includes RTL support)
 */
 
 gulp.task('sass', ['rtl'], function() {
@@ -86,7 +86,7 @@ gulp.task('sass', ['rtl'], function() {
 
 /**
 * Task: `rtl`
-* Converts RTL SASS files to RTL CSS
+* Converts RTL Sass files to RTL CSS
 */
 
 gulp.task('rtl', function() {
