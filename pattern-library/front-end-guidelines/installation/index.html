@@ -24,108 +24,112 @@
 
 <body class="pl-front-end-guidelines">
 
-<div class="page-content has-aside">
+    <div class="wrapper">
 
-    @@include('../../partials/front-end-guidelines/_header.html')
+        <div class="page-content has-aside">
 
-    @@include('../../partials/front-end-guidelines/_side-nav.html')
+            @@include('../../partials/front-end-guidelines/_header.html')
 
-    <div class="main-col">
+            @@include('../../partials/front-end-guidelines/_side-nav.html')
 
-        <section class="pl-pattern" id="syntax-and-formatting">
-            <div class="pl-pattern-description">
-                <h2>
-                    Installation
-                </h2>
-                <div class="pl-divider"></div>
+            <div class="main-col">
+
+                <section class="pl-pattern" id="syntax-and-formatting">
+                    <div class="pl-pattern-description">
+                        <h2>
+                            Installation
+                        </h2>
+                        <div class="pl-divider"></div>
+                    </div>
+
+                    <div class="container">
+
+                        <blockquote class="twitter-tweet" lang="en"><p>&quot;What&#39;s bower?&quot;&#10;&quot;A package manager, install it with npm.&quot;&#10;&quot;What&#39;s npm?&quot;&#10;&quot;A package manager, you can install it with brew&quot;&#10;&quot;What&#39;s brew?&quot;&#10;...</p>&mdash; Stefan Baumgartner (@ddprrt) <a href="https://twitter.com/ddprrt/status/529909875347030016">November 5, 2014</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+                        <p>
+                            All jokes aside (for now at least), the Ushahidi Platform Pattern Library requires a few development dependencies to get started. What are these dependencies you might ask? Well, here you go.
+                        </p>
+
+                        <h3>Dependencies</h3>
+
+                        <ul class="bullets">
+                            <li>NodeJS - Install via <a href="http://brew.sh/">Homebrew</a> or <a href="https://nodejs.org/">the NodeJS homepage</a></li>
+                            <li><a href="http://bower.io/">Bower</a></li>
+                            <li><a href="http://browserify.org/">Browserify</a></li>
+                            <li><a href="http://gulpjs.com/">Gulp (and various gulp plugins)</a></li>
+                        </ul>
+
+                        <h3>Install Dev Dependencies</h3>
+                        <p>
+                            After installing NodeJS via <a href="http://brew.sh/">Homebrew</a> or <a href="https://nodejs.org/">the NodeJS homepage</a> run ...
+                        </p>
+
+                        <pre>
+                            <code class="language-css">
+                                npm install -g bower
+                                npm install -g browserify
+                                npm install -g gulp
+                            </code>
+                        </pre>
+
+                        <h3>Install Packages</h3>
+                        <p>
+                            Install Node and Bower packages by running ...
+                        </p>
+
+                        <pre>
+                            <code class="language-css">
+                                npm install
+                            </code>
+                        </pre>
+
+                        <p>
+                            This will install <em>both</em> NPM <em>and</em> Bower dependencies!
+                        </p>
+                        <p>
+                            **No separate <code>bower install</code> command is required.**
+                        </p>
+
+                        <h3>Download and Activate Live Reload Plugin</h3>
+
+                        <p><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions">http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions</a></p>
+
+                        <h3>Navigate to project root and run ...</h3>
+
+                        <p><code>gulp build</code></p>
+
+                        <ul class="bullets">
+                            <li>generates fonts</li>
+                            <li>compiles sass</li>
+                            <li>minifies and concatenates js</li>
+                        </ul>
+
+                        <p><code>gulp</code></p>
+
+                        <ul class="bullets">
+                            <li>starts a webserver accessible at <a href="http://localhost:8080/">http://localhost:8080/</a></li>
+                            <li>watches for changes</li>
+                            <li>compiles sass</li>
+                            <li>minifies and concatenates js</li>
+                            <li>live reloads appropriate files (sass, js or html)</li>
+                            <li>sends a success notification</li>
+                        </ul>
+
+                        <p>
+                            Now visit <a href="http://localhost:8080/">http://localhost:8080/</a> to view the app in action.
+                        </p>
+
+                    </div>
+
+                </section>
+
+
             </div>
 
-            <div class="container">
-
-                <blockquote class="twitter-tweet" lang="en"><p>&quot;What&#39;s bower?&quot;&#10;&quot;A package manager, install it with npm.&quot;&#10;&quot;What&#39;s npm?&quot;&#10;&quot;A package manager, you can install it with brew&quot;&#10;&quot;What&#39;s brew?&quot;&#10;...</p>&mdash; Stefan Baumgartner (@ddprrt) <a href="https://twitter.com/ddprrt/status/529909875347030016">November 5, 2014</a></blockquote> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-
-                <p>
-                    All jokes aside (for now at least), the Ushahidi Platform Pattern Library requires a few development dependencies to get started. What are these dependencies you might ask? Well, here you go.
-                </p>
-
-                <h3>Dependencies</h3>
-
-                <ul class="bullets">
-                    <li>NodeJS - Install via <a href="http://brew.sh/">Homebrew</a> or <a href="https://nodejs.org/">the NodeJS homepage</a></li>
-                    <li><a href="http://bower.io/">Bower</a></li>
-                    <li><a href="http://browserify.org/">Browserify</a></li>
-                    <li><a href="http://gulpjs.com/">Gulp (and various gulp plugins)</a></li>
-                </ul>
-
-                <h3>Install Dev Dependencies</h3>
-                <p>
-                    After installing NodeJS via <a href="http://brew.sh/">Homebrew</a> or <a href="https://nodejs.org/">the NodeJS homepage</a> run ...
-                </p>
-
-                <pre>
-                    <code class="language-css">
-                        npm install -g bower
-                        npm install -g browserify
-                        npm install -g gulp
-                    </code>
-                </pre>
-
-                <h3>Install Packages</h3>
-                <p>
-                    Install Node and Bower packages by running ...
-                </p>
-
-                <pre>
-                    <code class="language-css">
-                        npm install
-                    </code>
-                </pre>
-
-                <p>
-                    This will install <em>both</em> NPM <em>and</em> Bower dependencies!
-                </p>
-                <p>
-                    **No separate <code>bower install</code> command is required.**
-                </p>
-
-                <h3>Download and Activate Live Reload Plugin</h3>
-
-                <p><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions">http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions</a></p>
-
-                <h3>Navigate to project root and run ...</h3>
-
-                <p><code>gulp build</code></p>
-
-                <ul class="bullets">
-                    <li>generates fonts</li>
-                    <li>compiles sass</li>
-                    <li>minifies and concatenates js</li>
-                </ul>
-
-                <p><code>gulp</code></p>
-
-                <ul class="bullets">
-                    <li>starts a webserver accessible at <a href="http://localhost:8080/">http://localhost:8080/</a></li>
-                    <li>watches for changes</li>
-                    <li>compiles sass</li>
-                    <li>minifies and concatenates js</li>
-                    <li>live reloads appropriate files (sass, js or html)</li>
-                    <li>sends a success notification</li>
-                </ul>
-
-                <p>
-                    Now visit <a href="http://localhost:8080/">http://localhost:8080/</a> to view the app in action.
-                </p>
-
-            </div>
-
-        </section>
-
+        </div><!--end wrapper-->
 
     </div>
-
-</div><!--end wrapper-->
-
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../../js/app.js"></script>
 

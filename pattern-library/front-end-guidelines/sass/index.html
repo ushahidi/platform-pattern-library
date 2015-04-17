@@ -24,91 +24,95 @@
 
 <body class="pl-front-end-guidelines">
 
-<div class="page-content has-aside">
+    <div class="wrapper">
 
-    @@include('../../partials/front-end-guidelines/_header.html')
+        <div class="page-content has-aside">
 
-    @@include('../../partials/front-end-guidelines/_side-nav.html')
+            @@include('../../partials/front-end-guidelines/_header.html')
 
-    <div class="main-col">
+            @@include('../../partials/front-end-guidelines/_side-nav.html')
 
-        <section class="pl-pattern" id="basics">
-            <div class="pl-pattern-description">
-                <h2>
-                    Sass
-                </h2>
-                <div class="pl-divider"></div>
-            </div>
+            <div class="main-col">
 
-            <div class="container">
-                <p>
-                    <a href="http://bourbon.io/docs/">Bourbon</a> - A Sass mixin library
-                </p>
+                <section class="pl-pattern" id="basics">
+                    <div class="pl-pattern-description">
+                        <h2>
+                            Sass
+                        </h2>
+                        <div class="pl-divider"></div>
+                    </div>
 
-                <h3>Nesting</h3>
-                <p>
-                    Nesting is one of the best features in SASS, but it can be overused and create unwanted CSS. A best practice is to not exceed 3 levels of nesting.
-                </p>
+                    <div class="container">
+                        <p>
+                            <a href="http://bourbon.io/docs/">Bourbon</a> - A Sass mixin library
+                        </p>
 
-                <h4>SASS</h4>
-                <pre>
-                    <code class="language-css">
-                        .unordered-list {
-                            list-style-type: none;
+                        <h3>Nesting</h3>
+                        <p>
+                            Nesting is one of the best features in SASS, but it can be overused and create unwanted CSS. A best practice is to not exceed 3 levels of nesting.
+                        </p>
 
-                            .unordered-list__item {
-                                display: inline;
+                        <h4>SASS</h4>
+                        <pre>
+                            <code class="language-css">
+                                .unordered-list {
+                                    list-style-type: none;
 
-                                a {
-                                    color: blue;
+                                    .unordered-list__item {
+                                        display: inline;
 
-                                    span {
-                                        text-decoration: underline;
+                                        a {
+                                            color: blue;
+
+                                            span {
+                                                text-decoration: underline;
+                                            }
+
+                                        }
+
                                     }
 
                                 }
+                            </code>
+                        </pre>
 
-                            }
+                        <h4>Compiled CSS Output</h4>
+                        <pre>
+                            <code class="language-css">
+                                .unordered-list {
+                                    list-style-type: none;
+                                }
+                                .unordered-list .unordered-list__item {
+                                    display: inline;
+                                }
+                                .unordered-list .unordered-list__item a {
+                                    color: blue;
+                                }
+                                .unordered-list .unordered-list__item a span {
+                                    text-decoration: underline;
+                                }
+                            </code>
+                        </pre>
 
-                        }
-                    </code>
-                </pre>
+                        <h4>Declaration Order</h4>
 
-                <h4>Compiled CSS Output</h4>
-                <pre>
-                    <code class="language-css">
-                        .unordered-list {
-                            list-style-type: none;
-                        }
-                        .unordered-list .unordered-list__item {
-                            display: inline;
-                        }
-                        .unordered-list .unordered-list__item a {
-                            color: blue;
-                        }
-                        .unordered-list .unordered-list__item a span {
-                            text-decoration: underline;
-                        }
-                    </code>
-                </pre>
+                        <ul class="bullets">
+                            <li><code>@includes</code></li>
+                            <li><code>@include media($breakpoint)</code></li>
+                            <li>nested psuedo classes</li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
 
-                <h4>Declaration Order</h4>
+                </section>
 
-                <ul class="bullets">
-                    <li><code>@includes</code></li>
-                    <li><code>@include media($breakpoint)</code></li>
-                    <li>nested psuedo classes</li>
-                    <li></li>
-                    <li></li>
-                </ul>
             </div>
 
-        </section>
+        </div><!--end wrapper-->
 
     </div>
-
-</div><!--end wrapper-->
-
+    
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../../js/app.js"></script>
 
