@@ -1,7 +1,7 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
@@ -1068,24 +1068,64 @@ a.follow-button.profile {
 label.input-label, label.filter-label {
   display: block;
   padding: 0 10px 0 0; }
+  label.input-label.error, label.filter-label.error {
+    color: #de0000; }
 
 input, input[type="text"], input[type="email"], input[type="password"], input[type="search"], textarea {
   display: block;
   font-size: 1.125em;
   outline-color: #ffffff;
-  resize: none;
   border: 1px solid #d2d2d2;
   color: #181c21;
   font-weight: 400;
   font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  display: block;
   padding: 5px 10px;
   margin: 10px 0 20px;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1); }
-  input.error, input[type="text"].error, input[type="email"].error, input[type="password"].error, input[type="search"].error, textarea.error {
-    border-color: red; }
+
+input[type="text"].error {
+  border-color: #de0000; }
+
+input[type="text"].success {
+  color: #181c21; }
+
+span.input-icon input {
+  display: inline-block; }
+span.input-icon.error:after {
+  content: "\f06a";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s;
+  color: #de0000;
+  display: inline-block;
+  font-size: 1.125em;
+  padding-left: 5px; }
+span.input-icon.success:after {
+  content: "\f058";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, 0.25s;
+  color: #4fab2f;
+  display: inline-block;
+  font-size: 1.125em;
+  padding-left: 5px; }
+
+.clearfix + p.alert, .clearfix + blockquote.alert {
+  margin-top: -30px; }
 
 input[type="checkbox"], input[type="radio"] {
   display: inline-block;
@@ -2293,23 +2333,16 @@ ul.breadcrumb {
         transform: rotate(90deg); }
     .filters .filters-container .accordion-menu .hidden-content {
       margin-top: 0; }
-    .filters .filters-container .filter-start-date {
+    .filters .filters-container .filter-start-date, .filters .filters-container .filter-end-date {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 48.82117%;
       position: relative; }
-      .filters .filters-container .filter-start-date:last-child {
+      .filters .filters-container .filter-start-date:last-child, .filters .filters-container .filter-end-date:last-child {
         margin-right: 0; }
     .filters .filters-container .filter-end-date {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 48.82117%;
-      margin-right: 0;
-      position: relative; }
-      .filters .filters-container .filter-end-date:last-child {
-        margin-right: 0; }
+      margin-right: 0; }
     .filters .filters-container .filter-start-date:before, .filters .filters-container .filter-end-date:before {
       position: absolute;
       top: 35px;
