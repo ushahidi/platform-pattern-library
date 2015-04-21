@@ -44,7 +44,6 @@
             <li><a href="../basics/">Basics</a></li>
             <li><a href="../installation/">Installation/Set Up</a></li>
             <li><a href="../file-structure/">File Structure</a></li>
-            <li><a href="../sass/">Sass</a></li>
             <li><a href="../syntax/">Syntax and Formatting</a></li>
             <li><a href="../grid/">Grid</a></li>
             <li><a href="../breakpoints/">Breakpoints & Media Queries</a></li>
@@ -112,6 +111,65 @@
                                 }
                             </code>
                         </pre>
+                    </div>
+
+                    <div class="container">
+                        <h3>Nesting</h3>
+                        <p>
+                            Nesting is one of the best features in Sass, but it can be overused and create unwanted CSS. A best practice is to nest no more than 3 levels deep.
+                        </p>
+
+                        <h4>Sass</h4>
+                        <pre>
+                            <code class="language-css">
+                                .unordered-list {
+                                    list-style-type: none;
+
+                                    .unordered-list__item {
+                                        display: inline;
+
+                                        a {
+                                            color: blue;
+
+                                            span {
+                                                text-decoration: underline;
+                                            }
+
+                                        }
+
+                                    }
+
+                                }
+                            </code>
+                        </pre>
+
+                        <h4>Compiled CSS Output</h4>
+                        <pre>
+                            <code class="language-css">
+                                .unordered-list {
+                                    list-style-type: none;
+                                }
+                                .unordered-list .unordered-list__item {
+                                    display: inline;
+                                }
+                                .unordered-list .unordered-list__item a {
+                                    color: blue;
+                                }
+                                .unordered-list .unordered-list__item a span {
+                                    text-decoration: underline;
+                                }
+                            </code>
+                        </pre>
+
+                        <h4>Declaration Order</h4>
+
+                        <ul class="bullets">
+                            <li><code>@includes</code></li>
+                            <li><code>@include media($breakpoint)</code></li>
+                            <li>nested psuedo classes</li>
+                            <li></li>
+                            <li></li>
+                        </ul>
                     </div>
 
                     <div class="container">
@@ -266,7 +324,7 @@
         </div><!--end wrapper-->
 
     </div>
-    
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="../../../js/app.js"></script>
 
