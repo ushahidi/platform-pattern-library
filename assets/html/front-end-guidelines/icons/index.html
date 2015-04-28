@@ -28,12 +28,44 @@
 
         <div class="page-content has-aside">
 
-            @@include('../../partials/front-end-guidelines/_header.html', {
-    "context": "home"
-})
+            <header class="pl-page-header">
+    <h3>
+        <a href="../../../../index.html">
+            <img src="../../../img/ushahidi-logo.svg" alt="">
+            Ushahidi Platform Pattern Library
+        </a>
+    </h3>
+    <nav class="pl-nav">
+        <ul>
+            <li class="active"><a href="../../../../index.html">Home</a></li>
+            <li ><a href="../../1_basics/">Basics</a></li>
+            <li ><a href="../../2_fragments/">Fragments</a></li>
+            <li ><a href="../../3_modules/">Modules</a></li>
+            <li ><a href="../../4_blocks/">Blocks</a></li>
+            <li ><a href="../../5_layouts/">Layouts</a></li>
+        </ul>
+    </nav>
+</header>
 
 
-            @@include('../../partials/front-end-guidelines/_side-nav.html')
+
+            <aside>
+    <nav class="side-nav">
+        <ul>
+            <li><a href="../introduction/">Introduction</a></li>
+            <li><a href="../installation/">Installation/Set Up</a></li>
+            <li><a href="../packages/">Adding Packages</a></li>
+            <li><a href="../file-structure/">File Structure</a></li>
+            <li><a href="../syntax/">Syntax and Formatting</a></li>
+            <li><a href="../grid/">Grid</a></li>
+            <li><a href="../breakpoints/">Breakpoints &amp; Media Queries</a></li>
+            <li><a href="../variables/">Variables</a></li>
+            <li><a href="../mixins/">Mixins</a></li>
+            <li><a href="../icons/">Icons</a></li>
+        </ul>
+    </nav>
+</aside>
+
 
             <div class="main-col">
 
@@ -50,7 +82,23 @@
                             The Ushahidi Platform icons are from the <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a> set, an <a href="http://fortawesome.github.io/Font-Awesome/license/">open source</a> icon font made by <a href="https://twitter.com/davegandy">Dave Gandy</a>. We are using <a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/sass/utils/mixins/_font-awesome.scss">a mixin</a> to create a Sass map of our icons. This mixin allows for a <code>:before</code> & <code>:after</code> placement of the icon, as well as custom styles. We then add them to elements via a Sass @import.
                         </p>
 
-                        <h3>Sass @import</h3>
+                        <h3>Adding Icons to the Sass Map</h3>
+                        <p>
+                            The icons used in the Pattern library are listed on the Sass map at the bottom of the <a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/sass/utils/mixins/_font-awesome.scss">font-awesome mixin</a> To add an icon, you can name it whatever you want and define it with the entity listed on the <a href="http://fortawesome.github.io/Font-Awesome/cheatsheet/">Font Awesome Cheatsheet</a>.
+                        </p>
+                        <pre>
+                            <code class="language-css">
+                                $icons: (
+                                    icon-name: "\f06a",
+                                    another-icon-name: "\f077" //this is the entity #
+                                );
+                            </code>
+                        </pre>
+
+                        <h3>Using mixin to @import icons to elements</h3>
+                        <p>
+                            To include an icon on an element (in this example, a button), you simply @include icon, then define whether you want it to come before or after the element, and the icon you want to display. The icon then becomes a pseudo element.
+                        </p>
                         <pre>
                             <code class="language-css">
                                 button.dropdown {
@@ -60,6 +108,9 @@
                         </pre>
 
                         <h3>Sass @import with custom styles</h3>
+                        <p>
+                            You can give the icon itself custom styles by including them in the mixin.
+                        </p>
                         <pre>
                             <code class="language-css">
                                 button.dropdown {
