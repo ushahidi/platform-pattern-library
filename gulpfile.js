@@ -134,7 +134,11 @@ gulp.task('uglifyJS', function() {
 */
 gulp.task('font', function() {
     gulp.src(['bower_components/fontawesome/fonts/fontawesome-*', 'bower_components/fontawesome/fonts/FontAwesome*'])
-        .pipe(gulp.dest('./assets/fonts'))
+        .pipe(gulp.dest('./assets/fonts'));
+
+    gulp.src(['bower_components/fontawesome/scss/*'])
+        .pipe(gulp.dest('./assets/sass//utils/font-awesome'))
+
         .pipe(livereload());
 });
 
