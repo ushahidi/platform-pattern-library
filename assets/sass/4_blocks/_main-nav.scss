@@ -143,11 +143,22 @@
 
         }
 
+        .hidden-content-trigger{
+            @include icon(before, plus);
+            display: block;
+            margin: 0;
+
+            &.open {
+                @include icon(before, minus);
+            }
+
+        }
+
         .hidden-content {
-            margin: 10px 0 30px 0;
+            margin: 10px 0 0px 0;
 
             li {
-                padding: $tiny-spacing;
+                padding: $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px);
             }
 
             a {

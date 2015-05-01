@@ -1,13 +1,16 @@
 .settings-listing {
-    @extend .zebra-list; 
+    @extend .zebra-list-alt;
     padding: $sm-spacing 0; 
     position: relative;
+    border-right: $base-border;
+    border-left: $base-border;
 
     h3 {
         padding-left: $sm-spacing;
         margin: $sm-spacing 0;
 
         @include media($small) {
+            padding-left: $base-spacing;
            margin: $base-spacing 0;
         }
     }
@@ -24,7 +27,7 @@
 
     }
 
-    .plus {
+    .plus, .toggle-switch {
         position: absolute;
         top: 14px;
         left: 4px;
@@ -37,13 +40,25 @@
 
     }
 
-    .upvote-downvote + h3, .plus + h3  {
+    .toggle-switch {
+        padding: 0;
+    }
+
+    .upvote-downvote + h3, .plus + h3 {
         padding-left: 45px; //this last value offsets the title from the upvotes or plus button
 
         @include media($small) {
             padding-left: ($sm-spacing+45px);
         }
 
+    }
+
+    .toggle-switch + h3 {
+        padding-left: 70px; //this last value offsets the title from the upvotes or plus button
+
+        @include media($small) {
+            padding-left: ($sm-spacing + 70px);
+        }
     }
 
     .actions {
@@ -65,12 +80,14 @@
         
         }
 
+        .toggle-switch {
+            float: right;
+            margin-left: $sm-spacing;
+        }
+
     }
 
-    .toggle-switch {
-        float: right;
-        margin-left: $sm-spacing;
-    }
+    
 
     .toggle-switch + button {
         float: left;
@@ -103,12 +120,13 @@
         }
 
         img {
-            display: none;
+            display: block;
+            width: 30px;
+            float: left;
+            margin: 10px 0 5px;
 
             @include media($mobile) {
-                display: block;
                 width: 50px;
-                float: left;
                 margin: 5px 0 -15px;
             }
 
@@ -137,7 +155,9 @@
 
     .user-type {
         clear: both;
-        margin-left: 44px;
+        color: $dk-gray;
+        margin-left: 74px;
+        margin-top: 0;
 
         @include media($mobile) {
             margin-left: 102px;

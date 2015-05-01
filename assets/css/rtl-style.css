@@ -1838,13 +1838,18 @@ $LAYOUT
 .visible {
   display: block !important; }
 
-.zebra-list, .single-post-listing, .settings-listing {
+.zebra-list, .zebra-list-alt, .single-post-listing, .settings-listing {
   background: #ffffff;
   border-top: 1px solid #ebebeb; }
-  .zebra-list:nth-child(odd), .single-post-listing:nth-child(odd), .settings-listing:nth-child(odd) {
+  .zebra-list:nth-child(odd), .zebra-list-alt:nth-child(odd), .single-post-listing:nth-child(odd), .settings-listing:nth-child(odd) {
     background: #f8f8f8; }
-  .zebra-list:last-of-type, .single-post-listing:last-of-type, .settings-listing:last-of-type {
+  .zebra-list:last-of-type, .zebra-list-alt:last-of-type, .single-post-listing:last-of-type, .settings-listing:last-of-type {
     border-bottom: 1px solid #ebebeb; }
+
+.zebra-list-alt:nth-child(even), .single-post-listing:nth-child(even), .settings-listing:nth-child(even) {
+  background: #f8f8f8; }
+.zebra-list-alt:nth-child(odd), .single-post-listing:nth-child(odd), .settings-listing:nth-child(odd) {
+  background: #ffffff; }
 
 .divider {
   height: 1px;
@@ -4618,12 +4623,15 @@ aside .filters-show-hide.half {
 
 .settings-listing {
   padding: 10px 0;
-  position: relative; }
+  position: relative;
+  border-right: 1px solid #ebebeb;
+  border-left: 1px solid #ebebeb; }
   .settings-listing h3 {
     padding-left: 10px;
     margin: 10px 0; }
     @media screen and (min-width: 48em)  {
       .settings-listing h3 {
+        padding-left: 20px;
         margin: 20px 0; } }
   .settings-listing .upvote-downvote, .settings-listing .plus {
     position: absolute;
@@ -4633,20 +4641,27 @@ aside .filters-show-hide.half {
       .settings-listing .upvote-downvote, .settings-listing .plus {
         top: 10px;
         left: 10px; } }
-  .settings-listing .plus {
+  .settings-listing .plus, .settings-listing .toggle-switch {
     position: absolute;
     top: 14px;
     left: 4px;
     padding: 8px 4px 8px 9px; }
     @media screen and (min-width: 48em)  {
-      .settings-listing .plus {
+      .settings-listing .plus, .settings-listing .toggle-switch {
         top: 26px;
         left: 10px; } }
+  .settings-listing .toggle-switch {
+    padding: 0; }
   .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
     padding-left: 45px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
         padding-left: 55px; } }
+  .settings-listing .toggle-switch + h3 {
+    padding-left: 70px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .toggle-switch + h3 {
+        padding-left: 80px; } }
   .settings-listing .actions {
     position: absolute;
     right: 10px;
@@ -4669,9 +4684,9 @@ aside .filters-show-hide.half {
         padding: 0 5px 0 1px;
         speak: none;
         transition: content, 0.25s; }
-  .settings-listing .toggle-switch {
-    float: right;
-    margin-left: 10px; }
+    .settings-listing .actions .toggle-switch {
+      float: right;
+      margin-left: 10px; }
   .settings-listing .toggle-switch + button, .settings-listing .toggle-switch + a.button {
     float: left; }
   .settings-listing .select-listing {
@@ -4691,12 +4706,13 @@ aside .filters-show-hide.half {
         width: 80%;
         margin: 0; } }
     .settings-listing .user img {
-      display: none; }
+      display: block;
+      width: 30px;
+      float: left;
+      margin: 10px 0 5px; }
       @media screen and (min-width: 30em)  {
         .settings-listing .user img {
-          display: block;
           width: 50px;
-          float: left;
           margin: 5px 0 -15px; } }
       @media screen and (min-width: 64em)  {
         .settings-listing .user img {
@@ -4713,7 +4729,9 @@ aside .filters-show-hide.half {
           margin-top: 27px; } }
   .settings-listing .user-type {
     clear: both;
-    margin-left: 44px; }
+    color: #737373;
+    margin-left: 74px;
+    margin-top: 0; }
     @media screen and (min-width: 30em)  {
       .settings-listing .user-type {
         margin-left: 102px; } }
@@ -5071,10 +5089,37 @@ aside .filters-show-hide.half {
       text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 1.5px; }
+  .navigation .main-nav .hidden-content-trigger {
+    display: block;
+    margin: 0; }
+    .navigation .main-nav .hidden-content-trigger:before {
+      content: "\f067";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s; }
+    .navigation .main-nav .hidden-content-trigger.open:before {
+      content: "\f068";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s; }
   .navigation .main-nav .hidden-content {
-    margin: 10px 0 30px 0; }
+    margin: 10px 0 0px 0; }
     .navigation .main-nav .hidden-content li {
-      padding: 5px; }
+      padding: 5px 5px 5px 17px; }
     .navigation .main-nav .hidden-content a {
       text-transform: none;
       font-weight: normal;
