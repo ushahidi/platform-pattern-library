@@ -1,0 +1,181 @@
+.settings-listing {
+    @extend .zebra-list; 
+    padding: $sm-spacing 0; 
+    position: relative;
+
+    h3 {
+        padding-left: $sm-spacing;
+        margin: $sm-spacing 0;
+
+        @include media($small) {
+           margin: $base-spacing 0;
+        }
+    }
+
+    .upvote-downvote, .plus {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+
+        @include media($small) {
+            top: $sm-spacing;
+            left: $sm-spacing;
+        }
+
+    }
+
+    .plus {
+        position: absolute;
+        top: 14px;
+        left: 4px;
+        padding: 8px 4px 8px 9px;
+
+        @include media($small) {
+            top: ($base-spacing + 6px);
+            left: $sm-spacing;
+        }
+
+    }
+
+    .upvote-downvote + h3, .plus + h3  {
+        padding-left: 45px; //this last value offsets the title from the upvotes or plus button
+
+        @include media($small) {
+            padding-left: ($sm-spacing+45px);
+        }
+
+    }
+
+    .actions {
+        position: absolute;
+        right: $sm-spacing;
+        top: ($sm-spacing + 4px);
+
+        @include media($small) {
+            top: ($base-spacing + 4px);
+        }
+
+        button {
+            margin-bottom: $sm-spacing;
+            margin-left: $tiny-spacing;
+
+            &.open {
+                @include icon(before, close);
+            }
+        
+        }
+
+    }
+
+    .toggle-switch {
+        float: right;
+        margin-left: $sm-spacing;
+    }
+
+    .toggle-switch + button {
+        float: left;
+    }
+
+    .select-listing {
+        float: left;    
+
+        input {
+            margin: $base-spacing $sm-spacing 0 $sm-spacing;
+            
+            @include media($mobile) {
+                margin: $base-spacing ($sm-spacing + 4px) 0 ($sm-spacing + 4px);
+            }
+
+            @include media($medium) {
+                margin: ($base-spacing + 14px) ($sm-spacing + 4px) 0 ($sm-spacing + 4px);
+            }
+
+        }
+
+    }
+
+    .user {
+        float: left;
+
+        @include media($medium) {
+            width: 80%;
+            margin: 0;
+        }
+
+        img {
+            display: none;
+
+            @include media($mobile) {
+                display: block;
+                width: 50px;
+                float: left;
+                margin: 5px 0 -15px;
+            }
+
+            @include media($medium) {
+                width: 70px;
+                margin: 5px $tiny-spacing 5px $sm-spacing;
+            }
+
+        }
+
+        h3 {
+            margin-bottom: $sm-spacing;
+            float: left;
+
+            @include media($mobile) {
+                margin-top: $sm-spacing;
+            }
+
+            @include media($medium) {
+                margin-top: ($base-spacing + 7px);
+            }
+
+        }
+
+    }
+
+    .user-type {
+        clear: both;
+        margin-left: 44px;
+
+        @include media($mobile) {
+            margin-left: 102px;
+        }
+
+        @include media($medium) {
+            float: right;
+            width: 20%;
+            margin-top: -65px;
+        }
+    }
+
+    .form {
+        clear: both;
+        padding: 0 0 $base-spacing $sm-spacing;
+        border-top: $base-border;
+        margin-top: $base-spacing;
+
+        @include media($small) {
+            padding: $tiny-spacing 0 $base-spacing $base-spacing;
+            margin-top: ($base-spacing + 14px);
+        }
+
+        .select {
+            @include media($mobile) {
+                float: left;
+                margin: -$base-spacing $base-spacing $base-spacing 0;
+            }
+        }
+
+        .button-primary {
+            margin-top: $base-spacing;
+        }
+
+    }
+
+    .hidden-content-trigger {
+        padding: 8px 12px;
+    }
+
+}

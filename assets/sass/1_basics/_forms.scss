@@ -100,3 +100,67 @@ form {
         margin-bottom: 1em;
     }
 }
+
+.tgl{//http://codepen.io/mallendeo/pen/eLIiG
+    display: none !important;
+    // add default box-sizing for this scope
+    &, &:after, &:before,
+    & *, & *:after, & *:before,
+    & + .tgl-btn {
+        box-sizing: border-box;
+        
+        &::selection{
+            background: none;
+        }
+
+    }
+    
+    + .tgl-btn {
+        outline: 0;
+        display: block;
+        width: 55px;
+        height: 30px;
+        position: relative;
+        cursor: pointer;
+        user-select: none;
+        background: $mid-gray-bg;
+        border-radius: 2em;
+        padding: 3px;
+        transition: all .4s ease;
+        
+        &:after, &:before {
+            position: relative;
+            display: block;
+            content: "";
+            width: 50%;
+            height: 100%;
+        }
+
+        &:after {
+            left: 0;
+            border-radius: 50%;
+            background: $lt-bg;
+            transition: all .2s ease;
+        }
+
+        &:before {
+            display: none;
+        }
+
+    }
+
+    &:checked{
+
+        + .tgl-btn {
+            background: $confirmation-color;
+            
+            &:after {
+                left: 50%;
+                background: $white;
+            }
+
+        }
+
+    }
+
+}

@@ -1,14 +1,14 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
-       box-sizing: border-box; }
+  box-sizing: border-box; }
 
-*, *::after, *::before {
+*, *:before, *:after {
   -moz-box-sizing: inherit;
-       box-sizing: inherit; }
+  box-sizing: inherit; }
 
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -1838,12 +1838,12 @@ $LAYOUT
 .visible {
   display: block !important; }
 
-.zebra-list, .single-post-listing, .post-type-field {
+.zebra-list, .single-post-listing, .settings-listing {
   background: #ffffff;
   border-top: 1px solid #ebebeb; }
-  .zebra-list:nth-child(odd), .single-post-listing:nth-child(odd), .post-type-field:nth-child(odd) {
+  .zebra-list:nth-child(odd), .single-post-listing:nth-child(odd), .settings-listing:nth-child(odd) {
     background: #f8f8f8; }
-  .zebra-list:last-of-type, .single-post-listing:last-of-type, .post-type-field:last-of-type {
+  .zebra-list:last-of-type, .single-post-listing:last-of-type, .settings-listing:last-of-type {
     border-bottom: 1px solid #ebebeb; }
 
 .divider {
@@ -2770,6 +2770,49 @@ form p, form blockquote {
   font-size: 0.875em;
   margin-bottom: 1em; }
 
+.tgl {
+  display: none !important; }
+  .tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+    -moz-box-sizing: border-box;
+         box-sizing: border-box; }
+    .tgl::-moz-selection, .tgl:after::-moz-selection, .tgl:before::-moz-selection, .tgl *::-moz-selection, .tgl *:after::-moz-selection, .tgl *:before::-moz-selection, .tgl + .tgl-btn::-moz-selection {
+      background: none; }
+    .tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+      background: none; }
+  .tgl + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 55px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    background: #dedede;
+    border-radius: 2em;
+    padding: 3px;
+    transition: all 0.4s ease; }
+    .tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+      position: relative;
+      display: block;
+      content: "";
+      width: 50%;
+      height: 100%; }
+    .tgl + .tgl-btn:after {
+      left: 0;
+      border-radius: 50%;
+      background: #ffffff;
+      transition: all 0.2s ease; }
+    .tgl + .tgl-btn:before {
+      display: none; }
+  .tgl:checked + .tgl-btn {
+    background: #4fab2f; }
+    .tgl:checked + .tgl-btn:after {
+      left: 50%;
+      background: #ffffff; }
+
 .custom-select {
   position: relative;
   display: inline-block; }
@@ -3245,9 +3288,19 @@ button, a.button {
 
 .upvote-downvote button.icon-only, .upvote-downvote a.icon-only.button {
   display: block;
-  padding: 5px 6px 7px 10px; }
+  padding: 5px 6px 7px 6px; }
+  .upvote-downvote button.icon-only.downvote, .upvote-downvote a.icon-only.downvote.button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -1px; }
   .upvote-downvote button.icon-only.upvote, .upvote-downvote a.icon-only.upvote.button {
-    margin-bottom: 10px; }
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+    .upvote-downvote button.icon-only.upvote:before, .upvote-downvote a.icon-only.upvote.button:before {
+      padding: 0 3px; }
+    @media screen and (min-width: 48em)  {
+      .upvote-downvote button.icon-only.upvote, .upvote-downvote a.icon-only.upvote.button {
+        margin-bottom: 10px; } }
 
 .dropdown-group .toggle-content {
   position: absolute;
@@ -3673,58 +3726,56 @@ ul.breadcrumb {
       text-transform: uppercase;
       font-weight: 900;
       letter-spacing: 1.5px; }
-
-.hidden-content-trigger {
-  display: block;
-  padding: 20px 0;
-  margin: 0; }
-  .hidden-content-trigger:before {
-    content: "\f067";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding: 0 5px 0 1px;
-    speak: none;
-    transition: content, 0.25s; }
-  .hidden-content-trigger.open:before {
-    content: "\f068";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding: 0 5px 0 1px;
-    speak: none;
-    transition: content, 0.25s; }
-
-.hidden-content {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 100%;
-  display: none;
-  margin: 10px 0 0 0;
-  padding-bottom: 10px; }
-  .hidden-content:last-child {
-    margin-right: 0; }
-  .hidden-content li {
-    padding: 10px 0 0 18px; }
-    .hidden-content li a {
+  .accordion-menu .hidden-content-trigger {
+    display: block;
+    padding: 20px 0;
+    margin: 0; }
+    .accordion-menu .hidden-content-trigger:before {
+      content: "\f067";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
       font-weight: normal;
-      text-transform: none;
-      letter-spacing: normal; }
-  .hidden-content.date-range input[type="text"] {
-    margin-bottom: 0; }
-  .hidden-content.location input[type="text"] {
-    margin-top: 0; }
-  .hidden-content.location button, .hidden-content.location a.button {
-    float: right; }
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s; }
+    .accordion-menu .hidden-content-trigger.open:before {
+      content: "\f068";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s; }
+  .accordion-menu .hidden-content {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    display: none;
+    margin: 10px 0 0 0;
+    padding-bottom: 10px; }
+    .accordion-menu .hidden-content:last-child {
+      margin-right: 0; }
+    .accordion-menu .hidden-content li {
+      padding: 10px 0 0 18px; }
+      .accordion-menu .hidden-content li a {
+        font-weight: normal;
+        text-transform: none;
+        letter-spacing: normal; }
+    .accordion-menu .hidden-content.date-range input[type="text"] {
+      margin-bottom: 0; }
+    .accordion-menu .hidden-content.location input[type="text"] {
+      margin-top: 0; }
+    .accordion-menu .hidden-content.location button, .accordion-menu .hidden-content.location a.button {
+      float: right; }
 
 .category {
   margin: 10px 20px 5px 0;
@@ -4565,6 +4616,130 @@ aside .filters-show-hide.half {
     font-size: 1em;
     color: #4fab2f; }
 
+.settings-listing {
+  padding: 10px 0;
+  position: relative; }
+  .settings-listing h3 {
+    padding-left: 10px;
+    margin: 10px 0; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing h3 {
+        margin: 20px 0; } }
+  .settings-listing .upvote-downvote, .settings-listing .plus {
+    position: absolute;
+    top: 2px;
+    left: 2px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .upvote-downvote, .settings-listing .plus {
+        top: 10px;
+        left: 10px; } }
+  .settings-listing .plus {
+    position: absolute;
+    top: 14px;
+    left: 4px;
+    padding: 8px 4px 8px 9px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .plus {
+        top: 26px;
+        left: 10px; } }
+  .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
+    padding-left: 45px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
+        padding-left: 55px; } }
+  .settings-listing .actions {
+    position: absolute;
+    right: 10px;
+    top: 14px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .actions {
+        top: 24px; } }
+    .settings-listing .actions button, .settings-listing .actions a.button {
+      margin-bottom: 10px;
+      margin-left: 5px; }
+      .settings-listing .actions button.open:before, .settings-listing .actions a.open.button:before {
+        content: "\f00d";
+        font-family: FontAwesome;
+        font-size: 0.875em;
+        font-style: normal;
+        font-weight: normal;
+        display: inline-block;
+        text-decoration: inherit;
+        line-height: 1;
+        padding: 0 5px 0 1px;
+        speak: none;
+        transition: content, 0.25s; }
+  .settings-listing .toggle-switch {
+    float: right;
+    margin-left: 10px; }
+  .settings-listing .toggle-switch + button, .settings-listing .toggle-switch + a.button {
+    float: left; }
+  .settings-listing .select-listing {
+    float: left; }
+    .settings-listing .select-listing input {
+      margin: 20px 10px 0 10px; }
+      @media screen and (min-width: 30em)  {
+        .settings-listing .select-listing input {
+          margin: 20px 14px 0 14px; } }
+      @media screen and (min-width: 64em)  {
+        .settings-listing .select-listing input {
+          margin: 34px 14px 0 14px; } }
+  .settings-listing .user {
+    float: left; }
+    @media screen and (min-width: 64em)  {
+      .settings-listing .user {
+        width: 80%;
+        margin: 0; } }
+    .settings-listing .user img {
+      display: none; }
+      @media screen and (min-width: 30em)  {
+        .settings-listing .user img {
+          display: block;
+          width: 50px;
+          float: left;
+          margin: 5px 0 -15px; } }
+      @media screen and (min-width: 64em)  {
+        .settings-listing .user img {
+          width: 70px;
+          margin: 5px 5px 5px 10px; } }
+    .settings-listing .user h3 {
+      margin-bottom: 10px;
+      float: left; }
+      @media screen and (min-width: 30em)  {
+        .settings-listing .user h3 {
+          margin-top: 10px; } }
+      @media screen and (min-width: 64em)  {
+        .settings-listing .user h3 {
+          margin-top: 27px; } }
+  .settings-listing .user-type {
+    clear: both;
+    margin-left: 44px; }
+    @media screen and (min-width: 30em)  {
+      .settings-listing .user-type {
+        margin-left: 102px; } }
+    @media screen and (min-width: 64em)  {
+      .settings-listing .user-type {
+        float: right;
+        width: 20%;
+        margin-top: -65px; } }
+  .settings-listing .form {
+    clear: both;
+    padding: 0 0 20px 10px;
+    border-top: 1px solid #ebebeb;
+    margin-top: 20px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .form {
+        padding: 5px 0 20px 20px;
+        margin-top: 34px; } }
+    @media screen and (min-width: 30em)  {
+      .settings-listing .form .select {
+        float: left;
+        margin: -20px 20px 20px 0; } }
+    .settings-listing .form .button-primary {
+      margin-top: 20px; }
+  .settings-listing .hidden-content-trigger {
+    padding: 8px 12px; }
+
 .applied-filters {
   max-width: 1580px;
   margin-left: auto;
@@ -5145,59 +5320,6 @@ footer {
           margin-right: 0; }
         .cards-select .selection-card:nth-child(3n+1) {
           clear: left; } }
-
-.post-type-field {
-  overflow: auto;
-  padding: 20px 90px 20px 10px;
-  position: relative; }
-  @media screen and (min-width: 80em)  {
-    .post-type-field {
-      padding: 20px 140px 20px 20px; } }
-  .post-type-field .upvote-downvote, .post-type-field .plus {
-    float: left;
-    margin-right: 20px; }
-  .post-type-field .plus {
-    margin: 16px 20px 20px 0; }
-  .post-type-field .actions {
-    position: absolute;
-    right: 10px;
-    top: 15px; }
-    .post-type-field .actions button, .post-type-field .actions a.button {
-      margin-bottom: 10px;
-      display: block;
-      text-align: right; }
-      .post-type-field .actions button.open:before, .post-type-field .actions a.open.button:before {
-        content: "\f00d";
-        font-family: FontAwesome;
-        font-size: 0.875em;
-        font-style: normal;
-        font-weight: normal;
-        display: inline-block;
-        text-decoration: inherit;
-        line-height: 1;
-        padding: 0 5px 0 1px;
-        speak: none;
-        transition: content, 0.25s; }
-    @media screen and (min-width: 80em)  {
-      .post-type-field .actions {
-        top: 40px;
-        right: 20px; }
-        .post-type-field .actions button, .post-type-field .actions a.button {
-          display: inline-block;
-          margin-left: 10px; } }
-  .post-type-field .form {
-    padding: 0 0 20px 64px; }
-    @media screen and (min-width: 30em)  {
-      .post-type-field .form .select {
-        float: left;
-        margin: -20px 20px 20px 0; } }
-    .post-type-field .form .button-primary {
-      margin-top: 20px; }
-  @media screen and (min-width: 48em)  {
-    .post-type-field .beta {
-      font-size: 1.5em; } }
-  .post-type-field .hidden-content-trigger {
-    padding: 8px 10px; }
 
 .fixed-bottom .button-primary {
   float: right;

@@ -183,10 +183,23 @@ button {
 
     button.icon-only {
         display: block;
-        padding: 5px 6px 7px 10px;
+        padding: 5px 6px 7px 6px;
+
+        &.downvote {
+            @include border-top-radius(0);
+            margin-top: -1px;
+        }
 
         &.upvote {
-            margin-bottom: $sm-spacing;
+            @include border-bottom-radius(0);
+
+            &:before {
+                padding: 0 3px;
+            }
+
+            @include media($small) {
+                margin-bottom: $sm-spacing;
+            }
         }
 
     }
