@@ -7,15 +7,16 @@
 
     h3 {
         padding-left: $sm-spacing;
+        padding-right: 120px;
         margin: $sm-spacing 0;
 
         @include media($small) {
             padding-left: $base-spacing;
-           margin: $base-spacing 0;
+            margin: $base-spacing 0;
         }
     }
 
-    .upvote-downvote, .plus {
+    .upvote-downvote {
         position: absolute;
         top: 2px;
         left: 2px;
@@ -44,6 +45,15 @@
         padding: 0;
     }
 
+    .upvote-downvote + .toggle-switch {
+        left: 40px;
+
+        @include media($small) {
+            left: 50px;
+        }
+
+    }
+
     .upvote-downvote + h3, .plus + h3 {
         padding-left: 45px; //this last value offsets the title from the upvotes or plus button
 
@@ -58,6 +68,14 @@
 
         @include media($small) {
             padding-left: ($sm-spacing + 70px);
+        }
+    }
+
+    .upvote-downvote + .toggle-switch + h3 {
+        padding-left: 100px; //this last value offsets the title from the upvotes or plus button
+
+        @include media($small) {
+            padding-left: ($sm-spacing + 110px);
         }
     }
 

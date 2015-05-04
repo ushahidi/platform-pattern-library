@@ -14,7 +14,7 @@
 
     @include media($small) {
         width: auto;
-        margin: $base-spacing 0;
+        margin: 0 0 $base-spacing;
     }
 
     a {
@@ -50,6 +50,17 @@
         &.disabled {
             color: $dk-gray;
             cursor: default;
+        }
+
+        &.add-new {
+
+            span {
+                @include icon(before, plus) {
+                    padding-left: 5px;
+                    font-size: em(16);
+                }
+            }
+
         }
 
         @include media($small) {
@@ -131,4 +142,11 @@
 
     }
 
+}
+
+.progress + .button-save {
+    @include media($small) {
+        float: right;
+        margin: $tiny-spacing 0 0;
+    }
 }

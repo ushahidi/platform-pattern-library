@@ -1821,7 +1821,8 @@ $LAYOUT
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 10px; }
+  padding: 10px;
+  z-index: 600; }
   @media screen and (min-width: 48em)  {
     .fixed-bottom {
       width: auto;
@@ -1855,7 +1856,12 @@ $LAYOUT
   height: 1px;
   width: 100%;
   background: #ebebeb;
-  margin: 10px 0; }
+  margin: 10px 0;
+  clear: both; }
+  .divider.padded {
+    margin: 20px 0; }
+  .divider.white {
+    background: #ffffff; }
 
 .inline {
   display: inline; }
@@ -3007,10 +3013,14 @@ blockquote {
   padding-left: 10px;
   font-style: italic; }
 
+@media screen and (min-width: 48em)  {
+  h1.inline + .cta {
+    padding: 0 5px; } }
+
 .cta {
   text-decoration: underline;
   font-size: 0.875em;
-  padding: 0 5px; }
+  margin-bottom: 5px; }
   .cta.hidden-content-trigger {
     text-decoration: none; }
     .cta.hidden-content-trigger:before {
@@ -3050,6 +3060,38 @@ blockquote {
     speak: none;
     transition: content, 0.25s;
     text-decoration: none; }
+  .cta.settings:before {
+    content: "\f013";
+    font-family: FontAwesome;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    padding: 0 5px 0 1px;
+    speak: none;
+    transition: content, 0.25s;
+    text-decoration: none; }
+  .cta.plus {
+    display: block;
+    margin-bottom: 10px; }
+    .cta.plus:before {
+      content: "\f067";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s;
+      text-decoration: none; }
+    @media screen and (min-width: 48em)  {
+      .cta.plus {
+        display: inline; } }
   .cta.notify:before {
     content: "\f0a1";
     font-family: FontAwesome;
@@ -3612,6 +3654,9 @@ ul.breadcrumb {
       color: #737373;
       margin: 0 5px; }
 
+ul.breadcrumb + h1 {
+  margin-top: 5px; }
+
 .progress {
   border: 1px solid #ebebeb;
   border-top-left-radius: 5px;
@@ -3630,7 +3675,7 @@ ul.breadcrumb {
   @media screen and (min-width: 48em)  {
     .progress {
       width: auto;
-      margin: 20px 0; } }
+      margin: 0 0 20px; } }
   .progress a {
     display: block;
     background: #ffffff;
@@ -3652,6 +3697,20 @@ ul.breadcrumb {
     .progress a.disabled {
       color: #737373;
       cursor: default; }
+    .progress a.add-new span:before {
+      content: "\f067";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s;
+      padding-left: 5px;
+      font-size: 1em; }
     @media screen and (min-width: 48em)  {
       .progress a {
         padding: 20px;
@@ -3709,6 +3768,11 @@ ul.breadcrumb {
       color: #4fab2f;
       padding-left: 5px;
       font-size: 1em; }
+
+@media screen and (min-width: 48em)  {
+  .progress + .button-save {
+    float: right;
+    margin: 5px 0 0; } }
 
 .accordion-menu {
   float: left;
@@ -3875,8 +3939,7 @@ ul.breadcrumb {
     line-height: 1;
     padding: 0 5px 0 1px;
     speak: none;
-    transition: content, 0.25s; }
-  .selection-card.custom h3:before {
+    transition: content, 0.25s;
     color: #ffc334;
     padding-right: 10px; }
 
@@ -4628,17 +4691,18 @@ aside .filters-show-hide.half {
   border-left: 1px solid #ebebeb; }
   .settings-listing h3 {
     padding-left: 10px;
+    padding-right: 120px;
     margin: 10px 0; }
     @media screen and (min-width: 48em)  {
       .settings-listing h3 {
         padding-left: 20px;
         margin: 20px 0; } }
-  .settings-listing .upvote-downvote, .settings-listing .plus {
+  .settings-listing .upvote-downvote {
     position: absolute;
     top: 2px;
     left: 2px; }
     @media screen and (min-width: 48em)  {
-      .settings-listing .upvote-downvote, .settings-listing .plus {
+      .settings-listing .upvote-downvote {
         top: 10px;
         left: 10px; } }
   .settings-listing .plus, .settings-listing .toggle-switch {
@@ -4652,6 +4716,11 @@ aside .filters-show-hide.half {
         left: 10px; } }
   .settings-listing .toggle-switch {
     padding: 0; }
+  .settings-listing .upvote-downvote + .toggle-switch {
+    left: 40px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .upvote-downvote + .toggle-switch {
+        left: 50px; } }
   .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
     padding-left: 45px; }
     @media screen and (min-width: 48em)  {
@@ -4662,6 +4731,11 @@ aside .filters-show-hide.half {
     @media screen and (min-width: 48em)  {
       .settings-listing .toggle-switch + h3 {
         padding-left: 80px; } }
+  .settings-listing .upvote-downvote + .toggle-switch + h3 {
+    padding-left: 100px; }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .upvote-downvote + .toggle-switch + h3 {
+        padding-left: 120px; } }
   .settings-listing .actions {
     position: absolute;
     right: 10px;
@@ -5423,7 +5497,7 @@ footer {
       float: right;
       width: 80%;
       padding: 0 20px 0 0;
-      margin-top: 20px; } }
+      margin-top: 40px; } }
   .page-content .main-col {
     float: left;
     display: block;
@@ -5432,75 +5506,73 @@ footer {
     margin-bottom: 40px; }
     .page-content .main-col:last-child {
       margin-right: 0; }
-  .page-content.has-aside {
-    padding-top: 20px; }
+  .page-content.has-aside aside {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    position: relative; }
+    .page-content.has-aside aside:last-child {
+      margin-right: 0; }
+  @media screen and (min-width: 48em)  {
+    .page-content.has-aside .main-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 74.41059%; }
+      .page-content.has-aside .main-col:last-child {
+        margin-right: 0; }
+
     .page-content.has-aside aside {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 100%;
-      position: relative; }
+      width: 23.23176%;
+      margin-right: 0;
+      padding: 20px 0 40px; }
       .page-content.has-aside aside:last-child {
         margin-right: 0; }
-    @media screen and (min-width: 48em)  {
-      .page-content.has-aside .main-col {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 74.41059%; }
-        .page-content.has-aside .main-col:last-child {
-          margin-right: 0; }
-
-      .page-content.has-aside aside {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 23.23176%;
+      .page-content.has-aside aside.is-right {
+        float: right;
         margin-right: 0;
-        padding: 20px 0 40px; }
-        .page-content.has-aside aside:last-child {
-          margin-right: 0; }
-        .page-content.has-aside aside.is-right {
-          float: right;
-          margin-right: 0;
-          padding: 0; }
-        .page-content.has-aside aside.has-border {
-          border-left: 1px solid #ebebeb;
-          padding: 20px 0 40px 20px; }
+        padding: 0; }
+      .page-content.has-aside aside.has-border {
+        border-left: 1px solid #ebebeb;
+        padding: 20px 0 40px 20px; }
  }
-    @media screen and (min-width: 64em)  {
-      .page-content.has-aside .main-col {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 65.88078%; }
-        .page-content.has-aside .main-col:last-child {
-          margin-right: 0; }
+  @media screen and (min-width: 64em)  {
+    .page-content.has-aside .main-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%; }
+      .page-content.has-aside .main-col:last-child {
+        margin-right: 0; }
 
-      .page-content.has-aside aside {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 31.76157%; }
-        .page-content.has-aside aside:last-child {
-          margin-right: 0; }
+    .page-content.has-aside aside {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      .page-content.has-aside aside:last-child {
+        margin-right: 0; }
  }
-    @media screen and (min-width: 80em)  {
-      .page-content.has-aside .main-col {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 74.41059%; }
-        .page-content.has-aside .main-col:last-child {
-          margin-right: 0; }
+  @media screen and (min-width: 80em)  {
+    .page-content.has-aside .main-col {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 74.41059%; }
+      .page-content.has-aside .main-col:last-child {
+        margin-right: 0; }
 
-      .page-content.has-aside aside {
-        float: left;
-        display: block;
-        margin-right: 2.35765%;
-        width: 23.23176%; }
-        .page-content.has-aside aside:last-child {
-          margin-right: 0; }
+    .page-content.has-aside aside {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 23.23176%; }
+      .page-content.has-aside aside:last-child {
+        margin-right: 0; }
  }
 
 aside.is-right .user-credit-has-label {

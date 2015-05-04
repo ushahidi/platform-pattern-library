@@ -149,11 +149,17 @@ blockquote {
 	font-style: italic;
 }
 
+h1.inline + .cta {
+    @include media($small) {
+        padding: 0 $tiny-spacing;
+    }
+}
+
 .cta {
    //border-bottom: 1px solid $link-color-lt;
    text-decoration: underline;
    font-size: em(14);
-   padding: 0 $tiny-spacing;
+   margin-bottom: $tiny-spacing;
 
     &.hidden-content-trigger {
         @include icon(before, plus);
@@ -167,6 +173,26 @@ blockquote {
     &.edit {
         @include icon(before, pencil) {
             text-decoration: none;
+        }
+
+    }
+
+    &.settings {
+        @include icon(before, settings) {
+            text-decoration: none;
+        }
+
+    }
+
+    &.plus {
+        @include icon(before, plus) {
+            text-decoration: none;
+        }
+        display: block;
+        margin-bottom: $sm-spacing;
+
+        @include media($small) {
+            display: inline;
         }
     }
 
