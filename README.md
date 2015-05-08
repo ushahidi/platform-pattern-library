@@ -1,4 +1,4 @@
-# platform-web-frontend
+# platform-pattern-library
 New Platform UI (w/ Pattern Library) based on the Platform Design Framework
 
 ### Libraries/Packages/Dependencies
