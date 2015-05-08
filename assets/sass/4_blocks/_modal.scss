@@ -1,0 +1,111 @@
+.modal-visible {
+    overflow: hidden;
+}
+
+.modal-window {
+    @include border-top-radius($global-radius);
+    @include border-bottom-radius($global-radius);
+    position: absolute;
+    width: 90%;
+    left: 5%;
+    top: $base-spacing;
+    padding: $sm-spacing $sm-spacing $base-spacing;
+    background: $lt-bg;
+    overflow-x: hidden;
+    z-index: $modal + 1;
+
+    @include media($mobile) {
+        padding: $base-spacing;
+    }
+
+    @include media($small) {
+        top: $lg-spacing;
+        width: 600px;
+        margin-left: -300px;
+        left: 50%;
+    }
+
+    h3 {
+        margin: $sm-spacing 0;
+
+        &.settings {
+            @include icon(before, settings){
+                color: $dk-gray;
+                padding-right: $sm-spacing;
+            }
+        }
+    }
+
+    .close {
+        @include border-top-radius($global-radius);
+        @include border-bottom-radius($global-radius);
+        @include icon(before, close){
+            font-size: em(18);
+            padding: $sm-spacing;
+        }
+        position: absolute;
+        top: $sm-spacing;
+        right: $sm-spacing;
+        border: $base-border;
+
+        @include media($mobile) {
+            right: $base-spacing;
+            top: $base-spacing;
+        }
+
+        &:hover {
+            border-color: $border-color-hover;
+        }
+
+    }
+
+    .modal-submit {
+        background: $lt-gray;
+        margin: $base-spacing (-$base-spacing) (-$base-spacing);
+    }
+
+    button {
+        margin: $base-spacing;
+    }
+
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: $modal; //variable defined in settings.scss
+}
+
+.modal {
+    display: none;
+
+    .modal-window {
+        @include transition(all 0.35s);
+        opacity: 0;
+        margin-top: -999px;
+    }
+
+    .modal-overlay {
+        @include transition(all 0.2s);
+        opacity: 0;
+    }
+
+    .modal-visible & {
+
+        .modal-window {
+            opacity: 1;
+            margin-top: 0;
+        }
+
+        .modal-overlay {
+            opacity: 1;
+        }
+    }
+}

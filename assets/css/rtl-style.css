@@ -1829,7 +1829,8 @@ $LAYOUT
       border-top: 0px;
       background: transparent;
       position: relative;
-      padding: 0; } }
+      padding: 0;
+      z-index: 0; } }
   .fixed-bottom button.button-primary, .fixed-bottom a.button-primary.button {
     margin: 0; }
 
@@ -2287,6 +2288,16 @@ positioning, etc.)
   @media screen and (min-width: 48em)  {
     .pl .pl-filters {
       width: 30%; } }
+.pl .modal {
+  display: block !important; }
+.pl .modal-window {
+  position: relative; }
+.pl #pl-pattern-modal .pl-sub-pattern-markup {
+  background: #737373;
+  padding-bottom: 40px; }
+  @media screen and (min-width: 48em)  {
+    .pl #pl-pattern-modal .pl-sub-pattern-markup {
+      padding-bottom: 100px; } }
 
 /*------------------------------------*\
 $COLORS
@@ -5470,6 +5481,109 @@ footer {
     border-radius: 20px;
     background: #ffffff;
     border: 3px solid #ebebeb; }
+
+.modal-visible {
+  overflow: hidden; }
+
+.modal-window {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  top: 20px;
+  padding: 10px 10px 20px;
+  background: #ffffff;
+  overflow-x: hidden;
+  z-index: 2001; }
+  @media screen and (min-width: 30em)  {
+    .modal-window {
+      padding: 20px; } }
+  @media screen and (min-width: 48em)  {
+    .modal-window {
+      top: 40px;
+      width: 600px;
+      margin-left: -300px;
+      left: 50%; } }
+  .modal-window h3 {
+    margin: 10px 0; }
+    .modal-window h3.settings:before {
+      content: "\f013";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s;
+      color: #737373;
+      padding-right: 10px; }
+  .modal-window .close {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 1px solid #ebebeb; }
+    .modal-window .close:before {
+      content: "\f00d";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, 0.25s;
+      font-size: 1.125em;
+      padding: 10px; }
+    @media screen and (min-width: 30em)  {
+      .modal-window .close {
+        right: 20px;
+        top: 20px; } }
+    .modal-window .close:hover {
+      border-color: #d2d2d2; }
+  .modal-window .modal-submit {
+    background: #ebebeb;
+    margin: 20px -20px -20px; }
+  .modal-window button, .modal-window a.button {
+    margin: 20px; }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 2000; }
+
+.modal {
+  display: none; }
+  .modal .modal-window {
+    transition: all 0.35s;
+    opacity: 0;
+    margin-top: -999px; }
+  .modal .modal-overlay {
+    transition: all 0.2s;
+    opacity: 0; }
+  .modal-visible .modal .modal-window {
+    opacity: 1;
+    margin-top: 0; }
+  .modal-visible .modal .modal-overlay {
+    opacity: 1; }
 
 /*------------------------------------*\
     $LAYOUTS
