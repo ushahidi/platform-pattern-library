@@ -1,14 +1,14 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
-       box-sizing: border-box; }
+  box-sizing: border-box; }
 
-*, *::after, *::before {
+*, *:before, *:after {
   -moz-box-sizing: inherit;
-       box-sizing: inherit; }
+  box-sizing: inherit; }
 
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -4902,7 +4902,15 @@ aside .filters-show-hide.half {
     width: 100%;
     max-width: none;
     z-index: 600; }
-  .header.overlay > .container:after, .header.overlay > .container-centered:after {
+  .header .hero-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    z-index: 50; }
+  .header.overlay .color-overlay:after {
     content: " ";
     position: absolute;
     top: 0;
@@ -4911,14 +4919,10 @@ aside .filters-show-hide.half {
     height: 100%;
     display: block;
     z-index: 100;
-    background-color: rgba(38, 44, 52, 0.5); }
-  .header img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    min-height: 100%;
-    min-width: 100%;
-    z-index: 50; }
+    background-color: #303742;
+    box-shadow: inset 0px 147px 210px -73px rgba(0, 0, 0, 0.4); }
+  .header.overlay .hero-image + .color-overlay:after {
+    background-color: rgba(48, 55, 66, 0.5); }
   .header .nav-icon, .header .beta, .header .header-description, .header .button-create, .header a[type='button'], .header .user-admin {
     z-index: 200; }
   .header .nav-icon {
@@ -5038,6 +5042,8 @@ aside .filters-show-hide.half {
     top: 0;
     overflow: visible;
     transition: all, 0.5s; }
+  .header.header-compact .color-overlay:after, .header.header-compact .hero-image + .color-overlay:after {
+    background-color: rgba(48, 55, 66, 0.75); }
   .header.header-compact .button-create, .header.header-compact a[type='button'] {
     opacity: 1 !important; }
   .header.header-compact .user-admin {
@@ -5054,7 +5060,8 @@ aside .filters-show-hide.half {
     position: fixed;
     height: 68px;
     top: 0;
-    width: 100%; }
+    width: 100%;
+    display: none; }
 
 .map {
   height: 700px;

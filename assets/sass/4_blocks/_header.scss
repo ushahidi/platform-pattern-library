@@ -12,9 +12,19 @@
         z-index: $topbar;
     }
 
+    .hero-image img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        z-index: $bg-img;
+    }    
+
     &.overlay {
 
-        > .container:after {
+        .color-overlay:after {
             content: " ";
             position: absolute;
             top: 0;
@@ -23,17 +33,16 @@
             height: 100%;
             display: block;
             z-index: $overlay;
-            background-color: $dark-overlay;
+            background-color: $header-bg-color;
+            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
         }
-    }
 
-    img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-height: 100%;
-        min-width: 100%;
-        z-index: $bg-img;
+        .hero-image + .color-overlay:after { 
+            // If there is an image, the color overlay is more transparent
+            background-color: $header-bg-transparent;
+        }
     }
 
     .nav-icon,
@@ -195,7 +204,7 @@
 
     &.header-transition {
 
-        .container {
+        .container{
             position: fixed;
             top: -150px;
             @include transition(all, .5s);
@@ -215,6 +224,10 @@
             top: 0;
             overflow: visible;
             @include transition(all, .5s);
+        }
+
+        .color-overlay:after, .hero-image + .color-overlay:after {
+            background-color: rgba($header-bg-color, .75);
         }
 
         .button-create {
@@ -242,6 +255,7 @@
             height: 68px;
             top: 0;
             width: 100%;
+            display: none;
         }
 
     }
