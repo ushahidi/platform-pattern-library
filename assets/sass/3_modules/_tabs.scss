@@ -5,12 +5,12 @@
 
     @include media($small) {
         width: 60%;
-        padding: 0; 
+        padding: 0;
     }
 
     label {
         display: none;
-        
+
         @include media($small) {
             display: block;
             float: left;
@@ -32,7 +32,6 @@
             background: $white;
             position: relative;
             margin-bottom: -500px;
-            margin-top: -2px;
             padding: $sm-spacing $base-spacing;
 
             @include media($small) {
@@ -45,16 +44,14 @@
             display: block;
             @include transition(0.3s);
             color: $link-color;
-            padding: 8px 0;
 
             @include media($small) {
                 float: left;
                 @include border-top-radius($global-radius);
                 @include border-bottom-radius($global-radius);
                 border: $base-border;
-                padding: 8px $sm-spacing;
                 margin-right: $sm-spacing;
-               
+
                 &:hover {
                     border: $base-border-hover;
                 }
@@ -65,17 +62,15 @@
 
             }
 
-            &:hover {
-                cursor: pointer;
-            }
-
             &.active {
-                color: $black;
 
                 @include media($small) {
                     background-color: $lt-gray;
                     border: $base-border-dark;
-                    padding-top: 8px;
+                }
+
+                & a {
+                    color: $black;
                 }
 
             }
@@ -91,6 +86,15 @@
 
         }
 
+        a {
+            display: block;
+            padding: 8px 0;
+
+            @include media($small) {
+                padding: 8px $sm-spacing;
+            }
+        }
+
         &.open li{
 
             &:not(.active) {
@@ -103,21 +107,21 @@
 
         }
 
-        //these are the icons 
+        //these are the icons
 
-        li.view-list {
+        li.view-list a {
             @include icon(before, list);
         }
 
-        li.view-chart {
+        li.view-chart a {
             @include icon(before, bar-chart);
         }
 
-        li.view-photo {
+        li.view-photo a {
             @include icon(before, photo);
         }
 
-        li.view-map {
+        li.view-map a {
             @include icon(before, map-marker);
         }
 
@@ -135,7 +139,7 @@
 
 }
 
-.tabs-secondary {  
+.tabs-secondary {
     border: $base-border;
     margin: -1px 0 0;
     @extend .delta;
@@ -157,7 +161,7 @@
 
     li {
         padding: $sm-spacing;
-        
+
         @include media($mobile) {
             float: left;
             padding: ($sm-spacing + 3px) $sm-spacing;
@@ -167,8 +171,8 @@
             padding: ($sm-spacing + 3px) $base-spacing;
         }
 
-        &.active {                       
-            
+        &.active {
+
             @include media($mobile) {
                 border-top: $base-border;
                 border-width: 3px;
@@ -178,12 +182,12 @@
             a {
                 color: $dk-gray;
                 cursor: default;
-            } 
+            }
 
             @include media($small) {
                 padding: $sm-spacing;
             }
-            
+
         }
 
     }
