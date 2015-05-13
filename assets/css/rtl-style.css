@@ -1,14 +1,14 @@
 /*------------------------------------*\
     $BOURBON & FRIENDS
 \*------------------------------------*/
-/* @import "css3/selection"; */
+/*@import "css3/selection";*/
 html {
   -moz-box-sizing: border-box;
-       box-sizing: border-box; }
+  box-sizing: border-box; }
 
-*, *::after, *::before {
+*, *:before, *:after {
   -moz-box-sizing: inherit;
-       box-sizing: inherit; }
+  box-sizing: inherit; }
 
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -2697,10 +2697,10 @@ pre .line-highlight {
       letter-spacing: -0.2em;
       content: "\00a0"; }
 
-a.button.front-end-guidelines-button {
+a.button.front-end-guidelines-button, a.front-end-guidelines-button.button-secondary, a.front-end-guidelines-button.button-toggle {
   background-color: #CC6699;
   margin-top: 10px; }
-  a.button.front-end-guidelines-button:hover {
+  a.button.front-end-guidelines-button:hover, a.front-end-guidelines-button.button-secondary:hover, a.front-end-guidelines-button.button-toggle:hover {
     background-color: #993366; }
 
 /*------------------------------------*\
@@ -3215,7 +3215,7 @@ body.post-detail .actions-stacked + .toggle-content, body.post-detail .actions-i
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
-button, .button {
+button, .button, .button-secondary, .button-toggle {
   display: inline-block;
   outline: none;
   background-color: #2274b4;
@@ -3233,25 +3233,25 @@ button, .button {
   transition: 0.3s;
   font-size: 1em; }
   @media screen and (min-width: 48em)  {
-    button, .button {
+    button, .button, .button-secondary, .button-toggle {
       font-size: 1.125em; } }
-  button a, .button a {
+  button a, .button a, .button-secondary a, .button-toggle a {
     color: #181c21; }
-  button i, .button i {
+  button i, .button i, .button-secondary i, .button-toggle i {
     padding-right: 10px; }
-  button:hover, .button:hover {
+  button:hover, .button:hover, .button-secondary:hover, .button-toggle:hover {
     cursor: pointer;
     background-color: #1a5889; }
-  button:active, .button:active {
+  button:active, .button:active, .button-secondary:active, .button-toggle:active {
     background-color: #0e2f49;
     transition: none; }
-  button.disabled, .button.disabled {
+  button.disabled, .button.disabled, .disabled.button-secondary, .disabled.button-toggle {
     background-color: #737373;
     cursor: default; }
-  button.icon-only:before, .button.icon-only:before {
+  button.icon-only:before, .button.icon-only:before, .icon-only.button-secondary:before, .icon-only.button-toggle:before {
     padding: 0; }
     @media screen and (min-width: 48em)  {
-      button.icon-only:before, .button.icon-only:before {
+      button.icon-only:before, .button.icon-only:before, .icon-only.button-secondary:before, .icon-only.button-toggle:before {
         padding: 0 5px 0 0; } }
 
 .button-create {
@@ -3385,9 +3385,9 @@ button, .button {
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
 \*------------------------------------*/
-button.dropdown, button.add-to-collection, button.down, button.downvote {
+button.dropdown, button.add-to-collection, button.down, button.downvote, .button.dropdown, .dropdown.button-secondary, .dropdown.button-toggle, .button.add-to-collection, .add-to-collection.button-secondary, .add-to-collection.button-toggle, .button.down, .down.button-secondary, .down.button-toggle, .button.downvote, .downvote.button-secondary, .downvote.button-toggle {
   padding: 8px; }
-  button.dropdown:before, button.add-to-collection:before, button.down:before, button.downvote:before {
+  button.dropdown:before, button.add-to-collection:before, button.down:before, button.downvote:before, .button.dropdown:before, .dropdown.button-secondary:before, .dropdown.button-toggle:before, .button.add-to-collection:before, .add-to-collection.button-secondary:before, .add-to-collection.button-toggle:before, .button.down:before, .down.button-secondary:before, .down.button-toggle:before, .button.downvote:before, .downvote.button-secondary:before, .downvote.button-toggle:before {
     content: "\f078";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -3400,15 +3400,15 @@ button.dropdown, button.add-to-collection, button.down, button.downvote {
     speak: none;
     transition: content, 0.25s;
     padding: 0 3px; }
-  button.dropdown.open:before, button.add-to-collection.open:before, button.down.open:before, button.downvote.open:before {
+  button.dropdown.open:before, button.add-to-collection.open:before, button.down.open:before, button.downvote.open:before, .button.dropdown.open:before, .dropdown.open.button-secondary:before, .dropdown.open.button-toggle:before, .button.add-to-collection.open:before, .add-to-collection.open.button-secondary:before, .add-to-collection.open.button-toggle:before, .button.down.open:before, .down.open.button-secondary:before, .down.open.button-toggle:before, .button.downvote.open:before, .downvote.open.button-secondary:before, .downvote.open.button-toggle:before {
     -webkit-transform: rotate(-180deg);
     -ms-transform: rotate(-180deg);
     transform: rotate(-180deg); }
-button.tabbed.open {
+button.tabbed.open, .button.tabbed.open, .tabbed.open.button-secondary, .tabbed.open.button-toggle {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 0px; }
-button.edit:before {
+button.edit:before, .button.edit:before, .edit.button-secondary:before, .edit.button-toggle:before {
   content: "\f040";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3420,9 +3420,9 @@ button.edit:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.close {
+button.close, .button.close, .close.button-secondary, .close.button-toggle {
   margin: 5px 5px 0 0; }
-  button.close:before {
+  button.close:before, .button.close:before, .close.button-secondary:before, .close.button-toggle:before {
     content: "\f057";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -3435,9 +3435,9 @@ button.close {
     speak: none;
     transition: content, 0.25s;
     font-size: 1.125em; }
-  button.close em {
+  button.close em, .button.close em, .close.button-secondary em, .close.button-toggle em {
     color: #737373; }
-button.share:before {
+button.share:before, .button.share:before, .share.button-secondary:before, .share.button-toggle:before {
   content: "\f064";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3449,7 +3449,7 @@ button.share:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.trash:before {
+button.trash:before, .button.trash:before, .trash.button-secondary:before, .trash.button-toggle:before {
   content: "\f1f8";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3461,7 +3461,7 @@ button.trash:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.check:before {
+button.check:before, .button.check:before, .check.button-secondary:before, .check.button-toggle:before {
   content: "\f00c";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3473,7 +3473,7 @@ button.check:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.plus:before {
+button.plus:before, .button.plus:before, .plus.button-secondary:before, .plus.button-toggle:before {
   content: "\f067";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3485,14 +3485,14 @@ button.plus:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.plus.open:before {
+button.plus.open:before, .button.plus.open:before, .plus.open.button-secondary:before, .plus.open.button-toggle:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   -webkit-transform-origin: 35% 50%;
       -ms-transform-origin: 35% 50%;
           transform-origin: 35% 50%; }
-button.check:before {
+button.check:before, .button.check:before, .check.button-secondary:before, .check.button-toggle:before {
   content: "\f00c";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3504,7 +3504,7 @@ button.check:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.export:before {
+button.export:before, .button.export:before, .export.button-secondary:before, .export.button-toggle:before {
   content: "\f08e";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3516,7 +3516,7 @@ button.export:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.up:before, button.upvote:before {
+button.up:before, button.upvote:before, .button.up:before, .up.button-secondary:before, .up.button-toggle:before, .button.upvote:before, .upvote.button-secondary:before, .upvote.button-toggle:before {
   content: "\f077";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3528,7 +3528,7 @@ button.up:before, button.upvote:before {
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, 0.25s; }
-button.search:before {
+button.search:before, .button.search:before, .search.button-secondary:before, .search.button-toggle:before {
   content: "\f002 ";
   font-family: FontAwesome;
   font-size: 0.875em;
