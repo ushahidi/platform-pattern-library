@@ -34,22 +34,15 @@ gulp.task('webserver', function() {
 * Task: `gulp html`
 * livereloads when html changes
 */
-gulp.task('html', ['fileinclude'], function() {
+gulp.task('html', function() {
     return gulp.src([
-        './index.html',
-        './pattern-library/**/*.html'
-        ])
-        .pipe(notify('HTML reloaded'))
-        .pipe(livereload());
-});
-
-gulp.task('fileinclude', function() {
-    gulp.src([
         './pattern-library/**/*.html',
         '!./pattern-library/partials/*.html'
         ])
     .pipe(fileinclude())
-    .pipe(gulp.dest('./assets/html/'));
+    .pipe(gulp.dest('./assets/html/'))
+    .pipe(notify('HTML reloaded'))
+    .pipe(livereload());
 });
 
 /**
@@ -57,8 +50,8 @@ gulp.task('fileinclude', function() {
 * Converts Sass files to CSS (includes RTL support)
 */
 
-gulp.task('sass', ['rtl'], function() {
-    gulp.src(['./assets/sass/style.scss'])
+gulp.task('sass', ['rtl', 'fontawesome-sass'], function() {
+    return gulp.src(['./assets/sass/style.scss'])
         .pipe(plumber({
             errorHandler: errorHandler
         }))
@@ -90,7 +83,7 @@ gulp.task('sass', ['rtl'], function() {
 */
 
 gulp.task('rtl', function() {
-    gulp.src(['./assets/sass/style.scss'])
+    return gulp.src(['./assets/sass/style.scss'])
         .pipe(plumber({
             errorHandler: errorHandler
         }))
@@ -116,7 +109,7 @@ gulp.task('rtl', function() {
 * Minimizes and concatenates js files
 */
 gulp.task('uglifyJS', function() {
-    gulp.src(['./assets/js/pattern-library/*','./assets/js/custom/*'])
+    return gulp.src(['./assets/js/pattern-library/*','./assets/js/custom/*'])
     .pipe(plumber({
         errorHandler: errorHandler
     }))
@@ -129,17 +122,20 @@ gulp.task('uglifyJS', function() {
 });
 
 /**
+ * Copy font awesome sass files to sass dir
+ */
+gulp.task('fontawesome-sass', function() {
+    return gulp.src(['bower_components/fontawesome/scss/*'])
+        .pipe(gulp.dest('./assets/sass/utils/font-awesome'));
+});
+
+/**
 * Task: `font`
 * Copies font files to public directory.
 */
 gulp.task('font', function() {
-    gulp.src(['bower_components/fontawesome/fonts/fontawesome-*', 'bower_components/fontawesome/fonts/FontAwesome*'])
+    return gulp.src(['bower_components/fontawesome/fonts/fontawesome-*', 'bower_components/fontawesome/fonts/FontAwesome*'])
         .pipe(gulp.dest('./assets/fonts'));
-
-    gulp.src(['bower_components/fontawesome/scss/*'])
-        .pipe(gulp.dest('./assets/sass//utils/font-awesome'))
-
-        .pipe(livereload());
 });
 
 /**
