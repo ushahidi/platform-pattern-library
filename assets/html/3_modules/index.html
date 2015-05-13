@@ -61,7 +61,7 @@
         </ul>
 
         <ul class="pl-read-direction-nav">
-    <span class="delta-alt">Reading Direction </span>
+    <li class="delta-alt">Reading Direction </li>
     <li class="hidden">
         <a class="remove-rtl" href="#" onclick="setActiveStyleSheet('default'); return false;">
             <i class="fa fa-long-arrow-left"></i>
@@ -99,6 +99,7 @@
         <li class="view-chart"><a>Bar Chart</a></li>
     </ul>
 </nav>
+
                 </div>
             </div>
             <div class="pl-sub-pattern">
@@ -114,6 +115,7 @@
         <li class="view-chart"><a>Bar Chart</a></li>
     </ul>
 </nav>
+
                 </div>
             </div>
         </div><!--end container-->
@@ -146,12 +148,12 @@
             <button type="button" class="button-secondary icon-only alt search"></button>
         </form>
         <nav class="accordion-menu">
-            <ul class="accordion-menu-list">
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Categories</a>
-                    </div>
-                    <form action="" method="get">
+            <form action="#" method="get">
+                <ul class="accordion-menu-list">
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Categories</a>
+                        </div>
                         <ul class="hidden-content">
                             <li>
                                 <input type="checkbox" name="show-all-categories" value="Show All Categories"> Show All Categories<br>
@@ -168,13 +170,11 @@
                                 <i class="fa fa-circle" style="color: #9a4126;"> &nbsp;</i> Hospital Status<br>
                             </li>
                         </ul>
-                    </form>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Stages</a>
-                    </div>
-                    <form action="" method="get">
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Stages</a>
+                        </div>
                         <ul class="hidden-content">
                             <li>
                                 <input type="checkbox" name="show-all-stages" value="Show All Stages">Show All Stages
@@ -183,7 +183,7 @@
                                 <input type="checkbox" name="structure" value="Structure">Structure
                             </li>
                             <li>
-                                <input type="checkbox" name="verification" value="Verification" checked="checked"></i>Verification
+                                <input type="checkbox" name="verification" value="Verification" checked="checked">Verification
                             </li>
                             <li>
                                 <input type="checkbox" name="translation" value="Translation">Translation
@@ -192,47 +192,47 @@
                                 <input type="checkbox" name="disabled stage" value="Disabled Stage">Disabled Stage
                             </li>
                         </ul>
-                    </form>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Date Range</a>
-                    </div>
-                    <ul class="hidden-content date-range">
-                        <div class="filter-start-date">
-                            <label for="start" class="delta-alt">Start Date</label>
-                            <input type="text" name="start">
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Date Range</a>
                         </div>
-                        <div class="filter-end-date">
-                            <label for="end" class="delta-alt">End Date</label>
-                            <input type="text" name="end">
-                        </div>
+                        <div class="hidden-content date-range">
+                            <div class="filter-start-date">
+                                <label for="start" class="delta-alt">Start Date</label>
+                                <input type="text" name="start" id="start">
+                            </div>
+                            <div class="filter-end-date">
+                                <label for="end" class="delta-alt">End Date</label>
+                                <input type="text" name="end" id="end">
+                            </div>
 
-                        <div class="filter-actions">
+                            <div class="filter-actions">
+                                <button class="apply-filter-button button-primary">Apply</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Location</a>
+                        </div>
+                        <div class="hidden-content location">
+                            <label for="location" class="delta-alt hidden">Location</label>
+                            <input type="text" name="location" id="location" placeholder="Enter city or postal code">
+                            <div class="custom-select">
+                                <select>
+                                    <option selected>within 1 km</option>
+                                    <option>within 10 km</option>
+                                    <option>within 50 km</option>
+                                    <option>within 100 km</option>
+                                    <option>within 500 km</option>
+                                </select>
+                            </div>
                             <button class="apply-filter-button button-primary">Apply</button>
                         </div>
-                    </ul>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Location</a>
-                    </div>
-                    <ul class="hidden-content location">
-                        <label for="location" class="delta-alt hidden">Location</label>
-                        <input type="text" name="location" placeholder="Enter city or postal code">
-                        <div class="custom-select">
-                            <select>
-                                <option selected>within 1 km</option>
-                                <option>within 10 km</option>
-                                <option>within 50 km</option>
-                                <option>within 100 km</option>
-                                <option>within 500 km</option>
-                            </select>
-                        </div>
-                        <button class="apply-filter-button button-primary">Apply</button>
-                    </ul>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </form>
         </nav>
     </div>
 </div>
@@ -254,15 +254,16 @@
                 <h4 class="pl-h4">Tabs &amp; Filter</h4>
                 <div class="pl-sub-pattern-markup">
 <div class="tabs-with-filter">
-    <nav class="tabs-menu">
-        <button type="button" class="button-toggle tabs-menu-button-js"></button>
-        <ul class="tabs-menu-list">
-            <li class="active view-list"><a>List</a></li>
-            <li class="view-map"><a>Map</a></li>
-            <li class="view-photo"><a>Photos</a></li>
-            <li class="view-chart"><a>Bar Chart</a></li>
-        </ul>
-    </nav>
+<nav class="tabs-menu">
+    <button type="button" class="button-toggle tabs-menu-button-js"></button>
+    <ul class="tabs-menu-list">
+        <li class="active view-list"><a>List</a></li>
+        <li class="view-map"><a>Map</a></li>
+        <li class="view-photo"><a>Photos</a></li>
+        <li class="view-chart"><a>Bar Chart</a></li>
+    </ul>
+</nav>
+
     <div class="filters">
     <div class="filters-show-hide">
         <label class="delta-alt"><span class="search-icon"></span><span>Search &amp; Filter</span></label>
@@ -276,12 +277,12 @@
             <button type="button" class="button-secondary icon-only alt search"></button>
         </form>
         <nav class="accordion-menu">
-            <ul class="accordion-menu-list">
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Categories</a>
-                    </div>
-                    <form action="" method="get">
+            <form action="#" method="get">
+                <ul class="accordion-menu-list">
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Categories</a>
+                        </div>
                         <ul class="hidden-content">
                             <li>
                                 <input type="checkbox" name="show-all-categories" value="Show All Categories"> Show All Categories<br>
@@ -298,13 +299,11 @@
                                 <i class="fa fa-circle" style="color: #9a4126;"> &nbsp;</i> Hospital Status<br>
                             </li>
                         </ul>
-                    </form>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Stages</a>
-                    </div>
-                    <form action="" method="get">
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Stages</a>
+                        </div>
                         <ul class="hidden-content">
                             <li>
                                 <input type="checkbox" name="show-all-stages" value="Show All Stages">Show All Stages
@@ -313,7 +312,7 @@
                                 <input type="checkbox" name="structure" value="Structure">Structure
                             </li>
                             <li>
-                                <input type="checkbox" name="verification" value="Verification" checked="checked"></i>Verification
+                                <input type="checkbox" name="verification" value="Verification" checked="checked">Verification
                             </li>
                             <li>
                                 <input type="checkbox" name="translation" value="Translation">Translation
@@ -322,47 +321,47 @@
                                 <input type="checkbox" name="disabled stage" value="Disabled Stage">Disabled Stage
                             </li>
                         </ul>
-                    </form>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Date Range</a>
-                    </div>
-                    <ul class="hidden-content date-range">
-                        <div class="filter-start-date">
-                            <label for="start" class="delta-alt">Start Date</label>
-                            <input type="text" name="start">
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Date Range</a>
                         </div>
-                        <div class="filter-end-date">
-                            <label for="end" class="delta-alt">End Date</label>
-                            <input type="text" name="end">
-                        </div>
+                        <div class="hidden-content date-range">
+                            <div class="filter-start-date">
+                                <label for="start" class="delta-alt">Start Date</label>
+                                <input type="text" name="start" id="start">
+                            </div>
+                            <div class="filter-end-date">
+                                <label for="end" class="delta-alt">End Date</label>
+                                <input type="text" name="end" id="end">
+                            </div>
 
-                        <div class="filter-actions">
+                            <div class="filter-actions">
+                                <button class="apply-filter-button button-primary">Apply</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="trigger-container">
+                            <a href="#!" class="hidden-content-trigger delta">Location</a>
+                        </div>
+                        <div class="hidden-content location">
+                            <label for="location" class="delta-alt hidden">Location</label>
+                            <input type="text" name="location" id="location" placeholder="Enter city or postal code">
+                            <div class="custom-select">
+                                <select>
+                                    <option selected>within 1 km</option>
+                                    <option>within 10 km</option>
+                                    <option>within 50 km</option>
+                                    <option>within 100 km</option>
+                                    <option>within 500 km</option>
+                                </select>
+                            </div>
                             <button class="apply-filter-button button-primary">Apply</button>
                         </div>
-                    </ul>
-                </li>
-                <li class="accordion-menu-list__item">
-                    <div class="trigger-container">
-                        <a href="#!" class="hidden-content-trigger delta">Location</a>
-                    </div>
-                    <ul class="hidden-content location">
-                        <label for="location" class="delta-alt hidden">Location</label>
-                        <input type="text" name="location" placeholder="Enter city or postal code">
-                        <div class="custom-select">
-                            <select>
-                                <option selected>within 1 km</option>
-                                <option>within 10 km</option>
-                                <option>within 50 km</option>
-                                <option>within 100 km</option>
-                                <option>within 500 km</option>
-                            </select>
-                        </div>
-                        <button class="apply-filter-button button-primary">Apply</button>
-                    </ul>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+            </form>
         </nav>
     </div>
 </div>
@@ -572,7 +571,7 @@
             </select>
         </div>
         <p class="clearfix">
-            <input id="checkbox1" type="checkbox"><label for="checkbox1">This field is required</label>
+            <input id="checkbox2" type="checkbox"><label for="checkbox2">This field is required</label>
         </p>
         <p>
             <a class="cta hidden-content-trigger">
@@ -619,7 +618,7 @@
                 <div class="pl-sub-pattern-markup">
                 <div class="settings-listing">
                     <div class="select-listing">
-                        <input id="checkbox1" type="checkbox">
+                        <input id="checkbox3" type="checkbox">
                     </div>
                     <div class="user">
                         <img class="circular" src="http://placehold.it/100x100" alt="">
@@ -638,6 +637,7 @@
                 <h4 class="pl-h4">With button &amp; title (<a href="">seen here</a>)</h4>
                 <div class="pl-sub-pattern-markup">
                 <div class="settings-listing">
+                    <!-- todo: fix button wrapped in a -->
                     <a href="">
                         <div class="button-secondary icon-only alt plus"></div>
                         <h3>
@@ -719,7 +719,7 @@
                 <div class="pl-sub-pattern-markup">
 <div class="single-post-listing">
     <div class="select-post">
-        <input id="checkbox1" type="checkbox">
+        <input type="checkbox">
     </div>
     <div class="post-summary has-img">
         <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
@@ -757,7 +757,7 @@
     <ul class="dropdown-menu" role="menu">
         <li>
             <button type="button" class="button-secondary edit">
-                <a href="#!">Edit</a>
+                <span>Edit</span>
             </button>
         </li>
         <li>
@@ -772,7 +772,7 @@
         </li>
     </ul>
 </div>
- 
+
 
     </div>
 </div> <!--single post listing-->
@@ -784,7 +784,7 @@
                 <div class="pl-sub-pattern-markup">
 <div class="single-post-listing">
     <div class="select-post">
-        <input id="checkbox1" type="checkbox">
+        <input type="checkbox">
     </div>
     <div class="post-summary">
         <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
@@ -819,7 +819,7 @@
     <ul class="dropdown-menu" role="menu">
         <li>
             <button type="button" class="button-secondary edit">
-                <a href="#!">Edit</a>
+                <span>Edit</span>
             </button>
         </li>
         <li>
@@ -834,7 +834,7 @@
         </li>
     </ul>
 </div>
- 
+
     </div>
 
 </div> <!--single post listing-->
@@ -951,7 +951,7 @@
         <ul class="dropdown-menu" role="menu">
             <li>
                 <button type="button" class="button-secondary edit">
-                    <a href="#!">Edit</a>
+                    <span>Edit</span>
                 </button>
             </li>
             <li>
@@ -987,7 +987,7 @@
         <ul class="dropdown-menu" role="menu">
             <li>
                 <button type="button" class="button-secondary edit">
-                    <a href="#!">Edit</a>
+                    <span>Edit</span>
                 </button>
             </li>
             <li>
@@ -1002,7 +1002,7 @@
             </li>
         </ul>
     </div>
-    <img src="https://photos.travelblog.org/Photos/11053/262872/f/2165432-Deserted-main-road-of-Quneitra-Syria-1.jpg">
+    <img src="https://photos.travelblog.org/Photos/11053/262872/f/2165432-Deserted-main-road-of-Quneitra-Syria-1.jpg" alt="Deserted main road of Quneitra Syria">
 </div>
                 </div><!--end markup-->
             </div><!--end sub pattern-->
@@ -1073,7 +1073,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="../../js/app.js"/></script>
+<script src="../../js/app.js"></script>
 
 </body>
 

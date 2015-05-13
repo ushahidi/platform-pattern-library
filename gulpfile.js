@@ -12,7 +12,8 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
-    notify = require('gulp-notify');
+    notify = require('gulp-notify'),
+    html5Lint = require('gulp-html5-lint');
 
 function errorHandler (err) {
     gutil.beep();
@@ -43,6 +44,18 @@ gulp.task('html', function() {
     .pipe(gulp.dest('./assets/html/'))
     .pipe(notify('HTML reloaded'))
     .pipe(livereload());
+});
+
+/**
+ * HTML5 Lint
+ */
+gulp.task('html5-lint', function() {
+    return gulp.src([
+            './index.html',
+            './assets/html/**/*.html',
+            '!./assets/html/partials/**/*.html'
+        ])
+        .pipe(html5Lint());
 });
 
 /**
