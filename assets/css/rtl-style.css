@@ -2289,6 +2289,10 @@ positioning, etc.)
   @media screen and (min-width: 48em)  {
     .pl .pl-filters {
       width: 30%; } }
+  .pl .pl-filters .filters-container {
+    z-index: 10; }
+  .pl .pl-filters aside .filters-container {
+    z-index: 0; }
 .pl .modal {
   display: block !important; }
 .pl .modal-window {
@@ -4344,9 +4348,10 @@ aside .filters-show-hide.half {
   aside .filters-show-hide {
     display: none !important; } }
 @media screen and (min-width: 48em)  {
-  aside .filters-container {
-    top: 0 !important;
-    display: block !important; } }
+  aside .filters .filters-container {
+    position: relative;
+    top: 0;
+    display: block; } }
 
 .post-list-actions {
   padding: 10px 0;

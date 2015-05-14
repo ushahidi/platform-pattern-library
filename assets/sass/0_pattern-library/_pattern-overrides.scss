@@ -10,7 +10,7 @@ positioning, etc.)
 .pl {
 
   &.modal-visible {
-        overflow: auto; 
+        overflow: auto;
     }
 
     .tabs-with-filter {
@@ -54,11 +54,18 @@ positioning, etc.)
     }
 
     .pl-filters {
-       background: $lt-bg;
+        background: $lt-bg;
 
-       @include media($small) {
-        width: 30%;
-       }
+        @include media($small) {
+            width: 30%;
+        }
+
+        .filters-container {
+            z-index:10;
+        }
+        aside .filters-container {
+            z-index: 0;
+        }
 
     }
 
