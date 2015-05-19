@@ -3,7 +3,8 @@
     padding: $sm-spacing 0;
     
     @include media($small) {
-        padding: 0;
+        padding: $sm-spacing;
+        margin-left: -10px;
         border: 0px;
         display: block;
     }
@@ -15,7 +16,7 @@
 
     .toggle-content {
         border: $base-border;
-        padding: $sm-spacing;
+        padding: 0 $sm-spacing;
         margin-top: -1px;
         display: none;
 
@@ -26,10 +27,28 @@
            padding-left: $base-spacing;
         }
 
+        ul {
+            margin: -$base-spacing 0; //override styles from toggle-content
+
+            @include media($small) {
+                margin: 0
+            }
+
+        }
+
     }
 
     li {
-        padding: $sm-spacing 0;
+        padding: $base-spacing $sm-spacing; 
+        border-bottom: $base-border;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        @include media($small) { 
+            padding: $base-spacing 0;
+        }
     }
 
     p {
@@ -41,7 +60,7 @@
     }
 
     h6 {
-        margin: 0 0 $tiny-spacing;
+        margin: 0;
     }
 
     p.small {
@@ -60,11 +79,16 @@
     .active {
         position: relative;
 
-        a {
-            color: $black;
+        h6 {
+            margin-bottom: $tiny-spacing; 
         }
 
-        @include media($small) {
+        .button-secondary {
+            margin: $sm-spacing 0 0;
+        }
+
+        @include media($small) { 
+            padding: $base-spacing 0;
 
             &:after {
                 content: ' ';
@@ -89,7 +113,7 @@
 
     .complete {
 
-        @include icon(after, check) {
+        @include icon(before, check) {
             font-size: em(16);
             color: $confirmation-color;
         }
