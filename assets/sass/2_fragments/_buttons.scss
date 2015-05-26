@@ -171,7 +171,7 @@ button,
         padding: 0;
     }
 
-    &.open:after {
+    &.open:after, .open &:after {
         @include transform(rotate(180deg));
     }
 
@@ -206,14 +206,13 @@ button,
 
 .dropdown-group {
 
-    .toggle-content {
+    .dropdown-menu {
         position: absolute;
-        display: none;
         min-width: 160px;
         margin-top: -1px;
         background-color: $white;
         border: $base-border;
-        z-index: $bottom;
+        z-index: $top;
         padding: $sm-spacing 0;
 
         .header & {
@@ -244,7 +243,7 @@ button,
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
 \*------------------------------------*/
-button, 
+button,
 .button {
 
     &.dropdown, &.add-to-collection, &.down, &.downvote {

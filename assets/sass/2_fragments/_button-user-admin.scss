@@ -27,6 +27,7 @@
         cursor: pointer;
         height: 30px;
         user-select: none;
+        text-align: right;
     }
 
     .user-avatar {
@@ -45,8 +46,8 @@
         top: -10px;
         display: inline-block;
         font-weight: bold;
-        padding: 0 10px 0 0;
-        margin-left: $sm-spacing;
+        padding: 10px 10px 0 0;
+        margin: $sm-spacing 0 0 $sm-spacing;
     }
 
     .button-toggle {
@@ -57,7 +58,10 @@
         padding-bottom: 15px;
         @include radius(5px, 5px, 0, 0);
 
-        &.open {
+    }
+
+    .open {
+        .button-toggle {
             @include border-bottom-radius(0);
             background: $white;
             border-bottom: 0px;
@@ -66,9 +70,7 @@
             &:hover {
                 background-color: $white;
             }
-
         }
-
     }
 
     .dropdown-menu {
@@ -78,6 +80,7 @@
         margin-top: 17px;
         padding: $sm-spacing;
         text-shadow: none;
+        visibility: hidden;
         opacity: 0;
         @include transition(opacity .25s);
 
@@ -85,8 +88,14 @@
             padding: 10px;
         }
 
-        &.open {
+        // Hiding with opacity, not display
+        // so ensure display block even with
+        // .toggle-content
+        display: block;
+
+        &.visible {
             opacity: 1;
+            visibility: visible;
             @include transition(opacity .25s);
         }
 

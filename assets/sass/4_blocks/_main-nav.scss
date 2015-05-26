@@ -103,9 +103,13 @@
             content: "\f078";
         }
 
+        .toggle-wrapper {
+            text-align: left;
+        }
+
     }
 
-    ul:not(.hidden-content) {
+    ul {
         margin: 0 0 $base-spacing*2 0;
     }
 
@@ -143,30 +147,34 @@
 
         }
 
-        .hidden-content-trigger{
-            @include icon(before, plus);
-            display: block;
-            margin: 0;
+        .settings-nav {
+            .settings-nav-header a {
+                @include icon(before, plus);
+                display: block;
+                margin: 0;
 
-            &.open {
-                @include icon(before, minus);
+                &.open {
+                    @include icon(before, minus);
+                }
+
             }
 
-        }
+            ul {
 
-        .hidden-content {
-            margin: 10px 0 0px 0;
+                margin: 10px 0 0px 0;
+                display: none;
 
-            li {
-                padding: $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px);
+                li {
+                    padding: $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px);
+                }
+
+                a {
+                    text-transform: none;
+                    font-weight: normal;
+                    letter-spacing: inherit;
+                }
+
             }
-
-            a {
-                text-transform: none;
-                font-weight: normal;
-                letter-spacing: inherit;
-            }
-
         }
 
     }

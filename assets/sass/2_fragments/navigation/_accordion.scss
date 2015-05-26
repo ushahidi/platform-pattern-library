@@ -5,7 +5,7 @@
         @include span-columns(12);
         border-top: $base-border;
 
-        &:last-child .hidden-content {
+        &:last-child .accordion-menu-content {
             padding-bottom: $base-spacing;
         }
 
@@ -17,20 +17,15 @@
 
     }
 
-    .hidden-content-trigger {
-    @include icon(before, plus);
-    display: block;
-    padding: $base-spacing 0;
-    margin: 0;
-
-    &.open {
-        @include icon(before, minus);
+    .accordion-menu-trigger {
+        @include icon(before, plus);
+        display: block;
+        padding: $base-spacing 0;
+        margin: 0;
     }
 
-}
-
-    .hidden-content {
-        @include span-columns(12);
+    .accordion-menu-content {
+        @include span-columns(12, no-display);
         display: none;
         margin: $sm-spacing 0 0 0;
         padding-bottom: $sm-spacing;
@@ -62,6 +57,15 @@
 
         }
 
+    }
+
+    .open {
+        .accordion-menu-content {
+            display: block;
+        }
+        .accordion-menu-trigger {
+            @include icon(before, minus);
+        }
     }
 
 }

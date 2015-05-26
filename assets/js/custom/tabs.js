@@ -7,18 +7,19 @@ $('.tabs-menu ul li').click(function() {
 // Tabs Mobile
 // Toggle arrow icon and open views container
 $('.tabs-menu-button-js').click(function() {
-    
-    if ( $('.filters-container').hasClass('open') ) {
+    $(this).toggleClass('open');
+
+    if ( $('.filters-container').hasClass('visible') ) {
         $('.filter-button-js').toggleClass('open');
-        $('.filters-container').toggleClass('open');
+        $('.filters-container').toggleClass('visible');
     }
 
-    $(this).siblings('.tabs-menu-list').toggleClass('open');
+    $(this).siblings('.tabs-menu-list').toggleClass('visible');
 });
 
 // Display selected <li>
 $('ul.tabs-menu-list li').click(function() {
     $(this).parent().prev('#tabs-menu-selection').html($(this).text());
-    $(this).parent().toggleClass('open');
+    $(this).parent().toggleClass('visible');
     $(this).parent().siblings('.tabs-menu-button-js').toggleClass('open');
 });

@@ -1,5 +1,4 @@
-.toggle-content {
-    display: none;
+.actions-content {
     float: left;
     padding: $sm-spacing 0;
 
@@ -20,8 +19,8 @@
 
 }
 
-.actions-inline + .toggle-content {
-    
+.actions-inline + .actions-content {
+
     li {
         float: left;
         padding: 0 $sm-spacing $sm-spacing 0;
@@ -29,7 +28,7 @@
 
 }
 
-.actions-stacked + .toggle-content {
+.actions-stacked + .actions-content {
 
     li {
         float: left;
@@ -48,33 +47,9 @@
 
 }
 
-.toggle-content.toggle-content-secondary {
-    display: none;
-    position: absolute;
-    background-color: $white;
-    margin: 0;
-    width: auto;
-    min-width: 150px;
-    max-height: 150px;
-    overflow: auto;
-    border: $base-border;
-    z-index: $offcanvas;
-
-    li {
-        float: none;
-        padding: $sm-spacing;
-
-        &:last-child {
-            padding: $sm-spacing;
-        }
-
-    }
-
-}
-
 body.post-detail, body.create-post {
 
-    .actions-stacked + .toggle-content, .actions-inline + .toggle-content {
+    .actions-stacked + .actions-content, .actions-inline + .actions-content {
         display: none;
 
         @include media($small) {
