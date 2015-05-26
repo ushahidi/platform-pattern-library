@@ -63,7 +63,7 @@ gulp.task('html5-lint', function() {
 * Converts Sass files to CSS (includes RTL support)
 */
 
-gulp.task('sass', ['rtl', 'fontawesome-sass'], function() {
+gulp.task('sass', ['rtl'], function() {
     return gulp.src(['./assets/sass/style.scss'])
         .pipe(plumber({
             errorHandler: errorHandler
@@ -95,7 +95,7 @@ gulp.task('sass', ['rtl', 'fontawesome-sass'], function() {
 * Converts RTL Sass files to RTL CSS
 */
 
-gulp.task('rtl', function() {
+gulp.task('rtl', ['fontawesome-sass'], function() {
     return gulp.src(['./assets/sass/style.scss'])
         .pipe(plumber({
             errorHandler: errorHandler
