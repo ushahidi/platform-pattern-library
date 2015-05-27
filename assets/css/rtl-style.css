@@ -1655,6 +1655,12 @@ body {
   font-weight: 400;
   font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   overflow-x: hidden; }
+  body.solid {
+    background-color: #293039; }
+  body.bg-image {
+    background: url(../img/header-bk.jpg) no-repeat center center fixed;
+    background-size: cover;
+    position: relative; }
 
 p, blockquote {
   line-height: 1.25;
@@ -2719,6 +2725,8 @@ label.input-label, label.filter-label {
   padding: 0 10px 0 0; }
   label.input-label.error, label.filter-label.error {
     color: #de0000; }
+  label.input-label.required:after, label.filter-label.required:after {
+    content: "*"; }
   label.input-label + .small, label.filter-label + .small {
     font-style: italic; }
 
@@ -3226,7 +3234,8 @@ button, .button, .button-secondary, .button-toggle {
     padding-right: 10px; }
   button:hover, .button:hover, .button-secondary:hover, .button-toggle:hover {
     cursor: pointer;
-    background-color: #1a5889; }
+    background-color: #1a5889;
+    color: #ffffff; }
   button:active, .button:active, .button-secondary:active, .button-toggle:active {
     background-color: #0e2f49;
     transition: none; }
@@ -3281,6 +3290,7 @@ button, .button, .button-secondary, .button-toggle {
     color: #ffc334; }
   .button-secondary:hover, .button-toggle:hover {
     background-color: #ffffff;
+    color: #181c21;
     border: 1px solid #d2d2d2; }
   .button-secondary:active, .button-toggle:active {
     border: 1px solid #ababab; }
@@ -3514,6 +3524,18 @@ button.up:before, button.upvote:before, .button.up:before, .up.button-secondary:
   transition: content, .25s; }
 button.search:before, .button.search:before, .search.button-secondary:before, .search.button-toggle:before {
   content: "\f002";
+  font-family: FontAwesome;
+  font-size: 0.875em;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  text-decoration: inherit;
+  line-height: 1;
+  padding: 0 5px 0 1px;
+  speak: none;
+  transition: content, .25s; }
+button.photo:before, .button.photo:before, .photo.button-secondary:before, .photo.button-toggle:before {
+  content: "\f03e";
   font-family: FontAwesome;
   font-size: 0.875em;
   font-style: normal;
@@ -5533,6 +5555,12 @@ footer {
   background: #ffffff;
   overflow-x: hidden;
   z-index: 2001; }
+  .modal-window.ushahidi-logo {
+    background: #ffffff url("../img/ushahidi-logo.svg") no-repeat;
+    background-size: 17%;
+    background-position: 96% 2%; }
+    .modal-window.ushahidi-logo .divider {
+      width: 80%; }
   @media screen and (min-width: 30em)  {
     .modal-window {
       padding: 20px; } }
@@ -5542,10 +5570,26 @@ footer {
       width: 600px;
       margin-left: -300px;
       left: 50%; } }
+  .modal-window input {
+    width: 100%; }
   .modal-window h3 {
     margin: 10px 0; }
     .modal-window h3.settings:before {
       content: "\f013";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, .25s;
+      color: #737373;
+      padding-right: 10px; }
+    .modal-window h3.edit:before {
+      content: "\f040";
       font-family: FontAwesome;
       font-size: 0.875em;
       font-style: normal;
@@ -5589,9 +5633,10 @@ footer {
       border-color: #d2d2d2; }
   .modal-window .modal-submit {
     background: #ebebeb;
-    margin: 20px -20px -20px; }
-  .modal-window button {
-    margin: 20px; }
+    margin: 20px -20px -20px;
+    padding: 20px 10px 20px 20px; }
+    .modal-window .modal-submit .cta {
+      padding-left: 10px; }
 
 .modal-overlay {
   position: fixed;
