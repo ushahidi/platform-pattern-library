@@ -2,7 +2,7 @@
     $FORMS
 \*------------------------------------*/
 
-label.input-label, label.filter-label {
+.input-label, .filter-label {
     @extend .delta-alt;
     display: block;
     padding: 0 $sm-spacing 0 0;
@@ -37,23 +37,17 @@ textarea {
     margin: $sm-spacing 0 $base-spacing;
     @include transition;
     @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.1), $inset: true);
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
 
     &.error {
         border-color: $error-color;
     }
-    
+
+    + p.alert {
+        margin-top: -$tiny-spacing;
+    }
 }
 
-input[type="text"].success {
-    color: $text-color;
-}
-
-span.input-icon {
+.input-icon {
 
     input {
         display: inline-block;
@@ -77,10 +71,10 @@ span.input-icon {
         }
     }
 
-}
+    + p.alert {
+        margin-top: -$tiny-spacing;
+    }
 
-.clearfix + p.alert {
-    margin-top: -30px;
 }
 
 input[type="checkbox"],
