@@ -1978,8 +1978,6 @@ $LAYOUT
   @media screen and (min-width: 48em)  {
     .pl-pattern {
       padding: 40px 20px 20px; } }
-  .pl-pattern p, .pl-pattern blockquote {
-    margin-bottom: 10px; }
 
 .pl-divider {
   height: 1px;
@@ -2799,9 +2797,8 @@ select {
   height: 32px;
   font-size: 0.875em; }
 
-form p, form blockquote {
-  font-size: 0.875em;
-  margin-bottom: 1em; }
+form button, form input[type="button"], .form button, .form input[type="button"] {
+  margin: 10px 0 20px; }
 
 .tgl {
   display: none !important; }
@@ -3205,7 +3202,7 @@ body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-
 /*------------------------------------*\
     $BUTTONS
 \*------------------------------------*/
-button, .button, .button-secondary, .button-toggle {
+button, .button, .button-secondary, .button-toggle, input[type="button"] {
   display: inline-block;
   outline: none;
   background-color: #2274b4;
@@ -3223,26 +3220,26 @@ button, .button, .button-secondary, .button-toggle {
   transition: 0.3s;
   font-size: 1em; }
   @media screen and (min-width: 48em)  {
-    button, .button, .button-secondary, .button-toggle {
+    button, .button, .button-secondary, .button-toggle, input[type="button"] {
       font-size: 1.125em; } }
-  button a, .button a, .button-secondary a, .button-toggle a {
+  button a, .button a, .button-secondary a, .button-toggle a, input[type="button"] a {
     color: #181c21; }
-  button i:not(.fa-spin), .button i:not(.fa-spin), .button-secondary i:not(.fa-spin), .button-toggle i:not(.fa-spin) {
+  button i:not(.fa-spin), .button i:not(.fa-spin), .button-secondary i:not(.fa-spin), .button-toggle i:not(.fa-spin), input[type="button"] i:not(.fa-spin) {
     padding-right: 10px; }
-  button:hover, .button:hover, .button-secondary:hover, .button-toggle:hover {
+  button:hover, .button:hover, .button-secondary:hover, .button-toggle:hover, input[type="button"]:hover {
     cursor: pointer;
     background-color: #1a5889;
     color: #ffffff; }
-  button:active, .button:active, .button-secondary:active, .button-toggle:active {
+  button:active, .button:active, .button-secondary:active, .button-toggle:active, input[type="button"]:active {
     background-color: #0e2f49;
     transition: none; }
-  button.disabled, .button.disabled, .disabled.button-secondary, .disabled.button-toggle {
+  button.disabled, button[disabled], .button.disabled, .disabled.button-secondary, .disabled.button-toggle, .button[disabled], [disabled].button-secondary, [disabled].button-toggle, input[type="button"].disabled, input[type="button"][disabled] {
     background-color: #737373;
     cursor: default; }
-  button.icon-only:before, .button.icon-only:before, .icon-only.button-secondary:before, .icon-only.button-toggle:before {
+  button.icon-only:before, .button.icon-only:before, .icon-only.button-secondary:before, .icon-only.button-toggle:before, input[type="button"].icon-only:before {
     padding: 0; }
     @media screen and (min-width: 48em)  {
-      button.icon-only:before, .button.icon-only:before, .icon-only.button-secondary:before, .icon-only.button-toggle:before {
+      button.icon-only:before, .button.icon-only:before, .icon-only.button-secondary:before, .icon-only.button-toggle:before, input[type="button"].icon-only:before {
         padding: 0 5px 0 0; } }
 
 .button-create {
@@ -3291,15 +3288,15 @@ button, .button, .button-secondary, .button-toggle {
     border: 1px solid #d2d2d2; }
   .button-secondary:active, .button-toggle:active {
     border: 1px solid #ababab; }
-  .button-secondary.disabled, .disabled.button-toggle {
+  .button-secondary.disabled, .disabled.button-toggle, .button-secondary [disabled], .button-toggle [disabled] {
     background-color: #ffffff;
     cursor: default;
     color: #737373; }
-    .button-secondary.disabled:before, .disabled.button-toggle:before, .button-secondary.disabled:after, .disabled.button-toggle:after {
+    .button-secondary.disabled:before, .disabled.button-toggle:before, .button-secondary.disabled:after, .disabled.button-toggle:after, .button-secondary [disabled]:before, .button-toggle [disabled]:before, .button-secondary [disabled]:after, .button-toggle [disabled]:after {
       color: #737373; }
-    .button-secondary.disabled:hover, .disabled.button-toggle:hover {
+    .button-secondary.disabled:hover, .disabled.button-toggle:hover, .button-secondary [disabled]:hover, .button-toggle [disabled]:hover {
       border: 1px solid #ebebeb; }
-    .button-secondary.disabled:active, .disabled.button-toggle:active {
+    .button-secondary.disabled:active, .disabled.button-toggle:active, .button-secondary [disabled]:active, .button-toggle [disabled]:active {
       border: 1px solid #ebebeb; }
   .button-secondary.alt:before, .alt.button-toggle:before, .button-secondary.alt:after, .alt.button-toggle:after {
     color: #2274b4; }
@@ -4865,20 +4862,20 @@ aside .filters-show-hide.half {
         float: right;
         width: 20%;
         margin-top: -65px; } }
-  .settings-listing .form {
+  .settings-listing form, .settings-listing .form {
     clear: both;
     padding: 0 0 20px 10px;
     border-top: 1px solid #ebebeb;
     margin-top: 20px; }
     @media screen and (min-width: 48em)  {
-      .settings-listing .form {
+      .settings-listing form, .settings-listing .form {
         padding: 5px 0 20px 20px;
         margin-top: 34px; } }
     @media screen and (min-width: 30em)  {
-      .settings-listing .form .select {
+      .settings-listing form .select-inline, .settings-listing .form .select-inline {
         float: left;
         margin: -20px 20px 20px 0; } }
-    .settings-listing .form .button-primary {
+    .settings-listing form .button-primary, .settings-listing .form .button-primary {
       margin-top: 20px; }
   .settings-listing .edit {
     padding: 8px 12px; }

@@ -3,7 +3,8 @@
 \*------------------------------------*/
 
 button,
-.button {
+.button,
+input[type="button"] {
     display: inline-block;
     outline: none;
     background-color: $button-bg-color;
@@ -42,7 +43,7 @@ button,
         @include no-transition;
     }
 
-    &.disabled {
+    &.disabled, &[disabled] {
         background-color: $button-bg-disabled-color;
         cursor: default;
     }
@@ -113,7 +114,7 @@ button,
         border: $base-border-active;
     }
 
-    &.disabled {
+    &.disabled, [disabled] {
         background-color: $white;
         cursor: default;
         color: $dk-gray;
