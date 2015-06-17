@@ -5,9 +5,30 @@
     border-right: $base-border;
     border-left: $base-border;
 
+    .select {
+        float: left;
+        text-align: center;
+        width: 6%;
+        margin: ($sm-spacing+5px) 3%; 
+
+        @include media($mobile) {
+            width: 2%;
+            margin: ($sm-spacing+3px) 4% 0 2%;
+        }
+        
+        @include media($small) {
+            width: 3%;
+            margin: ($base-spacing+5px) 3%;
+        }
+
+        input {
+            margin: 0;
+        }
+
+    }
+
     h3 {
         padding-left: $sm-spacing;
-        padding-right: 120px;
         margin: $sm-spacing 0;
 
         @include media($small) {
@@ -105,87 +126,8 @@
 
     }
 
-
-
     .toggle-switch + button {
         float: left;
-    }
-
-    .select-listing {
-        float: left;
-
-        input {
-            margin: $base-spacing $sm-spacing 0 $sm-spacing;
-
-            @include media($mobile) {
-                margin: $base-spacing ($sm-spacing + 4px) 0 ($sm-spacing + 4px);
-            }
-
-            @include media($medium) {
-                margin: ($base-spacing + 14px) ($sm-spacing + 4px) 0 ($sm-spacing + 4px);
-            }
-
-        }
-
-    }
-
-    .user {
-        float: left;
-
-        @include media($medium) {
-            width: 80%;
-            margin: 0;
-        }
-
-        img {
-            display: block;
-            width: 30px;
-            float: left;
-            margin: 10px 0 5px;
-
-            @include media($mobile) {
-                width: 50px;
-                margin: 5px 0 -15px;
-            }
-
-            @include media($medium) {
-                width: 70px;
-                margin: 5px $tiny-spacing 5px $sm-spacing;
-            }
-
-        }
-
-        h3 {
-            margin-bottom: $sm-spacing;
-            float: left;
-
-            @include media($mobile) {
-                margin-top: $sm-spacing;
-            }
-
-            @include media($medium) {
-                margin-top: ($base-spacing + 7px);
-            }
-
-        }
-
-    }
-
-    .user-type {
-        clear: both;
-        color: $dk-gray;
-        margin-left: 74px;
-        margin-top: 0;
-
-        @include media($mobile) {
-            margin-left: 102px;
-        }
-
-        @include media($medium) {
-            float: right;
-            width: 20%;
-            margin-top: -65px;
-        }
     }
 
     form, .form {

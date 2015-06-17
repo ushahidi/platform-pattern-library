@@ -1872,6 +1872,18 @@ $LAYOUT
 .inline {
   display: inline; }
 
+.media .img {
+  float: left; }
+  .media .img img {
+    display: block; }
+.media .imgExt {
+  float: right; }
+
+.media, .bd {
+  overflow: hidden;
+  _overflow: visible;
+  zoom: 1; }
+
 /*------------------------------------*\
     $MIXINS
 \*------------------------------------*/
@@ -4751,9 +4763,23 @@ aside .filters-show-hide.half {
   position: relative;
   border-right: 1px solid #ebebeb;
   border-left: 1px solid #ebebeb; }
+  .settings-listing .select {
+    float: left;
+    text-align: center;
+    width: 6%;
+    margin: 15px 3%; }
+    @media screen and (min-width: 30em)  {
+      .settings-listing .select {
+        width: 2%;
+        margin: 13px 4% 0 2%; } }
+    @media screen and (min-width: 48em)  {
+      .settings-listing .select {
+        width: 3%;
+        margin: 25px 3%; } }
+    .settings-listing .select input {
+      margin: 0; }
   .settings-listing h3 {
     padding-left: 10px;
-    padding-right: 120px;
     margin: 10px 0; }
     @media screen and (min-width: 48em)  {
       .settings-listing h3 {
@@ -4825,57 +4851,6 @@ aside .filters-show-hide.half {
       margin-left: 10px; }
   .settings-listing .toggle-switch + button {
     float: left; }
-  .settings-listing .select-listing {
-    float: left; }
-    .settings-listing .select-listing input {
-      margin: 20px 10px 0 10px; }
-      @media screen and (min-width: 30em)  {
-        .settings-listing .select-listing input {
-          margin: 20px 14px 0 14px; } }
-      @media screen and (min-width: 64em)  {
-        .settings-listing .select-listing input {
-          margin: 34px 14px 0 14px; } }
-  .settings-listing .user {
-    float: left; }
-    @media screen and (min-width: 64em)  {
-      .settings-listing .user {
-        width: 80%;
-        margin: 0; } }
-    .settings-listing .user img {
-      display: block;
-      width: 30px;
-      float: left;
-      margin: 10px 0 5px; }
-      @media screen and (min-width: 30em)  {
-        .settings-listing .user img {
-          width: 50px;
-          margin: 5px 0 -15px; } }
-      @media screen and (min-width: 64em)  {
-        .settings-listing .user img {
-          width: 70px;
-          margin: 5px 5px 5px 10px; } }
-    .settings-listing .user h3 {
-      margin-bottom: 10px;
-      float: left; }
-      @media screen and (min-width: 30em)  {
-        .settings-listing .user h3 {
-          margin-top: 10px; } }
-      @media screen and (min-width: 64em)  {
-        .settings-listing .user h3 {
-          margin-top: 27px; } }
-  .settings-listing .user-type {
-    clear: both;
-    color: #737373;
-    margin-left: 74px;
-    margin-top: 0; }
-    @media screen and (min-width: 30em)  {
-      .settings-listing .user-type {
-        margin-left: 102px; } }
-    @media screen and (min-width: 64em)  {
-      .settings-listing .user-type {
-        float: right;
-        width: 20%;
-        margin-top: -65px; } }
   .settings-listing form, .settings-listing .form {
     clear: both;
     padding: 0 0 20px 10px;
@@ -4893,6 +4868,39 @@ aside .filters-show-hide.half {
       margin-top: 20px; }
   .settings-listing .edit {
     padding: 8px 12px; }
+
+.user-listing .img {
+  width: 26%;
+  padding: 0 4% 0 2%; }
+  @media screen and (min-width: 30em)  {
+    .user-listing .img {
+      width: 20%; } }
+  @media screen and (min-width: 64em)  {
+    .user-listing .img {
+      width: 15%;
+      padding: 0 2% 0 0; } }
+.user-listing .bd {
+  width: 50%; }
+  @media screen and (min-width: 64em)  {
+    .user-listing .bd {
+      width: 75%; } }
+  @media screen and (min-width: 80em)  {
+    .user-listing .bd {
+      padding-top: 10px; } }
+  .user-listing .bd h3 {
+    padding: 0; }
+    @media screen and (min-width: 64em)  {
+      .user-listing .bd h3 {
+        float: left;
+        width: 70%; } }
+  .user-listing .bd .user-type {
+    color: #737373;
+    margin-top: 10px; }
+    @media screen and (min-width: 64em)  {
+      .user-listing .bd .user-type {
+        float: right;
+        width: 30%;
+        margin-top: 30px; } }
 
 .applied-filters {
   max-width: 1580px;
