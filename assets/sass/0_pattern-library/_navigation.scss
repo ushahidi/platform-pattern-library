@@ -12,6 +12,7 @@ $NAVIGATION
     }
 
     ul {
+        @extend .list-unstyled;
 
         li {
             color: $white;
@@ -20,6 +21,7 @@ $NAVIGATION
             text-transform: uppercase;
             letter-spacing: .1em;
             border-left: 3px solid transparent;
+            margin: 0;
 
             @include media($small) {
                 border-left: 0;
@@ -89,6 +91,7 @@ $NAVIGATION
     }
 
     ul {
+        @extend .list-unstyled;
         @include span-columns(12);
         padding: $base-spacing ($base-spacing + 10px);
 
@@ -104,9 +107,9 @@ $NAVIGATION
     li {
         display: inline;
         padding-right: 8px;
-        margin-right: 5px;
+        margin-right: 5px !important;
         border-right: 3px solid $border-color;
-        line-height: 1.75em;
+        line-height: 1.75em !important;
 
         &:last-child {
             border-right: 0px;
@@ -115,6 +118,7 @@ $NAVIGATION
 }
 
 ul.pl-read-direction-nav {
+    @extend .list-unstyled;
     @include span-columns(12);
     padding: $base-spacing;
 

@@ -17,6 +17,7 @@ p {
     font-size: em(14);
 }
 
+// Headings
 h1, .alpha {
 	font-size: em(28);
 	font-weight: $body-font-weight;
@@ -93,45 +94,25 @@ h6, .zeta {
 
 }
 
+// Lists
+ol, ul {
+    font-size: em(16);
+    margin: $base-spacing 0 $base-spacing $base-spacing;
+
+    li {
+        color: $base-color;
+        line-height: 1.25;
+        margin-bottom: $sm-spacing;
+    }
+
+}
+
 ul {
 
     li {
-        list-style-type: none;
-    }
-}
-
-ol, ul.bullets {
-    font-size: em(16);
-    margin-left: $base-spacing;
-    color: $highlight;
-
-    @include media($small) {
-        font-size: em(18);
-        margin-left: 0;
-
-        &.no-offset {
-            margin-left: $base-spacing;
-
-            li {
-                margin-bottom: 0;
-            }
-
-        }
-
+        list-style: disc;
     }
 
-    li {
-    	color: $base-color;
-    	line-height: 1.25;
-    	margin-bottom: $sm-spacing;
-    }
-
-}
-
-ul.bullets {
-	li {
-		list-style: disc;
-	}
 }
 
 ul.bullets-open {
@@ -140,6 +121,18 @@ ul.bullets-open {
         list-style: circle;
         margin-left: 40px;
     }
+
+}
+
+.list-unstyled {
+    margin: 0;
+
+	li {
+		list-style-type: none;
+        line-height: 1;
+        margin: 0;
+	}
+
 }
 
 blockquote {
@@ -147,8 +140,11 @@ blockquote {
 	border-left: 4px solid $border-color;
 	padding-left: $sm-spacing;
 	font-style: italic;
+    margin: $base-spacing 0;
 }
 
+
+// CTA
 h1.inline + .cta {
     @include media($small) {
         padding: 0 $tiny-spacing;

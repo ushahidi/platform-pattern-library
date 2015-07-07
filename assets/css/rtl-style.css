@@ -1821,9 +1821,6 @@ p, blockquote, .button-link {
     p, blockquote, .button-link {
       font-size: 1.125em; } }
 
-ul li {
-  list-style-type: none; }
-
 table {
   border-collapse: collapse; }
 
@@ -2292,7 +2289,8 @@ $NAVIGATION
     line-height: 2;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    border-left: 3px solid transparent; }
+    border-left: 3px solid transparent;
+    margin: 0; }
     @media screen and (min-width: 48em)  {
       .pl-nav ul li {
         border-left: 0; } }
@@ -2377,9 +2375,9 @@ $NAVIGATION
   .pl-jump-nav li {
     display: inline;
     padding-right: 8px;
-    margin-right: 5px;
+    margin-right: 5px !important;
     border-right: 3px solid #ebebeb;
-    line-height: 1.75em; }
+    line-height: 1.75em !important; }
     .pl-jump-nav li:last-child {
       border-right: 0px; }
 
@@ -3155,37 +3153,33 @@ h6, .zeta {
     h6, .zeta {
       font-size: 1em; } }
 
-ul li {
-  list-style-type: none; }
-
-ol, ul.bullets {
+ol, ul {
   font-size: 1em;
-  margin-left: 20px;
-  color: #ffc334; }
-  @media screen and (min-width: 48em)  {
-    ol, ul.bullets {
-      font-size: 1.125em;
-      margin-left: 0; }
-      ol.no-offset, ul.bullets.no-offset {
-        margin-left: 20px; }
-        ol.no-offset li, ul.bullets.no-offset li {
-          margin-bottom: 0; } }
-  ol li, ul.bullets li {
+  margin: 20px 0 20px 20px; }
+  ol li, ul li {
     color: #181c21;
     line-height: 1.25;
     margin-bottom: 10px; }
 
-ul.bullets li {
+ul li {
   list-style: disc; }
 
 ul.bullets-open li {
   list-style: circle;
   margin-left: 40px; }
 
+.list-unstyled, .pl-nav ul, .pl-jump-nav ul, ul.pl-read-direction-nav, .actions-content .dropdown-menu, .pagination ul, .stepper ul, ul.breadcrumb, .accordion-menu .accordion-menu-list, .accordion-menu .accordion-menu-content, .categories-list, .categories-list-inline, .tabs-menu .tabs-menu-list, .tabs-secondary ul, .stage-list .stage-list-content ul, .navigation .main-nav, .navigation .sub-nav, .footer-nav {
+  margin: 0; }
+  .list-unstyled li, .pl-nav ul li, .pl-jump-nav ul li, ul.pl-read-direction-nav li, .actions-content .dropdown-menu li, .pagination ul li, .stepper ul li, ul.breadcrumb li, .accordion-menu .accordion-menu-list li, .accordion-menu .accordion-menu-content li, .categories-list li, .categories-list-inline li, .tabs-menu .tabs-menu-list li, .tabs-secondary ul li, .stage-list .stage-list-content ul li, .navigation .main-nav li, .navigation .sub-nav li, .footer-nav li {
+    list-style-type: none;
+    line-height: 1;
+    margin: 0; }
+
 blockquote {
   border-left: 4px solid #ebebeb;
   padding-left: 10px;
-  font-style: italic; }
+  font-style: italic;
+  margin: 20px 0; }
 
 @media screen and (min-width: 48em)  {
   h1.inline + .cta {
@@ -3975,7 +3969,8 @@ ul.breadcrumb + h1 {
     display: block;
     margin-right: 2.35765%;
     width: 100%;
-    border-top: 1px solid #ebebeb; }
+    border-top: 1px solid #ebebeb;
+    margin-bottom: 0; }
     .accordion-menu .accordion-menu-list__item:last-child {
       margin-right: 0; }
     .accordion-menu .accordion-menu-list__item:last-child .accordion-menu-content {
@@ -4010,7 +4005,9 @@ ul.breadcrumb + h1 {
     .accordion-menu .accordion-menu-content:last-child {
       margin-right: 0; }
     .accordion-menu .accordion-menu-content li {
-      padding: 10px 0 0 18px; }
+      padding: 10px 0 0 18px;
+      margin-bottom: 0;
+      line-height: 1; }
       .accordion-menu .accordion-menu-content li a, .accordion-menu .accordion-menu-content li .button-link {
         font-weight: normal;
         text-transform: none;
@@ -4037,7 +4034,7 @@ ul.breadcrumb + h1 {
     transition: content, 0.25s; }
 
 .category {
-  margin: 10px 20px 5px 0;
+  margin: 10px 20px 10px 0;
   font-size: 0.875em; }
   @media screen and (min-width: 48em)  {
     .category {
@@ -4045,10 +4042,14 @@ ul.breadcrumb + h1 {
   .category i {
     padding-right: 5px; }
 
+.categories-list .category {
+  margin-bottom: 10px; }
+
 .categories-list-inline {
   overflow: auto; }
   .categories-list-inline .category {
-    display: inline; }
+    display: inline;
+    padding-right: 10px; }
 
 .user-credit {
   overflow: auto; }
@@ -4504,7 +4505,8 @@ ul.breadcrumb + h1 {
         -ms-transform: rotate(90deg);
         transform: rotate(90deg); }
     .filters .filters-container .accordion-menu .accordion-menu-content {
-      margin-top: 0; }
+      margin-top: 0;
+      font-size: 0.875em; }
     .filters .filters-container .filter-start-date, .filters .filters-container .filter-end-date {
       float: left;
       display: block;
@@ -5388,56 +5390,61 @@ aside .filters-show-hide.half {
       padding: 10px 0; }
       .navigation li a.active, .navigation li .active.button-link {
         color: #181c21; }
-  @media screen and (min-width: 64em)  {
-    .navigation .main-nav {
-      padding-top: 10px;
-      margin-top: 0; } }
-  .navigation .main-nav li {
-    padding: 10px 0; }
-    .navigation .main-nav li a, .navigation .main-nav li .button-link {
-      display: inline;
-      padding: 0;
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 1.5px; }
-  .navigation .main-nav .settings-nav .settings-nav-header a, .navigation .main-nav .settings-nav .settings-nav-header .button-link {
-    display: block;
-    margin: 0; }
-    .navigation .main-nav .settings-nav .settings-nav-header a:before, .navigation .main-nav .settings-nav .settings-nav-header .button-link:before {
-      content: "\f067";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding: 0 5px 0 1px;
-      speak: none;
-      transition: content, 0.25s; }
-    .navigation .main-nav .settings-nav .settings-nav-header a.open:before, .navigation .main-nav .settings-nav .settings-nav-header .open.button-link:before {
-      content: "\f068";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      display: inline-block;
-      text-decoration: inherit;
-      line-height: 1;
-      padding: 0 5px 0 1px;
-      speak: none;
-      transition: content, 0.25s; }
-  .navigation .main-nav .settings-nav ul {
-    margin: 10px 0 0px 0;
-    display: none; }
-    .navigation .main-nav .settings-nav ul li {
-      padding: 5px 5px 5px 17px; }
-    .navigation .main-nav .settings-nav ul a, .navigation .main-nav .settings-nav ul .button-link {
-      text-transform: none;
-      font-weight: normal;
-      letter-spacing: inherit; }
+  .navigation .main-nav {
+    margin: 0 0 40px 0; }
+    @media screen and (min-width: 64em)  {
+      .navigation .main-nav {
+        padding-top: 10px; } }
+    .navigation .main-nav li {
+      margin-bottom: 0;
+      padding: 10px 0;
+      line-height: 1; }
+      .navigation .main-nav li a, .navigation .main-nav li .button-link {
+        display: inline;
+        padding: 0;
+        text-transform: uppercase;
+        font-weight: 900;
+        letter-spacing: 1.5px; }
+    .navigation .main-nav .settings-nav .settings-nav-header a, .navigation .main-nav .settings-nav .settings-nav-header .button-link {
+      display: block;
+      margin: 0; }
+      .navigation .main-nav .settings-nav .settings-nav-header a:before, .navigation .main-nav .settings-nav .settings-nav-header .button-link:before {
+        content: "\f067";
+        font-family: FontAwesome;
+        font-size: 0.875em;
+        font-style: normal;
+        font-weight: normal;
+        display: inline-block;
+        text-decoration: inherit;
+        line-height: 1;
+        padding: 0 5px 0 1px;
+        speak: none;
+        transition: content, 0.25s; }
+      .navigation .main-nav .settings-nav .settings-nav-header a.open:before, .navigation .main-nav .settings-nav .settings-nav-header .open.button-link:before {
+        content: "\f068";
+        font-family: FontAwesome;
+        font-size: 0.875em;
+        font-style: normal;
+        font-weight: normal;
+        display: inline-block;
+        text-decoration: inherit;
+        line-height: 1;
+        padding: 0 5px 0 1px;
+        speak: none;
+        transition: content, 0.25s; }
+    .navigation .main-nav .settings-nav ul {
+      margin: 10px 0 0px 0;
+      display: none; }
+      .navigation .main-nav .settings-nav ul li {
+        padding: 5px 5px 5px 17px; }
+      .navigation .main-nav .settings-nav ul a, .navigation .main-nav .settings-nav ul .button-link {
+        text-transform: none;
+        font-weight: normal;
+        letter-spacing: inherit; }
   .navigation .sub-nav {
     margin: 0 0 40px 0; }
+    .navigation .sub-nav li {
+      line-height: 1; }
     .navigation .sub-nav .saved-searches:before {
       content: "\f0b0";
       font-family: FontAwesome;
@@ -5486,6 +5493,7 @@ aside .filters-show-hide.half {
     .navigation .sub-nav ul {
       margin: 0; }
     .navigation .sub-nav li {
+      margin: 0;
       padding: 10px 0;
       border-width: 3px; }
     .navigation .sub-nav a, .navigation .sub-nav .button-link {

@@ -1,9 +1,14 @@
 .accordion-menu {
     @include span-columns(12);
 
+    .accordion-menu-list {
+        @extend .list-unstyled;
+    }
+
     .accordion-menu-list__item {
         @include span-columns(12);
         border-top: $base-border;
+        margin-bottom: 0;
 
         &:last-child .accordion-menu-content {
             padding-bottom: $base-spacing;
@@ -25,13 +30,16 @@
     }
 
     .accordion-menu-content {
+        @extend .list-unstyled;
         @include span-columns(12, no-display);
         display: none;
         margin: $sm-spacing 0 0 0;
         padding-bottom: $sm-spacing;
 
         li {
-            padding: $sm-spacing 0 0 $sm-spacing + 8;
+            padding: 10px 0 0 18px;
+            margin-bottom: 0;
+            line-height: 1;
 
             a {
                 font-weight: normal;
@@ -69,5 +77,3 @@
     }
 
 }
-
-

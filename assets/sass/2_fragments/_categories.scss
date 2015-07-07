@@ -1,5 +1,5 @@
 .category {
-	margin: $sm-spacing $base-spacing $tiny-spacing 0;
+	margin: $sm-spacing $base-spacing $sm-spacing 0;
 	font-size: em(14);
 
     @include media($small) {
@@ -8,17 +8,28 @@
 
 	i {
 		padding-right: 5px;
-		//color of circle is set as an inline style since it will be 
+		//color of circle is set as an inline style since it will be
 		//updated by the user
 	}
-	
+
+}
+
+.categories-list {
+	@extend .list-unstyled;
+
+	.category {
+		margin-bottom: $sm-spacing;
+	}
+
 }
 
 .categories-list-inline {
+	@extend .list-unstyled;
 	overflow: auto;
-	
+
 	.category {
 		display: inline;
+		padding-right: $sm-spacing;
 	}
 
 }

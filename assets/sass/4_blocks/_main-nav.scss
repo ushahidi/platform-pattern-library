@@ -20,6 +20,7 @@
         &:after {
             content: none;
         }
+
     }
 
 }
@@ -72,13 +73,16 @@
     }
 
     .nav-icon {
+
         @include media($medium) {
             display: none;
         }
+
     }
 
     .button-create {
         margin-top: $base-spacing;
+
         @include media($medium) {
             display: none;
         }
@@ -128,14 +132,17 @@
     }
 
     .main-nav {
+        @extend .list-unstyled;
+        margin: 0 0 $base-spacing*2 0;
 
         @include media($medium) {
             padding-top: $sm-spacing;
-            margin-top: 0;
         }
 
         li {
+            margin-bottom: 0;
             padding: $sm-spacing 0;
+            line-height: 1;
 
             a {
                 display: inline;
@@ -148,6 +155,7 @@
         }
 
         .settings-nav {
+
             .settings-nav-header a {
                 @include icon(before, plus);
                 display: block;
@@ -180,7 +188,12 @@
     }
 
     .sub-nav {
+        @extend .list-unstyled;
         margin: 0 0 $base-spacing*2 0;
+
+        li {
+            line-height: 1;
+        }
 
         .saved-searches {
             @include icon(before, filter) {
@@ -188,6 +201,7 @@
                 font-size: em(18);
                 padding-right: 8px;
             }
+
         }
 
         .collections {
@@ -196,6 +210,7 @@
                 font-size: em(18);
                 padding-right: 8px;
             }
+
         }
 
         button {
@@ -215,6 +230,7 @@
         }
 
         li {
+            margin: 0;
             padding: $sm-spacing 0;
             border-width: 3px;
         }
@@ -235,10 +251,12 @@
             &.yellow {
                 opacity: 1;
                 color: $yellow;
+
                 &:after {
                     transform: rotate(360deg);
                     transform-origin: 40%;
                 }
+
             }
 
         }
@@ -259,6 +277,7 @@
                 padding: 0;
                 border-bottom: $base-border;
             }
+
         }
 
     }
