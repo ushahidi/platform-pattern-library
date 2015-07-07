@@ -20,14 +20,15 @@
         }
     }
 
-    &.required:after {
-        content:"*";
-    }
-
     + .small {
         font-style: italic;
     }
 
+}
+
+label[required]:after, label.required:after {
+    content:"*";
+    padding-left: 2px; 
 }
 
 input,
@@ -51,10 +52,23 @@ textarea {
     
     &.error {
         border-color: $error-color;
+        &:focus {
+            border-color: $error-color;
+        }
     }
 
     + p.alert {
         margin-top: -$tiny-spacing;
+    }
+
+    &:focus {
+        @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.3), $inset: true);
+        border-color: $black;
+    }
+
+    &[disabled] {
+        @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,0), $inset: true);
+        border-color: $lt-gray; 
     }
 
 }
