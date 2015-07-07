@@ -37,6 +37,7 @@ gulp.task('webserver', function() {
 */
 gulp.task('html', function() {
     return gulp.src([
+        './*.html',
         './pattern-library/**/*.html',
         '!./pattern-library/partials/*.html'
         ])
@@ -51,7 +52,7 @@ gulp.task('html', function() {
  */
 gulp.task('html5-lint', function() {
     return gulp.src([
-            './index.html',
+            './*.html',
             './assets/html/**/*.html',
             '!./assets/html/partials/**/*.html'
         ])
@@ -64,7 +65,7 @@ gulp.task('html5-lint', function() {
 */
 
 gulp.task('sass', ['rtl'], function() {
-    return gulp.src(['./assets/sass/style.scss'])
+    return gulp.src(['./assets/sass/utils/rtl/ltr.scss'])
         .pipe(plumber({
             errorHandler: errorHandler
         }))
@@ -85,6 +86,7 @@ gulp.task('sass', ['rtl'], function() {
         // which automatically folds file in Phabricator
         .pipe(insert.append('/* @generated */'))
         .pipe(sourcemaps.write())
+        .pipe(rename('style.css'))
         .pipe(gulp.dest('./assets/css'))
         .pipe(notify('CSS compiled'))
         .pipe(livereload());
@@ -96,7 +98,7 @@ gulp.task('sass', ['rtl'], function() {
 */
 
 gulp.task('rtl', ['fontawesome-sass'], function() {
-    return gulp.src(['./assets/sass/style.scss'])
+    return gulp.src(['./assets/sass/utils/rtl/rtl.scss'])
         .pipe(plumber({
             errorHandler: errorHandler
         }))
@@ -166,7 +168,7 @@ gulp.task('default', ['webserver'], function() {
     gulp.watch(['./assets/sass/**/*.scss'], ['sass']);
 
     // Watch HTML and livereload
-    gulp.watch(['./index.html', './pattern-library/**/*.html'], ['html']);
+    gulp.watch(['./*.html', './pattern-library/**/*.html'], ['html']);
 
 });
 
