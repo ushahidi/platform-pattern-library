@@ -1,11 +1,10 @@
 .tabs-menu {
     background: $white;
-    width: 45%;
+    width: 100%;
     float: left;
 
     @include media($small) {
-        width: 100%;
-        padding: 0;
+        padding: $sm-spacing 0;
     }
 
     label {
@@ -25,13 +24,14 @@
         padding: $sm-spacing $base-spacing ($sm-spacing + 1);
         background: $white;
         position: absolute;
-        width: 45%;
+        width: 100%;
 
         @include media($small) {
             display: inline;
             border: 0;
             padding: 0;
-            width: 100%;
+            background: none;
+            position: relative;
         }
 
         &.open {
@@ -158,6 +158,7 @@
     @include media($mobile) {
         border: 0;
         border-top: $base-border;
+        margin: 10px 0 0;
     }
 
     &.toggle-content {
@@ -172,6 +173,11 @@
 
     ul {
         @extend .list-unstyled;
+
+        @include media($mobile) {
+            padding-bottom: $lg-spacing;
+        }
+
     }
 
     li {

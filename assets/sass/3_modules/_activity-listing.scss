@@ -1,13 +1,9 @@
 .activity-listing {
     border: $base-border;
     border-width: 2px;
-    padding: $base-spacing $sm-spacing;
+    padding: $sm-spacing;
     position: relative;
     margin: $sm-spacing 0;
-
-    @include media($small) {
-        padding: $base-spacing;
-    }
 
     &:after {
         content: ' ';
@@ -24,24 +20,16 @@
     h3 {
         margin: 0;
     }
-        
-    .listing-summary {
-        
+    
+    .listing-summary h3 {
         @include media($small) {
-             @include span-columns(8);
+            font-size: em(22);
         }
-
     }
-
 
     .activity-type {
         @extend .delta;
-        margin: $sm-spacing 0 0;
-
-        @include media($small) {
-             @include span-columns(3);
-             float: right
-        }
+        margin: $sm-spacing 0 ;
 
         %gray-icon {
             color: $mid-gray;
@@ -75,4 +63,31 @@
 
 }
 
+
+//This gives the timeline a layout when it's in a full width column
+
+.timeline-full-width .activity-listing {
+
+    @include media($small) {
+        padding: $base-spacing;
+    }
+
+    .listing-summary {
+        
+        @include media($small) {
+             @include span-columns(8);
+        }
+
+    }
+
+    .activity-type {
+
+        @include media($small) {
+             @include span-columns(3);
+             float: right
+        }
+
+    }
+
+}
 

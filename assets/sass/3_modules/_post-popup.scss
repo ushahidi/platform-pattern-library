@@ -1,13 +1,11 @@
+// These styles extend from the embedded post 
+
 .post-popup {
-    float: left;
-    padding: $base-spacing;
-    @include border-top-radius($global-radius);
-    @include border-bottom-radius($global-radius);
-    @include box-shadow($top: 0px, $left: 0, $blur: 7px, $spread: 2px, $color: rgba(0,0,0,.1), $inset: false);
+    @extend .embedded-post;
     max-width: 250px;
-    position: relative;
-    overflow: hidden;
-    background: $white;
+    float: left;
+    border: 0;
+    @include box-shadow($top: 0px, $left: 0, $blur: 7px, $spread: 2px, $color: rgba(0,0,0,.1), $inset: false);
 
     @include media($small) {
         max-width: 400px;
@@ -18,77 +16,6 @@
 
         @include media($small) {
             display: block;
-        }
-
-    }
-
-    .actions-inline {
-        padding: $sm-spacing 0 0;
-        display: block;
-
-        @include media($small) {
-            margin-top: $base-spacing;
-            border-top: $base-border;
-            padding: 0;
-        }
-
-        + .actions-content {
-            padding: $sm-spacing 0 0;
-
-            @include media($small) {
-                padding: $base-spacing 0 0;
-                border-top: $base-border;
-                display: block;
-                border: none;
-            }
-
-            li a {
-                    color: $black;
-            }
-
-        }
-
-    }
-
-    &.has-image {
-        position: relative;
-        background: rgba(0, 0, 0, 0.8);
-        z-index: $bottom;
-        @include box-shadow($top: 150px, $left: 0, $blur: 100px, $spread: 0px, $color: rgba(0,0,0,1), $inset: true);
-        text-shadow: 0px 1px 0px $black;
-
-        &:after {
-            border-color: transparent transparent $black $black;
-        }
-
-        a {
-            color: $link-color-lt;
-
-            &:hover{
-                color: $link-color-dark-bg-hover;
-            }
-
-        }
-
-        img {
-            position: absolute;
-            opacity: .3;
-            top: 0;
-            left: 0;
-            min-height: 100%;
-            min-width: 100%;
-            max-height: 100%;
-            z-index: $below;
-        }
-
-        .meta-data, p {
-            color: $white;
-        }
-
-        .actions-inline {
-            @include media($small) {
-                border-top: 1px solid $black;
-            }
         }
 
     }
