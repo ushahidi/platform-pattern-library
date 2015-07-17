@@ -9,13 +9,13 @@
         float: left;
         text-align: center;
         width: 6%;
-        margin: ($sm-spacing+5px) 3%; 
+        margin: ($sm-spacing+5px) 3%;
 
         @include media($mobile) {
             width: 2%;
             margin: ($sm-spacing+3px) 4% 0 2%;
         }
-        
+
         @include media($small) {
             width: 3%;
             margin: ($base-spacing+5px) 3%;
@@ -76,27 +76,27 @@
     }
 
     .upvote-downvote + h3, .plus + h3 {
-        padding-left: 45px; //this last value offsets the title from the upvotes or plus button
+        @include padding-left(45px); //this last value offsets the title from the upvotes or plus button
 
         @include media($small) {
-            padding-left: ($sm-spacing+45px);
+            @include padding-left($sm-spacing + 45px);
         }
 
     }
 
     .toggle-switch + h3 {
-        padding-left: 70px; //this last value offsets the title from the upvotes or plus button
+        @include padding-left(70px); //this last value offsets the title from the upvotes or plus button
 
         @include media($small) {
-            padding-left: ($sm-spacing + 70px);
+            @include padding-left($sm-spacing + 70px);
         }
     }
 
     .upvote-downvote + .toggle-switch + h3 {
-        padding-left: 100px; //this last value offsets the title from the upvotes or plus button
+        @include padding-left(100px); //this last value offsets the title from the upvotes or plus button
 
         @include media($small) {
-            padding-left: ($sm-spacing + 110px);
+            @include padding-left($sm-spacing + 110px);
         }
     }
 
@@ -111,10 +111,10 @@
 
         button {
             margin-bottom: $sm-spacing;
-            margin-left: $tiny-spacing;
+            @include margin-left($tiny-spacing);
 
             &.open {
-                @include icon(before, close);
+                @include icon($before, close);
             }
 
         }
@@ -127,7 +127,7 @@
     }
 
     .toggle-switch + button {
-        float: left;
+        @include float(left);
     }
 
     form, .form {

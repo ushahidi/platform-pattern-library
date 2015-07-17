@@ -11,7 +11,7 @@ input[type="button"] {
     color: $button-text-color;
     text-align: center;
     text-decoration: none;
-    padding: 10px 15px 12px;
+    @include lrswap(padding, 10px 15px 12px);
     border: 0px;
     font-family: $base-font-family;
     font-weight: $bold;
@@ -29,7 +29,7 @@ input[type="button"] {
     }
 
     i:not(.fa-spin) {
-        padding-right: 10px;
+        @include padding-right(10px);
     }
 
     &:hover {
@@ -54,7 +54,7 @@ input[type="button"] {
             padding: 0;
 
             @include media($small) {
-                padding: 0 $tiny-spacing 0 0;
+                @include lrswap(padding, 0 $tiny-spacing 0 0)
             }
 
         }
@@ -67,18 +67,19 @@ input[type="button"] {
     background-color: $button-bg-create-post;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 12px 22px 15px 20px;
+    @include lrswap(padding, 12px 22px 15px 20px);
     font-size: em(14);
     @include icon($before, plus) {
         position: relative;
         bottom: -2px;
         font-size: em(22);
         color: $highlight;
+        @include lrswap(padding, 0 5px 0 1px);
     }
 
     @include media($small) {
         font-size: em(14);
-        padding: 14px 25px 18px 20px;
+        @include lrswap(padding, 14px 25px 18px 20px);
     }
 
     &:hover {
@@ -195,7 +196,9 @@ input[type="button"] {
 .upvote-downvote {
 
     button.icon-only {
-        display: block;
+        @include direction;
+        @include float(left);
+        clear: both;
         padding: 5px 6px 7px 6px;
 
         &.downvote {
@@ -206,7 +209,8 @@ input[type="button"] {
         &.upvote {
             @include border-bottom-radius(0);
 
-            &:before {
+            &:before,
+            &:after {
                 padding: 0 3px;
             }
 
@@ -263,7 +267,7 @@ button,
 
     &.dropdown, &.add-to-collection, &.down, &.downvote {
         padding: 8px;
-        @include icon (before, chevron-down) {
+        @include icon ($before, chevron-down) {
             padding: 0 3px;
         }
 
@@ -284,15 +288,18 @@ button,
     }
 
     &.edit {
-        @include icon($before, pencil);
+        @include icon($before, pencil) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.close {
+        @include lrswap(margin, $tiny-spacing $tiny-spacing 0 0);
         @include icon($before, circle-close) {
             font-size: em(18);
+            @include lrswap(padding, 0 5px 0 1px);
         }
-
-        margin: $tiny-spacing $tiny-spacing 0 0;
 
         em {
             color: $dk-gray;
@@ -301,7 +308,10 @@ button,
     }
 
     &.share {
-        @include icon($before, share);
+        @include icon($before, share) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.trash {
@@ -313,11 +323,16 @@ button,
     }
 
     &.check {
-        @include icon($before, check);
+        @include icon($before, check) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.plus {
-        @include icon($before, plus);
+        @include icon($before, plus) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
 
         &.open:before {
             @include transform(rotate(45deg));
@@ -327,23 +342,38 @@ button,
     }
 
     &.check {
-        @include icon($before, check);
+        @include icon($before, check) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.export {
-        @include icon($before, external-link);
+        @include icon($before, external-link) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.up, &.upvote {
-        @include icon($before, chevron-up);
+        @include icon($before, chevron-up) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.search {
-        @include icon($before, search);
+        @include icon($before, search) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.photo {
-        @include icon($before, photo);
+        @include icon($before, photo) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
 }

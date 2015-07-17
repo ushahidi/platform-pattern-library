@@ -1937,14 +1937,12 @@ $LAYOUT
       display: none; } }
 
 .hide-when-small, .button.hide-when-small, .hide-when-small.button-secondary, .hide-when-small.button-toggle {
-  display: block;
   position: relative; }
   @media screen and (min-width: 48em)  {
     .hide-when-small, .button.hide-when-small, .hide-when-small.button-secondary, .hide-when-small.button-toggle {
       display: none; } }
 
 .hide-when-large, .button.hide-when-large, .hide-when-large.button-secondary, .hide-when-large.button-toggle {
-  display: block;
   position: relative; }
   @media screen and (min-width: 80em)  {
     .hide-when-large, .button.hide-when-large, .hide-when-large.button-secondary, .hide-when-large.button-toggle {
@@ -3413,7 +3411,7 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
   button a, button .button-link, .button a, .button-secondary a, .button-toggle a, .button .button-link, .button-secondary .button-link, .button-toggle .button-link, input[type="button"] a, input[type="button"] .button-link {
     color: #181c21; }
   button i:not(.fa-spin), .button i:not(.fa-spin), .button-secondary i:not(.fa-spin), .button-toggle i:not(.fa-spin), input[type="button"] i:not(.fa-spin) {
-    padding-right: 10px; }
+    padding-left: 10px; }
   button:hover, .button:hover, .button-secondary:hover, .button-toggle:hover, input[type="button"]:hover {
     cursor: pointer;
     background-color: #1a5889;
@@ -3428,13 +3426,13 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
     padding: 0; }
     @media screen and (min-width: 48em)  {
       button.icon-only:before, .button.icon-only:before, .icon-only.button-secondary:before, .icon-only.button-toggle:before, input[type="button"].icon-only:before {
-        padding: 0 5px 0 0; } }
+        padding: 0 0 0 5px; } }
 
 .button-create {
   background-color: #181c21;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 12px 22px 15px 20px;
+  padding: 12px 20px 15px 22px;
   font-size: 0.875em; }
   .button-create:after {
     content: "\f067";
@@ -3451,11 +3449,12 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
     position: relative;
     bottom: -2px;
     font-size: 1.375em;
-    color: #ffc334; }
+    color: #ffc334;
+    padding: 0 1px 0 5px; }
   @media screen and (min-width: 48em)  {
     .button-create {
       font-size: 0.875em;
-      padding: 14px 25px 18px 20px; } }
+      padding: 14px 20px 18px 25px; } }
   .button-create:hover {
     background-color: #2d353f; }
   .button-create:active {
@@ -3531,7 +3530,9 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
     transform: rotate(180deg); }
 
 .upvote-downvote button.icon-only {
-  display: block;
+  direction: rtl;
+  float: right;
+  clear: both;
   padding: 5px 6px 7px 6px; }
   .upvote-downvote button.icon-only.downvote {
     border-top-left-radius: 0;
@@ -3540,7 +3541,7 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
   .upvote-downvote button.icon-only.upvote {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
-    .upvote-downvote button.icon-only.upvote:before {
+    .upvote-downvote button.icon-only.upvote:before, .upvote-downvote button.icon-only.upvote:after {
       padding: 0 3px; }
     @media screen and (min-width: 48em)  {
       .upvote-downvote button.icon-only.upvote {
@@ -3570,7 +3571,7 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
 \*------------------------------------*/
 button.dropdown, button.add-to-collection, button.down, button.downvote, .button.dropdown, .dropdown.button-secondary, .dropdown.button-toggle, .button.add-to-collection, .add-to-collection.button-secondary, .add-to-collection.button-toggle, .button.down, .down.button-secondary, .down.button-toggle, .button.downvote, .downvote.button-secondary, .downvote.button-toggle {
   padding: 8px; }
-  button.dropdown:before, button.add-to-collection:before, button.down:before, button.downvote:before, .button.dropdown:before, .dropdown.button-secondary:before, .dropdown.button-toggle:before, .button.add-to-collection:before, .add-to-collection.button-secondary:before, .add-to-collection.button-toggle:before, .button.down:before, .down.button-secondary:before, .down.button-toggle:before, .button.downvote:before, .downvote.button-secondary:before, .downvote.button-toggle:before {
+  button.dropdown:after, button.add-to-collection:after, button.down:after, button.downvote:after, .button.dropdown:after, .dropdown.button-secondary:after, .dropdown.button-toggle:after, .button.add-to-collection:after, .add-to-collection.button-secondary:after, .add-to-collection.button-toggle:after, .button.down:after, .down.button-secondary:after, .down.button-toggle:after, .button.downvote:after, .downvote.button-secondary:after, .downvote.button-toggle:after {
     content: "\f078";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -3602,9 +3603,10 @@ button.edit:after, .button.edit:after, .edit.button-secondary:after, .edit.butto
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.close, .button.close, .close.button-secondary, .close.button-toggle {
-  margin: 5px 5px 0 0; }
+  margin: 5px 0 0 5px; }
   button.close:after, .button.close:after, .close.button-secondary:after, .close.button-toggle:after {
     content: "\f057";
     font-family: FontAwesome;
@@ -3617,7 +3619,8 @@ button.close, .button.close, .close.button-secondary, .close.button-toggle {
     padding: 0 5px 0 1px;
     speak: none;
     transition: content, .25s;
-    font-size: 1.125em; }
+    font-size: 1.125em;
+    padding: 0 1px 0 5px; }
   button.close em, .button.close em, .close.button-secondary em, .close.button-toggle em {
     color: #737373; }
 button.share:after, .button.share:after, .share.button-secondary:after, .share.button-toggle:after {
@@ -3631,7 +3634,8 @@ button.share:after, .button.share:after, .share.button-secondary:after, .share.b
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.trash:after, .button.trash:after, .trash.button-secondary:after, .trash.button-toggle:after {
   content: "\f1f8";
   font-family: FontAwesome;
@@ -3657,7 +3661,8 @@ button.check:after, .button.check:after, .check.button-secondary:after, .check.b
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.plus:after, .button.plus:after, .plus.button-secondary:after, .plus.button-toggle:after {
   content: "\f067";
   font-family: FontAwesome;
@@ -3669,7 +3674,8 @@ button.plus:after, .button.plus:after, .plus.button-secondary:after, .plus.butto
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.plus.open:before, .button.plus.open:before, .plus.open.button-secondary:before, .plus.open.button-toggle:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -3688,7 +3694,8 @@ button.check:after, .button.check:after, .check.button-secondary:after, .check.b
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.export:after, .button.export:after, .export.button-secondary:after, .export.button-toggle:after {
   content: "\f08e";
   font-family: FontAwesome;
@@ -3700,7 +3707,8 @@ button.export:after, .button.export:after, .export.button-secondary:after, .expo
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.up:after, button.upvote:after, .button.up:after, .up.button-secondary:after, .up.button-toggle:after, .button.upvote:after, .upvote.button-secondary:after, .upvote.button-toggle:after {
   content: "\f077";
   font-family: FontAwesome;
@@ -3712,7 +3720,8 @@ button.up:after, button.upvote:after, .button.up:after, .up.button-secondary:aft
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.search:after, .button.search:after, .search.button-secondary:after, .search.button-toggle:after {
   content: "\f002";
   font-family: FontAwesome;
@@ -3724,7 +3733,8 @@ button.search:after, .button.search:after, .search.button-secondary:after, .sear
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 button.photo:after, .button.photo:after, .photo.button-secondary:after, .photo.button-toggle:after {
   content: "\f03e";
   font-family: FontAwesome;
@@ -3736,7 +3746,8 @@ button.photo:after, .button.photo:after, .photo.button-secondary:after, .photo.b
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
+  transition: content, .25s;
+  padding: 0 1px 0 5px; }
 
 .user-admin {
   position: relative;
@@ -3994,7 +4005,7 @@ ul.breadcrumb + h1 {
 
 @media screen and (min-width: 48em)  {
   .progress + .button-save {
-    float: right;
+    float: left;
     margin: 5px 0 0; } }
 
 .accordion-menu {
@@ -4057,7 +4068,7 @@ ul.breadcrumb + h1 {
     .accordion-menu .accordion-menu-content.location input[type="text"] {
       margin-top: 0; }
     .accordion-menu .accordion-menu-content.location button {
-      float: right; }
+      float: left; }
   .accordion-menu .open .accordion-menu-content {
     display: block; }
   .accordion-menu .open .accordion-menu-trigger:before {
@@ -4428,7 +4439,7 @@ ul.breadcrumb + h1 {
       speak: none;
       transition: content, .25s; }
   .tabs-menu .button-toggle {
-    float: right;
+    float: left;
     margin: 10px; }
     @media screen and (min-width: 48em)  {
       .tabs-menu .button-toggle {
@@ -4493,7 +4504,7 @@ ul.breadcrumb + h1 {
       display: inline-block;
       margin: 10px 10px 0 0; }
     .filters .filters-show-hide .button-toggle {
-      float: right; }
+      float: left; }
       @media screen and (min-width: 48em)  {
         .filters .filters-show-hide .button-toggle {
           float: none; } }
@@ -4592,7 +4603,7 @@ ul.breadcrumb + h1 {
     .filters .filters-container .apply-filter-button {
       display: inline-block;
       float: none;
-      right: 0; }
+      left: 0; }
     .filters .filters-container .location .custom-select {
       margin: 0 10px 10px 0; }
 
@@ -4638,7 +4649,7 @@ aside .filters-show-hide.half {
     float: left;
     padding-top: 10px; }
   .list-actions button {
-    margin-left: 10px; }
+    margin-right: 10px; }
 
 .tabs-with-filter {
   background: #ffffff;
@@ -5032,20 +5043,20 @@ aside .filters-show-hide.half {
       .settings-listing .upvote-downvote + .toggle-switch {
         left: 50px; } }
   .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
-    padding-left: 45px; }
+    padding-right: 45px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
-        padding-left: 55px; } }
+        padding-right: 55px; } }
   .settings-listing .toggle-switch + h3 {
-    padding-left: 70px; }
+    padding-right: 70px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .toggle-switch + h3 {
-        padding-left: 80px; } }
+        padding-right: 80px; } }
   .settings-listing .upvote-downvote + .toggle-switch + h3 {
-    padding-left: 100px; }
+    padding-right: 100px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .upvote-downvote + .toggle-switch + h3 {
-        padding-left: 120px; } }
+        padding-right: 120px; } }
   .settings-listing .actions {
     position: absolute;
     right: 10px;
@@ -5055,8 +5066,8 @@ aside .filters-show-hide.half {
         top: 24px; } }
     .settings-listing .actions button {
       margin-bottom: 10px;
-      margin-left: 5px; }
-      .settings-listing .actions button.open:before {
+      margin-right: 5px; }
+      .settings-listing .actions button.open:after {
         content: "\f00d";
         font-family: FontAwesome;
         font-size: 0.875em;
@@ -5072,7 +5083,7 @@ aside .filters-show-hide.half {
       float: right;
       margin-left: 10px; }
   .settings-listing .toggle-switch + button {
-    float: left; }
+    float: right; }
   .settings-listing form, .settings-listing .form {
     clear: both;
     padding: 0 0 20px 10px;
@@ -5229,7 +5240,7 @@ aside .filters-show-hide.half {
     display: table;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     color: #ffffff;
     font-weight: 900;
     border: none;
@@ -5292,7 +5303,7 @@ aside .filters-show-hide.half {
       position: static;
       margin: auto;
       margin-bottom: 20px;
-      padding: 14px 25px 18px 20px; }
+      padding: 14px 20px 18px 25px; }
       .header.header-full .button-create span {
         display: inline; }
       @media screen and (min-width: 64em)  {
@@ -5539,7 +5550,7 @@ aside .filters-show-hide.half {
       padding-right: 8px; }
     .navigation .sub-nav button {
       margin: 10px 0 0 0; }
-      .navigation .sub-nav button.button-secondary.has-icon:before, .navigation .sub-nav button.has-icon.button-toggle:before {
+      .navigation .sub-nav button.button-secondary.has-icon:after, .navigation .sub-nav button.has-icon.button-toggle:after {
         content: "\f067";
         font-family: FontAwesome;
         font-size: 0.875em;
@@ -5551,7 +5562,7 @@ aside .filters-show-hide.half {
         padding: 0 5px 0 1px;
         speak: none;
         transition: content, .25s;
-        padding-right: 10px; }
+        padding-left: 10px; }
     .navigation .sub-nav ul {
       margin: 0; }
     .navigation .sub-nav li {
@@ -5700,7 +5711,7 @@ footer {
         padding-right: 20px; } }
   @media screen and (min-width: 48em)  {
     footer .button-create {
-      float: right; } }
+      float: left; } }
 
 .footer-nav li {
   float: left;
@@ -5753,7 +5764,7 @@ footer {
           clear: left; } }
 
 .fixed-bottom .button-primary {
-  float: right;
+  float: left;
   margin: 0 10px; }
   @media screen and (min-width: 48em)  {
     .fixed-bottom .button-primary {
@@ -6111,7 +6122,7 @@ aside.is-right .published-to {
   aside.is-right .save-buttons {
     border-top: 1px solid #ebebeb;
     padding-top: 20px;
-    margin-right: 10px;
+    margin-left: 10px;
     clear: both; } }
 
 .layout-c {
