@@ -5,19 +5,21 @@
 .input-label, .filter-label {
     @extend .delta-alt;
     display: block;
-    padding: 0 $sm-spacing 0 0;
+    @include lrswap(padding, 0 $sm-spacing 0 0);
 
     &.error {
         color: $error-color;
     }
 
     &.success {
-        @include icon(after, check-circle) {
+
+        @include icon($after, check-circle) {
             color: $confirmation-color;
             display: inline-block;
             font-size: em(18);
-            padding-left: $tiny-spacing;
+            @include padding-left($tiny-spacing);
         }
+
     }
 
     + .small {
@@ -26,9 +28,14 @@
 
 }
 
-label[required]:after, label.required:after {
-    content:"*";
-    padding-left: 2px; 
+label[required], label.required {
+    @include icon($after, asterisk) {
+        position: relative;
+        top: -6px;
+        font-size: 6px;
+        @include lrswap(padding, 0 1px 0 5px);
+    }
+    @include padding-left(2px);
 }
 
 input,
@@ -40,8 +47,9 @@ textarea {
     @include transition;
     @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.1), $inset: true);
     @include typeBase;
-    display: block;
+    @include direction;
     font-size: em(18);
+    @include text-align(left);
     outline-color: $white;
     border: $base-border-dark;
     color: $text-color;
@@ -49,12 +57,14 @@ textarea {
     margin: $sm-spacing 0 $base-spacing;
     width: 100%;
     max-width: 400px;
-    
+
     &.error {
         border-color: $error-color;
+
         &:focus {
             border-color: $error-color;
         }
+
     }
 
     + p.alert {
@@ -68,24 +78,34 @@ textarea {
 
     &[disabled] {
         @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,0), $inset: true);
-        border-color: $lt-gray; 
+        border-color: $lt-gray;
     }
 
 }
 
 .input-inline { //for when a button is next to the input
+    @include direction;
+
     input {
         display: inline;
-        margin-right: $sm-spacing;
-        width: 70%; 
+        @include margin-right($sm-spacing);
+        width: 70%;
     }
+
 }
 
 input[type="checkbox"],
 input[type="radio"] {
     display: inline-block;
-    margin: 0 $sm-spacing $sm-spacing 0;
+    @include float(left);
+    clear: both;
+    @include lrswap(margin, 0 $sm-spacing $sm-spacing 0);
     width: auto;
+}
+
+.checkbox-label,
+.radio-label {
+    @include float(left);
 }
 
 ::-webkit-input-placeholder,
@@ -129,8 +149,9 @@ form, .form {
     }
 
     + .tgl-btn {
+        @include direction;
         outline: 0;
-        display: block;
+        display: inline-block;
         width: 55px;
         height: 30px;
         position: relative;
@@ -150,7 +171,7 @@ form, .form {
         }
 
         &:after {
-            left: 0;
+            @include left(0);
             border-radius: 50%;
             background: $lt-bg;
             transition: all .2s ease;
@@ -168,7 +189,7 @@ form, .form {
             background: $confirmation-color;
 
             &:after {
-                left: 50%;
+                @include left(50%);
                 background: $white;
             }
 

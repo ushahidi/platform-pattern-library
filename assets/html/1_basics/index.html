@@ -16,8 +16,7 @@
 
     <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>-->
     <link href='../../fonts/Lato/css/fonts.css' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../../css/style.css">
-    <link rel="alternate stylesheet" type="text/css" title="rtl" href="../../css/rtl-style.css">
+<link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 
@@ -60,12 +59,12 @@
         <ul class="pl-read-direction-nav">
     <li class="delta-alt">Reading Direction </li>
     <li class="hidden">
-        <a class="remove-rtl" href="#" onclick="setActiveStyleSheet('default'); return false;">
+        <a id="button-ltr" href="#">
             <i class="fa fa-long-arrow-left"></i>
         </a>
     </li>
     <li>
-        <a class="add-rtl" href="#" onclick="setActiveStyleSheet('rtl'); return false;">
+        <a id="button-rtl" href="#">
             <i class="fa fa-long-arrow-right"></i>
         </a>
     </li>
@@ -342,14 +341,14 @@
                 <div class="pl-sub-pattern">
                     <h4 class="pl-h4">Input, disabled</h4>
                     <div class="pl-sub-pattern-markup">
-<input type="text" placeholder="Disabled" disabled/> 
+<input type="text" placeholder="Disabled" disabled/>
                     </div>
                 </div>
                 <div class="pl-sub-pattern">
                     <h4 class="pl-h4">Input, required</h4>
                     <div class="pl-sub-pattern-markup">
 <label class="input-label required">This Field is Mandatory</label>
-<input type="text" placeholder="Required" required/> 
+<input type="text" placeholder="Required" required/>
                     </div>
                 </div>
                 <div class="pl-sub-pattern">
@@ -357,7 +356,9 @@
                     <div class="pl-sub-pattern-markup">
     <label class="input-label error">Another Error</label>
     <input type="text" class="error" placeholder="Oops!" />
-    <p class="alert error">Invalid entry, please try again.</p>
+    <div class="alert error">
+        <p>Invalid entry, please try again.</p>
+    </div>
                     </div>
                 </div>
                 <div class="pl-sub-pattern">
@@ -378,24 +379,26 @@
                     <div class="pl-sub-pattern-markup">
 <label class="input-label error">A long text field</label>
 <textarea  class="error" placeholder="Write some words in here"></textarea>
-<p class="alert error">Invalid entry, please try again.</p>
+<div class="alert error">
+    <p>Invalid entry, please try again.</p>
+</div>
 
                     </div>
                 </div>
                 <div class="pl-sub-pattern">
                     <h4 class="pl-h4">Checkbox</h4>
                     <div class="pl-sub-pattern-markup">
-<input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+<input id="checkbox1" type="checkbox"><label class="checkbox-label" for="checkbox1">Checkbox 1</label>
 <br />
-<input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+<input id="checkbox2" type="checkbox"><label class="checkbox-label" for="checkbox2">Checkbox 2</label>
                     </div>
                 </div>
                 <div class="pl-sub-pattern">
                     <h4 class="pl-h4">Radio Buttons</h4>
                     <div class="pl-sub-pattern-markup">
-<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
+<input type="radio" name="pokemon" value="Red" id="pokemonRed"><label class="radio-label" for="pokemonRed">Red</label>
 <br />
-<input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+<input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label class="radio-label" for="pokemonBlue">Blue</label>
                     </div>
                 </div>
                 <div class="pl-sub-pattern">

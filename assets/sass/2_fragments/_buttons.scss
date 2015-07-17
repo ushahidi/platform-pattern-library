@@ -69,7 +69,7 @@ input[type="button"] {
     letter-spacing: 1px;
     padding: 12px 22px 15px 20px;
     font-size: em(14);
-    @include icon(before, plus) {
+    @include icon($before, plus) {
         position: relative;
         bottom: -2px;
         font-size: em(22);
@@ -142,14 +142,14 @@ input[type="button"] {
     }
 
     &.icon-only {
-        padding-left: 14px;
+        @include padding-left(14px);
     }
 
     &.icon-only-when-small {
-        padding-left: 14px;
+        @include padding-left(14px);
 
         @include media($small) {
-            padding-left: 10px;
+            @include padding-left(10px);
         }
 
         span {
@@ -284,11 +284,11 @@ button,
     }
 
     &.edit {
-        @include icon(before, pencil);
+        @include icon($before, pencil);
     }
 
     &.close {
-        @include icon(before, circle-close) {
+        @include icon($before, circle-close) {
             font-size: em(18);
         }
 
@@ -301,19 +301,23 @@ button,
     }
 
     &.share {
-        @include icon(before, share);
+        @include icon($before, share);
     }
 
     &.trash {
-        @include icon(before, trash);
+        @include icon($before, trash) {
+            display: initial;
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.check {
-        @include icon(before, check);
+        @include icon($before, check);
     }
 
     &.plus {
-        @include icon(before, plus);
+        @include icon($before, plus);
 
         &.open:before {
             @include transform(rotate(45deg));
@@ -323,23 +327,23 @@ button,
     }
 
     &.check {
-        @include icon(before, check);
+        @include icon($before, check);
     }
 
     &.export {
-        @include icon(before, external-link);
+        @include icon($before, external-link);
     }
 
     &.up, &.upvote {
-        @include icon(before, chevron-up);
+        @include icon($before, chevron-up);
     }
 
     &.search {
-        @include icon(before, search);
+        @include icon($before, search);
     }
 
     &.photo {
-        @include icon(before, photo);
+        @include icon($before, photo);
     }
 
 }

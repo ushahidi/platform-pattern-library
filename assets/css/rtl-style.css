@@ -2885,10 +2885,10 @@ a.button.front-end-guidelines-button, a.front-end-guidelines-button.button-secon
 \*------------------------------------*/
 .input-label, .filter-label {
   display: block;
-  padding: 0 10px 0 0; }
+  padding: 0 0 0 10px; }
   .input-label.error, .filter-label.error {
     color: #de0000; }
-  .input-label.success:after, .filter-label.success:after {
+  .input-label.success:before, .filter-label.success:before {
     content: "\f058";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -2903,20 +2903,36 @@ a.button.front-end-guidelines-button, a.front-end-guidelines-button.button-secon
     color: #4fab2f;
     display: inline-block;
     font-size: 1.125em;
-    padding-left: 5px; }
+    padding-right: 5px; }
   .input-label + .small, .filter-label + .small {
     font-style: italic; }
 
-label[required]:after, label.required:after {
-  content: "*";
-  padding-left: 2px; }
+label[required], label.required {
+  padding-right: 2px; }
+  label[required]:before, label.required:before {
+    content: "\f069";
+    font-family: FontAwesome;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    line-height: 1;
+    padding: 0 5px 0 1px;
+    speak: none;
+    transition: content, .25s;
+    position: relative;
+    top: -6px;
+    font-size: 6px;
+    padding: 0 5px 0 1px; }
 
 input, input[type="text"], input[type="email"], input[type="password"], input[type="search"], textarea {
   box-shadow: inset 0 1px 1px 0 rgba(0, 0, 0, 0.1);
   font-weight: 400;
   font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  display: block;
+  direction: rtl;
   font-size: 1.125em;
+  text-align: right;
   outline-color: #ffffff;
   border: 1px solid #d2d2d2;
   color: #181c21;
@@ -2937,15 +2953,22 @@ input, input[type="text"], input[type="email"], input[type="password"], input[ty
     box-shadow: inset 0 1px 1px 0 transparent;
     border-color: #ebebeb; }
 
-.input-inline input {
-  display: inline;
-  margin-right: 10px;
-  width: 70%; }
+.input-inline {
+  direction: rtl; }
+  .input-inline input {
+    display: inline;
+    margin-left: 10px;
+    width: 70%; }
 
 input[type="checkbox"], input[type="radio"] {
   display: inline-block;
-  margin: 0 10px 10px 0;
+  float: right;
+  clear: both;
+  margin: 0 0 10px 10px;
   width: auto; }
+
+.checkbox-label, .radio-label {
+  float: right; }
 
 ::-webkit-input-placeholder, :-moz-placeholder, ::-moz-placeholder, :-ms-input-placeholder {
   font-size: 1.125em; }
@@ -2973,8 +2996,9 @@ form button, form input[type="button"], .form button, .form input[type="button"]
     .tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
       background: none; }
   .tgl + .tgl-btn {
+    direction: rtl;
     outline: 0;
-    display: block;
+    display: inline-block;
     width: 55px;
     height: 30px;
     position: relative;
@@ -2994,7 +3018,7 @@ form button, form input[type="button"], .form button, .form input[type="button"]
       width: 50%;
       height: 100%; }
     .tgl + .tgl-btn:after {
-      left: 0;
+      right: 0;
       border-radius: 50%;
       background: #ffffff;
       transition: all .2s ease; }
@@ -3003,13 +3027,13 @@ form button, form input[type="button"], .form button, .form input[type="button"]
   .tgl:checked + .tgl-btn {
     background: #4fab2f; }
     .tgl:checked + .tgl-btn:after {
-      left: 50%;
+      right: 50%;
       background: #ffffff; }
 
 .custom-select {
   position: relative;
   display: inline-block; }
-  .custom-select:after {
+  .custom-select:before {
     content: "\f078";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -3024,7 +3048,7 @@ form button, form input[type="button"], .form button, .form input[type="button"]
     border-radius: 0 5px 5px 0;
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
     line-height: 30px;
     text-shadow: none;
     padding: 0 8px;
@@ -3035,7 +3059,7 @@ form button, form input[type="button"], .form button, .form input[type="button"]
   border-radius: 5px 5px 5px 5px;
   border: 1px solid #ebebeb;
   background: #ffffff;
-  padding: 5px 30px 5px 10px;
+  padding: 5px 10px 5px 30px;
   font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-size: 0.9375em;
@@ -3412,7 +3436,7 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
   letter-spacing: 1px;
   padding: 12px 22px 15px 20px;
   font-size: 0.875em; }
-  .button-create:before {
+  .button-create:after {
     content: "\f067";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -3465,12 +3489,12 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
   .button-secondary.alt:before, .alt.button-toggle:before, .button-secondary.alt:after, .alt.button-toggle:after {
     color: #2274b4; }
   .button-secondary.icon-only, .icon-only.button-toggle {
-    padding-left: 14px; }
+    padding-right: 14px; }
   .button-secondary.icon-only-when-small, .icon-only-when-small.button-toggle {
-    padding-left: 14px; }
+    padding-right: 14px; }
     @media screen and (min-width: 48em)  {
       .button-secondary.icon-only-when-small, .icon-only-when-small.button-toggle {
-        padding-left: 10px; } }
+        padding-right: 10px; } }
     .button-secondary.icon-only-when-small span, .icon-only-when-small.button-toggle span {
       display: none; }
       @media screen and (min-width: 48em)  {
@@ -3567,7 +3591,7 @@ button.tabbed.open, .button.tabbed.open, .tabbed.open.button-secondary, .tabbed.
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   border-bottom: 0px; }
-button.edit:before, .button.edit:before, .edit.button-secondary:before, .edit.button-toggle:before {
+button.edit:after, .button.edit:after, .edit.button-secondary:after, .edit.button-toggle:after {
   content: "\f040";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3581,7 +3605,7 @@ button.edit:before, .button.edit:before, .edit.button-secondary:before, .edit.bu
   transition: content, .25s; }
 button.close, .button.close, .close.button-secondary, .close.button-toggle {
   margin: 5px 5px 0 0; }
-  button.close:before, .button.close:before, .close.button-secondary:before, .close.button-toggle:before {
+  button.close:after, .button.close:after, .close.button-secondary:after, .close.button-toggle:after {
     content: "\f057";
     font-family: FontAwesome;
     font-size: 0.875em;
@@ -3596,7 +3620,7 @@ button.close, .button.close, .close.button-secondary, .close.button-toggle {
     font-size: 1.125em; }
   button.close em, .button.close em, .close.button-secondary em, .close.button-toggle em {
     color: #737373; }
-button.share:before, .button.share:before, .share.button-secondary:before, .share.button-toggle:before {
+button.share:after, .button.share:after, .share.button-secondary:after, .share.button-toggle:after {
   content: "\f064";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3608,7 +3632,7 @@ button.share:before, .button.share:before, .share.button-secondary:before, .shar
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, .25s; }
-button.trash:before, .button.trash:before, .trash.button-secondary:before, .trash.button-toggle:before {
+button.trash:after, .button.trash:after, .trash.button-secondary:after, .trash.button-toggle:after {
   content: "\f1f8";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3619,8 +3643,10 @@ button.trash:before, .button.trash:before, .trash.button-secondary:before, .tras
   line-height: 1;
   padding: 0 5px 0 1px;
   speak: none;
-  transition: content, .25s; }
-button.check:before, .button.check:before, .check.button-secondary:before, .check.button-toggle:before {
+  transition: content, .25s;
+  display: initial;
+  padding: 0 1px 0 5px; }
+button.check:after, .button.check:after, .check.button-secondary:after, .check.button-toggle:after {
   content: "\f00c";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3632,7 +3658,7 @@ button.check:before, .button.check:before, .check.button-secondary:before, .chec
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, .25s; }
-button.plus:before, .button.plus:before, .plus.button-secondary:before, .plus.button-toggle:before {
+button.plus:after, .button.plus:after, .plus.button-secondary:after, .plus.button-toggle:after {
   content: "\f067";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3651,7 +3677,7 @@ button.plus.open:before, .button.plus.open:before, .plus.open.button-secondary:b
   -webkit-transform-origin: 35% 50%;
       -ms-transform-origin: 35% 50%;
           transform-origin: 35% 50%; }
-button.check:before, .button.check:before, .check.button-secondary:before, .check.button-toggle:before {
+button.check:after, .button.check:after, .check.button-secondary:after, .check.button-toggle:after {
   content: "\f00c";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3663,7 +3689,7 @@ button.check:before, .button.check:before, .check.button-secondary:before, .chec
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, .25s; }
-button.export:before, .button.export:before, .export.button-secondary:before, .export.button-toggle:before {
+button.export:after, .button.export:after, .export.button-secondary:after, .export.button-toggle:after {
   content: "\f08e";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3675,7 +3701,7 @@ button.export:before, .button.export:before, .export.button-secondary:before, .e
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, .25s; }
-button.up:before, button.upvote:before, .button.up:before, .up.button-secondary:before, .up.button-toggle:before, .button.upvote:before, .upvote.button-secondary:before, .upvote.button-toggle:before {
+button.up:after, button.upvote:after, .button.up:after, .up.button-secondary:after, .up.button-toggle:after, .button.upvote:after, .upvote.button-secondary:after, .upvote.button-toggle:after {
   content: "\f077";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3687,7 +3713,7 @@ button.up:before, button.upvote:before, .button.up:before, .up.button-secondary:
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, .25s; }
-button.search:before, .button.search:before, .search.button-secondary:before, .search.button-toggle:before {
+button.search:after, .button.search:after, .search.button-secondary:after, .search.button-toggle:after {
   content: "\f002";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -3699,7 +3725,7 @@ button.search:before, .button.search:before, .search.button-secondary:before, .s
   padding: 0 5px 0 1px;
   speak: none;
   transition: content, .25s; }
-button.photo:before, .button.photo:before, .photo.button-secondary:before, .photo.button-toggle:before {
+button.photo:after, .button.photo:after, .photo.button-secondary:after, .photo.button-toggle:after {
   content: "\f03e";
   font-family: FontAwesome;
   font-size: 0.875em;
@@ -4102,15 +4128,17 @@ ul.breadcrumb + h1 {
 
 .alert {
   font-style: italic;
-  font-size: 1em;
-  padding: 5px 10px;
-  display: inline-block;
-  border-left: 3px solid #ebebeb;
-  background-color: whitesmoke; }
-  .alert.error {
+  font-size: 1em; }
+  .alert p, .alert blockquote, .alert .button-link {
+    margin: 0;
+    padding: 5px 10px;
+    display: inline-block;
+    border-right: 3px solid #ebebeb;
+    background-color: whitesmoke; }
+  .alert.error p, .alert.error blockquote, .alert.error .button-link {
     border-color: #de0000;
     background-color: #ffdede; }
-    .alert.error:before {
+    .alert.error p:after, .alert.error blockquote:after, .alert.error .button-link:after {
       content: "\f06a";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -4125,8 +4153,8 @@ ul.breadcrumb + h1 {
       color: #de0000;
       display: inline-block;
       font-size: 1.125em;
-      padding-right: 10px; }
-  .alert.confirmation {
+      padding-left: 10px; }
+  .alert.confirmation p, .alert.confirmation blockquote, .alert.confirmation .button-link {
     border-color: #4fab2f;
     background-color: #e7f7e2; }
 

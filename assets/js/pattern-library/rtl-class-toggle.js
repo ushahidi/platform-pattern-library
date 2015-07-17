@@ -1,5 +1,5 @@
 $(function() {
-    $( '.remove-rtl' ).click(function() {
+    $( '#button-ltr' ).click(function() {
         $(this).parent().addClass('hidden');
         $(this).parent().siblings('li').removeClass('hidden');
         $( 'body' ).removeClass('rtl');
@@ -8,7 +8,7 @@ $(function() {
 });
 
 $(function() {
-    $( '.add-rtl' ).click(function() {
+    $( '#button-rtl' ).click(function() {
         $(this).parent().addClass('hidden');
         $(this).parent().siblings('li').removeClass('hidden');
         $( 'body' ).addClass('rtl');
