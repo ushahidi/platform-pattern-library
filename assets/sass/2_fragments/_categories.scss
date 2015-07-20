@@ -1,5 +1,6 @@
 .category {
-	margin: $sm-spacing $base-spacing $sm-spacing 0;
+	@include direction;
+	@include lrswap(margin, $sm-spacing $base-spacing $sm-spacing 0);
 	font-size: em(14);
 
     @include media($small) {
@@ -7,7 +8,7 @@
     }
 
 	i {
-		padding-right: 5px;
+		@include padding-right(5px);
 		//color of circle is set as an inline style since it will be
 		//updated by the user
 	}
@@ -29,8 +30,9 @@
 	overflow: auto;
 
 	.category {
+		@include float(left);
 		display: inline;
-		padding-right: $sm-spacing;
+		@include padding-right($sm-spacing);
 	}
 
 }
