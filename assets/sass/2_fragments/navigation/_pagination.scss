@@ -3,72 +3,76 @@
     text-align: center;
 
     ul {
-        display: inline-block;
-    }
-
-    ul {
         @extend .list-unstyled;
-    }
+        display: inline-block;
 
-	li {
-		display: inline-block;
-		float: left;
-		color: $link-color;
-		font-weight: $bold;
-		padding: 0 $sm-spacing;
-		cursor: pointer;
-	}
+        &.page-numbers {
+            @include direction;
+        }
 
-	.active {
-		color: $base-color;
-		cursor: default;
-
-		&:hover {
-			color: $base-color;
-		}
-
-	}
-
-	li.pg-number {
-        display: none;
-
-        @include media($mobile) {
+        li {
             display: inline-block;
+            /* @include float(left); */
+            color: $link-color;
+            font-weight: $bold;
+            padding: 0 $sm-spacing;
+            cursor: pointer;
+
+            &.active {
+                color: $base-color;
+                cursor: default;
+
+                &:hover {
+                    color: $base-color;
+                }
+
+            }
+
+            &.pg-number {
+                display: none;
+
+                @include media($mobile) {
+                    display: inline-block;
+                }
+
+                &:hover {
+                    color: $link-hover-color;
+                }
+
+            }
+
+            &.prev, &.next {
+                border: $base-border;
+                @include border-top-radius($global-radius);
+                @include border-bottom-radius($global-radius);
+                color: $highlight;
+                padding: 10px;
+                position: relative;
+                @include transition(0.3s);
+
+                a {
+                    color: $yellow;
+                }
+
+                &:hover{
+                    border: $base-border-hover;
+                }
+
+            }
+
+            &.prev {
+                margin-right: $sm-spacing;
+                @include icon(before, chevron-left);
+            }
+
+            &.next {
+                margin-left: $sm-spacing;
+                @include icon(before, chevron-right);
+            }
+
         }
 
-		&:hover {
-			color: $link-hover-color;
-		}
-
-	}
-
-	.prev, .next {
-		border: $base-border;
-		@include border-top-radius($global-radius);
-    	@include border-bottom-radius($global-radius);
-    	color: $highlight;
-    	padding: 10px;
-    	position: relative;
-    	top: -10px;
-        @include transition(0.3s);
-
-        a {
-            color: $yellow;
-        }
-
-    	&:hover{
-    		border: $base-border-hover;
-    	}
-
-	}
-
-	.prev {
-		margin-right: $sm-spacing;
-	}
-
-	.next {
-		margin-left: $sm-spacing;
-	}
+    }
 
 }
 

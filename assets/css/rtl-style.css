@@ -3839,55 +3839,81 @@ button.photo:after, .button.photo:after, .photo.button-secondary:after, .photo.b
   text-align: center; }
   .pagination ul, .stepper ul {
     display: inline-block; }
-  .pagination li, .stepper li {
-    display: inline-block;
-    float: left;
-    color: #2274b4;
-    font-weight: 900;
-    padding: 0 10px;
-    cursor: pointer; }
-  .pagination .active, .stepper .active {
-    color: #181c21;
-    cursor: default; }
-    .pagination .active:hover, .stepper .active:hover {
-      color: #181c21; }
-  .pagination li.pg-number, .stepper li.pg-number {
-    display: none; }
-    @media screen and (min-width: 30em)  {
-      .pagination li.pg-number, .stepper li.pg-number {
-        display: inline-block; } }
-    .pagination li.pg-number:hover, .stepper li.pg-number:hover {
-      color: #123d5e; }
-  .pagination .prev, .pagination .next, .stepper .prev, .stepper .next {
-    border: 1px solid #ebebeb;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: #ffc334;
-    padding: 10px;
-    position: relative;
-    top: -10px;
-    transition: 0.3s; }
-    .pagination .prev a, .pagination .prev .button-link, .pagination .next a, .pagination .next .button-link, .stepper .prev a, .stepper .prev .button-link, .stepper .next a, .stepper .next .button-link {
-      color: #ffc334; }
-    .pagination .prev:hover, .pagination .next:hover, .stepper .prev:hover, .stepper .next:hover {
-      border: 1px solid #d2d2d2; }
-  .pagination .prev, .stepper .prev {
-    margin-right: 10px; }
-  .pagination .next, .stepper .next {
-    margin-left: 10px; }
+    .pagination ul.page-numbers, .stepper ul.page-numbers {
+      direction: rtl; }
+    .pagination ul li, .stepper ul li {
+      display: inline-block;
+      /* @include float(left); */
+      color: #2274b4;
+      font-weight: 900;
+      padding: 0 10px;
+      cursor: pointer; }
+      .pagination ul li.active, .stepper ul li.active {
+        color: #181c21;
+        cursor: default; }
+        .pagination ul li.active:hover, .stepper ul li.active:hover {
+          color: #181c21; }
+      .pagination ul li.pg-number, .stepper ul li.pg-number {
+        display: none; }
+        @media screen and (min-width: 30em)  {
+          .pagination ul li.pg-number, .stepper ul li.pg-number {
+            display: inline-block; } }
+        .pagination ul li.pg-number:hover, .stepper ul li.pg-number:hover {
+          color: #123d5e; }
+      .pagination ul li.prev, .pagination ul li.next, .stepper ul li.prev, .stepper ul li.next {
+        border: 1px solid #ebebeb;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        color: #ffc334;
+        padding: 10px;
+        position: relative;
+        transition: 0.3s; }
+        .pagination ul li.prev a, .pagination ul li.prev .button-link, .pagination ul li.next a, .pagination ul li.next .button-link, .stepper ul li.prev a, .stepper ul li.prev .button-link, .stepper ul li.next a, .stepper ul li.next .button-link {
+          color: #ffc334; }
+        .pagination ul li.prev:hover, .pagination ul li.next:hover, .stepper ul li.prev:hover, .stepper ul li.next:hover {
+          border: 1px solid #d2d2d2; }
+      .pagination ul li.prev, .stepper ul li.prev {
+        margin-right: 10px; }
+        .pagination ul li.prev:before, .stepper ul li.prev:before {
+          content: "\f053";
+          font-family: FontAwesome;
+          font-size: 0.875em;
+          font-style: normal;
+          font-weight: normal;
+          display: inline-block;
+          text-decoration: inherit;
+          line-height: 1;
+          padding: 0 5px 0 1px;
+          speak: none;
+          transition: content, .25s; }
+      .pagination ul li.next, .stepper ul li.next {
+        margin-left: 10px; }
+        .pagination ul li.next:before, .stepper ul li.next:before {
+          content: "\f054";
+          font-family: FontAwesome;
+          font-size: 0.875em;
+          font-style: normal;
+          font-weight: normal;
+          display: inline-block;
+          text-decoration: inherit;
+          line-height: 1;
+          padding: 0 5px 0 1px;
+          speak: none;
+          transition: content, .25s; }
 
 .pagination {
   margin: 20px auto; }
 
 ul.breadcrumb {
+  direction: rtl;
   padding: 10px 0;
   display: block;
   overflow: auto; }
   ul.breadcrumb li {
     display: inline-block;
-    float: left; }
+    float: right; }
     ul.breadcrumb li:after {
       font: normal normal normal 14px/1 FontAwesome;
       content: "\f105";
