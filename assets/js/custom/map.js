@@ -44,7 +44,7 @@ if ($('#map').length) {
         </button>
     </div>
     <div class="toggle-content">
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu list-unstyled" role="menu">
             <li>
                 <button type="button" class="button-secondary edit">
                     <a href="#!">Edit</a>

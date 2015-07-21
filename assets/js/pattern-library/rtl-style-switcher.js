@@ -5,10 +5,12 @@ function changeStylesheet(sheet) {
    document.getElementById('stylesheet').setAttribute('href', sheet);
 }
 
-ltrButton.onclick = function () {
-  changeStylesheet('../../css/style.css');
-};
+if ($('#button-ltr').length > 0) {
+    ltrButton.onclick = function () {
+      changeStylesheet('../../css/style.css');
+    };
 
-rtlButton.onclick = function () {
-  changeStylesheet('../../css/rtl-style.css');
-};
+    rtlButton.onclick = function () {
+      changeStylesheet('../../css/rtl-style.css');
+    };
+}
