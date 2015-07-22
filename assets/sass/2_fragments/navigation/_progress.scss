@@ -55,8 +55,8 @@
         &.add-new {
 
             span {
-                @include icon(before, plus) {
-                    padding-left: 5px;
+                @include icon($before, plus) {
+                    @include lrswap(padding, 0 5px 0 1px);
                     font-size: em(16);
                 }
             }
@@ -65,8 +65,7 @@
 
         @include media($small) {
             padding: $base-spacing;
-            float: left;
-
+            @include float(left);
 
             &:hover {
                 background: $white;
@@ -75,9 +74,9 @@
         } //end of small mq
 
         @include media(1190px) {
-            padding: 19px 10px 19px 25px;
-            float: left;
-            margin-right: 26px;
+            @include lrswap(padding, 19px 10px 19px 25px);
+            @include float(left);
+            @include margin-right(26px);
             height: 50px;
 
             &:before {
@@ -87,10 +86,10 @@
                 height: 0;
                 position: absolute;
                 top: 0;
-                left: -25px;
+                @include left(-24px);
                 border: 25px solid transparent;
                 border-color: $white;
-                border-left-color: transparent;
+                @include border-left(25px solid transparent);
             }
 
             &:after {
@@ -100,13 +99,13 @@
                 height: 0;
                 position: absolute;
                 top: 0;
-                right: -50px;
+                @include right(-50px);
                 border: 25px solid transparent;
-                border-left-color: $white;
+                @include border-left(25px solid $white);
             }
 
             &:first-of-type {
-                padding-left: 30px;
+                @include padding-right(30px);
 
                 &:before {
                     display: none;
@@ -115,8 +114,8 @@
             }
 
             &:last-of-type {
-                margin-right: 0px;
-                padding-right: 30px;
+                @include margin-right(0px);
+                @include padding-right(30px);
 
                 &:after {
                     border: none;
@@ -130,9 +129,9 @@
 
             &.completed {
 
-                @include icon(after, check) {
+                @include icon($after, check) {
                     color: $confirmation-color;
-                    padding-left: 5px;
+                    @include padding-left(5px);
                     font-size: em(16);
                 }
 
