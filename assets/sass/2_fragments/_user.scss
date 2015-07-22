@@ -2,9 +2,9 @@
     overflow: auto;
 
     img {
-        float: left;
+        @include float(left);
         width: 40px;
-        margin-right: $sm-spacing;
+        @include margin-right($sm-spacing);
 
         @include media($medium) {
             width: 60px;
@@ -26,17 +26,22 @@
     overflow: auto;
 
     img {
-        float: left;
+        @include float(left);
+        clear: both;
         width: 45px;
-        margin-right: $sm-spacing;
+        @include margin-right($sm-spacing);
         margin-top: -20px;
 
         @include media($large) {
             width: 70px;
             margin: $sm-spacing 0;
-            float: none;
         }
 
+    }
+
+    .name {
+        @include float(left);
+        clear: both;
     }
 
     p {
@@ -44,11 +49,11 @@
     }
 
     .delta-alt {
-        padding-left: 45px + $sm-spacing; // pushes label offset from image
+        @include padding-left(45px + $sm-spacing); // pushes label offset from image
         padding-top: $sm-spacing;
 
         @include media($large) {
-            padding-left: 0px;
+            @include padding-left(0px);
         }
 
     }
