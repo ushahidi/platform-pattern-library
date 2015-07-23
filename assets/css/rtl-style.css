@@ -2456,12 +2456,14 @@ positioning, etc.)
     border-left: 1px solid #ebebeb !important;
     max-width: 300px; } }
 .pl .pl-filters {
-  background: #ffffff; }
-  @media screen and (min-width: 48em)  {
-    .pl .pl-filters {
-      width: 30%; } }
+  background: #ffffff;
+  /*         @include media($small) {
+    width: 30%;
+} */ }
   .pl .pl-filters .filters .filters-show-hide {
     text-align: left; }
+  .pl .pl-filters button {
+    float: none; }
   .pl .pl-filters .filters-container {
     z-index: 10; }
   .pl .pl-filters aside .filters-container {
@@ -3060,6 +3062,7 @@ form button, form input[type="button"], .form button, .form input[type="button"]
     color: #ffc334; }
 
 .custom-select select {
+  direction: rtl;
   border-radius: 5px 5px 5px 5px;
   border: 1px solid #ebebeb;
   background: #ffffff;
@@ -4343,11 +4346,14 @@ ul.breadcrumb + h1 {
     @media screen and (min-width: 48em)  {
       .post-popup p, .post-popup blockquote, .post-popup .button-link {
         display: block; } }
+  @media screen and (min-width: 48em)  {
+    .post-popup .toggle-content {
+      display: block; } }
 
 .tabs-menu {
   background: #ffffff;
   width: 100%;
-  float: left; }
+  float: right; }
   @media screen and (min-width: 48em)  {
     .tabs-menu {
       padding: 10px 0; } }
@@ -4356,14 +4362,14 @@ ul.breadcrumb + h1 {
     @media screen and (min-width: 48em)  {
       .tabs-menu label {
         display: block;
-        float: left;
-        margin-right: 10px;
+        float: right;
+        margin-left: 10px;
         margin-top: 10px; } }
   .tabs-menu .tabs-menu-list {
     border: 1px solid #ebebeb;
     padding: 10px 20px 11px;
     background: #ffffff;
-    position: absolute;
+    position: relative;
     width: 100%; }
     @media screen and (min-width: 48em)  {
       .tabs-menu .tabs-menu-list {
@@ -4386,13 +4392,13 @@ ul.breadcrumb + h1 {
       color: #2274b4; }
       @media screen and (min-width: 48em)  {
         .tabs-menu .tabs-menu-list li {
-          float: left;
+          float: right;
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
           border-bottom-left-radius: 5px;
           border-bottom-right-radius: 5px;
           border: 1px solid #ebebeb;
-          margin-right: 10px;
+          margin-left: 10px;
           margin-bottom: 10px; }
           .tabs-menu .tabs-menu-list li:hover {
             border: 1px solid #d2d2d2; }
@@ -4420,7 +4426,7 @@ ul.breadcrumb + h1 {
       @media screen and (min-width: 48em)  {
         .tabs-menu .tabs-menu-list.visible li:not(.active) {
           display: inline-block; } }
-    .tabs-menu .tabs-menu-list li.view-list a:before, .tabs-menu .tabs-menu-list li.view-list .button-link:before {
+    .tabs-menu .tabs-menu-list li.view-list a:after, .tabs-menu .tabs-menu-list li.view-list .button-link:after {
       content: "\f03a";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -4431,8 +4437,9 @@ ul.breadcrumb + h1 {
       line-height: 1;
       padding: 0 5px 0 1px;
       speak: none;
-      transition: content, .25s; }
-    .tabs-menu .tabs-menu-list li.view-chart a:before, .tabs-menu .tabs-menu-list li.view-chart .button-link:before {
+      transition: content, .25s;
+      padding: 0 1px 0 5px; }
+    .tabs-menu .tabs-menu-list li.view-chart a:after, .tabs-menu .tabs-menu-list li.view-chart .button-link:after {
       content: "\f080";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -4443,8 +4450,9 @@ ul.breadcrumb + h1 {
       line-height: 1;
       padding: 0 5px 0 1px;
       speak: none;
-      transition: content, .25s; }
-    .tabs-menu .tabs-menu-list li.view-photo a:before, .tabs-menu .tabs-menu-list li.view-photo .button-link:before {
+      transition: content, .25s;
+      padding: 0 1px 0 5px; }
+    .tabs-menu .tabs-menu-list li.view-photo a:after, .tabs-menu .tabs-menu-list li.view-photo .button-link:after {
       content: "\f03e";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -4455,8 +4463,9 @@ ul.breadcrumb + h1 {
       line-height: 1;
       padding: 0 5px 0 1px;
       speak: none;
-      transition: content, .25s; }
-    .tabs-menu .tabs-menu-list li.view-map a:before, .tabs-menu .tabs-menu-list li.view-map .button-link:before {
+      transition: content, .25s;
+      padding: 0 1px 0 5px; }
+    .tabs-menu .tabs-menu-list li.view-map a:after, .tabs-menu .tabs-menu-list li.view-map .button-link:after {
       content: "\f041";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -4467,8 +4476,9 @@ ul.breadcrumb + h1 {
       line-height: 1;
       padding: 0 5px 0 1px;
       speak: none;
-      transition: content, .25s; }
-    .tabs-menu .tabs-menu-list li.view-timeline a:before, .tabs-menu .tabs-menu-list li.view-timeline .button-link:before {
+      transition: content, .25s;
+      padding: 0 1px 0 5px; }
+    .tabs-menu .tabs-menu-list li.view-timeline a:after, .tabs-menu .tabs-menu-list li.view-timeline .button-link:after {
       content: "\f201";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -4479,7 +4489,8 @@ ul.breadcrumb + h1 {
       line-height: 1;
       padding: 0 5px 0 1px;
       speak: none;
-      transition: content, .25s; }
+      transition: content, .25s;
+      padding: 0 1px 0 5px; }
   .tabs-menu .button-toggle {
     float: left;
     margin: 10px; }
@@ -4508,7 +4519,7 @@ ul.breadcrumb + h1 {
     padding: 10px; }
     @media screen and (min-width: 30em)  {
       .tabs-secondary li {
-        float: left;
+        float: right;
         padding: 13px 10px; } }
     @media screen and (min-width: 48em)  {
       .tabs-secondary li {
@@ -4531,8 +4542,7 @@ ul.breadcrumb + h1 {
     padding: 10px;
     overflow: auto;
     border: 1px solid #ebebeb;
-    border-left: 0;
-    text-align: right; }
+    text-align: left; }
     .filters .filters-show-hide span {
       display: none; }
       @media screen and (min-width: 30em)  {
@@ -4543,13 +4553,14 @@ ul.breadcrumb + h1 {
         border: 0;
         padding: 10px 0; } }
     .filters .filters-show-hide label.delta-alt, .filters .filters-show-hide label.input-label, .filters .filters-show-hide label.filter-label {
+      float: right;
       display: inline-block;
-      margin: 10px 10px 0 0; }
+      margin: 10px 0 0 10px; }
     .filters .filters-show-hide .button-toggle {
       float: left; }
       @media screen and (min-width: 48em)  {
         .filters .filters-show-hide .button-toggle {
-          float: none; } }
+          float: right; } }
       @media screen and (min-width: 48em)  {
         .filters .filters-show-hide .button-toggle.open {
           padding-bottom: 20px;
@@ -4558,7 +4569,7 @@ ul.breadcrumb + h1 {
           border-bottom: 0; } }
   .filters .filters-container {
     display: none;
-    float: left;
+    float: right;
     width: 100%;
     position: relative;
     background: #ffffff;
@@ -4573,8 +4584,9 @@ ul.breadcrumb + h1 {
       .filters .filters-container {
         padding: 10px 20px;
         position: absolute;
-        top: 37px;
+        top: 47px;
         bottom: inherit;
+        right: 0;
         width: 100%;
         max-width: 300px;
         border-top: 5px solid #181c21;
@@ -4612,58 +4624,64 @@ ul.breadcrumb + h1 {
     .filters .filters-container .accordion-menu .accordion-menu-content {
       margin-top: 0;
       font-size: 0.875em; }
+      .filters .filters-container .accordion-menu .accordion-menu-content li i {
+        float: right;
+        width: 10px;
+        height: 10px;
+        margin-left: 8px; }
     .filters .filters-container .filter-start-date, .filters .filters-container .filter-end-date {
-      float: left;
       display: block;
-      margin-right: 2.35765%;
+      float: right;
+      margin-left: 2.35765%;
       width: 48.82117%;
       position: relative; }
-      .filters .filters-container .filter-start-date:last-child, .filters .filters-container .filter-end-date:last-child {
-        margin-right: 0; }
     .filters .filters-container .filter-end-date {
-      margin-right: 0; }
+      margin-left: 0; }
     .filters .filters-container .filter-start-date:before, .filters .filters-container .filter-end-date:before {
-      position: absolute;
-      top: 35px;
-      right: 10px;
+      content: "\f073";
       font-family: FontAwesome;
-      font-size: 14px;
+      font-size: 0.875em;
       font-style: normal;
       font-weight: normal;
-      content: "\f073";
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, .25s;
+      position: absolute;
+      top: 34px;
+      left: 10px;
       color: #737373;
-      opacity: .5; }
+      opacity: .6; }
     .filters .filters-container .filter-actions {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 100%;
       padding-top: 20px;
-      text-align: right; }
+      text-align: left; }
       .filters .filters-container .filter-actions:last-child {
         margin-right: 0; }
     .filters .filters-container .apply-filter-button {
       display: inline-block;
-      float: none;
-      left: 0; }
+      float: left;
+      left: 0;
+      margin-top: 0; }
     .filters .filters-container .location .custom-select {
-      margin: 0 10px 10px 0; }
+      float: right;
+      margin: 0 0 10px 10px; }
 
 aside .filters {
-  border-left: 1px solid #ebebeb;
   margin-bottom: 10px; }
-aside .filters-show-hide.half {
-  width: 55%;
-  float: right;
-  margin-top: -52px; }
-@media screen and (min-width: 48em)  {
-  aside .filters-show-hide {
-    display: none !important; } }
-@media screen and (min-width: 48em)  {
-  aside .filters .filters-container {
-    position: relative;
-    top: 0;
-    display: block; } }
+  @media screen and (min-width: 48em)  {
+    aside .filters .filters-show-hide {
+      display: none !important; } }
+  @media screen and (min-width: 48em)  {
+    aside .filters .filters-container {
+      position: relative;
+      top: 0;
+      display: block; } }
 
 .list-actions {
   padding: 10px 0;
@@ -4704,14 +4722,22 @@ aside .filters-show-hide.half {
       padding: 0 0 10px;
       margin-bottom: 40px;
       border: 0; } }
+  .tabs-with-filter .filters .filters-show-hide {
+    border-right: 0; }
+    @media screen and (min-width: 48em)  {
+      .tabs-with-filter .filters .filters-show-hide {
+        width: 30%;
+        float: right;
+        padding-left: 10px;
+        text-align: left; } }
+    .tabs-with-filter .filters .filters-show-hide label.delta-alt, .tabs-with-filter .filters .filters-show-hide label.input-label, .tabs-with-filter .filters .filters-show-hide label.filter-label {
+      float: none; }
+    .tabs-with-filter .filters .filters-show-hide .button-toggle {
+      float: left; }
   @media screen and (min-width: 48em)  {
-    .tabs-with-filter .filters-show-hide {
-      width: 30%;
-      float: right;
-      padding-left: 10px;
-      text-align: right; } }
-  .tabs-with-filter .filters-container {
-    right: 0; }
+    .tabs-with-filter .filters .filters-container {
+      left: 0;
+      left: inherit; } }
   .tabs-with-filter .tabs-menu {
     width: 45%; }
     @media screen and (min-width: 48em)  {
@@ -4721,6 +4747,7 @@ aside .filters-show-hide.half {
       margin: 10px 10px 10px 0;
       float: left; }
   .tabs-with-filter .tabs-menu-list {
+    position: absolute;
     width: 45%; }
     @media screen and (min-width: 48em)  {
       .tabs-with-filter .tabs-menu-list {
@@ -4728,6 +4755,11 @@ aside .filters-show-hide.half {
   @media screen and (min-width: 48em)  {
     .tabs-with-filter .button-toggle {
       float: none; } }
+  .tabs-with-filter + aside .filters-show-hide {
+    width: 55%;
+    float: right;
+    margin-top: -52px;
+    border-right: 0; }
 
 .post-summary h3 {
   margin: 10px 0; }

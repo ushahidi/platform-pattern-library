@@ -11,17 +11,37 @@
         border: 0;
     }
 
-    .filters-show-hide {
-        @include media($small) {
-            width: 30%;
-            float: right;
-            padding-left: $sm-spacing;
-            text-align: right;
-        }
-    }
+    .filters {
 
-    .filters-container {
-        right: 0;
+        .filters-show-hide {
+            @include border-left(0);
+
+            @include media($small) {
+                width: 30%;
+                float: right;
+                padding-left: $sm-spacing;
+                @include text-align(right);
+            }
+
+            label.delta-alt {
+                float: none;
+            }
+
+            .button-toggle {
+                @include float(right);
+            }
+
+        }
+
+        .filters-container {
+
+            @include media($small) {
+                @include right(0);
+                left: inherit;
+            }
+
+        }
+
     }
 
     .tabs-menu {
@@ -39,6 +59,7 @@
     }
 
     .tabs-menu-list {
+        position: absolute;
         width: 45%;
 
         @include media($small) {
@@ -52,6 +73,13 @@
         @include media($small) {
             float: none;
         }
+    }
+
+    + aside .filters-show-hide {
+        width: 55%;
+        float: right;
+        margin-top: -52px;
+        @include border-left(0);
     }
 
 }

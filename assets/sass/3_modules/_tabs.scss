@@ -1,7 +1,7 @@
 .tabs-menu {
     background: $white;
     width: 100%;
-    float: left;
+    @include float(left);
 
     @include media($small) {
         padding: $sm-spacing 0;
@@ -12,8 +12,8 @@
 
         @include media($small) {
             display: block;
-            float: left;
-            margin-right: $sm-spacing;
+            @include float(left);
+            @include margin-right($sm-spacing);
             margin-top: $sm-spacing;
         }
     }
@@ -23,7 +23,7 @@
         border: $base-border;
         padding: $sm-spacing $base-spacing ($sm-spacing + 1);
         background: $white;
-        position: absolute;
+        position: relative;
         width: 100%;
 
         @include media($small) {
@@ -52,11 +52,11 @@
             color: $link-color;
 
             @include media($small) {
-                float: left;
+                @include float(left);
                 @include border-top-radius($global-radius);
                 @include border-bottom-radius($global-radius);
                 border: $base-border;
-                margin-right: $sm-spacing;
+                @include margin-right($sm-spacing);
                 margin-bottom: $sm-spacing;
 
                 &:hover {
@@ -117,23 +117,38 @@
         //these are the icons
 
         li.view-list a {
-            @include icon(before, list);
+            @include icon($before, list) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
         }
 
         li.view-chart a {
-            @include icon(before, bar-chart);
+            @include icon($before, bar-chart) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
         }
 
         li.view-photo a {
-            @include icon(before, photo);
+            @include icon($before, photo) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
         }
 
         li.view-map a {
-            @include icon(before, map-marker);
+            @include icon($before, map-marker) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
         }
 
         li.view-timeline a {
-            @include icon(before, line-chart);
+            @include icon($before, line-chart) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
         }
 
     }
@@ -184,7 +199,7 @@
         padding: $sm-spacing;
 
         @include media($mobile) {
-            float: left;
+            @include float(left);
             padding: ($sm-spacing + 3px) $sm-spacing;
         }
 

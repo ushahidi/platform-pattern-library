@@ -5,8 +5,7 @@
         padding: $sm-spacing;
         overflow: auto;
         border: $base-border;
-        border-left: 0;
-        text-align: right;
+        @include text-align(right);
 
         span {
             display: none;
@@ -23,15 +22,16 @@
         }
 
         label.delta-alt {
+            @include float(left);
             display: inline-block;
-            margin: $sm-spacing $sm-spacing 0 0;
+            @include lrswap(margin, $sm-spacing $sm-spacing 0 0);
         }
 
         .button-toggle {
             @include float(right);
 
             @include media($small) {
-                float: none;
+                @include float(left);
             }
 
             &.open {
@@ -50,7 +50,7 @@
 
     .filters-container {
         display: none;
-        float: left;
+        @include float(left);
         width: 100%;
         position: relative;
         background: $white;
@@ -67,8 +67,9 @@
         @include media($small) {
             padding: $sm-spacing $base-spacing;
             position: absolute;
-            top: 37px;
+            top: 47px;
             bottom: inherit;
+            @include left(0);
             width: 100%;
             max-width: 300px;
             border-top: 5px solid $black;
@@ -115,49 +116,60 @@
             .accordion-menu-content {
                 margin-top: 0;
                 font-size: em(14);
+
+                li i {
+                    @include float(left);
+                    width: 10px;
+                    height: 10px;
+                    @include margin-right(8px);
+                }
+
             }
 
         }
 
         .filter-start-date, .filter-end-date {
-            @include span-columns(6);
+            display: block;
+            @include float(left);
+            @include margin-right(2.35765%);
+            width: 48.82117%;
             position: relative;
         }
 
         .filter-end-date {
-            @include omega();
+            @include margin-right(0);
         }
 
-        .filter-start-date:before,
-        .filter-end-date:before {
-            position: absolute;
-            top: 35px;
-            right: 10px;
-            font-family: FontAwesome;
-            font-size: 14px;
-            font-style: normal;
-            font-weight: normal;
-            content: "\f073";
-            color: $dk-gray;
-            opacity: .5;
+        .filter-start-date,
+        .filter-end-date {
+            @include icon($after, calendar) {
+                position: absolute;
+                top: 34px;
+                @include right(10px);
+                color: $dk-gray;
+                opacity: .6;
+            }
+
         }
 
         .filter-actions {
             @include span-columns(12);
             padding-top: $base-spacing;
-            text-align: right;
+            @include text-align(right);
         }
 
         .apply-filter-button {
             display: inline-block;
-            float: none;
+            @include float(right);
             @include right(0);
+            margin-top: 0;
         }
 
         .location {
 
             .custom-select {
-                margin: 0 $sm-spacing $sm-spacing 0;
+                @include float(left);
+                @include lrswap(margin, 0 $sm-spacing $sm-spacing 0);
             }
 
         }
@@ -169,25 +181,15 @@
 aside {
 
     .filters {
-        border-left: $base-border;
         margin-bottom: $sm-spacing;
-    }
 
-    .filters-show-hide {
+        .filters-show-hide {
 
-        &.half {
-            width: 55%;
-            float: right;
-            margin-top: -52px;
+            @include media($small) {
+                display: none !important;
+            }
+
         }
-
-        @include media($small) {
-            display: none !important;
-        }
-
-    }
-
-    .filters {
 
         .filters-container {
             @include media($small) {
