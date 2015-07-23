@@ -1,25 +1,29 @@
 .list-actions {
     padding: $sm-spacing 0;
     border-top: $base-border;
-    border-right: $base-border;
-    border-left: $base-border;
     clear: both;
-    padding: $sm-spacing $tiny-spacing;
+    padding: $sm-spacing 0;
     overflow: auto;
 
     @include media($small) {
         padding: $sm-spacing $base-spacing;
+        border-right: $base-border;
+        border-left: $base-border;
     }
 
     .bulk-actions {
-        float: right;
+        @include float(right);
 
         @include media($small) {
             padding: 0;
         }
 
+        button {
+            @include float(left);
+        }
+
         .dropdown-group {
-            display: inline;
+            @include float(left);
 
             button {
                 margin: 0;
@@ -35,7 +39,7 @@
     }
 
     .cta {
-        float: left;
+        @include float(left);
         padding-top: $sm-spacing;
     }
 
