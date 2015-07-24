@@ -1,4 +1,5 @@
 .activity-listing {
+    @include direction;
     border: $base-border;
     border-width: 2px;
     padding: $sm-spacing;
@@ -11,16 +12,16 @@
         border-color: transparent transparent $white $white;
         position: absolute;
         top: 10px;
-        left: 0px;
-        transform-origin: 0 0;
-        transform: rotate(45deg);
+        @include left(-6px);
+        /* transform-origin: 0 0; */
+        @include rotate(45deg);
         @include box-shadow($top: 2px, $left: -2px, $blur: 0px, $spread: 0px, $color: rgba(0,0,0,.08), $inset: false);
     }
 
     h3 {
         margin: 0;
     }
-    
+
     .listing-summary h3 {
         @include media($small) {
             font-size: em(22);
@@ -34,7 +35,7 @@
         %gray-icon {
             color: $mid-gray;
             font-size: em(18);
-            padding-right: 4px;
+            @include padding-right(4px);
         }
 
         &.post {
@@ -56,7 +57,7 @@
         &.post:before, &.comment:before, &.collection:before, &.saved-search:before {
             color: $mid-gray;
             font-size: em(18);
-            padding-right: 4px;
+            @include padding-right(4px);
         }
 
     }
@@ -73,7 +74,7 @@
     }
 
     .listing-summary {
-        
+
         @include media($small) {
              @include span-columns(8);
         }
@@ -90,4 +91,3 @@
     }
 
 }
-

@@ -1,5 +1,5 @@
 .actions-content {
-    float: left;
+    @include float(left);
     padding: $sm-spacing 0;
 
     @include media($large) {
@@ -26,8 +26,8 @@
 .actions-inline + .actions-content {
 
     li {
-        float: left;
-        padding: 0 $sm-spacing $sm-spacing 0;
+        @include float(left);
+        @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
     }
 
 }
@@ -35,12 +35,12 @@
 .actions-stacked + .actions-content {
 
     li {
-        float: left;
-        padding: 0 $sm-spacing $sm-spacing 0;
+        @include float(left);
+        @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
 
         @include media($large) {
             float: none;
-            padding: 0 0 $sm-spacing 0;
+            @include lrswap(padding, 0 0 $sm-spacing 0);
         }
 
         &:last-child {

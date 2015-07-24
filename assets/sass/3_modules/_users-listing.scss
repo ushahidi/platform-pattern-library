@@ -2,7 +2,7 @@
 
     .img {
         width: 26%;
-        padding: 0 4% 0 2%;
+        @include lrswap(padding, 0 4% 0 2%);
 
         @include media($mobile) {
             width: 20%;
@@ -10,7 +10,7 @@
 
         @include media($medium) {
             width: 15%;
-            padding: 0 2% 0 0;
+            @include lrswap(padding, 0 2% 0 0);
         }
 
     }
@@ -30,7 +30,7 @@
             padding: 0;
 
             @include media($medium) {
-                float: left;
+                @include float(left);
                 width: 70%;
             }
         }
@@ -40,7 +40,7 @@
             margin-top: $sm-spacing;
 
             @include media($medium) {
-                float: right;
+                @include float(right);
                 width: 30%;
                 margin-top: $base-spacing + 10px;
             }
@@ -49,4 +49,3 @@
     }
 
 }
-

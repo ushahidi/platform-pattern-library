@@ -6,14 +6,14 @@
     border-left: $base-border;
 
     .select {
-        float: left;
+        @include float(left);
         text-align: center;
         width: 6%;
         margin: ($sm-spacing+5px) 3%;
 
         @include media($mobile) {
             width: 2%;
-            margin: ($sm-spacing+3px) 4% 0 2%;
+            @include lrswap (margin, ($sm-spacing+3px) 4% 0 2%);
         }
 
         @include media($small) {
@@ -28,11 +28,11 @@
     }
 
     h3 {
-        padding-left: $sm-spacing;
+        @include padding-left($sm-spacing);
         margin: $sm-spacing 0;
 
         @include media($small) {
-            padding-left: $base-spacing;
+            @include padding-left($base-spacing);
             margin: $base-spacing 0;
         }
     }
@@ -40,11 +40,11 @@
     .upvote-downvote {
         position: absolute;
         top: 2px;
-        left: 2px;
+        @include left(2px);
 
         @include media($small) {
             top: $sm-spacing;
-            left: $sm-spacing;
+            @include left($sm-spacing);
         }
 
     }
@@ -52,12 +52,12 @@
     .plus, .toggle-switch {
         position: absolute;
         top: 14px;
-        left: 4px;
-        padding: 8px 4px 8px 9px;
+        @include left(4px);
+        @include lrswap(padding, 8px 4px 8px 9px);
 
         @include media($small) {
             top: ($base-spacing + 6px);
-            left: $sm-spacing;
+            @include left($sm-spacing);
         }
 
     }
@@ -67,10 +67,10 @@
     }
 
     .upvote-downvote + .toggle-switch {
-        left: 40px;
+        @include left(40px);
 
         @include media($small) {
-            left: 50px;
+            @include left(50px);
         }
 
     }
@@ -90,6 +90,7 @@
         @include media($small) {
             @include padding-left($sm-spacing + 70px);
         }
+
     }
 
     .upvote-downvote + .toggle-switch + h3 {
@@ -98,11 +99,12 @@
         @include media($small) {
             @include padding-left($sm-spacing + 110px);
         }
+
     }
 
     .actions {
         position: absolute;
-        right: $sm-spacing;
+        @include right($sm-spacing);
         top: ($sm-spacing + 4px);
 
         @include media($small) {
@@ -110,6 +112,7 @@
         }
 
         button {
+            @include float(left);
             margin-bottom: $sm-spacing;
             @include margin-left($tiny-spacing);
 
@@ -120,8 +123,8 @@
         }
 
         .toggle-switch {
-            float: right;
-            margin-left: $sm-spacing;
+            @include float(right);
+            @include margin-left($sm-spacing);
         }
 
     }
@@ -137,15 +140,16 @@
         margin-top: $base-spacing;
 
         @include media($small) {
-            padding: $tiny-spacing 0 $base-spacing $base-spacing;
+            @include lrswap(padding, $tiny-spacing 0 $base-spacing $base-spacing);
             margin-top: ($base-spacing + 14px);
         }
 
         .select-inline {
             @include media($mobile) {
-                float: left;
-                margin: -$base-spacing $base-spacing $base-spacing 0;
+                @include float(left);
+                @include lrswap(margin, -$base-spacing $base-spacing $base-spacing 0);
             }
+
         }
 
         .button-primary {

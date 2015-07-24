@@ -17,19 +17,22 @@
 
     .post-summary {
         @include border-box;
-        padding: $base-spacing 0;
         padding: $sm-spacing;
 
         @include media($small) {
             padding: $sm-spacing $base-spacing 0;
-            border-left: $base-border;
+            @include border-left($base-border);
         }
 
         @include media($large) {
-           border-right: $base-border;
+           @include border-right($base-border);
            width: 75%;
-           float: left;
+           @include float(left);
            min-height: 204px;
+        }
+
+        .meta-data {
+            margin-top: 12px;
         }
 
     }
@@ -38,7 +41,7 @@
         overflow: auto;
 
         @include media($large) {
-            margin-left: 0;
+            @include margin-left(0);
         }
 
     }
@@ -46,7 +49,7 @@
 }
 
 .select-post {
-    float: left;
+    @include float(left);
     margin: 0;
     padding: 5px;
     @include border-box;
@@ -62,15 +65,15 @@
 
     @include media($large) {
        width: 22%;
-       float: left;
+       @include float(left);
        border-top: 0px;
     }
 
     .step {
         width: 50%;
-        float: left;
+        @include float(left);
         padding: $base-spacing;
-        border-right: $base-border;
+        @include border-right($base-border);
 
         @include media($large) {
             width: 100%;
@@ -89,7 +92,7 @@
 
     .actions-stacked {
         width: 50%;
-        float: right;
+        @include float(right);
         padding: $base-spacing;
 
         @include media($large) {
@@ -119,6 +122,7 @@
             @include media($large) {
                 padding-bottom: $sm-spacing;
             }
+
         }
 
     }

@@ -2027,7 +2027,7 @@ $LAYOUT
   display: inline; }
 
 .media .img {
-  float: left; }
+  float: right; }
   .media .img img {
     display: block; }
 .media .imgExt {
@@ -2453,7 +2453,7 @@ positioning, etc.)
   visibility: visible; }
 @media screen and (min-width: 48em)  {
   .pl .step-list .step-list-content {
-    border-left: 1px solid #ebebeb !important;
+    border-right: 1px solid #ebebeb !important;
     max-width: 300px; } }
 .pl .pl-filters {
   background: #ffffff;
@@ -3222,8 +3222,8 @@ ul.bullets-open li {
     margin: 0; }
 
 blockquote {
-  border-left: 4px solid #ebebeb;
-  padding-left: 10px;
+  border-right: 4px solid #ebebeb;
+  padding-right: 10px;
   font-style: italic;
   margin: 20px 0; }
 
@@ -3361,7 +3361,7 @@ span.date {
     $FRAGMENTS
 \*------------------------------------*/
 .actions-content {
-  float: left;
+  float: right;
   padding: 10px 0; }
   @media screen and (min-width: 80em)  {
     .actions-content {
@@ -3373,12 +3373,12 @@ span.date {
     border-bottom-right-radius: 0; }
 
 .actions-inline + .actions-content li {
-  float: left;
-  padding: 0 10px 10px 0; }
+  float: right;
+  padding: 0 0 10px 10px; }
 
 .actions-stacked + .actions-content li {
-  float: left;
-  padding: 0 10px 10px 0; }
+  float: right;
+  padding: 0 0 10px 10px; }
   @media screen and (min-width: 80em)  {
     .actions-stacked + .actions-content li {
       float: none;
@@ -3692,6 +3692,13 @@ button.plus.open:before, .button.plus.open:before, .plus.open.button-secondary:b
   -webkit-transform-origin: 35% 50%;
       -ms-transform-origin: 35% 50%;
           transform-origin: 35% 50%; }
+button.plus.open:after, .button.plus.open:after, .plus.open.button-secondary:after, .plus.open.button-toggle:after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -webkit-transform-origin: 60% 50%;
+      -ms-transform-origin: 60% 50%;
+          transform-origin: 60% 50%; }
 button.check:after, .button.check:after, .check.button-secondary:after, .check.button-toggle:after {
   content: "\f00c";
   font-family: FontAwesome;
@@ -4730,7 +4737,7 @@ aside .filters {
       .tabs-with-filter .filters .filters-show-hide {
         width: 30%;
         float: right;
-        padding-left: 10px;
+        padding-right: 10px;
         text-align: left; } }
     .tabs-with-filter .filters .filters-show-hide label.delta-alt, .tabs-with-filter .filters .filters-show-hide label.input-label, .tabs-with-filter .filters .filters-show-hide label.filter-label {
       float: none; }
@@ -4739,6 +4746,7 @@ aside .filters {
   @media screen and (min-width: 48em)  {
     .tabs-with-filter .filters .filters-container {
       left: 0;
+      right: inherit;
       left: inherit; } }
   .tabs-with-filter .tabs-menu {
     width: 45%; }
@@ -4753,6 +4761,7 @@ aside .filters {
     width: 45%; }
     @media screen and (min-width: 48em)  {
       .tabs-with-filter .tabs-menu-list {
+        position: relative;
         width: 100%; } }
   @media screen and (min-width: 48em)  {
     .tabs-with-filter .button-toggle {
@@ -4767,24 +4776,24 @@ aside .filters {
   margin: 10px 0; }
 @media screen and (min-width: 48em)  {
   .post-summary .meta-data {
-    float: left;
-    margin-right: 20px; } }
+    float: right;
+    margin-left: 20px; } }
 .post-summary .category {
-  float: left; }
+  float: right; }
 .post-summary .post-img {
-  padding: 5px 10px 5px 0;
-  float: left;
+  padding: 5px 0 5px 10px;
+  float: right;
   width: 25%; }
   @media screen and (min-width: 48em)  {
     .post-summary .post-img {
-      padding: 0 20px 20px 0;
+      padding: 0 0 20px 20px;
       margin-top: -20px; } }
   @media screen and (min-width: 64em)  {
     .post-summary .post-img {
-      padding: 0 40px 20px 0; } }
+      padding: 0 0 20px 40px; } }
 @media screen and (min-width: 48em)  {
   .post-summary.has-img .meta-data {
-    margin-left: 25%; } }
+    margin-right: 25%; } }
 
 .single-post-listing {
   overflow: auto;
@@ -4802,26 +4811,27 @@ aside .filters {
   .single-post-listing .post-summary {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding: 20px 0;
     padding: 10px; }
     @media screen and (min-width: 48em)  {
       .single-post-listing .post-summary {
         padding: 10px 20px 0;
-        border-left: 1px solid #ebebeb; } }
+        border-right: 1px solid #ebebeb; } }
     @media screen and (min-width: 80em)  {
       .single-post-listing .post-summary {
-        border-right: 1px solid #ebebeb;
+        border-left: 1px solid #ebebeb;
         width: 75%;
-        float: left;
+        float: right;
         min-height: 204px; } }
+    .single-post-listing .post-summary .meta-data {
+      margin-top: 12px; }
   .single-post-listing .post-summary, .single-post-listing .step-and-actions {
     overflow: auto; }
     @media screen and (min-width: 80em)  {
       .single-post-listing .post-summary, .single-post-listing .step-and-actions {
-        margin-left: 0; } }
+        margin-right: 0; } }
 
 .select-post {
-  float: left;
+  float: right;
   margin: 0;
   padding: 5px;
   -moz-box-sizing: border-box;
@@ -4834,13 +4844,13 @@ aside .filters {
   @media screen and (min-width: 80em)  {
     .step-and-actions {
       width: 22%;
-      float: left;
+      float: right;
       border-top: 0px; } }
   .step-and-actions .step {
     width: 50%;
-    float: left;
+    float: right;
     padding: 20px;
-    border-right: 1px solid #ebebeb; }
+    border-left: 1px solid #ebebeb; }
     @media screen and (min-width: 80em)  {
       .step-and-actions .step {
         width: 100%;
@@ -4853,7 +4863,7 @@ aside .filters {
       margin: 5px 0; }
   .step-and-actions .actions-stacked {
     width: 50%;
-    float: right;
+    float: left;
     padding: 20px; }
     @media screen and (min-width: 80em)  {
       .step-and-actions .actions-stacked {
@@ -4878,6 +4888,7 @@ aside .filters {
           padding-bottom: 10px; } }
 
 .activity-listing {
+  direction: rtl;
   border: 1px solid #ebebeb;
   border-width: 2px;
   padding: 10px;
@@ -4889,13 +4900,11 @@ aside .filters {
     border-color: transparent transparent #ffffff #ffffff;
     position: absolute;
     top: 10px;
-    left: 0px;
-    -webkit-transform-origin: 0 0;
-        -ms-transform-origin: 0 0;
-            transform-origin: 0 0;
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
+    right: -6px;
+    /* transform-origin: 0 0; */
+    -webkit-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(225deg);
     box-shadow: -2px 2px 0px 0px rgba(0, 0, 0, 0.08); }
   .activity-listing h3 {
     margin: 0; }
@@ -4955,7 +4964,7 @@ aside .filters {
     .activity-listing .activity-type.post:before, .activity-listing .activity-type.comment:before, .activity-listing .activity-type.collection:before, .activity-listing .activity-type.saved-search:before {
       color: #999999;
       font-size: 1.125em;
-      padding-right: 4px; }
+      padding-left: 4px; }
 
 @media screen and (min-width: 48em)  {
   .timeline-full-width .activity-listing {
@@ -4984,7 +4993,7 @@ aside .filters {
   @media screen and (min-width: 48em)  {
     .step-list {
       padding: 10px;
-      margin-left: -10px;
+      margin-right: -10px;
       border: 0px;
       display: block; } }
   .step-list button.open {
@@ -4992,15 +5001,17 @@ aside .filters {
     border-bottom-right-radius: 0; }
   .step-list .step-list-content {
     border: 1px solid #ebebeb;
-    padding: 0 10px;
+    padding: 20px 10px;
     margin-top: -1px;
     display: none; }
     @media screen and (min-width: 48em)  {
       .step-list .step-list-content {
-        display: block;
+        display: inline-block;
         border: none;
         position: relative;
-        padding-left: 20px; } }
+        padding: 0 20px 0 0; } }
+    .step-list .step-list-content.toggle-content ul li {
+      display: block; }
     .step-list .step-list-content ul {
       margin: -20px 0; }
       @media screen and (min-width: 48em)  {
@@ -5040,14 +5051,11 @@ aside .filters {
           border-color: transparent transparent #ffffff #ffffff;
           position: absolute;
           bottom: 50%;
-          left: -20px;
+          right: -30px;
           margin-bottom: -10px;
-          -webkit-transform-origin: 0 0;
-              -ms-transform-origin: 0 0;
-                  transform-origin: 0 0;
-          -webkit-transform: rotate(45deg);
-              -ms-transform: rotate(45deg);
-                  transform: rotate(45deg);
+          -webkit-transform: rotate(225deg);
+          -ms-transform: rotate(225deg);
+          transform: rotate(225deg);
           box-shadow: -1px 1px 0px 0px rgba(0, 0, 0, 0.08); } }
     .step-list .active:hover {
       background: #ffffff !important; }
@@ -5072,14 +5080,14 @@ aside .filters {
   border-right: 1px solid #ebebeb;
   border-left: 1px solid #ebebeb; }
   .settings-listing .select {
-    float: left;
+    float: right;
     text-align: center;
     width: 6%;
     margin: 15px 3%; }
     @media screen and (min-width: 30em)  {
       .settings-listing .select {
         width: 2%;
-        margin: 13px 4% 0 2%; } }
+        margin: 13px 2% 0 4%; } }
     @media screen and (min-width: 48em)  {
       .settings-listing .select {
         width: 3%;
@@ -5087,36 +5095,36 @@ aside .filters {
     .settings-listing .select input {
       margin: 0; }
   .settings-listing h3 {
-    padding-left: 10px;
+    padding-right: 10px;
     margin: 10px 0; }
     @media screen and (min-width: 48em)  {
       .settings-listing h3 {
-        padding-left: 20px;
+        padding-right: 20px;
         margin: 20px 0; } }
   .settings-listing .upvote-downvote {
     position: absolute;
     top: 2px;
-    left: 2px; }
+    right: 2px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .upvote-downvote {
         top: 10px;
-        left: 10px; } }
+        right: 10px; } }
   .settings-listing .plus, .settings-listing .toggle-switch {
     position: absolute;
     top: 14px;
-    left: 4px;
-    padding: 8px 4px 8px 9px; }
+    right: 4px;
+    padding: 8px 9px 8px 4px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .plus, .settings-listing .toggle-switch {
         top: 26px;
-        left: 10px; } }
+        right: 10px; } }
   .settings-listing .toggle-switch {
     padding: 0; }
   .settings-listing .upvote-downvote + .toggle-switch {
-    left: 40px; }
+    right: 40px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .upvote-downvote + .toggle-switch {
-        left: 50px; } }
+        right: 50px; } }
   .settings-listing .upvote-downvote + h3, .settings-listing .plus + h3 {
     padding-right: 45px; }
     @media screen and (min-width: 48em)  {
@@ -5134,12 +5142,13 @@ aside .filters {
         padding-right: 120px; } }
   .settings-listing .actions {
     position: absolute;
-    right: 10px;
+    left: 10px;
     top: 14px; }
     @media screen and (min-width: 48em)  {
       .settings-listing .actions {
         top: 24px; } }
     .settings-listing .actions button {
+      float: right;
       margin-bottom: 10px;
       margin-right: 5px; }
       .settings-listing .actions button.open:after {
@@ -5155,8 +5164,8 @@ aside .filters {
         speak: none;
         transition: content, .25s; }
     .settings-listing .actions .toggle-switch {
-      float: right;
-      margin-left: 10px; }
+      float: left;
+      margin-right: 10px; }
   .settings-listing .toggle-switch + button {
     float: right; }
   .settings-listing form, .settings-listing .form {
@@ -5166,12 +5175,12 @@ aside .filters {
     margin-top: 20px; }
     @media screen and (min-width: 48em)  {
       .settings-listing form, .settings-listing .form {
-        padding: 5px 0 20px 20px;
+        padding: 5px 20px 20px 0;
         margin-top: 34px; } }
     @media screen and (min-width: 30em)  {
       .settings-listing form .select-inline, .settings-listing .form .select-inline {
-        float: left;
-        margin: -20px 20px 20px 0; } }
+        float: right;
+        margin: -20px 0 20px 20px; } }
     .settings-listing form .button-primary, .settings-listing .form .button-primary {
       margin-top: 20px; }
   .settings-listing .edit {
@@ -5179,14 +5188,14 @@ aside .filters {
 
 .user-listing .img {
   width: 26%;
-  padding: 0 4% 0 2%; }
+  padding: 0 2% 0 4%; }
   @media screen and (min-width: 30em)  {
     .user-listing .img {
       width: 20%; } }
   @media screen and (min-width: 64em)  {
     .user-listing .img {
       width: 15%;
-      padding: 0 2% 0 0; } }
+      padding: 0 0 0 2%; } }
 .user-listing .bd {
   width: 50%; }
   @media screen and (min-width: 64em)  {
@@ -5199,14 +5208,14 @@ aside .filters {
     padding: 0; }
     @media screen and (min-width: 64em)  {
       .user-listing .bd h3 {
-        float: left;
+        float: right;
         width: 70%; } }
   .user-listing .bd .user-type {
     color: #737373;
     margin-top: 10px; }
     @media screen and (min-width: 64em)  {
       .user-listing .bd .user-type {
-        float: right;
+        float: left;
         width: 30%;
         margin-top: 30px; } }
 
@@ -5226,16 +5235,29 @@ aside .filters {
     font-size: 0; }
   .lt-ie8 .applied-filters {
     zoom: 1; }
-  @media screen and (min-width: 48em)  {
-    .applied-filters .pills {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 74.41059%; }
-      .applied-filters .pills:last-child {
-        margin-right: 0; } }
-  .applied-filters .save-button {
+  .applied-filters .pills {
+    float: left;
     display: block;
+    margin-right: 2.35765%;
+    width: 100%;
+    float: right;
+    margin: 0 0 0 2.35765%; }
+    .applied-filters .pills:last-child {
+      margin-right: 0; }
+    @media screen and (min-width: 48em)  {
+      .applied-filters .pills {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 74.41059%;
+        float: right;
+        margin: 0 0 0 2.35765%; }
+        .applied-filters .pills:last-child {
+          margin-right: 0; } }
+    .applied-filters .pills button {
+      float: right; }
+  .applied-filters .save-button {
+    display: inline-block;
     margin-top: 10px; }
     @media screen and (min-width: 48em)  {
       .applied-filters .save-button {
@@ -5243,12 +5265,14 @@ aside .filters {
         display: block;
         margin-right: 2.35765%;
         width: 23.23176%;
+        float: right;
+        margin-left: 0;
         margin-top: 2px; }
         .applied-filters .save-button:last-child {
           margin-right: 0; } }
     @media screen and (min-width: 48em)  {
       .applied-filters .save-button .save {
-        float: right; } }
+        float: left; } }
 
 /*------------------------------------*\
     $BLOCKS

@@ -19,7 +19,7 @@
             @include media($small) {
                 width: 30%;
                 float: right;
-                padding-left: $sm-spacing;
+                @include padding-left($sm-spacing);
                 @include text-align(right);
             }
 
@@ -37,6 +37,7 @@
 
             @include media($small) {
                 @include right(0);
+                @include left(inherit);
                 left: inherit;
             }
 
@@ -63,6 +64,7 @@
         width: 45%;
 
         @include media($small) {
+            position: relative;
             width: 100%;
         }
 
