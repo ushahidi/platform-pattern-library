@@ -9,7 +9,7 @@
     width: 90%;
     left: 5%;
     top: $base-spacing;
-    padding: $sm-spacing $sm-spacing $base-spacing;
+    @include lrswap(padding, $sm-spacing $sm-spacing $base-spacing);
     margin-bottom: $base-spacing;
     background: $lt-bg;
     overflow-x: auto;
@@ -48,15 +48,15 @@
         margin: $sm-spacing 0;
 
         &.settings {
-            @include icon(before, settings){
+            @include icon($before, settings){
                 color: $dk-gray;
-                padding-right: $sm-spacing;
+                @include padding-right($sm-spacing);
             }
         }
         &.edit {
-            @include icon(before, pencil){
+            @include icon($before, pencil){
                 color: $dk-gray;
-                padding-right: $sm-spacing;
+                @include padding-right($sm-spacing);
             }
         }
 
@@ -71,11 +71,11 @@
         }
         position: absolute;
         top: $sm-spacing;
-        right: $sm-spacing;
+        @include right($sm-spacing);
         border: $base-border;
 
         @include media($mobile) {
-            right: $base-spacing;
+            @include right($base-spacing);
             top: $base-spacing;
         }
 
@@ -87,11 +87,11 @@
 
     .modal-submit {
         background: $lt-gray;
-        margin: $base-spacing (-$base-spacing) (-$base-spacing);
-        padding: $base-spacing $sm-spacing $base-spacing $base-spacing;
+        @include lrswap(margin, $base-spacing (-$base-spacing) (-$base-spacing));
+        @include lrswap(padding, $base-spacing $sm-spacing $base-spacing $base-spacing);
 
         .cta {
-            padding-left: $sm-spacing;
+            @include padding-left($sm-spacing);
         }
     }
 

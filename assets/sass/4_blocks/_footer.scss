@@ -15,7 +15,7 @@ footer {
         }
 
         @include media($medium) {
-            float: right;
+            @include float(right);
             width: 80%;
             padding: $base-spacing 0 $lg-spacing;
         }
@@ -24,9 +24,15 @@ footer {
 
     .footer-main-col {
         @include span-columns(12);
+        @include float(left);
+        @include lrswap(margin, 0 0 0 2.35765%);
+        margin-right: 0;
 
         @include media($small) {
             @include span-columns(9);
+            @include float(left);
+            @include lrswap(margin, 0 0 0 2.35765%);
+            margin-right: 0;
         }
 
     }
@@ -41,7 +47,7 @@ footer {
         }
 
         @include media($medium) {
-            padding-right: $base-spacing;
+            @include padding-right($base-spacing);
         }
 
     }
@@ -61,8 +67,8 @@ footer {
     @extend .list-unstyled;
 
     li {
-        float: left;
-        padding-right: $base-spacing;
+        @include float(left);
+        @include padding-right($base-spacing);
     }
 
 }

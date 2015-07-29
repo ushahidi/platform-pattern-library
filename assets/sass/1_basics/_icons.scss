@@ -6,7 +6,6 @@
     position: relative;
     width: 31px;
     height: 34px;
-    @include rotate(0deg);
     @include transition(all, .4s);
     cursor: pointer;
 
@@ -17,8 +16,7 @@
         width: 100%;
         background: $highlight;
         opacity: 1;
-        left: 0;
-        @include rotate(0deg);
+        @include left(0);
         @include transition(all, .25s)
     }
 
@@ -38,7 +36,7 @@
     }
 
     &.open span:nth-child(1) {
-        @include rotate(45deg);
+        transform: rotate(45deg);
         top: 0px;
     }
 
@@ -48,7 +46,7 @@
     }
 
     &.open span:nth-child(3) {
-        @include rotate(-45deg);
+        transform: rotate(-45deg);
         top:22px;
     }
 

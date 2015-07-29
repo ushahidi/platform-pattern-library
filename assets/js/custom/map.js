@@ -43,7 +43,7 @@ if ($('#map').length) {
             <span>Options</span>
         </button>
     </div>
-    <div class="toggle-content">
+    <div class="actions-content toggle-content">
         <ul class="dropdown-menu list-unstyled" role="menu">
             <li>
                 <button type="button" class="button-secondary edit">
@@ -75,7 +75,7 @@ if ($('#map').length) {
             <span>Options</span>
         </button>
     </div>
-    <div class="toggle-content">
+    <div class="actions-content toggle-content">
         <ul class="dropdown-menu" role="menu">
             <li>
                 <button type="button" class="button-secondary edit">

@@ -1,18 +1,18 @@
 .user-admin {
     position: relative;
     top: 0;
-    right: 0;
+    @include right(0);
     z-index: 1000;
 
     @include media($small) {
         position: absolute;
-        margin: 18px 10px 0 0;
+        @include lrswap(margin, 18px 10px 0 0);
     }
 
     &.logged-out a {
         @extend .delta;
         color: $link-color;
-        margin-right: $sm-spacing;
+        @include margin-right($sm-spacing);
 
         @include media($small) {
             color: $link-color-lt; //make color lighter when it's on dark bg
@@ -27,11 +27,11 @@
         cursor: pointer;
         height: 30px;
         user-select: none;
-        text-align: right;
+        @include text-align(right);
     }
 
     .user-avatar {
-        display: inline-block;
+        @include float(left);
 
         img {
             position: relative;
@@ -44,15 +44,14 @@
     .username {
         position: relative;
         top: -10px;
-        display: inline-block;
+        @include float(left);
         font-weight: bold;
-        padding: 10px 10px 0 0;
-        margin: $sm-spacing 0 0 $sm-spacing;
+        @include lrswap(padding, 10px 10px 0 0);
+        @include lrswap(margin, $sm-spacing 0 0 $sm-spacing);
     }
 
     .button-toggle {
         position: relative;
-        top: -10px;
         background: transparent;
         border: none;
         padding-bottom: 15px;

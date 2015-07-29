@@ -11,11 +11,17 @@
 
 .stat {
     @include span-columns(3);
-    @include omega(4n);
+    @include float(left);
+    @include margin-right(2.35765%);
+    @include margin-left(0);
     text-align: center;
 
     @include media($mobile) {
-        text-align: left;
+        @include text-align(left);
+    }
+
+    &:nth-child(4n) {
+        @include margin-right(0);
     }
 
     .big-number {
@@ -37,4 +43,3 @@
     }
 
 }
-

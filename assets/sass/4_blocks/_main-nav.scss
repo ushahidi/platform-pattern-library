@@ -29,10 +29,10 @@
     position: fixed;
     z-index: 602;
     top: 0;
-    left: -300px;
+    @include left(-300px);
     visibility: hidden;
     overflow: auto;
-    float: left;
+    @include float(left);
     background-color: white;
     padding: $base-spacing;
     width: 70%;
@@ -49,7 +49,7 @@
     @include media($medium) {
         position: static;
         width: 20%;
-        left: 0;
+        @include left(0);
         visibility: visible;
         display: block;
         margin: $sm-spacing 0 0;
@@ -57,7 +57,7 @@
     }
 
     @include media($xlarge) {
-        left: 30px;
+        @include left(30px);
     }
 
     /* five items */
@@ -68,7 +68,7 @@
 
     .navigation-open & {
         visibility: visible;
-        left: 0;
+        @include left(0);
         height: 100%;
     }
 
@@ -81,7 +81,7 @@
     }
 
     .button-create {
-        margin-top: $base-spacing;
+        margin: $base-spacing 0;
 
         @include media($medium) {
             display: none;
@@ -108,7 +108,7 @@
         }
 
         .toggle-wrapper {
-            text-align: left;
+            @include text-align(left);
         }
 
     }
@@ -157,12 +157,14 @@
         .settings-nav {
 
             .settings-nav-header a {
-                @include icon(before, plus);
+                @include icon($before, plus) {
+                    @include lrswap(padding, 0 5px 0 1px);
+                }
                 display: block;
                 margin: 0;
 
                 &.open {
-                    @include icon(before, minus);
+                    @include icon($before, minus);
                 }
 
             }
@@ -173,7 +175,7 @@
                 display: none;
 
                 li {
-                    padding: $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px);
+                    @include lrswap(padding, $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px));
                 }
 
                 a {
@@ -191,24 +193,20 @@
         @extend .list-unstyled;
         margin: 0 0 $base-spacing*2 0;
 
-        li {
-            line-height: 1;
-        }
-
         .saved-searches {
-            @include icon(before, filter) {
+            @include icon($before, filter) {
                 color: $mid-gray;
                 font-size: em(18);
-                padding-right: 8px;
+                @include padding-right(8px);
             }
 
         }
 
         .collections {
-            @include icon(before, collection) {
+            @include icon($before, collection) {
                 color: $mid-gray;
                 font-size: em(18);
-                padding-right: 8px;
+                @include padding-right(8px);
             }
 
         }
@@ -230,21 +228,29 @@
         }
 
         li {
+            display: inline;
+            @include float(left);
+            clear: both;
             margin: 0;
             padding: $sm-spacing 0;
             border-width: 3px;
+            line-height: 1;
         }
 
         a {
-            padding-right: 5px;
+            @include padding-right(10px);
         }
 
         .star {
-            @include icon(after, star);
+            @include float(right);
+            @include icon($after, star) {
+                padding: 0;
+            }
             color: $mid-gray;
-            opacity: 0;
+            opacity: .5;
 
             &:hover {
+                cursor: pointer;
                 color: $yellow;
             }
 
@@ -252,9 +258,10 @@
                 opacity: 1;
                 color: $yellow;
 
-                &:after {
+                &:after,
+                &:before {
                     transform: rotate(360deg);
-                    transform-origin: 40%;
+                    transform-origin: 50%;
                 }
 
             }
@@ -282,7 +289,14 @@
 
     }
 
-
+    .nav-icon,
+    .button-create,
+    .main-nav,
+    .user-admin,
+    .sub-nav {
+        @include float(left);
+        clear: both;
+    }
 /*
     .header-compact + .wrapper & {
         margin-top: -231px;
