@@ -48,6 +48,7 @@ textarea {
     @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.1), $inset: true);
     @include typeBase;
     @include direction;
+    display: block;
     font-size: em(18);
     @include text-align(left);
     outline-color: $white;
@@ -79,6 +80,10 @@ textarea {
     &[disabled] {
         @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,0), $inset: true);
         border-color: $lt-gray;
+    }
+
+    .rtl & {
+        max-width: 100%;
     }
 
 }
