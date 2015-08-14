@@ -1,52 +1,46 @@
-$(function() {
+if ($('.fixed-sidebar-content').length) { // IF view has "fixed sidebar content" element
+    $(function() {
 
-    var $content, $sideBar, $window, sideBarTopOffset, stickySideBar;
+        var sideBar = $('.fixed-sidebar-content'),
+            sideBarTopOffset = sideBar.offset().top,
+            stickySideBar = function() {
+                if ($(window).width() > 767) { // IF: Screen width is greater than 767px
+                  var windowTop,
+                      windowFoot;
+                  windowTop = $(window).scrollTop();
+                  windowFoot = windowTop + (sideBar.innerHeight() + 68);
 
-    $window = $(window);
+                  if ((sideBarTopOffset < (windowTop - 35)) && (sideBar.innerHeight() < ($(window).height() - 68))) { // IF: Sidebar is vertically positioned behind the toolbar
+                    sideBar.css({
+                      position: 'fixed',
+                      left: sideBar.offset().left,
+                      width: sideBar.css('width')
+                    });
 
-    $sideBar = $('.fixed-sidebar-content');
+                    if (windowFoot >= $('[role="contentinfo"]').offset().top) { // IF: Footer is vertically positioned behind the sidebar
+                        return sideBar.css({
+                          top: 'auto',
+                          bottom: 175,
+                        });
+                    } else { // ELSE: Footer is vertically positioned below the sidebar
+                        return sideBar.css({
+                          top: 68,
+                          bottom: 'auto',
+                        });
+                    }
+                  } else { // ELSE: Sidebar is vertically positioned below the toolbar
+                    return sideBar.removeAttr('style');
+                  }
+                }
+            };
 
-    $content = $('.main-col');
+        $(window).scroll(function() {
+          return stickySideBar();
+        });
 
-    sideBarTopOffset = $sideBar.offset().top;
+        $(window).on('resize', function() {
+          return stickySideBar();
+        });
 
-    stickySideBar = function() {
-      if ($window.width() > 767) { // IF: Screen width is greater than 767px
-          var windowTop,
-              windowFoot;
-          windowTop = $window.scrollTop();
-          windowFoot = windowTop + ($sideBar.innerHeight() + 68);
-
-          if ((sideBarTopOffset < (windowTop - 35)) && ($sideBar.innerHeight() < ($window.height() - 68))) { // IF: Sidebar is vertically positioned behind the toolbar
-            $sideBar.css({
-              position: 'fixed',
-              left: $sideBar.offset().left,
-              width: $sideBar.css('width')
-            });
-
-            if (windowFoot >= $('[role="contentinfo"]').offset().top) { // IF: Footer is vertically positioned behind the sidebar
-                return $sideBar.css({
-                  top: 'auto',
-                  bottom: 175,
-                });
-            } else { // ELSE: Footer is vertically positioned below the sidebar
-                return $sideBar.css({
-                  top: 68,
-                  bottom: 'auto',
-                });
-            }
-          } else { // ELSE: Sidebar is vertically positioned below the toolbar
-            return $sideBar.removeAttr('style');
-          }
-        }
-    };
-
-    $window.scroll(function() {
-      return stickySideBar();
     });
-
-    $window.on('resize', function() {
-      return stickySideBar();
-    });
-
-});
+}

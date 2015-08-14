@@ -61,20 +61,24 @@
             display: none;
         }
 
+        + .beta {
+            margin-bottom: $sm-spacing;
+        }
+
     }
 
     .beta {
         display: inline-block;
-        margin: $base-spacing 0 $sm-spacing;
+        margin: $base-spacing $sm-spacing;
         font-weight: $bold;
 
         @include media($small) {
-            margin: $base-spacing $sm-spacing;
+            margin: $lg-spacing $sm-spacing;
             font-size: 1.8em
         }
 
         @include media($medium) {
-            margin: $base-spacing;
+            margin: $lg-spacing $base-spacing;
         }
 
     }
@@ -153,11 +157,14 @@
         width: 100%;
         z-index: $topbar;
 
+        .nav-icon + .beta {
+            margin-top: 50px;
+        }
+
         .beta {
             display: block;
             font-size: 2em;
             text-align: center;
-            margin-top: 50px;
 
             @include media($small) {
                 font-size: 3em;
@@ -218,7 +225,11 @@
     }
 
     &.header-compact {
+        height: 80px;
 
+        @include media($medium) {
+            height: 70px;
+        }
         .container {
             position: fixed;
             top: 0;
@@ -228,6 +239,10 @@
 
         .color-overlay:after, .hero-image + .color-overlay:after {
             background-color: rgba($header-bg-color, .75);
+        }
+
+        .beta {
+            margin: $base-spacing;
         }
 
         .button-create {

@@ -1,0 +1,234 @@
+.tier {
+    position: relative;
+    color: $dk-gray;
+    text-align: center;
+    margin-bottom: $base-spacing;
+
+    @include media($small) {
+        max-width: 60%;
+        margin: $lg-spacing auto;
+    }
+
+    .tier-header {
+        position: relative;
+        overflow: hidden;
+        border: $base-border;
+        background-color: #FBF9F6;
+        padding: 0 $base-spacing 35px;
+
+        .tier-header-body {
+            position: relative;
+            z-index: 1;
+            color: $white;
+
+            .tier-heading {
+                color: $white;
+            }
+
+            .tier-feature,
+            .tier-feature em {
+                color: $lt-gray;
+            }
+        }
+    }
+
+    &.selected {
+
+        .tier-header {
+            background-color: $white;
+        }
+    }
+
+    .tier-image {
+
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $header-bg-color;
+            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            background-color: rgba($header-bg-color, .75);
+        }
+
+
+        img {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            min-height: 100%;
+            min-width: 100%;
+            max-width: 100%;
+        }
+    }
+
+    .tier-name {
+        color: $black;
+        font-size: em(28);
+	    font-weight: $bold;
+    }
+
+    .tier-heading {
+        font-weight: $body-font-weight;
+        margin-top: $lg-spacing;
+    }
+
+    .tier-price {
+        display: block;
+        color: $black;
+        font-weight: $body-font-weight;
+        font-size: em(50);
+        margin: $base-spacing 0;
+
+        em {
+            position: relative;
+            top: -1em;
+        }
+    }
+
+    .tier-feature {
+        color: $black;
+        font-weight: $bold;
+        font-size: em(19);
+
+        em {
+            display: block;
+            margin-top: $tiny-spacing;
+        }
+    }
+
+    .tier-price,
+    .tier-feature {
+
+        em {
+            color: $dk-gray;
+            font-weight: $body-font-weight;
+            font-style: normal;
+            font-size: 12px;
+        }
+    }
+
+    .tier-action {
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        left: 0;
+        text-align: center;
+        margin-top: -$base-spacing;
+
+        button,
+        .button {
+            color: $black;
+            background-color: $yellow;
+            margin: 0 auto;
+
+            &[disabled] {
+                color: $white;
+                background-color: $button-bg-disabled-color;
+            }
+        }
+    }
+
+    &.selected {
+
+        .tier-action {
+
+            button,
+            .button {
+                color: $dk-gray;
+                border: 2px solid $lt-gray;
+                background-color: #FBF9F6;
+            }
+        }
+    }
+
+    .tier-feature-list {
+        background-color: #EFECE8;
+        padding-top: $base-spacing;
+        padding-bottom: $base-spacing;
+
+        ul, ol {
+            margin: 0;
+        }
+
+        li,
+        em {
+            display: block;
+            color: $lt-black;
+            font-size: em(14);
+            border-bottom: $base-border;
+            border-bottom-color: #E0E0E0;
+            padding: 15px;
+            margin-bottom: 0;
+        }
+
+        li {
+
+            &:last-child {
+                border-bottom-color: transparent;
+            }
+        }
+    }
+
+    .cta {
+        font-weight: $bold;
+        font-size: em(12);
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+}
+
+.tiers {
+    @include clearfix;
+
+    .tier {
+        max-width: none;
+        margin: $base-spacing 0 $lg-spacing;
+
+        .tier-feature-list {
+            min-height: 250px;
+        }
+
+        @include media($small) {
+            float: left;
+            width: 33.333333%;
+            margin: $lg-spacing 0;
+        }
+
+        &.recommended {
+
+            @include media($small) {
+                position: relative;
+                z-index: 2;
+                top: -$base-spacing;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 4px;
+                    right: -4px;
+                    bottom: 46px;
+                    left: -4px;
+                    background-color: rgba(0,0,0,.05);
+                }
+
+                &.selected:after {
+                    background-color: rgba(0,0,0,.15);
+                }
+
+                .tier-header {
+                    padding-top: $base-spacing;
+                }
+
+            }
+        }
+    }
+}

@@ -1,7 +1,8 @@
 .custom-select {
     position: relative;
     display: inline-block;
-   @include icon($after, chevron-down) {
+    top: -2px;
+    @include icon($after, chevron-down) {
         @include radius(0, $global-radius, $global-radius, 0);
         position: absolute;
         top: 0;
@@ -12,17 +13,19 @@
         pointer-events: none;
         color: $yellow;
    }
-}
+   margin: $sm-spacing 0 $base-spacing;
 
-.custom-select select {
-    @include direction;
-   @include radius($global-radius);
-   border: $base-border;
-   background: $white;
-   @include lrswap(padding, $tiny-spacing 30px $tiny-spacing $sm-spacing);
-   font-family: $base-font-family;
-   font-weight: 400;
-   font-size: em(15);
-   -webkit-appearance: none;
-   -moz-appearance: none;
+    select {
+        min-height: 33px;
+        @include direction;
+        @include radius($global-radius);
+        border: $base-border;
+        background: $white;
+        @include lrswap(padding, $tiny-spacing 30px $tiny-spacing $sm-spacing);
+        font-family: $base-font-family;
+        font-weight: 400;
+        font-size: em(15);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
 }

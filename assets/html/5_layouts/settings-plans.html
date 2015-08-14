@@ -21,6 +21,62 @@
 </head>
 
 
+<div class="modal">
+    <div class="modal-window">
+        <h3>Enter your payment information</h3>
+
+        <div class="divider padded"></div>
+
+        <label class="input-label required" for="cc-name">Name on card</label>
+        <input type="text" placeholder="Jane Doe" id="cc-name"></input>
+
+        <label class="input-label required" for="cc-number">Credit Card Number</label>
+        <input type="text" inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number" />
+
+        <div class="flex-col">
+            <div class="col">
+                <fieldset>
+                    <legend class="input-label">Expiration</legend>
+                    <div class="custom-select">
+                        <select name="cc-exp-month" autocomplete="cc-exp-month">
+                            <option value="1">Month</option>
+                            <option value="2">January</option>
+                            <option value="3">February</option>
+                        </select>
+                    </div>
+                    <div class="custom-select">
+                        <select name="cc-exp-year" autocomplete="cc-exp-year">
+                            <option value="1">Year</option>
+                            <option value="2">2015</option>
+                            <option value="3">2016</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col">
+                <label class="input-label required" for="cc-cvv">CVV</label>
+                <input style="width:80px;" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv"></input>
+            </div>
+
+            <div class="col">
+                <label class="input-label required" for="cc-zip">Zip/Postal Code</label>
+                <input style="width:100px;" type="text" placeholder="" id="cc-zip"></input>
+            </div>
+        </div>
+
+        <p class="small">*These fields are required.</p>
+
+        <div class="divider white"></div>
+
+        <div class="modal-submit">
+            <a class="button button-primary" href="setup-customize.html">Continue</a>
+            <a class="cta modal-trigger" href="setup-plans.html">Cancel</a>
+        </div>
+    </div>
+    <div class="modal-overlay"></div>
+</div>
+
 <body class="has-fixed-bottom">
 
     <header class="header header-compact overlay" role="banner">
@@ -152,145 +208,98 @@
             <div class="main-col">
                 <ul class="breadcrumb">
                    <li>
-                       <a href="">General Settings</a>
+                       Settings
                    </li>
                 </ul>
-                <h1 class="inline">Data Sources</h1>
-                <a href="#" class="cta edit">Edit Sources APIs</a>
 
-                <p>
-                    <em>You can turn on and off sources.</em>
-                </p>
+                <h1 class="inline">Plans</h1>
 
-                <div class="settings-listing">
-                    <div class="toggle-switch">
-                        <input class="tgl" id="switch1" type="checkbox">
-                        <label class="tgl-btn" for="switch1"></label>
-                    </div>
-                    <h3>
-                        <a href="">Twitter Hashtag</a>
-                    </h3>
-                    <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
-                            <span>Options</span>
-                        </button>
-                    </div>
-                    <form class="toggle-content">
-                        <label class="input-label">Hashtag</label>
-                        <input type="text" placeholder="#example">
-                        <div class="select-inline">
-                            <label class="input-label">Import As:</label>
-                            <select name="visible-to">
-                                <option value="volvo">Option 1</option>
-                                <option value="saab">Option 2</option>
-                                <option value="fiat">Option 3</option>
-                            </select>
+                <p>Your deployment is subscribed to Ushahidi's free <strong>Lite</strong> plan, which supports:</p>
+                <ul>
+                    <li>250 posts from the web and RSS</li>
+                    <li>5 post types</li>
+                    <li>Viewing data in a map or list</li>
+                    <li>Saving searches and collections</li>
+                    <li>Seeing trends develop within your deployment</li>
+                </ul>
+                <p>To work with more posts, post types, views, and configuration options, upgrade to one of the following plans:</p>
+
+                <div class="tiers">
+                    <div class="tier">
+                        <div class="tier-header">
+                            <h2 class="tier-name">Standard</h2>
+                            <p>For small teams that need to <br />reach more people</p>
+
+                            <strong class="tier-price">$100 <em>a month</em></strong>
+
+                            <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
                         </div>
-                        <p class="clearfix">
-                            <input id="approve-twitter" type="checkbox"><label for="approve-twitter">These posts need to be approved by administrators</label>
-                        </p>
-                        <button type="button" class="button-primary">Save Data Source</button>
-                    </form>
-                </div>
-                <div class="settings-listing">
-                    <div class="toggle-switch">
-                        <input class="tgl" id="switch2" type="checkbox">
-                        <label class="tgl-btn" for="switch2"></label>
-                    </div>
-                    <h3>
-                        <a href="">Twitter User</a>
-                    </h3>
-                    <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
-                            <span>Options</span>
-                        </button>
-                    </div>
-                    <form class="toggle-content">
-                        <label class="input-label">Twitter Username</label>
-                        <input type="text" placeholder="@example">
-                        <div class="select-inline">
-                            <label class="input-label">Import As:</label>
-                            <select name="visible-to">
-                                <option value="volvo">Option 1</option>
-                                <option value="saab">Option 2</option>
-                                <option value="fiat">Option 3</option>
-                            </select>
+
+                        <div class="tier-action">
+                            <button class="modal-trigger">Upgrade to Standard</button>
                         </div>
-                        <p class="clearfix">
-                            <input id="approve-twitter-2" type="checkbox"><label for="approve-twitter-2">These posts need to be approved by administrators</label>
-                        </p>
-                        <button type="button" class="button-primary">Save Data Source</button>
-                    </form>
-                </div>
-                <div class="settings-listing">
-                    <div class="toggle-switch">
-                        <input class="tgl" id="switch3" type="checkbox">
-                        <label class="tgl-btn" for="switch3"></label>
-                    </div>
-                    <h3>
-                        <a href="">SMS</a>
-                    </h3>
-                    <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
-                            <span>Options</span>
-                        </button>
-                    </div>
-                    <form class="toggle-content">
-                        <label class="input-label">From Number</label>
-                        <input type="text" placeholder="750-325-1343">
-                        <div class="select-inline">
-                            <label class="input-label">Import As:</label>
-                            <select name="visible-to">
-                                <option value="volvo">Option 1</option>
-                                <option value="saab">Option 2</option>
-                                <option value="fiat">Option 3</option>
-                            </select>
+
+                        <div class="tier-feature-list">
+                            <ul>
+                                <li>Collect posts via SMS and Twitter</li>
+                                <li>Turn on notifications related to your interests</li>
+                                <li>View data in bar chart or trend graph</li>
+                                <li>Choose from more than 10 base maps</li>
+                            </ul>
                         </div>
-                        <p class="clearfix">
-                            <input id="approve-sms" type="checkbox"><label for="approve-sms">These posts need to be approved by administrators</label>
-                        </p>
-                        <button type="button" class="button-primary">Save Data Source</button>
-                    </form>
-                </div>
-                <div class="settings-listing">
-                    <div class="toggle-switch">
-                        <input class="tgl" id="switch4" type="checkbox">
-                        <label class="tgl-btn" for="switch4"></label>
+
+                        <p><a href="" class="cta">View all features</a></p>
                     </div>
-                    <h3>
-                        <a href="">Facebook</a>
-                    </h3>
-                    <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
-                            <span>Options</span>
-                        </button>
-                    </div>
-                    <form class="toggle-content">
-                        <label class="input-label">From Number</label>
-                        <input type="text" placeholder="750-325-1343">
-                        <div class="select-inline">
-                            <label class="input-label">Import As:</label>
-                            <select name="visible-to">
-                                <option value="volvo">Option 1</option>
-                                <option value="saab">Option 2</option>
-                                <option value="fiat">Option 3</option>
-                            </select>
+
+                    <div class="tier recommended">
+                        <div class="tier-header">
+                            <h2 class="tier-name">Plus</h2>
+                            <p>For growing teams that need <br />to organize their workflow</p>
+
+                            <strong class="tier-price">$500 <em>a month</em></strong>
+
+                            <h3 class="tier-feature">5,000 posts <em>+$8/month per 1,000 extra</em></h3>
                         </div>
-                        <p class="clearfix">
-                            <input id="approve-facebook" type="checkbox"><label for="approve-facebook">These posts need to be approved by administrators</label>
-                        </p>
-                        <button type="button" class="button-primary">Save Data Source</button>
-                    </form>
+
+                        <div class="tier-action">
+                            <button class="modal-trigger">Upgrade to Plus</button>
+                        </div>
+
+                        <div class="tier-feature-list">
+                            <em>&#8592; Everything from Standard, and:</em>
+                            <ul>
+                                <li>Team collaboration with user roles</li>
+                                <li>Publish posts to specific audiences</li>
+                                <li>Unlimited post types</li>
+                                <li>Break moderation into assignable 'steps'</li>
+                            </ul>
+                        </div>
+
+                        <p><a href="" class="cta">View all features</a></p>
+                    </div>
+
+                    <div class="tier">
+                        <div class="tier-header">
+                            <h2 class="tier-name">Enterprise</h2>
+                            <p>For big, sensitive data <br />with extra security.</p>
+
+                            <strong class="tier-price">$2,000 <em>a month</em></strong>
+
+                            <h3 class="tier-feature">10,000 posts <em>+$4/month per 1,000 extra</em></h3>
+                        </div>
+
+                        <div class="tier-action">
+                            <button type="button" disabled>Coming soon</button>
+                        </div>
+
+                        <div class="tier-feature-list">
+                            <em>&#8592; Everything from Standard and Plus</em>
+                        </div>
+
+                        <p><a href="" class="cta">View all features</a></p>
+                    </div>
                 </div>
 
-                <div class="settings-listing">
-                    <a href="">
-                        <div class="button-secondary icon-only alt plus"></div>
-                        <h3>
-                            Add New Data Source Type
-                        </h3>
-                    </a>
-                </div>
             </div><!--end main col-->
 
         </main> <!--end layout a-->
@@ -326,6 +335,11 @@
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 
+
+<script>
+// Treat window as modal, open on page load
+modalInit(true, false);
+</script>
 
 </body>
 

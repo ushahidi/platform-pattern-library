@@ -23,32 +23,55 @@
 
 <div class="modal">
     <div class="modal-window">
-        <a href="" class="close modal-trigger"></a>
-        <h3 class="edit">Customize Your New Deployment</h3>
-        <p>Now that your deployment has been created, it's time to customize it!</p>
+        <h3>Enter your payment information</h3>
+
         <div class="divider padded"></div>
 
-        <label class="input-label" for="deployment-name">Deployment Description</label>
-        <textarea placeholder="An optional one sentence description"></textarea>
-        <div class="divider padded"></div>
-        <label class="input-label">Default View</label>
-        <div class="custom-select">
-            <select name="default-view">
-                <option value="1">Map</option>
-                <option value="2">List</option>
-                <option value="3">Graph</option>
-            </select>
+        <label class="input-label required" for="cc-name">Name on card</label>
+        <input type="text" placeholder="Jane Doe" id="cc-name"></input>
+
+        <label class="input-label required" for="cc-number">Credit Card Number</label>
+        <input type="text" inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number" />
+
+        <div class="flex-col">
+            <div class="col">
+                <fieldset>
+                    <legend class="input-label">Expiration</legend>
+                    <div class="custom-select">
+                        <select name="cc-exp-month" autocomplete="cc-exp-month">
+                            <option value="1">Month</option>
+                            <option value="2">January</option>
+                            <option value="3">February</option>
+                        </select>
+                    </div>
+                    <div class="custom-select">
+                        <select name="cc-exp-year" autocomplete="cc-exp-year">
+                            <option value="1">Year</option>
+                            <option value="2">2015</option>
+                            <option value="3">2016</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="col">
+                <label class="input-label required" for="cc-cvv">CVV</label>
+                <input style="width:80px;" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv"></input>
+            </div>
+
+            <div class="col">
+                <label class="input-label required" for="cc-zip">Zip/Postal Code</label>
+                <input style="width:100px;" type="text" placeholder="" id="cc-zip"></input>
+            </div>
         </div>
-        <p class="small">This is how your posts will be displayed by default. Don't worry, you can always change it later.</p>
-        <div class="divider padded"></div>
-        <label class="input-label" for="deployment-name">Custom Background Image</label>
-        <!--<p class="small">This will be the address for accessing your site.</p>-->
-        <button type="button" class="button-secondary alt photo">Select Image</button>
-        <p class="small">Image needs to be >1000px wide.</p>
+
+        <p class="small">*These fields are required.</p>
+
         <div class="divider white"></div>
+
         <div class="modal-submit">
-            <a class="button button-primary" href="cloud-tour-2.html">Customize Deployment</a>
-            <a class="cta modal-trigger">Skip This Step</a>
+            <a class="button button-primary" href="setup-customize.html">Continue</a>
+            <a class="cta" href="setup-plans.html">Cancel</a>
         </div>
     </div>
     <div class="modal-overlay"></div>
@@ -347,8 +370,8 @@
 
 
 <script>
-// Demo modal on page load
-modalToggle();
+// Treat window as modal, open on page load
+modalInit(false, true);
 </script>
 
 </body>

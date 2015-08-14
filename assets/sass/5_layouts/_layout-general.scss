@@ -1,3 +1,31 @@
+// Reusable grid classes -
+
+.one-col, .two-col, .three-col, .flex-col {
+    @include clearfix;
+    margin-bottom: $base-spacing;
+}
+
+.two-col .col {
+    @include media($small) {
+        @include span-columns(6);
+    }
+}
+
+.three-col .col {
+    @include media($small) {
+        @include span-columns(4);
+    }
+}
+
+.flex-col .col {
+    @include media($small) {
+        display: block;
+        float: left;
+        width: auto;
+        margin-right: $base-spacing;
+    }
+}
+
 .page-content {
     @include outer-container;
     padding: 0 $sm-spacing;
@@ -114,17 +142,17 @@
 
     }
 
-    // Reusable grid classes -
+}
 
-    .one-col, .two-col {
-        clear: both;
-        margin-bottom: $base-spacing;
+.full-page-content {
+    padding: 0 $sm-spacing;
+    margin-top: $sm-spacing;
+
+    @include media($small) {
+        padding: 0 $base-spacing;
     }
 
-    .two-col .col {
-        @include media($small) {
-            @include span-columns(6);
-        }
-    } 
-
+    @include media($medium) {
+        margin-top: $lg-spacing;
+    }
 }
