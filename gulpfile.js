@@ -59,13 +59,22 @@ gulp.task('html5-lint', function() {
         .pipe(html5Lint());
 });
 
-/**
-* Task: `sass`
-* Converts Sass files to CSS (includes RTL support)
-*/
+var buildSass = function(rtl, compressed) {
+    var dest, source;
+    if (rtl) {
+        source = './assets/sass/utils/rtl/rtl.scss';
+        dest = 'rtl-style';
+    } else {
+        source = './assets/sass/utils/rtl/ltr.scss';
+        dest = 'style';
+    }
 
-gulp.task('sass', ['rtl'], function() {
-    return gulp.src(['./assets/sass/utils/rtl/ltr.scss'])
+    if (compressed) {
+        dest = dest + '.min';
+    }
+    dest = dest + '.css';
+
+    return gulp.src([source])
         .pipe(plumber({
             errorHandler: errorHandler
         }))
@@ -76,47 +85,45 @@ gulp.task('sass', ['rtl'], function() {
                 'bower_components/neat/app/assets/stylesheets',
                 'bower_components/font-awesome/scss'
             ],
-            sourceComments: 'map'
+            sourceComments: true,
+            outputStyle : compressed ? 'compressed' : 'nested'
         }))
         .pipe(autoprefixer())
         .pipe(plumber.stop())
-        // .pipe(minifyCSS({keepBreaks:true}))
         // Since we need the style.css file in the repo for gh-pages, but we do not review the file in Phabricator
         // gulp-insert appends '/* @generated */' to the style.css file
         // which automatically folds file in Phabricator
         .pipe(insert.append('/* @generated */'))
-        .pipe(sourcemaps.write())
-        .pipe(rename('style.css'))
+        .pipe(rename(dest))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./assets/css'))
         .pipe(notify('CSS compiled'))
         .pipe(livereload());
+};
+
+/**
+* Task: `sass`
+* Converts Sass files to CSS (includes RTL support)
+*/
+
+gulp.task('sass', ['rtl', 'sassMin', 'rtlMin'], function() {
+    return buildSass(false, false);
 });
 
 /**
 * Task: `rtl`
 * Converts RTL Sass files to RTL CSS
 */
-
 gulp.task('rtl', ['fontawesome-sass'], function() {
-    return gulp.src(['./assets/sass/utils/rtl/rtl.scss'])
-        .pipe(plumber({
-            errorHandler: errorHandler
-        }))
-        .pipe(sass({
-            includePaths : [
-                'bower_components/bourbon/app/assets/stylesheets',
-                'bower_components/neat/app/assets/stylesheets'
-            ]
-        }))
-        .pipe(autoprefixer())
-        .pipe(plumber.stop())
-        // .pipe(minifyCSS({keepBreaks:true}))
-        // Since we need the style.css file in the repo for gh-pages, but we do not review the file in Phabricator
-        // gulp-insert appends '/* @generated */' to the style.css file
-        // which automatically folds file in Phabricator
-        .pipe(insert.append('/* @generated */'))
-        .pipe(rename('rtl-style.css'))
-        .pipe(gulp.dest('./assets/css'));
+    return buildSass(true, false);
+});
+
+gulp.task('rtlMin', ['fontawesome-sass'], function() {
+    return buildSass(true, true);
+});
+
+gulp.task('sassMin', ['fontawesome-sass'], function() {
+    return buildSass(false, true);
 });
 
 /**
