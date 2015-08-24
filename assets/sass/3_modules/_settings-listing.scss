@@ -1,9 +1,13 @@
 .settings-listing {
     @extend .zebra-list-alt;
-    padding: $sm-spacing 0;
+    padding: 18px $sm-spacing;
     position: relative;
     border-right: $base-border;
     border-left: $base-border;
+
+    @include media($small) {
+        padding: $sm-spacing 0;
+    }
 
     .select {
         @include float(left);
@@ -57,8 +61,8 @@
 
     .upvote-downvote {
         position: absolute;
-        top: 2px;
-        @include left(2px);
+        top: 10px;
+        @include left($sm-spacing);
 
         @include media($small) {
             top: $sm-spacing;
@@ -123,10 +127,10 @@
     .actions {
         position: absolute;
         @include right($sm-spacing);
-        top: ($sm-spacing + 4px);
+        top: ($base-spacing + 1px);
 
         @include media($small) {
-            top: ($base-spacing + 4px);
+            top: ($base-spacing + 7px);
         }
 
         button {
@@ -153,12 +157,11 @@
 
     form, .form {
         clear: both;
-        padding: 0 0 $base-spacing $sm-spacing;
         border-top: $base-border;
-        margin-top: $base-spacing;
+        margin-top: $base-spacing + 16;
 
         @include media($small) {
-            @include lrswap(padding, $tiny-spacing 0 $base-spacing $base-spacing);
+            padding: 0 $sm-spacing 0;
             margin-top: ($base-spacing + 14px);
         }
 
@@ -178,6 +181,11 @@
 
     .edit {
         padding: 8px 12px;
+    }
+
+    p {
+        font-size: 1em;
+        line-height: 1;
     }
 
 }

@@ -3,14 +3,14 @@ aside.is-right {
     .user-credit-has-label {
         padding: $sm-spacing 0;
         width: 60%;
-        border-right: $base-border;
-        float: left;
+        @include border-right($base-border);
+        @include float(left);
 
         @include media($small) {
             padding: $sm-spacing 0 $base-spacing;
             width: 100%;
             float: none;
-            border-right: 0px;
+            @include border-right(0px);
             border-bottom: $base-border;
             border-top: $base-border;
         }
@@ -18,7 +18,7 @@ aside.is-right {
     }
 
     .actions-stacked {
-        float: right;
+        @include float(right);
         padding: $base-spacing 0 0;
         margin: 0;
 
@@ -59,7 +59,7 @@ aside.is-right {
     }
 
     .published-to {
-        float: left;
+        @include float(left);
 
         @include media($small) {
             padding-bottom: $base-spacing;
@@ -68,8 +68,8 @@ aside.is-right {
 
 
         h4 {
-            float: left;
-            margin: $sm-spacing $sm-spacing 0 0;
+            @include float(left);
+            @include lrswap(margin, $sm-spacing $sm-spacing 0 0);
 
             @include media($small) {
                 float: none;

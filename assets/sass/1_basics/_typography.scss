@@ -32,7 +32,6 @@ h1, .alpha {
         display: block;
 
         @include media($small) {
-            display: inline-block;
             margin: $sm-spacing $tiny-spacing $sm-spacing 0;
         }
 
@@ -151,43 +150,80 @@ blockquote {
 
 
 // CTA
-h1.inline + .cta {
-    @include media($small) {
-        padding: 0 $tiny-spacing;
+h1.inline {
+    @include float(left);
+    width: 100%;
+
+    @include media($medium) {
+        width: auto;
     }
+
+    ~ .cta {
+        @include margin-left(10px);
+
+        @include media($medium) {
+            @include float(left);
+            @include clear(right);
+            margin-top: 28px;
+            @include margin-left(10px);
+            padding: 0 $tiny-spacing;
+        }
+
+        + p {
+            @include direction;
+            clear: both;
+            padding-top: 10px;
+        }
+
+    }
+
+    + p {
+        @include direction;
+        clear: both;
+        padding-top: 10px;
+    }
+
 }
 
 .cta {
-   //border-bottom: 1px solid $link-color-lt;
    text-decoration: underline;
    font-size: em(14);
    margin-bottom: $tiny-spacing;
 
     &.hidden-content-trigger, &.toggle-content-trigger {
-        @include icon(before, plus);
+        @include icon($before, plus) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
         text-decoration: none;
     }
 
     &.open {
-        @include icon(before, minus);
+        @include icon($before, minus) {
+            @include lrswap(padding, 0 5px 0 1px);
+        }
+
     }
 
     &.edit {
-        @include icon(before, pencil) {
+        @include icon($before, pencil) {
+            @include lrswap(padding, 0 5px 0 1px);
             text-decoration: none;
         }
 
     }
 
     &.settings {
-        @include icon(before, settings) {
+        @include icon($before, settings) {
+            @include lrswap(padding, 0 5px 0 1px);
             text-decoration: none;
         }
 
     }
 
     &.plus {
-        @include icon(before, plus) {
+        @include icon($before, plus) {
+            @include lrswap(padding, 0 5px 0 1px);
             text-decoration: none;
         }
         display: block;
@@ -196,12 +232,15 @@ h1.inline + .cta {
         @include media($small) {
             display: inline;
         }
+
     }
 
     &.notify {
-        @include icon(before, notify) {
+        @include icon($before, bell) {
+            @include lrswap(padding, 0 5px 0 1px);
             text-decoration: none;
         }
+
     }
 
 }
