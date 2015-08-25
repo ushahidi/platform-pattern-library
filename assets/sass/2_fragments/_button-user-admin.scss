@@ -9,18 +9,27 @@
         @include lrswap(margin, 18px 10px 0 0);
     }
 
-    &.logged-out a {
-        @extend .delta;
-        color: $link-color;
-        @include margin-right($sm-spacing);
+    &.logged-out {
 
         @include media($small) {
-            color: $link-color-lt; //make color lighter when it's on dark bg
+            @include lrswap(margin, 27px 10px 0 0);
         }
 
-        &:hover {
-            border-bottom: $base-border;
+        a {
+            @extend .delta;
+            color: $link-color;
+            @include margin-right($sm-spacing);
+
+            @include media($small) {
+                color: $link-color-lt; //make color lighter when it's on dark bg
+            }
+
+            &:hover {
+                border-bottom: $base-border;
+            }
+
         }
+
     }
 
     .toggle-wrapper {

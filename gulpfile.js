@@ -17,7 +17,7 @@ var gulp = require('gulp'),
 
 function errorHandler (err) {
     gutil.beep();
-    gutil.log(err.message || err);
+    gutil.log(err);
     notify.onError('Error: <%= error.message %>')(err);
 }
 
