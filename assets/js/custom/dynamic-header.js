@@ -51,7 +51,22 @@ headerMakeDynamic = function(){
 }
 
 $(document).ready(function(){
+    var body = $('body')
+        navClose = '<div class="close-nav"></div>'
+
     $('.nav-icon-js').click(function(){
-        $('body').toggleClass('navigation-open');
+        body.toggleClass('navigation-open');
+
+        if (navClose != '') {
+            $('.wrapper').append(navClose);
+            navClose = '';
+        } else {
+            $('.wrapper').find('.close-nav').toggle();
+        }
+    });
+
+    $(document).on('click', '.close-nav', function(){
+        body.removeClass('navigation-open');
+        $('.wrapper').find('.close-nav').toggle();
     });
 });
