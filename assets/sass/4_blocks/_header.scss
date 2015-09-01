@@ -34,14 +34,15 @@
             display: block;
             z-index: $overlay;
             background-color: $header-bg-color;
-            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            background-image: url('../img/map-bg.png');
         }
 
         .hero-image + .color-overlay:after {
-            // If there is an image, the color overlay is more transparent
-            background-color: $header-bg-transparent;
+            // If there is an custom image in div.hero-image, this is a color overlay
+            background: $header-bg-transparent;
+            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
         }
     }
 
@@ -238,7 +239,7 @@
         }
 
         .color-overlay:after, .hero-image + .color-overlay:after {
-            background-color: rgba($header-bg-color, .75);
+            background-color: rgba($header-bg-color, 0.9);
         }
 
         .beta {
