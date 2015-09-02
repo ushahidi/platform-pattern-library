@@ -22,8 +22,9 @@
         z-index: $bg-img;
     }
 
-    h1 a {
+    a h1 {
         color: $white;
+        margin: 0 auto 10px;
 
         &:hover {
            opacity: .75;
@@ -83,12 +84,12 @@
         font-weight: $bold;
 
         @include media($small) {
-            margin: $lg-spacing $sm-spacing;
+            margin: $lg-spacing $sm-spacing $sm-spacing;
             font-size: 1.8em
         }
 
         @include media($medium) {
-            margin: $lg-spacing $base-spacing;
+            margin: $lg-spacing $base-spacing $base-spacing;
         }
 
     }
@@ -197,11 +198,15 @@
         .button-create {
             position: static;
             margin: auto;
-            margin-bottom: $base-spacing;
+            margin-bottom: 25px;
             @include lrswap(padding, 14px 25px 18px $base-spacing);
 
             span {
                 display: inline;
+            }
+
+            @include media($small) {
+                margin-bottom: $lg-spacing;
             }
 
             @include media($medium) {
