@@ -1,0 +1,39 @@
+.success-message {  
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 9000;
+    
+    .success-message-wrapper {
+        @include transition(1s);
+        position: relative;
+        @include lrswap(padding, $base-spacing $lg-spacing $base-spacing $base-spacing);
+        background: $white;
+        @include box-shadow($top: 0px, $left: 0, $blur: 7px, $spread: 2px, $color: rgba(0,0,0,.1), $inset: false);
+        top: -300px;
+
+        &.visible {
+            top: 0;
+        }
+    }
+
+    .close {
+        position: absolute;
+        @include right(10px);
+        top: 20px;
+
+        @include icon($before, close) {
+            padding: $sm-spacing;
+            color: $link-color;
+            border: $base-border;
+        }
+
+        &:hover {
+            cursor: hand;
+        }
+
+    }
+
+}
