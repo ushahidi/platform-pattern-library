@@ -22,6 +22,14 @@
         z-index: $bg-img;
     }
 
+    h1 a {
+        color: $white;
+
+        &:hover {
+           opacity: .75;
+        }
+    }
+
     &.overlay {
 
         .color-overlay:after {
@@ -52,6 +60,7 @@
     .button-create,
     .user-admin {
         z-index: $body;
+        padding: 0 $sm-spacing;
     }
 
     .nav-icon {
@@ -124,6 +133,7 @@
 
         span {
             display: none;
+            @include lrswap(padding, 0px 0px 0px 15px);
 
             @include media($small) {
                 display: inline-block;
@@ -131,6 +141,12 @@
 
         }
 
+    }
+
+    .other-sources {
+        color: $link-color-dark-bg;
+        text-align: center;
+        display: block;
     }
 
     .button-toggle:hover {
@@ -189,11 +205,24 @@
             }
 
             @include media($medium) {
-                margin-bottom: $base-spacing + 30;
+                margin-top: $lg-spacing;
+                margin-bottom: $lg-spacing;
             }
 
             i {
                 @include lrswap(padding, 0 10px 0 0);
+            }
+
+        }
+
+        .other-sources {
+            color: $white;
+            text-align: center;
+            display: block;
+            margin-bottom: $lg-spacing;
+
+            @include media($medium) {
+                margin-bottom: ($lg-spacing + 10px);
             }
 
         }
@@ -257,6 +286,10 @@
                 display: inline-block;
             }
 
+        }
+
+        .other-sources {
+            display: none;
         }
 
         .parallax {
