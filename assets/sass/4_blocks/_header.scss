@@ -22,6 +22,15 @@
         z-index: $bg-img;
     }
 
+    a h1 {
+        color: $white;
+        margin: 0 auto 10px;
+
+        &:hover {
+           opacity: .75;
+        }
+    }
+
     &.overlay {
 
         .color-overlay:after {
@@ -34,14 +43,15 @@
             display: block;
             z-index: $overlay;
             background-color: $header-bg-color;
-            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            background-image: url('../img/map-bg.png');
         }
 
         .hero-image + .color-overlay:after {
-            // If there is an image, the color overlay is more transparent
-            background-color: $header-bg-transparent;
+            // If there is an custom image in div.hero-image, this is a color overlay
+            background: $header-bg-transparent;
+            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
         }
     }
 
@@ -51,6 +61,7 @@
     .button-create,
     .user-admin {
         z-index: $body;
+        padding: 0 $sm-spacing;
     }
 
     .nav-icon {
@@ -73,12 +84,12 @@
         font-weight: $bold;
 
         @include media($small) {
-            margin: $lg-spacing $sm-spacing;
+            margin: $lg-spacing $sm-spacing $sm-spacing;
             font-size: 1.8em
         }
 
         @include media($medium) {
-            margin: $lg-spacing $base-spacing;
+            margin: $lg-spacing $base-spacing $base-spacing;
         }
 
     }
@@ -123,6 +134,7 @@
 
         span {
             display: none;
+            @include lrswap(padding, 0px 0px 0px 15px);
 
             @include media($small) {
                 display: inline-block;
@@ -130,6 +142,12 @@
 
         }
 
+    }
+
+    .other-sources {
+        color: $link-color-dark-bg;
+        text-align: center;
+        display: block;
     }
 
     .button-toggle:hover {
@@ -180,19 +198,36 @@
         .button-create {
             position: static;
             margin: auto;
-            margin-bottom: $base-spacing;
+            margin-bottom: 25px;
             @include lrswap(padding, 14px 25px 18px $base-spacing);
 
             span {
                 display: inline;
             }
 
+            @include media($small) {
+                margin-bottom: $lg-spacing;
+            }
+
             @include media($medium) {
-                margin-bottom: $base-spacing + 30;
+                margin-top: $lg-spacing;
+                margin-bottom: $lg-spacing;
             }
 
             i {
                 @include lrswap(padding, 0 10px 0 0);
+            }
+
+        }
+
+        .other-sources {
+            color: $white;
+            text-align: center;
+            display: block;
+            margin-bottom: $lg-spacing;
+
+            @include media($medium) {
+                margin-bottom: ($lg-spacing + 10px);
             }
 
         }
@@ -238,7 +273,7 @@
         }
 
         .color-overlay:after, .hero-image + .color-overlay:after {
-            background-color: rgba($header-bg-color, .75);
+            background-color: rgba($header-bg-color, 0.9);
         }
 
         .beta {
@@ -256,6 +291,10 @@
                 display: inline-block;
             }
 
+        }
+
+        .other-sources {
+            display: none;
         }
 
         .parallax {
