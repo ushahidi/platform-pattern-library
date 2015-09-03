@@ -1,0 +1,258 @@
+.tour-focused {
+    overflow: hidden;
+
+    *:hover {
+        cursor: default;
+    }
+}
+
+.tour-mask {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+}
+
+.tour-message {
+    @include scale(0);
+    @include border-box;
+    position: absolute;
+    z-index: 2999;
+    top: -100%;
+    width: 90%;
+    color: $white;
+    text-align: center;
+    text-shadow: 0 1px 1px $black;
+    border: 1px solid $black;
+    @include equal-radius(6px);
+    background: #2b323a url(http://github.ushahidi.org/dotcom-pattern-library/assets/img/map-bg.png);
+    @include box-shadow($top: 0, $left: 0, $blur: 25px, $spread: 0, $color: rgba(0,0,0,.8), $inset: false);
+    padding: $base-spacing;
+    margin-left: -45%;
+    @include transition(0.6s ease-in-out);
+
+    @include media($small) {
+        width: 50%;
+        padding: $lg-spacing;
+        margin-left: -25%;
+    }
+
+    @include media($medium) {
+        width: 60%;
+        padding: $lg-spacing;
+        margin-left: -30%;
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: -33px;
+        width: 6px;
+        border-right: 2px solid $black;
+        border-left: 2px solid $black;
+        background-color: $yellow;
+    }
+
+    .tour-tagline {
+        display: block;
+        color: #C7CCD4;
+        font-weight: 300;
+        font-size: 2.25em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: $sm-spacing;
+
+        @include media($small) {
+            font-size: 3.25em;
+        }
+    }
+
+    .tour-heading {
+        color: #C7CCD4;
+        font-weight: normal;
+        font-size: 1.35em;
+        line-height: 1.25em;
+        margin: 0;
+
+        @include media($small) {
+            font-size: 1.65em;
+        }
+    }
+
+    p {
+
+        @include media($small) {
+            font-size: 1.1em;
+        }
+    }
+
+    .tour-actions {
+
+        button,
+        .button,
+        .cta {
+            margin: $sm-spacing;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .cta {
+            text-transform: uppercase;
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
+
+.tour-pin {
+    position: absolute;
+    z-index: 999;
+    top: -100%;
+    width: 20px;
+    height: 20px;
+    @include equal-radius(100%);
+    background-color: $yellow;
+    @include transition(1s ease-in-out);
+
+    &:before,
+    &:after {
+        position: absolute;
+        top: -190px;
+        left: -190px;
+        display: block;
+        width: 400px;
+        height: 400px;
+        @include equal-radius(100%);
+    }
+
+    &:before {
+        @include box-shadow($top: 0, $left: 0, $blur: 30px, $spread: 30px, $color: rgba(0,0,0,.5), $inset: true);
+    }
+
+    &:after {
+        @include box-shadow($top: 0, $left: 0, $blur: 0, $spread: 1000px, $color: rgba(0,0,0,.5), $inset: false);
+    }
+
+    .pulse {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid darken( $yellow, 20% );
+        border: 2px solid $black;
+        box-shadow: 0 0 0 0 $yellow, 0 0 0 0 rgba(255, 195, 52, 0.7);
+        @include equal-radius(100%);
+        background: $yellow;
+
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+
+        animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
+
+        &:hover {
+            animation-play-state: paused;
+        }
+    }
+}
+
+@keyframes pulse {
+    to {
+        box-shadow: 0 0 0 12px transparent, 0 0 0 24px rgba(90, 153, 212, 0);
+    }
+}
+
+/*/--------// STEPS //--------/*/
+
+@keyframes popIn {
+    0% {
+        opacity: 0;
+    }
+    85% {
+        @include scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        @include scale(1);
+    }
+}
+
+@keyframes connect {
+    from {
+        height: 0;
+    }
+    to {
+        height: 33px;
+    }
+}
+
+.tour-step-1 {
+
+    #tour-step-1 {
+        top: 0;
+    }
+}
+
+#tour-step-1 {
+    @include scale(1);
+    margin: 5%;
+
+    @include media($small) {
+        margin: 10% 25%;
+    }
+
+    @include media($medium) {
+        margin: 10% 20%;
+    }
+}
+
+.tour-step-2 {
+
+    #tour-step-1 {
+        @include scale(0);
+        @include transition(0.15s ease-in-out);
+    }
+
+    #tour-step-2 {
+        @include animation($aniname: popIn, $aniduration: 0.4s, $animtiming: ease-in-out, $animdelay: 1.5s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
+
+        &:before {
+            @include animation($aniname: connect, $aniduration: 0.5s, $animtiming: ease-in-out, $animdelay: 2s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
+        }
+    }
+
+    [data-step="tour-step-2"] {
+        top: 0;
+        transition-delay: 1.5s;
+    }
+}
+
+.tour-step-3 {
+
+    #tour-step-2 {
+        @include animation();
+        @include scale(0);
+        @include transition(0.15s ease-in-out);
+    }
+
+    #tour-step-3 {
+        @include animation($aniname: popIn, $aniduration: 0.25s, $animtiming: ease-in-out, $animdelay: 1.5s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
+
+        &:before {
+            @include animation($aniname: connect, $aniduration: 0.5s, $animtiming: ease-in-out, $animdelay: 2s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
+        }
+    }
+
+    [data-step="tour-step-3"] {
+        top: 0;
+        transition-delay: 1.5s;
+    }
+}

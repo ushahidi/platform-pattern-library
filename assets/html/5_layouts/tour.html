@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>The Ushahidi Platform Pattern Library</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" type="image/ico" href="../../favicon.ico" />
+
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>-->
+    <link href='../../fonts/Lato/css/fonts.css' rel='stylesheet' type='text/css'>
+<link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+
+
+<body class="has-dynamic-header tour-focused">
+
+    <div class="tour-mask"></div>
+
+    <div id="tour-step-1" class="tour-message">
+        <strong class="tour-tagline">Howdy</strong>
+        <h2 class="tour-heading">And welcome to your new Ushahidi deployment.</h2>
+        <p>While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
+        <div class="tour-actions">
+            <a data-cue="tour-step-5" class="cta">Skip</a>
+            <button data-cue="tour-step-2" class="button">Continue</button>
+        </div>
+    </div>
+
+    <div id="tour-step-2" class="tour-message">
+        <h2 class="tour-heading">Collect meaningful data</h2>
+        <p>You can add a post from any page in your deployment
+Choose from multiple custom post types
+A post can have steps and permissions for who sees it
+</p>
+        <div class="tour-actions">
+            <a data-cue="tour-step-5" class="cta">Skip</a>
+            <button data-cue="tour-step-3" class="button">Continue</button>
+        </div>
+    </div>
+
+    <div id="tour-step-3" class="tour-message">
+        <h2 class="tour-heading">View posts</h2>
+        <p>As a map
+As a list
+As a visualization
+</p>
+        <div class="tour-actions">
+            <a data-cue="tour-step-5" class="cta">Skip</a>
+            <button data-cue="tour-step-4" class="button">Continue</button>
+        </div>
+    </div>
+
+    <div class="tour-pin"><span class="pulse"></span></div>
+
+    <header class="header header-compact overlay" role="banner">
+        <div class="container">
+            <div class="hero-image">
+                <img src="../../img/header-bk2.png" alt="" />
+            </div>
+
+            <div class="color-overlay">
+                <div class="parallax">
+                    <div class="nav-icon nav-icon-js">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <h1 class="beta">March on City Hall</h1>
+                    <p class="header-description">Reports and communication about the protest march Wednesday, Aug. 19 to City Hall.</p>
+                    <a data-message="tour-step-2" class="button button-create icon-only" href="choose-post-type.html">
+                        <span>Add Post</span>
+                    </a>
+
+                    <div class="user-admin logged-in">
+    <div class="toggle-wrapper toggle-content-trigger">
+        <div class="user-avatar">
+            <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
+        </div>
+        <span class="username">Jonathan Doe</span>
+        <button type="button" class="button-toggle"></button>
+    </div>
+    <ul class="dropdown-menu toggle-content" role="menu">
+        <li><a href="#">Account Settings</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Log Out</a></li>
+    </ul>
+</div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="wrapper">
+
+        <nav class="navigation" role="navigation">
+    <div class="nav-icon nav-icon-js open">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <a class="button button-create">
+        <span>Create Post</span>
+    </a>
+    <ul class="main-nav">
+        <li><a href="home-map.html">Home</a></li>
+        <li><a href="layout-a.html">About</a></li>
+        <li><a href="activity.html">Activity</a></li>
+        <li class="settings-nav">
+            <div class="settings-nav-header">
+                <a class="toggle-content-trigger">Settings</a>
+            </div>
+            <ul class="toggle-content">
+                <li><a href="#">General</a></li>
+                <li><a href="#">Appearance</a></li>
+                <li><a href="data-sources.html">Data Sources</a></li>
+                <li><a href="#">Plugins</a></li>
+                <li><a href="tools-structure.html">Posts &amp; Entities</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="#">Permissions</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="user-admin logged-out">
+    <a href="#">Log In</a>
+    <a href="#">Sign Up</a>
+</div>
+
+
+    <div class="sub-nav">
+        <h6 class="zeta saved-searches">Saved Searches</h6>
+        <ul>
+            <li><a href="" class="saved-search">Public Posts</a><span class="star"></span></li>
+            <li><a href="">Terrorist Attacks, 2013</a><span class="star"></span></li>
+            <li><a href="">Missing People</a><span class="star"></span></li>
+            <li><a href="">Roadside Explosions</a><span class="star"></span></li>
+            <li><a href="">Violence in Aleppo</a><span class="star"></span></li>
+            <li><a href="">Posts by David Kobia</a> <span class="star"></span>
+                <p class="credit">By <a href="">David Kobia</a></p>
+            </li>
+            <li><a href="">Missing Children since 2012</a><span class="star"></span>
+                <p class="credit">By <a href="">Brandon Rosage</a></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sub-nav">
+        <h6 class="zeta collections">Collections</h6>
+        <ul>
+            <li><a href="">Needs Follow-up</a><span class="star"></span></li>
+            <li><a href="">Hi-res Photos</a><span class="star"></span></li>
+            <li><a href="">Shared on Facebook</a><span class="star"></span></li>
+            <li><a href="">Kobia's Saved Posts</a><span class="star"></span>
+                <p class="credit">By <a href="">David Kobia</a></p>
+            </li>
+        </ul>
+        <button type="button" class="button-secondary plus">
+            <span>New Collection</span>
+        </button>
+    </div>
+</nav>
+
+
+        <main class="page-content has-aside" role="main">
+
+            <h1>All Posts</h1>
+
+            <div class="tabs-with-filter">
+                <nav class="tabs-menu" data-message="tour-step-3">
+                    <label class="delta-alt">View </label>
+                    <button type="button" class="button-toggle tabs-menu-button-js"></button>
+                    <ul class="tabs-menu-list">
+                        <li class="active view-map"><a>Map</a></li>
+                        <li class="view-list"><a>List</a></li>
+                        <li class="view-chart"><a>Bar Chart</a></li>
+                        <li class="view-timeline"><a>Timeline</a></li>
+                    </ul>
+                </nav>
+            </div><!--end view with filter-->
+
+            <aside class="is-right" role="complementary">
+    <div class="filters">
+        <div class="filters-show-hide">
+            <label class="delta-alt">Search <span>&amp; Filter</span></label>
+            <button type="button" class="button-toggle filter-button-js"></button>
+        </div>
+
+            <div class="filters-container">
+        <form action="#" method="get" role="search">
+            <div class="keyword-search">
+                <input type="text" name="keyword" class="keyword-input" placeholder="Search...">
+                <button type="button" class="button-secondary icon-only alt search"></button>
+            </div>
+            <nav class="accordion-menu">
+                <ul class="accordion-menu-list">
+                    <li class="accordion-menu-list__item">
+                        <div class="accordion-menu-header">
+                            <a class="accordion-menu-trigger delta">Categories</a>
+                        </div>
+                        <ul class="accordion-menu-content">
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="show-all-categories" value="Show All Categories">
+                                    Show All Categories
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="category1" value="Category1" checked="checked">
+                                    <i class="fa fa-circle" style="color: #da60a2;"> &nbsp;</i>
+                                    Accident
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="category2" value="Category2">
+                                    <i class="fa fa-circle" style="color: #679a63;"> &nbsp;</i>
+                                    Safe Location
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="category3" value="Category3">
+                                    <i class="fa fa-circle" style="color: #9a4126;"> &nbsp;</i>
+                                    Hospital Status
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="accordion-menu-header">
+                            <a class="accordion-menu-trigger delta">Steps</a>
+                        </div>
+                        <ul class="accordion-menu-content">
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="show-all-steps" value="Show All Steps">
+                                    Show All Steps
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="structure" value="Structure">
+                                    Structure
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="verification" value="Verification" checked="checked">
+                                    Verification
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="translation" value="Translation">
+                                    Translation
+                                </label>
+                            </li>
+                            <li>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="disabled step" value="Disabled Step">
+                                    Disabled Step
+                                </label>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="accordion-menu-header">
+                            <a class="accordion-menu-trigger delta">Date Range</a>
+                        </div>
+                        <div class="accordion-menu-content date-range">
+                            <div class="filter-start-date">
+                                <label for="start" class="delta-alt">Start Date</label>
+                                <input type="text" name="start" id="start">
+                            </div>
+                            <div class="filter-end-date">
+                                <label for="end" class="delta-alt">End Date</label>
+                                <input type="text" name="end" id="end">
+                            </div>
+
+                            <div class="filter-actions">
+                                <button class="apply-filter-button button-primary">Apply</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="accordion-menu-list__item">
+                        <div class="accordion-menu-header">
+                            <a class="accordion-menu-trigger delta">Location</a>
+                        </div>
+                        <div class="accordion-menu-content location">
+                            <label for="location" class="delta-alt hidden">Location</label>
+                            <input type="text" name="location" id="location" placeholder="Enter city or postal code">
+                            <div class="custom-select">
+                                <select>
+                                    <option selected>within 1 km</option>
+                                    <option>within 10 km</option>
+                                    <option>within 50 km</option>
+                                    <option>within 100 km</option>
+                                    <option>within 500 km</option>
+                                </select>
+                            </div>
+                            <button class="apply-filter-button button-primary">Apply</button>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </form>
+    </div>
+
+    </div>
+
+</aside>
+
+
+            <div class="main-col">
+
+                <div id="map" class="map"></div>
+
+            </div> <!--end main column-->
+
+        </main> <!--end layout a-->
+
+    </div>
+
+    <footer role="contentinfo">
+        <div class="wrapper">
+            <div class="footer-container">
+                <div class="footer-main-col">
+                    <h2>March on City Hall</h2>
+                    <p>Reports and communication about the protest march Wednesday, Aug. 19 to City Hall.</p>
+                    <ul class="footer-nav">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">Activity</a></li>
+                        <li><a href="">Settings</a></li>
+                        <li><a href="">Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-secondary-col">
+                    <a class="button button-create">
+                        <span>Add Post</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="../../js/app.js"></script>
+
+
+<script>
+// Make header dynamic
+headerMakeDynamic();
+
+tourPin = function(element, position) {
+    var targetPos = $(element).offset(),
+        message = $(element).attr('data-message'),
+        targetWidth = $(element).outerWidth(),
+        targetHeight = $(element).outerHeight();
+
+/*
+    $('.tour-message').not('#'+message).animate({
+        'top':'-100%'
+    }, 500, function() {
+
+    });
+*/
+
+    if ((typeof position === 'undefined') || (position === 'top-left')) {
+        $('.tour-pin').css({
+            'top' : targetPos.top - 10,
+            'left' : targetPos.left - 10
+        });
+    } else if (position === 'top-right') {
+        $('.tour-pin').css({
+            'top' : targetPos.top,
+            'left' : targetPos.left + targetWidth - 10
+        });
+    } else if (position === 'bottom-left') {
+        $('.tour-pin').css({
+            'top' : targetPos.top + targetHeight - 10,
+            'left' : targetPos.left
+        });
+    } else if (position === 'bottom-right') {
+        $('.tour-pin').css({
+            'top' : targetPos.top + targetHeight - 10,
+            'left' : targetPos.left + targetWidth - 10
+        });
+    } else if (position === 'center') {
+        $('.tour-pin').css({
+            'top' : targetPos.top + targetHeight/2 - 10,
+            'left' : targetPos.left + targetWidth/2 - 10
+        });
+    } else if (position === 'top-center') {
+        $('.tour-pin').css({
+            'top' : targetPos.top,
+            'left' : targetPos.left + targetWidth/2 - 10
+        });
+    } else if (position === 'bottom-center') {
+        $('.tour-pin').css({
+            'top' : targetPos.top + targetHeight - 10,
+            'left' : targetPos.left + targetWidth/2 - 10
+        });
+    }
+
+    // Position message
+    $('#'+message).css({
+        'top' : targetPos.top + targetHeight + 40,
+        'left' : targetPos.left + targetWidth/2 - 3
+    });
+}
+
+$(document).ready(function(){
+    $('*').not('[data-cue]').on('click', function(e){
+        e.preventDefault();
+    }).off('click');
+
+    $('[data-cue]').on('click', function(){
+        var cue = $(this).attr('data-cue');
+
+        $('body').addClass(cue);
+        tourPin('[data-message="'+cue+'"]', 'bottom-center');
+        $('.tour-mask').fadeOut(500);
+    });
+
+    setTimeout(function(){
+        $('body').addClass('tour-step-1');
+        $('.tour-mask').fadeIn(500);
+    }, 1000);
+});
+
+</script>
+</body>
+
+</html>
