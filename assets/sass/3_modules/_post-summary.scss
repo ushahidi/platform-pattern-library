@@ -1,4 +1,7 @@
 .post-summary {
+    overflow:hidden; 
+    _overflow:visible; 
+    zoom:1;
 
     h3 {
         margin: $sm-spacing 0;
@@ -15,6 +18,13 @@
 
     .categories-list-inline {
         margin-top: 10px;
+        margin-bottom: 10px;
+
+        @include media($small) {
+            margin-top: 14px;
+            margin-bottom: $base-spacing;
+        }
+
     }
 
     .category {
@@ -24,27 +34,22 @@
     .post-img {
         @include lrswap(padding, $tiny-spacing $sm-spacing $tiny-spacing 0);
         @include float(left);
-        width: 25%;
+        width: 35%;
+        max-width: 400px;
+        max-height: 300px;
 
-        @include media($small) {
+        @include media($mobile) {
+            width: 25%;
             @include lrswap(padding, 0 $base-spacing $base-spacing 0);
-            margin-top: -$base-spacing;
-        }
-
-        @include media($medium) {
-            @include lrswap(padding, 0 $lg-spacing $base-spacing 0);
         }
 
     }
 
-    &.has-img {
+    .post-text {
+        margin-top: $tiny-spacing;
 
         @include media($small) {
-
-            .meta-data {
-                @include margin-left(25%);
-            }
-
+            padding-bottom: $base-spacing;
         }
 
     }
