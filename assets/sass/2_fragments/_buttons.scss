@@ -164,6 +164,23 @@ input[type="button"] {
         }
     }
 
+    &.close.deactive {
+        color: lighten( $dk-gray, 35% );
+
+        span {
+            color: lighten( $dk-gray, 35% );
+        }
+
+        &:before, &:after {
+            color: lighten( $dk-gray, 35% );
+            @include transform(rotate(-45deg));
+            -ms-transform-origin: 50% 50%;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 40% 50%;
+        }
+
+    }
+
 }
 
 .button-link {
@@ -303,8 +320,9 @@ button,
             @include lrswap(padding, 0 5px 0 1px);
         }
 
-        em {
+        span {
             color: $dk-gray;
+            font-style: italic;
         }
 
     }

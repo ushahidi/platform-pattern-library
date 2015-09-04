@@ -1,10 +1,12 @@
 .single-post-listing {
     @extend .zebra-list-alt;
-    overflow: auto;
     border-top: $base-border;
     border-left: $base-border;
     border-right: $base-border;
     clear: both;
+    overflow:hidden; 
+    _overflow:visible; 
+    zoom:1;
 
     @include media($small) {
         border-left: $base-border;
@@ -12,11 +14,9 @@
     }
 
     @include media($large) {
-        overflow: auto;
     }
 
     .post-summary {
-        @include border-box;
         padding: $sm-spacing;
 
         @include media($small) {
@@ -32,13 +32,12 @@
         }
 
         .meta-data {
-            margin-top: 12px;
+            margin-top: 15px;
         }
 
     }
 
     .post-summary, .step-and-actions {
-        overflow: auto;
 
         @include media($large) {
             @include margin-left(0);
@@ -51,11 +50,27 @@
 .select-post {
     @include float(left);
     margin: 0;
-    padding: 5px;
+    padding: 10px;
     @include border-box;
+    border-bottom: $base-border;
+    @include border-right($base-border);
+    @include margin-right($tiny-spacing);
+    margin-bottom: $sm-spacing;
+    background: $white;
 
     input {
         margin: 0;
+    }
+
+    @include media($small) {
+        border-bottom: 0;
+        @include border-right(0);
+        background: transparent;
+    }
+
+    @include media($large) {
+        padding: 10px 7px;
+        @include margin-right(0);
     }
 
 }
