@@ -50,7 +50,7 @@ As a visualization
     <header class="header header-compact overlay" role="banner">
         <div class="container">
             <div class="hero-image">
-                <img src="../../img/header-bk2.png" alt="" />
+                <img src="http://github.ushahidi.org/dotcom-pattern-library/assets/img/map-bg.png" alt="" />
             </div>
 
             <div class="color-overlay">
@@ -143,15 +143,12 @@ tourPin = function(element, position) {
         targetWidth = $(element).outerWidth(),
         targetHeight = $(element).outerHeight();
 
-/*
-    $('.tour-message').not('#'+message).animate({
-        'top':'-100%'
-    }, 500, function() {
-
-    });
-*/
-
-    if ((typeof position === 'undefined') || (position === 'top-left')) {
+    if (typeof position === 'undefined') {
+        $('.tour-pin').css({
+            'top' : '-100%',
+            'left' : '50%'
+        });
+    } else if (position === 'top-left') {
         $('.tour-pin').css({
             'top' : targetPos.top - 10,
             'left' : targetPos.left - 10
@@ -185,33 +182,84 @@ tourPin = function(element, position) {
         $('.tour-pin').css({
             'top' : targetPos.top + targetHeight - 10,
             'left' : targetPos.left + targetWidth/2 - 10
+
         });
     }
 
-    // Position message
-    $('#'+message).css({
-        'top' : targetPos.top + targetHeight + 40,
-        'left' : targetPos.left + targetWidth/2 - 3
-    });
+    if (typeof element !== 'undefined') {
+        // Position message
+        $('#'+message).css({
+            'top' : targetPos.top + targetHeight + 40
+        });
+
+        if ($(window).width() >= 1024) {
+            $('#'+message).css({
+                'left' : targetPos.left + targetWidth/2 - 3
+            });
+        }
+
+        if (targetPos.top > ($(window).height()/2)) {
+            $('html, body').animate({
+                scrollTop: targetPos.top - 40
+            }, 1000);
+        }
+    }
+}
+
+tourStep = function(step) {
+    // Change body class to indicate new step
+    $('body').removeClass(function (index, css) {
+        return (css.match (/(^|\s)tour-step-\S+/g) || []).join(' ');
+    }).addClass(step);
+
+    if (step == 'tour-step-1') {
+        $('.tour-mask').fadeIn(500);
+        tourPin(); // Position pin and message
+    } else {
+        $('.tour-mask').fadeOut(500); // Fade out mask
+        tourPin('[data-message="'+step+'"]', 'bottom-center'); // Position pin and message
+    }
 }
 
 $(document).ready(function(){
+    function lookupStep() {
+        if (window.location.hash) {
+            return window.location.hash.substr(1);
+        } else {
+            return 'tour-step-1';
+        }
+    }
+
+    var step = lookupStep();
+
+    // Disable all other links and buttons on the deployment
     $('*').not('[data-cue]').on('click', function(e){
         e.preventDefault();
     }).off('click');
 
-    $('[data-cue]').on('click', function(){
-        var cue = $(this).attr('data-cue');
+    // Click event for cue buttons
+    $('[data-cue]').on('click', function() {
+        var nextStep = $(this).attr('data-cue');
 
-        $('body').addClass(cue);
-        tourPin('[data-message="'+cue+'"]', 'bottom-center');
-        $('.tour-mask').fadeOut(500);
+        tourStep(nextStep);
+
+        if (history.pushState) {
+            history.pushState(null, null, '#'+nextStep);
+        } else {
+            window.location.hash = nextStep;
+        }
     });
 
+    // Animate in the appropriate step
     setTimeout(function(){
-        $('body').addClass('tour-step-1');
-        $('.tour-mask').fadeIn(500);
+        console.log('Step: '+step+'');
+        tourStep(step);
     }, 1000);
+
+    window.onpopstate = function(event) {
+        tourStep(lookupStep());
+        console.log('pop: '+lookupStep()+'')
+    };
 });
 
 </script>

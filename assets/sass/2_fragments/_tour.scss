@@ -27,17 +27,19 @@
     color: $white;
     text-align: center;
     text-shadow: 0 1px 1px $black;
-    border: 1px solid $black;
+    border: 5px solid #1E232A;
     @include equal-radius(6px);
     background: #2b323a url(http://github.ushahidi.org/dotcom-pattern-library/assets/img/map-bg.png);
     @include box-shadow($top: 0, $left: 0, $blur: 25px, $spread: 0, $color: rgba(0,0,0,.8), $inset: false);
     padding: $base-spacing;
-    margin-left: -45%;
+    margin: 0 5%;
+//    margin-left: -45%;
     @include transition(0.6s ease-in-out);
 
     @include media($small) {
         width: 50%;
         padding: $lg-spacing;
+        margin: 0;
         margin-left: -25%;
     }
 
@@ -45,16 +47,6 @@
         width: 60%;
         padding: $lg-spacing;
         margin-left: -30%;
-    }
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: -33px;
-        width: 6px;
-        border-right: 2px solid $black;
-        border-left: 2px solid $black;
-        background-color: $yellow;
     }
 
     .tour-tagline {
@@ -161,6 +153,19 @@
         &:hover {
             animation-play-state: paused;
         }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 5px;
+            width: 6px;
+            height: 33px;
+            border-right: 2px solid $black;
+            border-left: 2px solid $black;
+            background-color: $yellow;
+//            @include transition(0.5s 2s ease-in-out);
+        }
     }
 }
 
@@ -172,29 +177,85 @@
 
 /*/--------// STEPS //--------/*/
 
-@keyframes popIn {
+@keyframes pop {
     0% {
-        opacity: 0;
+        @include scale(1);
+        border-color: #1E232A;
+        @include box-shadow($top: 0, $left: 0, $blur: 25px, $spread: 0, $color: rgba(0,0,0,.8), $inset: false);
     }
-    85% {
-        @include scale(1.2);
+    25% {
+        border-color: rgba(255, 195, 52,.5);
+        @include box-shadow($top: 0, $left: 0, $blur: 10px, $spread: 10px, $color: rgba(255, 195, 52,.2), $inset: false);
+    }
+    50% {
+        @include scale(1.1);
+        border-color: rgba(255, 195, 52,.75);
+        @include box-shadow($top: 0, $left: 0, $blur: 40px, $spread: 30px, $color: rgba(255, 195, 52,.5), $inset: false);
+    }
+    75% {
+        border-color: rgba(255, 195, 52,.5);
+        @include box-shadow($top: 0, $left: 0, $blur: 10px, $spread: 10px, $color: rgba(255, 195, 52,.2), $inset: false);
     }
     100% {
-        opacity: 1;
         @include scale(1);
+        border-color: #1E232A;
+        @include box-shadow($top: 0, $left: 0, $blur: 25px, $spread: 0, $color: rgba(0,0,0,.8), $inset: false);
     }
 }
 
-@keyframes connect {
-    from {
+@keyframes stemStart {
+    0% {
         height: 0;
     }
-    to {
+    75% {
+        height: 0;
+    }
+    100% {
+        height: 33px;
+    }
+}
+
+
+@keyframes stemMove1 {
+    0% {
+        height: 33px;
+    }
+    15% {
+        height: 0;
+    }
+    85% {
+        height: 0;
+    }
+    100% {
+        height: 33px;
+    }
+}
+
+@keyframes stemMove2 {
+    0% {
+        height: 33px;
+    }
+    15% {
+        height: 0;
+    }
+    85% {
+        height: 0;
+    }
+    100% {
         height: 33px;
     }
 }
 
 .tour-step-1 {
+
+    .tour-pin {
+        top: -100%;
+
+        .pulse:before {
+            height: 0;
+            @include animation($aniname: stemMove1, $aniduration: 2s, $animtiming: ease-in-out, $animdelay: 0s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
+        }
+    }
 
     #tour-step-1 {
         top: 0;
@@ -216,17 +277,19 @@
 
 .tour-step-2 {
 
+    .tour-pin .pulse:before {
+        @include animation($aniname: stemStart, $aniduration: 2s, $animtiming: ease-in-out, $animdelay: 0s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
+    }
+
     #tour-step-1 {
         @include scale(0);
         @include transition(0.15s ease-in-out);
     }
 
     #tour-step-2 {
-        @include animation($aniname: popIn, $aniduration: 0.4s, $animtiming: ease-in-out, $animdelay: 1.5s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
-
-        &:before {
-            @include animation($aniname: connect, $aniduration: 0.5s, $animtiming: ease-in-out, $animdelay: 2s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
-        }
+        @include scale(1);
+        @include transition(0.4s 1.5s transform ease-in);
+        @include animation($aniname: pop, $aniduration: 0.2s, $animtiming: ease-in-out, $animdelay: 1.9s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
     }
 
     [data-step="tour-step-2"] {
@@ -237,18 +300,19 @@
 
 .tour-step-3 {
 
+    .tour-pin .pulse:before {
+        @include animation($aniname: stemMove2, $aniduration: 2s, $animtiming: ease-in-out, $animdelay: 0s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
+    }
+
     #tour-step-2 {
-        @include animation();
         @include scale(0);
         @include transition(0.15s ease-in-out);
     }
 
     #tour-step-3 {
-        @include animation($aniname: popIn, $aniduration: 0.25s, $animtiming: ease-in-out, $animdelay: 1.5s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
-
-        &:before {
-            @include animation($aniname: connect, $aniduration: 0.5s, $animtiming: ease-in-out, $animdelay: 2s, $animiteration: 1, $animdirection: normal, $animfillmode: forwards);
-        }
+        @include scale(1);
+        @include transition(0.4s 1.5s transform ease-in);
+        @include animation($aniname: pop, $aniduration: 0.2s, $animtiming: ease-in-out, $animdelay: 1.9s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
     }
 
     [data-step="tour-step-3"] {
