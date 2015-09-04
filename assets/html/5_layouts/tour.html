@@ -28,34 +28,116 @@
     <div id="tour-step-1" class="tour-message">
         <strong class="tour-tagline">Howdy</strong>
         <h2 class="tour-heading">And welcome to your new Ushahidi deployment.</h2>
-        <p>While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
+        <p class="tour-body">While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
         <div class="tour-actions">
-            <a data-cue="tour-step-5" class="cta">Skip</a>
             <button data-cue="tour-step-2" class="button">Continue</button>
+            <a data-cue="tour-step-5" class="cta">Skip</a>
         </div>
     </div>
 
     <div id="tour-step-2" class="tour-message">
         <h2 class="tour-heading">Collect meaningful data</h2>
-        <p>You can add a post from any page in your deployment
+        <p class="tour-body">You can add a post from any page in your deployment
 Choose from multiple custom post types
 A post can have steps and permissions for who sees it
 </p>
         <div class="tour-actions">
-            <a data-cue="tour-step-5" class="cta">Skip</a>
+            <a data-cue="tour-step-1" class="cta">&lsaquo; Back</a>
             <button data-cue="tour-step-3" class="button">Continue</button>
+            <a data-cue="tour-step-5" class="cta">Skip</a>
         </div>
     </div>
 
     <div id="tour-step-3" class="tour-message">
         <h2 class="tour-heading">View posts</h2>
-        <p>As a map
+        <p class="tour-body">As a map
 As a list
 As a visualization
 </p>
         <div class="tour-actions">
+            <a data-cue="tour-step-2" class="cta">&lsaquo; Back</a>
+            <button data-cue="tour-step-5" class="button">Continue</button>
             <a data-cue="tour-step-5" class="cta">Skip</a>
-            <button data-cue="tour-step-4" class="button">Continue</button>
+        </div>
+    </div>
+
+    <div id="tour-step-5" class="tour-message">
+        <strong class="tour-tagline">Choose a plan</strong>
+
+        <div class="tiers">
+            <div class="tier">
+                <div class="tier-header">
+                    <h2 class="tier-name">Standard</h2>
+                    <p>For small teams that need to <br />reach more people</p>
+
+                    <strong class="tier-price">$100 <em>a month</em></strong>
+
+                    <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
+                </div>
+
+                <div class="tier-action">
+                    <button class="modal-trigger">Choose Standard</button>
+                </div>
+
+                <div class="tier-feature-list">
+                    <ul>
+                        <li>Collect posts via SMS and Twitter</li>
+                        <li>Turn on notifications related to your interests</li>
+                        <li>View data in bar chart or trend graph</li>
+                        <li>Choose from more than 10 base maps</li>
+                    </ul>
+                </div>
+
+                <p><a href="" class="cta tour-link">View all features</a></p>
+            </div>
+
+            <div class="tier recommended">
+                <div class="tier-header">
+                    <h2 class="tier-name">Plus</h2>
+                    <p>For growing teams that need <br />to organize their workflow</p>
+
+                    <strong class="tier-price">$500 <em>a month</em></strong>
+
+                    <h3 class="tier-feature">5,000 posts <em>+$8/month per 1,000 extra</em></h3>
+                </div>
+
+                <div class="tier-action">
+                    <button class="modal-trigger">Choose Plus</button>
+                </div>
+
+                <div class="tier-feature-list">
+                    <em>&#8592; Everything from Standard, and:</em>
+                    <ul>
+                        <li>Team collaboration with user roles</li>
+                        <li>Publish posts to specific audiences</li>
+                        <li>Unlimited post types</li>
+                        <li>Break moderation into assignable 'steps'</li>
+                    </ul>
+                </div>
+
+                <p><a href="" class="cta tour-link">View all features</a></p>
+            </div>
+
+            <div class="tier">
+                <div class="tier-header">
+                    <h2 class="tier-name">Enterprise</h2>
+                    <p>For big, sensitive data <br />with extra security.</p>
+
+                    <strong class="tier-price">$2,000 <em>a month</em></strong>
+
+                    <h3 class="tier-feature">10,000 posts <em>+$4/month per 1,000 extra</em></h3>
+                </div>
+
+                <div class="tier-action">
+                    <button type="button" disabled>Coming soon</button>
+                </div>
+
+                <div class="tier-feature-list">
+                    <em>&#8592; Everything from Standard and Plus</em>
+                </div>
+
+                <p><a href="" class="cta tour-link">View all features</a></p>
+            </div>
         </div>
     </div>
 
@@ -446,6 +528,9 @@ tourStep = function(step) {
     if (step == 'tour-step-1') {
         $('.tour-mask').fadeIn(500);
         tourPin(); // Position pin and message
+    } else if (step == 'tour-step-5') {
+        $('.tour-mask').fadeIn(500);
+        tourPin(); // Position pin and message
     } else {
         $('.tour-mask').fadeOut(500); // Fade out mask
         tourPin('[data-message="'+step+'"]', 'bottom-center'); // Position pin and message
@@ -464,7 +549,7 @@ $(document).ready(function(){
     var step = lookupStep();
 
     // Disable all other links and buttons on the deployment
-    $('*').not('[data-cue]').on('click', function(e){
+    $('*').not('[data-cue], .tour-link').on('click', function(e){
         e.preventDefault();
     }).off('click');
 
@@ -483,13 +568,12 @@ $(document).ready(function(){
 
     // Animate in the appropriate step
     setTimeout(function(){
-        console.log('Step: '+step+'');
         tourStep(step);
     }, 1000);
 
+    // Go to correct step on 'Back' button
     window.onpopstate = function(event) {
         tourStep(lookupStep());
-        console.log('pop: '+lookupStep()+'')
     };
 });
 
