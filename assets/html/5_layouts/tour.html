@@ -36,11 +36,9 @@
     </div>
 
     <div id="tour-step-2" class="tour-message">
-        <h2 class="tour-heading">Collect meaningful data</h2>
-        <p class="tour-body">You can add a post from any page in your deployment
-Choose from multiple custom post types
-A post can have steps and permissions for who sees it
-</p>
+        <h2 class="tour-heading">Collect Data</h2>
+        <!--img src="http://ushahidi.com/uploads/feature-images/feature-1.svg" class="tour-image" /-->
+        <p class="tour-body">Gather submissions from many sources, starting with your deployment's <em>"Add post"</em> button, or from SMS, email, and Twitter. You can collect multiple data types, as well, using custom <em>"Post Types."</em></p>
         <div class="tour-actions">
             <a data-cue="tour-step-1" class="cta">&lsaquo; Back</a>
             <button data-cue="tour-step-3" class="button">Continue</button>
@@ -49,13 +47,21 @@ A post can have steps and permissions for who sees it
     </div>
 
     <div id="tour-step-3" class="tour-message">
-        <h2 class="tour-heading">View posts</h2>
-        <p class="tour-body">As a map
-As a list
-As a visualization
-</p>
+        <h2 class="tour-heading">Data Visualization</h2>
+        <p class="tour-body">Every data set can be viewed in a Map, List, Bar Chart, or Timeline. Just select the view you want at any time.</p>
         <div class="tour-actions">
             <a data-cue="tour-step-2" class="cta">&lsaquo; Back</a>
+            <button data-cue="tour-step-4" class="button">Continue</button>
+            <a data-cue="tour-step-5" class="cta">Skip</a>
+        </div>
+    </div>
+
+    <div id="tour-step-4" class="tour-message">
+        <h2 class="tour-heading">Filter, Search, and Save</h2>
+        <p class="tour-body">Drill into the data you need using power filters. Once you have the data you need, create a <em>Saved Search</em> so you can easily return to or share it. Your Saved Searches are always available from your deployment's main menu.</p>
+
+        <div class="tour-actions">
+            <a data-cue="tour-step-3" class="cta">&lsaquo; Back</a>
             <button data-cue="tour-step-5" class="button">Continue</button>
             <a data-cue="tour-step-5" class="cta">Skip</a>
         </div>
@@ -273,14 +279,14 @@ As a visualization
                 </nav>
             </div><!--end view with filter-->
 
-            <aside class="is-right" role="complementary">
-    <div class="filters">
-        <div class="filters-show-hide">
-            <label class="delta-alt">Search <span>&amp; Filter</span></label>
-            <button type="button" class="button-toggle filter-button-js"></button>
-        </div>
+            <aside data-message="tour-step-4" class="is-right" role="complementary">
+                <div class="filters">
+                    <div class="filters-show-hide">
+                        <label class="delta-alt">Search <span>&amp; Filter</span></label>
+                        <button type="button" class="button-toggle filter-button-js"></button>
+                    </div>
 
-            <div class="filters-container">
+                        <div class="filters-container">
         <form action="#" method="get" role="search">
             <div class="keyword-search">
                 <input type="text" name="keyword" class="keyword-input" placeholder="Search...">
@@ -402,10 +408,9 @@ As a visualization
         </form>
     </div>
 
-    </div>
+                </div>
 
-</aside>
-
+            </aside>
 
             <div class="main-col">
 
@@ -495,7 +500,6 @@ tourPin = function(element, position) {
         $('.tour-pin').css({
             'top' : targetPos.top + targetHeight - 10,
             'left' : targetPos.left + targetWidth/2 - 10
-
         });
     }
 
@@ -505,17 +509,34 @@ tourPin = function(element, position) {
             'top' : targetPos.top + targetHeight + 40
         });
 
-        if ($(window).width() >= 1024) {
-            $('#'+message).css({
-                'left' : targetPos.left + targetWidth/2 - 3
-            });
+        if ($(window).width() > 767) {
+            if ((targetPos.left + targetWidth/2) > $(window).width()/2) {
+                $('#'+message).css({
+                    'left' : '65%'
+                });
+            } else if ((targetPos.left + targetWidth/2) < $(window).width()/2) {
+                $('#'+message).css({
+                    'left' : '35%'
+                });
+            } else {
+                $('#'+message).css({
+                    'left' : '50%'
+                    //'left' : targetPos.left + targetWidth/2 - 3
+                });
+            }
         }
 
-        if (targetPos.top > ($(window).height()/2)) {
+//        console.log(targetPos.top + targetHeight, $(window).height()/2)
+
+        if ((targetPos.top + targetHeight) > ($(window).height()/1.5)) {
             $('html, body').animate({
-                scrollTop: targetPos.top - 40
+                scrollTop: targetPos.top - 70
             }, 1000);
         }
+    } else {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 1000);
     }
 }
 
@@ -528,6 +549,9 @@ tourStep = function(step) {
     if (step == 'tour-step-1') {
         $('.tour-mask').fadeIn(500);
         tourPin(); // Position pin and message
+    } else if (step == 'tour-step-4') {
+        $('.tour-mask').fadeOut(500); // Fade out mask
+        tourPin('[data-message="'+step+'"]', 'bottom-center'); // Position pin and message
     } else if (step == 'tour-step-5') {
         $('.tour-mask').fadeIn(500);
         tourPin(); // Position pin and message
