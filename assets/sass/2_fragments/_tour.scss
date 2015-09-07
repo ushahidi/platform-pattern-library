@@ -85,6 +85,10 @@
         }
     }
 
+    .tour-image {
+        margin: 0 auto;
+    }
+
     .tour-body {
         text-shadow: 0 1px 1px $black;
 
@@ -297,9 +301,14 @@
     max-height: 90%;
 
     @include media($small) {
-        width: 80%;
+        width: 90%;
         padding: $lg-spacing;
-        margin: 0 10%;
+        margin: auto 5%;
+    }
+
+    @include media($large) {
+        width: 60%;
+        margin: auto 20%;
     }
 }
 
@@ -329,7 +338,7 @@
 .tour-step-3 {
 
     .tour-pin .pulse:before {
-        @include animation($aniname: stemMove2, $aniduration: 2s, $animtiming: ease-in-out, $animdelay: 0s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
+        @include animation($aniname: stemMove1, $aniduration: 2s, $animtiming: ease-in-out, $animdelay: 0s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
     }
 
     #tour-step-2 {
@@ -338,6 +347,29 @@
     }
 
     #tour-step-3 {
+        @include scale(1);
+        @include transition(0.4s 1.5s transform ease-in);
+        @include animation($aniname: pop, $aniduration: 0.2s, $animtiming: ease-in-out, $animdelay: 1.9s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
+    }
+
+    [data-step="tour-step-3"] {
+        top: 0;
+        transition-delay: 1.5s;
+    }
+}
+
+.tour-step-4 {
+
+    .tour-pin .pulse:before {
+        @include animation($aniname: stemMove2, $aniduration: 2s, $animtiming: ease-in-out, $animdelay: 0s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
+    }
+
+    #tour-step-3 {
+        @include scale(0);
+        @include transition(0.15s ease-in-out);
+    }
+
+    #tour-step-4 {
         @include scale(1);
         @include transition(0.4s 1.5s transform ease-in);
         @include animation($aniname: pop, $aniduration: 0.2s, $animtiming: ease-in-out, $animdelay: 1.9s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
