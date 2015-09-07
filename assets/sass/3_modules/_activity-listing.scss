@@ -22,10 +22,17 @@
         margin: 0;
     }
 
-    .listing-summary h3 {
-        @include media($small) {
-            font-size: em(22);
+    .listing-summary {
+        h3 {
+            @include media($small) {
+                font-size: em(22);
+            }
         }
+
+        .input-label {
+            margin-top: 0;
+        }
+
     }
 
     .activity-type {
@@ -54,7 +61,15 @@
             @include icon(before, filter);
         }
 
-        &.post:before, &.comment:before, &.collection:before, &.saved-search:before {
+        &.user {
+            @include icon(before, user);
+        }
+
+        &.sms {
+            @include icon(before, phone);
+        }
+
+        &.post:before, &.comment:before, &.collection:before, &.saved-search:before, &.user:before, &.sms:before {
             color: $mid-gray;
             font-size: em(18);
             @include padding-right(4px);
