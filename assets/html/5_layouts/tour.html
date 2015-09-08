@@ -25,7 +25,7 @@
 
     <div class="tour-mask"></div>
 
-    <div id="tour-step-1" class="tour-message">
+    <div id="tour-step-1" class="tour-message tour-modal">
         <strong class="tour-tagline">Howdy</strong>
         <h2 class="tour-heading">And welcome to your new Ushahidi deployment.</h2>
         <p class="tour-body">While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
@@ -62,15 +62,86 @@
 
         <div class="tour-actions">
             <a data-cue="tour-step-3" class="cta">&lsaquo; Back</a>
-            <button data-cue="tour-step-5" class="button">Continue</button>
-            <a data-cue="tour-step-5" class="cta">Skip</a>
+            <button data-cue="tour-step-5" data-pin="false" class="button">Continue</button>
+            <a data-cue="tour-step-5" data-pin="false" class="cta">Skip</a>
         </div>
     </div>
 
-    <div id="tour-step-5" class="tour-message">
+    <div id="tour-step-5" class="tour-message tour-modal">
         <strong class="tour-tagline">Choose a plan</strong>
 
+        <div class="tier lite">
+            <div class="tier-summary">
+                <div class="tier-summary-body">
+                    <h2 class="tier-heading">Get started <strong>for free</strong> with Lite</h2>
+
+                    <h3 class="tier-feature">250 posts <em>from the web and RSS</em></h3>
+                </div>
+            </div>
+
+            <div class="tier-action">
+                <button data-cue="tour-step-6">Choose Lite</button>
+            </div>
+
+            <div class="tier-feature-list">
+                <ul>
+                    <li>5 post types</li>
+                    <li>View data in a map or list</li>
+                    <li>Save searches and collections</li>
+                    <li>See trends developing within your deployment</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="tiers">
+            <div class="payment">
+                <h3>Enter your payment information</h3>
+                <!--form-->
+                    <label class="input-label required" for="cc-name">Name on card</label>
+                    <input type="text" placeholder="Jane Doe" id="cc-name"></input>
+
+                    <label class="input-label required" for="cc-number">Credit Card Number</label>
+                    <input type="text" inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number" />
+
+                    <div class="flex-col">
+                        <div class="col">
+                            <fieldset>
+                                <legend class="input-label">Expiration</legend>
+                                <div class="custom-select">
+                                    <select name="cc-exp-month" autocomplete="cc-exp-month">
+                                        <option value="1">Month</option>
+                                        <option value="2">January</option>
+                                        <option value="3">February</option>
+                                    </select>
+                                </div>
+                                <div class="custom-select">
+                                    <select name="cc-exp-year" autocomplete="cc-exp-year">
+                                        <option value="1">Year</option>
+                                        <option value="2">2015</option>
+                                        <option value="3">2016</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="col">
+                            <label class="input-label required" for="cc-cvv">CVV</label>
+                            <input style="width:80px;" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv"></input>
+                        </div>
+
+                        <div class="col">
+                            <label class="input-label required" for="cc-zip">Zip/Postal Code</label>
+                            <input style="width:100px;" type="text" placeholder="" id="cc-zip"></input>
+                        </div>
+                    </div>
+
+                    <p class="small">*These fields are required.</p>
+
+                    <button data-cue="tour-step-6">Continue</button>
+                    <a data-payment="cancel" class="cta" href="">Cancel</a>
+                <!--/form-->
+            </div>
+
             <div class="tier">
                 <div class="tier-header">
                     <h2 class="tier-name">Standard</h2>
@@ -82,7 +153,7 @@
                 </div>
 
                 <div class="tier-action">
-                    <button class="modal-trigger">Choose Standard</button>
+                    <button data-payment="standard">Choose Standard</button>
                 </div>
 
                 <div class="tier-feature-list">
@@ -108,7 +179,7 @@
                 </div>
 
                 <div class="tier-action">
-                    <button class="modal-trigger">Choose Plus</button>
+                    <button data-payment="plus">Choose Plus</button>
                 </div>
 
                 <div class="tier-feature-list">
@@ -147,9 +218,19 @@
         </div>
     </div>
 
+    <div id="tour-step-6" class="tour-message tour-modal">
+        <strong class="tour-tagline">Nice!</strong>
+        <h2 class="tour-heading">We hope you enjoy your new deployment.</h2>
+        <p class="tour-body">If you ever need help, you can always find it at Ushahidi's <a href="" class="tour-link" target="_blank">Support</a> page.</p>
+
+        <div class="tour-actions">
+            <a href="home-map.html" class="button">Done</a>
+        </div>
+    </div>
+
     <div class="tour-pin"><span class="pulse"></span></div>
 
-    <header class="header header-compact overlay" role="banner">
+    <header class="header header-full overlay" role="banner">
         <div class="container">
             <div class="hero-image">
                 <img src="http://github.ushahidi.org/dotcom-pattern-library/assets/img/map-bg.png" alt="" />
@@ -453,7 +534,7 @@
 
 <script>
 // Make header dynamic
-headerMakeDynamic();
+//headerMakeDynamic();
 
 tourPin = function(element, position) {
     var targetPos = $(element).offset(),
@@ -546,16 +627,14 @@ tourStep = function(step) {
         return (css.match (/(^|\s)tour-step-\S+/g) || []).join(' ');
     }).addClass(step);
 
-    if (step == 'tour-step-1') {
-        $('.tour-mask').fadeIn(500);
-        tourPin(); // Position pin and message
-    } else if (step == 'tour-step-4') {
-        $('.tour-mask').fadeOut(500); // Fade out mask
-        tourPin('[data-message="'+step+'"]', 'bottom-center'); // Position pin and message
-    } else if (step == 'tour-step-5') {
-        $('.tour-mask').fadeIn(500);
+    if ($('#'+step).hasClass('tour-modal')) {
+        console.log('modal!: '+step);
+
+        $('.tour-mask').fadeIn(1000);
         tourPin(); // Position pin and message
     } else {
+        console.log('pin!: '+step);
+
         $('.tour-mask').fadeOut(500); // Fade out mask
         tourPin('[data-message="'+step+'"]', 'bottom-center'); // Position pin and message
     }
@@ -588,6 +667,27 @@ $(document).ready(function(){
         } else {
             window.location.hash = nextStep;
         }
+    });
+
+    // Click event for Plans buttons
+    $('[data-payment]').on('click', function(e) {
+        var context = $(this).closest('.tiers'),
+            selectedTier = $(this).closest('.tier'),
+            selectedTierPos = selectedTier.offset(),
+            form = context.find('.payment');
+
+        if (context.hasClass('show-payment')) {
+            context.find('.tier').removeClass('selected');
+            context.removeClass('show-payment')
+        } else {
+            selectedTier.addClass('selected');
+            context.addClass('show-payment');
+        }
+
+        context.parent().animate({
+            scrollTop: 0
+        }, 500);
+        e.preventDefault();
     });
 
     // Animate in the appropriate step
