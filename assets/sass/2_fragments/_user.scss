@@ -1,13 +1,15 @@
-.user-credit {
+[class*="user-credit"] {
     overflow: auto;
 
     img {
         @include float(left);
         width: 40px;
+        height: 40px;
         @include margin-right($sm-spacing);
 
         @include media($medium) {
             width: 60px;
+            height: 60px;
         }
 
     }
@@ -20,45 +22,32 @@
 
     }
 
-}
+    .delta-alt {
+        padding-top: 5px;
+        margin: 0;
 
-.user-credit-has-label {
-    overflow: auto;
-
-    img {
-        @include float(left);
-        clear: both;
-        width: 45px;
-        @include margin-right($sm-spacing);
-        margin-top: -20px;
-
-        @include media($large) {
-            width: 70px;
-            margin: $sm-spacing 0;
+        @include media($medium) {
+           padding-top: 10px;
         }
 
     }
 
-    .name {
-        @include media($large) {
-            @include float(left);
-            clear: both;
-        }
+}
 
+.user-credit-has-label {
+
+    .name, p {
+        padding-top: 0;
     }
 
     p {
         margin: 0;
     }
 
-    .delta-alt {
-        @include padding-left(45px + $sm-spacing); // pushes label offset from image
-        padding-top: $sm-spacing;
+}
 
-        @include media($large) {
-            @include padding-left(0px);
-        }
-
+.user-credit-no-img {
+    p {
+        margin: 0 0 $sm-spacing;
     }
-
 }

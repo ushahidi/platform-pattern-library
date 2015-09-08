@@ -4003,7 +4003,7 @@ h1, .alpha {
     display: block; }
     @media screen and (min-width: 48em)  {
       h1.inline, .alpha.inline {
-        margin: 10px 5px 10px 0; } }
+        margin: 20px 5px 10px 0; } }
 
 /* line 42, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
 h2, .beta {
@@ -4104,7 +4104,7 @@ h1.inline {
       h1.inline ~ .cta {
         float: left;
         clear: right;
-        margin-top: 28px;
+        margin-top: 39px;
         margin-left: 10px;
         padding: 0 5px; } }
     /* line 172, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
@@ -4308,13 +4308,13 @@ span.date {
     padding: 0; }
 
 /* line 68, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
-body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-inline + .actions-content, body.create-post .actions-stacked + .actions-content, body.create-post .actions-inline + .actions-content {
+body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-inline + .actions-content, body.post-detail .toggle-content, body.create-post .actions-stacked + .actions-content, body.create-post .actions-inline + .actions-content, body.create-post .toggle-content {
   display: none; }
   @media screen and (min-width: 48em)  {
-    body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-inline + .actions-content, body.create-post .actions-stacked + .actions-content, body.create-post .actions-inline + .actions-content {
+    body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-inline + .actions-content, body.post-detail .toggle-content, body.create-post .actions-stacked + .actions-content, body.create-post .actions-inline + .actions-content, body.create-post .toggle-content {
       display: block; }
       /* line 74, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
-      body.post-detail .actions-stacked + .actions-content li, body.post-detail .actions-inline + .actions-content li, body.create-post .actions-stacked + .actions-content li, body.create-post .actions-inline + .actions-content li {
+      body.post-detail .actions-stacked + .actions-content li, body.post-detail .actions-inline + .actions-content li, body.post-detail .toggle-content li, body.create-post .actions-stacked + .actions-content li, body.create-post .actions-inline + .actions-content li, body.create-post .toggle-content li {
         float: none; } }
 
 /*------------------------------------*\
@@ -4947,7 +4947,7 @@ button.photo:before, .button.photo:before, .photo.button-secondary:before, .phot
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/navigation/_breadcrumb.scss */
 ul.breadcrumb {
   direction: ltr;
-  padding: 10px 0;
+  padding: 0;
   display: block;
   overflow: auto; }
   /* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/navigation/_breadcrumb.scss */
@@ -5232,48 +5232,39 @@ ul.breadcrumb {
     padding-right: 10px; }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
-.user-credit {
+[class*="user-credit"] {
   overflow: auto; }
   /* line 4, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
-  .user-credit img {
+  [class*="user-credit"] img {
     float: left;
     width: 40px;
+    height: 40px;
     margin-right: 10px; }
     @media screen and (min-width: 64em)  {
-      .user-credit img {
-        width: 60px; } }
+      [class*="user-credit"] img {
+        width: 60px;
+        height: 60px; } }
   @media screen and (min-width: 64em)  {
-    .user-credit .name {
+    [class*="user-credit"] .name {
       padding-top: 10px; } }
-
-/* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
-.user-credit-has-label {
-  overflow: auto; }
-  /* line 28, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
-  .user-credit-has-label img {
-    float: left;
-    clear: both;
-    width: 45px;
-    margin-right: 10px;
-    margin-top: -20px; }
-    @media screen and (min-width: 80em)  {
-      .user-credit-has-label img {
-        width: 70px;
-        margin: 10px 0; } }
-  @media screen and (min-width: 80em)  {
-    .user-credit-has-label .name {
-      float: left;
-      clear: both; } }
-  /* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
-  .user-credit-has-label p, .user-credit-has-label blockquote, .user-credit-has-label .button-link {
+  /* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
+  [class*="user-credit"] .delta-alt, [class*="user-credit"] .input-label, [class*="user-credit"] .filter-label {
+    padding-top: 5px;
     margin: 0; }
-  /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
-  .user-credit-has-label .delta-alt, .user-credit-has-label .input-label, .user-credit-has-label .filter-label {
-    padding-left: 55px;
-    padding-top: 10px; }
-    @media screen and (min-width: 80em)  {
-      .user-credit-has-label .delta-alt, .user-credit-has-label .input-label, .user-credit-has-label .filter-label {
-        padding-left: 0px; } }
+    @media screen and (min-width: 64em)  {
+      [class*="user-credit"] .delta-alt, [class*="user-credit"] .input-label, [class*="user-credit"] .filter-label {
+        padding-top: 10px; } }
+
+/* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
+.user-credit-has-label .name, .user-credit-has-label p, .user-credit-has-label blockquote, .user-credit-has-label .button-link {
+  padding-top: 0; }
+/* line 43, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
+.user-credit-has-label p, .user-credit-has-label blockquote, .user-credit-has-label .button-link {
+  margin: 0; }
+
+/* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_user.scss */
+.user-credit-no-img p, .user-credit-no-img blockquote, .user-credit-no-img .button-link {
+  margin: 0 0 10px; }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_alerts.scss */
 .alert {
@@ -6639,7 +6630,10 @@ aside .filters {
   @media screen and (min-width: 48em)  {
     .activity-listing .listing-summary h3 {
       font-size: 1.375em; } }
-  /* line 31, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_activity-listing.scss */
+  /* line 32, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_activity-listing.scss */
+  .activity-listing .listing-summary .input-label {
+    margin-top: 0; }
+  /* line 38, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_activity-listing.scss */
   .activity-listing .activity-type {
     margin: 10px 0; }
     /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -6694,8 +6688,34 @@ aside .filters {
       padding: 0 5px 0 1px;
       speak: none;
       transition: content, .25s; }
-    /* line 57, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_activity-listing.scss */
-    .activity-listing .activity-type.post:before, .activity-listing .activity-type.comment:before, .activity-listing .activity-type.collection:before, .activity-listing .activity-type.saved-search:before {
+    /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
+    .activity-listing .activity-type.user:before {
+      content: "\f007";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, .25s; }
+    /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
+    .activity-listing .activity-type.sms:before {
+      content: "\f10b";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, .25s; }
+    /* line 72, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_activity-listing.scss */
+    .activity-listing .activity-type.post:before, .activity-listing .activity-type.comment:before, .activity-listing .activity-type.collection:before, .activity-listing .activity-type.saved-search:before, .activity-listing .activity-type.user:before, .activity-listing .activity-type.sms:before {
       color: #999999;
       font-size: 1.125em;
       padding-right: 4px; }
@@ -8134,7 +8154,10 @@ footer {
     height: 15px;
     border-radius: 20px;
     background: #ffffff;
-    border: 3px solid #ebebeb; }
+    border: 3px solid #999999; }
+  /* line 33, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_activity-timeline.scss */
+  .activity-timeline .activity-listing.alt:before {
+    border-color: #ffc334; }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_modal.scss */
 .modal-visible {
@@ -8392,8 +8415,7 @@ footer {
   max-width: 1580px;
   margin-left: auto;
   margin-right: auto;
-  padding: 0 10px;
-  margin-top: 10px; }
+  padding: 0 10px; }
   /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
   .page-content:after {
     content: ".";
@@ -8414,7 +8436,7 @@ footer {
       width: 80%;
       padding: 0 20px 0 0;
       margin-top: 40px; } }
-  /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  /* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   .page-content .main-col {
     float: left;
     display: block;
@@ -8427,10 +8449,10 @@ footer {
     /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
     .page-content .main-col:last-child {
       margin-right: 0; }
-    /* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 57, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     .page-content .main-col h6 {
       clear: both; }
-  /* line 66, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  /* line 65, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   .page-content.has-aside aside {
     float: left;
     display: block;
@@ -8444,7 +8466,7 @@ footer {
     .page-content.has-aside aside:last-child {
       margin-right: 0; }
   @media screen and (min-width: 48em)  {
-    /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 75, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     .page-content.has-aside .main-col {
       float: left;
       display: block;
@@ -8456,7 +8478,7 @@ footer {
       /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
       .page-content.has-aside .main-col:last-child {
         margin-right: 0; }
-    /* line 83, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 82, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     .page-content.has-aside aside {
       float: left;
       display: block;
@@ -8470,17 +8492,17 @@ footer {
       /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
       .page-content.has-aside aside:last-child {
         margin-right: 0; }
-      /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      /* line 90, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       .page-content.has-aside aside.is-right {
         float: right;
         margin-right: 0;
         padding: 0; }
-      /* line 97, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      /* line 96, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       .page-content.has-aside aside.has-border {
         border-left: 1px solid #ebebeb;
         padding: 20px 0 40px 20px; } }
   @media screen and (min-width: 64em)  {
-    /* line 108, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 107, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     .page-content.has-aside .main-col {
       float: left;
       display: block;
@@ -8492,7 +8514,7 @@ footer {
       /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
       .page-content.has-aside .main-col:last-child {
         margin-right: 0; }
-    /* line 115, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 114, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     .page-content.has-aside aside {
       float: left;
       display: block;
@@ -8505,7 +8527,7 @@ footer {
       .page-content.has-aside aside:last-child {
         margin-right: 0; } }
   @media screen and (min-width: 80em)  {
-    /* line 126, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 125, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     .page-content.has-aside .main-col {
       float: left;
       display: block;
@@ -8517,7 +8539,7 @@ footer {
       /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
       .page-content.has-aside .main-col:last-child {
         margin-right: 0; }
-    /* line 133, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 132, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     .page-content.has-aside aside {
       float: left;
       display: block;
@@ -8530,7 +8552,7 @@ footer {
       .page-content.has-aside aside:last-child {
         margin-right: 0; } }
 
-/* line 146, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+/* line 145, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
 .full-page-content {
   padding: 0 10px;
   margin-top: 10px; }
@@ -8552,25 +8574,24 @@ footer {
       /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
       .full-page-content .two-col .col:last-child {
         margin-right: 0; }
-      /* line 166, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      /* line 165, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       .full-page-content .two-col .col:last-child {
         margin: 0; } }
 
 /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
-aside.is-right .user-credit-has-label {
+aside.is-right [class*="user-credit"] {
   padding: 10px 0;
   width: 60%;
   border-right: 1px solid #ebebeb;
   float: left; }
   @media screen and (min-width: 48em)  {
-    aside.is-right .user-credit-has-label {
+    aside.is-right [class*="user-credit"] {
       padding: 10px 0 20px;
       width: 100%;
       float: none;
       border-right: 0px;
-      border-bottom: 1px solid #ebebeb;
-      border-top: 1px solid #ebebeb; } }
-/* line 20, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+      border-bottom: 1px solid #ebebeb; } }
+/* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .actions-stacked {
   float: right;
   padding: 20px 0 0;
@@ -8582,13 +8603,13 @@ aside.is-right .actions-stacked {
   aside.is-right .step {
     border-top: 1px solid #ebebeb;
     margin-top: 20px; } }
-/* line 38, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+/* line 37, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .step p, aside.is-right .step blockquote, aside.is-right .step .button-link {
   display: inline; }
   @media screen and (min-width: 48em)  {
     aside.is-right .step p, aside.is-right .step blockquote, aside.is-right .step .button-link {
       display: block; } }
-/* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+/* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .step-list-content, aside.is-right .actions-content {
   width: 100%;
   border-top: 1px solid #ebebeb;
@@ -8597,14 +8618,15 @@ aside.is-right .step-list-content, aside.is-right .actions-content {
     aside.is-right .step-list-content, aside.is-right .actions-content {
       border-top: 0;
       padding: 0; } }
-/* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+/* line 60, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .published-to {
   float: left; }
   @media screen and (min-width: 48em)  {
     aside.is-right .published-to {
       padding-bottom: 20px;
+      border-bottom: 1px solid #ebebeb;
       float: none; } }
-  /* line 70, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+  /* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
   aside.is-right .published-to h4 {
     float: left;
     margin: 10px 10px 0 0; }
@@ -8612,8 +8634,8 @@ aside.is-right .published-to {
       aside.is-right .published-to h4 {
         float: none;
         margin: 20px 0 10px; } }
-  /* line 81, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
-  aside.is-right .published-to button {
+  /* line 80, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+  aside.is-right .published-to .custom-select {
     margin-bottom: 0; }
 @media screen and (min-width: 48em)  {
   aside.is-right .save-buttons {
@@ -8652,12 +8674,11 @@ aside.is-right .published-to {
 
 /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-post-detail.scss */
 .post-detail .main-col {
-  border-top: 1px solid #ebebeb;
-  padding-top: 20px; }
+  border-top: 1px solid #ebebeb; }
   @media screen and (min-width: 48em)  {
     .post-detail .main-col {
       border-top: 0px; } }
-  /* line 12, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-post-detail.scss */
+  /* line 10, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-post-detail.scss */
   .post-detail .main-col p, .post-detail .main-col blockquote, .post-detail .main-col .button-link {
     line-height: 1.5;
     font-size: 1.0625em; }
@@ -8665,12 +8686,20 @@ aside.is-right .published-to {
       .post-detail .main-col p, .post-detail .main-col blockquote, .post-detail .main-col .button-link {
         font-size: 1.1875em; } }
 
-@media screen and (min-width: 64em)  {
-  .post-detail .main-col, .create-post .main-col {
-    padding-right: 40px; } }
-@media screen and (min-width: 80em)  {
-  .post-detail .main-col, .create-post .main-col {
-    padding-right: 200px; } }
+/* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-post-detail.scss */
+.post-detail h1 {
+  margin-bottom: 20px; }
+
+/* line 36, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-post-detail.scss */
+.post-detail .main-col, .create-post .main-col {
+  padding-top: 20px; }
+  @media screen and (min-width: 64em)  {
+    .post-detail .main-col, .create-post .main-col {
+      padding-top: 0;
+      padding-right: 40px; } }
+  @media screen and (min-width: 80em)  {
+    .post-detail .main-col, .create-post .main-col {
+      padding-right: 200px; } }
 
 /* @generated */
 /*# sourceMappingURL=style.css.map */
