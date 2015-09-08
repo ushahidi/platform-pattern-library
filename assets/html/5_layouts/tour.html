@@ -75,21 +75,12 @@
                 <div class="tier-summary-body">
                     <h2 class="tier-heading">Get started <strong>for free</strong> with Lite</h2>
 
-                    <h3 class="tier-feature">250 posts <em>from the web and RSS</em></h3>
+                    <h3 class="tier-feature">150 posts <em>from the web and RSS; $15/month per 100 extra posts</em></h3>
                 </div>
             </div>
 
             <div class="tier-action">
                 <button data-cue="tour-step-6">Choose Lite</button>
-            </div>
-
-            <div class="tier-feature-list">
-                <ul>
-                    <li>5 post types</li>
-                    <li>View data in a map or list</li>
-                    <li>Save searches and collections</li>
-                    <li>See trends developing within your deployment</li>
-                </ul>
             </div>
         </div>
 
@@ -607,8 +598,6 @@ tourPin = function(element, position) {
             }
         }
 
-//        console.log(targetPos.top + targetHeight, $(window).height()/2)
-
         if ((targetPos.top + targetHeight) > ($(window).height()/1.5)) {
             $('html, body').animate({
                 scrollTop: targetPos.top - 70
@@ -628,13 +617,9 @@ tourStep = function(step) {
     }).addClass(step);
 
     if ($('#'+step).hasClass('tour-modal')) {
-        console.log('modal!: '+step);
-
         $('.tour-mask').fadeIn(1000);
         tourPin(); // Position pin and message
     } else {
-        console.log('pin!: '+step);
-
         $('.tour-mask').fadeOut(500); // Fade out mask
         tourPin('[data-message="'+step+'"]', 'bottom-center'); // Position pin and message
     }
@@ -673,15 +658,23 @@ $(document).ready(function(){
     $('[data-payment]').on('click', function(e) {
         var context = $(this).closest('.tiers'),
             selectedTier = $(this).closest('.tier'),
-            selectedTierPos = selectedTier.offset(),
+            liteTier = context.siblings('.lite'),
             form = context.find('.payment');
 
         if (context.hasClass('show-payment')) {
+            form.fadeOut(500);
             context.find('.tier').removeClass('selected');
-            context.removeClass('show-payment')
+            context.removeClass('show-payment');
+            setTimeout(function(){
+                liteTier.slideDown(500).animate({opacity: 1}, 500);
+            }, 500);
         } else {
+            form.fadeIn(500);
             selectedTier.addClass('selected');
             context.addClass('show-payment');
+            setTimeout(function(){
+                liteTier.animate({opacity: 0}, 500).slideUp(500);
+            }, 500);
         }
 
         context.parent().animate({

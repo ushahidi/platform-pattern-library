@@ -5370,20 +5370,17 @@ ul.breadcrumb {
     transform: rotate(45deg);
     box-shadow: -2px 2px 0px 0px #ffc334; }
 
-/* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
-.tour-focused {
-  overflow: hidden; }
-  /* line 4, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
-  .tour-focused *:hover {
-    cursor: default; }
-  /* line 10, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
-  .tour-focused .tour-link:hover {
-    cursor: pointer; }
+/* line 4, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+.tour-focused *:hover {
+  cursor: default; }
+/* line 10, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+.tour-focused .tour-link:hover {
+  cursor: pointer; }
 
 /* line 16, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-mask {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   top: 0;
   right: 0;
@@ -5404,6 +5401,7 @@ ul.breadcrumb {
   width: 90%;
   max-height: 85%;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   color: #ffffff;
   text-align: center;
   border: 5px solid #2b323a;
@@ -5424,7 +5422,7 @@ ul.breadcrumb {
       width: 60%;
       padding: 40px;
       margin-left: -30%; } }
-  /* line 60, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-message .tour-tagline {
     display: block;
     color: #C7CCD4;
@@ -5437,7 +5435,7 @@ ul.breadcrumb {
     @media screen and (min-width: 48em)  {
       .tour-message .tour-tagline {
         font-size: 3.25em; } }
-  /* line 75, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-message .tour-heading {
     color: #C7CCD4;
     font-weight: normal;
@@ -5448,46 +5446,74 @@ ul.breadcrumb {
     @media screen and (min-width: 48em)  {
       .tour-message .tour-heading {
         font-size: 1.65em; } }
-  /* line 88, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 89, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-message .tour-image {
     margin: 0 auto; }
-  /* line 92, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 93, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-message .tour-body {
     text-shadow: 0 1px 1px #181c21; }
     @media screen and (min-width: 48em)  {
       .tour-message .tour-body {
         font-size: 1.1em; } }
-    /* line 99, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+    /* line 100, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
     .tour-message .tour-body a, .tour-message .tour-body .button-link {
       color: #ffffff; }
-  /* line 108, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 109, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-message .tour-actions button, .tour-message .tour-actions .button, .tour-message .tour-actions .button-secondary, .tour-message .tour-actions .button-toggle, .tour-message .tour-actions .cta {
     margin: 10px; }
-    /* line 111, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+    /* line 112, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
     .tour-message .tour-actions button:hover, .tour-message .tour-actions .button:hover, .tour-message .tour-actions .button-secondary:hover, .tour-message .tour-actions .button-toggle:hover, .tour-message .tour-actions .cta:hover {
       cursor: pointer; }
-  /* line 116, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 117, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-message .tour-actions .cta {
     color: #C7CCD4;
     text-transform: uppercase; }
-    /* line 120, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+    /* line 121, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
     .tour-message .tour-actions .cta:hover {
       color: #ffffff; }
-    /* line 124, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+    /* line 125, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
     .tour-message .tour-actions .cta[data-cue="tour-step-5"] {
       position: absolute;
       top: 10px;
       right: 10px; }
+  /* line 134, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  .tour-message .tier .cta.tour-link {
+    color: #C7CCD4; }
   @media screen and (min-width: 48em)  {
     .tour-message .tier.lite {
+      max-width: 70%;
       border: 1px solid rgba(30, 35, 42, 0.5);
       box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.25);
-      background-color: rgba(30, 35, 42, 0.5); }
-      /* line 139, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+      background-color: rgba(30, 35, 42, 0.5);
+      margin-bottom: 20px; }
+      /* line 147, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+      .tour-message .tier.lite .tier-feature em {
+        display: inline; } }
+  /* line 152, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  .tour-message .tier.lite .tier-summary {
+    position: static;
+    padding-bottom: 70px; }
+    @media screen and (min-width: 48em)  {
       .tour-message .tier.lite .tier-summary {
-        background-color: transparent; } }
+        position: relative;
+        text-align: left;
+        background-color: transparent;
+        padding-right: 33.33333%;
+        padding-bottom: 20px; } }
+  /* line 165, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  .tour-message .tier.lite .tier-action {
+    position: relative;
+    top: -40px; }
+    @media screen and (min-width: 48em)  {
+      .tour-message .tier.lite .tier-action {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        left: 66.66667%;
+        text-align: right;
+        margin-top: -20px; } }
 
-/* line 146, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 182, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-pin {
   position: absolute;
   z-index: 999;
@@ -5497,7 +5523,7 @@ ul.breadcrumb {
   border-radius: 100%;
   background-color: #ffc334;
   transition: 1s ease-in-out; }
-  /* line 157, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 193, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-pin:before, .tour-pin:after {
     position: absolute;
     top: -190px;
@@ -5506,13 +5532,13 @@ ul.breadcrumb {
     width: 400px;
     height: 400px;
     border-radius: 100%; }
-  /* line 167, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 203, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-pin:before {
     box-shadow: inset 0 0 30px 30px rgba(0, 0, 0, 0.5); }
-  /* line 171, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 207, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-pin:after {
     box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5); }
-  /* line 175, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 211, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-pin .pulse {
     display: block;
     width: 20px;
@@ -5527,11 +5553,11 @@ ul.breadcrumb {
     transform: translate3d(0, 0, 0);
     -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
             animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1); }
-    /* line 192, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+    /* line 228, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
     .tour-pin .pulse:hover {
       -webkit-animation-play-state: paused;
               animation-play-state: paused; }
-    /* line 196, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+    /* line 232, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
     .tour-pin .pulse:before {
       content: '';
       position: absolute;
@@ -5544,18 +5570,18 @@ ul.breadcrumb {
       background-color: #ffc334; }
 
 @-webkit-keyframes pulse {
-  /* line 212, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 248, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   to {
     box-shadow: 0 0 0 12px transparent, 0 0 0 24px rgba(90, 153, 212, 0); } }
 
 @keyframes pulse {
-  /* line 212, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 248, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   to {
     box-shadow: 0 0 0 12px transparent, 0 0 0 24px rgba(90, 153, 212, 0); } }
 
 /*/--------// STEPS //--------/*/
 @-webkit-keyframes pop {
-  /* line 220, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 256, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5563,12 +5589,12 @@ ul.breadcrumb {
     border-color: #2b323a;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); }
 
-  /* line 225, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 261, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   25% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 229, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 265, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   50% {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -5576,12 +5602,12 @@ ul.breadcrumb {
     border-color: rgba(255, 195, 52, 0.75);
     box-shadow: 0 0 40px 30px rgba(255, 195, 52, 0.5); }
 
-  /* line 234, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 270, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   75% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 238, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 274, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5589,7 +5615,7 @@ ul.breadcrumb {
     border-color: #2b323a;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); } }
 @keyframes pop {
-  /* line 220, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 256, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5597,12 +5623,12 @@ ul.breadcrumb {
     border-color: #2b323a;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); }
 
-  /* line 225, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 261, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   25% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 229, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 265, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   50% {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -5610,12 +5636,12 @@ ul.breadcrumb {
     border-color: rgba(255, 195, 52, 0.75);
     box-shadow: 0 0 40px 30px rgba(255, 195, 52, 0.5); }
 
-  /* line 234, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 270, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   75% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 238, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 274, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5624,113 +5650,113 @@ ul.breadcrumb {
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); } }
 
 @-webkit-keyframes stemStart {
-  /* line 246, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 282, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 0; }
 
-  /* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 285, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   75% {
     height: 0; }
 
-  /* line 252, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 288, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @keyframes stemStart {
-  /* line 246, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 282, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 0; }
 
-  /* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 285, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   75% {
     height: 0; }
 
-  /* line 252, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 288, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @-webkit-keyframes stemMove1 {
-  /* line 259, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 295, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 262, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 298, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 265, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 301, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 268, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 304, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @keyframes stemMove1 {
-  /* line 259, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 295, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 262, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 298, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 265, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 301, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 268, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 304, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @-webkit-keyframes stemMove2 {
-  /* line 274, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 310, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 277, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 313, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 280, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 316, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 283, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 319, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @keyframes stemMove2 {
-  /* line 274, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 310, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 277, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 313, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 280, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 316, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 283, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 319, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
-/* line 290, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 326, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-1 .tour-pin {
   top: -100%; }
-  /* line 293, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 329, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-step-1 .tour-pin .pulse:before {
     height: 0;
     -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
     -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
     animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 299, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 335, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-1 #tour-step-1 {
   top: 10%; }
 
-/* line 304, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 340, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-modal {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -5742,7 +5768,7 @@ ul.breadcrumb {
     .tour-modal {
       margin: auto 20%; } }
 
-/* line 316, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 352, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 #tour-step-5 {
   max-height: 90%; }
   @media screen and (min-width: 48em)  {
@@ -5755,18 +5781,18 @@ ul.breadcrumb {
       width: 60%;
       margin: auto 20%; } }
 
-/* line 333, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 369, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-2 .tour-pin .pulse:before {
   -webkit-animation: stemStart 2s ease-in-out 0s 1 normal none;
   -ms-animation: stemStart 2s ease-in-out 0s 1 normal none;
   animation: stemStart 2s ease-in-out 0s 1 normal none; }
-/* line 337, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 373, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-2 #tour-step-1 {
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0);
   transition: 0.15s ease-in-out; }
-/* line 342, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 378, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-2 #tour-step-2 {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -5776,23 +5802,23 @@ ul.breadcrumb {
   -webkit-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
   -ms-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
   animation: pop 0.2s ease-in-out 1.9s 1 normal none; }
-/* line 348, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 384, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-2 [data-step="tour-step-2"] {
   top: 0;
   transition-delay: 1.5s; }
 
-/* line 356, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 392, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-3 .tour-pin .pulse:before {
   -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
   -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
   animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 360, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 396, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-3 #tour-step-2 {
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0);
   transition: 0.15s ease-in-out; }
-/* line 365, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 401, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-3 #tour-step-3 {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -5802,23 +5828,23 @@ ul.breadcrumb {
   -webkit-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
   -ms-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
   animation: pop 0.2s ease-in-out 1.9s 1 normal none; }
-/* line 371, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 407, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-3 [data-step="tour-step-3"] {
   top: 0;
   transition-delay: 1.5s; }
 
-/* line 379, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 415, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-4 .tour-pin .pulse:before {
   -webkit-animation: stemMove2 2s ease-in-out 0s 1 normal none;
   -ms-animation: stemMove2 2s ease-in-out 0s 1 normal none;
   animation: stemMove2 2s ease-in-out 0s 1 normal none; }
-/* line 383, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 419, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-4 #tour-step-3 {
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0);
   transition: 0.15s ease-in-out; }
-/* line 388, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 424, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-4 #tour-step-4 {
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
@@ -5828,34 +5854,34 @@ ul.breadcrumb {
   -webkit-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
   -ms-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
   animation: pop 0.2s ease-in-out 1.9s 1 normal none; }
-/* line 394, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 430, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-4 [data-step="tour-step-3"] {
   top: 0;
   transition-delay: 1.5s; }
 
-/* line 402, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 438, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-5 .tour-pin {
   top: -100%; }
-  /* line 405, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 441, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-step-5 .tour-pin .pulse:before {
     height: 0;
     -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
     -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
     animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 411, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 447, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-5 #tour-step-5 {
   top: 5%; }
 
-/* line 418, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 454, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-6 .tour-pin {
   top: -100%; }
-  /* line 421, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+  /* line 457, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
   .tour-step-6 .tour-pin .pulse:before {
     height: 0;
     -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
     -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
     animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 427, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
+/* line 463, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tour.scss */
 .tour-step-6 #tour-step-6 {
   top: 5%; }
 
@@ -7315,6 +7341,7 @@ aside .filters {
         padding-top: 20px; } }
 /* line 257, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tiers.scss */
 .tiers .payment {
+  display: none;
   position: relative;
   float: right;
   width: 100%;
@@ -7336,7 +7363,7 @@ aside .filters {
       left: 110%;
       width: 66.66667%;
       transition: 0.75s ease-in-out; } }
-/* line 284, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tiers.scss */
+/* line 285, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tiers.scss */
 .tiers.show-payment .tier {
   margin-right: 125%;
   margin-left: -125%; }
@@ -7344,10 +7371,10 @@ aside .filters {
     .tiers.show-payment .tier {
       margin-right: auto;
       margin-left: -1000px; }
-      /* line 292, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tiers.scss */
+      /* line 293, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tiers.scss */
       .tiers.show-payment .tier.selected {
         margin-left: 0; } }
-/* line 298, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tiers.scss */
+/* line 299, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tiers.scss */
 .tiers.show-payment .payment {
   margin-right: 0; }
   @media screen and (min-width: 48em)  {

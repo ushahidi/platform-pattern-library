@@ -1,5 +1,5 @@
 .tour-focused {
-    overflow: hidden;
+//    overflow: hidden;
 
     *:hover {
         cursor: default;
@@ -15,7 +15,7 @@
 
 .tour-mask {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 999;
     top: 0;
     right: 0;
@@ -33,6 +33,7 @@
     width: 90%;
     max-height: 85%;
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     color: $white;
     text-align: center;
     border: 5px solid #2b323a;
@@ -129,15 +130,50 @@
         }
     }
 
-    .tier.lite {
+    .tier {
+        .cta.tour-link {
+            color: #C7CCD4;
+        }
 
-        @include media($small) {
-            border: 1px solid rgba(30, 35, 42, .5);
-            @include box-shadow($top: 0, $left: 0, $blur: 4px, $spread: 0, $color: rgba(0,0,0,.25), $inset: true);
-            background-color: rgba(30, 35, 42, .5);
+        &.lite {
+
+            @include media($small) {
+                max-width: 70%;
+                border: 1px solid rgba(30, 35, 42, .5);
+                @include box-shadow($top: 0, $left: 0, $blur: 4px, $spread: 0, $color: rgba(0,0,0,.25), $inset: true);
+                background-color: rgba(30, 35, 42, .5);
+                margin-bottom: $base-spacing;
+
+                .tier-feature em {
+                    display: inline;
+                }
+            }
 
             .tier-summary {
-                background-color: transparent;
+                position: static;
+                padding-bottom: 70px;
+
+                @include media($small) {
+                    position: relative;
+                    text-align: left;
+                    background-color: transparent;
+                    padding-right: 33.3333333%;
+                    padding-bottom: $base-spacing;
+                }
+            }
+
+            .tier-action {
+                position: relative;
+                top: -$lg-spacing;
+
+                @include media($small) {
+                    position: absolute;
+                    top: 50%;
+                    right: $base-spacing;
+                    left: 66.6666667%;
+                    text-align: right;
+                    margin-top: -$base-spacing;
+                }
             }
         }
     }
