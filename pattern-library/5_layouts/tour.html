@@ -385,11 +385,20 @@ tourPin = function(prevStep, nextStep, target, position) {
     $('#'+prevStep).removeClass('active'); // Remove 'active' state from previous step
 
     // Apply correct state to pin
-    if ($('#'+prevStep).hasClass('tour-modal')) { // IF: Previous step was a modal
+    // IF: Previous step was a modal
+    if ($('#'+prevStep).hasClass('tour-modal')) {
         $('.tour-pin').removeClass(function (index, css) {
             return (css.match (/(^|\s)pin-\S+/g) || []).join(' ');
         }).addClass('pin-enter');
-    } else { // ELSE: Previous step was a pin
+
+    // ELSE: Previous step was a pin AND the next step is a modal
+    } else if (!$('#'+prevStep).hasClass('tour-modal') && $('#'+nextStep).hasClass('tour-modal')) {
+        $('.tour-pin').removeClass(function (index, css) {
+            return (css.match (/(^|\s)pin-\S+/g) || []).join(' ');
+        }).css('top','-100%');
+
+    // ELSE: Previous step was a pin AND the next step is a pin
+    } else {
         $('.tour-pin').removeClass('pin-enter').toggleClass('pin-move');
     }
 
