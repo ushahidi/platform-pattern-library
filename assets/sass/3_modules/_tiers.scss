@@ -1,8 +1,9 @@
 .tier {
+    @include clearfix;
     position: relative;
     color: $dk-gray;
     text-align: center;
-    margin-bottom: $base-spacing;
+    margin: $base-spacing auto;
 
     @include media($small) {
         max-width: 60%;
@@ -39,24 +40,40 @@
         }
     }
 
-    .tier-image {
+    .tier-summary {
+        position: relative;
+        overflow: hidden;
+        background-color: #1E232A;
+        padding: 0 $base-spacing 35px;
 
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-color: $header-bg-color;
-            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            background-color: rgba($header-bg-color, .75);
+        .tier-heading {
+            margin-top: $base-spacing;
         }
 
+        .tier-summary-body {
+            position: relative;
+            z-index: 1;
+            color: $white;
+
+            .tier-heading {
+                color: $white;
+            }
+
+            .tier-feature,
+            .tier-feature em {
+                color: $lt-gray;
+            }
+        }
+    }
+
+    &.selected {
+
+        .tier-summary {
+            background-color: $white;
+        }
+    }
+
+    .tier-image {
 
         img {
             position: absolute;
@@ -188,9 +205,14 @@
 .tiers {
     @include clearfix;
 
+    @include media($small) {
+        position: relative;
+    }
+
     .tier {
         max-width: none;
         margin: $base-spacing 0 $lg-spacing;
+        @include transition(0.85s ease-in-out);
 
         .tier-feature-list {
             min-height: 250px;
@@ -199,7 +221,7 @@
         @include media($small) {
             float: left;
             width: 33.333333%;
-            margin: $lg-spacing 0;
+            margin: $lg-spacing 0 0;
         }
 
         &.recommended {
@@ -228,6 +250,57 @@
                     padding-top: $base-spacing;
                 }
 
+            }
+        }
+    }
+
+    .payment {
+        position: relative;
+        float: right;
+        width: 100%;
+        color: $black;
+        text-align: left;
+        border: $base-border;
+        background-color: #FBF9F6;
+        padding: $sm-spacing $base-spacing;
+        margin-right: -125%;
+        @include transition(0.8s ease-in-out);
+
+        @include media($small) {
+            position: absolute;
+            z-index: 99;
+            opacity: 1;
+            top: 24px;
+            right: -110%;
+            bottom: 10%;
+            left: 110%;
+            width: 66.6666667%;
+            @include transition(0.75s ease-in-out);
+        }
+    }
+
+    &.show-payment {
+
+        .tier {
+            margin-right: 125%;
+            margin-left: -125%;
+
+            @include media($small) {
+                margin-right: auto;
+                margin-left: -1000px;
+
+                &.selected {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .payment {
+            margin-right: 0;
+
+            @include media($small) {
+                right: 10%;
+                left: 33.333333%;
             }
         }
     }
