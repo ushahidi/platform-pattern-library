@@ -5472,20 +5472,17 @@ ul.breadcrumb {
     transform: rotate(225deg);
     box-shadow: -2px 2px 0px 0px #ffc334; }
 
-/* line 1, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-focused {
-  overflow: hidden; }
-  /* line 4, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-  .tour-focused *:hover {
-    cursor: default; }
-  /* line 10, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-  .tour-focused .tour-link:hover {
-    cursor: pointer; }
+/* line 4, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+.tour-focused *:hover {
+  cursor: default; }
+/* line 10, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+.tour-focused .tour-link:hover {
+  cursor: pointer; }
 
 /* line 16, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
 .tour-mask {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   top: 0;
   right: 0;
@@ -5506,6 +5503,7 @@ ul.breadcrumb {
   width: 90%;
   max-height: 85%;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   color: #ffffff;
   text-align: center;
   border: 5px solid #2b323a;
@@ -5513,8 +5511,7 @@ ul.breadcrumb {
   background-color: #3F4751;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8);
   padding: 20px;
-  margin: auto 5%;
-  transition: 0.6s ease-in-out; }
+  margin: auto 5%; }
   @media screen and (min-width: 48em)  {
     .tour-message {
       width: 50%;
@@ -5576,20 +5573,91 @@ ul.breadcrumb {
     .tour-message .tour-actions .cta:hover {
       color: #ffffff; }
     /* line 124, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-    .tour-message .tour-actions .cta[data-cue="tour-step-5"] {
+    .tour-message .tour-actions .cta[data-cue="plans"] {
       position: absolute;
       top: 10px;
       right: 10px; }
+  /* line 133, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-message .tier .cta.tour-link {
+    color: #C7CCD4; }
   @media screen and (min-width: 48em)  {
     .tour-message .tier.lite {
+      max-width: 80%;
       border: 1px solid rgba(30, 35, 42, 0.5);
       box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.25);
-      background-color: rgba(30, 35, 42, 0.5); }
-      /* line 139, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+      background-color: rgba(30, 35, 42, 0.5);
+      margin-bottom: 20px; }
+      /* line 146, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+      .tour-message .tier.lite .tier-feature em {
+        display: inline; } }
+  /* line 151, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-message .tier.lite .tier-summary {
+    position: static;
+    padding-bottom: 70px; }
+    @media screen and (min-width: 48em)  {
       .tour-message .tier.lite .tier-summary {
-        background-color: transparent; } }
+        position: relative;
+        text-align: left;
+        background-color: transparent;
+        padding-right: 35%;
+        padding-bottom: 20px; } }
+  /* line 164, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-message .tier.lite .tier-action {
+    position: relative;
+    top: -40px; }
+    @media screen and (min-width: 48em)  {
+      .tour-message .tier.lite .tier-action {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        left: 66.66667%;
+        text-align: right;
+        margin-top: -20px; } }
+  /* line 180, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-message.active {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    transition: 0.4s 1.5s -webkit-transform ease-in;
+    transition: 0.4s 1.5s transform ease-in;
+    -webkit-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
+    -ms-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
+    animation: pop 0.2s ease-in-out 1.9s 1 normal none; }
+  /* line 187, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-message.tour-modal {
+    transition: 0.6s ease-in-out; }
+    @media screen and (min-width: 48em)  {
+      .tour-message.tour-modal {
+        margin: auto 25%; } }
+    @media screen and (min-width: 64em)  {
+      .tour-message.tour-modal {
+        margin: auto 20%; } }
+    /* line 198, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+    .tour-message.tour-modal.active {
+      -webkit-transform: scale(1);
+      -ms-transform: scale(1);
+      transform: scale(1);
+      top: 10%;
+      -webkit-animation: none 1s ease 0s 1 normal none;
+      -ms-animation: none 1s ease 0s 1 normal none;
+      animation: none 1s ease 0s 1 normal none; }
+  /* line 205, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-message#plans {
+    max-height: 90%; }
+    @media screen and (min-width: 48em)  {
+      .tour-message#plans {
+        width: 90%;
+        padding: 40px;
+        margin: auto 5%; } }
+    @media screen and (min-width: 80em)  {
+      .tour-message#plans {
+        width: 70%;
+        margin: auto 15%; } }
+    /* line 219, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+    .tour-message#plans.active {
+      top: 5%; }
 
-/* line 146, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+/* line 225, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
 .tour-pin {
   position: absolute;
   z-index: 999;
@@ -5599,7 +5667,7 @@ ul.breadcrumb {
   border-radius: 100%;
   background-color: #ffc334;
   transition: 1s ease-in-out; }
-  /* line 157, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 236, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   .tour-pin:before, .tour-pin:after {
     position: absolute;
     top: -190px;
@@ -5608,13 +5676,13 @@ ul.breadcrumb {
     width: 400px;
     height: 400px;
     border-radius: 100%; }
-  /* line 167, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 246, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   .tour-pin:before {
     box-shadow: inset 0 0 30px 30px rgba(0, 0, 0, 0.5); }
-  /* line 171, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 250, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   .tour-pin:after {
     box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5); }
-  /* line 175, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 254, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   .tour-pin .pulse {
     display: block;
     width: 20px;
@@ -5629,11 +5697,11 @@ ul.breadcrumb {
     transform: translate3d(0, 0, 0);
     -webkit-animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1);
             animation: pulse 1.25s infinite cubic-bezier(0.66, 0.33, 0, 1); }
-    /* line 192, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+    /* line 271, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
     .tour-pin .pulse:hover {
       -webkit-animation-play-state: paused;
               animation-play-state: paused; }
-    /* line 196, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+    /* line 275, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
     .tour-pin .pulse:before {
       content: '';
       position: absolute;
@@ -5643,21 +5711,34 @@ ul.breadcrumb {
       height: 33px;
       border-right: 2px solid #181c21;
       border-left: 2px solid #181c21;
-      background-color: #ffc334; }
+      background-color: #ffc334;
+      -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
+      -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
+      animation: stemMove1 2s ease-in-out 0s 1 normal none; }
+  /* line 292, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-pin.pin-enter .pulse:before {
+    -webkit-animation: stemStart 2s ease-in-out 0s 1 normal none;
+    -ms-animation: stemStart 2s ease-in-out 0s 1 normal none;
+    animation: stemStart 2s ease-in-out 0s 1 normal none; }
+  /* line 299, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  .tour-pin.pin-move .pulse:before {
+    -webkit-animation: stemMove2 2s ease-in-out 0s 1 normal none;
+    -ms-animation: stemMove2 2s ease-in-out 0s 1 normal none;
+    animation: stemMove2 2s ease-in-out 0s 1 normal none; }
 
 @-webkit-keyframes pulse {
-  /* line 212, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 306, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   to {
     box-shadow: 0 0 0 12px transparent, 0 0 0 24px rgba(90, 153, 212, 0); } }
 
 @keyframes pulse {
-  /* line 212, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 306, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   to {
     box-shadow: 0 0 0 12px transparent, 0 0 0 24px rgba(90, 153, 212, 0); } }
 
 /*/--------// STEPS //--------/*/
 @-webkit-keyframes pop {
-  /* line 220, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 314, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5665,12 +5746,12 @@ ul.breadcrumb {
     border-color: #2b323a;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); }
 
-  /* line 225, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 319, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   25% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 229, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 323, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   50% {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -5678,12 +5759,12 @@ ul.breadcrumb {
     border-color: rgba(255, 195, 52, 0.75);
     box-shadow: 0 0 40px 30px rgba(255, 195, 52, 0.5); }
 
-  /* line 234, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 328, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   75% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 238, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 332, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5691,7 +5772,7 @@ ul.breadcrumb {
     border-color: #2b323a;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); } }
 @keyframes pop {
-  /* line 220, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 314, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5699,12 +5780,12 @@ ul.breadcrumb {
     border-color: #2b323a;
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); }
 
-  /* line 225, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 319, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   25% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 229, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 323, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   50% {
     -webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -5712,12 +5793,12 @@ ul.breadcrumb {
     border-color: rgba(255, 195, 52, 0.75);
     box-shadow: 0 0 40px 30px rgba(255, 195, 52, 0.5); }
 
-  /* line 234, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 328, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   75% {
     border-color: rgba(255, 195, 52, 0.5);
     box-shadow: 0 0 10px 10px rgba(255, 195, 52, 0.2); }
 
-  /* line 238, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 332, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -5726,240 +5807,98 @@ ul.breadcrumb {
     box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.8); } }
 
 @-webkit-keyframes stemStart {
-  /* line 246, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 340, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 0; }
 
-  /* line 249, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 343, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   75% {
     height: 0; }
 
-  /* line 252, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 346, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @keyframes stemStart {
-  /* line 246, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 340, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 0; }
 
-  /* line 249, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 343, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   75% {
     height: 0; }
 
-  /* line 252, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 346, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @-webkit-keyframes stemMove1 {
-  /* line 259, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 353, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 262, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 356, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 265, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 359, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 268, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 362, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @keyframes stemMove1 {
-  /* line 259, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 353, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 262, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 356, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 265, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 359, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 268, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 362, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @-webkit-keyframes stemMove2 {
-  /* line 274, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 368, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 277, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 371, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 280, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 374, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 283, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 377, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
 
 @keyframes stemMove2 {
-  /* line 274, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 368, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   0% {
     height: 33px; }
 
-  /* line 277, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 371, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   15% {
     height: 0; }
 
-  /* line 280, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 374, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   85% {
     height: 0; }
 
-  /* line 283, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
+  /* line 377, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
   100% {
     height: 33px; } }
-
-/* line 290, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-1 .tour-pin {
-  top: -100%; }
-  /* line 293, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-  .tour-step-1 .tour-pin .pulse:before {
-    height: 0;
-    -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-    -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-    animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 299, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-1 #tour-step-1 {
-  top: 10%; }
-
-/* line 304, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-modal {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1); }
-  @media screen and (min-width: 48em)  {
-    .tour-modal {
-      margin: auto 25%; } }
-  @media screen and (min-width: 64em)  {
-    .tour-modal {
-      margin: auto 20%; } }
-
-/* line 316, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-#tour-step-5 {
-  max-height: 90%; }
-  @media screen and (min-width: 48em)  {
-    #tour-step-5 {
-      width: 90%;
-      padding: 40px;
-      margin: auto 5%; } }
-  @media screen and (min-width: 80em)  {
-    #tour-step-5 {
-      width: 60%;
-      margin: auto 20%; } }
-
-/* line 333, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-2 .tour-pin .pulse:before {
-  -webkit-animation: stemStart 2s ease-in-out 0s 1 normal none;
-  -ms-animation: stemStart 2s ease-in-out 0s 1 normal none;
-  animation: stemStart 2s ease-in-out 0s 1 normal none; }
-/* line 337, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-2 #tour-step-1 {
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  transition: 0.15s ease-in-out; }
-/* line 342, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-2 #tour-step-2 {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  transition: 0.4s 1.5s -webkit-transform ease-in;
-  transition: 0.4s 1.5s transform ease-in;
-  -webkit-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
-  -ms-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
-  animation: pop 0.2s ease-in-out 1.9s 1 normal none; }
-/* line 348, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-2 [data-step="tour-step-2"] {
-  top: 0;
-  transition-delay: 1.5s; }
-
-/* line 356, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-3 .tour-pin .pulse:before {
-  -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-  -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-  animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 360, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-3 #tour-step-2 {
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  transition: 0.15s ease-in-out; }
-/* line 365, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-3 #tour-step-3 {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  transition: 0.4s 1.5s -webkit-transform ease-in;
-  transition: 0.4s 1.5s transform ease-in;
-  -webkit-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
-  -ms-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
-  animation: pop 0.2s ease-in-out 1.9s 1 normal none; }
-/* line 371, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-3 [data-step="tour-step-3"] {
-  top: 0;
-  transition-delay: 1.5s; }
-
-/* line 379, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-4 .tour-pin .pulse:before {
-  -webkit-animation: stemMove2 2s ease-in-out 0s 1 normal none;
-  -ms-animation: stemMove2 2s ease-in-out 0s 1 normal none;
-  animation: stemMove2 2s ease-in-out 0s 1 normal none; }
-/* line 383, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-4 #tour-step-3 {
-  -webkit-transform: scale(0);
-  -ms-transform: scale(0);
-  transform: scale(0);
-  transition: 0.15s ease-in-out; }
-/* line 388, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-4 #tour-step-4 {
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1);
-  transition: 0.4s 1.5s -webkit-transform ease-in;
-  transition: 0.4s 1.5s transform ease-in;
-  -webkit-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
-  -ms-animation: pop 0.2s ease-in-out 1.9s 1 normal none;
-  animation: pop 0.2s ease-in-out 1.9s 1 normal none; }
-/* line 394, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-4 [data-step="tour-step-3"] {
-  top: 0;
-  transition-delay: 1.5s; }
-
-/* line 402, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-5 .tour-pin {
-  top: -100%; }
-  /* line 405, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-  .tour-step-5 .tour-pin .pulse:before {
-    height: 0;
-    -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-    -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-    animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 411, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-5 #tour-step-5 {
-  top: 5%; }
-
-/* line 418, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-6 .tour-pin {
-  top: -100%; }
-  /* line 421, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-  .tour-step-6 .tour-pin .pulse:before {
-    height: 0;
-    -webkit-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-    -ms-animation: stemMove1 2s ease-in-out 0s 1 normal none;
-    animation: stemMove1 2s ease-in-out 0s 1 normal none; }
-/* line 427, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/2_fragments/_tour.scss */
-.tour-step-6 #tour-step-6 {
-  top: 5%; }
 
 /*------------------------------------*\
     $MODULES
@@ -7417,6 +7356,7 @@ aside .filters {
         padding-top: 20px; } }
 /* line 257, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/3_modules/_tiers.scss */
 .tiers .payment {
+  display: none;
   position: relative;
   float: right;
   width: 100%;
@@ -7438,7 +7378,7 @@ aside .filters {
       left: 110%;
       width: 66.66667%;
       transition: 0.75s ease-in-out; } }
-/* line 284, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/3_modules/_tiers.scss */
+/* line 285, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/3_modules/_tiers.scss */
 .tiers.show-payment .tier {
   margin-right: 125%;
   margin-left: -125%; }
@@ -7446,10 +7386,10 @@ aside .filters {
     .tiers.show-payment .tier {
       margin-right: auto;
       margin-left: -1000px; }
-      /* line 292, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/3_modules/_tiers.scss */
+      /* line 293, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/3_modules/_tiers.scss */
       .tiers.show-payment .tier.selected {
         margin-left: 0; } }
-/* line 298, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/3_modules/_tiers.scss */
+/* line 299, /Users/Shepherd/Projects/platform-pattern-library/assets/sass/3_modules/_tiers.scss */
 .tiers.show-payment .payment {
   margin-right: 0; }
   @media screen and (min-width: 48em)  {
