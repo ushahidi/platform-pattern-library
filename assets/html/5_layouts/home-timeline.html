@@ -21,24 +21,6 @@
 </head>
 
 
-<div class="modal">
-    <div class="modal-window">
-        <a href="" class="close modal-trigger"></a>
-        <h3 class="edit">Add Your First Post</h3>
-        <div class="divider padded"></div>
-        <p>A deployment is nothing until it has some content in it.</p>
-        <a class="button button-create" href="choose-post-type.html">
-            <span>Add Your First Post</span>
-        </a>
-        <div class="divider padded"></div>
-        <p>Or invite people to help you create posts.</p>
-        <a class="button button-primary">
-            <span>Add New Users</span>
-        </a>
-    </div>
-    <div class="modal-overlay"></div>
-</div>
-
 <body class="has-dynamic-header">
 
     <header class="header header-compact overlay" role="banner">
@@ -174,6 +156,7 @@
                 <h1>All Posts</h1>
 
                 <div class="tabs-with-filter">
+
                     <nav class="tabs-menu">
     <label class="delta-alt">View </label>
     <button type="button" class="button-toggle tabs-menu-button-js"></button>
@@ -182,7 +165,7 @@
         <li ><a class="view-map">Map</a></li>
         <li ><a class="view-photo">Photos</a></li>
         <li ><a class="view-chart">Bar Chart</a></li>
-        <li ><a class="view-timeline">Timeline</a></li>
+        <li class="active"><a class="view-timeline">Timeline</a></li>
     </ul>
 </nav>
 
@@ -318,12 +301,32 @@
 </div>
 
                 </div><!--end view with filter-->
-                <div class="divider padded"></div>
-                <h5>This Deployment doesn't have any posts yet!</h5>
-                <br>
-                <a class="button button-create modal-trigger" href="choose-post-type.html">
-                    <span>Add Your First Post</span>
-                </a>
+
+                <div class="main-col">
+
+                    <div id="timeline" class="timeline">
+                        <img src="../../img/timeline-view.png" alt="Timeline View" />
+                    </div>
+
+                </div> <!--end main column-->
+
+                <nav class="pagination">
+    <ul>
+        <li class="prev"><a href="#"></a></li>
+        <li>
+            <ul class="page-numbers">
+                <li class="active">1</li>
+                <li class="pg-number"><a href="#">2</a></li>
+                <li class="pg-number"><a href="#">3</a></li>
+                <li class="pg-number"><a href="#">4</a></li>
+                <li class="pg-number"><a href="#">5</a></li>
+                <li class="pg-number"><a href="#">6</a></li>
+            </ul>
+        </li>
+        <li class="next"><a href="#"></a></li>
+    </ul>
+</nav>
+
 
             </div> <!--end main column-->
 
@@ -362,10 +365,9 @@
 
 
 <script>
-// Treat window as dialog, open on page load
-modalInit(true, true);
+// Make header dynamic
+headerMakeDynamic();
 </script>
-
 </body>
 
 </html>
