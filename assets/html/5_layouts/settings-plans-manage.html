@@ -25,75 +25,8 @@
 
     <div class="tour-mask"></div>
 
-    <div id="start" class="tour-message tour-modal">
-        <strong class="tour-tagline">Howdy</strong>
-        <h2 class="tour-heading">And welcome to your new Ushahidi deployment.</h2>
-        <p class="tour-body">While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
-        <div class="tour-actions">
-            <button data-cue="add-post" class="button">Continue</button>
-            <a data-cue="plans" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="add-post" class="tour-message">
-        <h2 class="tour-heading">Collect Data</h2>
-        <!--img src="http://ushahidi.com/uploads/feature-images/feature-1.svg" class="tour-image" /-->
-        <p class="tour-body">Gather submissions from many sources, starting with your deployment's <em>"Add post"</em> button, or from SMS, email, and Twitter. You can collect multiple data types, as well, using custom <em>"Post Types."</em></p>
-        <div class="tour-actions">
-            <a data-cue="start" class="cta">&lsaquo; Back</a>
-            <button data-cue="views" class="button">Continue</button>
-            <a data-cue="plans" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="views" class="tour-message">
-        <h2 class="tour-heading">Data Visualization</h2>
-        <p class="tour-body">Every data set can be viewed in a Map, List, Bar Chart, or Timeline. Just select the view you want at any time.</p>
-        <div class="tour-actions">
-            <a data-cue="add-post" class="cta">&lsaquo; Back</a>
-            <button data-cue="search" class="button">Continue</button>
-            <a data-cue="plans" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="search" class="tour-message">
-        <h2 class="tour-heading">Filter, Search, and Save</h2>
-        <p class="tour-body">Drill into the data you need using power filters. Once you have the data you need, create a <em>Saved Search</em> so you can easily return to or share it. Your Saved Searches are always available from your deployment's main menu.</p>
-
-        <div class="tour-actions">
-            <a data-cue="views" class="cta">&lsaquo; Back</a>
-            <button data-cue="customize" data-pin="false" class="button">Continue</button>
-            <a data-cue="plans" data-pin="false" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="customize" class="tour-message">
-        <h2 class="tour-heading">Customize</h2>
-        <p class="tour-body">Add a description, create a new Post Type, configure how data flows through your deployment, and more -- all from your deployment's <em>Settings</em>.</p>
-
-        <div class="tour-actions">
-            <a data-cue="search" class="cta">&lsaquo; Back</a>
-            <button data-cue="plans" data-pin="false" class="button">Continue</button>
-            <a data-cue="plans" data-pin="false" class="cta">Skip</a>
-        </div>
-    </div>
-
     <div id="plans" class="tour-message tour-modal">
-        <strong class="tour-tagline">Choose a plan</strong>
-
-        <div class="tier lite">
-            <div class="tier-summary">
-                <div class="tier-summary-body">
-                    <h2 class="tier-heading">Get started <strong>for free</strong> with Starter</h2>
-
-                    <h3 class="tier-feature">150 posts <em>from the web and RSS; $15/month per 100 extra posts</em></h3>
-                </div>
-            </div>
-
-            <div class="tier-action">
-                <button data-cue="finished">Choose Starter</button>
-            </div>
-        </div>
+        <strong class="tour-tagline">Change your plan</strong>
 
         <div class="tiers">
             <div class="payment">
@@ -139,12 +72,12 @@
 
                     <p class="small">*These fields are required.</p>
 
-                    <button data-cue="finished">Continue</button>
+                    <button>Continue</button>
                     <a data-payment="cancel" class="cta" href="">Cancel</a>
                 <!--/form-->
             </div>
 
-            <div class="tier">
+            <div id="standard" class="tier">
                 <div class="tier-header">
                     <h2 class="tier-name">Standard</h2>
                     <p>For small teams that need to <br />reach more people</p>
@@ -155,7 +88,7 @@
                 </div>
 
                 <div class="tier-action">
-                    <button data-payment="standard">Choose Standard</button>
+                    <button data-payment="standard">Upgrade to Standard</button>
                 </div>
 
                 <div class="tier-feature-list">
@@ -170,7 +103,7 @@
                 <p><a href="" class="cta tour-link">View all features</a></p>
             </div>
 
-            <div class="tier recommended">
+            <div id="plus" class="tier recommended selected">
                 <div class="tier-header">
                     <h2 class="tier-name">Plus</h2>
                     <p>For growing teams that need <br />to organize their workflow</p>
@@ -181,7 +114,7 @@
                 </div>
 
                 <div class="tier-action">
-                    <button data-payment="plus">Choose Plus</button>
+                    <button data-payment="plus">Upgrade to Plus</button>
                 </div>
 
                 <div class="tier-feature-list">
@@ -197,7 +130,7 @@
                 <p><a href="" class="cta tour-link">View all features</a></p>
             </div>
 
-            <div class="tier">
+            <div id="enterprise" class="tier">
                 <div class="tier-header">
                     <h2 class="tier-name">Enterprise</h2>
                     <p>For big, sensitive data <br />with extra security.</p>
@@ -218,19 +151,21 @@
                 <p><a href="" class="cta tour-link">View all features</a></p>
             </div>
         </div>
-    </div>
 
-    <div id="finished" class="tour-message tour-modal">
-        <strong class="tour-tagline">Nice!</strong>
-        <h2 class="tour-heading">We hope you enjoy your new deployment.</h2>
-        <p class="tour-body">If you ever need help, you can always find it at Ushahidi's <a href="" class="tour-link" target="_blank">Support</a> page.</p>
+        <div class="tier lite">
+            <div class="tier-summary">
+                <div class="tier-summary-body">
+                    <h2 class="tier-heading">Use Ushahidi <strong>for free</strong> with Starter</h2>
 
-        <div class="tour-actions">
-            <a href="home-map.html" class="button">Done</a>
+                    <h3 class="tier-feature">150 posts <em>from the web and RSS; $15/month per 100 extra posts</em></h3>
+                </div>
+            </div>
+
+            <div class="tier-action">
+                <button data-cue="finished">Choose Starter</button>
+            </div>
         </div>
     </div>
-
-    <div class="tour-pin"><span class="pulse"></span></div>
 
     <header class="header header-full overlay" role="banner">
         <div class="container">
@@ -720,7 +655,7 @@ $(document).ready(function(){
 
         // ELSE: Start from the first step
         } else {
-            return 'start';
+            return 'plans';
         }
     }
 
@@ -741,6 +676,8 @@ $(document).ready(function(){
         tiersInit($(this).closest('.tiers'), $(this).closest('.tier'));
         e.preventDefault();
     });
+
+    tiersInit($('.tiers'), $('#plus'));
 
     // Animate in the appropriate step
     setTimeout(function(){

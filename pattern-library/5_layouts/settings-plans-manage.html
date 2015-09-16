@@ -5,95 +5,14 @@
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
 <!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 
-<head>
-    <meta charset="utf-8">
-    <title>The Ushahidi Platform Pattern Library</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link rel="shortcut icon" type="image/ico" href="../../favicon.ico" />
-
-    <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>-->
-    <link href='../../fonts/Lato/css/fonts.css' rel='stylesheet' type='text/css'>
-<link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-</head>
-
+@@include('../partials/_pl-head.html')
 
 <body class="has-dynamic-header tour-focused">
 
     <div class="tour-mask"></div>
 
-    <div id="start" class="tour-message tour-modal">
-        <strong class="tour-tagline">Howdy</strong>
-        <h2 class="tour-heading">And welcome to your new Ushahidi deployment.</h2>
-        <p class="tour-body">While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
-        <div class="tour-actions">
-            <button data-cue="add-post" class="button">Continue</button>
-            <a data-cue="plans" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="add-post" class="tour-message">
-        <h2 class="tour-heading">Collect Data</h2>
-        <!--img src="http://ushahidi.com/uploads/feature-images/feature-1.svg" class="tour-image" /-->
-        <p class="tour-body">Gather submissions from many sources, starting with your deployment's <em>"Add post"</em> button, or from SMS, email, and Twitter. You can collect multiple data types, as well, using custom <em>"Post Types."</em></p>
-        <div class="tour-actions">
-            <a data-cue="start" class="cta">&lsaquo; Back</a>
-            <button data-cue="views" class="button">Continue</button>
-            <a data-cue="plans" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="views" class="tour-message">
-        <h2 class="tour-heading">Data Visualization</h2>
-        <p class="tour-body">Every data set can be viewed in a Map, List, Bar Chart, or Timeline. Just select the view you want at any time.</p>
-        <div class="tour-actions">
-            <a data-cue="add-post" class="cta">&lsaquo; Back</a>
-            <button data-cue="search" class="button">Continue</button>
-            <a data-cue="plans" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="search" class="tour-message">
-        <h2 class="tour-heading">Filter, Search, and Save</h2>
-        <p class="tour-body">Drill into the data you need using power filters. Once you have the data you need, create a <em>Saved Search</em> so you can easily return to or share it. Your Saved Searches are always available from your deployment's main menu.</p>
-
-        <div class="tour-actions">
-            <a data-cue="views" class="cta">&lsaquo; Back</a>
-            <button data-cue="customize" data-pin="false" class="button">Continue</button>
-            <a data-cue="plans" data-pin="false" class="cta">Skip</a>
-        </div>
-    </div>
-
-    <div id="customize" class="tour-message">
-        <h2 class="tour-heading">Customize</h2>
-        <p class="tour-body">Add a description, create a new Post Type, configure how data flows through your deployment, and more -- all from your deployment's <em>Settings</em>.</p>
-
-        <div class="tour-actions">
-            <a data-cue="search" class="cta">&lsaquo; Back</a>
-            <button data-cue="plans" data-pin="false" class="button">Continue</button>
-            <a data-cue="plans" data-pin="false" class="cta">Skip</a>
-        </div>
-    </div>
-
     <div id="plans" class="tour-message tour-modal">
-        <strong class="tour-tagline">Choose a plan</strong>
-
-        <div class="tier lite">
-            <div class="tier-summary">
-                <div class="tier-summary-body">
-                    <h2 class="tier-heading">Get started <strong>for free</strong> with Starter</h2>
-
-                    <h3 class="tier-feature">150 posts <em>from the web and RSS; $15/month per 100 extra posts</em></h3>
-                </div>
-            </div>
-
-            <div class="tier-action">
-                <button data-cue="finished">Choose Starter</button>
-            </div>
-        </div>
+        <strong class="tour-tagline">Change your plan</strong>
 
         <div class="tiers">
             <div class="payment">
@@ -139,12 +58,12 @@
 
                     <p class="small">*These fields are required.</p>
 
-                    <button data-cue="finished">Continue</button>
+                    <button>Continue</button>
                     <a data-payment="cancel" class="cta" href="">Cancel</a>
                 <!--/form-->
             </div>
 
-            <div class="tier">
+            <div id="standard" class="tier">
                 <div class="tier-header">
                     <h2 class="tier-name">Standard</h2>
                     <p>For small teams that need to <br />reach more people</p>
@@ -155,7 +74,7 @@
                 </div>
 
                 <div class="tier-action">
-                    <button data-payment="standard">Choose Standard</button>
+                    <button data-payment="standard">Upgrade to Standard</button>
                 </div>
 
                 <div class="tier-feature-list">
@@ -170,7 +89,7 @@
                 <p><a href="" class="cta tour-link">View all features</a></p>
             </div>
 
-            <div class="tier recommended">
+            <div id="plus" class="tier recommended selected">
                 <div class="tier-header">
                     <h2 class="tier-name">Plus</h2>
                     <p>For growing teams that need <br />to organize their workflow</p>
@@ -181,7 +100,7 @@
                 </div>
 
                 <div class="tier-action">
-                    <button data-payment="plus">Choose Plus</button>
+                    <button data-payment="plus">Upgrade to Plus</button>
                 </div>
 
                 <div class="tier-feature-list">
@@ -197,7 +116,7 @@
                 <p><a href="" class="cta tour-link">View all features</a></p>
             </div>
 
-            <div class="tier">
+            <div id="enterprise" class="tier">
                 <div class="tier-header">
                     <h2 class="tier-name">Enterprise</h2>
                     <p>For big, sensitive data <br />with extra security.</p>
@@ -218,19 +137,21 @@
                 <p><a href="" class="cta tour-link">View all features</a></p>
             </div>
         </div>
-    </div>
 
-    <div id="finished" class="tour-message tour-modal">
-        <strong class="tour-tagline">Nice!</strong>
-        <h2 class="tour-heading">We hope you enjoy your new deployment.</h2>
-        <p class="tour-body">If you ever need help, you can always find it at Ushahidi's <a href="" class="tour-link" target="_blank">Support</a> page.</p>
+        <div class="tier lite">
+            <div class="tier-summary">
+                <div class="tier-summary-body">
+                    <h2 class="tier-heading">Use Ushahidi <strong>for free</strong> with Starter</h2>
 
-        <div class="tour-actions">
-            <a href="home-map.html" class="button">Done</a>
+                    <h3 class="tier-feature">150 posts <em>from the web and RSS; $15/month per 100 extra posts</em></h3>
+                </div>
+            </div>
+
+            <div class="tier-action">
+                <button data-cue="finished">Choose Starter</button>
+            </div>
         </div>
     </div>
-
-    <div class="tour-pin"><span class="pulse"></span></div>
 
     <header class="header header-full overlay" role="banner">
         <div class="container">
@@ -250,21 +171,7 @@
                         <span>Add Post</span>
                     </a>
 
-                    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
-        <div class="user-avatar">
-            <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
-        </div>
-        <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
-    </div>
-    <ul class="dropdown-menu toggle-content" role="menu">
-        <li><a href="#">Account Settings</a></li>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="#">Log Out</a></li>
-    </ul>
-</div>
-
+                    @@include('../partials/_user-admin.html')
 
                 </div>
             </div>
@@ -304,21 +211,7 @@
                 </li>
             </ul>
 
-            <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
-        <div class="user-avatar">
-            <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
-        </div>
-        <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
-    </div>
-    <ul class="dropdown-menu toggle-content" role="menu">
-        <li><a href="#">Account Settings</a></li>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="#">Log Out</a></li>
-    </ul>
-</div>
-
+            @@include('../partials/_user-admin.html')
 
             <div class="sub-nav">
                 <h6 class="zeta saved-searches">Saved Searches</h6>
@@ -378,128 +271,7 @@
                         <button type="button" class="button-toggle filter-button-js"></button>
                     </div>
 
-                        <div class="filters-container">
-        <form action="#" method="get" role="search">
-            <div class="keyword-search">
-                <input type="text" name="keyword" class="keyword-input" placeholder="Search...">
-                <button type="button" class="button-secondary icon-only alt search"></button>
-            </div>
-            <nav class="accordion-menu">
-                <ul class="accordion-menu-list">
-                    <li class="accordion-menu-list__item">
-                        <div class="accordion-menu-header">
-                            <a class="accordion-menu-trigger delta">Categories</a>
-                        </div>
-                        <ul class="accordion-menu-content">
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="show-all-categories" value="Show All Categories">
-                                    Show All Categories
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="category1" value="Category1" checked="checked">
-                                    <i class="fa fa-circle" style="color: #da60a2;"> &nbsp;</i>
-                                    Accident
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="category2" value="Category2">
-                                    <i class="fa fa-circle" style="color: #679a63;"> &nbsp;</i>
-                                    Safe Location
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="category3" value="Category3">
-                                    <i class="fa fa-circle" style="color: #9a4126;"> &nbsp;</i>
-                                    Hospital Status
-                                </label>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="accordion-menu-list__item">
-                        <div class="accordion-menu-header">
-                            <a class="accordion-menu-trigger delta">Steps</a>
-                        </div>
-                        <ul class="accordion-menu-content">
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="show-all-steps" value="Show All Steps">
-                                    Show All Steps
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="structure" value="Structure">
-                                    Structure
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="verification" value="Verification" checked="checked">
-                                    Verification
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="translation" value="Translation">
-                                    Translation
-                                </label>
-                            </li>
-                            <li>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="disabled step" value="Disabled Step">
-                                    Disabled Step
-                                </label>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="accordion-menu-list__item">
-                        <div class="accordion-menu-header">
-                            <a class="accordion-menu-trigger delta">Date Range</a>
-                        </div>
-                        <div class="accordion-menu-content date-range">
-                            <div class="filter-start-date">
-                                <label for="start" class="delta-alt">Start Date</label>
-                                <input type="text" name="start" id="start">
-                            </div>
-                            <div class="filter-end-date">
-                                <label for="end" class="delta-alt">End Date</label>
-                                <input type="text" name="end" id="end">
-                            </div>
-
-                            <div class="filter-actions">
-                                <button class="apply-filter-button button-primary">Apply</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="accordion-menu-list__item">
-                        <div class="accordion-menu-header">
-                            <a class="accordion-menu-trigger delta">Location</a>
-                        </div>
-                        <div class="accordion-menu-content location">
-                            <label for="location" class="delta-alt hidden">Location</label>
-                            <input type="text" name="location" id="location" placeholder="Enter city or postal code">
-                            <div class="custom-select">
-                                <select>
-                                    <option selected>within 1 km</option>
-                                    <option>within 10 km</option>
-                                    <option>within 50 km</option>
-                                    <option>within 100 km</option>
-                                    <option>within 500 km</option>
-                                </select>
-                            </div>
-                            <button class="apply-filter-button button-primary">Apply</button>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </form>
-    </div>
-
+                    @@include('../partials/_filters-inner.html')
                 </div>
 
             </aside>
@@ -537,10 +309,7 @@
     </footer>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="../../js/app.js"></script>
-
+@@include('../partials/_scripts.html')
 
 <script>
 tourPin = function(prevStep, nextStep, target, position) {
@@ -720,7 +489,7 @@ $(document).ready(function(){
 
         // ELSE: Start from the first step
         } else {
-            return 'start';
+            return 'plans';
         }
     }
 
@@ -741,6 +510,8 @@ $(document).ready(function(){
         tiersInit($(this).closest('.tiers'), $(this).closest('.tier'));
         e.preventDefault();
     });
+
+    tiersInit($('.tiers'), $('#plus'));
 
     // Animate in the appropriate step
     setTimeout(function(){

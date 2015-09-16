@@ -188,13 +188,13 @@
                     <h2 class="tier-name">Enterprise</h2>
                     <p>For big, sensitive data <br />with extra security.</p>
 
-                    <strong class="tier-price">$1,999 <em>a month</em></strong>
+                    <strong class="tier-status">Coming soon</strong>
 
-                    <h3 class="tier-feature">25,000 posts <em>+$5,000 for deployment setup</em></h3>
+                    <h3 class="tier-feature">Unlimited <em>&nbsp;</em></h3>
                 </div>
 
                 <div class="tier-action">
-                    <button type="button" disabled>Coming soon</button>
+                    <a href="" class="button button-tertiary">Contact us</a>
                 </div>
 
                 <div class="tier-feature-list">
@@ -514,6 +514,37 @@ tourStep = function(step) {
     }
 }
 
+tiersInit = function(element, selected) {
+    var context = element !== 'undefined' ? element : $('.tiers'),
+        selectedTier = selected !== 'undefined' ? selected : context.find('.tier.selected'), // Selected Tier
+        liteTier = context.siblings('.tier.lite'), // Free Tier
+        form = context.find('.payment'); // Payment form
+
+    // IF: Payment form is currently visible
+    if (context.hasClass('show-payment')) {
+        form.fadeOut(500); // Hide the payment form
+        context.find('.tier').removeClass('selected'); // Deselect the selected Tier
+        context.removeClass('show-payment');
+        setTimeout(function(){
+            liteTier.slideDown(500).animate({opacity: 1}, 500); // Show the Free Tier
+        }, 500);
+
+    // ELSE: Payment form is hidden
+    } else {
+        form.fadeIn(500); // Show the payment form
+        selectedTier.addClass('selected'); // Apple the 'selected' state to the selected Tier
+        context.addClass('show-payment');
+        setTimeout(function(){
+            liteTier.animate({opacity: 0}, 500).slideUp(500); // Hide the Free Tier
+        }, 500);
+    }
+
+    // Scroll to the top of the window
+    context.parent().animate({
+        scrollTop: 0
+    }, 500);
+}
+
 $(document).ready(function(){
     // Look up current step
     function lookupStep() {
@@ -541,32 +572,7 @@ $(document).ready(function(){
 
     // Click event for Plans buttons
     $('[data-payment]').on('click', function(e) {
-        var context = $(this).closest('.tiers'), // Tier collection
-            selectedTier = $(this).closest('.tier'), // Selected Tier
-            liteTier = context.siblings('.lite'), // Free Tier
-            form = context.find('.payment'); // Payment form
-
-        // IF: Payment form is currently visible
-        if (context.hasClass('show-payment')) {
-            form.fadeOut(500); // Hide the payment form
-            context.find('.tier').removeClass('selected'); // Deselect the selected Tier
-            context.removeClass('show-payment');
-            setTimeout(function(){
-                liteTier.slideDown(500).animate({opacity: 1}, 500); // Show the Free Tier
-            }, 500);
-        } else {
-            form.fadeIn(500); // Show the payment form
-            selectedTier.addClass('selected'); // Apple the 'selected' state to the selected Tier
-            context.addClass('show-payment');
-            setTimeout(function(){
-                liteTier.animate({opacity: 0}, 500).slideUp(500); // Hide the Free Tier
-            }, 500);
-        }
-
-        // Scroll to the top of the window
-        context.parent().animate({
-            scrollTop: 0
-        }, 500);
+        tiersInit($(this).closest('.tiers'), $(this).closest('.tier'));
         e.preventDefault();
     });
 
