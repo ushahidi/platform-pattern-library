@@ -105,10 +105,6 @@
     }
 
    .button-create {
-        display: table;
-        position: absolute;
-        top: 0;
-        @include right(0);
         color: $white;
         font-weight: $bold;
         border: none;
@@ -118,7 +114,6 @@
 
         @include media($medium) {
             padding: 8px 10px 10px 10px;
-            @include lrswap(margin, 18px 210px 0 0);
         }
 
         i {
@@ -174,6 +169,7 @@
     &.header-full {
         width: 100%;
         z-index: $topbar;
+        text-align: center;
 
         .nav-icon + .beta {
             margin-top: 50px;
@@ -181,8 +177,9 @@
 
         .beta {
             display: block;
-            font-size: 2em;
+            font-size: 1.75em;
             text-align: center;
+            margin-bottom: $base-spacing;
 
             @include media($small) {
                 font-size: 3em;
@@ -193,6 +190,10 @@
         .header-description {
             display: block;
             margin-bottom: $base-spacing;
+        }
+
+        .create-admin {
+            text-align: center;
         }
 
         .button-create {
@@ -210,8 +211,7 @@
             }
 
             @include media($medium) {
-                margin-top: $lg-spacing;
-                margin-bottom: $lg-spacing;
+                margin-top: $base-spacing;
             }
 
             i {
@@ -237,7 +237,6 @@
 
             @include media($medium) {
                 display: block;
-                /* margin: 18px 10px 0 0; */
             }
 
         }
@@ -280,8 +279,29 @@
             margin: $base-spacing;
         }
 
+        .create-admin {
+
+            @include media($medium) {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+
+        }
+
         .button-create {
+            float: left;
+            display: table;
+            position: absolute;
+            top: 0;
+            @include right(0);
             opacity: 1;
+
+            @include media($medium) {
+                display: inline-block;
+                position: relative;
+            }
+
         }
 
         .user-admin {
@@ -289,6 +309,8 @@
 
             @include media($medium) {
                 display: inline-block;
+                position: relative;
+                float: left;
             }
 
         }

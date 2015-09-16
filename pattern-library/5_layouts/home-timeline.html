@@ -22,29 +22,41 @@
                 <h1>All Posts</h1>
 
                 <div class="tabs-with-filter">
+
                     @@include('../partials/_tabs-with-label.html', {
-                      "context": "list"
+                      "context": "timeline"
                     })
 
                     @@include('../partials/_filters.html')
                 </div><!--end view with filter-->
 
-                @@include('../partials/_list-actions.html')
+                <div class="divider"></div>
 
-                @@include('../partials/_post-listing-with-image.html')
+                <div class="main-col timeline-view">
 
-                @@include('../partials/_post-listing-without-image.html')
+                    <form class="clearfix">
+                        <div class="custom-select">
+                            <label class="delta-alt">Graph</label>
+                            <select>
+                                <option>Posts</option>
+                                <option>Categories</option>
+                                <option>Type</option>
+                                <option>Status</option>
+                            </select>
+                        </div>
+                        <div class="inline ">
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span>Show cumulative totals</span>
+                            </label>
+                        </div>
+                    </form>
 
-                @@include('../partials/_post-listing-with-image-unpublished.html')
+                    <div id="timeline" class="timeline">
+                        <img src="../../img/timeline-view.png" alt="Timeline View" />
+                    </div>
 
-                @@include('../partials/_post-listing-with-image-unpublished.html')
-
-                @@include('../partials/_post-listing-without-image.html')
-
-                @@include('../partials/_post-listing-with-image.html')
-
-
-                @@include('../partials/_pagination.html')
+                </div> <!--end main column-->
 
             </div> <!--end main column-->
 

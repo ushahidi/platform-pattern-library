@@ -211,6 +211,94 @@ input[type="button"] {
 
 }
 
+.button-split {
+    
+    .dropdown-group {
+        display: inline-block; 
+        width: 70%;
+        @include margin-right(-3px);
+
+        .dropdown-menu { 
+            bottom: 50px;
+            padding: $base-spacing $base-spacing $sm-spacing;
+            width: 65%;
+
+            @include media($small) {
+                position: relative;
+                width: 100%;
+                top: 1px;
+            }
+        }
+
+        .dropdown.open {
+            @include border-top-radius(0);
+            @include border-bottom-left-radius($global-radius);
+
+            @include media($small) {
+                @include border-top-radius($global-radius);
+                @include border-bottom-left-radius(0);
+            }
+        }
+
+        @include media($small) {
+            width: 100%;
+        }
+
+    }
+
+    .button-secondary {
+        height: 40px;
+        width: 100%;
+        @include border-top-right-radius(0);
+        @include border-bottom-right-radius(0);
+        border-color: darken( $lt-gray, 20% );;
+
+        @include media($small) {
+            @include border-top-right-radius($global-radius);
+            @include border-bottom-left-radius(0);
+        }
+
+    }
+
+    button.button-primary {
+        height: 40px;
+        width: 30%;
+        @include border-top-left-radius(0);
+        @include border-bottom-left-radius(0);
+        margin-top:-2px;
+
+        @include media($small) {
+            width: 100%;
+            @include border-top-right-radius(0);
+            @include border-bottom-left-radius($global-radius);
+        }
+
+    }
+
+    button.dropdown {
+        padding: 8px;
+        @include icon ($before, chevron-down) {
+            padding: 0 3px;
+            @include transform(rotate(-180deg));
+        }
+
+        @include media($small) {
+            @include icon ($before, chevron-down) {
+                @include transform(rotate(0deg));
+            }
+        }
+
+        &.open:before {
+            @include transform(rotate(0deg));
+
+            @include media($small) { 
+                @include transform(rotate(-180deg));
+            }
+        }
+    }
+
+}
+
 .upvote-downvote {
 
     button.icon-only {

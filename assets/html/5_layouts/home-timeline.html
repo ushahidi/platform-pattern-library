@@ -21,24 +21,6 @@
 </head>
 
 
-<div class="modal">
-    <div class="modal-window">
-        <a href="" class="close modal-trigger"></a>
-        <h3 class="edit">Add Your First Post</h3>
-        <div class="divider padded"></div>
-        <p>A deployment is nothing until it has some content in it.</p>
-        <a class="button button-create" href="choose-post-type.html">
-            <span>Add Your First Post</span>
-        </a>
-        <div class="divider padded"></div>
-        <p>Or invite people to help you create posts.</p>
-        <a class="button button-primary">
-            <span>Add New Users</span>
-        </a>
-    </div>
-    <div class="modal-overlay"></div>
-</div>
-
 <body class="has-dynamic-header">
 
     <header class="header header-compact overlay" role="banner">
@@ -178,6 +160,7 @@
                 <h1>All Posts</h1>
 
                 <div class="tabs-with-filter">
+
                     <nav class="tabs-menu">
     <label class="delta-alt">View </label>
     <button type="button" class="button-toggle tabs-menu-button-js"></button>
@@ -186,7 +169,7 @@
         <li ><a class="view-map">Map</a></li>
         <li ><a class="view-photo">Photos</a></li>
         <li ><a class="view-chart">Bar Chart</a></li>
-        <li ><a class="view-timeline">Timeline</a></li>
+        <li class="active"><a class="view-timeline">Timeline</a></li>
     </ul>
 </nav>
 
@@ -322,12 +305,34 @@
 </div>
 
                 </div><!--end view with filter-->
-                <div class="divider padded"></div>
-                <h5>This Deployment doesn't have any posts yet!</h5>
-                <br>
-                <a class="button button-create modal-trigger" href="choose-post-type.html">
-                    <span>Add Your First Post</span>
-                </a>
+
+                <div class="divider"></div>
+
+                <div class="main-col timeline-view">
+
+                    <form class="clearfix">
+                        <div class="custom-select">
+                            <label class="delta-alt">Graph</label>
+                            <select>
+                                <option>Posts</option>
+                                <option>Categories</option>
+                                <option>Type</option>
+                                <option>Status</option>
+                            </select>
+                        </div>
+                        <div class="inline ">
+                            <label class="checkbox-label">
+                                <input type="checkbox">
+                                <span>Show cumulative totals</span>
+                            </label>
+                        </div>
+                    </form>
+
+                    <div id="timeline" class="timeline">
+                        <img src="../../img/timeline-view.png" alt="Timeline View" />
+                    </div>
+
+                </div> <!--end main column-->
 
             </div> <!--end main column-->
 
@@ -366,10 +371,9 @@
 
 
 <script>
-// Treat window as dialog, open on page load
-modalInit(true, true);
+// Make header dynamic
+headerMakeDynamic();
 </script>
-
 </body>
 
 </html>
