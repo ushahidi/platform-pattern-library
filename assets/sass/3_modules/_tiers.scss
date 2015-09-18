@@ -3,6 +3,7 @@
     position: relative;
     color: $dk-gray;
     text-align: center;
+    background-color: #EFECE8;
     margin: $base-spacing auto;
 
     @include media($small) {
@@ -158,6 +159,14 @@
                 color: $white;
                 background-color: $button-bg-disabled-color;
             }
+
+            &:hover {
+                cursor: pointer;
+
+                &[disabled] {
+                    cursor: not-allowed;
+                }
+            }
         }
 
         .button-tertiary {
@@ -182,7 +191,7 @@
     .tier-feature-list {
         background-color: #EFECE8;
         padding-top: $base-spacing;
-        padding-bottom: $base-spacing;
+        padding-bottom: $sm-spacing;
 
         ul, ol {
             margin: 0;
@@ -207,6 +216,10 @@
         }
     }
 
+    .tier-view-all {
+        margin-top: -$sm-spacing;
+    }
+
     .cta {
         font-weight: $bold;
         font-size: em(12);
@@ -227,14 +240,38 @@
         margin: $base-spacing 0 $lg-spacing;
         @include transition(0.85s ease-in-out);
 
-        .tier-feature-list {
-            min-height: 250px;
-        }
-
         @include media($small) {
             float: left;
-            width: 33.333333%;
-            margin: $lg-spacing 0 0;
+            width: 50%;
+            height: 560px;
+            margin: 0;
+        }
+
+        @include media($medium) {
+            width: 25%;
+            height: 655px;
+
+            .tier-feature-list {
+                padding-bottom: $base-spacing;
+            }
+
+/*
+            &:hover {
+                z-index: 2;
+                @include scale(1.025);
+                @include box-shadow($top: 0, $left: 0, $blur: 0, $spread: 4px, $color: rgba(0,0,0,.1), $inset: false);
+                @include transition(0.15s ease-in-out);
+
+                .tier-action {
+
+                    button,
+                    .button {
+                        color: $white;
+                        background-color: $blue;
+                    }
+                }
+            }
+*/
         }
 
         &.recommended {
@@ -280,15 +317,15 @@
         margin-right: -125%;
         @include transition(0.8s ease-in-out);
 
-        @include media($small) {
+        @include media($medium) {
             position: absolute;
             z-index: 99;
             opacity: 1;
-            top: 24px;
+            top: 10px;
             right: -110%;
-            bottom: 10%;
+            bottom: 10px;
             left: 110%;
-            width: 66.6666667%;
+            width: 75%;
             @include transition(0.75s ease-in-out);
         }
     }
@@ -299,7 +336,7 @@
             margin-right: 125%;
             margin-left: -125%;
 
-            @include media($small) {
+            @include media($medium) {
                 margin-right: auto;
                 margin-left: -1000px;
 
@@ -312,9 +349,9 @@
         .payment {
             margin-right: 0;
 
-            @include media($small) {
+            @include media($medium) {
                 right: 10%;
-                left: 33.333333%;
+                left: 25%;
             }
         }
     }
