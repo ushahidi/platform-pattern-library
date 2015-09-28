@@ -41,6 +41,17 @@
         }
     }
 
+    &.disabled {
+
+        .tier-action button,
+        .tier-action .button {
+            color: $dk-gray;
+            border: 2px solid #EFECE8;
+            background-color: $white;
+        }
+
+    }
+
     .tier-summary {
         position: relative;
         overflow: hidden;
@@ -109,6 +120,11 @@
             position: relative;
             top: -1em;
         }
+
+        span {
+            font-size: em(9);
+            margin-top: 4px;
+        }
     }
 
     .tier-status {
@@ -173,6 +189,15 @@
             color: $white;
             background-color: $dk-gray;
         }
+
+        .btn {
+            display: inline-block;
+            border: 2px solid $blue;
+            @include equal-radius;
+            background-color: $white;
+            padding: 5px 10px;
+            margin: $sm-spacing 0;
+        }
     }
 
     &.selected {
@@ -216,10 +241,6 @@
         }
     }
 
-    .tier-view-all {
-        margin-top: -$sm-spacing;
-    }
-
     .cta {
         font-weight: $bold;
         font-size: em(12);
@@ -243,13 +264,13 @@
         @include media($small) {
             float: left;
             width: 50%;
-            height: 560px;
+            height: 530px;
             margin: 0;
         }
 
         @include media($medium) {
             width: 25%;
-            height: 655px;
+            height: 600px;
 
             .tier-feature-list {
                 padding-bottom: $base-spacing;
@@ -304,6 +325,35 @@
         }
     }
 
+    .tier-view-all {
+        clear: both;
+        margin: 0;
+        width: 100%;
+        font-weight: 600;
+        text-align: center;
+        text-transform: uppercase;
+        border: $base-border;
+        border-top: 0px;
+
+        @include media($small) {
+            border-top: $base-border;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            padding: $base-spacing;
+            margin: -1px 0 0;
+            background-color: $white;
+
+            &:hover {
+                cursor: pointer;
+                background-color: $link-color;
+                color: $white;
+            }
+        }
+    }
+
     .payment {
         display: none;
         position: relative;
@@ -353,6 +403,10 @@
                 right: 10%;
                 left: 25%;
             }
+        }
+
+        .tier-view-all {
+            display: none;
         }
     }
 }
