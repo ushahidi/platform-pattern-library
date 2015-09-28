@@ -109,7 +109,7 @@ tourPin = function(prevStep, nextStep, target, position) {
     }
 }
 
-tourStep = function(step) {
+tourStep = function(step, init) {
     var start = typeof step !== 'undefined' ? false : true,
         prevStep = $('body').attr('data-step'),
         nextStep = typeof step !== 'undefined' ? step : 'start';
@@ -128,7 +128,7 @@ tourStep = function(step) {
         tourPin(prevStep, nextStep, '[data-message="'+nextStep+'"]', 'bottom-center'); // Position pin and message
     }
 
-    if (start == false) {
+    if (start == false && !init) {
         // IF: Browser supports pushState
         if (history.pushState) {
             history.pushState(null, null, '#'+nextStep);
@@ -163,8 +163,8 @@ tourInit = function(step) {
     });
     // Animate in the appropriate step
     setTimeout(function(){
-        tourStep(tourStepLookup(step));
-    }, 1000);
+        tourStep(tourStepLookup(step), true);
+    }, 500);
 
     // Go to correct step on 'Back' button
     window.onpopstate = function(event) {
