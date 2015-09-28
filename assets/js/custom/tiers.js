@@ -20,7 +20,8 @@ tiersInit = function(element, selected) {
         form.fadeIn(500); // Show the payment form
         selectedTier.addClass('selected'); // Apple the 'selected' state to the selected Tier
         context.addClass('show-payment');
-        selectedTierInput.val($(this).attr('data-payment')); // Save selected tier into a form field
+        console.log($(selectedTier).attr('id'));
+        selectedTierInput.val($(selectedTier).attr('id')); // Save selected tier into a form field
 
         setTimeout(function(){
             liteTier.animate({opacity: 0}, 500).slideUp(500); // Hide the Free Tier
