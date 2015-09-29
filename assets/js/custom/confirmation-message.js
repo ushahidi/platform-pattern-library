@@ -1,4 +1,4 @@
-var message = $('.confirmation-message-wrapper');
+var message = $('.confirmation-message');
 
 // Add class visible when you click on something with .success-trigger class
 $('.confirmation-trigger').click(function() {
