@@ -4323,6 +4323,14 @@ body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-
       body.post-detail .actions-stacked + .actions-content li, body.post-detail .actions-inline + .actions-content li, body.post-detail .toggle-content li, body.create-post .actions-stacked + .actions-content li, body.create-post .actions-inline + .actions-content li, body.create-post .toggle-content li {
         float: none; } }
 
+@media screen and (min-width: 48em)  {
+  .toggle-content.small-only {
+    display: block; } }
+
+@media screen and (min-width: 48em)  {
+  .toggle-content-trigger[data-toggle="small-only"] {
+    display: none; } }
+
 /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
 .dropdown-group .dropdown-menu {
   position: absolute;
@@ -4968,78 +4976,97 @@ button.photo:before, .button.photo:before, .photo.button-secondary:before, .phot
       .navigation .user-admin .dropdown-menu.open {
         display: block; }
 
-/* line 5, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-.custom-fieldset.init legend {
-  min-height: 33px;
-  direction: ltr;
-  border-radius: 5px 5px 5px 5px;
-  border: 1px solid #ebebeb;
-  background: #ffffff;
-  padding: 7px 30px 7px 10px;
-  color: #181c21;
-  font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 0.9375em;
-  text-transform: none;
-  letter-spacing: 0; }
-  /* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init legend:hover {
-    cursor: pointer; }
-  /* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init legend .fa:before {
-    color: #737373; }
-  /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
-  .custom-fieldset.init legend:after {
-    content: "\f078";
-    font-family: FontAwesome;
-    font-size: 0.875em;
-    font-style: normal;
-    font-weight: normal;
-    display: inline-block;
-    text-decoration: inherit;
-    line-height: 1;
-    padding: 0 5px 0 1px;
-    speak: none;
-    transition: content, .25s;
-    border-radius: 0 5px 5px 0;
-    position: absolute;
-    top: 0;
-    right: 0;
-    line-height: 30px;
-    text-shadow: none;
-    padding: 0 8px;
-    pointer-events: none;
-    color: #ffc334; }
-/* line 43, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-.custom-fieldset.init .checkbox-label {
-  width: 100%; }
-  /* line 46, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .checkbox-label:hover {
-    cursor: pointer; }
-  /* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .checkbox-label.checked {
-    background-color: #ebebeb; }
-    /* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-    .custom-fieldset.init .checkbox-label.checked:hover {
+/* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+.custom-fieldset.init {
+  padding-top: 0; }
+  /* line 6, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init legend {
+    position: relative;
+    min-height: 32px;
+    direction: ltr;
+    border-radius: 5px 5px 5px 5px;
+    border: 1px solid #ebebeb;
+    background: #ffffff;
+    padding: 7px 30px 7px 10px;
+    color: #181c21;
+    font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.9375em;
+    text-transform: none;
+    letter-spacing: 0; }
+    /* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init legend:hover {
+      cursor: pointer; }
+    /* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init legend .fa:before {
+      color: #ffc334; }
+    /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
+    .custom-fieldset.init legend:after {
+      content: "\f078";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, .25s;
+      border-radius: 0 5px 5px 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      line-height: 30px;
+      text-shadow: none;
+      padding: 0 8px;
+      pointer-events: none;
+      color: #ffc334; }
+  /* line 45, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .checkbox-label {
+    width: 100%; }
+    /* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .checkbox-label.checked {
       background-color: #ebebeb; }
-/* line 59, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-.custom-fieldset.init .button-link {
-  font-size: 1em;
-  margin: 10px 20px; }
-  /* line 63, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .button-link.open {
-    display: none; }
-/* line 68, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-.custom-fieldset.init .input-inline {
-  margin: 0 20px; }
-  /* line 71, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .input-inline input[type="text"] {
-    max-width: 150px;
-    margin-right: 2px; }
-  /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .input-inline button {
+      /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+      .custom-fieldset.init .checkbox-label.checked:hover {
+        background-color: #ebebeb; }
+  /* line 57, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .button-link {
+    color: #2274b4;
     font-size: 1em;
-    padding: 8px 12px; }
+    text-align: left; }
+    /* line 62, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .button-link.open {
+      display: none; }
+  @media screen and (min-width: 64em)  {
+    .custom-fieldset.init .dropdown-menu {
+      min-width: 250px; } }
+  /* line 73, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .dropdown-menu .input-inline {
+    padding-top: 1px; }
+    /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .dropdown-menu .input-inline input[type="text"] {
+      display: block;
+      width: 100%;
+      font-size: 1em;
+      margin-bottom: 4px; }
+      @media screen and (min-width: 64em)  {
+        .custom-fieldset.init .dropdown-menu .input-inline input[type="text"] {
+          display: inline;
+          width: 70%;
+          margin-right: 4px; } }
+  /* line 92, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .input-inline {
+    clear: both;
+    margin: 0 20px; }
+    /* line 98, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .input-inline button {
+      font-size: 1em;
+      padding: 8px 12px; }
+  /* line 104, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .dropdown-content {
+    min-width: 200px; }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/navigation/_pagination.scss */
 .pagination, .stepper {

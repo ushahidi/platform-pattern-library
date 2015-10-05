@@ -1,9 +1,11 @@
 .custom-fieldset {
 
     &.init {
+        padding-top: 0;
 
         legend {
-            min-height: 33px;
+            position: relative;
+            min-height: 32px;
             @include direction;
             @include radius($global-radius);
             border: $base-border;
@@ -23,7 +25,7 @@
             .fa {
 
                 &:before {
-                    color: $dk-gray;
+                    color: $yellow;
                 }
             }
 
@@ -43,10 +45,6 @@
         .checkbox-label {
             width: 100%;
 
-            &:hover {
-                cursor: pointer;
-            }
-
             &.checked {
                 background-color: $lt-gray;
 
@@ -57,26 +55,54 @@
         }
 
         .button-link {
+            color: $blue;
             font-size: 1em;
-            margin: $sm-spacing $base-spacing;
+            text-align: left;
 
             &.open {
                 display: none;
             }
         }
 
+        .dropdown-menu {
+
+            @include media($medium) {
+                min-width: 250px;
+            }
+
+            .input-inline {
+                padding-top: 1px;
+
+                input[type="text"] {
+                    display: block;
+                    width: 100%;
+                    font-size: 1em;
+                    margin-bottom: 4px;
+
+                    @include media($medium) {
+                        display: inline;
+                        width: 70%;
+                        margin-right: 4px;
+                    }
+                }
+
+            }
+        }
+
         .input-inline {
+            clear: both;
             margin: 0 $base-spacing;
 
-            input[type="text"] {
-                max-width: 150px;
-                margin-right: 2px;
-            }
+
 
             button {
                 font-size: 1em;
                 padding: 8px 12px;
             }
+        }
+
+        .dropdown-content {
+            min-width: 200px;
         }
     }
 }
