@@ -1,0 +1,82 @@
+.custom-fieldset {
+
+    &.init {
+
+        legend {
+            min-height: 33px;
+            @include direction;
+            @include radius($global-radius);
+            border: $base-border;
+            background: $white;
+            @include lrswap(padding, 7px 30px 7px $sm-spacing);
+            color: $black;
+            font-family: $base-font-family;
+            font-weight: 400;
+            font-size: em(15);
+            text-transform: none;
+            letter-spacing: 0;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            .fa {
+
+                &:before {
+                    color: $dk-gray;
+                }
+            }
+
+            @include icon($after, chevron-down) {
+                @include radius(0, $global-radius, $global-radius, 0);
+                position: absolute;
+                top: 0;
+                @include right(0);
+                line-height: 30px;
+                text-shadow: none;
+                padding: 0 8px;
+                pointer-events: none;
+                color: $yellow;
+           }
+        }
+
+        .checkbox-label {
+            width: 100%;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &.checked {
+                background-color: $lt-gray;
+
+                &:hover {
+                    background-color: $lt-gray;
+                }
+            }
+        }
+
+        .button-link {
+            font-size: 1em;
+            margin: $sm-spacing $base-spacing;
+
+            &.open {
+                display: none;
+            }
+        }
+
+        .input-inline {
+            margin: 0 $base-spacing;
+
+            input[type="text"] {
+                max-width: 150px;
+                margin-right: 2px;
+            }
+
+            button {
+                font-size: 1em;
+                padding: 8px 12px;
+            }
+        }
+    }
+}

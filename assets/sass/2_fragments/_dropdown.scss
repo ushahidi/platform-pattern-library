@@ -1,0 +1,44 @@
+.dropdown-group {
+
+    .dropdown-menu {
+        @extend .list-unstyled;
+        position: absolute;
+        min-width: 160px;
+        margin-top: -1px;
+        background-color: $white;
+        border: $base-border;
+        z-index: $top;
+        padding: $sm-spacing 0;
+
+        .header & {
+            text-shadow: none;
+        }
+
+        li {
+
+            a {
+                display: block;
+                padding: $sm-spacing $base-spacing;
+            }
+
+            &:hover {
+                background: $lt-gray;
+            }
+        }
+
+        label {
+            padding: $sm-spacing $base-spacing;
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                margin-bottom: 0;
+            }
+        }
+
+    }
+
+    .dropdown.open {
+        @include border-bottom-radius(0);
+    }
+
+}
