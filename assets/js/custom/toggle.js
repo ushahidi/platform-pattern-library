@@ -2,7 +2,7 @@
 $('[data-toggle]').each(function(){
     var trigger = $(this),
         targetVal = $(trigger).attr('data-toggle'),
-        target = $('#'+targetVal).length ? $('#'+targetVal) : $(trigger).siblings('.'+targetVal);
+        target = $('#'+targetVal).length ? $('#'+targetVal) : $(trigger).next('.'+targetVal);
 
     // Add 'init' class to pair of elements
     $(trigger).addClass('init');
