@@ -2317,13 +2317,13 @@ html {
 /*------------------------------------*\
     $RTL SUPPORT
 \*------------------------------------*/
-/* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/_settings.scss */
+/* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/_settings.scss */
 body.rtl {
   text-align: right; }
-  /* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/_settings.scss */
+  /* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/_settings.scss */
   body.rtl .pl-jump-nav {
     text-align: left; }
-  /* line 52, /Users/Brandon/Sites/platform-design.dev/assets/sass/_settings.scss */
+  /* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/_settings.scss */
   body.rtl .pl-read-direction-nav {
     text-align: left; }
     @media screen and (min-width: 48em)  {
@@ -2538,14 +2538,14 @@ $LAYOUT
       display: none; } }
 
 /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/_helpers.scss */
-.hidden-content, .toggle-content {
+.hidden-content {
   display: none; }
   /* line 57, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/_helpers.scss */
-  .hidden-content ul, .toggle-content ul {
+  .hidden-content ul {
     margin-left: 0;
     margin-bottom: 0; }
     /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/_helpers.scss */
-    .hidden-content ul li, .toggle-content ul li {
+    .hidden-content ul li {
       display: inline-block;
       margin-right: 10px; }
 
@@ -4081,10 +4081,10 @@ ul.bullets-open li {
   margin-left: 40px; }
 
 /* line 132, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
-.list-unstyled, .pl-nav ul, .pl-jump-nav ul, ul.pl-read-direction-nav, .pl-front-end-guidelines .page-content .side-nav ul, .actions-content .dropdown-menu, .dropdown-group .dropdown-menu, .user-admin .dropdown-menu, .pagination ul, .stepper ul, ul.breadcrumb, .accordion-menu .accordion-menu-list, .accordion-menu .accordion-menu-content, .categories-list, .categories-list-inline, .tabs-menu .tabs-menu-list, .tabs-secondary ul, .step-list .step-list-content ul, .navigation .main-nav, .navigation .sub-nav, .footer-nav {
+.list-unstyled, .pl-nav ul, .pl-jump-nav ul, ul.pl-read-direction-nav, .pl-front-end-guidelines .page-content .side-nav ul, .actions-content .dropdown-menu, .dropdown .dropdown-menu, .user-admin .dropdown-menu, .pagination ul, .stepper ul, ul.breadcrumb, .accordion-menu .accordion-menu-list, .accordion-menu .accordion-menu-content, .categories-list, .categories-list-inline, .tabs-menu .tabs-menu-list, .tabs-secondary ul, .step-list .step-list-content ul, .navigation .main-nav, .navigation .sub-nav, .footer-nav {
   margin: 0; }
   /* line 135, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
-  .list-unstyled li, .pl-nav ul li, .pl-jump-nav ul li, ul.pl-read-direction-nav li, .pl-front-end-guidelines .page-content .side-nav ul li, .actions-content .dropdown-menu li, .dropdown-group .dropdown-menu li, .user-admin .dropdown-menu li, .pagination ul li, .stepper ul li, ul.breadcrumb li, .accordion-menu .accordion-menu-list li, .accordion-menu .accordion-menu-content li, .categories-list li, .categories-list-inline li, .tabs-menu .tabs-menu-list li, .tabs-secondary ul li, .step-list .step-list-content ul li, .navigation .main-nav li, .navigation .sub-nav li, .footer-nav li {
+  .list-unstyled li, .pl-nav ul li, .pl-jump-nav ul li, ul.pl-read-direction-nav li, .pl-front-end-guidelines .page-content .side-nav ul li, .actions-content .dropdown-menu li, .dropdown .dropdown-menu li, .user-admin .dropdown-menu li, .pagination ul li, .stepper ul li, ul.breadcrumb li, .accordion-menu .accordion-menu-list li, .accordion-menu .accordion-menu-content li, .categories-list li, .categories-list-inline li, .tabs-menu .tabs-menu-list li, .tabs-secondary ul li, .step-list .step-list-content ul li, .navigation .main-nav li, .navigation .sub-nav li, .footer-nav li {
     list-style-type: none;
     line-height: 1;
     margin: 0; }
@@ -4276,10 +4276,36 @@ span.date {
     $FRAGMENTS
 \*------------------------------------*/
 /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+.actions-toggle > [data-toggle] {
+  margin-top: 10px; }
+  @media screen and (min-width: 48em)  {
+    .actions-toggle > [data-toggle] {
+      display: none; } }
+/* line 11, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+.actions-toggle .actions-content {
+  display: none; }
+  @media screen and (min-width: 48em)  {
+    .actions-toggle .actions-content {
+      display: block;
+      padding-top: 20px; } }
+  /* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+  .actions-toggle .actions-content.active {
+    display: block; }
+  /* line 24, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+  .actions-toggle .actions-content > button, .actions-toggle .actions-content > .custom-fieldset {
+    display: inline-block;
+    margin: 0 5px 10px 0;
+    /*
+            @include media($small) {
+                display: block;
+            }
+*/ }
+
+/* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
 .actions-inline button {
   float: left; }
 
-/* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+/* line 45, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
 .actions-content {
   float: left;
   padding: 10px 0; }
@@ -4287,21 +4313,21 @@ span.date {
     .actions-content {
       display: block;
       border: none; } }
-  /* line 24, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+  /* line 60, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
   .actions-content .button-secondary.dropdown.open, .actions-content .dropdown.open.button-toggle {
     border-bottom: 0;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
-  /* line 32, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+  /* line 68, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
   .actions-content .custom-select {
     margin-bottom: 0; }
 
-/* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+/* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
 .actions-inline + .actions-content li {
   float: left;
   padding: 0 10px 10px 0; }
 
-/* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+/* line 85, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
 .actions-stacked + .actions-content li {
   float: left;
   padding: 0 10px 10px 0; }
@@ -4309,30 +4335,12 @@ span.date {
     .actions-stacked + .actions-content li {
       float: none;
       padding: 0 0 10px 0; } }
-  /* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
+  /* line 94, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
   .actions-stacked + .actions-content li:last-child {
     padding: 0; }
 
-/* line 68, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
-body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-inline + .actions-content, body.post-detail .toggle-content, body.create-post .actions-stacked + .actions-content, body.create-post .actions-inline + .actions-content, body.create-post .toggle-content {
-  display: none; }
-  @media screen and (min-width: 48em)  {
-    body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-inline + .actions-content, body.post-detail .toggle-content, body.create-post .actions-stacked + .actions-content, body.create-post .actions-inline + .actions-content, body.create-post .toggle-content {
-      display: block; }
-      /* line 74, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_actions.scss */
-      body.post-detail .actions-stacked + .actions-content li, body.post-detail .actions-inline + .actions-content li, body.post-detail .toggle-content li, body.create-post .actions-stacked + .actions-content li, body.create-post .actions-inline + .actions-content li, body.create-post .toggle-content li {
-        float: none; } }
-
-@media screen and (min-width: 48em)  {
-  .toggle-content.small-only {
-    display: block; } }
-
-@media screen and (min-width: 48em)  {
-  .toggle-content-trigger[data-toggle="small-only"] {
-    display: none; } }
-
 /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-.dropdown-group .dropdown-menu {
+.dropdown .dropdown-menu {
   position: absolute;
   min-width: 160px;
   margin-top: -1px;
@@ -4341,23 +4349,38 @@ body.post-detail .actions-stacked + .actions-content, body.post-detail .actions-
   z-index: 1000;
   padding: 10px 0; }
   /* line 13, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-  .header .dropdown-group .dropdown-menu {
+  .dropdown .dropdown-menu.init {
+    display: none; }
+    /* line 16, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    .dropdown .dropdown-menu.init.active {
+      display: block; }
+  /* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  .header .dropdown .dropdown-menu {
     text-shadow: none; }
-  /* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-  .dropdown-group .dropdown-menu li a, .dropdown-group .dropdown-menu li .button-link {
+  /* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  .dropdown .dropdown-menu li a, .dropdown .dropdown-menu li .button-link {
     display: block;
     padding: 10px 20px; }
-  /* line 24, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-  .dropdown-group .dropdown-menu li:hover {
+  /* line 32, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  .dropdown .dropdown-menu li:hover {
     background: #ebebeb; }
-  /* line 29, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-  .dropdown-group .dropdown-menu label {
-    padding: 10px 20px; }
-    /* line 33, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-    .dropdown-group .dropdown-menu label input[type="checkbox"], .dropdown-group .dropdown-menu label input[type="radio"] {
+  /* line 37, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  .dropdown .dropdown-menu label {
+    padding: 10px; }
+    @media screen and (min-width: 64em)  {
+      .dropdown .dropdown-menu label {
+        padding: 10px 20px; } }
+    /* line 45, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    .dropdown .dropdown-menu label input[type="checkbox"], .dropdown .dropdown-menu label input[type="radio"] {
       margin-bottom: 0; }
-/* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-.dropdown-group .dropdown.open {
+  /* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  .dropdown .dropdown-menu .form-field {
+    padding: 10px; }
+    @media screen and (min-width: 64em)  {
+      .dropdown .dropdown-menu .form-field {
+        padding: 10px 20px; } }
+/* line 64, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+.init .dropdown .dropdown-trigger.active {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; }
 
@@ -4463,48 +4486,48 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
     background-color: #ffffff;
     color: #181c21;
     border: 1px solid #d2d2d2; }
-  /* line 115, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
-  .button-secondary:active, .button-toggle:active {
+  /* line 116, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  .button-secondary:active, .button-toggle:active, .button-secondary.active, .active.button-toggle {
     border: 1px solid #ababab; }
-  /* line 119, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 120, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-secondary.disabled, .disabled.button-toggle, .button-secondary[disabled], [disabled].button-toggle {
     background-color: #ffffff;
     cursor: default;
     color: #737373; }
-    /* line 124, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    /* line 125, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
     .button-secondary.disabled:before, .disabled.button-toggle:before, .button-secondary.disabled:after, .disabled.button-toggle:after, .button-secondary[disabled]:before, [disabled].button-toggle:before, .button-secondary[disabled]:after, [disabled].button-toggle:after {
       color: #737373; }
-    /* line 128, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    /* line 129, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
     .button-secondary.disabled:hover, .disabled.button-toggle:hover, .button-secondary[disabled]:hover, [disabled].button-toggle:hover {
       border: 1px solid #ebebeb; }
-    /* line 132, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    /* line 133, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
     .button-secondary.disabled:active, .disabled.button-toggle:active, .button-secondary[disabled]:active, [disabled].button-toggle:active {
       border: 1px solid #ebebeb; }
-  /* line 140, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 141, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-secondary.alt:before, .alt.button-toggle:before, .button-secondary.alt:after, .alt.button-toggle:after {
     color: #2274b4; }
-  /* line 146, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 147, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-secondary.icon-only, .icon-only.button-toggle {
     padding-left: 14px; }
-  /* line 150, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 151, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-secondary.icon-only-when-small, .icon-only-when-small.button-toggle {
     padding-left: 14px; }
     @media screen and (min-width: 48em)  {
       .button-secondary.icon-only-when-small, .icon-only-when-small.button-toggle {
         padding-left: 10px; } }
-    /* line 157, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    /* line 158, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
     .button-secondary.icon-only-when-small span, .icon-only-when-small.button-toggle span {
       display: none; }
       @media screen and (min-width: 48em)  {
         .button-secondary.icon-only-when-small span, .icon-only-when-small.button-toggle span {
           display: inline; } }
-  /* line 167, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 168, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-secondary.close.deactive, .close.deactive.button-toggle {
     color: #cccccc; }
-    /* line 170, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    /* line 171, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
     .button-secondary.close.deactive span, .close.deactive.button-toggle span {
       color: #cccccc; }
-    /* line 174, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    /* line 175, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
     .button-secondary.close.deactive:before, .close.deactive.button-toggle:before, .button-secondary.close.deactive:after, .close.deactive.button-toggle:after {
       color: #cccccc;
       -webkit-transform: rotate(-45deg);
@@ -4514,16 +4537,16 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
       -webkit-transform-origin: 50% 50%;
       transform-origin: 40% 50%; }
 
-/* line 186, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+/* line 187, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 .button-link {
   background: transparent;
   padding: 0;
   font-weight: normal; }
-  /* line 193, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 194, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-link:hover, .button-link:active {
     background: transparent; }
 
-/* line 198, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+/* line 199, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 .button-toggle {
   position: relative;
   z-index: 2;
@@ -4542,41 +4565,33 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
     speak: none;
     transition: content, .25s;
     padding: 0; }
-  /* line 208, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 209, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-toggle.open:after, .open .button-toggle:after {
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
     transform: rotate(180deg); }
 
-/* line 216, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
-.button-split .dropdown-group {
+/* line 218, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+.button-split .form-field, .button-split .custom-fieldset {
   display: inline-block;
   width: 70%;
   margin-right: -3px; }
-  /* line 221, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
-  .button-split .dropdown-group .dropdown-menu {
-    bottom: 50px;
+  @media screen and (min-width: 48em)  {
+    .button-split .form-field, .button-split .custom-fieldset {
+      display: block;
+      width: auto;
+      margin-bottom: 10px; } }
+  /* line 229, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  .button-split .form-field .dropdown-menu, .button-split .custom-fieldset .dropdown-menu {
+    bottom: 31px;
     padding: 20px 20px 10px;
     width: 65%; }
     @media screen and (min-width: 48em)  {
-      .button-split .dropdown-group .dropdown-menu {
-        position: relative;
+      .button-split .form-field .dropdown-menu, .button-split .custom-fieldset .dropdown-menu {
+        bottom: auto;
         width: 100%;
-        top: 1px; } }
-  /* line 233, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
-  .button-split .dropdown-group .dropdown.open {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 5px; }
-    @media screen and (min-width: 48em)  {
-      .button-split .dropdown-group .dropdown.open {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        border-bottom-left-radius: 0; } }
-  @media screen and (min-width: 48em)  {
-    .button-split .dropdown-group {
-      width: 100%; } }
-/* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+        padding: 10px 0; } }
+/* line 247, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 .button-split .button-secondary, .button-split .button-toggle {
   height: 40px;
   width: 100%;
@@ -4587,19 +4602,15 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
     .button-split .button-secondary, .button-split .button-toggle {
       border-top-right-radius: 5px;
       border-bottom-left-radius: 0; } }
-/* line 263, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
-.button-split button.button-primary {
+/* line 261, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+.button-split .button-primary {
   height: 40px;
-  width: 30%;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  margin-top: -2px; }
+  width: 30%; }
   @media screen and (min-width: 48em)  {
-    .button-split button.button-primary {
-      width: 100%;
-      border-top-right-radius: 0;
-      border-bottom-left-radius: 5px; } }
-/* line 278, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    .button-split .button-primary {
+      width: auto;
+      height: auto; } }
+/* line 272, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 .button-split button.dropdown {
   padding: 8px; }
   /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -4636,7 +4647,7 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
       -webkit-transform: rotate(0deg);
       -ms-transform: rotate(0deg);
       transform: rotate(0deg); } }
-  /* line 291, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 285, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .button-split button.dropdown.open:before {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
@@ -4647,22 +4658,22 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
         -ms-transform: rotate(-180deg);
         transform: rotate(-180deg); } }
 
-/* line 304, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+/* line 298, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 .upvote-downvote button.icon-only {
   direction: ltr;
   float: left;
   clear: both;
   padding: 5px 6px 7px 6px; }
-  /* line 310, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 304, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .upvote-downvote button.icon-only.downvote {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     margin-top: -1px; }
-  /* line 315, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 309, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   .upvote-downvote button.icon-only.upvote {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
-    /* line 319, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+    /* line 313, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
     .upvote-downvote button.icon-only.upvote:before, .upvote-downvote button.icon-only.upvote:after {
       padding: 0 3px; }
     @media screen and (min-width: 48em)  {
@@ -4672,7 +4683,7 @@ button, .button, .button-secondary, .button-toggle, input[type="button"] {
 /*------------------------------------*\
     $CLASSES FOR BUTTONS WITH ICONS
 \*------------------------------------*/
-/* line 339, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+/* line 333, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 button.dropdown, button.add-to-collection, button.down, button.downvote, .button.dropdown, .dropdown.button-secondary, .dropdown.button-toggle, .button.add-to-collection, .add-to-collection.button-secondary, .add-to-collection.button-toggle, .button.down, .down.button-secondary, .down.button-toggle, .button.downvote, .downvote.button-secondary, .downvote.button-toggle {
   padding: 8px; }
   /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -4689,12 +4700,12 @@ button.dropdown, button.add-to-collection, button.down, button.downvote, .button
     speak: none;
     transition: content, .25s;
     padding: 0 3px; }
-  /* line 345, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 339, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   button.dropdown.open:before, button.add-to-collection.open:before, button.down.open:before, button.downvote.open:before, .button.dropdown.open:before, .dropdown.open.button-secondary:before, .dropdown.open.button-toggle:before, .button.add-to-collection.open:before, .add-to-collection.open.button-secondary:before, .add-to-collection.open.button-toggle:before, .button.down.open:before, .down.open.button-secondary:before, .down.open.button-toggle:before, .button.downvote.open:before, .downvote.open.button-secondary:before, .downvote.open.button-toggle:before {
     -webkit-transform: rotate(-180deg);
     -ms-transform: rotate(-180deg);
     transform: rotate(-180deg); }
-/* line 353, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+/* line 347, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 button.tabbed.open, .button.tabbed.open, .tabbed.open.button-secondary, .tabbed.open.button-toggle {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -4713,7 +4724,7 @@ button.edit:before, .button.edit:before, .edit.button-secondary:before, .edit.bu
   speak: none;
   transition: content, .25s;
   padding: 0 5px 0 1px; }
-/* line 368, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+/* line 362, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
 button.close, .button.close, .close.button-secondary, .close.button-toggle {
   margin: 5px 5px 0 0; }
   /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -4731,7 +4742,7 @@ button.close, .button.close, .close.button-secondary, .close.button-toggle {
     transition: content, .25s;
     font-size: 1.125em;
     padding: 0 5px 0 1px; }
-  /* line 375, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+  /* line 369, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
   button.close span, .button.close span, .close.button-secondary span, .close.button-toggle span {
     color: #737373;
     font-style: italic; }
@@ -4792,16 +4803,16 @@ button.plus:before, .button.plus:before, .plus.button-secondary:before, .plus.bu
   speak: none;
   transition: content, .25s;
   padding: 0 5px 0 1px; }
-/* line 409, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
-button.plus.open:before, .button.plus.open:before, .plus.open.button-secondary:before, .plus.open.button-toggle:before {
+/* line 405, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+button.plus.active:before, .button.plus.active:before, .plus.active.button-secondary:before, .plus.active.button-toggle:before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   -webkit-transform-origin: 35% 50%;
       -ms-transform-origin: 35% 50%;
           transform-origin: 35% 50%; }
-/* line 414, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
-button.plus.open:after, .button.plus.open:after, .plus.open.button-secondary:after, .plus.open.button-toggle:after {
+/* line 410, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_buttons.scss */
+button.plus.active:after, .button.plus.active:after, .plus.active.button-secondary:after, .plus.active.button-toggle:after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -4903,24 +4914,15 @@ button.photo:before, .button.photo:before, .photo.button-secondary:before, .phot
     .user-admin.logged-out a:hover, .user-admin.logged-out .button-link:hover {
       border-bottom: 1px solid #ebebeb; }
   /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-  .user-admin .toggle-wrapper {
-    cursor: pointer;
-    height: 30px;
-    -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
-    text-align: right; }
-  /* line 42, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
   .user-admin .user-avatar {
     float: left; }
-    /* line 45, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
+    /* line 38, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
     .user-admin .user-avatar img {
       position: relative;
       height: 30px;
       min-width: 30px;
       border-radius: 100px; }
-  /* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
+  /* line 46, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
   .user-admin .username {
     position: relative;
     top: -10px;
@@ -4928,53 +4930,73 @@ button.photo:before, .button.photo:before, .photo.button-secondary:before, .phot
     font-weight: bold;
     padding: 10px 10px 0 0;
     margin: 10px 0 0 10px; }
-  /* line 62, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-  .user-admin .button-toggle {
-    position: relative;
-    background: transparent;
-    border: none;
-    padding-bottom: 15px;
-    border-radius: 5px 5px 0 0; }
-  /* line 72, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-  .user-admin .open .button-toggle {
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    background: #ffffff;
-    border-bottom: 0px;
-    opacity: 1; }
-    /* line 78, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-    .user-admin .open .button-toggle:hover {
-      background-color: #ffffff; }
-  /* line 84, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-  .user-admin .dropdown-menu {
-    position: relative;
-    top: -10px;
-    background: #ffffff;
-    margin-top: 17px;
-    padding: 10px;
-    text-shadow: none;
+  /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .user-admin [data-toggle].init:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
     visibility: hidden;
-    opacity: 0;
-    transition: opacity .25s; }
-    /* line 96, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-    .user-admin .dropdown-menu li {
-      padding: 10px;
-      text-align: left; }
-    /* line 101, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-    .user-admin .dropdown-menu.visible {
-      display: block;
-      opacity: 1;
-      visibility: visible;
-      transition: opacity .25s; }
-    /* line 108, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-    .navigation .user-admin .dropdown-menu {
-      display: none;
-      margin: 10px 0 0;
-      padding: 0;
-      top: 0; }
-      /* line 114, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
-      .navigation .user-admin .dropdown-menu.open {
-        display: block; }
+    font-size: 0; }
+  /* line 12, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .lt-ie8 .user-admin [data-toggle].init {
+    zoom: 1; }
+  /* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
+  .user-admin [data-toggle].init:hover {
+    cursor: pointer; }
+  /* line 62, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
+  .user-admin [data-toggle].init .username {
+    padding-right: 35px; }
+    /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
+    .user-admin [data-toggle].init .username:after {
+      content: "\f078";
+      font-family: FontAwesome;
+      font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      display: inline-block;
+      text-decoration: inherit;
+      line-height: 1;
+      padding: 0 5px 0 1px;
+      speak: none;
+      transition: content, .25s;
+      pointer-events: none;
+      border-radius: 3px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: #ffc334;
+      line-height: 36px;
+      text-shadow: none;
+      padding: 0 8px; }
+  /* line 82, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
+  .user-admin [data-toggle].init.active .username:after {
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: 0px;
+    background: #ffffff; }
+  /* line 92, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
+  .user-admin .dropdown-menu {
+    right: 10px;
+    text-align: left;
+    border: 1px solid #ebebeb;
+    border-top: none;
+    border-radius: 3px;
+    padding: 10px; }
+    @media screen and (max-width: 64em)  {
+      .user-admin .dropdown-menu {
+        position: relative;
+        opacity: 1;
+        border: none; } }
+    @media screen and (max-width: 64em)  {
+      .user-admin .dropdown-menu li {
+        padding: 0 10px; }
+        /* line 112, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_button-user-admin.scss */
+        .user-admin .dropdown-menu li:hover {
+          background-color: transparent; } }
 
 /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
 .custom-fieldset.init {
@@ -5022,49 +5044,59 @@ button.photo:before, .button.photo:before, .photo.button-secondary:before, .phot
       padding: 0 8px;
       pointer-events: none;
       color: #ffc334; }
-  /* line 45, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .checkbox-label {
-    width: 100%; }
-    /* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-    .custom-fieldset.init .checkbox-label.checked {
+    /* line 46, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init legend.active:after {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+  /* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .checkbox-label, .custom-fieldset.init .radio-label {
+    width: 100%;
+    font-size: 0.9375em; }
+    /* line 57, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .checkbox-label.checked, .custom-fieldset.init .radio-label.checked {
       background-color: #ebebeb; }
-      /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-      .custom-fieldset.init .checkbox-label.checked:hover {
+      /* line 60, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+      .custom-fieldset.init .checkbox-label.checked:hover, .custom-fieldset.init .radio-label.checked:hover {
         background-color: #ebebeb; }
-  /* line 57, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  /* line 66, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
   .custom-fieldset.init .button-link {
     color: #2274b4;
     font-size: 1em;
     text-align: left; }
-    /* line 62, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    /* line 71, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
     .custom-fieldset.init .button-link.open {
       display: none; }
   @media screen and (min-width: 64em)  {
     .custom-fieldset.init .dropdown-menu {
       min-width: 250px; } }
-  /* line 73, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .dropdown-menu .input-inline {
+  /* line 82, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .dropdown-menu .form-field {
     padding-top: 1px; }
-    /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-    .custom-fieldset.init .dropdown-menu .input-inline input[type="text"] {
-      display: block;
+    /* line 85, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .dropdown-menu .form-field input[type="text"] {
       width: 100%;
       font-size: 1em;
       margin-bottom: 4px; }
-      @media screen and (min-width: 64em)  {
-        .custom-fieldset.init .dropdown-menu .input-inline input[type="text"] {
-          display: inline;
-          width: 70%;
-          margin-right: 4px; } }
-  /* line 92, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-  .custom-fieldset.init .input-inline {
-    clear: both;
-    margin: 0 20px; }
-    /* line 98, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
-    .custom-fieldset.init .input-inline button {
+  /* line 93, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .dropdown-menu [data-toggle].active {
+    display: none; }
+  /* line 97, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .dropdown-menu .toggle-content {
+    display: none;
+    border-top: 1px solid #ebebeb; }
+    /* line 101, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .dropdown-menu .toggle-content.active {
+      display: block; }
+  /* line 107, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .form-field {
+    clear: both; }
+    /* line 110, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+    .custom-fieldset.init .form-field button {
       font-size: 1em;
-      padding: 8px 12px; }
-  /* line 104, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
+      padding: 8px 12px;
+      margin-bottom: 0; }
+  /* line 117, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_custom-fieldset.scss */
   .custom-fieldset.init .dropdown-content {
     min-width: 200px; }
 
@@ -6546,40 +6578,51 @@ aside .filters {
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
 .list-actions {
-  padding: 10px 0;
   border-top: 1px solid #ebebeb;
-  clear: both;
-  padding: 10px 0;
-  overflow: auto; }
+  padding: 10px 0; }
+  /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .list-actions:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0; }
+  /* line 12, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .lt-ie8 .list-actions {
+    zoom: 1; }
   @media screen and (min-width: 48em)  {
     .list-actions {
       padding: 10px 20px;
       border-right: 1px solid #ebebeb;
       border-left: 1px solid #ebebeb; } }
-  /* line 14, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
+  /* line 12, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
   .list-actions .bulk-actions {
     float: right; }
     @media screen and (min-width: 48em)  {
       .list-actions .bulk-actions {
         padding: 0; } }
-    /* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
-    .list-actions .bulk-actions button {
+    /* line 20, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
+    .list-actions .bulk-actions button, .list-actions .bulk-actions .custom-fieldset {
       float: left; }
-    /* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
-    .list-actions .bulk-actions .dropdown-group {
+    /* line 24, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
+    .list-actions .bulk-actions .dropdown {
       float: left; }
-      /* line 28, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
-      .list-actions .bulk-actions .dropdown-group button {
+      /* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
+      .list-actions .bulk-actions .dropdown button {
         margin: 0; }
-        /* line 31, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
-        .list-actions .bulk-actions .dropdown-group button:before {
+        /* line 30, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
+        .list-actions .bulk-actions .dropdown button:before {
           color: #2274b4; }
-  /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
-  .list-actions .cta {
-    float: left;
-    padding-top: 10px; }
+    /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
+    .list-actions .bulk-actions .custom-fieldset.init legend:after {
+      color: #2274b4; }
   /* line 46, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
-  .list-actions button {
+  .list-actions .button-link {
+    float: left;
+    margin-top: 7px; }
+  /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_list-actions.scss */
+  .list-actions .button-secondary, .list-actions .button-toggle {
     margin-left: 10px; }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_tabs-filter.scss */
@@ -6689,7 +6732,6 @@ aside .filters {
   border-left: 1px solid #ebebeb;
   border-right: 1px solid #ebebeb;
   clear: both;
-  overflow: hidden;
   _overflow: visible;
   zoom: 1; }
   @media screen and (min-width: 48em)  {
@@ -6762,17 +6804,29 @@ aside .filters {
 /* line 98, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
 .step-and-actions {
   border-top: 1px solid #ebebeb; }
+  /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .step-and-actions:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0; }
+  /* line 12, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .lt-ie8 .step-and-actions {
+    zoom: 1; }
   @media screen and (min-width: 80em)  {
     .step-and-actions {
       width: 22%;
       float: left;
       border-top: 0px; } }
-  /* line 107, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
+  /* line 108, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
   .step-and-actions .step {
-    width: 50%;
     float: left;
+    width: 50%;
+    border-right: 1px solid #ebebeb;
     padding: 20px;
-    border-right: 1px solid #ebebeb; }
+    margin-right: 20px; }
     @media screen and (min-width: 80em)  {
       .step-and-actions .step {
         width: 100%;
@@ -6781,38 +6835,29 @@ aside .filters {
         border-bottom: 1px solid #ebebeb;
         border-right: 0;
         padding: 20px; } }
-    /* line 122, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
+    /* line 124, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
     .step-and-actions .step .delta-alt, .step-and-actions .step .input-label, .step-and-actions .step .filter-label, .step-and-actions .step fieldset legend, fieldset .step-and-actions .step legend, .step-and-actions .step p, .step-and-actions .step blockquote, .step-and-actions .step .button-link {
       margin: 5px 0; }
-  /* line 128, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
-  .step-and-actions .actions-stacked {
-    width: 50%;
-    float: right;
+  /* line 130, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
+  .step-and-actions .actions-toggle {
     padding: 20px; }
     @media screen and (min-width: 80em)  {
-      .step-and-actions .actions-stacked {
-        width: 100%;
+      .step-and-actions .actions-toggle {
         clear: both;
         padding: 0; } }
-    /* line 139, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
-    .step-and-actions .actions-stacked .button-hide {
-      -webkit-transform: translateY(25%);
-          -ms-transform: translateY(25%);
-              transform: translateY(25%); }
-  /* line 145, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
-  .step-and-actions .actions-content {
-    padding: 20px;
-    width: 100%;
-    border-top: 1px solid #ebebeb; }
-    @media screen and (min-width: 80em)  {
-      .step-and-actions .actions-content {
-        border: none; } }
-    /* line 154, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
-    .step-and-actions .actions-content li {
-      padding-bottom: 0; }
+    /* line 138, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-listing.scss */
+    .step-and-actions .actions-toggle .actions-content {
+      width: 100%;
+      border-top: 1px solid #ebebeb;
+      padding: 20px 0 10px; }
+      @media screen and (min-width: 48em)  {
+        .step-and-actions .actions-toggle .actions-content {
+          width: auto;
+          border: none;
+          padding: 0; } }
       @media screen and (min-width: 80em)  {
-        .step-and-actions .actions-content li {
-          padding-bottom: 10px; } }
+        .step-and-actions .actions-toggle .actions-content {
+          padding: 20px; } }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_activity-listing.scss */
 .activity-listing {
@@ -7160,6 +7205,12 @@ aside .filters {
       .settings-listing .upvote-downvote + .toggle-switch + h3 {
         padding-left: 120px; } }
   /* line 127, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+  .settings-listing [data-toggle] {
+    display: none; }
+    /* line 130, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+    .settings-listing [data-toggle].init {
+      display: inline-block; }
+  /* line 135, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
   .settings-listing .actions {
     position: absolute;
     right: 10px;
@@ -7167,7 +7218,7 @@ aside .filters {
     @media screen and (min-width: 48em)  {
       .settings-listing .actions {
         top: 27px; } }
-    /* line 136, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+    /* line 144, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
     .settings-listing .actions button {
       float: left;
       margin-bottom: 10px;
@@ -7185,14 +7236,14 @@ aside .filters {
         padding: 0 5px 0 1px;
         speak: none;
         transition: content, .25s; }
-    /* line 147, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+    /* line 155, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
     .settings-listing .actions .toggle-switch {
       float: right;
       margin-left: 10px; }
-  /* line 154, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+  /* line 162, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
   .settings-listing .toggle-switch + button {
     float: left; }
-  /* line 158, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+  /* line 166, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
   .settings-listing form, .settings-listing .form {
     clear: both;
     border-top: 1px solid #ebebeb;
@@ -7201,17 +7252,23 @@ aside .filters {
       .settings-listing form, .settings-listing .form {
         padding: 0 10px 0;
         margin-top: 34px; } }
+    /* line 176, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+    .settings-listing form.toggle-content.init, .settings-listing .form.toggle-content.init {
+      display: none; }
+      /* line 179, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+      .settings-listing form.toggle-content.init.active, .settings-listing .form.toggle-content.init.active {
+        display: block; }
     @media screen and (min-width: 30em)  {
       .settings-listing form .select-inline, .settings-listing .form .select-inline {
         float: left;
         margin: -20px 20px 20px 0; } }
-    /* line 176, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+    /* line 192, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
     .settings-listing form .button-primary, .settings-listing .form .button-primary {
       margin-top: 20px; }
-  /* line 182, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+  /* line 198, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
   .settings-listing .edit {
     padding: 8px 12px; }
-  /* line 186, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
+  /* line 202, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_settings-listing.scss */
   .settings-listing p, .settings-listing blockquote, .settings-listing .button-link {
     font-size: 1em;
     line-height: 1; }
@@ -7756,7 +7813,7 @@ aside .filters {
     /* line 130, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_header.scss */
     .header .button-create span {
       display: none;
-      padding: 0px 0px 0px 15px; }
+      padding: 0px 0px 0px 5px; }
       @media screen and (min-width: 48em)  {
         .header .button-create span {
           display: inline-block; } }
@@ -8067,56 +8124,66 @@ aside .filters {
       padding: 10px 0;
       line-height: 1; }
       /* line 147, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
-      .navigation .main-nav li a, .navigation .main-nav li .button-link {
+      .navigation .main-nav li a, .navigation .main-nav li .button-link, .navigation .main-nav li span {
         display: inline;
+        color: #2274b4;
         padding: 0;
         text-transform: uppercase;
         font-weight: 900;
         letter-spacing: 1.5px; }
-    /* line 159, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
-    .navigation .main-nav .settings-nav .settings-nav-header a, .navigation .main-nav .settings-nav .settings-nav-header .button-link {
-      display: block;
-      margin: 0; }
-      /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
-      .navigation .main-nav .settings-nav .settings-nav-header a:before, .navigation .main-nav .settings-nav .settings-nav-header .button-link:before {
-        content: "\f067";
-        font-family: FontAwesome;
-        font-size: 0.875em;
-        font-style: normal;
-        font-weight: normal;
-        display: inline-block;
-        text-decoration: inherit;
-        line-height: 1;
-        padding: 0 5px 0 1px;
-        speak: none;
-        transition: content, .25s;
-        padding: 0 5px 0 1px; }
-      /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
-      .navigation .main-nav .settings-nav .settings-nav-header a.open:before, .navigation .main-nav .settings-nav .settings-nav-header .open.button-link:before {
-        content: "\f068";
-        font-family: FontAwesome;
-        font-size: 0.875em;
-        font-style: normal;
-        font-weight: normal;
-        display: inline-block;
-        text-decoration: inherit;
-        line-height: 1;
-        padding: 0 5px 0 1px;
-        speak: none;
-        transition: content, .25s; }
-    /* line 172, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
-    .navigation .main-nav .settings-nav ul {
-      margin: 10px 0 0px 0;
+        /* line 155, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+        .navigation .main-nav li a[data-toggle], .navigation .main-nav li [data-toggle].button-link, .navigation .main-nav li span[data-toggle] {
+          display: block;
+          margin: 0; }
+          /* line 159, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+          .navigation .main-nav li a[data-toggle]:hover, .navigation .main-nav li [data-toggle].button-link:hover, .navigation .main-nav li span[data-toggle]:hover {
+            cursor: pointer;
+            color: #123d5e; }
+          /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
+          .navigation .main-nav li a[data-toggle]:before, .navigation .main-nav li [data-toggle].button-link:before, .navigation .main-nav li span[data-toggle]:before {
+            content: "\f067";
+            font-family: FontAwesome;
+            font-size: 0.875em;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            text-decoration: inherit;
+            line-height: 1;
+            padding: 0 5px 0 1px;
+            speak: none;
+            transition: content, .25s;
+            padding: 0 5px 0 1px; }
+          /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
+          .navigation .main-nav li a[data-toggle].active:before, .navigation .main-nav li [data-toggle].active.button-link:before, .navigation .main-nav li span[data-toggle].active:before {
+            content: "\f068";
+            font-family: FontAwesome;
+            font-size: 0.875em;
+            font-style: normal;
+            font-weight: normal;
+            display: inline-block;
+            text-decoration: inherit;
+            line-height: 1;
+            padding: 0 5px 0 1px;
+            speak: none;
+            transition: content, .25s; }
+      /* line 174, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+      .navigation .main-nav li ul {
+        margin: 10px 0 0px 0; }
+        /* line 177, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+        .navigation .main-nav li ul li {
+          padding: 5px 5px 5px 17px; }
+        /* line 181, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+        .navigation .main-nav li ul a, .navigation .main-nav li ul .button-link {
+          text-transform: none;
+          font-weight: normal;
+          letter-spacing: inherit; }
+    /* line 190, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    .navigation .main-nav .toggle-content {
       display: none; }
-      /* line 177, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
-      .navigation .main-nav .settings-nav ul li {
-        padding: 5px 5px 5px 17px; }
-      /* line 181, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
-      .navigation .main-nav .settings-nav ul a, .navigation .main-nav .settings-nav ul .button-link {
-        text-transform: none;
-        font-weight: normal;
-        letter-spacing: inherit; }
-  /* line 192, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+      /* line 193, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+      .navigation .main-nav .toggle-content.active {
+        display: block; }
+  /* line 199, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
   .navigation .sub-nav {
     margin: 0 0 40px 0; }
     /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -8151,7 +8218,7 @@ aside .filters {
       color: #999999;
       font-size: 1.125em;
       padding-right: 8px; }
-    /* line 214, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    /* line 221, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
     .navigation .sub-nav button {
       margin: 10px 0 0 0; }
       /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -8168,10 +8235,10 @@ aside .filters {
         speak: none;
         transition: content, .25s;
         padding-right: 10px; }
-    /* line 226, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    /* line 233, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
     .navigation .sub-nav ul {
       margin: 0; }
-    /* line 230, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    /* line 237, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
     .navigation .sub-nav li {
       display: inline;
       float: left;
@@ -8180,10 +8247,10 @@ aside .filters {
       padding: 10px 0;
       border-width: 3px;
       line-height: 1; }
-    /* line 240, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    /* line 247, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
     .navigation .sub-nav a, .navigation .sub-nav .button-link {
       padding-right: 10px; }
-    /* line 244, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    /* line 251, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
     .navigation .sub-nav .star {
       float: right;
       color: #999999;
@@ -8202,15 +8269,15 @@ aside .filters {
         speak: none;
         transition: content, .25s;
         padding: 0; }
-      /* line 252, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+      /* line 259, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
       .navigation .sub-nav .star:hover {
         cursor: pointer;
         color: #ffc334; }
-      /* line 257, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+      /* line 264, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
       .navigation .sub-nav .star.yellow {
         opacity: 1;
         color: #ffc334; }
-        /* line 262, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+        /* line 269, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
         .navigation .sub-nav .star.yellow:after, .navigation .sub-nav .star.yellow:before {
           -webkit-transform: rotate(360deg);
               -ms-transform: rotate(360deg);
@@ -8218,22 +8285,22 @@ aside .filters {
           -webkit-transform-origin: 50%;
               -ms-transform-origin: 50%;
                   transform-origin: 50%; }
-    /* line 271, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    /* line 278, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
     .navigation .sub-nav a:hover + .star, .navigation .sub-nav .button-link:hover + .star, .navigation .sub-nav .star:hover {
       transition: opacity .25s;
       opacity: 1; }
-    /* line 276, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+    /* line 283, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
     .navigation .sub-nav .credit {
       font-size: 0.875em;
       line-height: 1;
       margin: 5px 0 0;
       color: #737373; }
-      /* line 282, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+      /* line 289, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
       .navigation .sub-nav .credit a, .navigation .sub-nav .credit .button-link {
         color: #737373;
         padding: 0;
         border-bottom: 1px solid #ebebeb; }
-  /* line 296, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
+  /* line 303, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_main-nav.scss */
   .navigation .nav-icon, .navigation .button-create, .navigation .main-nav, .navigation .user-admin, .navigation .sub-nav {
     float: left;
     clear: both; }
@@ -8925,15 +8992,17 @@ aside.is-right [class*="user-credit"] {
   padding: 10px 0;
   width: 60%;
   border-right: 1px solid #ebebeb;
-  float: left; }
+  float: left;
+  margin-right: 20px; }
   @media screen and (min-width: 48em)  {
     aside.is-right [class*="user-credit"] {
       padding: 10px 0 20px;
       width: 100%;
       float: none;
       border-right: 0px;
-      border-bottom: 1px solid #ebebeb; } }
-/* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+      border-bottom: 1px solid #ebebeb;
+      margin-right: auto; } }
+/* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .actions-stacked {
   float: right;
   padding: 20px 0 0;
@@ -8945,22 +9014,21 @@ aside.is-right .actions-stacked {
   aside.is-right .step {
     border-top: 1px solid #ebebeb;
     margin-top: 20px; } }
-/* line 37, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+/* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .step p, aside.is-right .step blockquote, aside.is-right .step .button-link {
   display: inline; }
   @media screen and (min-width: 48em)  {
     aside.is-right .step p, aside.is-right .step blockquote, aside.is-right .step .button-link {
       display: block; } }
-/* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+/* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .step-list-content, aside.is-right .actions-content {
   width: 100%;
   border-top: 1px solid #ebebeb;
   padding: 20px 0; }
   @media screen and (min-width: 48em)  {
     aside.is-right .step-list-content, aside.is-right .actions-content {
-      border-top: 0;
-      padding: 0; } }
-/* line 60, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+      border-top: 0; } }
+/* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
 aside.is-right .published-to {
   float: left; }
   @media screen and (min-width: 48em)  {
@@ -8968,7 +9036,7 @@ aside.is-right .published-to {
       padding-bottom: 20px;
       border-bottom: 1px solid #ebebeb;
       float: none; } }
-  /* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+  /* line 70, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
   aside.is-right .published-to h4 {
     float: left;
     margin: 10px 10px 0 0; }
@@ -8976,7 +9044,7 @@ aside.is-right .published-to {
       aside.is-right .published-to h4 {
         float: none;
         margin: 20px 0 10px; } }
-  /* line 80, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
+  /* line 81, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-b.scss */
   aside.is-right .published-to .custom-select {
     margin-bottom: 0; }
 @media screen and (min-width: 48em)  {

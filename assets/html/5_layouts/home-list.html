@@ -47,13 +47,12 @@
                         <span>Add Post</span>
                     </a>
 
-                    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+                    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -86,10 +85,8 @@
         <li><a href="home-map.html">Home</a></li>
         <li><a href="layout-a.html">About</a></li>
         <li><a href="activity.html">Activity</a></li>
-        <li class="settings-nav">
-            <div class="settings-nav-header">
-                <a class="toggle-content-trigger">Settings</a>
-            </div>
+        <li>
+            <span data-toggle="toggle-content">Settings</span>
             <ul class="toggle-content">
                 <li><a href="#">General</a></li>
                 <li><a href="#">Appearance</a></li>
@@ -103,13 +100,12 @@
         </li>
     </ul>
 
-    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -166,7 +162,6 @@
     <ul class="tabs-menu-list">
         <li class="active"><a class="view-list">List</a></li>
         <li ><a class="view-map">Map</a></li>
-        <li ><a class="view-photo">Photos</a></li>
         <li ><a class="view-chart">Bar Chart</a></li>
         <li ><a class="view-timeline">Timeline</a></li>
     </ul>
@@ -306,27 +301,32 @@
                 </div><!--end view with filter-->
 
                 <div class="list-actions">
-    <a href="" class="cta">Select All</a>
+    <button class="button-link">Select All</button>
     <div class="bulk-actions">
-        <div class="dropdown-group">
-            <button type="button" class="button-secondary dropdown toggle-content-trigger">
-                <span>Mark As</span>
-            </button>
-            <ul class="toggle-content dropdown-menu" role="menu">
-                <li><a href="#!">Spam</a></li>
-                <li><a href="#!">Duplicates</a></li>
-            </ul>
-        </div>
-            <button type="button" class="button-secondary alt icon-only-when-small export">
-                <span>Export</span>
-            </button>
-            <button type="button" class="button-secondary icon-only-when-small alt trash">
-                <span>Delete</span>
-            </button>
+        <fieldset class="custom-fieldset">
+            <legend>Mark As</legend>
+
+            <label class="radio-label" for="spam">
+                <input type="radio" name="markas" id="spam" />
+                Spam
+            </label>
+
+            <label class="radio-label" for="duplicates">
+                <input type="radio" name="markas" id="duplicates" />
+                Duplicates
+            </label>
+        </fieldset>
+
+        <button type="button" class="button-secondary alt icon-only-when-small export">
+            <span>Export</span>
+        </button>
+
+        <button type="button" class="button-secondary icon-only-when-small alt trash">
+            <span>Delete</span>
+        </button>
     </div>
 </div><!--list-actions-->
 
-
                 <div class="single-post-listing">
     <div class="select-post">
         <input type="checkbox">
@@ -361,20 +361,14 @@
             </h4>
             <p>Unverified <a href="" class="cta">Update</a></p>
         </div>
-        <div class="actions-stacked hide-when-large">
-    <button type="button" class="button-secondary plus toggle-content-trigger">
-        <span>Options</span>
-    </button>
-</div>
-<div class="actions-content toggle-content">
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <button type="button" class="button-secondary edit">
-                <span>Edit</span>
-            </button>
-        </li>
-        <li>
-            <fieldset class="custom-fieldset">
+        <div class="actions-toggle">
+    <a href="#options" class="button-secondary plus" data-toggle="toggle-content">Options</a>
+    <div class="actions-content toggle-content">
+        <button type="button" class="button-secondary edit">
+            <span>Edit</span>
+        </button>
+
+        <fieldset class="custom-fieldset">
     <legend><i class="fa fa-th"></i>Collections</legend>
 
     <label class="checkbox-label" for="collection1">
@@ -392,18 +386,16 @@
         Extra Collection 3
     </label>
 
-    <div class="input-inline">
-        <a href="#create-collection" class="button button-link toggle-content-trigger"><i class="fa fa-plus"></i>Create Collection</a>
+    <div class="form-field">
+        <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
         <div class="toggle-content">
             <input type="text" id="create-collection" placeholder="Create Collection" />
             <button type="button">Create</button>
         </div>
     </div>
 </fieldset>
-        </li>
-    </ul>
-</div>
-
+    </div>
+ </div>
     </div>
 
 </div> <!--single post listing-->
@@ -439,20 +431,14 @@
             </h4>
             <p>Translation <a href="" class="cta">Update</a></p>
         </div>
-        <div class="actions-stacked hide-when-large">
-    <button type="button" class="button-secondary plus toggle-content-trigger">
-        <span>Options</span>
-    </button>
-</div>
-<div class="actions-content toggle-content">
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <button type="button" class="button-secondary edit">
-                <span>Edit</span>
-            </button>
-        </li>
-        <li>
-            <fieldset class="custom-fieldset">
+        <div class="actions-toggle">
+    <a href="#options" class="button-secondary plus" data-toggle="toggle-content">Options</a>
+    <div class="actions-content toggle-content">
+        <button type="button" class="button-secondary edit">
+            <span>Edit</span>
+        </button>
+
+        <fieldset class="custom-fieldset">
     <legend><i class="fa fa-th"></i>Collections</legend>
 
     <label class="checkbox-label" for="collection1">
@@ -470,18 +456,16 @@
         Extra Collection 3
     </label>
 
-    <div class="input-inline">
-        <a href="#create-collection" class="button button-link toggle-content-trigger"><i class="fa fa-plus"></i>Create Collection</a>
+    <div class="form-field">
+        <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
         <div class="toggle-content">
             <input type="text" id="create-collection" placeholder="Create Collection" />
             <button type="button">Create</button>
         </div>
     </div>
 </fieldset>
-        </li>
-    </ul>
-</div>
-
+    </div>
+ </div>
     </div>
 
 </div> <!--single post listing-->
@@ -518,20 +502,14 @@
             </h4>
             <p>Unverified <a href="" class="cta">Update</a></p>
         </div>
-        <div class="actions-stacked hide-when-large">
-    <button type="button" class="button-secondary plus toggle-content-trigger">
-        <span>Options</span>
-    </button>
-</div>
-<div class="actions-content toggle-content">
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <button type="button" class="button-secondary edit">
-                <span>Edit</span>
-            </button>
-        </li>
-        <li>
-            <fieldset class="custom-fieldset">
+        <div class="actions-toggle">
+    <a href="#options" class="button-secondary plus" data-toggle="toggle-content">Options</a>
+    <div class="actions-content toggle-content">
+        <button type="button" class="button-secondary edit">
+            <span>Edit</span>
+        </button>
+
+        <fieldset class="custom-fieldset">
     <legend><i class="fa fa-th"></i>Collections</legend>
 
     <label class="checkbox-label" for="collection1">
@@ -549,18 +527,16 @@
         Extra Collection 3
     </label>
 
-    <div class="input-inline">
-        <a href="#create-collection" class="button button-link toggle-content-trigger"><i class="fa fa-plus"></i>Create Collection</a>
+    <div class="form-field">
+        <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
         <div class="toggle-content">
             <input type="text" id="create-collection" placeholder="Create Collection" />
             <button type="button">Create</button>
         </div>
     </div>
 </fieldset>
-        </li>
-    </ul>
-</div>
-
+    </div>
+ </div>
     </div>
 
 </div> <!--single post listing-->
@@ -597,20 +573,14 @@
             </h4>
             <p>Unverified <a href="" class="cta">Update</a></p>
         </div>
-        <div class="actions-stacked hide-when-large">
-    <button type="button" class="button-secondary plus toggle-content-trigger">
-        <span>Options</span>
-    </button>
-</div>
-<div class="actions-content toggle-content">
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <button type="button" class="button-secondary edit">
-                <span>Edit</span>
-            </button>
-        </li>
-        <li>
-            <fieldset class="custom-fieldset">
+        <div class="actions-toggle">
+    <a href="#options" class="button-secondary plus" data-toggle="toggle-content">Options</a>
+    <div class="actions-content toggle-content">
+        <button type="button" class="button-secondary edit">
+            <span>Edit</span>
+        </button>
+
+        <fieldset class="custom-fieldset">
     <legend><i class="fa fa-th"></i>Collections</legend>
 
     <label class="checkbox-label" for="collection1">
@@ -628,18 +598,16 @@
         Extra Collection 3
     </label>
 
-    <div class="input-inline">
-        <a href="#create-collection" class="button button-link toggle-content-trigger"><i class="fa fa-plus"></i>Create Collection</a>
+    <div class="form-field">
+        <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
         <div class="toggle-content">
             <input type="text" id="create-collection" placeholder="Create Collection" />
             <button type="button">Create</button>
         </div>
     </div>
 </fieldset>
-        </li>
-    </ul>
-</div>
-
+    </div>
+ </div>
     </div>
 
 </div> <!--single post listing-->
@@ -675,20 +643,14 @@
             </h4>
             <p>Translation <a href="" class="cta">Update</a></p>
         </div>
-        <div class="actions-stacked hide-when-large">
-    <button type="button" class="button-secondary plus toggle-content-trigger">
-        <span>Options</span>
-    </button>
-</div>
-<div class="actions-content toggle-content">
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <button type="button" class="button-secondary edit">
-                <span>Edit</span>
-            </button>
-        </li>
-        <li>
-            <fieldset class="custom-fieldset">
+        <div class="actions-toggle">
+    <a href="#options" class="button-secondary plus" data-toggle="toggle-content">Options</a>
+    <div class="actions-content toggle-content">
+        <button type="button" class="button-secondary edit">
+            <span>Edit</span>
+        </button>
+
+        <fieldset class="custom-fieldset">
     <legend><i class="fa fa-th"></i>Collections</legend>
 
     <label class="checkbox-label" for="collection1">
@@ -706,18 +668,16 @@
         Extra Collection 3
     </label>
 
-    <div class="input-inline">
-        <a href="#create-collection" class="button button-link toggle-content-trigger"><i class="fa fa-plus"></i>Create Collection</a>
+    <div class="form-field">
+        <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
         <div class="toggle-content">
             <input type="text" id="create-collection" placeholder="Create Collection" />
             <button type="button">Create</button>
         </div>
     </div>
 </fieldset>
-        </li>
-    </ul>
-</div>
-
+    </div>
+ </div>
     </div>
 
 </div> <!--single post listing-->
@@ -757,20 +717,14 @@
             </h4>
             <p>Unverified <a href="" class="cta">Update</a></p>
         </div>
-        <div class="actions-stacked hide-when-large">
-    <button type="button" class="button-secondary plus toggle-content-trigger">
-        <span>Options</span>
-    </button>
-</div>
-<div class="actions-content toggle-content">
-    <ul class="dropdown-menu" role="menu">
-        <li>
-            <button type="button" class="button-secondary edit">
-                <span>Edit</span>
-            </button>
-        </li>
-        <li>
-            <fieldset class="custom-fieldset">
+        <div class="actions-toggle">
+    <a href="#options" class="button-secondary plus" data-toggle="toggle-content">Options</a>
+    <div class="actions-content toggle-content">
+        <button type="button" class="button-secondary edit">
+            <span>Edit</span>
+        </button>
+
+        <fieldset class="custom-fieldset">
     <legend><i class="fa fa-th"></i>Collections</legend>
 
     <label class="checkbox-label" for="collection1">
@@ -788,18 +742,16 @@
         Extra Collection 3
     </label>
 
-    <div class="input-inline">
-        <a href="#create-collection" class="button button-link toggle-content-trigger"><i class="fa fa-plus"></i>Create Collection</a>
+    <div class="form-field">
+        <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
         <div class="toggle-content">
             <input type="text" id="create-collection" placeholder="Create Collection" />
             <button type="button">Create</button>
         </div>
     </div>
 </fieldset>
-        </li>
-    </ul>
-</div>
-
+    </div>
+ </div>
     </div>
 
 </div> <!--single post listing-->

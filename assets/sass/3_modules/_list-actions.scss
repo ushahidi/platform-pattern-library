@@ -1,9 +1,7 @@
 .list-actions {
-    padding: $sm-spacing 0;
+    @include clearfix;
     border-top: $base-border;
-    clear: both;
     padding: $sm-spacing 0;
-    overflow: auto;
 
     @include media($small) {
         padding: $sm-spacing $base-spacing;
@@ -18,11 +16,12 @@
             padding: 0;
         }
 
-        button {
+        button,
+        .custom-fieldset {
             @include float(left);
         }
 
-        .dropdown-group {
+        .dropdown {
             @include float(left);
 
             button {
@@ -36,14 +35,20 @@
 
         }
 
+        .custom-fieldset.init {
+
+            legend:after {
+                color: $blue;
+            }
+        }
     }
 
-    .cta {
+    .button-link {
         @include float(left);
-        padding-top: $sm-spacing;
+        margin-top: 7px;
     }
 
-    button {
+    .button-secondary {
         @include margin-left($sm-spacing);
     }
 

@@ -47,13 +47,12 @@
                         <span>Add Post</span>
                     </a>
 
-                    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+                    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -86,10 +85,8 @@
         <li><a href="home-map.html">Home</a></li>
         <li><a href="layout-a.html">About</a></li>
         <li><a href="activity.html">Activity</a></li>
-        <li class="settings-nav">
-            <div class="settings-nav-header">
-                <a class="toggle-content-trigger">Settings</a>
-            </div>
+        <li>
+            <span data-toggle="toggle-content">Settings</span>
             <ul class="toggle-content">
                 <li><a href="#">General</a></li>
                 <li><a href="#">Appearance</a></li>
@@ -103,13 +100,12 @@
         </li>
     </ul>
 
-    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -175,25 +171,18 @@
                     <p class="delta-alt">Posted By</p>
                     <p class="name"><a href="">David Kobia</a></p>
                 </div>
-                <div class="actions-stacked">
-                    <button type="button" class="button-secondary plus toggle-content-trigger" data-toggle="small-only">
-                         <span>Options</span>
-                    </button>
-                 </div>
-                 <div class="actions-content toggle-content">
-                     <ul class="dropdown-menu" role="menu">
-                         <li>
-                            <button type="button" class="button-secondary edit">
-                                <span>Edit</span>
-                            </button>
-                        </li>
-                        <li>
-                            <button type="button" class="button-secondary share">
-                                <span>Share</span>
-                            </button>
-                        </li>
-                        <li>
-                            <fieldset class="custom-fieldset">
+                <div class="actions-toggle">
+                    <a href="#options" class="button-secondary plus" data-toggle="options">Options</a>
+                    <div id="options" class="actions-content">
+                        <button type="button" class="button-secondary edit">
+                            <span>Edit</span>
+                        </button>
+
+                        <button type="button" class="button-secondary share">
+                            <span>Share</span>
+                        </button>
+
+                        <fieldset class="custom-fieldset">
     <legend><i class="fa fa-th"></i>Collections</legend>
 
     <label class="checkbox-label" for="collection1">
@@ -211,21 +200,21 @@
         Extra Collection 3
     </label>
 
-    <div class="input-inline">
-        <a href="#create-collection" class="button button-link toggle-content-trigger"><i class="fa fa-plus"></i>Create Collection</a>
+    <div class="form-field">
+        <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
         <div class="toggle-content">
             <input type="text" id="create-collection" placeholder="Create Collection" />
             <button type="button">Create</button>
         </div>
     </div>
 </fieldset>
-                        </li>
-                    </ul>
-                    <div class="clearfix step">
-                        <p class="delta-alt">Current Step</p>
-                        <p>Unverified <a href="" class="cta">Update</a></p>
+
+                        <div class="clearfix step">
+                            <p class="delta-alt">Current Step</p>
+                            <p>Unverified <a href="" class="cta">Update</a></p>
+                        </div>
                     </div>
-                </div>
+                 </div>
             </aside>
 
             <article class="main-col" role="article">

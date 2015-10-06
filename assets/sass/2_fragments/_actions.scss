@@ -1,3 +1,39 @@
+.actions-toggle {
+
+    > [data-toggle] {
+        margin-top: $sm-spacing;
+
+        @include media($small) {
+            display: none;
+        }
+    }
+
+    .actions-content {
+        display: none;
+
+        @include media($small) {
+            display: block;
+            padding-top: $base-spacing;
+        }
+
+        &.active {
+            display: block;
+        }
+
+        > button,
+        > .custom-fieldset {
+            display: inline-block;
+            margin: 0 $tiny-spacing $sm-spacing 0;
+
+/*
+            @include media($small) {
+                display: block;
+            }
+*/
+        }
+    }
+}
+
 .actions-inline {
 
     button {
@@ -57,24 +93,6 @@
 
         &:last-child {
             padding: 0;
-        }
-
-    }
-
-}
-
-body.post-detail, body.create-post {
-
-    .actions-stacked + .actions-content, .actions-inline + .actions-content, .toggle-content{
-        display: none;
-
-        @include media($small) {
-            display: block;
-
-            li {
-                float: none;
-            }
-
         }
 
     }

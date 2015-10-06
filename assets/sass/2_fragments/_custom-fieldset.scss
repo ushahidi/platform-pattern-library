@@ -40,10 +40,19 @@
                 pointer-events: none;
                 color: $yellow;
            }
+
+           &.active {
+
+                &:after {
+                    @include transform(rotate(180deg));
+                }
+           }
         }
 
-        .checkbox-label {
+        .checkbox-label,
+        .radio-label {
             width: 100%;
+            font-size: em(15);
 
             &.checked {
                 background-color: $lt-gray;
@@ -70,34 +79,38 @@
                 min-width: 250px;
             }
 
-            .input-inline {
+            .form-field {
                 padding-top: 1px;
 
                 input[type="text"] {
-                    display: block;
                     width: 100%;
                     font-size: 1em;
                     margin-bottom: 4px;
-
-                    @include media($medium) {
-                        display: inline;
-                        width: 70%;
-                        margin-right: 4px;
-                    }
                 }
 
             }
+
+            [data-toggle].active {
+                display: none;
+            }
+
+            .toggle-content {
+                display: none;
+                border-top: $base-border;
+
+                &.active {
+                    display: block;
+                }
+            }
         }
 
-        .input-inline {
+        .form-field {
             clear: both;
-            margin: 0 $base-spacing;
-
-
 
             button {
                 font-size: 1em;
                 padding: 8px 12px;
+                margin-bottom: 0;
             }
         }
 

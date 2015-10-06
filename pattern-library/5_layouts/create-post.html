@@ -21,39 +21,36 @@
                 <aside class="is-right has-border fixed-sidebar-content" role="complementary">
                     @@include('../partials/_step-list.html')
                     <div class="button-split fixed-bottom">
-                        <div class="dropdown-group">
-                            
-                            <button type="button" class="button-secondary dropdown toggle-content-trigger">
-                                <span>Who can see this post?</span>
-                            </button>
-                            <ul class="toggle-content dropdown-menu" role="menu">
-                                <li>
-                                    <label class="checkbox-label" for="checkbox1">
-                                        <input id="checkbox1" type="checkbox">
-                                        Only Me
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-label" for="Editors">
-                                        <input id="Editors" type="checkbox">
-                                        Editors
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-label" for="users">
-                                        <input id="users" type="checkbox">
-                                        Logged-in Users
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-label" for="everyone">
-                                        <input id="everyone" type="checkbox">
-                                        Everyone
-                                    </label>
-                                </li>
-                                <div class="clearfix"></div>
-                            </ul>
-                        </div>
+                        <fieldset class="custom-fieldset">
+                            <legend>Who can see this post?</legend>
+
+                            <label class="radio-label" for="user">
+                                <input type="radio" name="access" id="user" checked />
+                                Only me
+                            </label>
+
+                            <label class="radio-label" for="editors">
+                                <input type="radio" name="access" id="editors" />
+                                Editors
+                            </label>
+
+                            <label class="radio-label" for="everyone">
+                                <input type="radio" name="access" id="everyone" />
+                                Everyone
+                            </label>
+                        </fieldset>
+
+                        <!--div class="form-field">
+                            <label for="access" class="input-label">Who can see this post?</label>
+                            <div class="custom-select">
+                                <select id="access">
+                                    <option>Only me</option>
+                                    <option selected>Editors</option>
+                                    <option>Everyone</option>
+                                </select>
+                            </div>
+                        </div-->
+
                         <button type="button" class="button-primary">Publish</button>
                     </div>
 

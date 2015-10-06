@@ -21,7 +21,7 @@
             @include margin-right($sm-spacing);
 
             @include media($small) {
-                color: $link-color-lt; //make color lighter when it's on dark bg
+                color: $link-color-lt; //make color lighter when it is on dark bg
             }
 
             &:hover {
@@ -30,13 +30,6 @@
 
         }
 
-    }
-
-    .toggle-wrapper {
-        cursor: pointer;
-        height: 30px;
-        user-select: none;
-        @include text-align(right);
     }
 
     .user-avatar {
@@ -59,64 +52,68 @@
         @include lrswap(margin, $sm-spacing 0 0 $sm-spacing);
     }
 
-    .button-toggle {
-        position: relative;
-        background: transparent;
-        border: none;
-        padding-bottom: 15px;
-        @include radius(5px, 5px, 0, 0);
+    [data-toggle].init {
+        @include clearfix;
 
-    }
+        &:hover {
+            cursor: pointer;
+        }
 
-    .open {
-        .button-toggle {
-            @include border-bottom-radius(0);
-            background: $white;
-            border-bottom: 0px;
-            opacity: 1;
+        .username {
+            padding-right: 35px;
+            @include icon($after, chevron-down) {
+                pointer-events: none;
+                @include equal-radius;
+                position: absolute;
+                top: 0;
+                @include right(0);
+                color: $yellow;
+                line-height: 36px;
+                text-shadow: none;
+                padding: 0 8px;
+           }
+        }
 
-            &:hover {
-                background-color: $white;
+        &.active {
+
+            .username {
+
+
+                &:after {
+                    @include transform(rotate(180deg));
+                    @include border-top-radius(0);
+                    border-top: 0px;
+                    background: $white;
+                }
             }
         }
     }
 
     .dropdown-menu {
+        right: $sm-spacing;
         @extend .list-unstyled;
-        position: relative;
-        top: -10px;
-        background: $white;
-        margin-top: 17px;
+        text-align: left;
+        border: $base-border;
+        border-top: none;
+        @include equal-radius;
         padding: $sm-spacing;
-        text-shadow: none;
-        visibility: hidden;
-        opacity: 0;
-        @include transition(opacity .25s);
+
+        @include media($medium-down) {
+            position: relative;
+            opacity: 1;
+            border: none;
+        }
 
         li {
-            padding: 10px;
-            text-align: left;
-        }
 
-        &.visible {
-            display: block;
-            opacity: 1;
-            visibility: visible;
-            @include transition(opacity .25s);
-        }
+            @include media($medium-down) {
+                padding: 0 $sm-spacing;
 
-        .navigation & {
-            display: none;
-            margin: 10px 0 0;
-            padding: 0;
-            top: 0;
-
-            &.open {
-                display: block;
+                &:hover {
+                    background-color: transparent;
+                }
             }
-
         }
-
     }
 
 }

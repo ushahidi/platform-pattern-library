@@ -1,4 +1,4 @@
-.dropdown-group {
+.dropdown {
 
     .dropdown-menu {
         @extend .list-unstyled;
@@ -9,6 +9,14 @@
         border: $base-border;
         z-index: $top;
         padding: $sm-spacing 0;
+
+        &.init {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
 
         .header & {
             text-shadow: none;
@@ -27,7 +35,11 @@
         }
 
         label {
-            padding: $sm-spacing $base-spacing;
+            padding: $sm-spacing;
+
+            @include media($medium) {
+                padding: $sm-spacing $base-spacing;
+            }
 
             input[type="checkbox"],
             input[type="radio"] {
@@ -35,10 +47,24 @@
             }
         }
 
+        .form-field {
+            padding: $sm-spacing;
+
+            @include media($medium) {
+                padding: $sm-spacing $base-spacing;
+            }
+        }
+
     }
 
-    .dropdown.open {
-        @include border-bottom-radius(0);
+    .dropdown-trigger {
+
+        .init & {
+
+            &.active {
+                @include border-bottom-radius(0);
+            }
+        }
     }
 
 }

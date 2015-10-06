@@ -112,7 +112,8 @@ input[type="button"] {
        border: $base-border-hover;
     }
 
-    &:active {
+    &:active,
+    &.active {
         border: $base-border-active;
     }
 
@@ -213,35 +214,32 @@ input[type="button"] {
 
 .button-split {
 
-    .dropdown-group {
+    .form-field,
+    .custom-fieldset {
         display: inline-block;
         width: 70%;
         @include margin-right(-3px);
 
+        @include media($small) {
+            display: block;
+            width: auto;
+            margin-bottom: $sm-spacing;
+        }
+
         .dropdown-menu {
-            bottom: 50px;
+            bottom: 31px;
             padding: $base-spacing $base-spacing $sm-spacing;
             width: 65%;
 
             @include media($small) {
-                position: relative;
+                bottom: auto;
                 width: 100%;
-                top: 1px;
+                padding: $sm-spacing 0;
             }
-        }
 
-        .dropdown.open {
-            @include border-top-radius(0);
-            @include border-bottom-left-radius($global-radius);
+            &.active {
 
-            @include media($small) {
-                @include border-top-radius($global-radius);
-                @include border-bottom-left-radius(0);
             }
-        }
-
-        @include media($small) {
-            width: 100%;
         }
 
     }
@@ -260,17 +258,13 @@ input[type="button"] {
 
     }
 
-    button.button-primary {
+    .button-primary {
         height: 40px;
         width: 30%;
-        @include border-top-left-radius(0);
-        @include border-bottom-left-radius(0);
-        margin-top:-2px;
 
         @include media($small) {
-            width: 100%;
-            @include border-top-right-radius(0);
-            @include border-bottom-left-radius($global-radius);
+            width: auto;
+            height: auto;
         }
 
     }
@@ -406,16 +400,18 @@ button,
             @include lrswap(padding, 0 5px 0 1px);
         }
 
-        &.open:before {
-            @include transform(rotate(45deg));
-            transform-origin: 35% 50%;
-        }
+        &.active {
 
-        &.open:after {
-            @include transform(rotate(45deg));
-            transform-origin: 60% 50%;
-        }
+            &:before {
+                @include transform(rotate(45deg));
+                transform-origin: 35% 50%;
+            }
 
+            &:after {
+                @include transform(rotate(45deg));
+                transform-origin: 60% 50%;
+            }
+        }
     }
 
     &.check {

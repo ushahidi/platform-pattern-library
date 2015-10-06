@@ -1,10 +1,33 @@
-$(document).on('click', '.toggle-content-trigger', function(e) {
- 	$(this).toggleClass('open'); // Toggle button to open state
-    $(this).parent().siblings('.toggle-content').toggleClass('visible'); // Toggle content visible
- 	$(this).siblings('.toggle-content').toggleClass('visible'); // Toggle content visible
-    e.preventDefault();
-});
+// Initialize each toggle pair
+$('[data-toggle]').each(function(){
+    var trigger = $(this),
+        targetVal = $(trigger).attr('data-toggle'),
+        target = $('#'+targetVal).length ? $('#'+targetVal) : $(trigger).siblings('.'+targetVal);
 
-$('.toggle-content-trigger[data-toggle]').each(function(){
-    $(this).parent().siblings('.toggle-content').addClass($(this).attr('data-toggle'));
+    // Add 'init' class to pair of elements
+    $(trigger).addClass('init');
+    $(target).addClass('init');
+
+    // IF: The target is already visible, apply 'active' class to elements
+    if ($(target).is(':visible')) {
+        $(trigger).addClass('active');
+        $(target).addClass('active');
+    }
+
+    // Add 'click' handler to toggle trigger
+    $(trigger).on('click', function(e){
+
+        // IF: Target is currently hidden
+        if ($(target).is(':hidden')) {
+            $(trigger).addClass('active');
+            $(target).addClass('active');
+
+        // ELSE: Target is currently visible
+        } else {
+            $(trigger).removeClass('active');
+            $(target).removeClass('active');
+        }
+
+        e.preventDefault();
+    });
 });

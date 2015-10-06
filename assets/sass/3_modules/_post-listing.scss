@@ -4,8 +4,8 @@
     border-left: $base-border;
     border-right: $base-border;
     clear: both;
-    overflow:hidden; 
-    _overflow:visible; 
+    //overflow:hidden;
+    _overflow:visible;
     zoom:1;
 
     @include media($small) {
@@ -58,11 +58,11 @@
         display: inline;
         font-size: 14px;
         color: $lt-black;
-        font-weight: 300; 
+        font-weight: 300;
     }
 
     /*.post-text p, .meta-data, li.category*/ h3 {
-        color: $dk-gray; 
+        color: $dk-gray;
     }
 
 }
@@ -96,6 +96,7 @@
 }
 
 .step-and-actions {
+    @include clearfix;
     border-top: $base-border;
 
     @include media($large) {
@@ -105,10 +106,11 @@
     }
 
     .step {
-        width: 50%;
         @include float(left);
-        padding: $base-spacing;
+        width: 50%;
         @include border-right($base-border);
+        padding: $base-spacing;
+        margin-right: $base-spacing;
 
         @include media($large) {
             width: 100%;
@@ -125,41 +127,30 @@
 
     }
 
-    .actions-stacked {
-        width: 50%;
-        @include float(right);
+    .actions-toggle {
         padding: $base-spacing;
 
         @include media($large) {
-            width: 100%;
             clear: both;
             padding: 0;
         }
 
-        .button-hide {
-            transform: translateY(25%);
-        }
+        .actions-content {
+            width: 100%;
+            border-top: $base-border;
+            padding: $base-spacing 0 $sm-spacing;
 
-    }
-
-    .actions-content {
-        padding: 20px;
-        width: 100%;
-        border-top: $base-border;
-
-         @include media($large) {
-            border: none;
-        }
-
-        li {
-            padding-bottom: 0;
+            @include media($small) {
+                width: auto;
+                border: none;
+                padding: 0;
+            }
 
             @include media($large) {
-                padding-bottom: $sm-spacing;
+                padding: $base-spacing;
             }
 
         }
-
     }
 
 }

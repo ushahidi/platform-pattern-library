@@ -144,35 +144,35 @@
             padding: $sm-spacing 0;
             line-height: 1;
 
-            a {
+            a, span {
                 display: inline;
+                color: $link-color;
                 padding: 0;
                 text-transform: uppercase;
                 font-weight: $bold;
                 letter-spacing: 1.5px;
-            }
 
-        }
+                &[data-toggle] {
+                    display: block;
+                    margin: 0;
 
-        .settings-nav {
+                    &:hover {
+                        cursor: pointer;
+                        color: $link-hover-color;
+                    }
 
-            .settings-nav-header a {
-                @include icon($before, plus) {
-                    @include lrswap(padding, 0 5px 0 1px);
+                    @include icon($before, plus) {
+                        @include lrswap(padding, 0 5px 0 1px);
+                    }
+
+                    &.active {
+                        @include icon($before, minus);
+                    }
                 }
-                display: block;
-                margin: 0;
-
-                &.open {
-                    @include icon($before, minus);
-                }
-
             }
 
             ul {
-
                 margin: 10px 0 0px 0;
-                display: none;
 
                 li {
                     @include lrswap(padding, $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px));
@@ -183,10 +183,17 @@
                     font-weight: normal;
                     letter-spacing: inherit;
                 }
-
             }
+
         }
 
+        .toggle-content {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
     }
 
     .sub-nav {

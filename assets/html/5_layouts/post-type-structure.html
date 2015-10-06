@@ -47,13 +47,12 @@
                         <span>Add Post</span>
                     </a>
 
-                    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+                    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -86,10 +85,8 @@
         <li><a href="home-map.html">Home</a></li>
         <li><a href="layout-a.html">About</a></li>
         <li><a href="activity.html">Activity</a></li>
-        <li class="settings-nav">
-            <div class="settings-nav-header">
-                <a class="toggle-content-trigger">Settings</a>
-            </div>
+        <li>
+            <span data-toggle="toggle-content">Settings</span>
             <ul class="toggle-content">
                 <li><a href="#">General</a></li>
                 <li><a href="#">Appearance</a></li>
@@ -103,13 +100,12 @@
         </li>
     </ul>
 
-    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -174,6 +170,7 @@
                 <div class="fixed-bottom button-save">
                     <button type="button" class="button-primary">Save Post Type</button>
                 </div>
+
                 <div class="settings-listing">
                     <div class="upvote-downvote">
                         <button type="button" class="button-secondary icon-only alt upvote"></button>
@@ -183,12 +180,12 @@
                         <a href="">Title</a>
                     </h3>
                     <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
+                        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="title">
                             <span>Edit</span>
                         </button>
                         <button type="button" class="button-secondary icon-only alt trash"></button>
                     </div>
-                    <form class="toggle-content">
+                    <form id="title" class="toggle-content">
                         <label class="input-label">Field Name</label>
                         <input type="text" placeholder="Title">
                         <div class="select-inline">
@@ -227,6 +224,7 @@
                         <button type="button" class="button-primary">Save &amp; Close</button>
                     </form>
                 </div>
+
                 <div class="settings-listing">
                     <div class="upvote-downvote">
                         <button type="button" class="button-secondary icon-only alt upvote"></button>
@@ -236,12 +234,12 @@
                         <a href="">Location</a>
                     </h3>
                     <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
+                        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="location">
                             <span>Edit</span>
                         </button>
                         <button type="button" class="button-secondary icon-only alt trash"></button>
                     </div>
-                    <form class="toggle-content">
+                    <form id="location" class="toggle-content">
                         <label class="input-label">Field Name</label>
                         <input type="text" placeholder="Title">
                         <div class="select-inline">
@@ -280,6 +278,7 @@
                         <button type="button" class="button-primary">Save &amp; Close</button>
                     </form>
                 </div>
+
                 <div class="settings-listing">
                     <div class="upvote-downvote">
                         <button type="button" class="button-secondary icon-only alt upvote"></button>
@@ -289,12 +288,12 @@
                         <a href="">Links</a>
                     </h3>
                     <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
+                        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="links">
                             <span>Edit</span>
                         </button>
                         <button type="button" class="button-secondary icon-only alt trash"></button>
                     </div>
-                    <form class="toggle-content">
+                    <form id="links" class="toggle-content">
                         <label class="input-label">Field Name</label>
                         <input type="text" placeholder="Title">
                         <div class="select-inline">
@@ -333,6 +332,7 @@
                         <button type="button" class="button-primary">Save &amp; Close</button>
                     </form>
                 </div>
+
                 <div class="settings-listing">
                     <div class="upvote-downvote">
                         <button type="button" class="button-secondary icon-only alt upvote"></button>
@@ -342,12 +342,12 @@
                         <a href="">Images</a>
                     </h3>
                     <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
+                        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="images">
                             <span>Edit</span>
                         </button>
                         <button type="button" class="button-secondary icon-only alt trash"></button>
                     </div>
-                    <form class="toggle-content">
+                    <form id="images" class="toggle-content">
                         <label class="input-label">Field Name</label>
                         <input type="text" placeholder="Title">
                         <div class="select-inline">
@@ -386,6 +386,7 @@
                         <button type="button" class="button-primary">Save &amp; Close</button>
                     </form>
                 </div>
+
                 <div class="settings-listing">
                     <div class="upvote-downvote">
                         <button type="button" class="button-secondary icon-only alt upvote"></button>
@@ -395,12 +396,12 @@
                         <a href="">Description</a>
                     </h3>
                     <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
+                        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="description">
                             <span>Edit</span>
                         </button>
                         <button type="button" class="button-secondary icon-only alt trash"></button>
                     </div>
-                    <form class="toggle-content form">
+                    <form id="description" class="toggle-content form">
                         <label class="input-label">Field Name</label>
                         <input type="text" placeholder="Title">
                         <div class="select-inline">

@@ -47,13 +47,12 @@
                         <span>Add Post</span>
                     </a>
 
-                    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+                    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -86,10 +85,8 @@
         <li><a href="home-map.html">Home</a></li>
         <li><a href="layout-a.html">About</a></li>
         <li><a href="activity.html">Activity</a></li>
-        <li class="settings-nav">
-            <div class="settings-nav-header">
-                <a class="toggle-content-trigger">Settings</a>
-            </div>
+        <li>
+            <span data-toggle="toggle-content">Settings</span>
             <ul class="toggle-content">
                 <li><a href="#">General</a></li>
                 <li><a href="#">Appearance</a></li>
@@ -103,13 +100,12 @@
         </li>
     </ul>
 
-    <div class="user-admin logged-in">
-    <div class="toggle-wrapper toggle-content-trigger">
+    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
         <div class="user-avatar">
             <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
         </div>
         <span class="username">Jonathan Doe</span>
-        <button type="button" class="button-toggle"></button>
     </div>
     <ul class="dropdown-menu toggle-content" role="menu">
         <li><a href="#">Account Settings</a></li>
@@ -193,39 +189,36 @@
 </div><!--end step list-->
 
                     <div class="button-split fixed-bottom">
-                        <div class="dropdown-group">
-                            
-                            <button type="button" class="button-secondary dropdown toggle-content-trigger">
-                                <span>Who can see this post?</span>
-                            </button>
-                            <ul class="toggle-content dropdown-menu" role="menu">
-                                <li>
-                                    <label class="checkbox-label" for="checkbox1">
-                                        <input id="checkbox1" type="checkbox">
-                                        Only Me
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-label" for="Editors">
-                                        <input id="Editors" type="checkbox">
-                                        Editors
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-label" for="users">
-                                        <input id="users" type="checkbox">
-                                        Logged-in Users
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox-label" for="everyone">
-                                        <input id="everyone" type="checkbox">
-                                        Everyone
-                                    </label>
-                                </li>
-                                <div class="clearfix"></div>
-                            </ul>
-                        </div>
+                        <fieldset class="custom-fieldset">
+                            <legend>Who can see this post?</legend>
+
+                            <label class="radio-label" for="user">
+                                <input type="radio" name="access" id="user" checked />
+                                Only me
+                            </label>
+
+                            <label class="radio-label" for="editors">
+                                <input type="radio" name="access" id="editors" />
+                                Editors
+                            </label>
+
+                            <label class="radio-label" for="everyone">
+                                <input type="radio" name="access" id="everyone" />
+                                Everyone
+                            </label>
+                        </fieldset>
+
+                        <!--div class="form-field">
+                            <label for="access" class="input-label">Who can see this post?</label>
+                            <div class="custom-select">
+                                <select id="access">
+                                    <option>Only me</option>
+                                    <option selected>Editors</option>
+                                    <option>Everyone</option>
+                                </select>
+                            </div>
+                        </div-->
+
                         <button type="button" class="button-primary">Publish</button>
                     </div>
 
