@@ -202,12 +202,12 @@
         <a href="">Title</a>
     </h3>
     <div class="actions">
-        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
+        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="title">
             <span>Edit</span>
         </button>
         <button type="button" class="button-secondary icon-only alt trash"></button>
     </div>
-    <form class="toggle-content">
+    <form id="title" class="toggle-content">
         <label class="input-label">Field Name</label>
         <input type="text" placeholder="Title">
         <div class="select-inline">
@@ -258,14 +258,14 @@
         <label class="tgl-btn" for="switch1"></label>
     </div>
     <h3>
-        <a href="">Title</a>
+        <a href="">Name</a>
     </h3>
     <div class="actions">
-        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
+        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="name">
             <span>Edit</span>
         </button>
     </div>
-    <form class="toggle-content">
+    <form id="name" class="toggle-content">
         <label class="input-label">Field Name</label>
         <input type="text" placeholder="Title">
         <div class="select-inline">
@@ -310,24 +310,62 @@
             <div class="pl-sub-pattern">
                 <h4 class="pl-h4">With up/downvote, title, edit, &amp; toggle (<a href="">seen here</a>)</h4>
                 <div class="pl-sub-pattern-markup">
-                <div class="settings-listing">
-                    <div class="upvote-downvote">
-                        <button type="button" class="button-secondary icon-only alt upvote"></button>
-                        <button type="button" class="button-secondary icon-only alt downvote"></button>
+                    <div class="settings-listing">
+                        <div class="upvote-downvote">
+                            <button type="button" class="button-secondary icon-only alt upvote"></button>
+                            <button type="button" class="button-secondary icon-only alt downvote"></button>
+                        </div>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="switch2" type="checkbox">
+                            <label class="tgl-btn" for="switch2"></label>
+                        </div>
+                        <h3>
+                            <a href="">Map</a>
+                        </h3>
+                        <div class="actions">
+                            <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="map-control">
+                                <span>Edit</span>
+                            </button>
+                        </div>
+                        <form id="map-control" class="toggle-content">
+                            <label class="input-label">Field Name</label>
+                            <input type="text" placeholder="Title">
+                            <div class="select-inline">
+                                <label class="input-label">Visible To:</label>
+                                <select name="visible-to">
+                                    <option value="volvo">Public</option>
+                                    <option value="saab">Administrators</option>
+                                    <option value="fiat">Only Me</option>
+                                </select>
+                            </div>
+                            <div class="select-inline">
+                                <label class="input-label">Editable By:</label>
+                                <select name="visible-to">
+                                    <option value="fiat">Only Me</option>
+                                    <option value="volvo">Public</option>
+                                    <option value="saab">Administrators</option>
+                                </select>
+                            </div>
+                            <p>
+                                <label class="checkbox-label">
+                                    <input type="checkbox">
+                                    This field is required
+                                </label>
+                            </p>
+                            <p class="clearfix">
+                                <a class="cta toggle-content-trigger">
+                                    Add instructions to this field
+                                </a>
+                            </p>
+                            <div class="toggle-content">
+                                <p>
+                                    <em>These instructions will be presented as a tooltip to a user when filling in this field.</em>
+                                </p>
+                                <textarea placeholder="Instructions for field"></textarea>
+                            </div>
+                            <button type="button" class="button-primary">Save &amp; Close</button>
+                        </form>
                     </div>
-                    <div class="toggle-switch">
-                        <input class="tgl" id="switch2" type="checkbox">
-                        <label class="tgl-btn" for="switch2"></label>
-                    </div>
-                    <h3>
-                        <a href="">Map</a>
-                    </h3>
-                    <div class="actions">
-                        <button type="button" class="button-secondary icon-only-when-small edit toggle-content-trigger">
-                            <span>Edit</span>
-                        </button>
-                    </div>
-                </div>
                 </div><!--end markup-->
             </div><!--end ub pattern-->
             <div class="pl-sub-pattern">
