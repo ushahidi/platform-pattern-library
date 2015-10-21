@@ -9,22 +9,26 @@
         display: block;
     }
 
-    button.open {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+    .step-list-trigger {
+        @include media($small) {
+            display: none;
+        }
     }
-
     .step-list-content {
+        display: none;
         border: $base-border;
         padding: $base-spacing $sm-spacing;
         margin-top: -1px;
-        display: none;
 
         @include media($small) {
-           display: inline-block;
+           display: block;
            border: none;
            position: relative;
            @include lrswap(padding, 0 0 0 $base-spacing);
+        }
+
+        &.active {
+            display: block;
         }
 
         &.toggle-content ul li {
@@ -56,10 +60,6 @@
         }
     }
 
-    p {
-        margin: 0;
-    }
-
     h4 {
         margin-top: 0;
     }
@@ -81,6 +81,7 @@
 
     }
 
+/*
     .active {
         position: relative;
 
@@ -114,7 +115,7 @@
         }
 
     }
-
+*/
     .complete {
 
         @include icon($before, check) {
