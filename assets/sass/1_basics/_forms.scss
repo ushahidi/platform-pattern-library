@@ -107,11 +107,22 @@ textarea {
 
 .input-inline { //for when a button is next to the input
     @include direction;
+    clear: both;
 
     input {
         display: inline;
         @include margin-right($sm-spacing);
-        width: 70%;
+        margin-bottom: $sm-spacing;
+        //width: 70%;
+
+        @include media($small) {
+            width: 70%;
+        }
+    }
+
+    button {
+        //height: 35px;
+        @include lrswap(padding, 7px 15px 9px);
     }
 
 }
