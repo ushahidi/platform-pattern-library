@@ -1,7 +1,6 @@
 .actions-toggle {
 
-    > [data-toggle] {
-        margin-top: $sm-spacing;
+    .actions-toggle-trigger {
 
         @include media($small) {
             display: none;
@@ -10,10 +9,11 @@
 
     .actions-content {
         display: none;
+        clear: both;
 
         @include media($small) {
             display: block;
-            padding-top: $base-spacing;
+            padding: 0;
         }
 
         &.active {
@@ -23,27 +23,16 @@
         > button,
         > .custom-fieldset {
             display: inline-block;
-            margin: 0 $tiny-spacing $sm-spacing 0;
+            margin: $sm-spacing $tiny-spacing $sm-spacing 0;
+        }
 
-/*
-            @include media($small) {
-                display: block;
-            }
-*/
+        > .custom-fieldset.init {
+            margin: 0 $tiny-spacing $sm-spacing 0;
         }
     }
 }
 
-.actions-inline {
-
-    button {
-        @include float(left);
-    }
-
-}
-
 .actions-content {
-    @include float(left);
     padding: $sm-spacing 0;
 
     @include media($large) {

@@ -1,7 +1,20 @@
 .custom-fieldset {
 
+    [data-toggle] {
+        display: none;
+    }
+
+    .form-field {
+        clear: both;
+        padding-top: $tiny-spacing;
+    }
+
     &.init {
         padding-top: 0;
+
+        [data-toggle] {
+            display: inline-block;
+        }
 
         legend {
             position: relative;
@@ -10,7 +23,6 @@
             @include radius($global-radius);
             border: $base-border;
             background: $white;
-            @include lrswap(padding, 7px 30px 7px $sm-spacing);
             color: $black;
             font-family: $base-font-family;
             font-weight: 400;
@@ -21,38 +33,23 @@
             &:hover {
                 cursor: pointer;
             }
+        }
 
-            .fa {
-
-                &:before {
-                    color: $yellow;
-                }
-            }
-
-            @include icon($after, chevron-down) {
-                @include radius(0, $global-radius, $global-radius, 0);
-                position: absolute;
-                top: 0;
-                @include right(0);
-                line-height: 30px;
-                text-shadow: none;
-                padding: 0 8px;
-                pointer-events: none;
-                color: $yellow;
-           }
-
-           &.active {
-
-                &:after {
-                    @include transform(rotate(180deg));
-                }
-           }
+        .form-field {
+            padding: $sm-spacing;
         }
 
         .checkbox-label,
         .radio-label {
             width: 100%;
             font-size: em(15);
+            padding-left: 35px;
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                margin-right: 0;
+                margin-left: -25px;
+            }
 
             &.checked {
                 background-color: $lt-gray;
@@ -85,7 +82,6 @@
                 input[type="text"] {
                     width: 100%;
                     font-size: 1em;
-                    margin-bottom: 4px;
                 }
 
             }
