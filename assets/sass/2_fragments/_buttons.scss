@@ -183,6 +183,49 @@ input[type="button"] {
 
 }
 
+.button-destructive {
+    @extend .button;
+    background-color: $white;
+    color: $red;
+    border: 2px solid lighten( $red, 25% );
+    padding: 8px 10px;
+    font-weight: 400;
+    font-size: em(15);
+
+    &:before, &:after {
+        color: $highlight; //icon colors
+    }
+
+    &:hover {
+       color: $white;
+       border-color: $red;
+       background-color: darken( $red, 10% );
+    }
+
+    &:active {
+        border: $base-border-active;
+    }
+
+    &.disabled, &[disabled] {
+        background-color: $white;
+        cursor: default;
+        color: $dk-gray;
+
+        &:before, &:after {
+            color: $dk-gray; //icon colors
+        }
+
+        &:hover {
+            border: $base-border;
+        }
+
+        &:active {
+            border: $base-border;
+        }
+
+    }
+}
+
 .button-link {
     @extend p;
     @extend a;
