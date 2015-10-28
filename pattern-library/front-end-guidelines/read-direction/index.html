@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>The Ushahidi Platform Pattern Library</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" type="image/ico" href="../../../favicon.ico" />
+
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>
+    <link href="../../../../bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../../css/style.css">
+    <link rel="alternate stylesheet" type="text/css" title="rtl" href="../../../css/rtl-style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+
+
+<body class="pl-front-end-guidelines">
+
+    <div class="wrapper">
+
+        <div class="page-content has-aside">
+
+            @@include('../../partials/front-end-guidelines/_header.html', {
+    "context": "home"
+})
+
+
+            @@include('../../partials/front-end-guidelines/_side-nav.html')
+
+            <div class="main-col">
+
+                <section class="pl-pattern">
+                    <div class="pl-pattern-description">
+                        <h2>
+                            Right To Left mixins
+                        </h2>
+                        <div class="pl-divider"></div>
+                    </div>
+
+                    <div class="container">
+                        <h3>Background</h3>
+                        <pre>
+                            <code class="language-css">
+                                #background-position {
+                                    @include background-position(8px 100px);
+                                }
+                                #background-position-left {
+                                    @include background-position(left 100px);
+                                }
+                                #background-position-right {
+                                    @include background-position(right 100px);
+                                }
+                                #background-position-center {
+                                    @include background-position(center 100px);
+                                }
+
+                                #background-1 {
+                                    @include background(url(../img/ushahidi-logo-black.svg) no-repeat 20px center);
+                                }
+                                #background-1-left {
+                                    @include background(url(../img/ushahidi-logo-black.svg) no-repeat left center);
+                                }
+                                #background-1-right {
+                                    @include background(url(../img/ushahidi-logo-black.svg) no-repeat right center);
+                                }
+                                #background-1-center {
+                                    @include background(url(../img/ushahidi-logo-black.svg) no-repeat center center);
+                                }
+                                #background-2 {
+                                    @include background(#999 url(../img/ushahidi-logo.svg) no-repeat 8px center);
+                                }
+                                #background-2-left {
+                                    @include background(#999 url(../img/ushahidi-logo.svg) no-repeat left center);
+                                }
+                                #background-2-right {
+                                    @include background(#999 url(../img/ushahidi-logo.svg) no-repeat right center);
+                                }
+                                #background-2-center {
+                                    @include background(#999 url(../img/ushahidi-logo.svg) no-repeat center center);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Border</h3>
+                        <pre>
+                            <code class="language-css">
+                                #border-left {
+                                    @include border-left(3px solid #000);
+                                }
+                                #border-right {
+                                    @include border-right(3px solid #000);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Border Radius</h3>
+                        <pre>
+                            <code class="language-css">
+                                #border-top-left-radius {
+                                    @include border-top-left-radius(10px);
+                                }
+                                #border-top-right-radius {
+                                    @include border-top-right-radius(10px);
+                                }
+                                #border-bottom-left-radius {
+                                    @include border-bottom-left-radius(10px);
+                                }
+                                #border-bottom-right-radius {
+                                    @include border-bottom-right-radius(10px);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Clear</h3>
+                        <pre>
+                            <code class="language-css">
+                                #clear-origin-left {
+                                    @include float(left);
+                                    @include clear(left);
+                                }
+                                #clear-origin-right {
+                                    @include float(right);
+                                    @include clear(right);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Direction</h3>
+                        <pre>
+                            <code class="language-css">
+                                #direction {
+                                    @include direction;
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Float</h3>
+                        <pre>
+                            <code class="language-css">
+                                #float-origin-left {
+                                    @include float(left);
+                                }
+                                #float-origin-right {
+                                    @include float(right);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Position</h3>
+                        <pre>
+                            <code class="language-css">
+                                #left {
+                                    @include left(20px);
+                                }
+                                #right {
+                                    @include right(20px);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Margin</h3>
+                        <pre>
+                            <code class="language-css">
+                                #margin-0-8px-16px-24px {
+                                    @include margin(0 8px 16px 24px);
+                                }
+                                #margin-left {
+                                    @include margin-left(20px);
+                                }
+                                #margin-right {
+                                    @include margin-right(20px);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Padding</h3>
+                        <pre>
+                            <code class="language-css">
+                                #padding-0-8px-16px-24px {
+                                    @include lrswap(padding, 0 8px 16px 24px);
+                                }
+                                #padding-left {
+                                    @include padding-left(20px);
+                                }
+                                #padding-right {
+                                    @include padding-right(20px);
+                                }
+                            </code>
+                        </pre>
+
+                        <h3>Text</h3>
+                        <pre>
+                            <code class="language-css">
+                                #text-align-left {
+                                    @include text-align(left);
+                                }
+                                #text-align-right {
+                                    @include text-align(right);
+                                }
+                                #text-indent {
+                                    @include text-indent(20px);
+
+                                    text-align: left;
+                                }
+
+                            </code>
+                        </pre>
+
+                        <h3>Cursor</h3>
+                        <pre>
+                            <code class="language-css">
+                                #cursor-e {
+                                    @include cursor(e-resize);
+                                }
+                                #cursor-ne {
+                                    @include cursor(ne-resize);
+                                }
+                                #cursor-se {
+                                    @include cursor(se-resize);
+                                }
+                                #cursor-w {
+                                    @include cursor(w-resize);
+                                }
+                                #cursor-nw {
+                                    @include cursor(nw-resize);
+                                }
+                                #cursor-sw {
+                                    @include cursor(sw-resize);
+                                }
+                            </code>
+                        </pre>
+                    </div>
+
+                </section>
+            </div>
+
+        </div><!--end wrapper-->
+
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="../../../js/app.js"></script>
+
+</body>
+
+</html>
