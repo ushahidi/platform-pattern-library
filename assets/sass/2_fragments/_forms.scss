@@ -1,145 +1,149 @@
 .form-field {
-    @include clearfix;
+   @include clearfix;
 
-    label {
-        @extend .delta-alt;
-        display: block;
-        @include lrswap(padding, 0 $sm-spacing 0 0);
+   label {
+      @extend .delta-alt;
+      display: block;
+      @include lrswap(padding, 0 $sm-spacing 0 0);
 
-        + .small {
-            font-style: italic;
-        }
-    }
+      + .small {
+         font-style: italic;
+      }
+   }
 
-    .alert {
-        display: inline-block;
-        @include border-left(3px solid $border-color);
-        padding: $tiny-spacing $sm-spacing;
-        margin: 0;
-        background-color: lighten( $lt-gray, 4% );
-    }
+   .alert {
+      display: inline-block;
+      @include border-left(3px solid $border-color);
+      padding: $tiny-spacing $sm-spacing;
+      margin: 0;
+      background-color: lighten( $lt-gray, 4% );
+   }
 
-    // REQUIRED FIELD
-    &.required {
+   + fieldset {
+      margin-top: $base-spacing;
+   }
 
-        label {
-            @include padding-left(2px);
+   // REQUIRED FIELD
+   &.required {
 
-            @include icon($after, asterisk) {
-                position: relative;
-                top: -6px;
-                font-size: 6px;
-                @include lrswap(padding, 0 1px 0 5px);
-                color: $error-color;
-            }
-        }
-    }
+      label {
+         @include padding-left(2px);
 
-    // INVALID FORM FIELD VALUE
-    &.error {
-
-        label {
+         @include icon($after, asterisk) {
+            position: relative;
+            top: -6px;
+            font-size: 6px;
+            @include lrswap(padding, 0 1px 0 5px);
             color: $error-color;
-        }
+         }
+      }
+   }
 
-        input,
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="search"],
-        textarea {
+   // INVALID FORM FIELD VALUE
+   &.error {
+
+      label {
+         color: $error-color;
+      }
+
+      input,
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="search"],
+      textarea {
+         border-color: $error-color;
+
+         &:focus {
             border-color: $error-color;
+         }
+      }
 
-            &:focus {
-                border-color: $error-color;
-            }
-        }
+      .alert {
+         border-color: $error-color;
+         background-color: lighten( $error-color, 50% );
 
-        .alert {
-            border-color: $error-color;
-            background-color: lighten( $error-color, 50% );
-
-            @include icon(before, alert) {
-                display: inline-block;
-                color: $error-color;
-                font-size: em(18);
-                @include padding-right($sm-spacing);
-            }
-
-        }
-    }
-
-    // VALID FORM FIELD VALUE
-    &.success {
-
-        label {
-
-            @include icon($after, check-circle) {
-                color: $confirmation-color;
-                display: inline-block;
-                font-size: em(18);
-                @include padding-left($tiny-spacing);
-            }
-        }
-
-        input,
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="search"],
-        textarea {
-            border-color: $confirmation-color;
-
-            &:focus {
-                border-color: $confirmation-color;
-            }
-        }
-
-        .alert {
-            border-color: $confirmation-color;
-            background-color: lighten( $confirmation-color, 50% );
-        }
-    }
-
-    // CHECKBOX OR RADIO BUTTON
-    &.checkbox,
-    &.radio {
-
-        label {
-            float: left;
-            color: $text-color;
-            font-weight: normal;
-            text-transform: none;
-            letter-spacing: 0;
-            margin: 0 0 $base-spacing;
-        }
-    }
-
-    // INLINE ELEMENTS
-    &.inline {
-
-        input,
-        input[type="text"],
-        input[type="email"],
-        input[type="password"],
-        input[type="search"],
-        .custom-select {
+         @include icon(before, alert) {
             display: inline-block;
-            margin-right: 5px;
+            color: $error-color;
+            font-size: em(18);
+            @include padding-right($sm-spacing);
+         }
 
-            @include media($mobile-down) {
-                display: block;
-            }
-        }
+      }
+   }
 
-        button,
-        [class*="button-"] {
+   // VALID FORM FIELD VALUE
+   &.success {
 
-            @include media($mobile-up) {
-                position: relative;
-                top: -1px;
-                padding: 7px 15px 9px;
-            }
-        }
-    }
+      label {
+
+         @include icon($after, check-circle) {
+            color: $confirmation-color;
+            display: inline-block;
+            font-size: em(18);
+            @include padding-left($tiny-spacing);
+         }
+      }
+
+      input,
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="search"],
+      textarea {
+         border-color: $confirmation-color;
+
+         &:focus {
+            border-color: $confirmation-color;
+         }
+      }
+
+      .alert {
+         border-color: $confirmation-color;
+         background-color: lighten( $confirmation-color, 50% );
+      }
+   }
+
+   // CHECKBOX OR RADIO BUTTON
+   &.checkbox,
+   &.radio {
+
+      label {
+         float: left;
+         color: $text-color;
+         font-weight: normal;
+         text-transform: none;
+         letter-spacing: 0;
+         margin: 0 0 $base-spacing;
+      }
+   }
+
+   // INLINE ELEMENTS
+   &.inline {
+
+      input,
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="search"],
+      .custom-select {
+         display: inline-block;
+         margin-right: 5px;
+
+         @include media($mobile-down) {
+            display: block;
+         }
+      }
+
+      button,
+      [class*="button-"] {
+
+         @include media($mobile-up) {
+            position: relative;
+            top: -1px;
+            padding: 7px 15px 9px;
+         }
+      }
+   }
 }
