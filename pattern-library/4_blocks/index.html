@@ -41,7 +41,7 @@
         <div class="container">
             <div class="pl-sub-pattern">
                 <h4 class="pl-h4">Header Full</h4>
-                <div class="pl-sub-pattern-markup">
+                <div class="pl-sub-pattern-markup" id="header-full">
                     @@include('../partials/_header-full.html')
                 </div>
                 <p>On page load this Full Header is displayed. On page scroll, this Full Header transitions to the below Compact Header. Here is an <a href="../5_layouts/home-list.html">example</a>.</p>
@@ -52,27 +52,7 @@
             <div class="pl-sub-pattern">
                 <h4 class="pl-h4">Header Compact</h4>
                 <div class="pl-sub-pattern-markup">
-                    <header class="header header-compact no-dynamic overlay">
-                        <div class="color-overlay">
-                            <div class="parallax">
-                                <div class="nav-icon nav-icon-js">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <h1 class="beta">Syria Tracker</h1>
-                                <p class="header-description">This is a deployment description</p>
-                                <a class="button button-create icon-only">
-                                    <span>Add Post</span>
-                                </a>
-
-                                @@include('../partials/_user-admin.html')
-                            </div>
-                            <div class="hero-image">
-                                <img src="../../img/header-bk.jpg" alt="" />
-                            </div>
-                        </div>
-                    </header>
+                    @@include('../partials/_header-full.html')
                 </div>
                 <p>When the page is scrolled, the above Full Header will transition to this Compact Header.</p>
             </div><!--end sub pattern-->
@@ -524,6 +504,10 @@
 </div><!--end wrapper-->
 
 @@include('../partials/_scripts.html')
+<script>
+// DEMONSTRATE "Header Full"
+$('#header-full .header').removeClass('header-compact').addClass('header-full');
+</script>
 </body>
 
 </html>
