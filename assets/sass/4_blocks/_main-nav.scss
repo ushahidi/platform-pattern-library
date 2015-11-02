@@ -151,7 +151,7 @@
    .main-nav {
       @extend .list-unstyled;
       margin: 0 0 $base-spacing*2 0;
-
+      
       @include media($medium) {
          padding-top: $sm-spacing;
       }
@@ -161,91 +161,53 @@
          padding: $sm-spacing 0;
          line-height: 1;
 
-         a {
+         a, span {
             display: inline;
+            color: $link-color;
             padding: 0;
             text-transform: uppercase;
             font-weight: $bold;
             letter-spacing: 1.5px;
-         }
 
-      }
-
-      .settings-nav {
-
-         .settings-nav-header a {
-            @include icon($before, plus) {
-               @include lrswap(padding, 0 5px 0 1px);
-            }
-            display: block;
-            margin: 0;
-
-         }
-
-      }
-
-      .main-nav {
-         @extend .list-unstyled;
-         margin: 0 0 $base-spacing*2 0;
-
-         @include media($medium) {
-            padding-top: $sm-spacing;
-         }
-
-         li {
-            margin-bottom: 0;
-            padding: $sm-spacing 0;
-            line-height: 1;
-
-            a, span {
-               display: inline;
-               color: $link-color;
-               padding: 0;
-               text-transform: uppercase;
-               font-weight: $bold;
-               letter-spacing: 1.5px;
-
-               &[data-toggle] {
-                  display: block;
-                  margin: 0;
-
-                  &:hover {
-                     cursor: pointer;
-                     color: $link-hover-color;
-                  }
-
-                  @include icon($before, plus) {
-                     @include lrswap(padding, 0 5px 0 1px);
-                  }
-
-                  &.active {
-                     @include icon($before, minus);
-                  }
-               }
-            }
-
-            ul {
-               margin: 10px 0 0px 0;
-
-               li {
-                  @include lrswap(padding, $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px));
-               }
-
-               a {
-                  text-transform: none;
-                  font-weight: normal;
-                  letter-spacing: inherit;
-               }
-            }
-
-         }
-
-         .toggle-content {
-            display: none;
-
-            &.active {
+            &[data-toggle] {
                display: block;
+               margin: 0;
+
+               &:hover {
+                  cursor: pointer;
+                  color: $link-hover-color;
+               }
+
+               @include icon($before, plus) {
+                  @include lrswap(padding, 0 5px 0 1px);
+               }
+
+               &.active {
+                  @include icon($before, minus);
+               }
             }
+         }
+
+         ul {
+            margin: 10px 0 0px 0;
+
+            li {
+               @include lrswap(padding, $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px));
+            }
+
+            a {
+               text-transform: none;
+               font-weight: normal;
+               letter-spacing: inherit;
+            }
+         }
+      }
+
+      .toggle-content {
+         display: none;
+
+         &.active {
+            display: block;
          }
       }
    }
