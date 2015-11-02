@@ -4,11 +4,6 @@
         display: none;
     }
 
-    .form-field {
-        clear: both;
-        padding-top: $tiny-spacing;
-    }
-
     &.init {
         padding-top: 0;
 
@@ -33,10 +28,13 @@
             &:hover {
                 cursor: pointer;
             }
-        }
 
-        .form-field {
-            padding: $sm-spacing;
+            [class*="icon-"] {
+
+               &:before {
+                  color: $yellow;
+               }
+            }
         }
 
         .checkbox-label,
@@ -64,6 +62,7 @@
             color: $blue;
             font-size: 1em;
             text-align: left;
+            margin: 0 0 5px;
 
             &.open {
                 display: none;
@@ -74,16 +73,6 @@
 
             @include media($medium) {
                 min-width: 250px;
-            }
-
-            .form-field {
-                padding-top: 1px;
-
-                input[type="text"] {
-                    width: 100%;
-                    font-size: 1em;
-                }
-
             }
 
             [data-toggle].active {
@@ -97,16 +86,6 @@
                 &.active {
                     display: block;
                 }
-            }
-        }
-
-        .form-field {
-            clear: both;
-
-            button {
-                font-size: 1em;
-                padding: 8px 12px;
-                margin-bottom: 0;
             }
         }
 
