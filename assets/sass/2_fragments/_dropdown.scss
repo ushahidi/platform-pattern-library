@@ -1,92 +1,91 @@
 .dropdown-menu {
-    @extend .list-unstyled;
-    position: absolute;
-    min-width: 160px;
-    margin-top: -1px;
-    background-color: $white;
-    border: $base-border;
-    z-index: $top;
-    padding: $sm-spacing 0;
+   @extend .list-unstyled;
+   position: absolute;
+   min-width: 160px;
+   margin-top: -1px;
+   background-color: $white;
+   border: $base-border;
+   z-index: $top;
+   padding: $sm-spacing 0;
 
-    &.init {
-        display: none;
+   &.init {
+      display: none;
 
-        &.active {
-            display: block;
-        }
-    }
+      &.active {
+         display: block;
+      }
+   }
 
-    .header & {
-        text-shadow: none;
-    }
+   .header & {
+      text-shadow: none;
+   }
 
-    li {
+   li {
 
-        a {
-            display: block;
-            padding: $sm-spacing $base-spacing;
-        }
+      a {
+         display: block;
+         padding: $sm-spacing $base-spacing;
+      }
 
-        &:hover {
-            background: $lt-gray;
-        }
-    }
+      &:hover {
+         background: $lt-gray;
+      }
+   }
 
-    label {
-        padding: $sm-spacing;
+   label {
+      padding: $sm-spacing;
 
-        @include media($medium) {
-            padding: $sm-spacing $base-spacing;
-        }
+      @include media($medium) {
+         padding: $sm-spacing $base-spacing;
+      }
 
-        input[type="checkbox"],
-        input[type="radio"] {
-            margin-bottom: 0;
-        }
-    }
+      input[type="checkbox"],
+      input[type="radio"] {
+         margin-bottom: 0;
+      }
+   }
 
-    .form-field {
-        padding: $sm-spacing;
+   .form-field {
+      padding: $sm-spacing;
 
-        @include media($medium) {
-            padding: $sm-spacing $base-spacing;
-        }
-    }
-
+      @include media($medium) {
+         padding: $sm-spacing $base-spacing;
+      }
+   }
 }
 
 .dropdown-trigger {
 
-    &.init {
-        position: relative;
-        @include lrswap(padding, 7px 30px 7px $sm-spacing);
+   &.init {
+      position: relative;
+      @include lrswap(padding, 7px 30px 7px $sm-spacing);
 
-        &.active {
-            border: $base-border;
-            @include border-bottom-radius(0);
+      &.active {
+         border: $base-border;
+         @include border-bottom-radius(0);
 
-            &:after {
-                @include transform(rotate(180deg));
-            }
-        }
+         &:after {
+            @include transform(rotate(180deg));
+         }
+      }
 
-        .fa {
+      .fa {
 
-            &:before {
-                color: $yellow;
-            }
-        }
-
-        @include icon($after, chevron-down) {
-            @include radius(0, $global-radius, $global-radius, 0);
-            position: absolute;
-            top: 0;
-            @include right(0);
-            line-height: 30px;
-            text-shadow: none;
-            padding: 0 8px;
-            pointer-events: none;
+         &:before {
             color: $yellow;
-       }
-    }
+         }
+      }
+
+      @include icon($after, chevron-down) {
+         @include radius(0, $global-radius, $global-radius, 0);
+         position: absolute;
+         top: 0;
+         @include right(0);
+         line-height: 30px;
+         text-shadow: none;
+         padding: 0 8px;
+         pointer-events: none;
+         color: $yellow;
+      }
+   }
 }

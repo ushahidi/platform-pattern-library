@@ -9,74 +9,97 @@
 
 <body class="has-fixed-bottom">
 
-    @@include('../partials/_header-full.html')
+   @@include('../partials/_header-full.html')
 
-    <div class="wrapper has-full-header">
+   <div class="wrapper has-full-header">
 
-        @@include('../partials/_main-menu.html')
+      @@include('../partials/_main-menu.html')
 
-        <main class="page-content has-aside create-post" role="main">
+      <main class="page-content has-aside create-post" role="main">
 
-            <div class="fixed-sidebar">
-                <aside class="is-right has-border fixed-sidebar-content" role="complementary">
-                    @@include('../partials/_step-list.html')
+         <div class="fixed-sidebar">
+            <aside class="is-right has-border fixed-sidebar-content" role="complementary">
+               @@include('../partials/_step-list.html')
+               <div class="button-split fixed-bottom">
+                  <div class="dropdown-group">
 
-                    <div class="button-split fixed-bottom">
-                        <div class="form-field">
-                            <label for="access" class="input-label">Who can see this</label>
-                            <div class="custom-select">
-                                <select id="access">
-                                    <option selected>Administrators</option>
-                                    <option>Editors</option>
-                                    <option>Everyone</option>
-                                </select>
-                            </div>
-                        </div>
+                     <button type="button" class="button-secondary dropdown toggle-content-trigger">
+                        <span>Who can see this post?</span>
+                     </button>
+                     <ul class="toggle-content dropdown-menu" role="menu">
+                        <li>
+                           <label class="checkbox-label" for="checkbox1">
+                              <input id="checkbox1" type="checkbox">
+                              Only Me
+                           </label>
+                        </li>
+                        <li>
+                           <label class="checkbox-label" for="Editors">
+                              <input id="Editors" type="checkbox">
+                              Editors
+                           </label>
+                        </li>
+                        <li>
+                           <label class="checkbox-label" for="users">
+                              <input id="users" type="checkbox">
+                              Logged-in Users
+                           </label>
+                        </li>
+                        <li>
+                           <label class="checkbox-label" for="everyone">
+                              <input id="everyone" type="checkbox">
+                              Everyone
+                           </label>
+                        </li>
+                        <div class="clearfix"></div>
+                     </ul>
+                  </div>
+                  <button type="button" class="button-primary">Save</button>
+               </div>
 
-                        <button type="button" class="button-primary">Save</button>
-                    </div>
-                </aside>
+            </aside>
+         </div>
+
+         <div class="main-col">
+            <ul class="breadcrumb">
+               <li>
+                  <a href="choose-post-type.html">Add a Post</a>
+               </li>
+            </ul>
+            <h1><span class="icon-left fa-plus">Add Accident Report</span></h1>
+            <div class="divider padded"></div>
+
+            <div class="form-field">
+               <label>Post Title</label>
+               <input type="text">
             </div>
 
-            <div class="main-col">
-                <ul class="breadcrumb">
-                   <li>
-                       <a href="choose-post-type.html">Add a Post</a>
-                   </li>
-                </ul>
-                <h1>Create Accident Report </h1>
-                <div class="divider padded"></div>
-                <label class="input-label">Post Title</label>
-                <input type="text" placeholder="">
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
-                <label class="input-label">Description</label>
-                <textarea placeholder=""></textarea>
+            <div class="form-field">
+               <label>Description</label>
+               <textarea></textarea>
+            </div>
 
+            <fieldset>
+               <legend>Checkboxes</legend>
+               <div class="form-field checkbox">
+                  <input type="checkbox" id="colt">
+                  <label for="colt">Checkbox 1</label>
+               </div>
+               <div class="form-field checkbox">
+                  <input type="checkbox" id="vaughan">
+                  <label for="vaughan">Checkbox 2</label>
+               </div>
+            </fieldset>
 
-            </div><!--end main col-->
+         </div><!--end main col-->
 
-        </main> <!--end layout a-->
+      </main> <!--end layout a-->
 
-    </div>
+   </div>
 
-    @@include('../partials/_footer.html')
+   @@include('../partials/_footer.html')
 
-@@include('../partials/_scripts.html')
+   @@include('../partials/_scripts.html')
 
 </body>
 

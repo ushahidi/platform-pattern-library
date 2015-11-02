@@ -58,7 +58,7 @@
     .nav-icon,
     .beta,
     .header-description,
-    .button-create,
+    .button-primary,
     .user-admin {
         z-index: $body;
         padding: 0 $sm-spacing;
@@ -98,45 +98,38 @@
         display: none;
         text-align: center;
         font-size: em(16);
+        margin: 0 auto;
+
+        @include media($mobile) {
+            width: 80%;
+        }
 
         @include media($small) {
             font-size: em(20);
+            max-width: 700px;
         }
     }
 
-   .button-create {
-        color: $white;
-        font-weight: $bold;
-        border: none;
-        padding: 8px 10px 7px 10px;
-        margin: 18px;
-        font-size: em(14);
+   .button-primary {
+      color: $white;
+      font-weight: $bold;
+      font-size: em(14);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: none;
+      background-color: $button-bg-create-post;
+      margin: 18px;
+      @include lrswap(padding, 12px $base-spacing 15px);
 
-        @include media($medium) {
-            padding: 8px 10px 10px 10px;
-        }
+      [class*="icon-"] {
 
-        i {
-            padding: 0 5px;
-            bottom: 0;
-
-            @include media($small) {
-                @include lrswap(padding, 0 10px 0 0);
-                bottom: -2px;
-            }
-
-        }
-
-        span {
-            display: none;
-            @include lrswap(padding, 0px 0px 0px 5px);
-
-            @include media($small) {
-                display: inline-block;
-            }
-
-        }
-
+         &:before {
+            position: relative;
+            font-size: 1rem;
+            color: $highlight;
+            @include lrswap(padding, 0 10px 0 1px);
+         }
+      }
     }
 
     .other-sources {
@@ -196,15 +189,11 @@
             text-align: center;
         }
 
-        .button-create {
+        .button-primary {
             position: static;
+            @include lrswap(padding, 14px $base-spacing 16px);
             margin: auto;
             margin-bottom: 25px;
-            @include lrswap(padding, 14px 25px 18px $base-spacing);
-
-            span {
-                display: inline;
-            }
 
             @include media($small) {
                 margin-bottom: $lg-spacing;
@@ -289,17 +278,40 @@
 
         }
 
-        .button-create {
+        .button-primary {
             @include float(left);
             display: table;
             position: absolute;
             top: 0;
             @include right(0);
             opacity: 1;
+            padding: 12px 15px;
+            margin: 13px $base-spacing;
 
             @include media($medium) {
                 display: inline-block;
                 position: relative;
+            }
+
+            [class*="icon-"] {
+
+               @include media($mobile-down) {
+                  color: transparent;
+                  font-size: 1px;
+                  letter-spacing: -1px;
+
+                  &:before {
+                     padding: 0;
+                  }
+               }
+
+               @include icon($position: before, $icon: false, $styles: true) {
+                  top: 1px;
+                  color: $highlight;
+                  font-size: 1rem;
+                  letter-spacing: normal;
+                  padding-right: $sm-spacing;
+               }
             }
 
         }
