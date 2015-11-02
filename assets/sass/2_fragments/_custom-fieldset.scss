@@ -38,6 +38,70 @@
          }
       }
 
+      input,
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="search"],
+      textarea {
+         font-size: 14px;
+
+         + button {
+            margin-top: 0;
+         }
+      }
+
+      .form-field {
+
+         &.bar {
+            background-color: $lt-gray-bg;
+
+            &:first-child {
+               border-bottom: $base-border;
+            }
+
+            &:last-child {
+               border-top: $base-border;
+            }
+
+            input,
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="search"] {
+               margin-bottom: $sm-spacing;
+            }
+         }
+
+         &.checkbox,
+         &.radio {
+            padding: $sm-spacing;
+
+            label {
+               margin: 0;
+            }
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                  margin-bottom: 0;
+            }
+         }
+
+         &.search {
+
+            &:before {
+               top: 21px;
+               left: 18px;
+            }
+         }
+      }
+
+      .fieldset-results {
+         max-height: 250px;
+         overflow-y: auto;
+         padding: 5px 0;
+      }
+
       .checkbox-label,
       .radio-label {
          width: 100%;
@@ -63,7 +127,6 @@
          color: $blue;
          font-size: 1em;
          text-align: left;
-         margin: 0 0 5px;
 
          &.open {
             display: none;

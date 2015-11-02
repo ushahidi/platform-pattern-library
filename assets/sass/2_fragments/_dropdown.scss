@@ -1,12 +1,12 @@
 .dropdown-menu {
    @extend .list-unstyled;
    position: absolute;
-   min-width: 160px;
-   margin-top: -1px;
-   background-color: $white;
-   border: $base-border;
    z-index: $top;
-   padding: $sm-spacing 0;
+   min-width: 160px;
+   border: $base-border;
+   background-color: $white;
+   @include box-shadow;
+   margin-top: -1px;
 
    &.init {
       display: none;
@@ -46,11 +46,7 @@
    }
 
    .form-field {
-      padding: 5px $sm-spacing 0;
-
-      @include media($medium) {
-         padding: 5px $base-spacing 0;
-      }
+      padding: 5px $sm-spacing;
    }
 }
 
