@@ -7,6 +7,7 @@ button,
 input[type="button"] {
    display: inline-block;
    outline: none;
+   @include direction;
    background-color: $button-bg-color;
    color: $button-text-color;
    text-align: center;
@@ -109,10 +110,6 @@ input[type="button"] {
    font-weight: 400;
    font-size: em(15);
 
-   &:before, &:after {
-      color: $highlight; //icon colors
-   }
-
    &:hover {
       background-color: $white;
       color: $black;
@@ -190,11 +187,10 @@ input[type="button"] {
 
    }
 
-   .icon-only,
-   .icon-only-when-small {
+   [class*="icon-"] {
 
       &:before {
-         color: $black;
+         color: $yellow;
       }
    }
 }
@@ -539,7 +535,7 @@ button,
       @include icon($before, chevron-up) {
          @include lrswap(padding, 0 5px 0 1px);
       }
-      
+
    }
 
    &.search {
