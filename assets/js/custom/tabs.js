@@ -23,3 +23,13 @@ $('ul.tabs-menu-list li').click(function() {
     $(this).parent().toggleClass('visible');
     $(this).parent().siblings('.tabs-menu-button-js').toggleClass('open');
 });
+
+$('.vertical-tabs-menu').each(function(){
+   var menu = $(this);
+
+   $(menu).addClass('init');
+
+   $(menu).find('.active').on('click', function(){
+      $(menu).toggleClass('active');
+   });
+});

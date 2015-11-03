@@ -229,3 +229,101 @@
     }
 
 }
+
+.vertical-tabs {@include clearfix;}
+
+.vertical-tabs-menu {
+
+   &.init {
+      position: relative;
+      @include equal-radius;
+      border: $base-border;
+
+      @include media($small) {
+         float: right;
+         width: 30%;
+         border: none;
+      }
+
+      &:before {
+         @include float(right);
+         @include fa-icon();
+         content: $fa-var-sort;
+         margin: $sm-spacing;
+
+         @include media($small) {
+            content: none;
+         }
+      }
+
+      ul {
+         margin: 0;
+
+         @include media($small) {
+            position: relative;
+            top: $base-spacing;
+            left: -2px;
+         }
+      }
+
+      li {
+         display: none;
+         list-style-type: none;
+         margin: $sm-spacing;
+
+         @include media($small) {
+            display: table;
+            border-left: $base-border;
+            border-left-width: 2px;
+            padding: 15px $base-spacing;
+            margin: 0;
+         }
+
+         &:hover {
+            cursor: pointer;
+         }
+
+         &.active {
+            display: list-item;
+
+            @include media($small) {
+               display: table;
+               border: $base-border;
+               border-width: 2px;
+               border-left: none;
+               background-color: $white;
+               // @include box-shadow($top: 0, $left: 2px, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.25), $inset: false);
+            }
+         }
+      }
+
+      &.active {
+
+         li {
+            display: list-item;
+         }
+      }
+   }
+
+   + .vertical-tabs-content {
+      margin: $base-spacing auto;
+
+      @include media($small) {
+         float: left;
+         width: 70%;
+         margin: 0;
+      }
+   }
+}
+
+.vertical-tabs-content {
+   margin: $base-spacing auto;
+
+   @include media($small) {
+      border: $base-border;
+      border-width: 2px;
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+      padding: $base-spacing $base-spacing $base-spacing 0;
+   }
+}
