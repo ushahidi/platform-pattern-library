@@ -276,7 +276,7 @@
             border-left: $base-border;
             border-left-width: 2px;
             padding: 15px $base-spacing;
-            margin: 0;
+            margin: 0 $lg-spacing 0 0;
          }
 
          &:hover {
@@ -293,6 +293,29 @@
                border-left: none;
                background-color: $white;
                // @include box-shadow($top: 0, $left: 2px, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.25), $inset: false);
+            }
+         }
+
+         .status {
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            @include equal-radius(100%);
+
+            &:before {
+               @include fa-icon();
+               content: $fa-var-circle-o;
+               color: $mid-gray;
+            }
+
+            &.complete {
+
+               &:before {
+                  content: $fa-var-check-circle;
+                  color: $dk-gray;
+               }
             }
          }
       }
