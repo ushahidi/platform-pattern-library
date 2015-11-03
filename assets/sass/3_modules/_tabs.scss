@@ -255,6 +255,7 @@
          @include float(right);
          @include fa-icon();
          content: $fa-var-sort;
+         color: $blue;
          margin: $sm-spacing;
 
          @include media($small) {
@@ -274,12 +275,14 @@
 
       li {
          display: none;
+         font-size: em(14);
          list-style-type: none;
          margin: $sm-spacing;
          margin-right: 60px;
 
          @include media($small) {
             display: table;
+            font-size: em(16);
             border-left: $base-border;
             border-left-width: 2px;
             padding: 15px $base-spacing;
@@ -288,6 +291,10 @@
 
          &:hover {
             cursor: pointer;
+         }
+
+         [class*="icon-"]:before {
+            padding-right: $sm-spacing;
          }
 
          &.active {
@@ -300,6 +307,10 @@
                border-left: none;
                background-color: $white;
                // @include box-shadow($top: 0, $left: 2px, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.25), $inset: false);
+            }
+
+            [class*="icon-"]:before {
+               color: $mid-gray;
             }
          }
 
