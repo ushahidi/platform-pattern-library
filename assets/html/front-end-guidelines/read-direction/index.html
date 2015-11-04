@@ -74,13 +74,110 @@
                 <section class="pl-pattern">
                     <div class="pl-pattern-description">
                         <h2>
-                            Right To Left mixins
+                            Read Direction
                         </h2>
                         <div class="pl-divider"></div>
                     </div>
 
+                    <p>
+                        Ushahidi's user interface displays LTR (left-to-right) by default, but Ushahidi also supports RTL (right-to-left), so if the user's preferred language is a RTL language, the UI will display accordingly.
+                    </p>
+
+                    <p>
+                        When building this feature, it was important to maintain one code base that supported both LTR and RTL read direction. In order to accomplish this we decided to use a library of Sass mixins and functions to automatically flip the CSS styles for RTL (right-to-left) read direction when needed. We decided to go with <a href="https://github.com/jamesl1001/RTL-Sass">RTL-Sass</a> open-source library, which supports the following properties:
+                    </p>
+
+                    <div class="half-wrapper">
+                        <ul class="bullets half">
+                            <li>background</li>
+                            <li>background-position</li>
+                            <li>border</li>
+                            <li>border-radius</li>
+                            <li>clear</li>
+                            <li>cursor</li>
+                            <li>direction</li>
+                        </ul>
+
+                        <ul class="bullets half">
+                            <li>float</li>
+                            <li>left/right</li>
+                            <li>margin</li>
+                            <li>padding</li>
+                            <li>text-align</li>
+                            <li>text-indent</li>
+                        </ul>
+                    </div>
+
+                    <h3>Stylesheet</h3>
+                    <p>
+                        Ushahidi loads <code>style.css</code> by default, but if a user selects an RTL language when creating a deployment, the app will load <code>rtl-style.css</code>. Both stylesheets are compiled into the css folder via <code>gulpfile.js</code>.
+                    </p>
+                    <h3>Conflicts</h3>
+                    <p>
+                        The Ushahidi UI uses the lightweight semantic grid <a href="http://neat.bourbon.io/">Bourbon Neat</a> and this Neat <code>span-columns</code> mixin:
+                    </p>
+
+                    <pre>
+                        <code class="language-css">
+                                @include span-columns(12);
+                        </code>
+                    </pre>
+
+                    <p>compiles to:</p>
+                    <pre>
+                        <code class="language-css">
+                                float: left;
+                                display: block;
+                                width: 100%;
+                        </code>
+                    </pre>
+
+                    <p>but in order to correctly display the float in both LTR <em>and</em> RTL, you have to manually override the <code>float: left;</code> like so:</p>
+
+                    <pre>
+                        <code class="language-css">
+                                @include span-columns(12);
+                                @include float(left;)
+                        </code>
+                    </pre>
+
+                    <p>which compiles to:</p>
+
+                    <pre>
+                        <code class="language-css">
+                                float: left; // would be overridden
+                                display: block;
+                                width: 100%;
+                                float: left; // would be left or right depending on language
+                        </code>
+                    </pre>
+
+                    <div class="pl-pattern-description">
+                        <h2>
+                            Supported Properties
+                        </h2>
+                        <div class="pl-divider"></div>
+                    </div>
+
+                    <h3>Example:</h3>
+                    <pre>
+                        <code class="language-css">
+                                @include border-left(3px solid #000);
+                        </code>
+                    </pre>
+
+                    <p>would compile to:</p>
+
+                    <pre>
+                        <code class="language-css">
+                                border-left: 3px solid #000 // default LTR
+
+                                border-right: 3px solid #000 // RTL
+                        </code>
+                    </pre>
+
                     <div class="container">
-                        <h3>Background</h3>
+                        <h3>Background & Background Position</h3>
                         <pre>
                             <code class="language-css">
                                 #background-position {
@@ -167,6 +264,30 @@
                             </code>
                         </pre>
 
+                        <h3>Cursor</h3>
+                        <pre>
+                            <code class="language-css">
+                                #cursor-e {
+                                    @include cursor(e-resize);
+                                }
+                                #cursor-ne {
+                                    @include cursor(ne-resize);
+                                }
+                                #cursor-se {
+                                    @include cursor(se-resize);
+                                }
+                                #cursor-w {
+                                    @include cursor(w-resize);
+                                }
+                                #cursor-nw {
+                                    @include cursor(nw-resize);
+                                }
+                                #cursor-sw {
+                                    @include cursor(sw-resize);
+                                }
+                            </code>
+                        </pre>
+
                         <h3>Direction</h3>
                         <pre>
                             <code class="language-css">
@@ -188,7 +309,7 @@
                             </code>
                         </pre>
 
-                        <h3>Position</h3>
+                        <h3>Left/Right</h3>
                         <pre>
                             <code class="language-css">
                                 #left {
@@ -230,7 +351,7 @@
                             </code>
                         </pre>
 
-                        <h3>Text</h3>
+                        <h3>Text Alignment & Indent</h3>
                         <pre>
                             <code class="language-css">
                                 #text-align-left {
@@ -245,30 +366,6 @@
                                     text-align: left;
                                 }
 
-                            </code>
-                        </pre>
-
-                        <h3>Cursor</h3>
-                        <pre>
-                            <code class="language-css">
-                                #cursor-e {
-                                    @include cursor(e-resize);
-                                }
-                                #cursor-ne {
-                                    @include cursor(ne-resize);
-                                }
-                                #cursor-se {
-                                    @include cursor(se-resize);
-                                }
-                                #cursor-w {
-                                    @include cursor(w-resize);
-                                }
-                                #cursor-nw {
-                                    @include cursor(nw-resize);
-                                }
-                                #cursor-sw {
-                                    @include cursor(sw-resize);
-                                }
                             </code>
                         </pre>
                     </div>
