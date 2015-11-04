@@ -119,8 +119,28 @@
         margin: 0;
     }
 
+    .half-wrapper {
+        @include span-columns(12);
+        margin-bottom: 20px;
+    }
+
     ul.bullets {
         margin: 0 0 $base-spacing * 2 $base-spacing;
+
+        &.half {
+            @include span-columns(12);
+            margin-bottom: 0;
+
+            @include media($small) {
+                @include span-columns(5);
+            }
+
+        }
+
+        li {
+            text-align: left;
+        }
+
     }
 
     blockquote ul.bullets {
