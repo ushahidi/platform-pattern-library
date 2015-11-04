@@ -147,7 +147,13 @@
 </nav>
 
 
-      <main class="page-content" role="main">
+      <main class="page-content has-aside" role="main">
+
+         <div class="fixed-sidebar">
+            <aside class="is-right has-border fixed-sidebar-content" role="complementary">
+               <span class="big-number">456</span> posts in <strong>filename.csv</strong>
+            </aside>
+         </div>
 
          <div class="main-col">
             <ul class="breadcrumb">
@@ -158,33 +164,30 @@
                   <a href="">Import</a>
                </li>
             </ul>
+
             <h1>Import CSV</h1>
-            <div class="divider padded"></div>
 
-            <h2><span class="big-number">456</span> posts in filename.csv</h2>
-            <p>Choose how you'd like the data in your CSV to be organized within your deployment.</p>
+            <div class="divider white"></div>
 
-            <form class="dk-bg">
-               <!-- IF: Post Type has "Verification" step -->
-               <div class="form-field switch">
-                  <div class="toggle-switch">
-                     <input class="tgl" id="verified" type="checkbox">
-                     <label class="tgl-btn" for="verified"></label>
-                  </div>
+            <ol class="progress">
+               <li><span class="complete">Choose file</span></li>
+               <li class="active">Organize data</li>
+               <li class="disabled">Configure posts</li>
+            </ol>
 
-                  <label for="verified">Mark all posts as <strong>Verified</strong></label>
-               </div>
-               <!-- END:IF -->
+            <h2>Organize your imported data</h2>
 
-               <fieldset>
-                  <legend>Field relationships</legend>
-                  <p class="small">Each of your CSV file's columns are listed below. Choose the <strong>Accident report</strong> field that you'd like each column to belong to.</p>
+            <form class="segment">
+
+               <fieldset class="form-field">
+                  <legend>Assign CSV columns to post fields</legend>
+                  <p class="small">Each of the column names from your CSV file are listed below. Choose the <strong>Accident Report</strong> field that you'd like each column to be imported to.</p>
 
                   <table>
                      <thead>
                         <tr>
-                           <th>CSV field name</th>
-                           <th>Accident report field name</th>
+                           <th>CSV column name</th>
+                           <th>Accident Report field name</th>
                         </tr>
                      </thead>
 
@@ -193,12 +196,15 @@
                            <td>Title</td>
                            <td>
                               <div class="custom-select">
-                                  <select>
-                                      <option>Title</option>
-                                      <option>Description</option>
-                                      <option>Location</option>
-                                      <option>Date posted</option>
-                                  </select>
+                                 <select>
+                                    <option selected>Don't import</option>
+                                    <option>Title</option>
+                                    <option>Description</option>
+                                    <option>Location</option>
+                                    <option>Date posted</option>
+                                    <option>Author</option>
+                                    <option>Source</option>
+                                 </select>
                               </div>
                            </td>
                         </tr>
@@ -207,12 +213,15 @@
                            <td>Date</td>
                            <td>
                               <div class="custom-select">
-                                  <select>
-                                      <option>Title</option>
-                                      <option>Description</option>
-                                      <option>Location</option>
-                                      <option>Date posted</option>
-                                  </select>
+                                 <select>
+                                    <option selected>Don't import</option>
+                                    <option>Title</option>
+                                    <option>Description</option>
+                                    <option>Location</option>
+                                    <option>Date posted</option>
+                                    <option>Author</option>
+                                    <option>Source</option>
+                                 </select>
                               </div>
                            </td>
                         </tr>
@@ -221,12 +230,15 @@
                            <td>Location</td>
                            <td>
                               <div class="custom-select">
-                                  <select>
-                                      <option>Title</option>
-                                      <option>Description</option>
-                                      <option>Location</option>
-                                      <option>Date posted</option>
-                                  </select>
+                                 <select>
+                                    <option selected>Don't import</option>
+                                    <option>Title</option>
+                                    <option>Description</option>
+                                    <option>Location</option>
+                                    <option>Date posted</option>
+                                    <option>Author</option>
+                                    <option>Source</option>
+                                 </select>
                               </div>
                            </td>
                         </tr>
@@ -235,12 +247,15 @@
                            <td>Body</td>
                            <td>
                               <div class="custom-select">
-                                  <select>
-                                      <option>Title</option>
-                                      <option>Description</option>
-                                      <option>Location</option>
-                                      <option>Date posted</option>
-                                  </select>
+                                 <select>
+                                    <option selected>Don't import</option>
+                                    <option>Title</option>
+                                    <option>Description</option>
+                                    <option>Location</option>
+                                    <option>Date posted</option>
+                                    <option>Author</option>
+                                    <option>Source</option>
+                                 </select>
                               </div>
                            </td>
                         </tr>
@@ -250,7 +265,7 @@
 
                <div class="actions-inline actions-right">
                   <button class="button-link">Cancel import</button>
-                  <button type="submit">Complete import</button>
+                  <button type="submit">Next</button>
                </div>
             </form>
          </div><!--end main col-->

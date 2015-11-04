@@ -43,6 +43,10 @@ fieldset {
          margin-top: -5px;
       }
    }
+
+   .form-field {
+      margin-bottom: 0;
+   }
 }
 
 label[required], label.required {
@@ -143,6 +147,17 @@ input[type="radio"] {
    clear: both;
    @include lrswap(margin, 0 $sm-spacing $sm-spacing 0);
    width: auto;
+
+   &:disabled {
+
+      &:hover {
+         cursor: not-allowed;
+      }
+
+      + label {
+         color: $dk-gray;
+      }
+   }
 }
 
 .checkbox-label,
@@ -182,11 +197,6 @@ form, .form {
       @include equal-radius;
       background-color: $lt-gray-bg;
       padding: $base-spacing;
-      margin: $base-spacing auto;
-
-      :first-child {
-         margin-top: 0;
-      }
 
       table {
 

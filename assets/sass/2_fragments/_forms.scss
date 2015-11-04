@@ -1,5 +1,18 @@
 .form-field {
    @include clearfix;
+   margin-bottom: $base-spacing;
+
+   &:first-child {
+
+      label {
+         margin-top: 0;
+      }
+   }
+
+   &:last-child,
+   .form-field {
+      margin-bottom: 0;
+   }
 
    label {
       @extend .delta-alt;
@@ -17,10 +30,6 @@
       padding: $tiny-spacing $sm-spacing;
       margin: 0;
       background-color: lighten( $lt-gray, 4% );
-   }
-
-   + fieldset {
-      margin-top: $base-spacing;
    }
 
    // REQUIRED FIELD
@@ -146,6 +155,7 @@
       .toggle-switch {
          float: left;
          margin-right: $base-spacing;
+         margin-bottom: $base-spacing;
 
          label {
             margin: 0;
@@ -153,11 +163,12 @@
       }
 
       > label {
-         color: $text-color;
+/*         color: $text-color;
          font-weight: normal;
          font-size: 1em;
          text-transform: none;
          letter-spacing: 0;
+         */
          padding: 7px 0;
          margin: 0;
       }

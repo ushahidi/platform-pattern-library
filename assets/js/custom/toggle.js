@@ -33,6 +33,10 @@ $('[data-toggle]').each(function(){
    // Add 'click' handler to toggle trigger
    $(trigger).on('click', function(e){
 
+      // Deactivate (close) other active dropdown triggers and targets
+      $('.dropdown-trigger').not($(trigger)).removeClass('active');
+      $('.dropdown-menu').not($(target)).removeClass('active').removeAttr('style');
+
       // IF: Target is currently hidden
       if ($(target).is(':hidden')) {
          $(trigger).addClass('active');

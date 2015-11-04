@@ -1,0 +1,81 @@
+.post-field {
+   margin: $base-spacing 0;
+
+   &.author {
+      position: relative;
+      font-size: em(14);
+      padding: 1px 0 1px 70px;
+
+      img {
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 50px;
+         height: 50px;
+      }
+
+      p {
+         margin: 0;
+      }
+   }
+}
+
+.post-meta {
+
+   .meta-data {
+
+      @include media($small) {
+         float: left;
+      }
+   }
+
+   .actions-inline {
+
+      @include media($small) {
+         text-align: right;
+      }
+
+      button,
+      .button,
+      .custom-fieldset {
+
+         @include media($small-down) {
+            display: table;
+            margin: $sm-spacing 0;
+         }
+
+         @include media($small) {
+            @include lrswap(margin, $sm-spacing 0 $sm-spacing $sm-spacing);
+         }
+
+         [class*="icon-"] {
+
+            @include media($small-down) {
+               color: transparent;
+               font-size: 1px;
+               letter-spacing: -1px;
+
+               @include icon($position: before, $icon: false, $styles: true) {
+                  font-size: 1rem;
+                  letter-spacing: normal;
+                  padding: 0;
+               }
+            }
+         }
+      }
+
+      .custom-fieldset {
+
+         @include media($small-down) {
+
+            legend {
+               padding-right: $sm-spacing;
+
+               &:after {
+                  content: none;
+               }
+            }
+         }
+      }
+   }
+}

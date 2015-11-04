@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+@@include('../partials/_pl-head.html')
+
+<body class="has-fixed-bottom">
+
+   @@include('../partials/_header-full.html')
+
+   <div class="wrapper has-full-header">
+
+      @@include('../partials/_main-menu.html')
+
+      <main class="page-content has-aside" role="main">
+
+         <div class="fixed-sidebar">
+            <aside class="is-right has-border fixed-sidebar-content" role="complementary">
+               <span class="big-number">456</span> posts in <strong>filename.csv</strong>
+            </aside>
+         </div>
+
+         <div class="main-col">
+            <ul class="breadcrumb">
+               <li>
+                  Settings
+               </li>
+               <li>
+                  <a href="">Import</a>
+               </li>
+            </ul>
+            <h1>Import CSV</h1>
+
+            <div class="divider white"></div>
+
+            <ol class="progress">
+               <li><span class="complete">Choose file</span></li>
+               <li><span class="complete">Organize data</span></li>
+               <li class="active">Configure posts</li>
+            </ol>
+
+            <h2>Configure all imported posts</h2>
+
+            <form class="segment">
+               <div class="form-field">
+                  <label for="visibility">Make posts visible to</label>
+                  <div class="custom-select">
+                     <select name="visibility">
+                        <option selected>Everyone</option>
+                        <option>Members</option>
+                        <option>Administrators</option>
+                     </select>
+                  </div>
+               </div>
+
+               <!-- IF: Post Type has "Verification" step -->
+               <div class="form-field switch">
+                  <label for="verified">Mark posts as <strong>Verified</strong></label>
+
+                  <div class="toggle-switch">
+                     <input class="tgl" id="verified" type="checkbox">
+                     <label class="tgl-btn" for="verified"></label>
+                  </div>
+               </div>
+               <!-- END:IF -->
+
+               <div class="form-field">
+                  <fieldset>
+                     <legend>Select categories that apply to all posts</legend>
+
+                     <div class="form-field checkbox">
+                        <input type="checkbox" />
+                        <label>Category 1</label>
+                     </div>
+
+                     <div class="form-field checkbox">
+                        <input type="checkbox" />
+                        <label>Category 2</label>
+                     </div>
+
+                     <div class="form-field checkbox">
+                        <input type="checkbox" />
+                        <label>Category 3</label>
+                     </div>
+                  </fieldset>
+               </div>
+
+               <fieldset class="form-field">
+                  <legend>Assign value to unused post fields</legend>
+                  <p class="small">Any unused <strong>Accident Report</strong> fields are listed below. You can assign the same value to each field for all imported posts, or leave the unused fields blank.</p>
+
+                  <table>
+                     <thead>
+                        <tr>
+                           <th>Accident report field name</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+
+                     <tbody>
+                        <tr>
+                           <td>Location</td>
+                           <td><input type="text" /></td>
+                        </tr>
+
+                        <tr>
+                           <td>Author</td>
+                           <td><input type="text" /></td>
+                        </tr>
+
+                        <tr>
+                           <td>Source</td>
+                           <td>
+                              <div class="custom-select">
+                                 <select name="source">
+                                    <option selected>Web</option>
+                                    <option>SMS</option>
+                                    <option>Email</option>
+                                 </select>
+                              </div>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </fieldset>
+
+               <div class="actions-inline actions-right">
+                  <button class="button-link">Cancel import</button>
+                  <button type="submit">Finish import</button>
+               </div>
+            </form>
+         </div><!--end main col-->
+
+      </main> <!--end layout a-->
+
+   </div>
+
+   @@include('../partials/_footer.html')
+
+   @@include('../partials/_scripts.html')
+
+</body>
+
+</html>
