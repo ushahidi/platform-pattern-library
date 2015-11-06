@@ -1,16 +1,21 @@
 .post-header {
    position: relative;
    @include clearfix;
-   border-bottom: $base-border;
-   background-color: $lt-gray-bg;
+//   border-bottom: $base-border;
    padding: $base-spacing 110px $base-spacing $sm-spacing;
 
    @include media($small) {
+      position: static;
       border-color: transparent;
       background-color: transparent;
-      padding: $base-spacing $base-spacing 0;
+      padding: $base-spacing $base-spacing $sm-spacing;
    }
 
+   @include media($medium) {
+      padding-top: 0;
+      margin-right: 5px;
+   }
+/*
    &:before {
       content: '';
       position: absolute;
@@ -24,7 +29,7 @@
          content: none;
       }
    }
-
+*/
    .post-title {
       margin: 0 0 15px;
    }
@@ -35,7 +40,7 @@
 
       @include media($small) {
          @include float(left);
-         @include span-columns(6);
+         @include span-columns(5);
          margin-top: 17px;
       }
    }
@@ -44,7 +49,7 @@
 
       @include media($small) {
          @include float(right);
-         @include span-columns(6);
+         @include span-columns(7);
          text-align: right;
          margin-top: $sm-spacing;
 

@@ -248,6 +248,7 @@
          float: right;
          width: 30%;
          border: none;
+         background-color: transparent;
          margin: 0;
       }
 
@@ -282,11 +283,16 @@
 
          @include media($small) {
             display: table;
-            font-size: em(16);
+            font-size: em(15);
             border-left: $base-border;
             border-left-width: 2px;
+            padding: 15px $sm-spacing;
+            margin: 0 30px 0 0;
+         }
+
+         @include media($medium) {
+            font-size: em(16);
             padding: 15px $base-spacing;
-            margin: 0 $lg-spacing 0 0;
          }
 
          &:hover {
@@ -358,17 +364,24 @@
       position: relative;
       top: -2px;
       min-height: 50px;
-      border: $base-border;
-      border-width: 2px;
-      background-color: $white;
 
       @include media($small) {
          float: left;
          width: 70%;
-         border-bottom-color: transparent;
-         border-left-color: transparent;
-         padding: $base-spacing $base-spacing $base-spacing 0;
          margin: 0;
       }
+   }
+}
+
+.vertical-tabs-content {
+   @include clearfix;
+   border-top: $base-border;
+   border-width: 2px;
+   background-color: $white;
+
+   @include media($small) {
+      border-right: $base-border;
+      border-width: 2px;
+      padding: $base-spacing $base-spacing $base-spacing 0;
    }
 }
