@@ -1,10 +1,9 @@
 dropdownXpos = function(trigger, target) {
-   var triggerPos = $(trigger).position();
+   var triggerPos = $(trigger).offset();
 
-   // IF: Right-to-left language
-   if ($(trigger).css('direction') == 'rtl') {
+   // IF: Right-to-left language OR trigger is within 200px of the right of the screen
+   if (($(trigger).css('direction') == 'rtl') || (triggerPos.left >= ($(window).width() - 200))) {
       $(target).css('right', ($(window).width() - (triggerPos.left + $(trigger).outerWidth())));
-   // ELSE:
    } else {
       $(target).css('left', triggerPos.left);
    }
@@ -34,8 +33,8 @@ $('[data-toggle]').each(function(){
    $(trigger).on('click', function(e){
 
       // Deactivate (close) other active dropdown triggers and targets
-      $('.dropdown-trigger').not($(trigger)).removeClass('active');
-      $('.dropdown-menu').not($(target)).removeClass('active').removeAttr('style');
+      // $('.dropdown-trigger').not($(trigger)).removeClass('active');
+      // $('.dropdown-menu').not($(target)).removeClass('active').removeAttr('style');
 
       // IF: Target is currently hidden
       if ($(target).is(':hidden')) {

@@ -9,42 +9,40 @@
 
 <body class="has-dynamic-header">
 
-    @@include('../partials/_header-loggedout.html')
+   @@include('../partials/_header-loggedout.html')
 
-    <div class="wrapper">
+   <div class="wrapper">
 
-        @@include('../partials/_main-menu.html')
+      @@include('../partials/_main-menu.html')
 
-        <main class="page-content has-aside" role="main">
-
+      <main class="page-content has-aside" role="main">
+         <div class="page-header">
             <h1>All Posts</h1>
 
             <div class="tabs-with-filter">
-                @@include('../partials/_tabs-with-label.html', {
+               @@include('../partials/_tabs-with-label.html', {
                   "context": "map"
-                })
-            </div><!--end view with filter-->
+               })
 
-            @@include('../partials/_filters-aside.html')
+               @@include('../partials/_filters.html')
+            </div>
+         </div>
 
-            <div class="main-col map-background">
+         <div class="main-col">
+            <div id="map" class="map"></div>
+         </div>
+      </main> <!--end layout a-->
 
-                <div id="map" class="map"></div>
+   </div>
 
-            </div> <!--end main column-->
+   @@include('../partials/_footer.html')
 
-        </main> <!--end layout a-->
+   @@include('../partials/_scripts.html')
 
-    </div>
-
-@@include('../partials/_footer.html')
-
-@@include('../partials/_scripts.html')
-
-<script>
-// Make header dynamic
-headerMakeDynamic();
-</script>
+   <script>
+   // Make header dynamic
+   headerMakeDynamic();
+   </script>
 </body>
 
 </html>

@@ -1,5 +1,33 @@
 .filters {
-    position: relative;
+
+    .filters-toggle {
+      position: relative;
+      z-index: -1;
+      border: $base-border;
+      background-color: $white;
+      padding: $base-spacing $sm-spacing;
+
+      &:after {
+         @include fa-icon();
+         content: $fa-var-chevron-down;
+         position: absolute;
+         top: $sm-spacing;
+         right: $sm-spacing;
+         @extend .button-secondary;
+      }
+
+      &[data-toggle] {
+
+         &:hover {
+            cursor: pointer;
+            border-color: $border-color-dark;
+         }
+      }
+
+      .delta-alt {
+         margin: 0;
+      }
+   }
 
     .filters-show-hide {
         padding: $sm-spacing;

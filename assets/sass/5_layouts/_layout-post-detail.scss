@@ -1,32 +1,74 @@
 .post-detail { //body class
 
    .post-header {
-      position: relative;
-      padding-right: 60px;
 
-      .post-meta {
+      @include media($small) {
+         padding-right: 20%;
+      }
 
-         .actions-inline {
-            position: absolute;
-            top: 0;
-            right: 0;
-
-            button,
-            .button,
-            .custom-fieldset {
-               margin: 0 0 $tiny-spacing;
-            }
-         }
+      @include media($medium) {
+         padding-right: 25%;
       }
    }
 
    .post-field {
 
       @include media($small) {
-         width: 70%;
+         max-width: 620px;
       }
    }
 
+   .vertical-tabs {
+
+      @include media($small) {
+         margin: $sm-spacing 0;
+      }
+
+      @include media($medium) {
+         margin: $sm-spacing $base-spacing;
+      }
+   }
+
+   .vertical-tabs-menu {
+
+      &.init {
+         margin-right: 110px;
+         margin-left: $sm-spacing;
+
+         @include media($small) {
+            width: 20%;
+            margin: 0;
+         }
+
+         @include media($medium) {
+            width: 25%;
+         }
+      }
+   }
+
+   .vertical-tabs-content {
+
+      @include media($small) {
+         width: 80%;
+      }
+
+      @include media($medium) {
+         width: 75%;
+      }
+
+      .main-col {
+
+         @include media($small) {
+            padding-left: 0;
+         }
+
+         @include media($medium) {
+            padding: 0 $sm-spacing 0 0;
+         }
+      }
+   }
+
+   /*
    .main-col {
 
       p {
@@ -36,29 +78,25 @@
          @include media($small) {
             font-size: em(19);
          }
-         /*
+
          &:first-of-type {
-         font-size: em(19);
-         padding-top: $sm-spacing;
-         margin-top: $sm-spacing;
+            font-size: em(19);
+            padding-top: $sm-spacing;
+            margin-top: $sm-spacing;
 
          @include media($small) {
-         font-size: em(22);
-         border-top: $base-border;
-         padding-top: $base-spacing;
-         margin-top: $base-spacing;
+            font-size: em(22);
+            border-top: $base-border;
+            padding-top: $base-spacing;
+            margin-top: $base-spacing;
+         }
       }
-
    }
    */
 }
 
 #map {
    float: none;
-}
-
-}
-
 }
 
 
@@ -73,18 +111,18 @@
 /*
 .post-detail, .create-post {
 
-   .main-col {
-      padding-top: $base-spacing;
+.main-col {
+padding-top: $base-spacing;
 
-      @include media($medium) {
-         padding-top: 0;
-         @include padding-right($lg-spacing);
-      }
+@include media($medium) {
+padding-top: 0;
+@include padding-right($lg-spacing);
+}
 
-      @include media($large) {
-         @include padding-right($lg-spacing*5);
-      }
+@include media($large) {
+@include padding-right($lg-spacing*5);
+}
 
-   }
+}
 }
 */

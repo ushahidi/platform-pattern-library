@@ -1,175 +1,174 @@
 // Reusable grid classes -
 
 .one-col, .two-col, .three-col, .flex-col {
-    @include clearfix;
-    margin-bottom: $base-spacing;
+   @include clearfix;
+   margin-bottom: $base-spacing;
 }
 
 .two-col .col {
-    margin-bottom: $base-spacing;
+   margin-bottom: $base-spacing;
 
-    @include media($small) {
-        @include span-columns(6);
-        margin-bottom: auto;
-    }
+   @include media($small) {
+      @include span-columns(6);
+      margin-bottom: auto;
+   }
 
 }
 
 .three-col .col {
 
-    @include media($small) {
-        @include span-columns(4);
-    }
+   @include media($small) {
+      @include span-columns(4);
+   }
 
 }
 
 .flex-col .col {
 
-    @include media($small) {
-        display: block;
-        float: left;
-        width: auto;
-        margin-right: $base-spacing;
-    }
+   @include media($small) {
+      display: block;
+      float: left;
+      width: auto;
+      margin-right: $base-spacing;
+   }
 
 }
 
 .page-content {
-    @include outer-container;
-    padding: 0 $sm-spacing;
+   @include outer-container;
 
-    @include media($small) {
-        padding: 0 $base-spacing;
-    }
+   @include media($medium) {
+      @include float(right);
+      width: 80%;
+      @include lrswap(padding, 0 $base-spacing 0 0);
+      margin-top: $lg-spacing;
+   }
 
-    @include media($medium) {
-        @include float(right);
-        width: 80%;
-        @include lrswap(padding, 0 $base-spacing 0 0);
-        margin-top: $lg-spacing;
-    }
+   .main-col {
+      @include span-columns(12);
+      @include float(left);
+      @include margin-right(2.35765%);
+      @include margin-left(0);
+      padding: 0 $sm-spacing;
+      margin-bottom: $lg-spacing;
 
-    .main-col {
-        @include span-columns(12);
-        @include float(left);
-        @include margin-right(2.35765%);
-        @include margin-left(0);
-        margin-bottom: $lg-spacing;
+      @include media($small) {
+         padding: 0 $base-spacing;
+      }
 
-        h6 {
-            clear: both;
-        }
+      h6 {
+         clear: both;
+      }
 
-    }
+   }
 
-    &.has-aside {
+   &.has-aside {
 
-        aside {
-            @include clearfix;
-            @include span-columns(12);
+      aside {
+         @include clearfix;
+         @include span-columns(12);
+         @include margin-right(2.35765%);
+         @include margin-left(0);
+         position: relative;
+      }
+
+      @include media($small) {
+
+         .main-col {
+            @include span-columns(9);
+            @include float(left);
             @include margin-right(2.35765%);
             @include margin-left(0);
-            position: relative;
-        }
+         }
 
-        @include media($small) {
+         aside {
+            @include span-columns(3);
+            @include float(left);
+            @include omega();
+            padding: $base-spacing 0 $lg-spacing;
+            @include margin-right(2.35765%);
+            @include margin-left(0);
 
-            .main-col {
-                @include span-columns(9);
-                @include float(left);
-                @include margin-right(2.35765%);
-                @include margin-left(0);
+            &.is-right { //specific styling for when the aside comes first in the source order
+               @include float(right);
+               padding: 0;
             }
 
-            aside {
-                @include span-columns(3);
-                @include float(left);
-                @include margin-right(2.35765%);
-                @include margin-left(0);
-                @include omega();
-                padding: $base-spacing 0 $lg-spacing;
-
-                &.is-right { //specific styling for when the aside comes first in the source order
-                    @include float(right);
-                    @include margin-right(0);
-                    padding: 0;
-                }
-
-                &.has-border { //specific styling for when you want the aside to have a border
-                    @include border-left($base-border);
-                    @include lrswap(padding, $base-spacing 0 $lg-spacing $base-spacing);
-                }
-
+            &.has-border { //specific styling for when you want the aside to have a border
+               @include border-left($base-border);
+               @include lrswap(padding, $base-spacing 0 $lg-spacing $base-spacing);
             }
 
-        }
+         }
 
-        @include media($medium) {
+      }
 
-            .main-col {
-                @include span-columns(8);
-                @include float(left);
-                @include margin-right(2.35765%);
-                @include margin-left(0);
-            }
+      @include media($medium) {
 
-            aside {
-                @include span-columns(4);
-                @include float(left);
-                @include margin-right(2.35765%);
-                @include margin-left(0);
-            }
+         .main-col {
+            @include span-columns(8);
+            @include float(left);
+            @include margin-right(2.35765%);
+            @include margin-left(0);
+         }
 
-        }
+         aside {
+            @include span-columns(4);
+            @include float(left);
+            @include margin-right(0);
+            @include margin-left(0);
+         }
 
-        @include media($large) {
+      }
 
-            .main-col {
-                @include span-columns(9);
-                @include float(left);
-                @include margin-right(2.35765%);
-                @include margin-left(0);
-            }
+      @include media($large) {
 
-            aside {
-                @include span-columns(3);
-                @include float(left);
-                @include margin-right(2.35765%);
-                @include margin-left(0);
-            }
+         .main-col {
+            @include span-columns(9);
+            @include float(left);
+            @include margin-right(2.35765%);
+            @include margin-left(0);
+         }
 
-        }
+         aside {
+            @include span-columns(3);
+            @include float(left);
+            @include margin-right(2.35765%);
+            @include margin-left(0);
+         }
 
-    }
+      }
+
+   }
 
 }
 
 .full-page-content {
-    padding: 0 $sm-spacing;
-    margin-top: $sm-spacing;
+   padding: 0 $sm-spacing;
+   margin-top: $sm-spacing;
 
-    @include media($small) {
-        padding: 0 $base-spacing;
-    }
+   @include media($small) {
+      padding: 0 $base-spacing;
+   }
 
-    @include media($medium) {
-        margin-top: $lg-spacing;
-    }
+   @include media($medium) {
+      margin-top: $lg-spacing;
+   }
 
-    .two-col .col {
+   .two-col .col {
 
-        @include media($small) {
-            @include span-columns(6);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
+      @include media($small) {
+         @include span-columns(6);
+         @include float(left);
+         @include margin-right(2.35765%);
+         @include margin-left(0);
 
-            &:last-child {
-                margin: 0;
-            }
+         &:last-child {
+            margin: 0;
+         }
 
-        }
+      }
 
-    }
+   }
 
 }
