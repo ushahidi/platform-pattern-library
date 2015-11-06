@@ -1,22 +1,39 @@
 .post-field {
    margin: $base-spacing 0;
 
-   &.author {
-      position: relative;
-      font-size: em(14);
-      padding: 1px 0 1px 70px;
+   @include media($small) {
+      margin: $lg-spacing 0;
+   }
+}
 
-      img {
-         position: absolute;
-         top: 0;
-         left: 0;
+.post-author {
+   position: relative;
+   padding: 1px 0 1px 60px;
+   margin: $base-spacing 0;
+
+   @include media($small) {
+      padding-top: $tiny-spacing;
+      padding-left: 70px;
+      margin-top: $sm-spacing;
+      margin-bottom: $lg-spacing;
+   }
+
+   img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+
+      @include media($small) {
          width: 50px;
          height: 50px;
       }
+   }
 
-      p {
-         margin: 0;
-      }
+   p {
+      font-size: em(15);
+      margin: 0;
    }
 }
 
