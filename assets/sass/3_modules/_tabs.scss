@@ -1,232 +1,233 @@
 .tabs-menu {
-    background: $white;
-    width: 100%;
-    @include float(left);
+   background: $white;
+   width: 100%;
+   @include float(left);
 
-    @include media($small) {
-        padding: $sm-spacing 0;
-    }
+   @include media($small) {
+      background-color: transparent;
+      padding: $sm-spacing 0;
+   }
 
-    label {
-        display: none;
+   label {
+      display: none;
 
-        @include media($small) {
-            display: block;
-            @include float(left);
-            @include margin-right($sm-spacing);
-            margin-top: $sm-spacing;
-        }
-    }
+      @include media($small) {
+         display: block;
+         @include float(left);
+         @include margin-right($sm-spacing);
+         margin-top: $sm-spacing;
+      }
+   }
 
-    .tabs-menu-list {
-        @extend .list-unstyled;
-        border: $base-border;
-        padding: $sm-spacing $base-spacing ($sm-spacing + 1);
-        background: $white;
-        position: relative;
-        width: 100%;
+   .tabs-menu-list {
+      @extend .list-unstyled;
+      border: $base-border;
+      padding: $sm-spacing $base-spacing ($sm-spacing + 1);
+      background: $white;
+      position: relative;
+      width: 100%;
 
-        @include media($small) {
-            display: inline;
-            border: 0;
+      @include media($small) {
+         display: inline;
+         border: 0;
+         padding: 0;
+         background: none;
+         position: relative;
+      }
+
+      &.open {
+         background: $white;
+         position: relative;
+         margin-bottom: -500px;
+         padding: $sm-spacing $base-spacing;
+
+         @include media($small) {
             padding: 0;
-            background: none;
-            position: relative;
-        }
+         }
 
-        &.open {
-            background: $white;
-            position: relative;
-            margin-bottom: -500px;
-            padding: $sm-spacing $base-spacing;
+      }
 
-            @include media($small) {
-                padding: 0;
+      li {
+         display: block;
+         @include transition(0.3s);
+         color: $link-color;
+
+         @include media($small) {
+            @include float(left);
+            @include border-top-radius($global-radius);
+            @include border-bottom-radius($global-radius);
+            border: $base-border;
+            @include margin-right($sm-spacing);
+            margin-bottom: $sm-spacing;
+
+            &:hover {
+               border: $base-border-hover;
             }
 
-        }
+            &:active {
+               background: $tab-active-color;
+            }
 
-        li {
+         }
+
+         &.active {
+
+            @include media($small) {
+               background-color: $lt-gray;
+               border: $base-border-dark;
+            }
+
+            & a {
+               color: $black;
+            }
+
+         }
+
+      }
+
+      li:not(.active) {
+         display: none;
+
+         @include media($small) {
+            display: inline-block;
+         }
+
+      }
+
+      a {
+         display: block;
+         padding: 8px 0;
+
+         @include media($small) {
+            padding: 8px $sm-spacing;
+         }
+      }
+
+      &.visible li{
+
+         &:not(.active) {
             display: block;
-            @include transition(0.3s);
-            color: $link-color;
 
             @include media($small) {
-                @include float(left);
-                @include border-top-radius($global-radius);
-                @include border-bottom-radius($global-radius);
-                border: $base-border;
-                @include margin-right($sm-spacing);
-                margin-bottom: $sm-spacing;
-
-                &:hover {
-                    border: $base-border-hover;
-                }
-
-                &:active {
-                    background: $tab-active-color;
-                }
-
+               display: inline-block;
             }
+         }
 
-            &.active {
+      }
 
-                @include media($small) {
-                    background-color: $lt-gray;
-                    border: $base-border-dark;
-                }
+      //these are the icons
 
-                & a {
-                    color: $black;
-                }
+      li a.view-list {
+         @include icon($before, list) {
+            @include lrswap(padding, 0 5px 0 1px);
+         }
 
-            }
+      }
 
-        }
+      li a.view-chart {
+         @include icon($before, bar-chart) {
+            @include lrswap(padding, 0 5px 0 1px);
+         }
 
-        li:not(.active) {
-            display: none;
+      }
 
-            @include media($small) {
-                display: inline-block;
-            }
+      li a.view-photo {
+         @include icon($before, photo) {
+            @include lrswap(padding, 0 5px 0 1px);
+         }
 
-        }
+      }
 
-        a {
-            display: block;
-            padding: 8px 0;
+      li a.view-map {
+         @include icon($before, map-marker) {
+            @include lrswap(padding, 0 5px 0 1px);
+         }
 
-            @include media($small) {
-                padding: 8px $sm-spacing;
-            }
-        }
+      }
 
-        &.visible li{
+      li a.view-timeline {
+         @include icon($before, line-chart) {
+            @include lrswap(padding, 0 5px 0 1px);
+         }
 
-            &:not(.active) {
-                display: block;
+      }
 
-                @include media($small) {
-                    display: inline-block;
-                }
-            }
+   }
 
-        }
+   .button-toggle {
+      @include float(right);
+      margin: $sm-spacing;
 
-        //these are the icons
+      @include media($small) {
+         display: none;
+      }
 
-        li a.view-list {
-            @include icon($before, list) {
-                @include lrswap(padding, 0 5px 0 1px);
-            }
-
-        }
-
-        li a.view-chart {
-            @include icon($before, bar-chart) {
-                @include lrswap(padding, 0 5px 0 1px);
-            }
-
-        }
-
-        li a.view-photo {
-            @include icon($before, photo) {
-                @include lrswap(padding, 0 5px 0 1px);
-            }
-
-        }
-
-        li a.view-map {
-            @include icon($before, map-marker) {
-                @include lrswap(padding, 0 5px 0 1px);
-            }
-
-        }
-
-        li a.view-timeline {
-            @include icon($before, line-chart) {
-                @include lrswap(padding, 0 5px 0 1px);
-            }
-
-        }
-
-    }
-
-    .button-toggle {
-        @include float(right);
-        margin: $sm-spacing;
-
-        @include media($small) {
-            display: none;
-        }
-
-    }
+   }
 
 }
 
 .tabs-secondary {
-    border: $base-border;
-    margin: -1px 0 0;
-    @extend .delta;
+   border: $base-border;
+   margin: -1px 0 0;
+   @extend .delta;
 
-    @include media($mobile) {
-        border: 0;
-        border-top: $base-border;
-        margin: 10px 0 0;
-    }
+   @include media($mobile) {
+      border: 0;
+      border-top: $base-border;
+      margin: 10px 0 0;
+   }
 
-    &.toggle-content {
-        float: none;
+   &.toggle-content {
+      float: none;
 
-        @include media($mobile) {
-            display: block;
-            padding: 0px;
-        }
+      @include media($mobile) {
+         display: block;
+         padding: 0px;
+      }
 
-    }
+   }
 
-    ul {
-        @extend .list-unstyled;
+   ul {
+      @extend .list-unstyled;
 
-        @include media($mobile) {
-            padding-bottom: $lg-spacing;
-        }
+      @include media($mobile) {
+         padding-bottom: $lg-spacing;
+      }
 
-    }
+   }
 
-    li {
-        padding: $sm-spacing;
+   li {
+      padding: $sm-spacing;
 
-        @include media($mobile) {
-            @include float(left);
-            padding: ($sm-spacing + 3px) $sm-spacing;
-        }
+      @include media($mobile) {
+         @include float(left);
+         padding: ($sm-spacing + 3px) $sm-spacing;
+      }
 
-        @include media($small) {
-            padding: ($sm-spacing + 3px) $base-spacing;
-        }
+      @include media($small) {
+         padding: ($sm-spacing + 3px) $base-spacing;
+      }
 
-        &.active {
+      &.active {
 
-            @include media($mobile) {
-                border-top: $base-border;
-                border-width: 3px;
-                padding-top: $sm-spacing;
-            }
+         @include media($mobile) {
+            border-top: $base-border;
+            border-width: 3px;
+            padding-top: $sm-spacing;
+         }
 
-            a {
-                color: $dk-gray;
-                cursor: default;
-            }
+         a {
+            color: $dk-gray;
+            cursor: default;
+         }
 
-            @include media($small) {
-                padding: $sm-spacing;
-            }
+         @include media($small) {
+            padding: $sm-spacing;
+         }
 
-        }
+      }
 
-    }
+   }
 
 }
 
@@ -382,6 +383,11 @@
    @include media($small) {
       border-right: $base-border;
       border-width: 2px;
-      padding: $base-spacing $base-spacing $base-spacing 0;
+      padding: $base-spacing;
+   }
+
+   @include media($medium) {
+      border: $base-border;
+      border-width: 2px;
    }
 }
