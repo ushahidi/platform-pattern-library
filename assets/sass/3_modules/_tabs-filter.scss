@@ -11,6 +11,13 @@
    }
 
    .filters {
+      z-index: 1;
+      float: right;
+      width: 50%;
+
+      @include media($small) {
+         width: 35%;
+      }
 
       .filters-show-hide {
          @include border-left(0);
@@ -34,34 +41,33 @@
 
       .filters-container {
 
-         @include media($small) {
-            @include right(0);
-            @include left(inherit);
-            left: inherit;
+         &.active {
+            border-color: $border-color-dark;
+            border-top-color: $black;
          }
 
       }
-
    }
 
    .tabs-menu {
-      width: 45%;
-      margin-right: $base-spacing;
+      position: relative;
+      z-index: 2;
+      width: 50%;
 
       @include media($small) {
          width: 65%;
       }
-
+/*
       label {
          @include lrswap(margin, $sm-spacing $sm-spacing $sm-spacing 0);
          @include float(left);
       }
-
+*/
    }
 
    .tabs-menu-list {
       position: absolute;
-      width: 45%;
+      border-right: none;
 
       @include media($small) {
          position: relative;
@@ -82,6 +88,23 @@
       @include float(right);
       margin-top: -62px;
       @include border-left(0);
+   }
+
+   &[data-view="map"] {
+
+      .filters-toggle {
+
+         @include media($small) {
+            display: none;
+         }
+      }
+
+      .filters-container {
+
+         @include media($small) {
+            display: block;
+         }
+      }
    }
 
 }

@@ -1,11 +1,18 @@
 .filters {
+   @include clearfix;
 
-    .filters-toggle {
+   .filters-toggle {
       position: relative;
-      z-index: -1;
       border: $base-border;
       background-color: $white;
-      padding: $base-spacing $sm-spacing;
+      padding: $base-spacing;
+
+      @include media($small) {
+         text-align: right;
+         border: none;
+         background-color: transparent;
+         padding-right: 50px;
+      }
 
       &:after {
          @include fa-icon();
@@ -13,7 +20,20 @@
          position: absolute;
          top: $sm-spacing;
          right: $sm-spacing;
+         color: $yellow;
          @extend .button-secondary;
+
+         @include media($small) {
+            right: 0;
+         }
+      }
+
+      &.active {
+         border-color: $border-color-dark;
+
+         &:after {
+            @include transform(rotate(180deg));
+         }
       }
 
       &[data-toggle] {
@@ -29,205 +49,212 @@
       }
    }
 
-    .filters-show-hide {
-        padding: $sm-spacing;
-        overflow: auto;
-        border: $base-border;
-        @include text-align(right);
+   .filters-show-hide {
+      padding: $sm-spacing;
+      overflow: auto;
+      border: $base-border;
+      @include text-align(right);
 
-        span {
-            display: none;
+      span {
+         display: none;
 
-            @include media($mobile) {
-                display: inline;
-            }
+         @include media($mobile) {
+            display: inline;
+         }
 
-        }
+      }
 
-        @include media($small) {
-            border: 0;
-            padding: $sm-spacing 0;
-        }
+      @include media($small) {
+         border: 0;
+         padding: $sm-spacing 0;
+      }
 
-        label.delta-alt {
+      label.delta-alt {
+         @include float(left);
+         display: inline-block;
+         @include lrswap(margin, $sm-spacing $sm-spacing 0 0);
+      }
+
+      .button-toggle {
+         @include float(right);
+
+         @include media($small) {
             @include float(left);
-            display: inline-block;
-            @include lrswap(margin, $sm-spacing $sm-spacing 0 0);
-        }
+         }
 
-        .button-toggle {
-            @include float(right);
+         &.open {
 
             @include media($small) {
-                @include float(left);
+               padding-bottom: 20px;
+               @include border-bottom-radius(0);
+               border-bottom: 0;
             }
 
-            &.open {
+         }
 
-                @include media($small) {
-                    padding-bottom: 20px;
-                    @include border-bottom-radius(0);
-                    border-bottom: 0;
-                }
+      }
 
-            }
+   }
 
-        }
+   .filters-container {
+      display: none;
+      position: absolute;
+      top: 100%;
+      @include right(0);
+      @include left(50%);
+      background: $white;
+      padding: $sm-spacing $sm-spacing 0;
+      border: $base-border;
+      border-top: 0;
 
-    }
+      &:after {
+         width: 50%;
+         height: 1px;
+         background: $border-color;
+      }
 
-    .filters-container {
-        display: none;
-        @include float(left);
-        width: 100%;
-        position: relative;
-        background: $white;
-        padding: $sm-spacing $sm-spacing 0;
-        border: $base-border;
-        border-top: 0;
+      &.active {
+         display: block;
+      }
 
-        &:after {
-            width: 50%;
-            height: 1px;
-            background: $border-color;
-        }
+      @include media($small) {
+         top: 62px;
+         @include right(0);
+         bottom: inherit;
+         @include left(75%);
+         max-width: 300px;
+         border-top: 5px solid $black;
+         @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
+         padding: $sm-spacing $base-spacing;
 
-        @include media($small) {
-            padding: $sm-spacing $base-spacing;
-            position: absolute;
-            top: 47px;
-            bottom: inherit;
-            @include left(0);
+         &:after {
             width: 100%;
-            max-width: 300px;
-            border-top: 5px solid $black;
-            @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
+         }
+      }
 
-            &:after {
-                width: 100%;
-            }
+      @include media($medium) {
+         @include left(67%);
+      }
 
-        }
+      #{$all-text-inputs} {
+         width: 100%;
+      }
 
-        #{$all-text-inputs} {
-          width: 100%;
-        }
+      .keyword-search {
 
-        .keyword-search {
-
-            label {
-                display: block;
-                margin: 0;
-            }
-
-            .keyword-input {
-                @include span-columns(9);
-                height: 30px;
-            }
-
-            button {
-                @include span-columns(3);
-                margin-top: $sm-spacing;
-                height: 30px;
-                padding: 0;
-                text-align: center;
-
-                &:before {
-                    @include rotate(90deg);
-                }
-            }
-
-        }
-
-        .accordion-menu {
-
-            .accordion-menu-content {
-                margin-top: 0;
-                font-size: em(14);
-
-                li i {
-                    @include float(left);
-                    width: 10px;
-                    height: 10px;
-                    @include margin-right(8px);
-                }
-
-            }
-
-        }
-
-        .filter-start-date, .filter-end-date {
+         label {
             display: block;
-            @include float(left);
-            @include margin-right(2.35765%);
-            width: 48.82117%;
-            position: relative;
-        }
+            margin: 0;
+         }
 
-        .filter-end-date {
-            @include margin-right(0);
-        }
+         .keyword-input {
+            @include span-columns(9);
+            height: 30px;
+         }
 
-        .filter-start-date,
-        .filter-end-date {
-            @include icon($after, calendar) {
-                position: absolute;
-                top: 34px;
-                @include right(10px);
-                color: $dk-gray;
-                opacity: .6;
+         button {
+            @include span-columns(3);
+            margin-top: $sm-spacing;
+            height: 30px;
+            padding: 0;
+            text-align: center;
+
+            &:before {
+               @include rotate(90deg);
             }
+         }
 
-        }
+      }
 
-        .filter-actions {
-            @include span-columns(12);
-            padding-top: $base-spacing;
-            @include text-align(right);
-        }
+      .accordion-menu {
 
-        .apply-filter-button {
-            display: inline-block;
-            @include float(right);
-            @include right(0);
+         .accordion-menu-content {
             margin-top: 0;
-        }
+            font-size: em(14);
 
-        .location {
-
-            .custom-select {
-                @include float(left);
-                @include lrswap(margin, 0 $sm-spacing $sm-spacing 0);
+            li i {
+               @include float(left);
+               width: 10px;
+               height: 10px;
+               @include margin-right(8px);
             }
 
-        }
+         }
 
-    }
+      }
+
+      .filter-start-date, .filter-end-date {
+         display: block;
+         @include float(left);
+         @include margin-right(2.35765%);
+         width: 48.82117%;
+         position: relative;
+      }
+
+      .filter-end-date {
+         @include margin-right(0);
+      }
+
+      .filter-start-date,
+      .filter-end-date {
+         @include icon($after, calendar) {
+            position: absolute;
+            top: 34px;
+            @include right(10px);
+            color: $dk-gray;
+            opacity: .6;
+         }
+
+      }
+
+      .filter-actions {
+         @include span-columns(12);
+         padding-top: $base-spacing;
+         @include text-align(right);
+      }
+
+      .apply-filter-button {
+         display: inline-block;
+         @include float(right);
+         @include right(0);
+         margin-top: 0;
+      }
+
+      .location {
+
+         .custom-select {
+            @include float(left);
+            @include lrswap(margin, 0 $sm-spacing $sm-spacing 0);
+         }
+
+      }
+
+   }
 
 }
 
 aside {
 
-    .filters {
-        margin-bottom: $sm-spacing;
+   .filters {
+      margin-bottom: $sm-spacing;
 
-        .filters-show-hide {
+      .filters-show-hide {
 
-            @include media($small) {
-                display: none !important;
-            }
+         @include media($small) {
+            display: none !important;
+         }
 
-        }
+      }
 
-        .filters-container {
-            @include media($small) {
-                position: relative;
-                top: 0;
-                display: block;
-            }
+      .filters-container {
+         @include media($small) {
+            position: relative;
+            top: 0;
+            display: block;
+         }
 
-        }
+      }
 
-    }
+   }
 
 }

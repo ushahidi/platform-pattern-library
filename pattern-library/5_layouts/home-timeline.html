@@ -9,69 +9,64 @@
 
 <body class="has-dynamic-header">
 
-    @@include('../partials/_header-full.html')
+   @@include('../partials/_header-full.html')
 
-    <div class="wrapper">
+   <div class="wrapper">
 
-        @@include('../partials/_main-menu.html')
+      @@include('../partials/_main-menu.html')
 
-        <main class="page-content" role="main">
+      <main class="page-content" role="main">
 
-            <div class="main-col">
+         <div class="page-header">
+            <h1>All Posts</h1>
 
-                <h1>All Posts</h1>
+            <div class="tabs-with-filter" data-view="timeline">
+               @@include('../partials/_tabs-with-label.html', {
+                  "context": "timeline"
+               })
 
-                <div class="tabs-with-filter">
+               @@include('../partials/_filters.html')
+            </div>
+         </div>
 
-                    @@include('../partials/_tabs-with-label.html', {
-                      "context": "timeline"
-                    })
+         <div class="main-col timeline-view">
 
-                    @@include('../partials/_filters.html')
-                </div><!--end view with filter-->
+            <form class="clearfix">
+               <div class="custom-select">
+                  <label class="delta-alt">Graph</label>
+                  <select>
+                     <option>Posts</option>
+                     <option>Categories</option>
+                     <option>Type</option>
+                     <option>Status</option>
+                  </select>
+               </div>
+               <div class="inline ">
+                  <label class="checkbox-label">
+                     <input type="checkbox">
+                     <span>Show cumulative totals</span>
+                  </label>
+               </div>
+            </form>
 
-                <div class="divider"></div>
+            <div id="timeline" class="timeline">
+               <img src="../../img/timeline-view.png" alt="Timeline View" />
+            </div>
 
-                <div class="main-col timeline-view">
+         </div>
 
-                    <form class="clearfix">
-                        <div class="custom-select">
-                            <label class="delta-alt">Graph</label>
-                            <select>
-                                <option>Posts</option>
-                                <option>Categories</option>
-                                <option>Type</option>
-                                <option>Status</option>
-                            </select>
-                        </div>
-                        <div class="inline ">
-                            <label class="checkbox-label">
-                                <input type="checkbox">
-                                <span>Show cumulative totals</span>
-                            </label>
-                        </div>
-                    </form>
+      </main> <!--end layout a-->
 
-                    <div id="timeline" class="timeline">
-                        <img src="../../img/timeline-view.png" alt="Timeline View" />
-                    </div>
+   </div>
 
-                </div> <!--end main column-->
+   @@include('../partials/_footer.html')
 
-            </div> <!--end main column-->
+   @@include('../partials/_scripts.html')
 
-        </main> <!--end layout a-->
-
-    </div>
-
-    @@include('../partials/_footer.html')
-
-@@include('../partials/_scripts.html')
-
-<script>
-// Make header dynamic
-headerMakeDynamic();
-</script>
+   <script>
+   // Make header dynamic
+   headerMakeDynamic();
+   </script>
 </body>
 
 </html>

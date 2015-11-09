@@ -1,3 +1,4 @@
+/*
 // add/remove .active class on tabs
 $('.tabs-menu ul li').click(function() {
     $(this).parent().find('li.active').removeClass('active');
@@ -22,6 +23,12 @@ $('ul.tabs-menu-list li').click(function() {
     $(this).parent().prev('#tabs-menu-selection').html($(this).text());
     $(this).parent().toggleClass('visible');
     $(this).parent().siblings('.tabs-menu-button-js').toggleClass('open');
+});
+*/
+
+//
+$('.tabs-menu-trigger').on('click', function(){
+   $(this).closest('.tabs-menu').toggleClass('active');
 });
 
 $('.vertical-tabs-menu').each(function(){

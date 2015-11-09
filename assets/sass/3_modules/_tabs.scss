@@ -8,14 +8,51 @@
       padding: $sm-spacing 0;
    }
 
-   label {
-      display: none;
+   .tabs-menu-trigger {
+      position: absolute;
+      z-index: 2;
+      top: $sm-spacing;
+      right: $sm-spacing;
+      color: $yellow;
+      @extend .button-secondary;
+      color: transparent;
+      font-size: 1px;
+      letter-spacing: -1px;
+      margin: 0;
+
+      &:before {
+         @include fa-icon();
+         content: $fa-var-chevron-down;
+         color: $yellow;
+         font-size: 1rem;
+         letter-spacing: normal;
+         padding: 0;
+      }
 
       @include media($small) {
-         display: block;
+         position: static;
          @include float(left);
+         color: $dk-gray;
+         font-size: em(13);
+         font-weight: $bold;
+      	text-transform: uppercase;
+      	letter-spacing: 1px;
+         border: none;
+         background-color: transparent;
+         padding: 0;
          @include margin-right($sm-spacing);
-         margin-top: $sm-spacing;
+         margin-top: 12px;
+
+         &:before {
+            content: none;
+         }
+
+         &:hover {
+            cursor: default;
+            color: $dk-gray;
+            border: none;
+            background-color: transparent;
+         }
       }
    }
 
@@ -103,7 +140,7 @@
          }
       }
 
-      &.visible li{
+      &.visible li {
 
          &:not(.active) {
             display: block;
@@ -162,6 +199,33 @@
          display: none;
       }
 
+   }
+
+   &:hover {
+      border-color: $border-color-dark;
+   }
+
+   &.active {
+      border-color: $border-color-dark;
+
+      &:after {
+         @include transform(rotate(180deg));
+      }
+
+      .tabs-menu-trigger:before {
+         @include transform(rotate(180deg));
+      }
+
+      .tabs-menu-list {
+
+         li:not(.active) {
+            display: block;
+
+            @include media($small) {
+               display: inline-block;
+            }
+         }
+      }
    }
 
 }
