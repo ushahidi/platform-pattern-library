@@ -9,62 +9,63 @@
 
 <body class="has-dynamic-header">
 
-    @@include('../partials/_header-full.html')
+   @@include('../partials/_header-full.html')
 
-    <div class="wrapper">
+   <div class="wrapper">
 
-        @@include('../partials/_main-menu.html')
+      @@include('../partials/_main-menu.html')
 
-        <main class="page-content has-aside" role="main">
-
+      <main class="page-content has-aside" role="main">
+         <div class="page-header">
             <h1 class="inline">Aleppo Terrorist Attacks, 2012</h1>
             <a href="tools-template.html" class="cta settings">Saved Search Settings</a>
             <a href="tools-template.html" class="cta notify">Get Notifications</a>
 
             <div class="applied-filters">
-                <div class="pills">
-                    <button type="button" class="button-secondary alt close filter-applied">
-                        <span>Keyword:</span> Terrorist
-                    </button>
-                    <button type="button" class="button-secondary alt close filter-applied">
-                        <span>Category:</span> Attack
-                    </button>
-                    <button type="button" class="button-secondary alt close filter-applied">
-                        <span>Location:</span> Within 10km of Aleppo
-                    </button>
-                    <button type="button" class="button-secondary alt close filter-applied deactive">
-                        <span>Location:</span> Within 10km of Aleppo
-                    </button>
-                    <button type="button" class="button-secondary alt close filter-applied">
-                        <span>Dates:</span> 1/1/2012 - 1/1/2013
-                    </button>
-                </div>
-                <div class="save-button">
-                    <button type="button" class="save">
-                        Save this search
-                    </button>
-                </div>
+               <div class="pills">
+                  <button type="button" class="button-secondary alt close filter-applied">
+                     <span>Keyword:</span> Terrorist
+                  </button>
+                  <button type="button" class="button-secondary alt close filter-applied">
+                     <span>Category:</span> Attack
+                  </button>
+                  <button type="button" class="button-secondary alt close filter-applied">
+                     <span>Location:</span> Within 10km of Aleppo
+                  </button>
+                  <button type="button" class="button-secondary alt close filter-applied deactive">
+                     <span>Location:</span> Within 10km of Aleppo
+                  </button>
+                  <button type="button" class="button-secondary alt close filter-applied">
+                     <span>Dates:</span> 1/1/2012 - 1/1/2013
+                  </button>
+               </div>
+               <div class="save-button">
+                  <button type="button" class="save">
+                     Save this search
+                  </button>
+               </div>
             </div>
 
-            <div class="tabs-with-filter">
-                @@include('../partials/_tabs-with-label.html')
-            </div><!--end view with filter-->
+            <div class="tabs-with-filter" data-view="map">
+               @@include('../partials/_tabs-with-label.html', {
+                  "context": "map"
+               })
 
-            @@include('../partials/_filters-aside.html')
+               @@include('../partials/_filters.html')
+            </div>
+         </div>
 
-            <div class="main-col">
+         <div class="main-col">
+            <div id="map" class="map"></div>
+         </div>
 
-                <div id="map" class="map"></div>
+      </main> <!--end layout a-->
 
-            </div> <!--end main column-->
+   </div>
 
-        </main> <!--end layout a-->
+   @@include('../partials/_footer.html')
 
-    </div>
-
-@@include('../partials/_footer.html')
-
-@@include('../partials/_scripts.html')
+   @@include('../partials/_scripts.html')
 </body>
 
 </html>
