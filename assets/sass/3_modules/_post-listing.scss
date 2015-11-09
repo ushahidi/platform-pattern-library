@@ -1,17 +1,19 @@
 .single-post-listing {
     @include clearfix;
-    @extend .zebra-list-alt;
-    border-top: $base-border;
-    border-left: $base-border;
-    border-right: $base-border;
+    //@extend .zebra-list-alt;
+    background: $white;
+    border: $base-border;
     clear: both;
     //overflow:hidden;
     _overflow:visible;
     zoom:1;
+    margin: $sm-spacing 0;
 
     @include media($small) {
         border-left: $base-border;
         border-right: $base-border;
+        border-bottom: $base-border;
+        margin: $base-spacing 0;
     }
 
     @include media($large) {
@@ -21,19 +23,15 @@
         padding: $sm-spacing;
 
         @include media($small) {
-            padding: $sm-spacing $base-spacing 0;
+            padding: $base-spacing;
             @include border-left($base-border);
         }
 
         @include media($large) {
            @include border-right($base-border);
            width: 75%;
-           @include float(left);
-           min-height: 204px;
-        }
-
-        .meta-data {
-            margin-top: 15px;
+           @include float(left); 
+           min-height: 224px;
         }
 
     }
