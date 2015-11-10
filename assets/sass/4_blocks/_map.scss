@@ -6,6 +6,26 @@
     height: 700px;
     //@include span-columns(11);
     z-index: $map;
+
+    .form-field {
+        position: relative;
+        z-index: $on-top-of-map;
+        top: $sm-spacing;
+        @include left(60px);
+
+        input {
+             @include padding-left(30px);
+             max-width: 70%;
+        }
+    }
+
+    a.locate {
+        position: absolute;
+        top: 8px;
+        @include left(10px);
+       // color: $link-color;
+    }
+
 }
 
 .custom-map-marker {

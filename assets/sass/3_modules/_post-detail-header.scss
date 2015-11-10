@@ -1,11 +1,13 @@
 .post-header {
    position: relative;
    @include clearfix;
-//   border-bottom: $base-border;
-   padding: $base-spacing 110px $base-spacing $sm-spacing;
+   padding: $sm-spacing $base-spacing;
+
+   @include media($mobile) {
+      padding: $base-spacing 110px $base-spacing $sm-spacing;
+   }
 
    @include media($small) {
-      position: static;
       border-color: transparent;
       background-color: transparent;
       padding: $base-spacing $base-spacing $sm-spacing;
@@ -62,9 +64,13 @@
    }
 
    .actions-toggle-trigger {
-      position: absolute;
-      top: $base-spacing;
-      right: $sm-spacing;
+      margin-top: $sm-spacing;
+
+      @include media($mobile) {
+         position: absolute;
+         top: $base-spacing;
+         right: $sm-spacing;
+      }
 
       [data-toggle].active {
          border-color: $border-color-active;
@@ -83,4 +89,28 @@
          margin: -$sm-spacing 0 0;
       }
    }
+
+   .edit-post-title {
+      margin-bottom: 0;
+
+      input {
+         max-width: none;
+         width: 100%;
+
+         @include media($medium) {
+           width: 60%;
+        }
+
+      }
+
+   }
+
+   .save-post-button {
+      @include media($mobile) {
+         position: absolute;
+         top: 20px;
+         @include right(20px); 
+      }
+   }
+
 }
