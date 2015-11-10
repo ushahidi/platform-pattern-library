@@ -128,8 +128,8 @@
       }
    }
 
-   // SEARCH
-   &.search {
+   // SEARCH & LOCATE
+   &.search, &.location {
       position: relative;
 
       @include icon($before, search) {
@@ -144,10 +144,21 @@
          display: none;
       }
 
-      input[type="search"] {
+      input[type="search"], input[type="text"] {
          padding-left: 27px;
       }
    }
+
+   &.location {
+      @include icon($before, locate) {
+         position: absolute;
+         top: 8px;
+         left: $sm-spacing;
+         color: $blue;
+         font-size: 16px;
+      }
+   }
+
 
    // TOGGLE SWITCH
    &.switch {

@@ -1,13 +1,13 @@
-.post-detail { //body class
+.post-detail { //article class
 
    .post-header {
 
       @include media($small) {
-         padding-right: 20%;
+         @include padding-right(20%);
       }
 
       @include media($medium) {
-         padding-right: 25%;
+         @include padding-right(25%);
       }
    }
 
@@ -32,8 +32,8 @@
    .vertical-tabs-menu {
 
       &.init {
-         margin-right: 110px;
-         margin-left: $sm-spacing;
+         @include margin-right(110px);
+         @include margin-left($sm-spacing);
 
          @include media($small) {
             width: 20%;
@@ -59,40 +59,15 @@
       .main-col {
 
          @include media($small) {
-            padding-left: 0;
+            @include padding-left(0);
          }
 
          @include media($medium) {
-            padding: 0 $sm-spacing 0 0;
+            @include lrswap(padding, 0 $sm-spacing 0 0);
          }
       }
    }
 
-   /*
-   .main-col {
-
-      p {
-         line-height: 1.5;
-         font-size: em(17);
-
-         @include media($small) {
-            font-size: em(19);
-         }
-
-         &:first-of-type {
-            font-size: em(19);
-            padding-top: $sm-spacing;
-            margin-top: $sm-spacing;
-
-         @include media($small) {
-            font-size: em(22);
-            border-top: $base-border;
-            padding-top: $base-spacing;
-            margin-top: $base-spacing;
-         }
-      }
-   }
-   */
 }
 
 #map {
@@ -107,22 +82,3 @@
    }
 
 }
-
-/*
-.post-detail, .create-post {
-
-.main-col {
-padding-top: $base-spacing;
-
-@include media($medium) {
-padding-top: 0;
-@include padding-right($lg-spacing);
-}
-
-@include media($large) {
-@include padding-right($lg-spacing*5);
-}
-
-}
-}
-*/
