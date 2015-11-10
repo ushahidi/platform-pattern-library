@@ -121,12 +121,13 @@ input[type="button"] {
    }
 
    &.disabled, &[disabled] {
+      opacity: 0.75;
       background-color: $white;
-      cursor: default;
+      cursor: not-allowed;
       color: $dk-gray;
 
       &:before, &:after {
-         color: $dk-gray; //icon colors
+         color: $mid-gray; //icon colors
       }
 
       &:hover {
@@ -147,6 +148,13 @@ input[type="button"] {
          color: $link-color;
       }
 
+      &.disabled, &[disabled] {
+         opacity: 0.75;
+
+         &:before, &:after {
+            color: $mid-gray; //icon colors
+         }
+      }
    }
 
    &.icon-only {
@@ -415,10 +423,6 @@ input[type="button"] {
          &:before,
          &:after {
             padding: 0 3px;
-         }
-
-         @include media($small) {
-            margin-bottom: $sm-spacing;
          }
       }
 

@@ -1,7 +1,21 @@
 .page-header {
+   @include clearfix;
+   position: relative;
    padding: 0 $sm-spacing;
 
    @include media($small) {
       padding: 0 $base-spacing;
+   }
+
+   .page-header-actions {
+      position: absolute;
+      right: $sm-spacing;
+      bottom: 0;
+      text-align: right;
+
+      @include media($small) {
+         right: $base-spacing;
+         bottom: $sm-spacing;
+      }
    }
 }
