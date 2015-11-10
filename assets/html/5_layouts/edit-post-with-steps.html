@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <title>The Ushahidi Platform Pattern Library</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" type="image/ico" href="../../favicon.ico" />
+
+    <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>-->
+    <link href='../../fonts/Lato/css/fonts.css' rel='stylesheet' type='text/css'>
+<link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+</head>
+
+
+<body class="has-fixed-bottom has-dynamic-header">
+
+   <header class="header header-compact overlay" role="banner">
+    <div class="container">
+        <div class="hero-image">
+            <img src="../../img/header-bk.jpg" alt="" />
+        </div>
+
+        <div class="color-overlay">
+            <div class="parallax">
+                <div class="nav-icon nav-icon-js">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <a href="">
+                    <h1 class="beta">Syria Tracker</h1>
+                </a>
+                <p class="header-description">Crowdsourcing the data of the Syrian Conflict since April 2011</p>
+
+                <div class="create-admin">
+                    <a class="button button-primary" href="choose-post-type.html">
+                        <span class="icon-left fa-plus">Add Post</span>
+                    </a>
+
+                    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
+        <div class="user-avatar">
+            <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
+        </div>
+        <span class="username">Jonathan Doe</span>
+    </div>
+    <ul class="dropdown-menu toggle-content" role="menu">
+        <li><a href="#">Account Settings</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Log Out</a></li>
+    </ul>
+</div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+
+   <div class="wrapper">
+
+      <nav class="navigation" role="navigation">
+    <div class="nav-icon nav-icon-js open">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <a class="button button-primary">
+        <span class="icon-left fa-plus">Add Post</span>
+    </a>
+    <ul class="main-nav">
+        <li><a href="home-map.html">Home</a></li>
+        <li><a href="layout-a.html">About</a></li>
+        <li><a href="activity.html">Activity</a></li>
+        <li data-message="customize">
+            <span data-toggle="toggle-content">Settings</span>
+            <ul class="toggle-content">
+                <li><a href="#">General</a></li>
+                <li><a href="#">Appearance</a></li>
+                <li><a href="data-sources.html">Data Sources</a></li>
+                <li><a href="#">Plugins</a></li>
+                <li><a href="tools-structure.html">Posts &amp; Entities</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="users.html">Users</a></li>
+                <li><a href="#">Permissions</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="user-admin logged-in dropdown">
+    <div data-toggle="toggle-content">
+        <div class="user-avatar">
+            <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
+        </div>
+        <span class="username">Jonathan Doe</span>
+    </div>
+    <ul class="dropdown-menu toggle-content" role="menu">
+        <li><a href="#">Account Settings</a></li>
+        <li><a href="#">Notifications</a></li>
+        <li><a href="#">Log Out</a></li>
+    </ul>
+</div>
+
+
+    <div class="sub-nav">
+        <h6 class="zeta saved-searches">Saved Searches</h6>
+        <ul>
+            <li><a href="" class="saved-search">Public Posts</a><span class="star"></span></li>
+            <li><a href="">Terrorist Attacks, 2013</a><span class="star"></span></li>
+            <li><a href="">Missing People</a><span class="star"></span></li>
+            <li><a href="">Roadside Explosions</a><span class="star"></span></li>
+            <li><a href="">Violence in Aleppo</a><span class="star"></span></li>
+            <li><a href="">Posts by David Kobia</a> <span class="star"></span>
+                <p class="credit">By <a href="">David Kobia</a></p>
+            </li>
+            <li><a href="">Missing Children since 2012</a><span class="star"></span>
+                <p class="credit">By <a href="">Brandon Rosage</a></p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sub-nav">
+        <h6 class="zeta collections">Collections</h6>
+        <ul>
+            <li><a href="">Needs Follow-up</a><span class="star"></span></li>
+            <li><a href="">Hi-res Photos</a><span class="star"></span></li>
+            <li><a href="">Shared on Facebook</a><span class="star"></span></li>
+            <li><a href="">Kobia's Saved Posts</a><span class="star"></span>
+                <p class="credit">By <a href="">David Kobia</a></p>
+            </li>
+        </ul>
+        <button type="button" class="button-secondary plus">
+            <span>New Collection</span>
+        </button>
+    </div>
+</nav>
+
+
+      <main class="page-content" role="main">
+
+         <article class="post-detail" role="article">
+            <header class="post-header">
+               <h1 class="post-title">Edit Incident</h1>
+               <input type="text" placeholder="Rescue needed near New Summit College Baneshwor">
+
+               <fieldset class="custom-fieldset init">
+                  <legend class="dropdown-trigger init" data-toggle="dropdown-menu"><span class="icon-left fa-users">Who Can See this Post?</span></legend>
+
+                  <div class="dropdown-menu init">
+                     <div class="form-field checkbox">
+                        <input type="checkbox" id="collection1">
+                        <label for="collection1">Collection 1</label>
+                     </div>
+                     <div class="form-field checkbox">
+                        <input type="checkbox" id="collection2" checked="">
+                        <label for="collection2">Another Collection 2</label>
+                     </div>
+                     <div class="form-field checkbox">
+                        <input type="checkbox" id="collection3">
+                        <label for="collection3">Extra Collection 3</label>
+                     </div>
+                     <div class="form-field checkbox">
+                        <input type="checkbox" id="collection1">
+                        <label for="collection1">Collection 4</label>
+                     </div>
+                     <div class="form-field checkbox">
+                        <input type="checkbox" id="collection2" checked="">
+                        <label for="collection2">Another Collection 5</label>
+                     </div>
+                     <div class="form-field checkbox">
+                        <input type="checkbox" id="collection3">
+                        <label for="collection3">Extra Collection 6</label>
+                     </div>
+                  </div>
+               </fieldset>
+
+            </header>
+
+            <div class="vertical-tabs">
+               <nav class="vertical-tabs-menu init">
+                  <ul>
+                     <li class="active"><span class="icon-left fa-file-o">Post</span></li>
+                     <li><a href=""><span class="icon-left fa-thumbs-o-up">Verification</span></a> <span class="status complete"></span></li>
+                     <li><a href=""><span class="icon-left fa-language">Spanish Translation</span></a> <span class="status"></span></li>
+                  </ul>
+               </nav>
+
+               <div class="vertical-tabs-content">
+                  <div class="main-col">
+                     
+                     <div class="post-author">
+                        <img class="circular" src="http://placehold.it/100x100" alt="">
+                        <p><strong class="icon-left fa-circle">Incident</strong> posted at 12:20 PM <strong>Jan. 10, 2015</strong> <br />by <a href="">David Kobia</a></p>
+                     </div>
+
+                     <div class="form-field">
+                         <label>Description</label>
+                         <textarea placeholder="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                        </textarea>
+                     </div>
+
+                     <div class="form-field">
+                        <label>Location</label>
+                        <div id="map" class="map">
+                           <input type="text" placeholder="2400 S. Congress">
+                        </div>
+                     </div>
+
+                     <div class="form-field">
+                         <label>Short Text</label>
+                         <input type="text">
+                     </div>
+
+                     <div class="form-field">
+                         <label>Long Text</label>
+                         <textarea placeholder=""></textarea>
+                     </div>
+
+                     <div class="form-field">
+                        <fieldset>
+                            <legend>Radio Buttons</legend>
+                            <div class="form-field radio">
+                                <input type="radio" id="option1">
+                                <label for="option1">Option 1</label>
+                            </div>
+                            <div class="form-field radio">
+                                <input type="radio" id="option2">
+                                <label for="option2">Option 2</label>
+                            </div>
+                            <div class="form-field radio">
+                                <input type="radio" id="option3">
+                                <label for="option3">Option 3</label>
+                            </div>
+                        </fieldset>
+                     </div>
+
+                     <div class="form-field">
+                        <label>Related Post</label>
+                        <div class="custom-select">
+                           <select>
+                              <option>St. David's Medical Center</option>
+                              <option>Option 2</option>
+                              <option>Option 3</option>
+                           </select>
+                        </div>
+                     </div>
+
+
+
+                  </div>
+               </div>
+            </div>
+         </article> <!--end main column-->
+
+      </main> <!--end layout b-->
+
+   </div>
+
+   <footer role="contentinfo">
+    <div class="wrapper">
+        <div class="footer-container">
+            <h2>Syria Tracker</h2>
+            <p>Crowdsourcing the data of the Syrian Conflict since April 2011</p>
+            <p class="small"><em>Powered by <a href="">The Ushahidi Platform</a>.</em></p>
+            <ul class="footer-nav">
+                <li><a href="home-map.html">Home</a></li>
+                <li><a href="layout-a.html">About</a></li>
+                <li><a href="activity.html">Activity</a></li>
+                <li><a href="activity.html">Settings</a></li>
+                <li><a href="activity.html">Help</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="../../js/app.js"></script>
+
+</body>
+
+</html>
