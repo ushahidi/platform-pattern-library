@@ -1,207 +1,208 @@
 .settings-listing {
-    @extend .zebra-list-alt;
-    padding: 18px $sm-spacing;
-    position: relative;
-    border-right: $base-border;
-    border-left: $base-border;
+   @extend .zebra-list-alt;
+   padding: 18px $sm-spacing;
+   position: relative;
+   border-right: $base-border;
+   border-left: $base-border;
 
-    @include media($small) {
-        padding: $sm-spacing 0;
-    }
+   @include media($small) {
+      padding: $sm-spacing 0;
+   }
 
-    .select {
-        @include float(left);
-        text-align: center;
-        width: 6%;
-        margin: ($sm-spacing+5px) 3%;
+   .select {
+      @include float(left);
+      text-align: center;
+      width: 6%;
+      margin: ($sm-spacing+5px) 3%;
 
-        @include media($mobile) {
-            width: 2%;
-            @include lrswap (margin, ($sm-spacing+3px) 4% 0 2%);
-        }
+      @include media($mobile) {
+         width: 2%;
+         @include lrswap (margin, ($sm-spacing+3px) 4% 0 2%);
+      }
 
-        @include media($small) {
-            width: 3%;
-            margin: ($base-spacing+5px) 3%;
-        }
+      @include media($small) {
+         width: 3%;
+         margin: ($base-spacing+5px) 3%;
+      }
 
-        input {
-            margin: 0;
-        }
+      input {
+         margin: 0;
+      }
 
-    }
+   }
 
-    h3 {
-        @include padding-left($sm-spacing);
-        margin: $sm-spacing 0;
+   .settings-listing-title {
+      font-size: em(18);
+   }
 
-        @include media($small) {
-            @include padding-left($base-spacing);
-            margin: $base-spacing 0;
-        }
+   .settings-listing-title,
+   h3 {
+      @include padding-left($sm-spacing);
+      margin: $sm-spacing 0;
 
-        strong {
-            position: relative;
-            top: -3px;
-            color: $white;
-            font-size: 14px;
-            text-transform: uppercase;
-            @include equal-radius();
-            background-color: $mid-gray;
-            padding: 5px;
-            margin-right: $tiny-spacing;
-        }
+      @include media($small) {
+         @include padding-left($base-spacing);
+         margin: $base-spacing 0;
+      }
 
-        em {
-            font-weight: normal;
-            font-size: 16px;
-            padding-left: $tiny-spacing;
-        }
-    }
+      strong {
+         position: relative;
+         top: -3px;
+         color: $white;
+         font-size: 14px;
+         text-transform: uppercase;
+         @include equal-radius();
+         background-color: $mid-gray;
+         padding: 5px;
+         margin-right: $tiny-spacing;
+      }
 
-    .upvote-downvote {
-        position: absolute;
-        top: 10px;
-        @include left($sm-spacing);
+      em {
+         font-weight: normal;
+         font-size: 16px;
+         padding-left: $tiny-spacing;
+      }
+   }
 
-        @include media($small) {
-            top: $sm-spacing;
-            @include left($sm-spacing);
-        }
+   .upvote-downvote {
+      position: absolute;
+      top: 10px;
+      @include left($sm-spacing);
 
-    }
+      @include media($small) {
+         top: $sm-spacing;
+         @include left($sm-spacing);
+      }
 
-    .alt.plus, .toggle-switch {
-        position: absolute;
-        top: 14px;
-        @include left(4px);
-        @include lrswap(padding, 8px 4px 8px 9px);
+   }
 
-        @include media($small) {
-            top: ($base-spacing + 6px);
-            @include left($sm-spacing);
-        }
+   .alt.plus, .toggle-switch {
+      position: absolute;
+      top: 14px;
+      @include left(4px);
+      @include lrswap(padding, 8px 4px 8px 9px);
 
-    }
+      @include media($small) {
+         top: ($base-spacing + 6px);
+         @include left($sm-spacing);
+      }
 
-    .toggle-switch {
-        padding: 0;
-    }
+   }
 
-    .upvote-downvote + .toggle-switch {
-        @include left(40px);
+   .toggle-switch {
+      padding: 0;
+   }
 
-        @include media($small) {
-            @include left(50px);
-        }
+   .upvote-downvote + .toggle-switch {
+      @include left(40px);
 
-    }
+      @include media($small) {
+         @include left(50px);
+      }
 
-    .upvote-downvote + h3, .plus + h3 {
-        @include padding-left(45px); //this last value offsets the title from the upvotes or plus button
+   }
 
-        @include media($small) {
-            @include padding-left($sm-spacing + 45px);
-        }
+   .upvote-downvote + h3, .plus + h3 {
+      @include padding-left(45px); //this last value offsets the title from the upvotes or plus button
 
-    }
+      @include media($small) {
+         @include padding-left($sm-spacing + 45px);
+      }
 
-    .toggle-switch + h3 {
-        @include padding-left(70px); //this last value offsets the title from the upvotes or plus button
+   }
 
-        @include media($small) {
-            @include padding-left($sm-spacing + 70px);
-        }
+   .toggle-switch + h3 {
+      @include padding-left(70px); //this last value offsets the title from the upvotes or plus button
 
-    }
+      @include media($small) {
+         @include padding-left($sm-spacing + 70px);
+      }
 
-    .upvote-downvote + .toggle-switch + h3 {
-        @include padding-left(100px); //this last value offsets the title from the upvotes or plus button
+   }
 
-        @include media($small) {
-            @include padding-left($sm-spacing + 110px);
-        }
+   .upvote-downvote + .toggle-switch + h3 {
+      @include padding-left(100px); //this last value offsets the title from the upvotes or plus button
 
-    }
+      @include media($small) {
+         @include padding-left($sm-spacing + 110px);
+      }
 
-    [data-toggle] {
-        display: none;
+   }
 
-        &.init {
-            display: inline-block;
-        }
-    }
+   [data-toggle] {
+      display: none;
 
-    .actions {
-        position: absolute;
-        @include right($sm-spacing);
-        top: ($base-spacing + 1px);
+      &.init {
+         display: inline-block;
+      }
+   }
 
-        @include media($small) {
-            top: ($base-spacing + 7px);
-        }
+   .actions {
+      position: absolute;
+      @include right($sm-spacing);
+      top: ($base-spacing + 1px);
 
-        button {
+      button {
+         @include float(left);
+         margin-bottom: $sm-spacing;
+         @include margin-left($tiny-spacing);
+
+         &.open {
+            @include icon($before, close);
+         }
+
+      }
+
+      .toggle-switch {
+         @include float(right);
+         @include margin-left($sm-spacing);
+      }
+
+   }
+
+   .toggle-switch + button {
+      @include float(left);
+   }
+
+   form, .form {
+      clear: both;
+      border-top: $base-border;
+      margin-top: $base-spacing + 16;
+
+      @include media($small) {
+         padding: 0 $sm-spacing 0;
+         margin-top: ($base-spacing + 14px);
+      }
+
+      &.toggle-content.init {
+         display: none;
+
+         &.active {
+            display: block;
+         }
+      }
+
+      .select-inline {
+         @include media($mobile) {
             @include float(left);
-            margin-bottom: $sm-spacing;
-            @include margin-left($tiny-spacing);
+            @include lrswap(margin, -$base-spacing $base-spacing $base-spacing 0);
+         }
 
-            &.open {
-                @include icon($before, close);
-            }
+      }
 
-        }
+      .button-primary {
+         margin-top: $base-spacing;
+      }
 
-        .toggle-switch {
-            @include float(right);
-            @include margin-left($sm-spacing);
-        }
+   }
 
-    }
+   .edit {
+      padding: 8px 12px;
+   }
 
-    .toggle-switch + button {
-        @include float(left);
-    }
-
-    form, .form {
-        clear: both;
-        border-top: $base-border;
-        margin-top: $base-spacing + 16;
-
-        @include media($small) {
-            padding: 0 $sm-spacing 0;
-            margin-top: ($base-spacing + 14px);
-        }
-
-        &.toggle-content.init {
-            display: none;
-
-            &.active {
-                display: block;
-            }
-        }
-
-        .select-inline {
-            @include media($mobile) {
-                @include float(left);
-                @include lrswap(margin, -$base-spacing $base-spacing $base-spacing 0);
-            }
-
-        }
-
-        .button-primary {
-            margin-top: $base-spacing;
-        }
-
-    }
-
-    .edit {
-        padding: 8px 12px;
-    }
-
-    p {
-        font-size: 1em;
-        line-height: 1;
-    }
+   p {
+      font-size: 1em;
+      line-height: 1;
+   }
 
 }
