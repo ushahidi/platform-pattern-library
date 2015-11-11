@@ -148,39 +148,51 @@
 
 
       <main class="page-content" role="main">
-         <div class="post-detail">
 
-            <div class="page-header">
-               <div class="page-header-body">
-                  <h1 class="page-title"><span class="icon-left fa-pencil">Edit Incident</span></h1>
-               </div>
-               <div class="page-header-actions">
-                  <button>Save Post</button>
-               </div>
-            </div>
-
-            <div class="divider white"></div>
-
-            <div class="post-header">
-               <div class="form-field title">
-                  <label>Title</label>
-                  <input type="text" value="Rescue needed near New Summit College Baneshwor" />
+         <article class="post-detail" role="article">
+            <header class="post-header">
+               <h1 class="post-title">
+                  <span class="icon-left fa-pencil">
+                     Edit Incident
+                  </span>
+               </h1>
+               <div class="form-field edit-post-title">
+                  <label>Edit Post Title</label>
+                  <input type="text" placeholder="Rescue needed near New Summit College Baneshwor">
                </div>
 
-               <div class="form-field select">
-                  <div class="custom-select">
-                     <select>
-                        <option selected>Everyone</option>
-                        <option>Editors</option>
-                        <option>Administrators</option>
-                     </select>
+               <fieldset class="custom-fieldset edit-post-permissions">
+                  <legend><span class="icon-left fa-users">Who Can See This Post?</span></legend>
+                  <div class="form-field checkbox">
+                     <input type="checkbox" id="collection1" />
+                     <label for="collection1">Everyone</label>
                   </div>
-                  <label><span class="nodisplay">Who</span> can see this post</label>
+               ​
+                  <div class="form-field checkbox">
+                     <input type="checkbox" id="collection2" checked />
+                     <label for="collection2">Registered Users</label>
+                  </div>
+               ​
+                  <div class="form-field checkbox">
+                     <input type="checkbox" id="collection3" />
+                     <label for="collection3">Editors</label>
+                  </div>
+               ​
+                  <div class="form-field checkbox">
+                     <input type="checkbox" id="collection4" />
+                     <label for="collection4">Only Me</label>
+                  </div>
+   
+               </fieldset>
+
+               <div class="save-post-button">
+                  <button type="button" class="button-primary">Save Post</button>
                </div>
-            </div>
+
+            </header>
 
             <div class="vertical-tabs">
-               <nav class="vertical-tabs-menu">
+               <nav class="vertical-tabs-menu init">
                   <ul>
                      <li class="active"><span class="icon-left fa-file-o">Post</span></li>
                      <li><a href=""><span class="icon-left fa-thumbs-o-up">Verification</span></a> <span class="status complete"></span></li>
@@ -189,67 +201,78 @@
                </nav>
 
                <div class="vertical-tabs-content">
-                  <div class="post-author">
-                     <img class="circular" src="http://placehold.it/100x100" alt="">
-                     <p><strong class="icon-left fa-circle">Incident</strong> posted at 12:20 PM <strong>Jan. 10, 2015</strong> <br />by <a href="">David Kobia</a></p>
-                  </div>
-
-                  <div class="form-field">
-                      <label>Description</label>
-                      <textarea>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-
-Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</textarea>
-                  </div>
-
-                  <div class="form-field">
-                     <label>Location</label>
-                     <div id="map" class="map">
-                        <input type="text" placeholder="2400 S. Congress">
+                  <div class="main-col">
+                     
+                     <div class="post-author">
+                        <img class="circular" src="http://placehold.it/100x100" alt="">
+                        <p><strong class="icon-left fa-circle">Incident</strong> posted at 12:20 PM <strong>Jan. 10, 2015</strong> <br />by <a href="">David Kobia</a></p>
                      </div>
-                  </div>
 
-                  <div class="form-field">
-                      <label>Short Text</label>
-                      <input type="text">
-                  </div>
+                     <div class="form-field">
+                         <label>Description</label>
+                         <textarea placeholder="">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
 
-                  <div class="form-field">
-                      <label>Long Text</label>
-                      <textarea placeholder=""></textarea>
-                  </div>
-
-                  <div class="form-field">
-                     <fieldset>
-                         <legend>Radio Buttons</legend>
-                         <div class="form-field radio">
-                             <input type="radio" id="option1">
-                             <label for="option1">Option 1</label>
-                         </div>
-                         <div class="form-field radio">
-                             <input type="radio" id="option2">
-                             <label for="option2">Option 2</label>
-                         </div>
-                         <div class="form-field radio">
-                             <input type="radio" id="option3">
-                             <label for="option3">Option 3</label>
-                         </div>
-                     </fieldset>
-                  </div>
-
-                  <div class="form-field">
-                     <label>Related Post</label>
-                     <div class="custom-select">
-                        <select>
-                           <option>St. David's Medical Center</option>
-                           <option>Option 2</option>
-                           <option>Option 3</option>
-                        </select>
+Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                        </textarea>
                      </div>
+
+                     <div class="form-field">
+                        <label>Location</label>
+                        <div id="map" class="map">
+                           <div class="form-field">
+                              <input type="text" placeholder="2400 S. Congress">
+                              <a class="icon-left fa-location-arrow locate" href="">
+                                 
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="form-field">
+                         <label>Short Text</label>
+                         <input type="text">
+                     </div>
+
+                     <div class="form-field">
+                         <label>Long Text</label>
+                         <textarea placeholder=""></textarea>
+                     </div>
+
+                     <div class="form-field">
+                        <fieldset>
+                            <legend>Radio Buttons</legend>
+                            <div class="form-field radio">
+                                <input type="radio" id="option1">
+                                <label for="option1">Option 1</label>
+                            </div>
+                            <div class="form-field radio">
+                                <input type="radio" id="option2">
+                                <label for="option2">Option 2</label>
+                            </div>
+                            <div class="form-field radio">
+                                <input type="radio" id="option3">
+                                <label for="option3">Option 3</label>
+                            </div>
+                        </fieldset>
+                     </div>
+
+                     <div class="form-field">
+                        <label>Related Post</label>
+                        <div class="custom-select">
+                           <select>
+                              <option>St. David's Medical Center</option>
+                              <option>Option 2</option>
+                              <option>Option 3</option>
+                           </select>
+                        </div>
+                     </div>
+
+
+
                   </div>
                </div>
             </div>
-
-         </div> <!--end main column-->
+         </article> <!--end main column-->
 
       </main> <!--end layout b-->
 
