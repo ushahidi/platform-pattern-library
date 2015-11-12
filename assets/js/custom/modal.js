@@ -1,5 +1,7 @@
 modalToggle = function(element) {
-   var target = element !== 'undefined' ? element : $('.modal');
+   var target = typeof element !== 'undefined' ? element : '.modal';
+
+   console.log(target);
 
    if ($('body').hasClass('modal-visible')) { // If modal is already visible...
       $('body').removeClass('modal-visible');
@@ -7,11 +9,11 @@ modalToggle = function(element) {
          $('.modal').fadeOut('fast');
       }, 400);
    } else { // If modal isn't yet visible...
-   modalYpos();
-   $(target).fadeIn('fast', function(){
-      $('body').addClass('modal-visible');
-   });
-}
+      modalYpos();
+      $(target).fadeIn('fast', function(){
+         $('body').addClass('modal-visible');
+      });
+   }
 }
 
 modalYpos = function() {
