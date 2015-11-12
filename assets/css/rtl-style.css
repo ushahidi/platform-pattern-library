@@ -3970,8 +3970,8 @@ form button, form input[type="button"], .form button, .form input[type="button"]
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
 .custom-select {
-  position: relative;
   display: inline-block;
+  position: relative;
   margin-bottom: 20px; }
   /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
   .custom-select:before {
@@ -3995,22 +3995,83 @@ form button, form input[type="button"], .form button, .form input[type="button"]
     left: 0;
     line-height: 30px;
     text-shadow: none;
+    text-decoration: none;
     padding: 0 8px;
     pointer-events: none;
     color: #ffc334; }
-  /* line 17, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+  /* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
   .custom-select select {
     min-height: 33px;
     direction: rtl;
+    font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 0.9375em;
     border-radius: 5px 5px 5px 5px;
     border: 1px solid #dddddd;
     background: #ffffff;
     padding: 5px 10px 5px 30px;
-    font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    font-size: 0.9375em;
     -webkit-appearance: none;
     -moz-appearance: none; }
+  /* line 36, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+  .custom-select[class*="fa-"]:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    margin-top: -9px; }
+  /* line 44, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+  .custom-select[class*="fa-"] select {
+    padding-left: 30px; }
+  /* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+  .custom-select.cta {
+    margin-bottom: 0;
+    /*
+      &:after {
+         @include fa-icon;
+         content: $fa-var-chevron-down;
+         color: $yellow;
+         top: 50%;
+         color: $link-color;
+         font-size: em(16);
+         font-family: $base-font-family;
+         text-decoration: underline;
+         line-height: 1;
+         padding: 0;
+         margin-top: -6px;
+         margin-left: $sm-spacing;
+      }
+*/ }
+    /* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+    .custom-select.cta[class*="fa-"]:before {
+      position: relative;
+      top: -2px;
+      left: auto;
+      margin-top: 0;
+      margin-right: 5px; }
+    /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+    .custom-select.cta:after {
+      top: 2px;
+      line-height: 1;
+      border-radius: 5px 5px 5px 5px;
+      border: 1px solid #dddddd;
+      background: #ffffff;
+      padding: 5px; }
+    /* line 85, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+    .custom-select.cta select {
+      height: auto;
+      min-height: auto;
+      font-size: 1.25em;
+      border: none;
+      background-color: transparent;
+      padding: 5px 30px 5px 0; }
+      /* line 93, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_custom-select.scss */
+      .custom-select.cta select:hover {
+        cursor: pointer; }
 
 /*------------------------------------*\
 $ICONS
@@ -7999,36 +8060,45 @@ aside .filters {
   .post-header .post-title {
     margin: 0 0 15px; }
   /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
-  .post-header .meta-data {
-    font-size: 0.9375em;
-    margin: 0; }
+  .post-header .post-permissions {
+    margin-bottom: 0; }
     @media screen and (min-width: 48em)  {
-      .post-header .meta-data {
+      .post-header .post-permissions {
         float: right;
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 40.29137%;
-        margin-top: 17px; }
+        width: 48.82117%;
+        margin-top: 10px; }
         /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
-        .post-header .meta-data:last-child {
+        .post-header .post-permissions:last-child {
           margin-right: 0; } }
+    /* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+    .post-header .post-permissions .meta-data {
+      margin: 6px 0; }
+    /* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+    .post-header .post-permissions .custom-select {
+      margin-bottom: 0; }
+  /* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+  .post-header .meta-data {
+    font-size: 0.9375em;
+    margin: 0; }
   @media screen and (min-width: 48em)  {
     .post-header .actions-toggle {
       float: left;
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 57.35098%;
+      width: 48.82117%;
       text-align: right;
       margin-top: 10px; }
       /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
       .post-header .actions-toggle:last-child {
         margin-right: 0; }
-      /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+      /* line 73, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
       .post-header .actions-toggle button, .post-header .actions-toggle .button, .post-header .actions-toggle .button-secondary, .post-header .actions-toggle .button-toggle, .post-header .actions-toggle .tabs-menu .tabs-menu-trigger, .tabs-menu .post-header .actions-toggle .tabs-menu-trigger, .post-header .actions-toggle .filters .filters-toggle:after, .filters .post-header .actions-toggle .filters-toggle:after, .post-header .actions-toggle .button-destructive, .post-header .actions-toggle .custom-fieldset {
         text-align: left; } }
-  /* line 67, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+  /* line 79, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
   .post-header .actions-toggle-trigger {
     margin-top: 10px; }
     @media screen and (min-width: 30em)  {
@@ -8036,29 +8106,19 @@ aside .filters {
         position: absolute;
         top: 20px;
         right: 10px; } }
-    /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+    /* line 88, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
     .post-header .actions-toggle-trigger [data-toggle].active {
       border-color: #9d9d9d; }
-      /* line 79, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+      /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
       .post-header .actions-toggle-trigger [data-toggle].active .icon-left:before {
         content: "\f00d"; }
-  /* line 85, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
+  /* line 97, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
   .post-header .actions-content {
     padding: 0;
     margin-top: 10px; }
     @media screen and (min-width: 48em)  {
       .post-header .actions-content {
         margin: -10px 0 0; } }
-  /* line 94, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
-  .post-header .edit-post-title {
-    margin-bottom: 0; }
-    /* line 97, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-detail-header.scss */
-    .post-header .edit-post-title input {
-      max-width: none;
-      width: 100%; }
-      @media screen and (min-width: 64em)  {
-        .post-header .edit-post-title input {
-          width: 60%; } }
   @media screen and (min-width: 30em)  {
     .post-header .save-post-button {
       position: absolute;

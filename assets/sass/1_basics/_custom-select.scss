@@ -1,30 +1,98 @@
 .custom-select {
-    position: relative;
-    display: inline-block;
-    @include icon($after, chevron-down) {
-        @include radius(0, $global-radius, $global-radius, 0);
-        position: absolute;
-        top: 0;
-        @include right(0);
-        line-height: 30px;
-        text-shadow: none;
-        padding: 0 8px;
-        pointer-events: none;
-        color: $yellow;
-   }
+   display: inline-block;
+   position: relative;
    margin-bottom: $base-spacing;
 
-    select {
-        min-height: 33px;
-        @include direction;
-        @include radius($global-radius);
-        border: $base-border;
-        background: $white;
-        @include lrswap(padding, $tiny-spacing 30px $tiny-spacing $sm-spacing);
-        font-family: $base-font-family;
-        font-weight: 400;
-        font-size: em(15);
-        -webkit-appearance: none;
-        -moz-appearance: none;
-    }
+   @include icon($after, chevron-down) {
+      @include radius(0, $global-radius, $global-radius, 0);
+      position: absolute;
+      top: 0;
+      @include right(0);
+      line-height: 30px;
+      text-shadow: none;
+      text-decoration: none;
+      padding: 0 8px;
+      pointer-events: none;
+      color: $yellow;
+   }
+
+   select {
+      min-height: 33px;
+      @include direction;
+      font-family: $base-font-family;
+      font-weight: 400;
+      font-size: em(15);
+      @include radius($global-radius);
+      border: $base-border;
+      background: $white;
+      @include lrswap(padding, $tiny-spacing 30px $tiny-spacing $sm-spacing);
+      -webkit-appearance: none;
+      -moz-appearance: none;
+   }
+
+   // Includes icon
+   &[class*="fa-"] {
+
+      &:before {
+         @include fa-icon;
+         position: absolute;
+         top: 50%;
+         left: $sm-spacing;
+         margin-top: -9px;
+      }
+
+      select {
+         padding-left: 30px;
+      }
+   }
+
+   // Call-to-action treatment
+   &.cta {
+      margin-bottom: 0;
+
+      &[class*="fa-"]:before {
+         position: relative;
+         top: -2px;
+         left: auto;
+         margin-top: 0;
+         margin-right: $tiny-spacing;
+      }
+
+      &:after {
+         top: 2px;
+         line-height: 1;
+         @include radius($global-radius);
+         border: $base-border;
+         background: $white;
+         padding: $tiny-spacing;
+      }
+/*
+      &:after {
+         @include fa-icon;
+         content: $fa-var-chevron-down;
+         color: $yellow;
+         top: 50%;
+         color: $link-color;
+         font-size: em(16);
+         font-family: $base-font-family;
+         text-decoration: underline;
+         line-height: 1;
+         padding: 0;
+         margin-top: -6px;
+         margin-left: $sm-spacing;
+      }
+*/
+      select {
+         height: auto;
+         min-height: auto;
+         font-size: em(20);
+         border: none;
+         background-color: transparent;
+         padding: $tiny-spacing 30px $tiny-spacing 0;
+
+         &:hover {
+            cursor: pointer;
+         }
+      }
+   }
 }

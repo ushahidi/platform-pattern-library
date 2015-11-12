@@ -32,7 +32,17 @@
             <h4 class="delta-alt">
                 Who can see this
             </h4>
-            <p><span class="icon-left fa-globe">Everyone </span> <a href="" class="cta">Change</a></p>
+            <!-- IF: User has permission to change who the post is visible to -->
+            <div class="custom-select cta">
+               <select>
+                  <option data-icon="fa-globe">Everyone</option>
+                  <option>Editors</option>
+                  <option data-icon="fa-user">Administrators</option>
+               </select>
+            </div>
+            <!-- ELSE //
+            <p><span class="icon-left fa-globe">Everyone</span></p>
+            // END IF -->
         </div>
         @@include('../partials/_actions-toggle.html')
     </div>

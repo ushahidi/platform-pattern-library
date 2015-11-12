@@ -37,22 +37,34 @@
       margin: 0 0 15px;
    }
 
-   .meta-data {
-      font-size: em(15);
-      margin: 0;
+   .post-permissions {
+      margin-bottom: 0;
 
       @include media($small) {
          @include float(left);
-         @include span-columns(5);
-         margin-top: 17px;
+         @include span-columns(6);
+         margin-top: $sm-spacing;
       }
+
+      .meta-data {
+         margin: 6px 0;
+      }
+
+      .custom-select {
+         margin-bottom: 0;
+      }
+   }
+
+   .meta-data {
+      font-size: em(15);
+      margin: 0;
    }
 
    .actions-toggle {
 
       @include media($small) {
          @include float(right);
-         @include span-columns(7);
+         @include span-columns(6);
          text-align: right;
          margin-top: $sm-spacing;
 
@@ -91,27 +103,11 @@
       }
    }
 
-   .edit-post-title {
-      margin-bottom: 0;
-
-      input {
-         max-width: none;
-         width: 100%;
-
-         @include media($medium) {
-           width: 60%;
-        }
-
-      }
-
-   }
-
    .save-post-button {
       @include media($mobile) {
          position: absolute;
          top: 20px;
-         @include right(20px); 
+         @include right(20px);
       }
    }
-
 }
