@@ -1,5 +1,6 @@
 .filters {
    @include clearfix;
+   text-align: left;
 
    .filters-toggle {
       position: relative;
@@ -106,7 +107,8 @@
       position: absolute;
       top: 100%;
       @include right(0);
-      @include left(50%);
+      @include left(0);
+      z-index: $filter;
       background: $white;
       padding: $sm-spacing $sm-spacing 0;
       border: $base-border;
@@ -123,10 +125,7 @@
       }
 
       @include media($small) {
-         top: 62px;
-         @include right(0);
          bottom: inherit;
-         @include left(75%);
          max-width: 300px;
          border-top: 5px solid $black;
          @include box-shadow($top: 2px, $left: 0, $blur: 3px, $spread: 0px, $color: rgba(0,0,0,.08));
@@ -135,14 +134,6 @@
          &:after {
             width: 100%;
          }
-      }
-
-      @include media($medium) {
-         @include left(67%);
-      }
-
-      @include media($large) {
-         @include left(75%);
       }
 
       #{$all-text-inputs} {
@@ -238,6 +229,33 @@
 
       }
 
+   }
+
+   .layout-b & {
+
+      .filters-toggle {
+
+         @include media($small) {
+            text-align: left;
+            padding-right: 0;
+            padding-left: 0;
+
+            &:after {
+               content: none;
+            }
+
+            &:hover {
+               cursor: default;
+            }
+         }
+      }
+
+      .filters-container {
+
+         @include media($small) {
+            display: block;
+         }
+      }
    }
 
 }

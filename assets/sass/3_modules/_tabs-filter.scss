@@ -41,12 +41,28 @@
       }
 
       .filters-container {
+         @include left(0);
 
          &.active {
             border-color: $border-color-dark;
             border-top-color: $black;
          }
 
+         @include media($mobile) {
+            @include left(50%);
+         }
+
+         @include media($small) {
+            @include left(75%);
+         }
+
+         @include media($medium) {
+            @include left(67%);
+         }
+
+         @include media($large) {
+            @include left(75%);
+         }
       }
    }
 
@@ -91,8 +107,7 @@
       @include border-left(0);
    }
 
-   &[data-view="map"],
-   &[data-view="users"] {
+   .layout-b & {
 
       .filters-toggle {
 
@@ -100,13 +115,5 @@
             display: none;
          }
       }
-
-      .filters-container {
-
-         @include media($small) {
-            display: block;
-         }
-      }
    }
-
 }

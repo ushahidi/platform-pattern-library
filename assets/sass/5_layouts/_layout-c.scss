@@ -1,21 +1,48 @@
 .layout-c {
-    margin-bottom: $base-spacing;
 
-    @include media($medium) {
+    .page-header {
 
-        .main-col {
-            @include span-columns(8);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-        }
+      @include media($mobile) {
+         padding-right: 110px;
+      }
 
-        .secondary-col {
-            @include span-columns(4);
-            @include float(left);
-            @include margin-right(0);
-        }
+      @include media($small) {
+          @include padding-right(20%);
+      }
 
-    }
+      @include media($medium) {
+          @include padding-right(25%);
+      }
+
+      .page-header-body,
+      .page-header-actions {
+
+         @include media($medium) {
+            margin-top: 0;
+         }
+      }
+   }
+
+   .vertical-tabs {
+
+      @include media($medium) {
+         padding-left: $base-spacing;
+      }
+   }
+
+   .vertical-tabs-content {
+
+      .post-field {
+         max-width: 600px;
+
+         @include media($large) {
+            max-width: 75%;
+         }
+
+         &:last-child {
+            margin-bottom: 0;
+         }
+      }
+   }
 
 }

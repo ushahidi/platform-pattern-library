@@ -126,7 +126,11 @@
             position: relative;
             font-size: 1rem;
             color: $highlight;
-            @include lrswap(padding, 0 10px 0 1px);
+            padding: 0;
+
+            @include media($mobile) {
+               @include lrswap(padding, 0 10px 0 1px);
+            }
          }
       }
     }
@@ -294,6 +298,14 @@
 
             [class*="icon-"] {
 
+               @include icon($position: before, $icon: false, $styles: true) {
+                  top: 1px;
+                  color: $highlight;
+                  font-size: 1rem;
+                  letter-spacing: normal;
+                  padding-right: $sm-spacing;
+               }
+
                @include media($mobile-down) {
                   color: transparent;
                   font-size: 1px;
@@ -302,14 +314,6 @@
                   &:before {
                      padding: 0;
                   }
-               }
-
-               @include icon($position: before, $icon: false, $styles: true) {
-                  top: 1px;
-                  color: $highlight;
-                  font-size: 1rem;
-                  letter-spacing: normal;
-                  padding-right: $sm-spacing;
                }
             }
 

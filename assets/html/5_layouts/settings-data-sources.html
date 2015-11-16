@@ -68,7 +68,7 @@
 </header>
 
 
-   <div class="wrapper has-full-header">
+   <div class="wrapper">
 
       <nav class="navigation" role="navigation">
     <div class="nav-icon nav-icon-js open">
@@ -150,120 +150,113 @@
       <main class="page-content" role="main">
          <div class="page-header">
             <ul class="breadcrumb">
-               <li>
-                  Settings
-               </li>
-               <li>
-                  <a href="">Import</a>
-               </li>
+               <li>Settings</li>
             </ul>
-            <h1>Import CSV</h1>
+            <div class="page-header-body">
+               <h1 class="page-title">Data Sources</h1>
+            </div>
+            <div class="page-header-actions">
+               <button class="button-secondary"><span class="icon-left fa-plus">Add Data Source</span></button>
+            </div>
          </div>
 
          <div class="main-col">
-            <ol class="progress">
-               <li><span class="complete">Choose file</span></li>
-               <li><span class="complete">Organize data</span></li>
-               <li class="active">Configure posts</li>
-            </ol>
+            <p>
+               <em>You can configure options for data sources, and then turn on and off sources.</em>
+            </p>
 
-            <h2>Configure all imported posts</h2>
-
-            <form class="segment">
-               <div class="form-field">
-                  <label for="visibility">Make posts visible to</label>
-                  <div class="custom-select">
-                     <select name="visibility">
-                        <option selected>Everyone</option>
-                        <option>Members</option>
-                        <option>Administrators</option>
+            <div class="settings-listing">
+               <div class="toggle-switch">
+                  <input class="tgl" id="switch3" type="checkbox">
+                  <label class="tgl-btn" for="switch3"></label>
+               </div>
+               <h3 class="settings-listing-title">Twitter User</h3>
+               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
+                  <span>Options</span>
+               </button>
+               <form class="toggle-content">
+                  <label class="input-label">Twitter Username</label>
+                  <input type="text" placeholder="@example">
+                  <div class="select-inline">
+                     <label class="input-label">Import As:</label>
+                     <select name="visible-to">
+                        <option value="volvo">Option 1</option>
+                        <option value="saab">Option 2</option>
+                        <option value="fiat">Option 3</option>
                      </select>
                   </div>
+                  <p class="clearfix">
+                     <label>
+                        <input type="checkbox">
+                        These posts need to be approved by administrators
+                     </label>
+                  </p>
+                  <button type="button" class="button-primary">Save Data Source</button>
+               </form>
+            </div>
+            <div class="settings-listing">
+               <div class="toggle-switch">
+                  <input class="tgl" id="switch3" type="checkbox">
+                  <label class="tgl-btn" for="switch3"></label>
                </div>
-
-               <!-- IF: Post Type has "Verification" step -->
-               <div class="form-field switch">
-                  <label for="verified">Mark posts as <strong>Verified</strong></label>
-
-                  <div class="toggle-switch">
-                     <input class="tgl" id="verified" type="checkbox">
-                     <label class="tgl-btn" for="verified"></label>
+               <h3 class="settings-listing-title">SMS</h3>
+               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
+                  <span>Options</span>
+               </button>
+               <form class="toggle-content">
+                  <label class="input-label">From Number</label>
+                  <input type="text" placeholder="750-325-1343">
+                  <div class="select-inline">
+                     <label class="input-label">Import As:</label>
+                     <select name="visible-to">
+                        <option value="volvo">Option 1</option>
+                        <option value="saab">Option 2</option>
+                        <option value="fiat">Option 3</option>
+                     </select>
                   </div>
+                  <p class="clearfix">
+                     <label>
+                        <input type="checkbox">
+                        These posts need to be approved by administrators
+                     </label>
+                  </p>
+                  <button type="button" class="button-primary">Save Data Source</button>
+               </form>
+            </div>
+            <div class="settings-listing">
+               <div class="toggle-switch">
+                  <input class="tgl" id="switch4" type="checkbox">
+                  <label class="tgl-btn" for="switch4"></label>
                </div>
-               <!-- END:IF -->
-
-               <div class="form-field">
-                  <fieldset>
-                     <legend>Select categories that apply to all posts</legend>
-
-                     <div class="form-field checkbox">
-                        <input type="checkbox" />
-                        <label>Category 1</label>
-                     </div>
-
-                     <div class="form-field checkbox">
-                        <input type="checkbox" />
-                        <label>Category 2</label>
-                     </div>
-
-                     <div class="form-field checkbox">
-                        <input type="checkbox" />
-                        <label>Category 3</label>
-                     </div>
-                  </fieldset>
-               </div>
-
-               <fieldset class="form-field">
-                  <legend>Assign value to unused post fields</legend>
-                  <p class="small">Any unused <strong>Accident Report</strong> fields are listed below. You can assign the same value to each field for all imported posts, or leave the unused fields blank.</p>
-
-                  <table>
-                     <thead>
-                        <tr>
-                           <th>Accident report field name</th>
-                           <th>Value</th>
-                        </tr>
-                     </thead>
-
-                     <tbody>
-                        <tr>
-                           <td>Location</td>
-                           <td><input type="text" /></td>
-                        </tr>
-
-                        <tr>
-                           <td>Author</td>
-                           <td><input type="text" /></td>
-                        </tr>
-
-                        <tr>
-                           <td>Source</td>
-                           <td>
-                              <div class="custom-select">
-                                 <select name="source">
-                                    <option selected>Web</option>
-                                    <option>SMS</option>
-                                    <option>Email</option>
-                                 </select>
-                              </div>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </fieldset>
-
-               <div class="actions-inline actions-right">
-                  <button class="button-link">Cancel import</button>
-                  <button type="submit">Finish import</button>
-               </div>
-            </form>
+               <h3 class="settings-listing-title">Facebook</h3>
+               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
+                  <span>Options</span>
+               </button>
+               <form class="toggle-content">
+                  <label class="input-label">From Number</label>
+                  <input type="text" placeholder="750-325-1343">
+                  <div class="select-inline">
+                     <label class="input-label">Import As:</label>
+                     <select name="visible-to">
+                        <option value="volvo">Option 1</option>
+                        <option value="saab">Option 2</option>
+                        <option value="fiat">Option 3</option>
+                     </select>
+                  </div>
+                  <p class="clearfix">
+                     <label>
+                        <input type="checkbox">
+                        These posts need to be approved by administrators
+                     </label>
+                  </p>
+                  <button type="button" class="button-primary">Save Data Source</button>
+               </form>
+            </div>
          </div><!--end main col-->
-
       </main> <!--end layout a-->
-
    </div>
 
-   <footer role="contentinfo">
+<footer role="contentinfo">
     <div class="wrapper">
         <div class="footer-container">
             <h2>Syria Tracker</h2>
@@ -281,7 +274,7 @@
 </footer>
 
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 

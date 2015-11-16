@@ -1,18 +1,8 @@
 .user-listing {
 
     .img {
-        width: 26%;
-        @include lrswap(padding, 0 4% 0 2%);
-
-        @include media($mobile) {
-            width: 20%;
-        }
-
-        @include media($medium) {
-            width: 15%;
-            @include lrswap(padding, 0 2% 0 0);
-        }
-
+        width: 90px;
+        @include lrswap(padding, 0 $base-spacing 0 $sm-spacing);
     }
 
     .bd {
@@ -28,10 +18,16 @@
 
         h3 {
             padding: 0;
+            margin-bottom: 0;
+
+            @include media($small) {
+               margin-top: 7px;
+            }
 
             @include media($medium) {
                 @include float(left);
                 width: 70%;
+                margin-top: 17px;
             }
         }
 
@@ -42,7 +38,7 @@
             @include media($medium) {
                 @include float(right);
                 width: 30%;
-                margin-top: $base-spacing + 10px;
+                margin-top: 25px;
             }
         }
 

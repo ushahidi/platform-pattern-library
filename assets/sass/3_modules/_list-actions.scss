@@ -1,52 +1,72 @@
 .list-actions {
-    @include clearfix;
+   @include clearfix;
+   margin: $sm-spacing 0;
 
-    @include media($small) {
-        border-top: $base-border;
-        padding: $base-spacing 0;
-    }
+   @include media($small) {
+      border-top: $base-border;
+      padding: $base-spacing 0;
+      margin: 0;
+   }
 
-    .bulk-actions {
-        @include float(right);
+   .bulk-actions {
+      @include float(right);
 
-        @include media($small) {
-            padding: 0;
-        }
+      @include media($small) {
+         padding: 0;
+      }
 
-        button,
-        .custom-fieldset {
-            @include float(left);
-        }
+      button,
+      .custom-fieldset {
+         @include float(left);
+      }
 
-        .dropdown {
-            @include float(left);
+      .dropdown {
+         @include float(left);
 
-            button {
-                margin: 0;
+         button {
+            margin: 0;
 
-                &:before {
-                    color: $blue;
-                }
-
+            &:before {
+               color: $blue;
             }
 
-        }
+         }
 
-        .custom-fieldset.init {
+      }
 
-            legend:after {
-                color: $blue;
+      .button-secondary,
+      .button-destructive {
+
+         &.alt {
+            color: $black;
+            border-color: $border-color;
+
+            [class*="icon-"]:before {
+               color: $blue;
             }
-        }
-    }
 
-    .button-link {
-        @include float(left);
-        margin-top: 7px;
-    }
+            &:hover {
+               background-color: $white;
+            }
+         }
+      }
 
-    .button-secondary {
-        @include margin-left($sm-spacing);
-    }
+      .custom-fieldset.init {
+
+         legend:after {
+            color: $blue;
+         }
+      }
+   }
+
+   .button-link {
+      @include float(left);
+      margin-top: 7px;
+   }
+
+   .button-secondary,
+   .button-destructive {
+      @include margin-left($sm-spacing);
+   }
 
 }

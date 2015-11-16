@@ -308,14 +308,18 @@
       border-width: 2px;
       border-bottom-color: $white;
       background-color: $white;
-      margin: 0 $base-spacing;
+      margin: 0 $sm-spacing;
 
       @include media($small) {
          float: right;
-         width: 25%;
+         width: 20%;
          border: none;
          background-color: transparent;
          margin: 0;
+      }
+
+      @include media($medium) {
+         width: 25%;
       }
 
       &:before {
@@ -425,18 +429,6 @@
          }
       }
    }
-
-   + .vertical-tabs-content {
-      position: relative;
-      top: -2px;
-      min-height: 50px;
-
-      @include media($small) {
-         float: left;
-         width: 75%;
-         margin: 0;
-      }
-   }
 }
 
 .vertical-tabs-content {
@@ -444,6 +436,7 @@
    border-top: $base-border;
    border-width: 2px;
    background-color: $white;
+   padding: 0 $sm-spacing;
 
    @include media($small) {
       border-right: $base-border;
@@ -456,11 +449,29 @@
       border-width: 2px;
    }
 
-   .page-body {
-      padding-bottom: $sm-spacing;
+   .vertical-tabs &,
+   .vertical-tabs-menu + & {
+      position: relative;
+      top: -2px;
+      min-height: 50px;
 
       @include media($small) {
-         padding-bottom: $base-spacing;
+         float: left;
+         width: 80%;
+         margin: 0;
+      }
+
+      @include media($medium) {
+         width: 75%;
+      }
+   }
+
+   .page-header {
+      padding: 0;
+
+      .page-header-body,
+      .page-header-actions {
+         margin-top: 0;
       }
    }
 }
