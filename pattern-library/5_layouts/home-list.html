@@ -9,57 +9,58 @@
 
 <body class="has-dynamic-header">
 
-    @@include('../partials/_header-full.html')
+   @@include('../partials/_header-full.html')
 
-    <div class="wrapper">
+   <div class="wrapper">
 
-        @@include('../partials/_main-menu.html')
+      @@include('../partials/_main-menu.html')
 
-        <main class="page-content" role="main">
+      <main class="page-content" role="main">
 
-            <div class="main-col">
+         <div class="page-header">
+            <h1>All Posts</h1>
 
-                <h1>All Posts</h1>
+            <div class="tabs-with-filter" data-view="list">
+               @@include('../partials/_tabs-with-label.html', {
+                  "context": "list"
+               })
 
-                <div class="tabs-with-filter">
-                    @@include('../partials/_tabs-with-label.html', {
-                      "context": "list"
-                    })
+               @@include('../partials/_filters.html')
+            </div>
+         </div>
 
-                    @@include('../partials/_filters.html')
-                </div><!--end view with filter-->
+         <div class="main-col">
 
-                @@include('../partials/_list-actions.html')
+            @@include('../partials/_list-actions.html')
 
-                @@include('../partials/_post-listing-with-image.html')
+            @@include('../partials/_post-listing-with-image.html')
 
-                @@include('../partials/_post-listing-without-image.html')
+            @@include('../partials/_post-listing-without-image.html')
 
-                @@include('../partials/_post-listing-without-image.html')
-                
-                @@include('../partials/_post-listing-with-image.html')
+            @@include('../partials/_post-listing-without-image.html')
 
-                @@include('../partials/_post-listing-without-image.html')
+            @@include('../partials/_post-listing-with-image.html')
 
-                @@include('../partials/_post-listing-with-image.html')
+            @@include('../partials/_post-listing-without-image.html')
 
+            @@include('../partials/_post-listing-with-image.html')
 
-                @@include('../partials/_pagination.html')
+            @@include('../partials/_pagination.html')
 
-            </div> <!--end main column-->
+         </div> <!--end main column-->
 
-        </main> <!--end layout a-->
+      </main> <!--end layout a-->
 
-    </div>
+   </div>
 
-    @@include('../partials/_footer.html')
+   @@include('../partials/_footer.html')
 
-@@include('../partials/_scripts.html')
+   @@include('../partials/_scripts.html')
 
-<script>
-// Make header dynamic
-headerMakeDynamic();
-</script>
+   <script>
+   // Make header dynamic
+   headerMakeDynamic();
+   </script>
 </body>
 
 </html>
