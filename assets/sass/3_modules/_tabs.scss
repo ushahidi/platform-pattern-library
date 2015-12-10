@@ -296,7 +296,9 @@
 
 }
 
-.vertical-tabs {@include clearfix;}
+.vertical-tabs {
+    @include clearfix;
+}
 
 .vertical-tabs-menu {
 
@@ -312,7 +314,7 @@
 
       @include media($small) {
          float: right;
-         width: 20%;
+         width: 30%;
          border: none;
          background-color: transparent;
          margin: 0;
@@ -332,6 +334,11 @@
          @include media($small) {
             content: none;
          }
+
+         :hover & {
+             cursor: pointer;
+         }
+
       }
 
       ul {
@@ -349,24 +356,22 @@
          font-size: em(14);
          list-style-type: none;
          margin: $sm-spacing;
-         margin-right: 60px;
 
          @include media($small) {
             display: table;
             font-size: em(15);
             border-left: $base-border;
             border-left-width: 2px;
-            padding: 15px $sm-spacing;
             margin: 0 30px 0 0;
+            padding: 30px 0;
          }
 
          @include media($medium) {
             font-size: em(16);
-            padding: 15px $base-spacing;
          }
 
          &:hover {
-            cursor: pointer;
+             cursor: pointer;
          }
 
          [class*="icon-"]:before {
@@ -388,12 +393,35 @@
             [class*="icon-"]:before {
                color: $mid-gray;
             }
+
+            a {
+                color: $black;
+
+                &:hover {
+                   cursor: default;
+                }
+
+            }
+
          }
+
+        a {
+            // display: inline-block;
+
+            @include media($small) {
+                padding: 30px $base-spacing;
+            }
+
+            &:hover {
+               cursor: pointer;
+            }
+
+        }
 
          .status {
             display: inline-block;
             position: absolute;
-            right: 30px;
+            right: 0;
             width: 20px;
             height: 20px;
             @include equal-radius(100%);
@@ -426,9 +454,13 @@
             @include media($small) {
                display: table;
             }
+
          }
+
       }
+
    }
+
 }
 
 .vertical-tabs-content {
@@ -457,7 +489,7 @@
 
       @include media($small) {
          float: left;
-         width: 80%;
+         width: 70%;
          margin: 0;
       }
 
