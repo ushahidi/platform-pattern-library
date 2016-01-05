@@ -1,75 +1,61 @@
 .header {
     position: relative;
-    height: auto;
+    height: 70px;
+    background-color: $black;
     color: $white;
     text-shadow: 0px 1px 1px $black;
 
-    .container {
-        position: relative;
-        overflow: hidden;
-        width: 100%;
-        max-width: none;
-        z-index: $topbar;
-    }
+    .deployment-title {
 
-    .hero-image img{
-        position: absolute;
-        top: 0;
-        @include left(0);
-        min-height: 100%;
-        min-width: 100%;
-        max-width: 100%;
-        z-index: $bg-img;
-    }
-
-    a h1 {
-        color: $white;
-        margin: 0 auto 10px;
-
-        &:hover {
-           opacity: .75;
-        }
-    }
-
-    &.overlay {
-
-        .color-overlay:after {
-            content: " ";
-            position: absolute;
-            top: 0;
-            @include left(0);
-            width: 100%;
-            height: 100%;
-            display: block;
-            z-index: $overlay;
-            background-color: $header-bg-color;
-            background-image: url('../img/map-bg.png');
+        @include media($small) {
+            position: relative;
+            display: inline-block;
+            @include lrswap(margin, 16px $sm-spacing 15px -15px);
+            z-index: $topbar;
         }
 
-        .hero-image + .color-overlay:after {
-            // If there is an custom image in div.hero-image, this is a color overlay
-            background: $header-bg-transparent;
-            -webkit-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            -moz-box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
-            box-shadow: inset 0px 147px 210px -73px rgba(0,0,0,0.4);
+        .avatar {
+            @include float(left);
+            border-radius: 100px;
+            width: 40px;
+            position: relative;
+            top: 15px;
+            @include margin-right(15px);
+
+            @include media($small) {
+                top: -1px;
+            }
+
         }
+
+        h2 {
+            display: none;
+
+            @include media($small) {
+                display: block;
+                @include float(left);
+                line-height: 1.2;
+                color: $white;
+                text-transform: uppercase;
+                margin: 0;
+
+                &:hover {
+                   opacity: .75;
+                }
+
+            }
+
+        }
+
     }
 
-    .nav-icon,
-    .beta,
-    .header-description,
-    .button-primary,
-    .user-admin {
+    .nav-icon {
         z-index: $body;
     }
 
     .nav-icon {
         @include float(left);
-        @include lrswap(margin, $base-spacing $sm-spacing 15px 15px);
-
-        @include media($medium) {
-            display: none;
-        }
+        @include lrswap(margin, 23px $sm-spacing 13px 25px);
 
         + .beta {
             margin-bottom: $sm-spacing;
@@ -77,247 +63,7 @@
 
     }
 
-    .beta {
-        display: inline-block;
-        margin: $base-spacing $sm-spacing;
-        font-weight: $bold;
-
-        @include media($small) {
-            margin: $lg-spacing $sm-spacing $sm-spacing;
-            font-size: 1.8em
-        }
-
-        @include media($medium) {
-            margin: $lg-spacing $base-spacing $base-spacing;
-        }
-
-    }
-
-    .header-description {
-        display: none;
-        text-align: center;
-        font-size: em(16);
-        margin: 0 auto;
-
-        @include media($mobile) {
-            width: 80%;
-        }
-
-        @include media($small) {
-            font-size: em(20);
-            max-width: 700px;
-        }
-    }
-
-   .button-primary {
-      color: $white;
-      font-weight: $bold;
-      font-size: em(14);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: none;
-      background-color: $button-bg-create-post;
-      margin: 18px;
-      @include lrswap(padding, 12px $base-spacing 15px);
-
-      [class*="icon-"] {
-
-         &:before {
-            position: relative;
-            font-size: 1rem;
-            color: $highlight;
-            padding: 0;
-
-            @include media($mobile) {
-               @include lrswap(padding, 0 10px 0 1px);
-            }
-         }
-      }
-    }
-
-    .other-sources {
-        color: $link-color-dark-bg;
-        text-align: center;
-        display: block;
-    }
-
-    .button-toggle:hover {
-        background-color: transparent;
-        border: none;
-    }
-
-    .user-admin {
-
-        &:before {
-            content: none;
-        }
-
-    }
-
-    .parallax {
-        position: relative;
-        z-index: $body;
-        bottom: 0;
-        padding-top: 1px;
-        @include outer-container;
-    }
-
-    &.header-full {
-        width: 100%;
-        z-index: $topbar;
-        text-align: center;
-
-        .nav-icon + .beta {
-            margin-top: 50px;
-        }
-
-        .beta {
-            display: block;
-            font-size: 1.75em;
-            text-align: center;
-            margin-bottom: $base-spacing;
-
-            @include media($small) {
-                font-size: 3em;
-            }
-
-        }
-
-        .header-description {
-            display: block;
-            margin-bottom: $base-spacing;
-        }
-
-        .create-admin {
-            text-align: center;
-        }
-
-        .button-primary {
-            position: static;
-            @include lrswap(padding, 14px $base-spacing 16px);
-            margin: auto;
-            margin-bottom: 25px;
-
-            @include media($small) {
-                margin-bottom: $lg-spacing;
-            }
-
-            @include media($medium) {
-                margin-top: $base-spacing;
-            }
-
-            i {
-                @include lrswap(padding, 0 10px 0 0);
-            }
-
-        }
-
-        .other-sources {
-            color: $white;
-            text-align: center;
-            display: block;
-            margin-bottom: $lg-spacing;
-
-            @include media($medium) {
-                margin-bottom: ($lg-spacing + 10px);
-            }
-
-        }
-
-        .user-admin {
-            display: none;
-
-            @include media($medium) {
-                display: block;
-            }
-
-        }
-
-    }
-
-    &.header-transition {
-
-        .container{
-            position: fixed;
-            top: -150px;
-            @include transition(all, .5s);
-        }
-
-        .parallax {
-            opacity: 1 !important;
-            bottom: 0 !important;
-        }
-
-    }
-
-    &.header-compact {
-        height: 80px;
-
-        @include media($medium) {
-            height: 70px;
-        }
-        .container {
-            position: fixed;
-            top: 0;
-            overflow: visible;
-            @include transition(all, .5s);
-        }
-
-        .color-overlay:after, .hero-image + .color-overlay:after {
-            background-color: rgba($header-bg-color, 0.9);
-        }
-
-        .beta {
-            margin: $base-spacing;
-        }
-
-        .create-admin {
-
-            @include media($medium) {
-                position: absolute;
-                top: 0;
-                @include right(0);
-            }
-
-        }
-
-        .button-primary {
-            @include float(left);
-            display: table;
-            position: absolute;
-            top: 0;
-            @include right(0);
-            opacity: 1;
-            padding: 12px 15px;
-            margin: 13px $base-spacing;
-
-            @include media($medium) {
-                display: inline-block;
-                position: relative;
-            }
-
-            [class*="icon-"] {
-
-               @include icon($position: before, $icon: false, $styles: true) {
-                  top: 1px;
-                  color: $highlight;
-                  font-size: 1rem;
-                  letter-spacing: normal;
-                  padding-right: $sm-spacing;
-               }
-
-               @include media($mobile-down) {
-                  color: transparent;
-                  font-size: 1px;
-                  letter-spacing: -1px;
-
-                  &:before {
-                     padding: 0;
-                  }
-               }
-            }
-
-        }
+    &.header {
 
         .user-admin {
             display: none;
@@ -325,28 +71,9 @@
             @include media($medium) {
                 display: inline-block;
                 position: relative;
-                @include float(left);
+                @include float(right);
             }
 
-        }
-
-        .other-sources {
-            display: none;
-        }
-
-        .parallax {
-            opacity: 1 !important;
-            bottom: 0 !important;
-            height: 68px;
-        }
-
-        .hero-image {
-            overflow: hidden;
-            position: fixed;
-            height: 68px;
-            top: 0;
-            width: 100%;
-            display: none;
         }
 
     }
