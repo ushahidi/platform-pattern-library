@@ -19,3 +19,9 @@ $('.main-nav li .hidden-content').find('li a').filter(function() {
         $(this).parent().parent().addClass('visible').siblings('.trigger-container').children('.hidden-content-trigger').addClass('open active');
     }
 });
+
+$('.toggle-menu').click(function(e){
+    $(this).addClass('collapsed');
+    $('.main-nav a, .sub-nav').toggle();
+    $('.main.dropdown-menu').addClass('collapsed');
+});

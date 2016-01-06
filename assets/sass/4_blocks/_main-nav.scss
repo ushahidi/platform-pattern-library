@@ -9,6 +9,11 @@
         @include media($medium) {
             display: block;
             width: auto;
+            height: 100vh;
+        }
+
+        &.collapsed {
+            min-width: 0;
         }
 
     }
@@ -43,14 +48,13 @@
 }
 
 .navigation {
-   position: fixed;
-   z-index: 602;
-   overflow: auto;
-   @include float(left);
-   background-color: white;
-   padding: $base-spacing;
-   width: 100%;
-   @include transition(all .25s, margin .4s);
+    z-index: 602;
+    overflow: auto;
+    @include float(left);
+    background-color: white;
+    @include lrswap(padding, $base-spacing 5px 0 15px);
+    width: 100%;
+    @include transition(all .25s, margin .4s);
 
    // @include media($mobile-up) {
    //    width: 45%;
@@ -369,5 +373,33 @@
    @include transition(all .25s, margin .4s);
 }
 */
+
+    .toggle-menu {
+        display: none;
+
+        @include media($medium) {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            @include right(0);
+            @include icon(after, exchange) {
+                color: $black;
+                @include lrswap(padding, 0 12px 10px 0);
+            }
+
+        }
+
+        &.collapsed {
+
+            @include media($medium) {
+                @include icon(after, exchange) {
+                    @include lrswap(padding, 0 20px 10px 0);
+                }
+
+            }
+
+        }
+
+    }
 
 }
