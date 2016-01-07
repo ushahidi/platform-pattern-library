@@ -21,7 +21,5 @@ $('.main-nav li .hidden-content').find('li a').filter(function() {
 });
 
 $('.toggle-menu').click(function(e){
-    $(this).addClass('collapsed');
-    $('.main-nav a, .sub-nav').toggle();
-    $('.main.dropdown-menu').addClass('collapsed');
+    $('.main-menu').toggleClass('collapsed');
 });

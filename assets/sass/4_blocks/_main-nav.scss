@@ -1,50 +1,54 @@
-.main {
+.main-menu {
 
     &.dropdown-menu {
         display: none;
         @include left(auto !important);
-        top: 71px;
         width: 100%;
 
         @include media($medium) {
             display: block;
             width: auto;
             height: 100vh;
+            top: 0;
+            z-index: 0;
         }
 
-        &.collapsed {
-            min-width: 0;
+        li:hover {
+            background: transparent;
+
+            a {
+                color: $black;
+            }
+
         }
 
     }
 
-}
+    &.collapsed {
 
-.navigation-open {
-   position: relative;
-   overflow: hidden;
+        @include media($medium) {
 
-   @include media($medium) {
-      overflow: auto;
+            .toggle-menu {
 
-      &:after {
-         content: none;
-      }
+                @include icon(after, exchange) {
+                    @include lrswap(padding, 0 20px 10px 0);
+                }
 
-   }
+            }
 
-}
+            .main-nav a,
+            .sub-nav {
+                display: none;
+            }
 
-.close-nav {
-   content: '';
-   position: absolute;
-   z-index: 601;
-   top: 0;
-   right: 0;
-   bottom: 0;
-   left: 0;
-   background-color: $dark-bg;
-   background-color: rgba(0,0,0,.45);
+            &.dropdown-menu {
+                min-width: 0;
+            }
+
+        }
+
+    }
+
 }
 
 .navigation {
@@ -56,123 +60,52 @@
     width: 100%;
     @include transition(all .25s, margin .4s);
 
-   // @include media($mobile-up) {
-   //    width: 45%;
-   // }
-   //
-   // @include media($small) {
-   //    width: 35%;
-   // }
 
-   @include media($medium) {
-      display: block;
-      visibility: visible;
-      position: static;
-    //   width: 20%;
-      @include left(0);
-      background-color: transparent;
-      padding-top: 0;
-      margin: $base-spacing 0 0;
-   }
+    @include media($medium) {
+        display: block;
+        visibility: visible;
+        position: static;
+        @include left(0);
+        background-color: transparent;
+        padding-top: 0;
+        margin: 70px 0 0;
+    }
 
    @include media($xlarge) {
       @include left(30px);
    }
 
-   /* five items */
-   &:nth-last-child(6),
-   &:nth-last-child(6) ~ ul {
-      position: absolute;
-   }
+    /* five items */
+    &:nth-last-child(6),
+    &:nth-last-child(6) ~ ul {
+        position: absolute;
+    }
 
-   .navigation-open & {
-      visibility: visible;
-      @include left(0);
-      height: 100%;
-   }
+    ul {
+        margin: 0 0 $base-spacing*2 0;
+    }
 
-   .nav-icon {
+    li {
+        padding: 8px 0;
 
-      @include media($medium) {
-         display: none;
-      }
+        a {
+            padding: $sm-spacing 0;
 
-   }
+            &.active {
+                color: $black;
+            }
 
-   .button-primary {
-      color: $white;
-      font-weight: $bold;
-      font-size: em(14);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border: none;
-      background-color: $button-bg-create-post;
-      @include lrswap(padding, 12px $base-spacing 14px);
-      margin: $base-spacing 0;
+        }
 
-      @include media($medium) {
-         display: none;
-      }
+    }
 
-      [class*="icon-"] {
+    .main-nav {
+        @extend .list-unstyled;
+        margin-bottom: 20px;
 
-         &:before {
-            position: relative;
-            font-size: 1rem;
-            color: $highlight;
-            @include lrswap(padding, 0 10px 0 1px);
-         }
-      }
-   }
-
-   .user-admin {
-      position: relative;
-      display: block;
-      color: $black;
-      padding: 15px 0;
-      border: 0;
-      border-top: $base-border;
-      border-bottom: $base-border;
-      border-radius: 0;
-
-      @include media($medium) {
-         display: none;
-      }
-
-      .button-toggle:after {
-         content: "\f078";
-      }
-
-      .toggle-wrapper {
-         @include text-align(left);
-      }
-
-   }
-
-   ul {
-      margin: 0 0 $base-spacing*2 0;
-   }
-
-   li {
-      padding: 8px 0;
-
-      a {
-         padding: $sm-spacing 0;
-
-         &.active {
-            color: $black;
-         }
-
-      }
-
-   }
-
-   .main-nav {
-      @extend .list-unstyled;
-
-      @include media($medium) {
-         padding-top: $sm-spacing;
-      }
+        @include media($medium) {
+            padding-top: $sm-spacing;
+        }
 
         li {
             margin-bottom: 0;
@@ -187,47 +120,51 @@
 
             }
 
-         a, span {
-            display: inline;
-            color: $link-color;
-            padding: 0;
-            text-transform: uppercase;
-            font-weight: $bold;
-            letter-spacing: 1.5px;
+            a, span {
+                display: inline;
+                color: $link-color;
+                padding: 0;
+                text-transform: uppercase;
+                font-weight: $bold;
+                letter-spacing: 1.5px;
 
-            &[data-toggle] {
-               display: block;
-               margin: 0;
+                &[data-toggle] {
+                   display: block;
+                   margin: 0;
 
-               &:hover {
-                  cursor: pointer;
-                  color: $link-hover-color;
-               }
+                   &:hover {
+                      cursor: pointer;
+                      color: $link-hover-color;
+                   }
 
-               @include icon($before, plus) {
-                  @include lrswap(padding, 0 5px 0 1px);
-               }
+                   @include icon($before, plus) {
+                      @include lrswap(padding, 0 5px 0 1px);
+                   }
 
-               &.active {
-                  @include icon($before, minus);
-               }
-            }
-         }
+                   &.active {
+                      @include icon($before, minus);
+                   }
 
-         ul {
-            margin: 10px 0 0px 0;
+                }
 
-            li {
-               @include lrswap(padding, $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px));
             }
 
-            a {
-               text-transform: none;
-               font-weight: normal;
-               letter-spacing: inherit;
+            ul {
+                margin: 10px 0 0px 0;
+
+                li {
+                    @include lrswap(padding, $tiny-spacing $tiny-spacing $tiny-spacing ($base-spacing - 3px));
+                }
+
+                a {
+                   text-transform: none;
+                   font-weight: normal;
+                   letter-spacing: inherit;
+                }
+
             }
-         }
-      }
+
+        }
 
         i {
             color: $mid-gray;
@@ -235,144 +172,83 @@
             @include padding-right(12px);
         }
 
-      .toggle-content {
-         display: none;
+        .toggle-content {
+            display: none;
 
-         &.active {
-            display: block;
-         }
-      }
-   }
+            &.active {
+                display: block;
+            }
 
-   .sub-nav {
-      @extend .list-unstyled;
-      margin: 0 0 $base-spacing*2 0;
-
-    h6.zeta {
-        color: #737373;
-        text-transform: uppercase;
-        font-size: 0.875em;
-    }
-
-    .starred {
-            @include icon($before, star) {
-           color: $mid-gray;
-           font-size: em(18);
-           @include padding-right(12px);
         }
 
     }
 
-      .saved-searches {
-         @include icon($before, filter) {
-            color: $mid-gray;
-            font-size: em(18);
-            @include padding-right(12px);
-         }
+    .sub-nav {
+        @extend .list-unstyled;
+        margin: 0 0 $base-spacing 0;
 
-      }
+        h6.zeta {
+            color: #737373;
+            text-transform: uppercase;
+            font-size: 0.875em;
+        }
 
-      .collections {
-         @include icon($before, collection) {
-            color: $mid-gray;
-            font-size: em(18);
-            @include padding-right(8px);
-         }
-
-      }
-
-      button {
-         margin: $sm-spacing 0 0 0;
-
-         &.button-secondary.has-icon {
-            @include icon ($before, plus) {
-               @include padding-right(10px);
+        .saved-searches {
+            @include icon($before, filter) {
+                color: $mid-gray;
+                font-size: em(18);
+                @include padding-right(12px);
             }
 
-         }
+        }
 
-      }
-
-      ul {
-         margin: 0;
-      }
-
-      li {
-         display: inline;
-         @include float(left);
-         clear: both;
-         margin: 0;
-         padding: 0;
-         border-width: 3px;
-         line-height: 1;
-      }
-
-      a {
-         @include padding-right(10px);
-      }
-
-      .star {
-         @include float(right);
-         @include icon($after, star) {
-            padding: 0;
-         }
-         color: $mid-gray;
-         opacity: .5;
-
-         &:hover {
-            cursor: pointer;
-            color: $yellow;
-         }
-
-         &.yellow {
-            opacity: 1;
-            color: $yellow;
-
-            &:after,
-            &:before {
-               transform: rotate(360deg);
-               transform-origin: 50%;
+        .collections {
+            @include icon($before, collection) {
+                color: $mid-gray;
+                font-size: em(18);
+                @include padding-right(8px);
             }
 
-         }
+        }
 
-      }
+        button {
+            margin: $sm-spacing 0 0 0;
 
-      a:hover + .star, .star:hover{
-         @include transition(opacity .25s);
-         opacity: 1;
-      }
+            &.button-secondary.has-icon {
 
-      .credit {
-         font-size: em(14);
-         line-height: 1;
-         margin: $tiny-spacing 0 0;
-         color: $dk-gray;
+                @include icon ($before, plus) {
+                    @include padding-right(10px);
+                }
 
-         a {
-            color: $dk-gray;
+            }
+
+        }
+
+        ul {
+            margin: 0;
+        }
+
+        li {
+            display: inline;
+            @include float(left);
+            clear: both;
+            margin: 0;
             padding: 0;
-            border-bottom: $base-border;
-         }
+            border-width: 3px;
+            line-height: 1;
+        }
 
-      }
+        a {
+            @include padding-right(10px);
+        }
 
-   }
+    }
 
-   .nav-icon,
-   .button-primary,
-   .main-nav,
-   .user-admin,
-   .sub-nav {
-      @include float(left);
-      clear: both;
-   }
-   /*
-   .header-compact + .wrapper & {
-   margin-top: -231px;
-   @include transition(all .25s, margin .4s);
-}
-*/
+    .main-nav,
+    .sub-nav {
+        @include float(left);
+        clear: both;
+    }
 
     .toggle-menu {
         display: none;
@@ -385,17 +261,6 @@
             @include icon(after, exchange) {
                 color: $black;
                 @include lrswap(padding, 0 12px 10px 0);
-            }
-
-        }
-
-        &.collapsed {
-
-            @include media($medium) {
-                @include icon(after, exchange) {
-                    @include lrswap(padding, 0 20px 10px 0);
-                }
-
             }
 
         }
