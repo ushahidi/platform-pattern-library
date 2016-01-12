@@ -1,0 +1,137 @@
+.mode-bar {
+    position: fixed;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 70px;
+    background-color: $lt-black;
+    z-index: $topbar;
+
+    @include media($small) {
+        position: relative;
+        height: 39px;
+    }
+
+    .mode-bar-nav {
+        margin: 0;
+        // padding: $sm-spacing 0;
+        @include float(left);
+
+        li {
+            display: inline;
+            // padding: $sm-spacing 0;
+            @include float(left);
+
+            @include media($small) {
+                @include lrswap(padding, 0 $base-spacing 0 33px);
+            }
+
+            a {
+                color: $white;
+                @include lrswap(padding, 13px 33px);
+                @include float(left);
+                border-top: 3px solid transparent;
+
+                @include media($small) {
+                    @include lrswap(padding, $sm-spacing 0 14px 0);
+                }
+
+                i {
+                    @include float(left);
+                    @include lrswap(padding, 0 $sm-spacing $sm-spacing);
+
+                    @include media($small) {
+                        float: none;
+                    }
+
+                }
+
+                span {
+                    @include float(left);
+                    clear: both;
+
+                    @include media($small) {
+                        float: none;
+                        clear: none;
+                    }
+
+                }
+
+            }
+
+            &:hover,
+            &.active {
+                background-color: $black;
+
+                @include media($small) {
+                    background-color: transparent;
+                }
+
+                a {
+
+                    @include media($small) {
+                        border-top: 3px solid $border-color;
+                        background-color: transparent;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    .settings {
+        position: absolute;
+        top: 0;
+        @include right(0);
+        color: $white;
+        z-index: 1000;
+
+        @include media($small) {
+            margin-top: 12px;
+        }
+
+        .settings-icon {
+            float: left;
+            @include lrswap(padding, 15px 33px);
+            margin-top: 0;
+            color: $white;
+
+            @include media($small) {
+                float: none;
+                @include lrswap(padding, 28px 33px);
+            }
+
+            &:before {
+                display: none;
+            }
+
+            i {
+                @include float(left);
+                @include lrswap(padding, 0 $base-spacing $sm-spacing);
+
+                @include media($small) {
+                    float: none;
+                    @include lrswap(padding, 0 $sm-spacing $sm-spacing);
+                }
+
+            }
+
+            span {
+                @include float(left);
+                clear: both;
+
+                @include media($small) {
+                    float: none;
+                    clear: none;
+                }
+
+            }
+
+        }
+
+    }
+
+}
