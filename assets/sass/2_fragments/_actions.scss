@@ -1,103 +1,109 @@
 .actions-toggle {
 
-   .actions-toggle-trigger {
+    .actions-toggle-trigger {
 
-      @include media($small) {
-         display: none;
-      }
+        @include media($small) {
+            display: none;
+        }
+
    }
 
-   .actions-content {
-      display: none;
-      clear: both;
+    .actions-content {
+        display: none;
+        clear: both;
 
-      @include media($small) {
-         display: block;
-         padding: 0;
-      }
+        @include media($small) {
+            display: block;
+            padding: 0;
+        }
 
-      &.active {
-         display: block;
-      }
+        &.active {
+            display: block;
+        }
 
-      > button,
-      > .custom-fieldset {
-         display: inline-block;
-         vertical-align: top;
-         margin: $sm-spacing $tiny-spacing $sm-spacing 0;
+        > a,
+        > button,
+        > .custom-fieldset {
+            display: inline-block;
+            vertical-align: top;
+            margin: $sm-spacing $tiny-spacing $sm-spacing 0;
 
-         &:last-child {
-            margin-right: 0;
-         }
-      }
+            &:last-child {
+                margin-right: 0;
+            }
+
+        }
+
    }
+
 }
 
 .actions-content {
-   padding: $sm-spacing 0;
+    padding: $sm-spacing 0;
 
-   @include media($large) {
-      display: block;
-      border: none;
-   }
+    @include media($large) {
+        display: block;
+        border: none;
+    }
 
-   .dropdown-menu {
-      @extend .list-unstyled;
-   }
+    .dropdown-menu {
+        @extend .list-unstyled;
+    }
 
-   .button-secondary.dropdown {
+    .button-secondary.dropdown {
 
-      &.open {
-         border-bottom: 0;
-         border-bottom-left-radius: 0;
-         border-bottom-right-radius: 0;
-      }
+        &.open {
+            border-bottom: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
 
-   }
+    }
 
-   .custom-select {
-      margin-bottom: 0;
-   }
+    .custom-select {
+        margin-bottom: 0;
+    }
 
 }
 
 
 .actions-inline {
 
-   button,
-   .button,
-   .custom-fieldset {
-      display: inline-block;
-      @include lrswap(margin, $sm-spacing $sm-spacing $sm-spacing 0);
-   }
+    button,
+    .button,
+    .custom-fieldset {
+        display: inline-block;
+        @include lrswap(margin, $sm-spacing $sm-spacing $sm-spacing 0);
+    }
 
-   &.actions-right {
-      text-align: right;
+    &.actions-right {
+        text-align: right;
 
-      button,
-      .button,
-      .custom-fieldset {
-         @include lrswap(margin, $sm-spacing 0 $sm-spacing $sm-spacing);
-      }
-   }
+        button,
+        .button,
+        .custom-fieldset {
+            @include lrswap(margin, $sm-spacing 0 $sm-spacing $sm-spacing);
+        }
+
+    }
 
 }
 
 .actions-stacked + .actions-content {
 
-   li {
-      @include float(left);
-      @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
+    li {
+        @include float(left);
+        @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
 
-      @include media($large) {
-         float: none;
-         @include lrswap(padding, 0 0 $sm-spacing 0);
-      }
+        @include media($large) {
+            float: none;
+            @include lrswap(padding, 0 0 $sm-spacing 0);
+        }
 
-      &:last-child {
-         padding: 0;
-      }
+        &:last-child {
+            padding: 0;
+        }
 
-   }
+    }
 
 }
