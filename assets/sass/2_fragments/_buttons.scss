@@ -212,14 +212,23 @@ input[type="button"] {
    font-weight: 400;
    font-size: em(15);
 
-   &:before, &:after {
-      color: $highlight; //icon colors
+   @include icon(before, trash) {
+       color: $red;
+       font-size: 1em;
+       padding: 0;
    }
 
    &:hover {
       color: $white;
       border-color: $red;
       background-color: darken( $red, 10% );
+
+      @include icon(before, trash) {
+          color: $white;
+          font-size: 1em;
+          padding: 0;
+      }
+
    }
 
    &:active {
@@ -245,13 +254,6 @@ input[type="button"] {
 
    }
 
-   .icon-only,
-   .icon-only-when-small {
-
-      &:before {
-         color: $red;
-      }
-   }
 }
 
 .button-link {
