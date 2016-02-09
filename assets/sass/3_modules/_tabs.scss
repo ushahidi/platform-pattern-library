@@ -1,509 +1,522 @@
 .tabs-menu {
-   background: $white;
-   width: 100%;
-   @include float(left);
+    background: $white;
+    width: 100%;
+    @include float(left);
 
-   @include media($small) {
-      background-color: transparent;
-      padding: $sm-spacing 0;
-   }
+    @include media($small) {
+        background-color: transparent;
+        padding: $sm-spacing 0;
+    }
 
-   .tabs-menu-trigger {
-      position: absolute;
-      z-index: 2;
-      top: $sm-spacing;
-      right: $sm-spacing;
-      color: $yellow;
-      @extend .button-secondary;
-      color: transparent;
-      font-size: 1px;
-      letter-spacing: -1px;
-      margin: 0;
+    .tabs-menu-trigger {
+        position: absolute;
+        z-index: 2;
+        top: $sm-spacing;
+        @include right($sm-spacing);
+        color: $yellow;
+        @extend .button-secondary;
+        color: transparent;
+        font-size: 1px;
+        letter-spacing: -1px;
+        margin: 0;
 
-      &:before {
-         @include fa-icon();
-         content: $fa-var-chevron-down;
-         color: $yellow;
-         font-size: 1rem;
-         letter-spacing: normal;
-         padding: 0;
-      }
+        &:before {
+            @include fa-icon();
+            content: $fa-var-chevron-down;
+            color: $yellow;
+            font-size: 1rem;
+            letter-spacing: normal;
+            padding: 0;
+        }
 
-      @include media($small) {
-         position: static;
-         @include float(left);
-         color: $dk-gray;
-         font-size: em(13);
-         font-weight: $bold;
-      	text-transform: uppercase;
-      	letter-spacing: 1px;
-         border: none;
-         background-color: transparent;
-         padding: 0;
-         @include margin-right($sm-spacing);
-         margin-top: 12px;
-
-         &:before {
-            content: none;
-         }
-
-         &:hover {
-            cursor: default;
+        @include media($small) {
+            position: static;
+            @include float(left);
             color: $dk-gray;
+            font-size: em(13);
+            font-weight: $bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border: none;
             background-color: transparent;
-         }
-      }
-   }
-
-   .tabs-menu-list {
-      @extend .list-unstyled;
-      border: $base-border;
-      padding: $sm-spacing $base-spacing ($sm-spacing + 1);
-      background: $white;
-      position: relative;
-      width: 100%;
-
-      @include media($small) {
-         display: inline;
-         border: 0;
-         padding: 0;
-         background: none;
-         position: relative;
-      }
-
-      &.open {
-         background: $white;
-         position: relative;
-         margin-bottom: -500px;
-         padding: $sm-spacing $base-spacing;
-
-         @include media($small) {
             padding: 0;
-         }
-
-      }
-
-      li {
-         display: block;
-         @include transition(0.3s);
-         color: $link-color;
-         background: $white;
-
-         @include media($small) {
-            @include float(left);
-            @include border-top-radius($global-radius);
-            @include border-bottom-radius($global-radius);
-            border: $base-border;
             @include margin-right($sm-spacing);
-            margin-bottom: $sm-spacing;
+            margin-top: 12px;
+
+            &:before {
+                content: none;
+            }
 
             &:hover {
-               border: $base-border-hover;
+                cursor: default;
+                color: $dk-gray;
+                border: none;
+                background-color: transparent;
             }
 
-            &:active {
-               background: $tab-active-color;
-            }
+        }
 
-         }
+    }
 
-         &.active {
+    .tabs-menu-list {
+        @extend .list-unstyled;
+        border: $base-border;
+        padding: $sm-spacing $base-spacing ($sm-spacing + 1);
+        background: $white;
+        position: relative;
+        width: 100%;
+
+        @include media($small) {
+            display: inline;
+            border: 0;
+            padding: 0;
+            background: none;
+            position: relative;
+        }
+
+        &.open {
+            background: $white;
+            position: relative;
+            margin-bottom: -500px;
+            padding: $sm-spacing $base-spacing;
 
             @include media($small) {
-               background-color: $lt-gray;
-               border: $base-border-dark;
+                padding: 0;
             }
 
-            & a {
-               color: $black;
-            }
+        }
 
-         }
-
-      }
-
-      li:not(.active) {
-         display: none;
-
-         @include media($small) {
-            display: inline-block;
-         }
-
-      }
-
-      a {
-         display: block;
-         padding: 8px 0;
-
-         @include media($small) {
-            padding: 8px $sm-spacing;
-         }
-      }
-
-      &.visible li {
-
-         &:not(.active) {
+        li {
             display: block;
+            @include transition(0.3s);
+            color: $link-color;
+            background: $white;
 
             @include media($small) {
-               display: inline-block;
+                @include float(left);
+                @include border-top-radius($global-radius);
+                @include border-bottom-radius($global-radius);
+                border: $base-border;
+                @include margin-right($sm-spacing);
+                margin-bottom: $sm-spacing;
+
+                &:hover {
+                    border: $base-border-hover;
+                }
+
+                &:active {
+                    background: $tab-active-color;
+                }
+
             }
-         }
 
-      }
+            &.active {
 
-      //these are the icons
+                @include media($small) {
+                    background-color: $lt-gray;
+                    border: $base-border-dark;
+                }
 
-      li a.view-list {
-         @include icon($before, list) {
-            @include lrswap(padding, 0 5px 0 1px);
-         }
+                & a {
+                    color: $black;
+                }
 
-      }
+            }
 
-      li a.view-chart {
-         @include icon($before, bar-chart) {
-            @include lrswap(padding, 0 5px 0 1px);
-         }
+        }
 
-      }
+        li:not(.active) {
+            display: none;
 
-      li a.view-photo {
-         @include icon($before, photo) {
-            @include lrswap(padding, 0 5px 0 1px);
-         }
+            @include media($small) {
+                display: inline-block;
+            }
 
-      }
+        }
 
-      li a.view-map {
-         @include icon($before, map-marker) {
-            @include lrswap(padding, 0 5px 0 1px);
-         }
-
-      }
-
-      li a.view-timeline {
-         @include icon($before, line-chart) {
-            @include lrswap(padding, 0 5px 0 1px);
-         }
-
-      }
-
-   }
-
-   .button-toggle {
-      @include float(right);
-      margin: $sm-spacing;
-
-      @include media($small) {
-         display: none;
-      }
-
-   }
-
-   &:hover {
-      border-color: $border-color-dark;
-   }
-
-   &.active {
-      border-color: $border-color-dark;
-
-      &:after {
-         @include transform(rotate(180deg));
-      }
-
-      .tabs-menu-trigger:before {
-         @include transform(rotate(180deg));
-      }
-
-      .tabs-menu-list {
-
-         li:not(.active) {
+        a {
             display: block;
+            padding: 8px 0;
 
             @include media($small) {
-               display: inline-block;
+                padding: 8px $sm-spacing;
             }
-         }
-      }
-   }
+
+        }
+
+        &.visible li {
+
+            &:not(.active) {
+                display: block;
+
+                @include media($small) {
+                    display: inline-block;
+                }
+
+            }
+
+        }
+
+        //these are the icons
+
+        li a.view-list {
+            @include icon($before, list) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
+        }
+
+        li a.view-chart {
+            @include icon($before, bar-chart) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
+        }
+
+        li a.view-photo {
+            @include icon($before, photo) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
+        }
+
+        li a.view-map {
+            @include icon($before, map-marker) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
+        }
+
+        li a.view-timeline {
+            @include icon($before, line-chart) {
+                @include lrswap(padding, 0 5px 0 1px);
+            }
+
+        }
+
+    }
+
+    .button-toggle {
+        @include float(right);
+        margin: $sm-spacing;
+
+        @include media($small) {
+            display: none;
+        }
+
+    }
+
+    &:hover {
+        border-color: $border-color-dark;
+    }
+
+    &.active {
+        border-color: $border-color-dark;
+
+        &:after {
+            @include transform(rotate(180deg));
+        }
+
+        .tabs-menu-trigger:before {
+            @include transform(rotate(180deg));
+        }
+
+        .tabs-menu-list {
+
+            li:not(.active) {
+                display: block;
+
+                @include media($small) {
+                    display: inline-block;
+                }
+
+            }
+
+        }
+
+    }
 
 }
 
 .tabs-secondary {
-   border: $base-border;
-   margin: -1px 0 0;
-   @extend .delta;
+    border: $base-border;
+    margin: -1px 0 0;
+    @extend .delta;
 
-   @include media($mobile) {
-      border: 0;
-      border-top: $base-border;
-      margin: 10px 0 0;
-   }
+    @include media($mobile) {
+        border: 0;
+        border-top: $base-border;
+        margin: 10px 0 0;
+    }
 
-   &.toggle-content {
-      float: none;
+    &.toggle-content {
+        float: none;
 
-      @include media($mobile) {
-         display: block;
-         padding: 0px;
-      }
+        @include media($mobile) {
+            display: block;
+            padding: 0;
+        }
 
-   }
+    }
 
-   ul {
-      @extend .list-unstyled;
+    ul {
+        @extend .list-unstyled;
 
-      @include media($mobile) {
-         padding-bottom: $lg-spacing;
-      }
+        @include media($mobile) {
+            padding-bottom: $lg-spacing;
+        }
 
-   }
+    }
 
-   li {
-      padding: $sm-spacing;
+    li {
+        padding: $sm-spacing;
 
-      @include media($mobile) {
-         @include float(left);
-         padding: ($sm-spacing + 3px) $sm-spacing;
-      }
+        @include media($mobile) {
+            @include float(left);
+            padding: ($sm-spacing + 3px) $sm-spacing;
+        }
 
-      @include media($small) {
-         padding: ($sm-spacing + 3px) $base-spacing;
-      }
+        @include media($small) {
+            padding: ($sm-spacing + 3px) $base-spacing;
+        }
 
-      &.active {
+        &.active {
 
-         @include media($mobile) {
-            border-top: $base-border;
-            border-width: 3px;
-            padding-top: $sm-spacing;
-         }
+            @include media($mobile) {
+                border-top: $base-border;
+                border-width: 3px;
+                padding-top: $sm-spacing;
+            }
 
-         a {
-            color: $dk-gray;
-            cursor: default;
-         }
+            a {
+                color: $dk-gray;
+                cursor: default;
+            }
 
-         @include media($small) {
-            padding: $sm-spacing;
-         }
+            @include media($small) {
+                padding: $sm-spacing;
+            }
 
-      }
+        }
 
-   }
+    }
 
 }
 
 .vertical-tabs {
     @include clearfix;
+
+    @include media($small) {
+        @include margin-left(20px);
+    }
+
 }
 
 .vertical-tabs-menu {
 
-   &.init {
-      position: relative;
-      z-index: 2;
-      @include equal-radius;
-      border: $base-border;
-      border-width: 2px;
-      border-bottom-color: $white;
-      background-color: $white;
-      margin: 0 $sm-spacing;
+    &.init {
+        position: relative;
+        z-index: 2;
+        @include equal-radius;
+        border: $base-border;
+        border-width: 2px;
+        border-bottom-color: $white;
+        background-color: $white;
+        margin: 0 $sm-spacing;
 
-      @include media($small) {
-         float: right;
-         width: 30%;
-         border: none;
-         background-color: transparent;
-         margin: 0;
-      }
+        @include media($small) {
+            @include float(right);
+            width: 30%;
+            border: none;
+            background-color: transparent;
+            margin: 0;
+        }
 
-      @include media($medium) {
-         width: 25%;
-      }
+        @include media($medium) {
+            width: 25%;
+        }
 
-      &:before {
-         @include float(right);
-         @include fa-icon();
-         content: $fa-var-sort;
-         color: $blue;
-         margin: $sm-spacing;
-
-         @include media($small) {
-            content: none;
-         }
-
-         :hover & {
-             cursor: pointer;
-         }
-
-      }
-
-      ul {
-         margin: 0;
-
-         @include media($small) {
-            position: relative;
-            top: $base-spacing;
-            left: -2px;
-         }
-      }
-
-      li {
-         display: none;
-         font-size: em(14);
-         list-style-type: none;
-         margin: $sm-spacing;
-
-         @include media($small) {
-            display: table;
-            font-size: em(15);
-            border-left: $base-border;
-            border-left-width: 2px;
-            margin: 0 30px 0 0;
-            padding: 30px 0;
-         }
-
-         @include media($medium) {
-            font-size: em(16);
-         }
-
-         &:hover {
-             cursor: pointer;
-         }
-
-         [class*="icon-"]:before {
-            padding-right: $sm-spacing;
-         }
-
-         &.active {
-            display: list-item;
+        &:before {
+            @include float(right);
+            @include fa-icon();
+            content: $fa-var-sort;
+            color: $blue;
+            margin: $sm-spacing;
 
             @include media($small) {
-               display: table;
-               border: $base-border;
-               border-width: 2px;
-               border-left: none;
-               background-color: $white;
-               // @include box-shadow($top: 0, $left: 2px, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.25), $inset: false);
+                content: none;
             }
-
-            [class*="icon-"]:before {
-               color: $mid-gray;
-            }
-
-            a {
-                color: $black;
-
-                &:hover {
-                   cursor: default;
-                }
-
-            }
-
-         }
-
-        a {
-            // display: inline-block;
-
-            @include media($small) {
-                padding: 30px $base-spacing;
-            }
-
-            &:hover {
-               cursor: pointer;
+             :hover & {
+                cursor: pointer;
             }
 
         }
 
-         .status {
-            display: inline-block;
-            position: absolute;
-            right: 0;
-            width: 20px;
-            height: 20px;
-            @include equal-radius(100%);
+        ul {
+            margin: 0;
 
             @include media($small) {
-               right: 0;
+                position: relative;
+                top: $base-spacing;
+                @include left(-2px);
             }
 
-            &:before {
-               @include fa-icon();
-               content: $fa-var-circle-o;
-               color: $mid-gray;
-            }
+        }
 
-            &.complete {
-
-               &:before {
-                  content: $fa-var-check-circle;
-                  color: $dk-gray;
-               }
-            }
-         }
-      }
-
-      &.active {
-
-         li {
-            display: list-item;
+        li {
+            display: none;
+            font-size: em(14);
+            list-style-type: none;
+            margin: $sm-spacing;
 
             @include media($small) {
-               display: table;
+                display: table;
+                font-size: em(15);
+                @include border-left(2px solid $base-border);
+                @include lrswap(margin, 0 30px 0 0);
+                padding: 30px 0;
             }
 
-         }
+            @include media($medium) {
+                @include float(left);
+                clear: both;
+                font-size: em(16);
+            }
 
-      }
+            &:hover {
+                cursor: pointer;
+            }
 
-   }
+            [class*="icon-"]:before {
+                @include padding-right($sm-spacing);
+            }
+
+            &.active {
+                display: list-item;
+
+                @include media($small) {
+                    display: table;
+                    border: $base-border;
+                    border-width: 2px;
+                    @include border-left(none);
+                    background-color: $white;
+                }
+
+                [class*="icon-"]:before {
+                    color: $mid-gray;
+                }
+
+                a {
+                    color: $black;
+
+                    &:hover {
+                        cursor: default;
+                    }
+
+                }
+
+            }
+
+            a {
+                // display: inline-block;
+
+                @include media($small) {
+                    padding: 30px $base-spacing;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+            }
+
+            .status {
+                display: inline-block;
+                position: absolute;
+                @include right(0);
+                width: 20px;
+                height: 20px;
+                @include equal-radius(100%);
+
+                @include media($small) {
+                    @include right(0);
+                }
+
+                &:before {
+                    @include fa-icon();
+                    content: $fa-var-circle-o;
+                    color: $mid-gray;
+                }
+
+                &.complete {
+
+                    &:before {
+                        content: $fa-var-check-circle;
+                        color: $dk-gray;
+                    }
+
+                }
+
+            }
+
+        }
+
+        &.active {
+
+            li {
+                display: list-item;
+
+                @include media($small) {
+                    display: table;
+                }
+
+            }
+
+        }
+
+    }
 
 }
 
 .vertical-tabs-content {
-   @include clearfix;
-   border-top: $base-border;
-   border-width: 2px;
-   background-color: $white;
-   padding: 0 $sm-spacing;
+    @include clearfix;
+    border-top: $base-border;
+    border-width: 2px;
+    background-color: $white;
+    padding: 0 $sm-spacing;
 
-   @include media($small) {
-      border-right: $base-border;
-      border-width: 2px;
-      padding: $base-spacing;
-   }
+    @include media($small) {
+        border: $base-border;
+        border-width: 2px;
+        padding: $base-spacing;
+    }
 
-   @include media($medium) {
-      border: $base-border;
-      border-width: 2px;
-   }
+    .vertical-tabs &,
+    .vertical-tabs-menu + & {
+        position: relative;
+        top: -2px;
+        min-height: 50px;
 
-   .vertical-tabs &,
-   .vertical-tabs-menu + & {
-      position: relative;
-      top: -2px;
-      min-height: 50px;
+        @include media($small) {
+            @include float(left);
+            width: 70%;
+            margin: 0;
+        }
 
-      @include media($small) {
-         float: left;
-         width: 70%;
-         margin: 0;
-      }
+        @include media($medium) {
+            width: 75%;
+        }
 
-      @include media($medium) {
-         width: 75%;
-      }
-   }
+    }
 
-   .page-header {
-      padding: 0;
+    .page-header {
+        padding: 0;
 
-      .page-header-body,
-      .page-header-actions {
-         margin-top: 0;
-      }
-   }
+        .page-header-body,
+        .page-header-actions {
+            margin-top: 0;
+        }
+
+    }
+
 }
