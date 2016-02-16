@@ -71,6 +71,23 @@ input[type="button"] {
 
    &.save-add {
        background-color: $green;
+
+       &:hover {
+          cursor: pointer;
+          background-color: darken( $green, 10% );
+          color: $white;
+       }
+
+       &:active {
+          background-color: darken( $green, 25% );
+          @include no-transition;
+       }
+
+       &.disabled, &[disabled] {
+          cursor: not-allowed;
+          background-color: $button-bg-disabled-color;
+       }
+
    }
 
 }
