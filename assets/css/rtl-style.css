@@ -7511,9 +7511,15 @@ dt.list-item {
   zoom: 1; }
 @media screen and (min-width: 48em)  {
   .vertical-tabs {
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: -ms-flexbox;
+    display: flex;
     margin-right: 20px; } }
 
-/* line 317, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+/* line 322, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
 .vertical-tabs-menu.init {
   position: relative;
   z-index: 2;
@@ -7525,15 +7531,16 @@ dt.list-item {
   margin: 0 10px; }
   @media screen and (min-width: 48em)  {
     .vertical-tabs-menu.init {
-      float: left;
-      width: 30%;
+      -webkit-order: 2;
+          -ms-flex-order: 2;
+              order: 2;
       border: none;
       background-color: transparent;
       margin: 0; } }
   @media screen and (min-width: 64em)  {
     .vertical-tabs-menu.init {
       width: 25%; } }
-  /* line 339, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+  /* line 343, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
   .vertical-tabs-menu.init:before {
     float: left;
     display: inline-block;
@@ -7548,10 +7555,10 @@ dt.list-item {
     @media screen and (min-width: 48em)  {
       .vertical-tabs-menu.init:before {
         content: none; } }
-    /* line 349, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+    /* line 353, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
     :hover .vertical-tabs-menu.init:before {
       cursor: pointer; }
-  /* line 355, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+  /* line 359, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
   .vertical-tabs-menu.init ul {
     margin: 0; }
     @media screen and (min-width: 48em)  {
@@ -7559,7 +7566,7 @@ dt.list-item {
         position: relative;
         top: 20px;
         right: -2px; } }
-  /* line 366, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+  /* line 370, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
   .vertical-tabs-menu.init li {
     display: none;
     font-size: 0.875em;
@@ -7577,13 +7584,13 @@ dt.list-item {
         float: right;
         clear: both;
         font-size: 1em; } }
-    /* line 386, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+    /* line 390, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
     .vertical-tabs-menu.init li:hover {
       cursor: pointer; }
-    /* line 390, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+    /* line 394, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
     .vertical-tabs-menu.init li [class*="icon-"]:before {
       padding-left: 10px; }
-    /* line 394, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+    /* line 398, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
     .vertical-tabs-menu.init li.active {
       display: list-item; }
       @media screen and (min-width: 48em)  {
@@ -7593,22 +7600,22 @@ dt.list-item {
           border-width: 2px;
           border-right: none;
           background-color: #ffffff; } }
-      /* line 405, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+      /* line 409, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
       .vertical-tabs-menu.init li.active [class*="icon-"]:before {
         color: #999999; }
-      /* line 409, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+      /* line 413, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
       .vertical-tabs-menu.init li.active a, .vertical-tabs-menu.init li.active .button-link {
         color: #181c21; }
-        /* line 412, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+        /* line 416, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
         .vertical-tabs-menu.init li.active a:hover, .vertical-tabs-menu.init li.active .button-link:hover {
           cursor: default; }
     @media screen and (min-width: 48em)  {
       .vertical-tabs-menu.init li a, .vertical-tabs-menu.init li .button-link {
         padding: 30px 20px; } }
-    /* line 427, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+    /* line 431, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
     .vertical-tabs-menu.init li a:hover, .vertical-tabs-menu.init li .button-link:hover {
       cursor: pointer; }
-    /* line 433, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+    /* line 437, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
     .vertical-tabs-menu.init li .status {
       display: inline-block;
       position: absolute;
@@ -7619,7 +7626,7 @@ dt.list-item {
       @media screen and (min-width: 48em)  {
         .vertical-tabs-menu.init li .status {
           left: 0; } }
-      /* line 445, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+      /* line 449, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
       .vertical-tabs-menu.init li .status:before {
         display: inline-block;
         font: normal normal normal 14px/1 FontAwesome;
@@ -7629,18 +7636,18 @@ dt.list-item {
         -moz-osx-font-smoothing: grayscale;
         content: "\f10c";
         color: #999999; }
-      /* line 453, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+      /* line 457, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
       .vertical-tabs-menu.init li .status.complete:before {
         content: "\f058";
         color: #737373; }
-  /* line 466, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+  /* line 470, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
   .vertical-tabs-menu.init.active li {
     display: list-item; }
     @media screen and (min-width: 48em)  {
       .vertical-tabs-menu.init.active li {
         display: table; } }
 
-/* line 481, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+/* line 485, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
 .vertical-tabs-content {
   border-top: 1px solid #dddddd;
   border-width: 2px;
@@ -7662,23 +7669,24 @@ dt.list-item {
       border: 1px solid #dddddd;
       border-width: 2px;
       padding: 20px; } }
-  /* line 495, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+  /* line 499, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
   .vertical-tabs .vertical-tabs-content, .vertical-tabs-menu + .vertical-tabs-content {
     position: relative;
     top: -2px;
     min-height: 300px; }
     @media screen and (min-width: 48em)  {
       .vertical-tabs .vertical-tabs-content, .vertical-tabs-menu + .vertical-tabs-content {
-        float: right;
-        width: 70%;
+        -webkit-order: 1;
+            -ms-flex-order: 1;
+                order: 1;
         margin: 0; } }
     @media screen and (min-width: 64em)  {
       .vertical-tabs .vertical-tabs-content, .vertical-tabs-menu + .vertical-tabs-content {
         width: 75%; } }
-  /* line 512, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+  /* line 515, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
   .vertical-tabs-content .page-header {
     padding: 0; }
-    /* line 516, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
+    /* line 519, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_tabs.scss */
     .vertical-tabs-content .page-header .page-header-body, .vertical-tabs-content .page-header .page-header-actions {
       margin-top: 0; }
 

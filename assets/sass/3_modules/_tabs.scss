@@ -307,6 +307,11 @@
     @include clearfix;
 
     @include media($small) {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
         @include margin-left(20px);
     }
 
@@ -325,8 +330,7 @@
         margin: 0 $sm-spacing;
 
         @include media($small) {
-            @include float(right);
-            width: 30%;
+            order: 2;
             border: none;
             background-color: transparent;
             margin: 0;
@@ -498,8 +502,7 @@
         min-height: 300px;
 
         @include media($small) {
-            @include float(left);
-            width: 70%;
+            order: 1;
             margin: 0;
         }
 
