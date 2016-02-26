@@ -68,6 +68,28 @@ input[type="button"] {
          color: $button-text-color;
       }
    }
+
+   &.save-add {
+       background-color: $green;
+
+       &:hover {
+          cursor: pointer;
+          background-color: darken( $green, 10% );
+          color: $white;
+       }
+
+       &:active {
+          background-color: darken( $green, 25% );
+          @include no-transition;
+       }
+
+       &.disabled, &[disabled] {
+          cursor: not-allowed;
+          background-color: $button-bg-disabled-color;
+       }
+
+   }
+
 }
 
 /*-- .button-create DEPRECATED --*/
@@ -212,14 +234,23 @@ input[type="button"] {
    font-weight: 400;
    font-size: em(15);
 
-   &:before, &:after {
-      color: $highlight; //icon colors
+   @include icon(before, trash) {
+       color: $red;
+       font-size: 1em;
+       padding: 0;
    }
 
    &:hover {
       color: $white;
       border-color: $red;
       background-color: darken( $red, 10% );
+
+      @include icon(before, trash) {
+          color: $white;
+          font-size: 1em;
+          padding: 0;
+      }
+
    }
 
    &:active {
@@ -245,13 +276,6 @@ input[type="button"] {
 
    }
 
-   .icon-only,
-   .icon-only-when-small {
-
-      &:before {
-         color: $red;
-      }
-   }
 }
 
 .button-link {

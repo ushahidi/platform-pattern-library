@@ -27,6 +27,7 @@ function errorHandler (err) {
 */
 gulp.task('webserver', function() {
     connect.server({
+        port: 8000,
         livereload: true
     });
 });
