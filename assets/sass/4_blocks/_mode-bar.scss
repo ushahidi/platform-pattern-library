@@ -2,10 +2,11 @@
     position: fixed;
     bottom: 0;
     display: block;
+    @include float(left);
     width: 100%;
     height: 70px;
     background-color: $lt-black;
-    z-index: $topbar;
+    z-index: $top;
 
     @include media($small) {
         position: relative;
@@ -38,7 +39,7 @@
 
                 i {
                     @include float(left);
-                    @include lrswap(padding, 0 $sm-spacing $sm-spacing);
+                    @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
 
                     @include media($small) {
                         float: none;

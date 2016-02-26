@@ -19,7 +19,3 @@ $('.main-nav li .hidden-content').find('li a').filter(function() {
         $(this).parent().parent().addClass('visible').siblings('.trigger-container').children('.hidden-content-trigger').addClass('open active');
     }
 });
-
-$('.toggle-menu').click(function(e){
-    $('.main-menu').toggleClass('collapsed');
-});
