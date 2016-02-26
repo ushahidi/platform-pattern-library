@@ -1,0 +1,195 @@
+.mode-nav {
+    position: absolute;
+    top: 0;
+    @include right(-290px);
+    height: 100vh;
+    width: 290px;
+    overflow: auto;
+    background-color: white;
+    @include lrswap(padding, 60px $base-spacing 0);
+    @include border-left(3px solid $border-color);
+    @include transition(all .25s);
+    z-index: $topbar;
+
+    @include media($small) {
+        display: block;
+        position: relative;
+        top: -109px;
+        @include right(0);
+        @include float(right);
+        @include lrswap(padding, 109px $base-spacing 0);
+    }
+
+    &.open {
+        right: 0;
+        @include transition(all .25s);
+    }
+
+    ul {
+        margin: 0 0 $base-spacing*2 0;
+    }
+
+    li {
+        padding: 8px 0;
+        line-height: 1.5;
+
+        a {
+            padding: $sm-spacing 0;
+
+            &.active {
+                color: $black;
+            }
+
+        }
+
+        &:hover {
+            background: transparent;
+
+            a {
+                color: $black;
+            }
+
+        }
+
+    }
+
+    &.collapsed {
+
+        @include media($small) {
+
+            .toggle-menu {
+
+                @include icon(after, exchange) {
+                    @include lrswap(padding, 0 0 10px 17px);
+                }
+
+            }
+
+            .views,
+            .sub-nav {
+                display: none;
+            }
+
+        }
+
+    }
+
+    .views {
+
+        li {
+
+            &.active {
+
+                i, a {
+                    color: $black;
+                }
+
+            }
+
+            i {
+                color: $mid-gray;
+                font-size: em(16);
+
+                &.fa-map-marker {
+                    @include padding-right(26px);
+                }
+
+                &.fa-list {
+                    @include padding-right(20px);
+                }
+
+                &.fa-table {
+                    @include padding-right(22px);
+                }
+
+            }
+
+        }
+
+    }
+
+    .sub-nav {
+
+        h6.zeta {
+            @include icon(after, plus-circle) {
+                position: relative;
+                top: -3px;
+                font-size: em(30);
+                float: right;
+            }
+
+        }
+
+        ul {
+            margin-bottom: 10px;
+        }
+
+        .collections {
+            @include icon($before, collection) {
+                color: $mid-gray;
+                font-size: em(18);
+                @include padding-right(17px);
+            }
+
+        }
+
+        .saved-searches {
+            @include icon($before, filter) {
+                color: $mid-gray;
+                font-size: em(18);
+                @include padding-right(21px);
+            }
+
+        }
+
+        .see-more {
+            @include padding-left(36px);
+            font-size: em(14);
+            color: darken($dk-gray, 10);
+        }
+
+    }
+
+    .main-nav,
+    .sub-nav {
+        @include float(left);
+        clear: both;
+    }
+
+    .views,
+    .sub-nav {
+        @extend .list-unstyled;
+        margin-bottom: 20px;
+        width: 100%;
+
+        h6.zeta {
+            color: #737373;
+            text-transform: uppercase;
+            font-size: em(12);
+            font-weight: 900;
+        }
+
+        a {
+            font-weight: 700;
+        }
+
+    }
+
+    .toggle-menu {
+        display: none;
+
+        @include media($small) {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            @include left(0);
+            @include icon(after, exchange) {
+                color: $black;
+                @include lrswap(padding, 0 0 10px 12px);
+            }
+
+        }
+
+    }
+
+}
