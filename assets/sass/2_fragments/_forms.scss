@@ -186,6 +186,67 @@ fieldset {
       }
    }
 
+    &.location-picker {
+        display: inline-block;
+        max-width: 200px;
+
+        input {
+            box-shadow: none;
+        }
+
+        .location-input {
+            position: relative;
+            @include icon($before, locate) {
+                color: $blue;
+                position: absolute;
+                top: 9px;
+                @include right(10px);
+                z-index: 1;
+            }
+
+            input[type="text"] {
+                font-size: em(14);
+                margin: 0;
+                @include lrswap(padding, 8px 0 7px $sm-spacing);
+            }
+
+        }
+
+        .location-range {
+            display: inline-block;
+            border-right: $base-border;
+            border-bottom: $base-border;
+            border-left: $base-border;
+            padding: 10px;
+            background-color: $lt-brown;
+
+            label {
+                margin-top: 10px;
+            }
+
+            label,
+            input.distance,
+            select {
+                @include float(left);
+            }
+
+            input.distance {
+                width: auto;
+                max-width: 35px;
+                @include lrswap(margin, 0 10px 0 0);
+            }
+
+            .custom-select {
+                margin-bottom: 0;
+            }
+
+            input[type="range"] {
+                margin: 0;
+            }
+
+        }
+
+    }
 
    // TOGGLE SWITCH
    &.switch {

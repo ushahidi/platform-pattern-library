@@ -12,7 +12,7 @@
     @include transition(all .25s);
     z-index: $topbar;
 
-    @include media($small) {
+    @include media($large) {
         display: block;
         position: relative;
         top: -109px;
@@ -31,7 +31,7 @@
          {
             display: none;
 
-            @include media($small) {
+            @include media($large) {
                 display: block;
             }
 
@@ -58,7 +58,7 @@
             text-align: center;
         }
 
-        @include media($small) {
+        @include media($large) {
             display: block;
         }
 
@@ -66,41 +66,39 @@
 
     .description {
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         p {
             font-size: 1em;
             font-weight: 700;
             padding-right: 30px;
 
-            @include media($small) {
+            @include media($large) {
                 padding-right: 0;
             }
         }
 
-    }
+        .toggle-menu {
+            @include icon(after, exchange) {
+                font-size: 20px;
+                color: $white;
+                @include lrswap(padding, 0 5px 0 0);
+            }
 
-    .toggle-menu {
-        display: block;
-        position: absolute;
-        top: 10px;
-        @include right(0);
-        @include icon(after, exchange) {
-            font-size: 20px;
-            color: $white;
-            @include lrswap(padding, 0 5px $sm-spacing 0);
+            @include media($large) {
+                display: none;
+            }
+
         }
-
-        @include media($small) {
-            display: none;
-        }
-
     }
 
     .context-divider,
     .stats {
         display: block;
 
-        @include media($small) {
+        @include media($large) {
             display: block;
         }
 

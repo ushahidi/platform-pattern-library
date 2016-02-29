@@ -8,7 +8,7 @@
     background-color: $lt-black;
     z-index: $top;
 
-    @include media($small) {
+    @include media($large) {
         position: relative;
         height: 39px;
     }
@@ -23,7 +23,7 @@
             // padding: $sm-spacing 0;
             @include float(left);
 
-            @include media($small) {
+            @include media($large) {
                 @include lrswap(padding, 0 $base-spacing 0 20px);
             }
 
@@ -33,7 +33,7 @@
                 @include float(left);
                 border-top: 3px solid transparent;
 
-                @include media($small) {
+                @include media($large) {
                     @include lrswap(padding, $sm-spacing 0 14px 0);
                 }
 
@@ -41,7 +41,7 @@
                     @include float(left);
                     @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
 
-                    @include media($small) {
+                    @include media($large) {
                         float: none;
                     }
 
@@ -51,7 +51,7 @@
                     @include float(left);
                     clear: both;
 
-                    @include media($small) {
+                    @include media($large) {
                         float: none;
                         clear: none;
                     }
@@ -64,13 +64,13 @@
             &.active {
                 background-color: $black;
 
-                @include media($small) {
+                @include media($large) {
                     background-color: transparent;
                 }
 
                 a {
 
-                    @include media($small) {
+                    @include media($large) {
                         border-top: 3px solid $border-color;
                         background-color: transparent;
                     }
@@ -90,17 +90,25 @@
         color: $white;
         z-index: 1000;
 
-        @include media($small) {
+        @include media($large) {
             margin-top: 12px;
         }
 
+        ul {
+            @extend .list-unstyled;
+
+            li {
+                display: inline;
+            }
+
+        }
         .settings-icon {
             float: left;
             @include lrswap(padding, 15px 20px);
             margin-top: 0;
             color: $white;
 
-            @include media($small) {
+            @include media($large) {
                 float: none;
                 @include lrswap(padding, 28px 20px);
             }
@@ -113,7 +121,7 @@
                 @include float(left);
                 @include lrswap(padding, 0 $base-spacing $sm-spacing);
 
-                @include media($small) {
+                @include media($large) {
                     float: none;
                     @include lrswap(padding, 0 $sm-spacing $sm-spacing);
                 }
@@ -124,7 +132,7 @@
                 @include float(left);
                 clear: both;
 
-                @include media($small) {
+                @include media($large) {
                     float: none;
                     clear: none;
                 }

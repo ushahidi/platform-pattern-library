@@ -11,7 +11,7 @@
     @include transition(all .25s);
     z-index: $topbar;
 
-    @include media($small) {
+    @include media($large) {
         display: block;
         position: relative;
         top: -109px;
@@ -53,9 +53,18 @@
 
     }
 
+    h6.zeta,
+    legend {
+        color: #737373;
+        text-transform: uppercase;
+        font-size: em(12);
+        font-weight: 900;
+    }
+
     &.collapsed {
 
-        @include media($small) {
+        @include media($large) {
+            width: auto;
 
             .toggle-menu {
 
@@ -65,9 +74,45 @@
 
             }
 
-            .views,
-            .sub-nav {
+            * {
                 display: none;
+            }
+
+        }
+
+    }
+
+    .see-more {
+        @include padding-left(36px);
+        font-size: em(14);
+        color: darken($dk-gray, 10);
+    }
+
+    .forms {
+        @extend .list-unstyled;
+        margin-bottom: 40px;
+        width: 100%;
+
+        $colors: $green, $red, $yellow, $brown;
+
+        @for $i from 1 through length($colors) {
+            li:nth-child(#{length($colors)}n+#{$i}) {
+                background: nth($colors, $i)
+            }
+        }
+
+        li {
+            @include lrswap(padding, 10px 10px 10px 245px);
+            margin-left: -100%;
+            margin-right: -100%;
+            color: $white;
+
+            &:last-of-type {
+                margin-bottom: 20px;
+            }
+
+            i {
+                padding-right: 20px;
             }
 
         }
@@ -142,12 +187,6 @@
 
         }
 
-        .see-more {
-            @include padding-left(36px);
-            font-size: em(14);
-            color: darken($dk-gray, 10);
-        }
-
     }
 
     .main-nav,
@@ -157,17 +196,11 @@
     }
 
     .views,
+    .layers,
     .sub-nav {
         @extend .list-unstyled;
         margin-bottom: 20px;
         width: 100%;
-
-        h6.zeta {
-            color: #737373;
-            text-transform: uppercase;
-            font-size: em(12);
-            font-weight: 900;
-        }
 
         a {
             font-weight: 700;
@@ -178,14 +211,14 @@
     .toggle-menu {
         display: none;
 
-        @include media($small) {
+        @include media($large) {
             display: block;
             position: absolute;
             bottom: 0;
             @include left(0);
             @include icon(after, exchange) {
                 color: $black;
-                @include lrswap(padding, 0 0 10px 12px);
+                @include lrswap(padding, 0 0 10px 17px);
             }
 
         }

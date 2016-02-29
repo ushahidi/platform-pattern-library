@@ -53,7 +53,11 @@
     </ul>
 
     <div class="settings">
-        <a href="/settings" class="settings-icon"><i class="fa  fa-cog"></i><span>Settings</span></a>
+        <ul>
+            <li>
+                <a href="/settings" class="settings-icon"><i class="fa  fa-cog"></i><span>Settings</span></a>
+            </li>
+        </ul>
     </div>
 
 </div>
@@ -93,12 +97,55 @@
 
 <nav class="mode-nav" role="navigation">
 
+    <ul class="forms">
+        <h6 class="zeta">Forms</h6>
+        <li><i class="fa  fa-check"></i>Traffic</li>
+        <li><i class="fa  fa-check"></i>Police encounters</li>
+        <li><i class="fa  fa-check"></i>Protester photos</li>
+        <li><i class="fa  fa-check"></i>Official events</li>
+
+        <span class="see-more">Select all</span>
+    </ul>
+
     <ul class="views">
         <h6 class="zeta">View</h6>
         <li class="active"><i class="fa  fa-map-marker"></i><a href="posts">Map</a></li>
         <li><i class="fa  fa-list"></i><a href="activity">Timeline</a></li>
         <li><i class="fa  fa-table"></i><a href="tasks">Table</a></li>
     </ul>
+
+    <ul class="layers">
+        <fieldset>
+            <legend>Layers</legend>
+            <div class="form-field radio">
+                <label for="streets"><input type="radio" id="streets" />Streets</label>
+            </div>
+            <div class="form-field radio">
+                <label for="satellite"><input type="radio" id="satellite" />Satellite</label>
+            </div>
+            <div class="form-field radio">
+                <label for="terrain"><input type="radio" id="terrain" />Terrain</label>
+            </div>
+        </fieldset>
+    </ul>
+
+    <fieldset class="location-picker">
+        <legend>Location</legend>
+        <div class="location-input">
+            <input type="text" name="location" class="location-input" placeholder="City or Postal Code">
+        </div>
+        <div class="location-range">
+            <label for="">Within</label>
+            <input type="text" name="distance" placeholder="1" class="distance">
+            <div class="custom-select">
+                <select>
+                    <option selected>km</option>
+                    <option>mi</option>
+                </select>
+            </div>
+            <input type="range" name="location" min="1"  max="500" value="1" />
+        </div>
+    </fieldset>
 
     <div class="sub-nav">
         <h6 class="zeta">Collections</h6>
