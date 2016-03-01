@@ -11,14 +11,23 @@
     @include transition(all .25s);
     z-index: $topbar;
 
-    @include media($large) {
+    @include media($medium) {
         @include right(0);
-        @include lrswap(padding, 109px $base-spacing 0);
+        @include lrswap(padding, 56px $base-spacing 0);
+    }
+
+    @include media($large) {
+        padding-top: 109px;
     }
 
     &.open {
         right: 0;
         @include transition(all .25s);
+
+        @include media($medium) {
+            right: -290px;
+        }
+
     }
 
     ul {
@@ -59,7 +68,7 @@
 
     &.collapsed {
 
-        @include media($large) {
+        @include media($medium) {
             width: auto;
 
             .toggle-menu {
@@ -207,7 +216,7 @@
     .toggle-menu {
         display: none;
 
-        @include media($large) {
+        @include media($medium) {
             display: block;
             position: absolute;
             bottom: 0;
