@@ -1,8 +1,8 @@
 .mode-context {
     position: fixed;
     top: 0;
-    height: auto;
     width: 100%;
+    height: auto;
     overflow: auto;
     background-color: $black;
     opacity: .8;
@@ -22,15 +22,34 @@
     }
 
     &.collapsed {
+        height: 108px;
+
+        @include media($large) {
+            height: 100vh;
+        }
 
         .context-divider,
         .stats,
-        .mode-group
-         {
+        .mode-group {
             display: none;
 
             @include media($large) {
                 display: block;
+            }
+
+        }
+
+        .description p:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -60%;
+            width: 300%;
+            height: 39px;
+            @include vert-gradient(rgba(0,0,0,0), rgba(0,0,0,1));
+
+            @include media($large) {
+                content: none;
             }
 
         }
@@ -69,21 +88,31 @@
         justify-content: space-between;
 
         p {
+            position: relative;
             font-size: 1em;
             font-weight: 700;
             padding-right: 30px;
 
+            &:after {
+                content: none;
+            }
+
             @include media($large) {
                 padding-right: 0;
             }
+
         }
 
         .toggle-menu {
+            position: absolute;
+            top: 10px;
+            right: -6px;
             @include icon(after, exchange) {
                 font-size: 20px;
                 color: $white;
                 @include lrswap(padding, 0 5px 0 0);
             }
+            z-index: 1;
 
             @include media($large) {
                 display: none;

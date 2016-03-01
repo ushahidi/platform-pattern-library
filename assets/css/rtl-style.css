@@ -9713,8 +9713,8 @@ aside .filters {
 .mode-context {
   position: fixed;
   top: 0;
-  height: auto;
   width: 100%;
+  height: auto;
   overflow: auto;
   background-color: #181c21;
   opacity: .8;
@@ -9730,21 +9730,41 @@ aside .filters {
       height: 100vh;
       width: 290px;
       padding: 120px 20px 0; } }
-  /* line 28, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
-  .mode-context.collapsed .context-divider, .mode-context.collapsed .stats, .mode-context.collapsed .mode-group {
-    display: none; }
+  /* line 24, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  .mode-context.collapsed {
+    height: 108px; }
     @media screen and (min-width: 80em)  {
-      .mode-context.collapsed .context-divider, .mode-context.collapsed .stats, .mode-context.collapsed .mode-group {
-        display: block; } }
-  /* line 40, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+      .mode-context.collapsed {
+        height: 100vh; } }
+    /* line 33, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context.collapsed .context-divider, .mode-context.collapsed .stats, .mode-context.collapsed .mode-group {
+      display: none; }
+      @media screen and (min-width: 80em)  {
+        .mode-context.collapsed .context-divider, .mode-context.collapsed .stats, .mode-context.collapsed .mode-group {
+          display: block; } }
+    /* line 42, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context.collapsed .description p:after, .mode-context.collapsed .description blockquote:after, .mode-context.collapsed .description .button-link:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -60%;
+      width: 300%;
+      height: 39px;
+      background: transparent;
+      background: linear-gradient(to bottom, transparent 0%, #000000 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=0 ); }
+      @media screen and (min-width: 80em)  {
+        .mode-context.collapsed .description p:after, .mode-context.collapsed .description blockquote:after, .mode-context.collapsed .description .button-link:after {
+          content: none; } }
+  /* line 59, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context h6 {
     text-transform: uppercase;
     font-size: 0.75em;
     font-weight: 900; }
-  /* line 46, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  /* line 65, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context a, .mode-context .button-link {
     color: #ffc334; }
-  /* line 50, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  /* line 69, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .image {
     display: none; }
     /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
@@ -9770,7 +9790,7 @@ aside .filters {
     @media screen and (min-width: 80em)  {
       .mode-context .image {
         display: block; } }
-  /* line 65, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  /* line 84, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .description {
     position: relative;
     display: -webkit-flex;
@@ -9782,53 +9802,63 @@ aside .filters {
     -webkit-justify-content: space-between;
         -ms-flex-pack: justify;
             justify-content: space-between; }
-    /* line 71, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+    /* line 90, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
     .mode-context .description p, .mode-context .description blockquote, .mode-context .description .button-link {
+      position: relative;
       font-size: 1em;
       font-weight: 700;
       padding-right: 30px; }
+      /* line 96, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+      .mode-context .description p:after, .mode-context .description blockquote:after, .mode-context .description .button-link:after {
+        content: none; }
       @media screen and (min-width: 80em)  {
         .mode-context .description p, .mode-context .description blockquote, .mode-context .description .button-link {
           padding-right: 0; } }
-    /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-    .mode-context .description .toggle-menu:after {
-      content: "\f0ec";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      display: inline-block;
-      text-decoration: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1;
-      padding: 0 1px 0 5px;
-      speak: none;
-      transition: content, .25s;
-      font-size: 20px;
-      color: #ffffff;
-      padding: 0 0 0 5px; }
-    @media screen and (min-width: 80em)  {
-      .mode-context .description .toggle-menu {
-        display: none; } }
-  /* line 96, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+    /* line 106, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context .description .toggle-menu {
+      position: absolute;
+      top: 10px;
+      right: -6px;
+      z-index: 1; }
+      /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
+      .mode-context .description .toggle-menu:after {
+        content: "\f0ec";
+        font-family: FontAwesome;
+        font-size: 0.875em;
+        font-style: normal;
+        font-weight: normal;
+        display: inline-block;
+        text-decoration: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        line-height: 1;
+        padding: 0 1px 0 5px;
+        speak: none;
+        transition: content, .25s;
+        font-size: 20px;
+        color: #ffffff;
+        padding: 0 0 0 5px; }
+      @media screen and (min-width: 80em)  {
+        .mode-context .description .toggle-menu {
+          display: none; } }
+  /* line 125, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .context-divider, .mode-context .stats {
     display: block; }
     @media screen and (min-width: 80em)  {
       .mode-context .context-divider, .mode-context .stats {
         display: block; } }
-  /* line 105, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  /* line 134, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .context-divider {
     border: 1px solid #dddddd;
     margin: 40px 35px; }
-  /* line 113, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  /* line 142, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .stats .stat-number, .mode-context .stats .stat-title {
     text-align: center; }
-  /* line 117, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  /* line 146, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .stats .stat-number {
     font-size: 40px; }
-  /* line 121, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
+  /* line 150, /Users/M8M/Sites/platform-pattern-library/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .stats .stat-title {
     margin: 0 0 20px 0; }
 
