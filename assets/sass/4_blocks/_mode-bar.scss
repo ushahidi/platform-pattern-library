@@ -27,7 +27,7 @@
 
             a {
                 color: $white;
-                @include lrswap(padding, 13px 33px);
+                @include lrswap(padding, 13px 20px);
                 @include float(left);
                 border-top: 3px solid transparent;
 
@@ -37,10 +37,11 @@
 
                 i {
                     @include float(left);
-                    @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
+                    @include lrswap(padding, 0 $sm-spacing $sm-spacing 12px);
 
                     @include media($large) {
                         float: none;
+                        @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
                     }
 
                 }
@@ -92,6 +93,18 @@
             margin-top: 12px;
         }
 
+        &.logged-out {
+
+            .settings-icon {
+                @include lrswap(padding, 29px 5px);
+
+                @include media($small) {
+                    @include lrswap(padding, 2px 5px);
+                }
+            }
+
+        }
+
         ul {
             @extend .list-unstyled;
 
@@ -100,6 +113,7 @@
             }
 
         }
+
         .settings-icon {
             float: left;
             @include lrswap(padding, 15px 20px);
