@@ -1,11 +1,16 @@
 .main-col.map-background {
     background: $lt-gray;
+    @include span-columns(12);
 }
 
 .map {
     height: 700px;
-    //@include span-columns(11);
+    @include span-columns(11);
     z-index: $map;
+
+    @include media($small) {
+        @include span-columns(12);
+    }
 
     .form-field {
         position: relative;
