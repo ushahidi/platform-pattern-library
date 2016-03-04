@@ -7,18 +7,16 @@
     overflow-y: auto;
     overflow-x: hidden;
     background-color: white;
-    @include lrswap(padding, 60px $base-spacing 0);
+    @include lrswap(padding, 60px $base-spacing 70px $base-spacing);
     @include border-left(3px solid $border-color);
     @include transition(all .25s);
     z-index: $topbar;
-
     @include media($medium) {
         @include right(0);
-        @include lrswap(padding, 56px $base-spacing 0);
     }
 
     @include media($large) {
-        padding-top: 109px;
+        @include lrswap(padding, 109px $base-spacing 70px $base-spacing);
     }
 
     &.open {
@@ -214,21 +212,34 @@
 
     }
 
-    .toggle-menu {
-        display: none;
+    .gradient {
+        position: fixed;
+        bottom: 0;
+        height: 70px;
+        width: 100%;
+        @include linear-gradient(transparent, $white);
+    }
 
-        @include media($medium) {
-            display: block;
-            position: absolute;
-            bottom: 0;
-            @include left(0);
-            @include icon(after, exchange) {
-                color: $black;
-                @include lrswap(padding, 0 0 10px 17px);
-            }
+}
 
+.toggle-menu {
+    display: none;
+
+    @include media($large) {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        @include right(250px);
+        z-index: $top;
+        @include icon(after, exchange) {
+            color: $black;
+            padding: 10px;
         }
 
+    }
+
+    &.collapsed {
+        right: 0;
     }
 
 }

@@ -2,8 +2,8 @@ $('.nav-icon-js').click(function(e){
     $('.mode-nav').toggleClass('open');
 });
 
-$('.mode-nav .toggle-menu').click(function(e){
-    $('.mode-nav').toggleClass('collapsed');
+$('.toggle-menu').click(function(e){
+    $('.toggle-menu, .mode-nav').toggleClass('collapsed');
 });
 
 $('.mode-context .toggle-menu').click(function(e){
