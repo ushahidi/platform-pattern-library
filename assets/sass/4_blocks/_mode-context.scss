@@ -40,16 +40,66 @@
 
         }
 
-        .description p:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -70%;
-            width: 300%;
-            height: 74px;
-            @include linear-gradient(transparent 35%, rgba(0,0,0,1));
-            @include media($large) {
-                content: none;
+        .description {
+
+            p:after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: -70%;
+                width: 300%;
+                height: 74px;
+                @include linear-gradient(transparent 35%, rgba(0,0,0,1));
+                @include media($large) {
+                    content: none;
+                }
+
+            }
+
+            .context-toggle {
+                @include icon(after, toggle-down) {
+                    font-size: 25px;
+                    color: $white;
+                    @include lrswap(padding, 0 5px 0 0);
+                }
+
+            }
+
+        }
+
+    }
+
+    &.open {
+
+        @include media($small) {
+
+            .description {
+
+                p {
+                    padding-right: 313px;
+                }
+
+                .context-toggle {
+                    right: 304px;
+                }
+
+            }
+
+        }
+
+        @include media($medium) {
+            padding-right: 0;
+
+            .description {
+
+                p {
+                    padding-right: 35px;
+                }
+
+                .context-toggle {
+                    right: 14px;
+                }
+
             }
 
         }
@@ -91,7 +141,11 @@
             position: relative;
             font-size: 1em;
             font-weight: 700;
-            padding-right: 30px;
+            padding-right: 35px;
+
+            // @include media($medium) {
+            //     padding-right: 330px;
+            // }
 
             &:after {
                 content: none;
@@ -103,17 +157,21 @@
 
         }
 
-        .toggle-menu {
+        .context-toggle {
             display: block;
             position: fixed;
-            top: 79px;
+            top: 70px;
             right: 14px;
-            @include icon(after, exchange) {
-                font-size: 20px;
+            @include icon(after, toggle-up) {
+                font-size: 25px;
                 color: $white;
                 @include lrswap(padding, 0 5px 0 0);
             }
             z-index: 1;
+
+            @include media($medium) {
+                right: 304px;
+            }
 
             @include media($large) {
                 display: none;

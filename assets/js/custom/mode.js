@@ -1,11 +1,14 @@
-$('.nav-icon-js').click(function(e){
-    $('.mode-nav').toggleClass('open');
-});
-
-$('.toggle-menu').click(function(e){
-    $('.toggle-menu, .mode-nav').toggleClass('collapsed');
-});
-
-$('.mode-context .toggle-menu').click(function(e){
+// (left menu) - mode context small screen toggle
+$('.mode-context .context-toggle').click(function(e){
     $('.mode-context').toggleClass('collapsed');
+});
+
+// (right menu) - mode nav mobile toggle
+$('.nav-icon-js').click(function(e){
+    $('.mode-nav, .mode-context').toggleClass('open');
+});
+
+// (right menu) - mode nav large screen toggle
+$('.nav-toggle').click(function(e){
+    $('.mode-nav, .nav-toggle, .wrapper').toggleClass('collapsed');
 });
