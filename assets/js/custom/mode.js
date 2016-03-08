@@ -10,5 +10,5 @@ $('.nav-icon-js').click(function(e){
 
 // (right menu) - mode nav large screen toggle
 $('.nav-toggle').click(function(e){
-    $('.mode-nav, .nav-toggle, .wrapper').toggleClass('collapsed');
+    $('.mode-nav, .nav-toggle').toggleClass('collapsed');
 });
