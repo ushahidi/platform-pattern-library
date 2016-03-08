@@ -5,6 +5,17 @@ footer {
     border-width: 3px;
     background-color: $dk-brown;
 
+    .footer-wrapper {
+       @include clearfix;
+       max-width: $max-width;
+       margin: 0 auto;
+
+       @include media($large) {
+           @include lrswap(margin, 0 auto 0 290px);
+       }
+
+    }
+
     .footer-container {
         max-width: $max-width;
         @include outer-container;
@@ -14,7 +25,7 @@ footer {
             padding: $base-spacing $base-spacing  80px $base-spacing;
         }
 
-        @include media($medium) {
+        @include media($large) {
             width: 100%;
             padding: $base-spacing $base-spacing $lg-spacing;
         }
