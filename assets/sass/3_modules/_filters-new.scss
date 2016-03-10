@@ -1,0 +1,177 @@
+.filters-new {
+    position: fixed;
+    bottom: 70px;
+    padding: 0 10px;
+    background: $white;
+    width: 100%;
+    z-index: $filter;
+
+    @include media($medium) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        max-width: 800px;
+        margin: auto;
+        padding: 0 20px;
+        background: transparent;
+    }
+
+    .filter-wrapper {
+        @include span-columns(7);
+        @include float(left);
+        @include icon(before, search) {
+            position: relative;
+            top: 38px;
+            @include left(13px);
+            font-size: em(16);
+            color: $dk-gray;
+        }
+
+        @include media($medium) {
+            @include span-columns(7);
+            @include float(left);
+        }
+
+        input {
+            display: inline;
+            width: 72%;
+            @include border-top-left-radius($global-radius);
+            @include border-top-right-radius(0);
+            @include border-bottom-right-radius(0);
+            @include border-bottom-left-radius($global-radius);
+            @include margin-right(-3px);
+            @include lrswap(padding, 10px 10px 10px 34px);
+            border: 2px solid lighten($dk-gray, 30);
+            color: $dk-gray;
+
+            @include media($medium) {
+                width: 68%;
+            }
+
+        }
+
+        button {
+            position: relative;
+            top: -1px;
+            @include border-top-left-radius(0);
+            @include border-top-right-radius($global-radius);
+            @include border-bottom-right-radius($global-radius);
+            @include border-bottom-left-radius(0);
+            @include lrswap(padding, 8px 8px 12px 14px);
+            border: 2px solid lighten($dk-gray, 30);
+            @include border-left(none);
+            background-color: $lt-gray-bg;
+            color: $dk-gray;
+            @include icon(before, filter) {
+                position: relative;
+                top: 2px;
+                @include right(1);
+                font-size: em(24);
+            }
+
+            @include media($medium) {
+                @include lrswap(padding, 14px 14px 13px 14px);
+                @include icon(before, filter) {
+                    font-size: em(16);
+                    @include padding-right(10px);
+                }
+
+                @include icon(after, caret-down) {
+                    @include padding-left(17px);
+                }
+
+            }
+
+            span {
+                display: none;
+
+                @include media($medium) {
+                    display: inline;
+                }
+
+            }
+
+        }
+
+    }
+
+    .actions-wrapper {
+        @include span-columns(5);
+        @include float(left);
+
+        .actions {
+            @include float(right);
+            margin-top: 16px;
+
+            button {
+                @include float(left);
+
+                @include media($medium) {
+                    @include margin-left(20px);
+                }
+
+                &.button-create {
+                    color: $white;
+                    @include lrswap(padding, 12px 8px 12px 16px);
+                    text-transform: capitalize;
+                    @include margin-right(13px);
+
+                    @include icon(before, plus) {
+                        position: relative;
+                        top: 0px;
+                        font-size: em(24);
+                        @include padding-right(10px);
+                        color: $highlight;
+                    }
+
+                    @include media($medium) {
+                        @include lrswap(padding, 14px 8px 15px 16px);
+                        @include icon(before, plus) {
+                            font-size: em(16);
+                            @include padding-right(12px);
+                        }
+
+                        @include icon(after, caret-down) {
+                            @include padding-left(17px);
+                        }
+
+                    }
+
+                }
+
+                &.button-secondary {
+                    @include lrswap(padding, 11px 7px 12px 14px);
+                    color: $dk-gray;
+                    border: 2px solid lighten($dk-gray, 30);
+                    @include icon(before, share) {
+                        @include padding-right(8px);
+                        font-size: em(20);
+                    }
+
+                    @include media($medium) {
+                        @include lrswap(padding, 12px 20px 12px 16px);
+                        @include icon(before, share) {
+                            @include padding-right(8px);
+                        }
+
+                    }
+
+                }
+
+                span {
+                    display: none;
+
+                    @include media($medium) {
+                        display: inline;
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
