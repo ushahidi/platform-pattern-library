@@ -102,68 +102,91 @@
 
         .actions {
             @include float(right);
-            margin-top: 16px;
+            margin-top: 25px;
 
-            button {
+            .custom-fieldset.init {
                 @include float(left);
 
                 @include media($medium) {
                     @include margin-left(20px);
                 }
 
-                &.button-create {
-                    color: $white;
-                    @include lrswap(padding, 12px 8px 12px 16px);
-                    text-transform: capitalize;
-                    @include margin-right(13px);
-
-                    @include icon(before, plus) {
-                        position: relative;
-                        top: 0px;
-                        font-size: em(24);
-                        @include padding-right(10px);
-                        color: $highlight;
-                    }
-
-                    @include media($medium) {
-                        @include lrswap(padding, 14px 8px 15px 16px);
-                        @include icon(before, plus) {
-                            font-size: em(16);
-                            @include padding-right(12px);
-                        }
-
-                        @include icon(after, caret-down) {
-                            @include padding-left(17px);
-                        }
-
-                    }
-
-                }
-
-                &.button-secondary {
-                    @include lrswap(padding, 11px 7px 12px 14px);
-                    color: $dk-gray;
-                    border: 2px solid lighten($dk-gray, 30);
-                    @include icon(before, share) {
-                        @include padding-right(8px);
-                        font-size: em(20);
-                    }
-
-                    @include media($medium) {
-                        @include lrswap(padding, 12px 20px 12px 16px);
-                        @include icon(before, share) {
-                            @include padding-right(8px);
-                        }
-
-                    }
-
-                }
-
-                span {
+                legend span {
                     display: none;
 
                     @include media($medium) {
                         display: inline;
+                    }
+
+                }
+
+                &.add-post {
+
+                    legend {
+                        background: $black;
+                        color: $white;
+                        @include lrswap(padding, 12px 8px 12px 16px);
+                        text-transform: capitalize;
+                        @include margin-right(13px);
+
+                        @include icon(before, plus) {
+                            position: relative;
+                            top: 0px;
+                            font-size: em(24);
+                            @include padding-right(10px);
+                            color: $highlight;
+                        }
+
+                        &:after {
+                            content: none;
+                        }
+
+                        @include media($medium) {
+                            @include lrswap(padding, 14px 8px 15px 16px);
+                            @include margin-right(0);
+                            @include icon(before, plus) {
+                                font-size: em(16);
+                                @include padding-right(12px);
+                            }
+
+                            @include icon(after, caret-down) {
+                                @include padding-left(17px);
+                                position: relative;
+                            }
+
+                        }
+
+                    }
+
+                }
+
+                &.share-post {
+
+                    legend{
+                        @include lrswap(padding, 13px 7px 12px 14px);
+                        color: $dk-gray;
+                        border: 2px solid lighten($dk-gray, 30);
+                        @include icon(before, share) {
+                            @include padding-right(8px);
+                            font-size: em(20);
+                        }
+
+                        &:after {
+                            content: none;
+                        }
+
+                        @include media($medium) {
+                            @include lrswap(padding, 13px 20px 13px 16px);
+                            @include icon(before, share) {
+                                @include padding-right(8px);
+                            }
+
+                            @include icon(after, caret-down) {
+                                content: none;
+                            }
+
+                        }
+
                     }
 
                 }
