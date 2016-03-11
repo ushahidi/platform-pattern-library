@@ -18,3 +18,7 @@ $('.custom-fieldset').each(function(){
       });
    }
 });
+
+$('.popover h6').click(function(e){
+    $(this).parents('.dropdown-menu').removeClass('active');
+});

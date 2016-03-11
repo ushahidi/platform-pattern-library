@@ -105,6 +105,7 @@
             margin-top: 25px;
 
             .custom-fieldset.init {
+                position: relative;
                 @include float(left);
 
                 @include media($medium) {
@@ -118,6 +119,20 @@
                         display: inline;
                     }
 
+                }
+
+                .dropdown-trigger.init.active {
+                    @include equal-radius(5px);
+
+                    &:after {
+                        transform: none;
+                    }
+
+                }
+
+                .dropdown-menu {
+                    position: initial;
+                    min-width: auto;
                 }
 
                 &.add-post {
