@@ -4,15 +4,19 @@
 
 .popover {
     position: absolute;
-    top: 0;
-    @include right(0);
     width: 277px;
+    top: -147px;
     @include equal-radius($global-radius);
     border: 2px solid lighten($dk-gray, 30);
     background: $white;
     text-align: left;
     font-weight: normal;
     @include box-shadow;
+
+    @include media($medium) {
+        top: 0;
+        @include right(0);
+    }
 
     h6 {
         text-transform: uppercase;
@@ -58,21 +62,30 @@
     }
 
     // Add Post Button
-    &.add-post-popover ul li {
-        @include icon(before, file) {
-            position: relative;
-            top: -1px;
-            font-size: em(13);
-            @include padding-right(10px);
+    &.add-post-popover {
+        @include right(13px);
+
+        @include media($medium) {
+            @include right(0);
         }
 
-        $colors: $red, $yellow, $brown, $green;
-        @for $i from 1 through length($colors) {
+        ul li {
+            @include icon(before, file) {
+                position: relative;
+                top: -1px;
+                font-size: em(13);
+                @include padding-right(10px);
+            }
 
-            &:nth-child(#{length($colors)}n+#{$i}) {
+            $colors: $red, $yellow, $brown, $green;
+            @for $i from 1 through length($colors) {
 
-                &:before {
-                    color: nth($colors, $i)
+                &:nth-child(#{length($colors)}n+#{$i}) {
+
+                    &:before {
+                        color: nth($colors, $i)
+                    }
+
                 }
 
             }
@@ -83,8 +96,7 @@
 
     // Share Post Button
     &.share-post-popover {
-        top: -2px;
-        @include right(-2px);
+        @include right(0);
 
         .facebook {
             color: $facebook;

@@ -1,7 +1,7 @@
 $('.custom-fieldset').each(function(){
    var context = $(this),
-   fields = $(context).children(':not(legend)'),
-   trigger = $(context).children('legend');
+   fields = $(context).children(':not(.dropdown-trigger)'),
+   trigger = $(context).children('.dropdown-trigger');
 
    $(context).addClass('init');
    $(fields).wrapAll('<div class="dropdown-menu" />');

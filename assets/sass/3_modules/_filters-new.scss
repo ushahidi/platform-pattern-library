@@ -112,7 +112,7 @@
                     @include margin-left(20px);
                 }
 
-                legend span {
+                .dropdown-trigger span {
                     display: none;
 
                     @include media($medium) {
@@ -121,10 +121,10 @@
 
                 }
 
-                .dropdown-trigger.init.active {
+                .dropdown-trigger.init {
                     @include equal-radius(5px);
 
-                    &:after {
+                    &.active:after {
                         transform: none;
                     }
 
@@ -133,11 +133,12 @@
                 .dropdown-menu {
                     position: initial;
                     min-width: auto;
+                    border: none;
                 }
 
                 &.add-post {
 
-                    legend {
+                    .dropdown-trigger {
                         background: $black;
                         color: $white;
                         @include lrswap(padding, 12px 8px 12px 16px);
@@ -177,9 +178,10 @@
 
                 &.share-post {
 
-                    legend{
-                        @include lrswap(padding, 13px 7px 12px 14px);
+                    .dropdown-trigger {
+                        background: $white;
                         color: $dk-gray;
+                        @include lrswap(padding, 13px 7px 12px 14px);
                         border: 2px solid lighten($dk-gray, 30);
                         @include icon(before, share) {
                             @include padding-right(8px);
