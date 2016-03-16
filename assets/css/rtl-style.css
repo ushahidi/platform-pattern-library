@@ -5785,19 +5785,22 @@ button.photo:after, .button.photo:after, .photo.button-secondary:after, .photo.b
     /* line 132, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
     .custom-fieldset.init .button-link.open {
       display: none; }
+  /* line 137, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
+  .custom-fieldset.init .dropdown-trigger {
+    cursor: pointer; }
   @media screen and (min-width: 64em)  {
     .custom-fieldset.init .dropdown-menu {
       min-width: 250px; } }
-  /* line 143, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
+  /* line 147, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
   .custom-fieldset.init .dropdown-menu [data-toggle].active {
     display: none; }
-  /* line 147, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
+  /* line 151, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
   .custom-fieldset.init .dropdown-menu .toggle-content {
     display: none; }
-    /* line 150, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
+    /* line 154, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
     .custom-fieldset.init .dropdown-menu .toggle-content.active {
       display: block; }
-  /* line 156, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
+  /* line 160, /Users/M8M/Sites/platform-pattern-library/assets/sass/2_fragments/_custom-fieldset.scss */
   .custom-fieldset.init .dropdown-content {
     min-width: 200px; }
 
@@ -8227,12 +8230,13 @@ aside .filters {
       top: 0;
       left: 0;
       right: 0;
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
       padding: 0 20px;
       background: transparent; } }
   /* line 20, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
   .filters-new .filter-wrapper {
+    position: relative;
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -8267,14 +8271,14 @@ aside .filters {
         float: left;
         display: block;
         margin-right: 2.35765%;
-        width: 57.35098%;
+        width: 65.88078%;
         float: right; }
         /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
         .filters-new .filter-wrapper:last-child {
           margin-right: 0; } }
-    /* line 36, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-    .filters-new .filter-wrapper input {
-      display: inline;
+    /* line 37, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+    .filters-new .filter-wrapper input[type="text"] {
+      float: right;
       width: 72%;
       border-top-right-radius: 5px;
       border-top-left-radius: 0;
@@ -8284,24 +8288,22 @@ aside .filters {
       padding: 10px 34px 10px 10px;
       border: 2px solid silver;
       color: #737373; }
-      @media screen and (min-width: 64em)  {
-        .filters-new .filter-wrapper input {
-          width: 68%; } }
-    /* line 54, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-    .filters-new .filter-wrapper button {
+    /* line 52, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+    .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init {
       position: relative;
-      top: -1px;
+      top: 10px;
+      float: right;
+      padding: 9px;
+      width: auto;
       border-top-right-radius: 0;
       border-top-left-radius: 5px;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 0;
-      padding: 8px 14px 12px 8px;
       border: 2px solid silver;
-      border-right: none;
       background-color: #eaeaea;
       color: #737373; }
       /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-      .filters-new .filter-wrapper button:before {
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init:before {
         content: "\f0b0";
         font-family: FontAwesome;
         font-size: 0.875em;
@@ -8317,14 +8319,17 @@ aside .filters {
         speak: none;
         transition: content, .25s;
         position: relative;
-        top: 2px;
-        left: 1;
-        font-size: 1.5em; }
+        font-size: 1.5em;
+        padding: 0px 5px 0px 5px; }
+      /* line 71, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init:after {
+        content: ''; }
       @media screen and (min-width: 64em)  {
-        .filters-new .filter-wrapper button {
-          padding: 14px 14px 13px 14px; }
+        .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init {
+          padding: 13px 12px 13px 30px;
+          width: 100%; }
           /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-          .filters-new .filter-wrapper button:before {
+          .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init:before {
             content: "\f0b0";
             font-family: FontAwesome;
             font-size: 0.875em;
@@ -8340,9 +8345,9 @@ aside .filters {
             speak: none;
             transition: content, .25s;
             font-size: 1em;
-            padding-left: 10px; }
+            padding-left: 8px; }
           /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-          .filters-new .filter-wrapper button:after {
+          .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init:after {
             content: "\f0d7";
             font-family: FontAwesome;
             font-size: 0.875em;
@@ -8357,62 +8362,159 @@ aside .filters {
             padding: 0 1px 0 5px;
             speak: none;
             transition: content, .25s;
-            padding-right: 17px; } }
-      /* line 86, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-      .filters-new .filter-wrapper button span {
-        display: none; }
-        @media screen and (min-width: 64em)  {
-          .filters-new .filter-wrapper button span {
-            display: inline; } }
-  /* line 99, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+            top: 6px;
+            font-size: 1em;
+            color: #737373;
+            padding-left: 18px;
+            line-height: 30px;
+            -webkit-transform: none;
+                -ms-transform: none;
+                    transform: none; } }
+      /* line 94, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init.active {
+        padding-bottom: 16px;
+        background: #ffffff;
+        color: #181c21;
+        border-bottom-left-radius: 0;
+        border-bottom-color: #ffffff; }
+        /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
+        .filters-new .filter-wrapper .custom-fieldset .dropdown-trigger.init.active:after {
+          content: "\f0d8";
+          font-family: FontAwesome;
+          font-size: 0.875em;
+          font-style: normal;
+          font-weight: normal;
+          display: inline-block;
+          text-decoration: inherit;
+          text-rendering: auto;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          line-height: 1;
+          padding: 0 1px 0 5px;
+          speak: none;
+          transition: content, .25s;
+          font-size: 1em;
+          color: #737373;
+          line-height: 30px;
+          padding-left: 18px; }
+    /* line 111, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+    .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init {
+      position: absolute;
+      top: 71px;
+      left: 0;
+      width: 100%;
+      left: inherit !important;
+      border: 2px solid silver;
+      border-top: none; }
+      /* line 120, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init fieldset {
+        position: relative;
+        border-bottom: 1px solid #dddddd;
+        padding: 15px 0;
+        margin: 0; }
+      /* line 127, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init legend {
+        position: absolute;
+        top: 19px;
+        right: 0;
+        margin: 0 20px;
+        border: none;
+        color: #737373;
+        font-size: 0.6875em;
+        font-weight: 900;
+        line-height: 2.4;
+        text-transform: uppercase; }
+      /* line 140, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .form-field-wrapper {
+        float: right;
+        width: 80%;
+        height: 39px;
+        padding: 0 136px 0 0px;
+        overflow: hidden; }
+        /* line 147, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+        .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .form-field-wrapper.expand {
+          height: auto; }
+      /* line 153, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .form-field {
+        position: relative;
+        float: right;
+        padding-right: 20px;
+        max-width: 100px;
+        margin-bottom: 10px; }
+        /* line 160, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+        .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .form-field label {
+          color: #737373; }
+        /* line 164, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+        .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .form-field input {
+          position: absolute;
+          top: 10px;
+          right: 0; }
+      /* line 173, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .form-field.checkbox, .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .form-field.radio {
+        float: right; }
+      /* line 177, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .toggle {
+        position: absolute;
+        top: 0;
+        left: 4px;
+        width: 46px;
+        height: 70px;
+        color: #737373;
+        cursor: pointer; }
+        /* line 186, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+        .filters-new .filter-wrapper .custom-fieldset .dropdown-menu.init .toggle i {
+          position: absolute;
+          top: 25px;
+          right: 15px; }
+    /* line 196, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+    .filters-new .filter-wrapper .custom-fieldset span {
+      display: none; }
+      @media screen and (min-width: 64em)  {
+        .filters-new .filter-wrapper .custom-fieldset span {
+          display: inline; } }
+    /* line 205, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+    .filters-new .filter-wrapper .custom-fieldset:after {
+      visibility: visible; }
+  /* line 213, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
   .filters-new .actions-wrapper {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 40.29137%;
+    width: 31.76157%;
     float: right; }
     /* line 89, bower_components/neat/app/assets/stylesheets/grid/_span-columns.scss */
     .filters-new .actions-wrapper:last-child {
       margin-right: 0; }
-    /* line 103, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+    /* line 217, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
     .filters-new .actions-wrapper .actions {
       float: left;
-      margin-top: 25px; }
-      /* line 107, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-      .filters-new .actions-wrapper .actions .custom-fieldset.init {
+      margin-top: 16px; }
+      /* line 222, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .actions-wrapper .actions .add-post-wrapper, .filters-new .actions-wrapper .actions .share-post-wrapper {
         position: relative;
         float: right; }
+      /* line 227, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .actions-wrapper .actions button {
+        float: right; }
         @media screen and (min-width: 64em)  {
-          .filters-new .actions-wrapper .actions .custom-fieldset.init {
-            margin-right: 20px; } }
-        /* line 115, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-        .filters-new .actions-wrapper .actions .custom-fieldset.init .dropdown-trigger span {
+          .filters-new .actions-wrapper .actions button {
+            margin-right: 10px; } }
+        /* line 234, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+        .filters-new .actions-wrapper .actions button span {
           display: none; }
           @media screen and (min-width: 64em)  {
-            .filters-new .actions-wrapper .actions .custom-fieldset.init .dropdown-trigger span {
+            .filters-new .actions-wrapper .actions button span {
               display: inline; } }
-        /* line 124, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-        .filters-new .actions-wrapper .actions .custom-fieldset.init .dropdown-trigger.init {
-          border-radius: 5px; }
-          /* line 127, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-          .filters-new .actions-wrapper .actions .custom-fieldset.init .dropdown-trigger.init.active:after {
-            -webkit-transform: none;
-                -ms-transform: none;
-                    transform: none; }
-        /* line 133, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-        .filters-new .actions-wrapper .actions .custom-fieldset.init .dropdown-menu {
-          position: initial;
-          min-width: auto;
-          border: none; }
-        /* line 141, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-        .filters-new .actions-wrapper .actions .custom-fieldset.init.add-post .dropdown-trigger {
-          background: #181c21;
+        /* line 243, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+        .filters-new .actions-wrapper .actions button.add-post {
           color: #ffffff;
-          padding: 12px 16px 12px 8px;
+          padding: 12px 16px 12px 16px;
+          border: 2px solid silver;
           text-transform: capitalize;
-          margin-left: 13px; }
+          margin-left: 13px;
+          margin-right: 0; }
           /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-          .filters-new .actions-wrapper .actions .custom-fieldset.init.add-post .dropdown-trigger:before {
+          .filters-new .actions-wrapper .actions button.add-post:before {
             content: "\f067";
             font-family: FontAwesome;
             font-size: 0.875em;
@@ -8429,18 +8531,18 @@ aside .filters {
             transition: content, .25s;
             position: relative;
             top: 0px;
+            padding-left: 0;
             font-size: 1.5em;
-            padding-left: 10px;
             color: #ffc334; }
-          /* line 156, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-          .filters-new .actions-wrapper .actions .custom-fieldset.init.add-post .dropdown-trigger:after {
+          /* line 259, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+          .filters-new .actions-wrapper .actions button.add-post:after {
             content: none; }
           @media screen and (min-width: 64em)  {
-            .filters-new .actions-wrapper .actions .custom-fieldset.init.add-post .dropdown-trigger {
-              padding: 14px 16px 15px 8px;
+            .filters-new .actions-wrapper .actions button.add-post {
+              padding: 14px 16px 13px 8px;
               margin-left: 0; }
               /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-              .filters-new .actions-wrapper .actions .custom-fieldset.init.add-post .dropdown-trigger:before {
+              .filters-new .actions-wrapper .actions button.add-post:before {
                 content: "\f067";
                 font-family: FontAwesome;
                 font-size: 0.875em;
@@ -8458,7 +8560,7 @@ aside .filters {
                 font-size: 1em;
                 padding-left: 12px; }
               /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-              .filters-new .actions-wrapper .actions .custom-fieldset.init.add-post .dropdown-trigger:after {
+              .filters-new .actions-wrapper .actions button.add-post:after {
                 content: "\f0d7";
                 font-family: FontAwesome;
                 font-size: 0.875em;
@@ -8473,16 +8575,19 @@ aside .filters {
                 padding: 0 1px 0 5px;
                 speak: none;
                 transition: content, .25s;
+                font-size: 1em;
                 padding-right: 17px;
-                position: relative; } }
-        /* line 181, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-        .filters-new .actions-wrapper .actions .custom-fieldset.init.share-post .dropdown-trigger {
-          background: #ffffff;
+                position: relative;
+                -webkit-transform: none;
+                    -ms-transform: none;
+                        transform: none; } }
+        /* line 282, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+        .filters-new .actions-wrapper .actions button.share-post {
           color: #737373;
-          padding: 13px 14px 12px 7px;
+          padding: 14px 14px 12px 13px;
           border: 2px solid silver; }
           /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-          .filters-new .actions-wrapper .actions .custom-fieldset.init.share-post .dropdown-trigger:before {
+          .filters-new .actions-wrapper .actions button.share-post:before {
             content: "\f064";
             font-family: FontAwesome;
             font-size: 0.875em;
@@ -8497,16 +8602,16 @@ aside .filters {
             padding: 0 1px 0 5px;
             speak: none;
             transition: content, .25s;
-            padding-left: 8px;
+            padding-left: 0;
             font-size: 1.25em; }
-          /* line 191, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
-          .filters-new .actions-wrapper .actions .custom-fieldset.init.share-post .dropdown-trigger:after {
+          /* line 291, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+          .filters-new .actions-wrapper .actions button.share-post:after {
             content: none; }
           @media screen and (min-width: 64em)  {
-            .filters-new .actions-wrapper .actions .custom-fieldset.init.share-post .dropdown-trigger {
+            .filters-new .actions-wrapper .actions button.share-post {
               padding: 13px 16px 13px 20px; }
               /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-              .filters-new .actions-wrapper .actions .custom-fieldset.init.share-post .dropdown-trigger:before {
+              .filters-new .actions-wrapper .actions button.share-post:before {
                 content: "\f064";
                 font-family: FontAwesome;
                 font-size: 0.875em;
@@ -8523,7 +8628,7 @@ aside .filters {
                 transition: content, .25s;
                 padding-left: 8px; }
               /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-              .filters-new .actions-wrapper .actions .custom-fieldset.init.share-post .dropdown-trigger:after {
+              .filters-new .actions-wrapper .actions button.share-post:after {
                 content: "\f0d7";
                 font-family: FontAwesome;
                 font-size: 0.875em;
@@ -8539,6 +8644,10 @@ aside .filters {
                 speak: none;
                 transition: content, .25s;
                 content: none; } }
+      /* line 311, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filters-new.scss */
+      .filters-new .actions-wrapper .actions .dropdown-trigger.init.active {
+        border: 2px solid silver;
+        border-radius: 5px; }
 
 /* line 1, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_list-actions.scss */
 .list-actions {
@@ -9889,12 +9998,8 @@ aside .filters {
 .tiers.show-payment .tier-view-all {
   display: none; }
 
-/* line 1, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-.custom-fieldset.add-post {
-  position: relative; }
-
-/* line 5, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-.popover {
+/* line 3, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+.actions .dropdown-menu {
   position: absolute;
   width: 277px;
   top: -147px;
@@ -9905,11 +10010,11 @@ aside .filters {
   font-weight: normal;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1); }
   @media screen and (min-width: 64em)  {
-    .popover {
-      top: 0;
+    .actions .dropdown-menu {
+      top: 10px;
       left: 0; } }
-  /* line 21, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-  .popover h6 {
+  /* line 19, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .dropdown-menu h6 {
     text-transform: uppercase;
     font-size: 0.8125em;
     background: #eaeaea;
@@ -9918,7 +10023,7 @@ aside .filters {
     color: #737373;
     padding: 10px 34px 10px 10px; }
     /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-    .popover h6:after {
+    .actions .dropdown-menu h6:after {
       content: "\f00d";
       font-family: FontAwesome;
       font-size: 0.875em;
@@ -9945,69 +10050,69 @@ aside .filters {
       border: 1px solid silver;
       border-radius: 5px;
       cursor: pointer; }
-  /* line 46, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-  .popover ul {
+  /* line 44, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .dropdown-menu ul {
     margin: 0; }
-    /* line 49, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-    .popover ul li {
+    /* line 47, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+    .actions .dropdown-menu ul li {
       list-style: none;
       padding: 12px;
       margin: 0;
       border-top: 1px solid silver;
       cursor: pointer; }
-      /* line 56, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-      .popover ul li [class*='fa-'] {
+      /* line 54, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+      .actions .dropdown-menu ul li [class*='fa-'] {
         padding-left: 10px; }
-  /* line 65, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-  .popover.add-post-popover {
-    left: 13px; }
-    @media screen and (min-width: 64em)  {
-      .popover.add-post-popover {
-        left: 0; } }
-    /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
-    .popover.add-post-popover ul li:before {
-      content: "\f15b";
-      font-family: FontAwesome;
-      font-size: 0.875em;
-      font-style: normal;
-      font-weight: normal;
-      display: inline-block;
-      text-decoration: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1;
-      padding: 0 1px 0 5px;
-      speak: none;
-      transition: content, .25s;
-      position: relative;
-      top: -1px;
-      font-size: 0.8125em;
-      padding-left: 10px; }
-    /* line 85, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-    .popover.add-post-popover ul li:nth-child(4n+1):before {
-      color: #de0000; }
-    /* line 85, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-    .popover.add-post-popover ul li:nth-child(4n+2):before {
-      color: #ffc334; }
-    /* line 85, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-    .popover.add-post-popover ul li:nth-child(4n+3):before {
-      color: #87582D; }
-    /* line 85, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-    .popover.add-post-popover ul li:nth-child(4n+4):before {
-      color: #4fab2f; }
-  /* line 98, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-  .popover.share-post-popover {
-    left: 0; }
-    /* line 101, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-    .popover.share-post-popover .facebook {
-      color: #375392; }
-    /* line 105, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-    .popover.share-post-popover .twitter {
-      color: #45B4F3; }
-  /* line 112, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_popover.scss */
-  .popover.open {
-    display: block; }
+/* line 67, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+.actions .add-post-wrapper .dropdown-menu {
+  left: 13px; }
+  @media screen and (min-width: 64em)  {
+    .actions .add-post-wrapper .dropdown-menu {
+      left: 0; } }
+  /* line 41, /Users/M8M/Sites/platform-pattern-library/assets/sass/utils/mixins/_font-awesome.scss */
+  .actions .add-post-wrapper .dropdown-menu ul li:before {
+    content: "\f15b";
+    font-family: FontAwesome;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1;
+    padding: 0 1px 0 5px;
+    speak: none;
+    transition: content, .25s;
+    position: relative;
+    top: -1px;
+    font-size: 0.8125em;
+    padding-left: 10px; }
+  /* line 87, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .add-post-wrapper .dropdown-menu ul li:nth-child(4n+1):before {
+    color: #de0000; }
+  /* line 87, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .add-post-wrapper .dropdown-menu ul li:nth-child(4n+2):before {
+    color: #ffc334; }
+  /* line 87, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .add-post-wrapper .dropdown-menu ul li:nth-child(4n+3):before {
+    color: #87582D; }
+  /* line 87, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .add-post-wrapper .dropdown-menu ul li:nth-child(4n+4):before {
+    color: #4fab2f; }
+/* line 104, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+.actions .share-post-wrapper .dropdown-menu {
+  left: 0; }
+  /* line 107, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .share-post-wrapper .dropdown-menu .facebook {
+    color: #375392; }
+  /* line 111, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+  .actions .share-post-wrapper .dropdown-menu .twitter {
+    color: #45B4F3; }
+/* line 120, /Users/M8M/Sites/platform-pattern-library/assets/sass/3_modules/_filter-actions.scss */
+.actions .add-post-wrapper .dropdown-menu, .actions .share-post-wrapper .dropdown-menu {
+  left: inherit !important; }
 
 /*------------------------------------*\
     $BLOCKS

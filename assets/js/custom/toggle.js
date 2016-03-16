@@ -9,6 +9,21 @@ dropdownXpos = function(trigger, target) {
    }
 }
 
+// overflowCheck = function(target) {
+//     $(target).parent().find('.overflow').each(function(){
+//         if ($('.overflow').height() < $('.overflow')[0].scrollHeight) {
+//             $(this).after('<span class="toggle"><i class="fa  fa-caret-square-o-down"></i></span>');
+//             console.log('I should have a toggle trigger');
+//         } else {
+//             console.log('No toggle trigger');
+//             console.log($('.overflow').height());
+//             console.log($('.overflow').prop('scrollHeight'));
+//
+//         }
+//     });
+// }
+
+
 // Initialize each toggle pair
 $('[data-toggle]').each(function(){
    var trigger = $(this),
@@ -50,6 +65,12 @@ $('[data-toggle]').each(function(){
          $(target).removeClass('active').removeAttr('style');
       }
 
+    //   overflowCheck(target);
+
       e.preventDefault();
    });
+});
+
+$('.toggle-content.dropdown-menu').click(function(e){
+    $(this).toggleClass('active');
 });

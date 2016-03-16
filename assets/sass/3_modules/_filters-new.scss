@@ -11,13 +11,14 @@
         top: 0;
         left: 0;
         right: 0;
-        max-width: 800px;
+        max-width: 900px;
         margin: auto;
         padding: 0 20px;
         background: transparent;
     }
 
     .filter-wrapper {
+        position: relative;
         @include span-columns(7);
         @include float(left);
         @include icon(before, search) {
@@ -29,12 +30,12 @@
         }
 
         @include media($medium) {
-            @include span-columns(7);
+            @include span-columns(8);
             @include float(left);
         }
 
-        input {
-            display: inline;
+        input[type="text"] {
+            @include float(left);
             width: 72%;
             @include border-top-left-radius($global-radius);
             @include border-top-right-radius(0);
@@ -44,41 +45,150 @@
             @include lrswap(padding, 10px 10px 10px 34px);
             border: 2px solid lighten($dk-gray, 30);
             color: $dk-gray;
-
-            @include media($medium) {
-                width: 68%;
-            }
-
         }
 
-        button {
-            position: relative;
-            top: -1px;
-            @include border-top-left-radius(0);
-            @include border-top-right-radius($global-radius);
-            @include border-bottom-right-radius($global-radius);
-            @include border-bottom-left-radius(0);
-            @include lrswap(padding, 8px 8px 12px 14px);
-            border: 2px solid lighten($dk-gray, 30);
-            @include border-left(none);
-            background-color: $lt-gray-bg;
-            color: $dk-gray;
-            @include icon(before, filter) {
-                position: relative;
-                top: 2px;
-                @include right(1);
-                font-size: em(24);
-            }
+        .custom-fieldset {
 
-            @include media($medium) {
-                @include lrswap(padding, 14px 14px 13px 14px);
+            .dropdown-trigger.init {
+                position: relative;
+                top: 10px;
+                @include float(left);
+                padding: 9px;
+                width: auto;
+                @include border-top-left-radius(0);
+                @include border-top-right-radius($global-radius);
+                @include border-bottom-right-radius($global-radius);
+                @include border-bottom-left-radius(0);
+                border: 2px solid lighten($dk-gray, 30);
+                background-color: $lt-gray-bg;
+                color: $dk-gray;
                 @include icon(before, filter) {
-                    font-size: em(16);
-                    @include padding-right(10px);
+                    position: relative;
+                    font-size: em(24);
+                    @include lrswap(padding, 0px 5px 0px 5px);
                 }
 
-                @include icon(after, caret-down) {
-                    @include padding-left(17px);
+                &:after {
+                    content: '';
+                }
+
+                @include media($medium) {
+                    @include lrswap(padding, 13px 30px 13px 12px);
+                    width: 100%;
+                    @include icon(before, filter) {
+                        font-size: em(16);
+                        @include padding-right(8px);
+                    }
+
+                    @include icon(after, caret-down) {
+                        top: 6px;
+                        font-size: em(16);
+                        color: $dk-gray;
+                        @include padding-right(18px);
+                        line-height: 30px;
+                        transform: none;
+                    }
+
+                }
+
+                &.active {
+                    padding-bottom: 16px;
+                    background: $white;
+                    color: $black;
+                    @include border-bottom-right-radius(0);
+                    border-bottom-color: $white;
+                    @include icon(after, caret-up) {
+                        font-size: em(16);
+                        color: $dk-gray;
+                        line-height: 30px;
+                        @include padding-right(18px);
+                    }
+
+                }
+
+            }
+
+            .dropdown-menu.init {
+                position: absolute;
+                top: 71px;
+                @include right(0);
+                width: 100%;
+                left: inherit !important;
+                border: 2px solid lighten($dk-gray, 30);
+                border-top: none;
+
+                fieldset {
+                    position: relative;
+                    border-bottom: $base-border;
+                    padding: 15px 0;
+                    margin: 0;
+                }
+
+                legend {
+                    position: absolute;
+                    top: 19px;
+                    @include left(0);
+                    margin: 0 20px;
+                    border: none;
+                    color: $dk-gray;
+                    font-size: em(11);
+                    font-weight: 900;
+                    line-height: 2.4;
+                    text-transform: uppercase;
+                }
+
+                .form-field-wrapper {
+                    @include float(left);
+                    width: 80%;
+                    height: 39px;
+                    @include lrswap(padding, 0 0px 0 136px);
+                    overflow: hidden;
+
+                    &.expand {
+                        height: auto;
+                    }
+
+                }
+
+                .form-field {
+                    position: relative;
+                    @include float(left);
+                    @include padding-left(20px);
+                    max-width: 100px;
+                    margin-bottom: 10px;
+
+                    label {
+                        color: $dk-gray;
+                    }
+
+                    input {
+                        position: absolute;
+                        top: 10px;
+                        @include left(0);
+                    }
+
+                }
+
+                .form-field.checkbox,
+                .form-field.radio {
+                    @include float(left);
+                }
+
+                .toggle {
+                    position: absolute;
+                    top: 0;
+                    @include right(4px);
+                    width: 46px;
+                    height: 70px;
+                    color: $dk-gray;
+                    cursor: pointer;
+
+                    i {
+                        position: absolute;
+                        top: 25px;
+                        right: 15px;
+                    }
+
                 }
 
             }
@@ -92,27 +202,36 @@
 
             }
 
+            &:after {
+                visibility: visible;
+            }
+
         }
 
     }
 
     .actions-wrapper {
-        @include span-columns(5);
+        @include span-columns(4);
         @include float(left);
 
         .actions {
             @include float(right);
-            margin-top: 25px;
+            margin-top: 16px;
 
-            .custom-fieldset.init {
+            .add-post-wrapper,
+            .share-post-wrapper {
                 position: relative;
+                @include float(left);
+            }
+
+            button {
                 @include float(left);
 
                 @include media($medium) {
-                    @include margin-left(20px);
+                    @include margin-left(10px);
                 }
 
-                .dropdown-trigger span {
+                span {
                     display: none;
 
                     @include media($medium) {
@@ -121,55 +240,39 @@
 
                 }
 
-                .dropdown-trigger.init {
-                    @include equal-radius(5px);
+                &.add-post {
+                    color: $white;
+                    @include lrswap(padding, 12px 16px 12px 16px);
+                    border: 2px solid lighten($dk-gray, 30);
+                    text-transform: capitalize;
+                    @include margin-right(13px);
+                    @include margin-left(0);
 
-                    &.active:after {
-                        transform: none;
+                    @include icon(before, plus) {
+                        position: relative;
+                        top: 0px;
+                        @include padding-right(0);
+                        font-size: em(24);
+                        color: $highlight;
                     }
 
-                }
+                    &:after {
+                        content: none;
+                    }
 
-                .dropdown-menu {
-                    position: initial;
-                    min-width: auto;
-                    border: none;
-                }
-
-                &.add-post {
-
-                    .dropdown-trigger {
-                        background: $black;
-                        color: $white;
-                        @include lrswap(padding, 12px 8px 12px 16px);
-                        text-transform: capitalize;
-                        @include margin-right(13px);
-
+                    @include media($medium) {
+                        @include lrswap(padding, 14px 8px 13px 16px);
+                        @include margin-right(0);
                         @include icon(before, plus) {
+                            font-size: em(16);
+                            @include padding-right(12px);
+                        }
+
+                        @include icon(after, caret-down) {
+                            font-size: em(16);
+                            @include padding-left(17px);
                             position: relative;
-                            top: 0px;
-                            font-size: em(24);
-                            @include padding-right(10px);
-                            color: $highlight;
-                        }
-
-                        &:after {
-                            content: none;
-                        }
-
-                        @include media($medium) {
-                            @include lrswap(padding, 14px 8px 15px 16px);
-                            @include margin-right(0);
-                            @include icon(before, plus) {
-                                font-size: em(16);
-                                @include padding-right(12px);
-                            }
-
-                            @include icon(after, caret-down) {
-                                @include padding-left(17px);
-                                position: relative;
-                            }
-
+                            transform: none;
                         }
 
                     }
@@ -177,37 +280,37 @@
                 }
 
                 &.share-post {
+                    color: $dk-gray;
+                    @include lrswap(padding, 14px 13px 12px 14px);
+                    border: 2px solid lighten($dk-gray, 30);
+                    @include icon(before, share) {
+                        @include padding-right(0);
+                        font-size: em(20);
+                    }
 
-                    .dropdown-trigger {
-                        background: $white;
-                        color: $dk-gray;
-                        @include lrswap(padding, 13px 7px 12px 14px);
-                        border: 2px solid lighten($dk-gray, 30);
+                    &:after {
+                        content: none;
+                    }
+
+                    @include media($medium) {
+                        @include lrswap(padding, 13px 20px 13px 16px);
                         @include icon(before, share) {
                             @include padding-right(8px);
-                            font-size: em(20);
                         }
 
-                        &:after {
+                        @include icon(after, caret-down) {
                             content: none;
-                        }
-
-                        @include media($medium) {
-                            @include lrswap(padding, 13px 20px 13px 16px);
-                            @include icon(before, share) {
-                                @include padding-right(8px);
-                            }
-
-                            @include icon(after, caret-down) {
-                                content: none;
-                            }
-
                         }
 
                     }
 
                 }
 
+            }
+
+            .dropdown-trigger.init.active {
+                border: 2px solid lighten($dk-gray, 30);
+                @include equal-radius($global-radius)
             }
 
         }
