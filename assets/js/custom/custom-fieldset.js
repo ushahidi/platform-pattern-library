@@ -19,6 +19,7 @@ $('.custom-fieldset').each(function(){
    }
 });
 
+/*
 var element = $('.form-field-wrapper');
 
 if ( element[0].scrollHeight > 39 ) {
@@ -32,3 +33,4 @@ $('.toggle').click(function(e){
     $(this).children('i').toggleClass('fa-caret-square-o-down fa-caret-square-o-up')
     $(this).siblings('.form-field-wrapper').toggleClass('expand');
 });
+*/
