@@ -1,156 +1,178 @@
-.mode-bar {
+.mode-bar{
     position: fixed;
     bottom: 0;
     width: 100%;
     height: 70px;
-    background-color: $lt-black;
+    background-color: $mid-black;
     z-index: $top;
 
-    @include media($large) {
-        top: 70px;
-        height: 39px;
+    @include media($medium) {
+        left: 0;
+        width: 60px;
+        height: 100vh;
     }
 
-    .mode-bar-nav {
-        margin: 0;
-        // padding: $sm-spacing 0;
+    li {
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-around;
         @include float(left);
+        text-align: center;
+        margin-top: 18px;
+
+        @include media($medium) {
+            display: inline-block;
+            flex-grow: 1;
+            width: 100%;
+            text-align: center;
+            margin-top: 15px;
+            padding: 0 10px;
+
+        }
+
+        a {
+            color: $white;
+            font-size: em(13);
+        }
+
+    }
+
+    .main-nav {
+        margin: 0;
+        //Test if autoprefixer covers this
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+
+        @include media($medium) {
+            display: block;
+        }
+
+        .ushahidi a {
+            display: block;
+            background: url('/assets/img/ushahidi-logo.png') no-repeat;
+            background-size: 100%;
+            height: 30px;
+            width: 30px;
+            margin: auto;
+        }
+
+        i {
+            @include float(left);
+            @include lrswap(padding, 0 $sm-spacing $sm-spacing 12px);
+            font-size: em(20);
+        }
+
+        span {
+            @include float(left);
+            clear: both;
+
+            @include media($medium) {
+                float: none;
+                clear: none;
+            }
+
+        }
+
+        &:hover,
+        &.active {
+            color: $highlight;
+        }
+
+    }
+
+    .dropdown-menu {
+
+        @include media($medium) {
+            min-width: inherit;
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+            margin-top: 0;
+        }
+
+        li:hover {
+            background: transparent;
+        }
+
+    }
+
+    .secondary-nav {
+        margin: 0 0 40px 0;
+
+        @include media($medium) {
+            position: absolute;
+            bottom: 0;
+        }
 
         li {
-            display: inline;
-            // padding: $sm-spacing 0;
-            @include float(left);
-
-            @include media($large) {
-                @include lrswap(padding, 0 $base-spacing 0 20px);
-            }
+            margin: 0;
+            padding: 0;
 
             a {
-                color: $white;
-                @include lrswap(padding, 13px 20px);
-                @include float(left);
-                border-top: 3px solid transparent;
+                margin: 10px 20px;
+                padding: 0;
+                font-size: em(16);
+            }
 
-                @include media($large) {
-                    @include lrswap(padding, $sm-spacing 0 14px 0);
-                }
+        }
 
-                i {
-                    @include float(left);
-                    @include lrswap(padding, 0 $sm-spacing $sm-spacing 12px);
+        .notifications {
 
-                    @include media($large) {
-                        float: none;
-                        @include lrswap(padding, 0 $sm-spacing $sm-spacing 0);
-                    }
-
-                }
-
-                span {
-                    @include float(left);
-                    clear: both;
-
-                    @include media($large) {
-                        float: none;
-                        clear: none;
-                    }
-
+            a {
+                @include icon(before, bell) {
+                    font-size: em(16);
                 }
 
             }
 
-            &:hover,
-            &.active {
-                background-color: $black;
+            &.active a:before {
+                color: $highlight;
+            }
 
-                @include media($large) {
-                    background-color: transparent;
+        }
+
+        .collections {
+
+            a {
+                @include icon(before, collection) {
+                    font-size: em(16);
                 }
 
-                a {
+            }
 
-                    @include media($large) {
-                        border-top: 3px solid $border-color;
-                        background-color: transparent;
-                    }
+        }
 
-                }
+        .account-settings {
+            margin-top: 20px;
 
+            a {
+                width: 35px;
+                margin: auto;
+                @include margin-left(12px);
+                padding: 0;
             }
 
         }
 
     }
 
-    .settings {
-        position: absolute;
-        top: 0;
-        @include right(0);
-        color: $white;
-        z-index: 1000;
+    .more {
 
-        @include media($large) {
-            margin-top: 12px;
+        @include media($medium) {
+            display: none;
         }
 
-        &.logged-out {
+    }
 
-            .settings-icon {
-                @include lrswap(padding, 29px 5px);
+    .toggle-content {
 
-                @include media($small) {
-                    @include lrswap(padding, 2px 5px);
-                }
-            }
-
-        }
-
-        ul {
-            @extend .list-unstyled;
-
-            li {
-                display: inline;
-            }
-
-        }
-
-        .settings-icon {
-            float: left;
-            @include lrswap(padding, 15px 20px);
-            margin-top: 0;
-            color: $white;
-
-            @include media($large) {
-                float: none;
-                @include lrswap(padding, 28px 20px);
-            }
-
-            &:before {
-                display: none;
-            }
-
-            i {
-                @include float(left);
-                @include lrswap(padding, 0 $base-spacing $sm-spacing);
-
-                @include media($large) {
-                    float: none;
-                    @include lrswap(padding, 0 $sm-spacing $sm-spacing);
-                }
-
-            }
-
-            span {
-                @include float(left);
-                clear: both;
-
-                @include media($large) {
-                    float: none;
-                    clear: none;
-                }
-
-            }
-
+        @include media($medium) {
+            display: block;
+            position: absolute;
+            bottom: 0;
         }
 
     }

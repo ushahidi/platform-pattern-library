@@ -2,30 +2,23 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: auto;
-    overflow: auto;
+    height: 60px;
     background-color: $black;
-    opacity: .8;
     color: $white;
-    @include lrswap(padding, 60px 20px $sm-spacing 20px);
+    @include lrswap(padding, 0px 20px $sm-spacing 20px);
+    @include padding-left(140px);
     @include transition(all .25s);
     z-index: $topbar;
 
     @include media($medium) {
-        padding-right: 310px;
-    }
-
-    @include media($large) {
-        height: 100vh;
         width: 290px;
-        @include lrswap(padding, 120px 20px 0);
+        padding-left: 80px;
     }
 
     &.collapsed {
-        height: 145px;
-        overflow: hidden;
+        overflow: scroll;
 
-        @include media($large) {
+        @include media($medium) {
             height: 100vh;
         }
 
@@ -34,7 +27,7 @@
         .mode-group {
             display: none;
 
-            @include media($large) {
+            @include media($medium) {
                 display: block;
             }
 
@@ -50,7 +43,7 @@
                 width: 300%;
                 height: 74px;
                 @include linear-gradient(transparent 35%, rgba(0,0,0,1));
-                @include media($large) {
+                @include media($medium) {
                     content: none;
                 }
 
@@ -117,19 +110,17 @@
     }
 
     a {
-        color: $highlight;
+        color: $white;
     }
 
     .image {
         display: none;
-        @include icon(before, check-circle) {
-            font-size: 110px;
-            color: $white;
-            width: 100%;
-            text-align: center;
-        }
+        background-image: url('/assets/img/deployment-logo.png');
+        height: 100px;
+        width: 100px;
+        margin: auto;
 
-        @include media($large) {
+        @include media($medium) {
             display: block;
         }
 
@@ -140,6 +131,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin: 10px 0;
 
         p {
             position: relative;
@@ -155,63 +147,142 @@
                 content: none;
             }
 
-            @include media($large) {
+            @include media($medium) {
                 padding-right: 0;
             }
 
         }
 
-        .context-toggle {
-            display: block;
-            position: fixed;
-            top: 70px;
-            right: 14px;
-            @include icon(after, toggle-up) {
-                font-size: 25px;
-                color: $white;
-                @include lrswap(padding, 0 5px 0 0);
-            }
-            z-index: 1;
+    }
 
-            @include media($medium) {
-                right: 304px;
+    .forms {
+        @extend .list-unstyled;
+        margin-bottom: 40px;
+        width: 100%;
+
+        $colors: $red, $yellow, $brown, $green;
+
+        @for $i from 1 through length($colors) {
+            li:nth-child(#{length($colors)}n+#{$i}) {
+                border-left: 6px solid nth($colors, $i)
+            }
+        }
+
+        li {
+            position: relative;
+            @include lrswap(padding, 10px 10px 10px 10px);
+            margin: 0 -11% 5px -11%;
+            color: $white;
+            background: $gamma-blue;
+
+            &:last-of-type {
+                margin-bottom: 20px;
             }
 
-            @include media($large) {
-                display: none;
+            i {
+                padding-right: 10px;
+            }
+
+            [data-toggle] {
+                float: right;
+                padding: 0;
+            }
+
+            &.unknown {
+                border-left: none;
+                background: darken(saturate(adjust-hue($gamma-blue, 1.7143), 15.2047), 6.0784);
+                @include padding-left(42px);
+
+                &:after {
+                    content: none;
+                }
+
+            }
+
+            .dropdown-menu.init{
+                position: absolute;
+                @include left(5px !important);
+                width: 218px;
+                top: 0px;
+                @include equal-radius(3px);
+
+                i.fa-chevron-circle-up {
+                    position: absolute;
+                    top: 10px;
+                    @include right(-4px);
+                    color: $alpha-gray;
+                }
+
+                li {
+                    color: $text-color;
+                    background: transparent;
+                    border: none;
+                    width: 100%;
+                    margin: 0;
+                    @include lrswap(padding, 10px 0 10px 30px);
+                    line-height: 1.3em;
+
+                    i {
+                        position: absolute;
+                        @include left(0);
+                    }
+
+                }
+
+                .divider {
+                    width: 75%;
+                    @include lrswap(margin, 0 0 0 30px);
+                    background: $gamma-gray;
+                }
+
             }
 
         }
+
+        .see-more {
+            @include padding-left(20px);
+            font-size: em(14);
+        }
+
     }
 
-    .context-divider,
-    .stats {
+    .mode-group {
+        position: relative;
+
+        [data-toggle] {
+            position: absolute;
+            top: -20px;
+            @include right(-20px);
+            padding: 20px;
+            font-size: em(8px);
+        }
+
+        .dropdown-menu.init.active {
+            @include left(0) !important;
+
+            background: transparent;
+        }
+
+    }
+
+    .context-toggle {
         display: block;
+        position: fixed;
+        top: 70px;
+        right: 14px;
+        @include icon(after, toggle-up) {
+            font-size: 25px;
+            color: $white;
+            @include lrswap(padding, 0 5px 0 0);
+        }
+        z-index: 1;
 
-        @include media($large) {
-            display: block;
+        @include media($medium) {
+            right: 304px;
         }
 
-    }
-
-    .context-divider {
-        border: 1px solid $border-color;
-        margin: 40px 35px;
-    }
-
-    .stats {
-
-        .stat-number,
-        .stat-title {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 40px;
-        }
-
-        .stat-title {
-            margin: 0 0 20px 0;
+        @include media($medium) {
+            display: none;
         }
 
     }

@@ -1,0 +1,50 @@
+a {
+
+    &.tooltip {
+        position: relative;
+        display: inline;
+
+        span {
+            display: inline;
+            position: absolute;
+            width: auto;
+            color: #FFFFFF;
+            background: $gamma-blue;
+            line-height: 30px;
+            text-align: center;
+            visibility: hidden;
+            border-radius: 25px;
+            padding: 0 20px;
+
+            .alert-number {
+                background: $highlight;
+                @include lrswap(margin, 5px 0 5px 10px);
+                padding: 0 0px;
+                height: 20px;
+                width: 20px;
+                border-radius: 70px;
+                color: black;
+                font-size: 0.8em;
+                font-weight: bold;
+                line-height: 19px;
+            }
+
+            .user-name {
+                margin: 0 0 10px 0;
+                font-size: 0.7em
+            }
+
+        }
+
+    }
+
+    &:hover.tooltip span {
+        visibility: visible;
+        @include left(100%);
+        top: 50%;
+        margin-top: -15px;
+        @include margin-left(10px);
+        z-index: 999;
+    }
+
+}

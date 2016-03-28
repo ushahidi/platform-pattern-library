@@ -59,3 +59,7 @@ $('[data-toggle]').each(function(){
 $('.toggle-content.dropdown-menu').click(function(e){
     $(this).toggleClass('active');
 });
+
+$('.mode-group .fa-chevron-down').click(function(e){
+    $(this).toggleClass('fa-chevron-down fa-chevron-up')
+});
