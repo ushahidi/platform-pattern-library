@@ -6,101 +6,19 @@
     background-color: $black;
     color: $white;
     @include lrswap(padding, 0px 20px $sm-spacing 20px);
-    @include padding-left(140px);
     @include transition(all .25s);
+    overflow: hidden;
     z-index: $topbar;
 
     @include media($medium) {
         width: 290px;
-        padding-left: 80px;
-    }
-
-    &.collapsed {
-        overflow: scroll;
-
-        @include media($medium) {
-            height: 100vh;
-        }
-
-        .context-divider,
-        .stats,
-        .mode-group {
-            display: none;
-
-            @include media($medium) {
-                display: block;
-            }
-
-        }
-
-        .description {
-
-            p:after {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: -70%;
-                width: 300%;
-                height: 74px;
-                @include linear-gradient(transparent 35%, rgba(0,0,0,1));
-                @include media($medium) {
-                    content: none;
-                }
-
-            }
-
-            .context-toggle {
-                @include icon(after, toggle-down) {
-                    font-size: 25px;
-                    color: $white;
-                    @include lrswap(padding, 0 5px 0 0);
-                }
-
-            }
-
-        }
-
+        height: 100vh;
+        @include padding-left(80px);
     }
 
     &.open {
-
-        @include media($small) {
-
-            .description {
-
-                p {
-                    padding-right: 313px;
-                }
-
-                .context-toggle {
-                    right: 304px;
-                }
-
-            }
-
-        }
-
-        @include media($medium) {
-            padding-right: 0;
-
-            .description {
-
-                p {
-                    padding-right: 35px;
-                }
-
-                .context-toggle {
-                    right: 14px;
-                }
-
-            }
-
-        }
-
-        ~ .wrapper {
-            margin: 0 auto;
-        }
-
+        height: auto;
+        overflow: scroll;
     }
 
     h6 {
@@ -109,48 +27,57 @@
         font-weight: 900;
     }
 
-    a {
+    .deployment-title {
+        display: block;
+        @include padding-left(47px);
         color: $white;
+
+        @include media($medium) {
+            padding: 0;
+        }
+    }
+
+    .context-toggle {
+        display: block;
+        position: absolute;
+        top: 22px;
+        @include right(16px);
+        @include icon(after, chevron-down) {
+            color: $white;
+            padding: 0;
+        }
+
+        @include media($medium) {
+            display: none;
+        }
+
     }
 
     .image {
-        display: none;
+        position: absolute;
+        top: 13px;
+        @include left(17px);
         background-image: url('/assets/img/deployment-logo.png');
-        height: 100px;
-        width: 100px;
-        margin: auto;
+        height: 35px;
+        width: 35px;
+        background-size: 100%;
 
         @include media($medium) {
-            display: block;
+            position: relative;
+            top: 0;
+            @include left(0);
+            height: 100px;
+            width: 100px;
+            margin: auto;
         }
 
     }
 
     .description {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 10px 0;
+        margin: 20px 0;
 
         p {
-            position: relative;
-            font-size: 1em;
             font-weight: 700;
-            padding-right: 35px;
-
-            // @include media($medium) {
-            //     padding-right: 330px;
-            // }
-
-            &:after {
-                content: none;
-            }
-
-            @include media($medium) {
-                padding-right: 0;
-            }
-
         }
 
     }
@@ -171,7 +98,7 @@
         li {
             position: relative;
             @include lrswap(padding, 10px 10px 10px 10px);
-            margin: 0 -11% 5px -11%;
+            margin: 0 -20px 5px -20px;
             color: $white;
             background: $gamma-blue;
 
@@ -186,6 +113,7 @@
             [data-toggle] {
                 float: right;
                 padding: 0;
+                cursor: pointer;
             }
 
             &.unknown {
@@ -202,15 +130,21 @@
             .dropdown-menu.init{
                 position: absolute;
                 @include left(5px !important);
-                width: 218px;
+                width: 99%;
                 top: 0px;
                 @include equal-radius(3px);
+
+                @include media($medium) {
+                    width: 218px;
+                    width: 98%;
+                }
 
                 i.fa-chevron-circle-up {
                     position: absolute;
                     top: 10px;
-                    @include right(-4px);
+                    @include right(-2px);
                     color: $alpha-gray;
+                    cursor: pointer;
                 }
 
                 li {
@@ -248,41 +182,28 @@
 
     .mode-group {
         position: relative;
+        height: 20px;
+        overflow: hidden;
 
-        [data-toggle] {
+        &.open {
+            height: auto;
+        }
+
+        h6.zeta {
+            margin: 0;
+        }
+
+        .toggle {
             position: absolute;
             top: -20px;
             @include right(-20px);
             padding: 20px;
             font-size: em(8px);
+            cursor: pointer;
         }
 
-        .dropdown-menu.init.active {
-            @include left(0) !important;
-
-            background: transparent;
-        }
-
-    }
-
-    .context-toggle {
-        display: block;
-        position: fixed;
-        top: 70px;
-        right: 14px;
-        @include icon(after, toggle-up) {
-            font-size: 25px;
-            color: $white;
-            @include lrswap(padding, 0 5px 0 0);
-        }
-        z-index: 1;
-
-        @include media($medium) {
-            right: 304px;
-        }
-
-        @include media($medium) {
-            display: none;
+        .toggle-content {
+            font-size: em(12);
         }
 
     }

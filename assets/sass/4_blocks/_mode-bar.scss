@@ -27,7 +27,6 @@
             text-align: center;
             margin-top: 15px;
             padding: 0 10px;
-
         }
 
         a {
@@ -50,6 +49,15 @@
             display: block;
         }
 
+        li {
+
+            &:hover a,
+            &.active a {
+               color: $highlight;
+            }
+
+        }
+
         .ushahidi a {
             display: block;
             background: url('/assets/img/ushahidi-logo.png') no-repeat;
@@ -63,6 +71,7 @@
             @include float(left);
             @include lrswap(padding, 0 $sm-spacing $sm-spacing 12px);
             font-size: em(20);
+            transition: none;
         }
 
         span {
@@ -74,11 +83,6 @@
                 clear: none;
             }
 
-        }
-
-        &:hover,
-        &.active {
-            color: $highlight;
         }
 
     }
@@ -115,6 +119,10 @@
                 margin: 10px 20px;
                 padding: 0;
                 font-size: em(16);
+            }
+
+            &:hover a {
+               color: $white;
             }
 
         }
