@@ -7,6 +7,9 @@ dropdownXpos = function(trigger, target) {
    } else {
       $(target).css('left', triggerPos.left);
    }
+
+   // Give the target the same top positioning as its trigger
+   $(target).css('top', triggerPos.top);
 }
 
 // Initialize each toggle pair
@@ -58,4 +61,10 @@ $('[data-toggle]').each(function(){
 
 $('.toggle-content.dropdown-menu').click(function(e){
     $(this).toggleClass('active');
+});
+
+// alternate toggle. This changes height and allows content to be pushed down
+$('.toggle').click(function(e){
+    $(this).toggleClass('fa-chevron-down fa-chevron-up');
+    $(this).next('.toggle-content').toggleClass('open')
 });

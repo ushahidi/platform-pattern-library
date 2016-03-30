@@ -96,7 +96,6 @@
         }
 
         li {
-            position: relative;
             @include lrswap(padding, 10px 10px 10px 10px);
             margin: 0 -20px 5px -20px;
             color: $white;
@@ -128,23 +127,26 @@
             }
 
             .dropdown-menu.init{
-                position: absolute;
-                @include left(5px !important);
-                width: 99%;
-                top: 0px;
+                @include lrswap(margin, -9px -7px 0 0);
                 @include equal-radius(3px);
 
                 @include media($medium) {
-                    width: 218px;
-                    width: 98%;
+                    width: 215px;
+                    @include lrswap(margin, -9px 0 0 -194px);
                 }
 
                 i.fa-chevron-circle-up {
                     position: absolute;
-                    top: 10px;
-                    @include right(-2px);
+                    top: 8px;
+                    @include right(-5px);
                     color: $alpha-gray;
                     cursor: pointer;
+
+                    @include media($medium) {
+                        top: 9px;
+                        @include right(-3px);
+                    }
+
                 }
 
                 li {
@@ -158,13 +160,14 @@
 
                     i {
                         position: absolute;
-                        @include left(0);
+                        @include left(20px);
+                        padding-top: 2px;
                     }
 
                 }
 
                 .divider {
-                    width: 75%;
+                    width: 82%;
                     @include lrswap(margin, 0 0 0 30px);
                     background: $gamma-gray;
                 }
@@ -182,12 +185,7 @@
 
     .mode-group {
         position: relative;
-        height: 20px;
         overflow: hidden;
-
-        &.open {
-            height: auto;
-        }
 
         h6.zeta {
             margin: 0;
@@ -203,7 +201,13 @@
         }
 
         .toggle-content {
+            height: 0;
             font-size: em(12);
+
+            &.open {
+                height: auto;
+            }
+
         }
 
     }
