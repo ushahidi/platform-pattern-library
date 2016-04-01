@@ -1,18 +1,40 @@
 .toolbox {
     position: absolute;
     top: 130px;
-    @include right(30px);
-    width: 190px;
-    padding: 20px;
-    background: white;
-    z-index: $topbar;
+    @include right(15px);
+    z-index: $toolbox;
 
-    legend {
-        margin: 0;
+    @include media($small) {
+        top: 146px;
     }
 
-    .toggle-content .form-field {
+    @include media($medium) {
+        top: 85px;
+    }
 
+    .dropdown-trigger.init {
+        margin: 0;
+        @include lrswap(padding, 17px 120px 17px 20px);
+        color: $dk-gray;
+        font-size: 0.75em;
+        font-weight: 900;
+        text-transform: uppercase;
+        @include equal-radius(3px);
+
+        &:after {
+            top: 8px;
+            @include right(10px);
+            color: $dk-gray;
+        }
+
+    }
+
+    .dropdown-menu.init.active {
+        min-width: 191px;
+        @include lrswap(margin, -85px 0 0 -1274px);
+        padding-bottom: 17px;
+        border: none;
+        box-shadow: none;
     }
 
 }

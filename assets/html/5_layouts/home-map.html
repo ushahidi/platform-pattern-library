@@ -49,7 +49,7 @@
             <div class="secondary-nav">
                 <li class="notifications active">
                     <a href="#" class="tooltip">
-                        <span>Alerts <p class="alert-number">2</p></span>
+                        <span>Alerts <div class="alert-number">2</div></span>
                     </a>
                 </li>
                 <li class="collections">
@@ -60,7 +60,7 @@
                 <li class="account-settings">
                     <a href="#" class="tooltip">
                         <img src="http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50?s=200" alt="" />
-                        <span>Account&nbspSettings <p class="user-name">for Brandon Rosage</p></span>
+                        <span>Account Settings</span>
                     </a>
                 </li>
             </div>
@@ -172,7 +172,14 @@
 
       <main class="page-content" role="main">
 
-          <div class="add-new-post"></div>
+          <div class="add-new-post">
+    <ul class="forms-list">
+        <li><span>Traffic</span></li>
+        <li><span>Police encounters</span></li>
+        <li><span>Protester photos</span></li>
+        <li><span>Official events</span></li>
+    </ul>
+</div>
 
 <div class="toolbar-wrapper">
     <div class="toolbar">
@@ -299,11 +306,19 @@
         </form>
 
         <div class="views-wrapper">
-            <div class="views">
+            <div class="views" data-toggle="toggle-content">
                 <ul>
                     <li class="active map-view"></li>
                     <li class="timeline-view"></li>
                     <li class="table-view"></li>
+                </ul>
+            </div>
+            <div class="toggle-content dropdown-menu init">
+                <ul>
+                    <li><i class="fa  fa-map-marker"></i>Map</li>
+                    <div class="divider"></div>
+                    <li><i class="fa  fa-check-square-o"></i>Timeline</li>
+                    <li>Table</li>
                 </ul>
             </div>
         </div>
@@ -312,21 +327,20 @@
 
 <div class="toolbox">
     <fieldset class="custom-fieldset init">
-      <legend class="dropdown-trigger init" data-toggle="dropdown-menu"><span class="icon-left fa-th">Layers</span></legend>
+      <legend class="dropdown-trigger init" data-toggle="dropdown-menu">Layers</span></legend>
 
-        <div class="dropdown-menu init">
-            <div class="form-field radio">
-                <label for="streets"><input type="radio" id="streets" />Streets</label>
-            </div>
-            <div class="form-field radio">
-                <label for="satellite"><input type="radio" id="satellite" />Satellite</label>
-            </div>
-            <div class="form-field radio">
-                <label for="terrain"><input type="radio" id="terrain" />Terrain</label>
-            </div>
+        <div class="form-field radio">
+            <label for="streets"><input type="radio" id="streets" />Streets</label>
+        </div>
+        <div class="form-field radio">
+            <label for="satellite"><input type="radio" id="satellite" />Satellite</label>
+        </div>
+        <div class="form-field radio">
+            <label for="terrain"><input type="radio" id="terrain" />Terrain</label>
         </div>
     </fieldset>
 </div>
+
 
 
          <div class="main-col map-background">
