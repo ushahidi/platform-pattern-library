@@ -1,6 +1,6 @@
 dropdownXpos = function(trigger, target) {
    var triggerPos = $(trigger).offset();
-
+   
    // IF: Right-to-left language OR trigger is within 200px of the right of the screen
    if (($(trigger).css('direction') == 'rtl') || (triggerPos.left >= ($(window).width() - 200))) {
       $(target).css('right', ($(window).width() - (triggerPos.left + $(trigger).outerWidth())));
@@ -9,7 +9,7 @@ dropdownXpos = function(trigger, target) {
    }
 
    // Give the target the same top positioning as its trigger
-   $(target).css('top', triggerPos.top);
+   $(target).css('top', triggerPos.top + $(trigger).outerHeight());
 }
 
 // Initialize each toggle pair

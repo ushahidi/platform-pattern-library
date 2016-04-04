@@ -1,0 +1,428 @@
+/*------------------------------------*\
+$BUTTONS
+\*------------------------------------*/
+
+button,
+.button,
+input[type="button"] {
+   display: inline-block;
+   outline: none;
+   @include direction;
+   color: $white;
+   font-weight: $bold;
+   font-size: em(16);
+   font-family: $base-font-family;
+   text-align: center;
+   text-transform: uppercase;
+   text-decoration: none;
+   letter-spacing: 1px;
+   border: 0px;
+   @include border-top-radius($global-radius);
+   @include border-bottom-radius($global-radius);
+   background-color: $gamma-blue;
+   box-shadow: 0 0 2px rgba(0,0,0,0.12),
+    0 2px 2px rgba(0,0,0,0.24);
+   @include lrswap(padding, 10px 15px);
+   @include transition(0.3s);
+
+   a {
+      color: $black;
+   }
+
+   i:not(.fa-spin) {
+      @include padding-right(10px);
+   }
+
+   &:hover {
+      cursor: pointer;
+      background-color: $alpha-blue;
+      box-shadow: 0 0 2px rgba(0,0,0,0.12),
+       0 3px 5px rgba(0,0,0,0.24);
+   }
+
+   &:active {
+      background-color: $beta-black;
+      @include no-transition;
+      box-shadow: 0 0 2px rgba(0,0,0,0.12),
+       0 3px 5px rgba(0,0,0,0.24);
+   }
+
+   &.disabled, &[disabled] {
+      cursor: not-allowed;
+      background-color: $gamma-gray;
+      box-shadow: none;
+   }
+
+   &.icon-only {
+
+      &:before {
+         padding: 0;
+
+         @include media($small) {
+            @include lrswap(padding, 0 $tiny-spacing 0 0)
+         }
+
+      }
+   }
+
+   .icon-only,
+   .icon-only-when-small {
+
+      &:before {
+         color: $button-text-color;
+      }
+   }
+
+   &.save-add {
+       background-color: $green;
+
+       &:hover {
+          cursor: pointer;
+          background-color: darken( $green, 10% );
+          color: $white;
+       }
+
+       &:active {
+          background-color: darken( $green, 25% );
+          @include no-transition;
+       }
+
+       &.disabled, &[disabled] {
+          cursor: not-allowed;
+          background-color: $button-bg-disabled-color;
+       }
+
+   }
+
+}
+
+.button-alpha {
+   background-color: $gold;
+   color: $beta-blue;
+
+   &:hover {
+      background-color: darken( $gold, 10% );
+   }
+
+   &.disabled, &[disabled] {
+      opacity: 0.75;
+      cursor: not-allowed;
+
+      &:before, &:after {
+         color: $mid-gray; //icon colors
+      }
+
+      &:hover {
+         border: $base-border;
+      }
+
+      &:active {
+         border: $base-border;
+      }
+
+   }
+
+   &.alt {
+
+      &:before,
+      &:after,
+      .icon-only:before {
+         color: $link-color;
+      }
+
+      &.disabled, &[disabled] {
+         opacity: 0.75;
+
+         &:before, &:after {
+            color: $mid-gray; //icon colors
+         }
+      }
+   }
+
+   &.icon-only {
+      @include padding-left(14px);
+   }
+
+   &.icon-only-when-small {
+      @include padding-left(14px);
+
+      @include media($small) {
+         @include padding-left(10px);
+      }
+
+      span {
+         display: none;
+
+         @include media($small) {
+            display: inline;
+         }
+
+      }
+   }
+
+   &.close.deactive {
+      color: lighten( $dk-gray, 35% );
+
+      span {
+         color: lighten( $dk-gray, 35% );
+      }
+
+      &:before, &:after {
+         color: lighten( $dk-gray, 35% );
+         @include transform(rotate(-45deg));
+         -ms-transform-origin: 50% 50%;
+         -webkit-transform-origin: 50% 50%;
+         transform-origin: 40% 50%;
+      }
+
+   }
+
+   [class*="icon-"] {
+
+      &:before {
+         color: $yellow;
+      }
+   }
+}
+
+.button-beta {
+   color: $link-color;
+   background-color: $delta-gray;
+
+   &:hover {
+       color: $link-hover-color;
+       background-color: darken( $delta-gray, 10% );
+   }
+
+   &.disabled, &[disabled] {
+      opacity: 0.75;
+      cursor: not-allowed;
+
+      &:before, &:after {
+         color: $mid-gray; //icon colors
+      }
+   }
+}
+
+.button-gamma {
+    color: $link-color;
+    background-color: $white;
+
+    &:hover, &:active {
+       color: $link-hover-color;
+       background-color: darken( $white, 10% );
+   }
+
+   &.button-flat {
+       background-color: transparent;
+
+       &:hover, &:active {
+           background-color: transparent;
+       }
+   }
+}
+
+.button-flat {
+    font-weight: normal;
+    box-shadow: none;
+    padding: 0;
+
+   &:hover, &:active {
+       box-shadow: none;
+   }
+}
+
+.button-destructive {
+   color: $white;
+   background-color: $red;
+
+   @include icon(before, trash) {
+       color: $white;
+       font-size: 1em;
+   }
+
+   &:hover {
+      background-color: darken( $red, 10% );
+   }
+
+   &.disabled, &[disabled] {
+      cursor: default;
+      color: $dk-gray;
+      background-color: $white;
+
+      &:before, &:after {
+         color: $dk-gray; //icon colors
+      }
+
+      &:hover {
+         border: $base-border;
+      }
+
+      &:active {
+         border: $base-border;
+      }
+
+   }
+
+    &.icon-only,
+    &.alt {
+        @include icon(before, trash) {
+            font-size: 1em;
+            padding: 0;
+        }
+
+        &:hover {
+
+            @include icon(before, trash) {
+                font-size: 1em;
+                padding: 0;
+            }
+
+        }
+
+    }
+
+}
+
+.button-toggle {
+   position: relative;
+   z-index: $bottom + 2;
+   @include transition(0);
+
+   @include icon(after, chevron-down) {
+      padding: 0;
+   }
+
+   &.open:after, .open &:after {
+      @include transform(rotate(180deg));
+   }
+
+}
+
+
+/*------------------------------------*\
+$CLASSES FOR BUTTONS WITH ICONS
+\*------------------------------------*/
+button,
+.button {
+
+   &.dropdown, &.add-to-collection, &.down, &.downvote {
+      padding: 8px;
+      @include icon ($before, chevron-down) {
+         padding: 0 3px;
+      }
+
+      &.open:before {
+         @include transform(rotate(-180deg));
+      }
+
+   }
+
+   &.tabbed {
+
+      &.open {
+         border-bottom-left-radius: 0;
+         border-bottom-right-radius: 0;
+         border-bottom: 0px;
+      }
+
+   }
+
+   &.edit {
+      @include icon($before, pencil) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.close {
+      @include lrswap(margin, $tiny-spacing $tiny-spacing 0 0);
+      @include icon($before, circle-close) {
+         font-size: em(18);
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+      span {
+         color: $dk-gray;
+         font-style: italic;
+      }
+
+   }
+
+   &.share {
+      @include icon($before, share) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.trash {
+      @include icon($before, trash) {
+         display: initial;
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.check {
+      @include icon($before, check) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.plus {
+      @include icon($before, plus) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+      &.active {
+
+         &:before {
+            @include transform(rotate(45deg));
+            transform-origin: 35% 50%;
+         }
+
+         &:after {
+            @include transform(rotate(45deg));
+            transform-origin: 60% 50%;
+         }
+      }
+   }
+
+   &.check {
+      @include icon($before, check) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.export {
+      @include icon($before, external-link) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.up, &.upvote {
+      @include icon($before, chevron-up) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.search {
+      @include icon($before, search) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+   &.photo {
+      @include icon($before, photo) {
+         @include lrswap(padding, 0 5px 0 1px);
+      }
+
+   }
+
+}
