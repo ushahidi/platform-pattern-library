@@ -1,6 +1,6 @@
 dropdownXpos = function(trigger, target) {
    var triggerPos = $(trigger).offset();
-   
+
    // IF: Right-to-left language OR trigger is within 200px of the right of the screen
    if (($(trigger).css('direction') == 'rtl') || (triggerPos.left >= ($(window).width() - 200))) {
       $(target).css('right', ($(window).width() - (triggerPos.left + $(trigger).outerWidth())));
@@ -16,7 +16,7 @@ dropdownXpos = function(trigger, target) {
 $('[data-toggle]').each(function(){
    var trigger = $(this),
    targetVal = $(trigger).attr('data-toggle'),
-   target = $('#'+targetVal).length ? $('#'+targetVal) : $(trigger).next('.'+targetVal);
+   target = $('[data-toggle-target="'+targetVal+'"]').length ? $('[data-toggle-target="'+targetVal+'"]') : $(trigger).next('.'+targetVal);
 
    // Add 'init' class to pair of elements
    $(trigger).addClass('init');
@@ -36,8 +36,8 @@ $('[data-toggle]').each(function(){
    $(trigger).on('click', function(e){
 
       // Deactivate (close) other active dropdown triggers and targets
-      // $('.dropdown-trigger').not($(trigger)).removeClass('active');
-      // $('.dropdown-menu').not($(target)).removeClass('active').removeAttr('style');
+      $('[data-toggle]').not($(trigger)).removeClass('active');
+      $('[data-toggle-target]').not($(target)).removeClass('active').removeAttr('style');
 
       // IF: Target is currently hidden
       if ($(target).is(':hidden')) {

@@ -25,16 +25,13 @@ input[type="button"] {
    @include lrswap(padding, 10px 15px);
    @include transition(0.3s);
 
-   a {
-      color: $black;
-   }
-
    i:not(.fa-spin) {
       @include padding-right(10px);
    }
 
    &:hover {
       cursor: pointer;
+      color: $white;
       background-color: $alpha-blue;
       box-shadow: 0 0 2px rgba(0,0,0,0.12),
        0 3px 5px rgba(0,0,0,0.24);
@@ -73,6 +70,24 @@ input[type="button"] {
       }
    }
 
+   &[data-toggle] {
+
+       @include media($small) {
+           @include icon($after, chevron-down) {
+               position: relative;
+               top: -2px;
+               color: #83888F;
+               font-size: 10px;
+              @include lrswap(padding, 0 0 0 8px);
+              @include transform-origin($origin: 12px 50% 0);
+           }
+       }
+
+       &.active:after {
+           @include transform(rotate(180deg));
+       }
+   }
+
    &.save-add {
        background-color: $green;
 
@@ -97,10 +112,11 @@ input[type="button"] {
 }
 
 .button-alpha {
+    color: $beta-blue;
    background-color: $gold;
-   color: $beta-blue;
 
    &:hover {
+       color: $beta-blue;
       background-color: darken( $gold, 10% );
    }
 
