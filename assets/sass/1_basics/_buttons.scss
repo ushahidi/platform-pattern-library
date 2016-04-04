@@ -19,10 +19,10 @@ input[type="button"] {
    border: 0px;
    @include border-top-radius($global-radius);
    @include border-bottom-radius($global-radius);
-   background-color: $gamma-blue;
+   background-color: #40444A;
    box-shadow: 0 0 2px rgba(0,0,0,0.12),
     0 2px 2px rgba(0,0,0,0.24);
-   @include lrswap(padding, 10px 15px);
+   @include lrswap(padding, $tiny-spacing $sm-spacing);
    @include transition(0.3s);
 
    i:not(.fa-spin) {
@@ -38,6 +38,7 @@ input[type="button"] {
    }
 
    &:active {
+       color: $white;
       background-color: $beta-black;
       @include no-transition;
       box-shadow: 0 0 2px rgba(0,0,0,0.12),
@@ -114,6 +115,13 @@ input[type="button"] {
 .button-alpha {
     color: $beta-blue;
    background-color: $gold;
+
+   [class*="fa-"] {
+
+       &:before, &:after {
+           color: $beta-blue;
+       }
+   }
 
    &:hover {
        color: $beta-blue;
@@ -196,7 +204,7 @@ input[type="button"] {
    [class*="icon-"] {
 
       &:before {
-         color: $yellow;
+         color: $beta-blue;
       }
    }
 }
@@ -236,6 +244,32 @@ input[type="button"] {
            background-color: transparent;
        }
    }
+}
+
+// Floating action button
+.button-fa {
+    width: 54px;
+    height: 54px;
+    @include equal-radius(100%);
+    box-shadow: 0 0 6px rgba(0,0,0,0.12),
+            0 6px 6px rgba(0,0,0,0.24);
+    padding: 0;
+
+    [class*="icon-"] {
+
+        &:before, &:after {
+            position: relative;
+            top: 2px;
+            font-size: 20px;
+        }
+    }
+
+    &[data-toggle] {
+
+        &:after {
+            content: none;
+        }
+    }
 }
 
 .button-flat {

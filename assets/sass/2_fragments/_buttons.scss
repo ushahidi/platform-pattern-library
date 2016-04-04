@@ -1,3 +1,87 @@
+// FLOATING ACTION BUTTON
+.fab {
+
+    .fab-options {
+        display: none;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        @extend .list-unstyled;
+        @include transition(all, .25s);
+
+        &.active {
+            display: flex;
+        }
+
+        @include media($medium) {
+            top: 100px;
+            bottom: 0;
+            flex-direction: column;
+            @include margin-left(6px);
+        }
+
+        li {
+            text-align: right;
+            padding: 10px 0;
+            @include icon(after, file) {
+                @include lrswap(margin, 0 0 0 10px);
+            }
+
+            @include media($medium) {
+                text-align: left;
+                @include icon(before, file) {
+                    @include lrswap(margin, 0 10px 0 0);
+                }
+
+                &:after {
+                    content: none;
+                }
+
+            }
+
+            &:before,
+            &:after {
+                width: 40px;
+                height: 40px;
+                color: white;
+                @include lrswap(padding, 13px 13px 13px 15px);
+                border-radius: 20px;
+                font-size: em(15);
+                background: red;
+            }
+
+            $colors: $red, $yellow, $blue, $green;
+
+            @for $i from 1 through length($colors) {
+                &:nth-child(#{length($colors)}n+#{$i}) {
+
+                    &:before,
+                    &:after {
+                        background: nth($colors, $i)
+                    }
+
+                }
+
+            }
+            span {
+                color: $white;
+                background: $gamma-blue;
+                padding: 5px 15px;
+                border-radius: 15px;
+
+                @include media($medium) {
+
+                }
+
+            }
+
+        }
+
+        &.open {
+            opacity: 1;
+        }
+    }
+}
+
 .button-split {
 
    .form-field,

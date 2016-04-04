@@ -1,152 +1,36 @@
-// 'toolbar needs to be it's own block pattern, probably
-
-.add-new-post {
-    position: fixed;
-    bottom: 90px;
-    @include right(20px);
-    height: 54px;
-    width: 54px;
-    border-radius: 100px;
-    background: $highlight;
-    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
-    cursor: pointer;
-    z-index: $toolbar;
-    @include icon(before, plus) {
-        position: absolute;
-        top: 29px;
-        @include right(18px);
-        line-height: 0;
-        font-size: em(24);
-        padding: 0;
-    }
-    @include transition(all, .25s);
-
-    @include media($medium) {
-        top: 43px;
-        @include left(320px);
-    }
-
-    &.open {
-        background: $white;
-
-        &:before {
-            transform: rotate(45deg);
-            @include right(19px);
-        }
-
-    }
-
-    ul {
-        @extend .list-unstyled;
-        position: fixed;
-        bottom: 160px;
-        display: flex;
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
-        @include margin-left(-149px);
-        opacity: 0;
-        @include transition(all, .25s);
-
-        @include media($medium) {
-            top: 100px;
-            bottom: 0;
-            flex-direction: column;
-            @include margin-left(6px);
-        }
-
-        li {
-            text-align: right;
-            padding: 10px 0;
-            @include icon(after, file) {
-                @include lrswap(margin, 0 0 0 10px);
-            }
-
-            @include media($medium) {
-                text-align: left;
-                @include icon(before, file) {
-                    @include lrswap(margin, 0 10px 0 0);
-                }
-
-                &:after {
-                    content: none;
-                }
-
-            }
-
-            &:before,
-            &:after {
-                width: 40px;
-                height: 40px;
-                color: white;
-                @include lrswap(padding, 13px 13px 13px 15px);
-                border-radius: 20px;
-                font-size: em(15);
-                background: red;
-            }
-
-            $colors: $red, $yellow, $blue, $green;
-
-            @for $i from 1 through length($colors) {
-                &:nth-child(#{length($colors)}n+#{$i}) {
-
-                    &:before,
-                    &:after {
-                        background: nth($colors, $i)
-                    }
-
-                }
-
-            }
-            span {
-                color: $white;
-                background: $gamma-blue;
-                padding: 5px 15px;
-                border-radius: 15px;
-
-                @include media($medium) {
-
-                }
-
-            }
-
-        }
-
-        &.open {
-            opacity: 1;
-        }
-
-    }
-
-}
-
-.toolbar-wrapper {
-    width: 100%;
-    position: fixed;
-    top: 60px;
-    @include left(0);
-    @include float(left);
-    background: $gamma-blue;
-    padding: 7px 15px;
-    z-index: $filter;
-
-    @include media($small) {
-        padding: 15px;
-    }
-
-    @include media($medium) {
-        top: 0;
-        height: 70px;
-        @include padding-left(400px);
-    }
-
-}
-
 .toolbar {
     @include span-columns(12);
     @include float(left);
+    background-color: $gamma-blue;
+    padding: $sm-spacing;
     margin: auto;
 
-    
+    .fab {
+        display: none;
+    }
+
+    .search {
+
+        .form-field.search {
+
+            input[type="search"] {
+                color: $white;
+                border-color: transparent;
+                background-color: #8E9297;
+
+                &::placeholder {
+                   color: $white;
+                }
+
+                &:focus {
+                    color: $black;
+                    outline-color: $beta-blue;
+                    border-color: $base-border-dark;
+                    background-color: $white;
+                }
+            }
+        }
+    }
 
     .views-wrapper {
         @include span-columns(3);
@@ -256,6 +140,67 @@
 
         }
 
+    }
+}
+
+// 'toolbar needs to be it's own block pattern, probably
+
+.add-new-post {
+    position: fixed;
+    bottom: 90px;
+    @include right(20px);
+    height: 54px;
+    width: 54px;
+    border-radius: 100px;
+    background: $highlight;
+    box-shadow: 2px 2px 10px 2px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: $toolbar;
+    @include icon(before, plus) {
+        position: absolute;
+        top: 29px;
+        @include right(18px);
+        line-height: 0;
+        font-size: em(24);
+        padding: 0;
+    }
+    @include transition(all, .25s);
+
+    @include media($medium) {
+        top: 43px;
+        @include left(320px);
+    }
+
+    &.open {
+        background: $white;
+
+        &:before {
+            transform: rotate(45deg);
+            @include right(19px);
+        }
+
+    }
+
+}
+
+.toolbar-wrapper {
+    width: 100%;
+    position: fixed;
+    top: 60px;
+    @include left(0);
+    @include float(left);
+    background: $gamma-blue;
+    padding: 7px 15px;
+    z-index: $filter;
+
+    @include media($small) {
+        padding: 15px;
+    }
+
+    @include media($medium) {
+        top: 0;
+        height: 70px;
+        @include padding-left(400px);
     }
 
 }
