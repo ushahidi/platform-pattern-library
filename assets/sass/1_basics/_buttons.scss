@@ -19,7 +19,7 @@ input[type="button"] {
    border: 0px;
    @include border-top-radius($global-radius);
    @include border-bottom-radius($global-radius);
-   background-color: #40444A;
+   background-color: $color-primary-gamma;
    box-shadow: 0 0 2px rgba(0,0,0,0.12),
     0 2px 2px rgba(0,0,0,0.24);
    @include lrswap(padding, $tiny-spacing $sm-spacing);
@@ -32,14 +32,14 @@ input[type="button"] {
    &:hover {
       cursor: pointer;
       color: $white;
-      background-color: $alpha-blue;
+      background-color: $color-primary-beta;
       box-shadow: 0 0 2px rgba(0,0,0,0.12),
        0 3px 5px rgba(0,0,0,0.24);
    }
 
    &:active {
        color: $white;
-      background-color: $beta-black;
+      background-color: $color-primary-alpha;
       @include no-transition;
       box-shadow: 0 0 2px rgba(0,0,0,0.12),
        0 3px 5px rgba(0,0,0,0.24);
@@ -47,7 +47,7 @@ input[type="button"] {
 
    &.disabled, &[disabled] {
       cursor: not-allowed;
-      background-color: $gamma-gray;
+      background-color: $color-light-gamma;
       box-shadow: none;
    }
 
@@ -113,19 +113,19 @@ input[type="button"] {
 }
 
 .button-alpha {
-    color: $beta-blue;
-   background-color: $gold;
+    color: $color-primary-beta;
+   background-color: $color-secondary;
 
    [class*="fa-"] {
 
        &:before, &:after {
-           color: $beta-blue;
+           color: $color-primary-beta;
        }
    }
 
    &:hover {
-       color: $beta-blue;
-      background-color: darken( $gold, 10% );
+       color: $color-primary-beta;
+      background-color: darken( $color-secondary, 10% );
    }
 
    &.disabled, &[disabled] {
@@ -204,18 +204,18 @@ input[type="button"] {
    [class*="icon-"] {
 
       &:before {
-         color: $beta-blue;
+         color: $color-primary-beta;
       }
    }
 }
 
 .button-beta {
    color: $link-color;
-   background-color: $delta-gray;
+   background-color: $color-light-delta;
 
    &:hover {
        color: $link-hover-color;
-       background-color: darken( $delta-gray, 10% );
+       background-color: darken( $color-light-delta, 10% );
    }
 
    &.disabled, &[disabled] {
@@ -320,7 +320,7 @@ input[type="button"] {
             font-size: 1em;
             padding: 0;
         }
-
+        
         &:hover {
 
             @include icon(before, trash) {
