@@ -71,24 +71,6 @@ input[type="button"] {
       }
    }
 
-   &[data-toggle] {
-
-       @include media($small) {
-           @include icon($after, chevron-down) {
-               position: relative;
-               top: -2px;
-               color: #83888F;
-               font-size: 10px;
-              @include lrswap(padding, 0 0 0 8px);
-              @include transform-origin($origin: 12px 50% 0);
-           }
-       }
-
-       &.active:after {
-           @include transform(rotate(180deg));
-       }
-   }
-
    &.save-add {
        background-color: $green;
 
@@ -286,11 +268,6 @@ input[type="button"] {
    color: $white;
    background-color: $red;
 
-   @include icon(before, trash) {
-       color: $white;
-       font-size: 1em;
-   }
-
    &:hover {
       background-color: darken( $red, 10% );
    }
@@ -299,10 +276,6 @@ input[type="button"] {
       cursor: default;
       color: $dk-gray;
       background-color: $white;
-
-      &:before, &:after {
-         color: $dk-gray; //icon colors
-      }
 
       &:hover {
          border: $base-border;
@@ -313,24 +286,6 @@ input[type="button"] {
       }
 
    }
-
-    &.icon-only,
-    &.alt {
-        @include icon(before, trash) {
-            font-size: 1em;
-            padding: 0;
-        }
-        
-        &:hover {
-
-            @include icon(before, trash) {
-                font-size: 1em;
-                padding: 0;
-            }
-
-        }
-
-    }
 
 }
 

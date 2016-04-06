@@ -1,3 +1,50 @@
+button,
+.button,
+input[type="button"] {
+
+    svg.iconic {
+        width: .866666667em;
+        height: .866666667em;
+        fill: $white;
+        @include transition(0.3s);
+
+        + .button-label {
+            margin-left: $tiny-spacing;
+        }
+    }
+
+    .button-label {
+
+        + svg.iconic {
+            margin-left: $tiny-spacing;
+        }
+    }
+
+    &[data-toggle] {
+
+        &.active {
+
+            svg.iconic {
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+}
+
+.button-alpha {
+
+    svg.iconic {
+        fill: $color-primary-beta;
+    }
+}
+
+.button-beta {
+
+    svg.iconic {
+        fill: $link-color;
+    }
+}
+
 // FLOATING ACTION BUTTON
 .fab {
 
