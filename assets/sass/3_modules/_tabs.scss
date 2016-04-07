@@ -340,6 +340,10 @@
             width: 25%;
         }
 
+        .rtl & {
+            order: 1;
+        }
+
         &:before {
             @include float(right);
             @include fa-icon();
@@ -374,17 +378,13 @@
             margin: $sm-spacing;
 
             @include media($small) {
+                @include float(left);
+                clear: both;
                 display: table;
                 font-size: em(15);
                 @include border-left(2px solid $base-border);
                 @include lrswap(margin, 0 30px 0 0);
                 padding: 30px 0;
-            }
-
-            @include media($medium) {
-                @include float(left);
-                clear: both;
-                font-size: em(16);
             }
 
             &:hover {
@@ -425,7 +425,7 @@
                 // display: inline-block;
 
                 @include media($small) {
-                    padding: 30px $base-spacing;
+                    padding: 30px 13px;
                 }
 
                 &:hover {
@@ -496,11 +496,14 @@
     }
 
     .step-actions {
-        float: right;
+        position: absolute;
+        @include float(right);
+        bottom: 20px;
+        @include right(20px);
 
         button {
-            float: left;
-            margin-left: 20px;
+            @include float(left);
+            @include margin-left(20px);
         }
 
     }
@@ -514,9 +517,6 @@
         @include media($small) {
             order: 1;
             margin: 0;
-        }
-
-        @include media($medium) {
             width: 75%;
         }
 
