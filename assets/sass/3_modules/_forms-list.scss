@@ -1,0 +1,101 @@
+.forms-list {
+    @extend .list-unstyled;
+    margin-bottom: 40px;
+    width: 100%;
+
+    $colors: $red, $yellow, $brown, $green;
+
+    @for $i from 1 through length($colors) {
+        li:nth-child(#{length($colors)}n+#{$i}) {
+            @include border-left(6px solid nth($colors, $i))
+        }
+    }
+
+    li {
+        @include lrswap(padding, 10px 10px 10px 10px);
+        margin: 0 -20px 5px -20px;
+        color: $white;
+        background: $color-primary;
+
+        &:last-of-type {
+            margin-bottom: 20px;
+        }
+
+        i {
+            @include float(left);
+            @include padding-right(10px);
+        }
+
+        [data-toggle] {
+            @include float(right);
+            padding: 0;
+            cursor: pointer;
+        }
+
+        &.unknown {
+            @include border-left(none);
+            background: darken(saturate(adjust-hue($color-primary, 1.7143), 15.2047), 6.0784);
+            @include padding-left(42px);
+
+            &:after {
+                content: none;
+            }
+
+        }
+
+        .dropdown-menu.init{
+            @include lrswap(margin, -9px -7px 0 0);
+            @include equal-radius(3px);
+
+            @include media($medium) {
+                width: 215px;
+                @include lrswap(margin, -23px 0 0 -194px);
+            }
+
+            i.fa-chevron-circle-up {
+                position: absolute;
+                top: 8px;
+                @include right(-5px);
+                color: $color-light-alpha;
+                cursor: pointer;
+
+                @include media($medium) {
+                    top: 9px;
+                    @include right(-3px);
+                }
+
+            }
+
+            li {
+                color: $text-color;
+                background: transparent;
+                border: none;
+                width: 100%;
+                margin: 0;
+                @include lrswap(padding, 10px 0 10px 30px);
+                line-height: 1.3em;
+
+                i {
+                    position: absolute;
+                    @include left(20px);
+                    padding-top: 2px;
+                }
+
+            }
+
+            .divider {
+                width: 82%;
+                @include lrswap(margin, 0 0 0 30px);
+                background: $color-light-gamma;
+            }
+
+        }
+
+    }
+
+    .see-more {
+        @include padding-left(20px);
+        font-size: em(14);
+    }
+
+}
