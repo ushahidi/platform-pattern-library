@@ -1,0 +1,84 @@
+.postcard {
+    position: relative;
+    @extend .card;
+
+    .postcard-band {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 6px;
+        @include radius(2px, 0, 0, 2px);
+        background-color: $color-light-gamma;
+    }
+
+    .postcard-body {
+        padding: $sm-spacing;
+        padding-right: $huge-spacing+$tiny-spacing;
+    }
+
+    .postcard-actions-trigger {
+        display: inline-block;
+        position: absolute;
+        top: $sm-spacing;
+        right: $sm-spacing;
+        width: $sm-spacing;
+        height: $sm-spacing;
+        font-size: 12px;
+        text-align: center;
+        @include equal-radius(100%);
+        background-color: $color-light-beta;
+        @include transition(0.3s);
+
+        svg.iconic {
+            fill: $white;
+            margin-top: 4px;
+        }
+
+        &.active {
+            @include transform(rotate(180deg));
+        }
+    }
+
+    .dropdown-menu {
+        top: $lg-spacing+4 !important;
+        right: $sm-spacing !important;
+    }
+
+    .postcard-title {
+        color: $color-dark-alpha;
+        @include typeGamma;
+        margin-bottom: $tiny-spacing;
+    }
+
+    .postcard-metadata {
+        font-size: 12px;
+    }
+
+    .postcard-author {
+        color: $color-dark-alpha;
+        font-weight: $bold;
+
+        .avatar {
+            display: inline;
+            float: left;
+            width: 20px;
+            height: 20px;
+            margin-top: -3px;
+            margin-right: $tiny-spacing/2;
+
+            &:hover {
+                border-color: rgba(0,0,0,.24);
+            }
+        }
+    }
+
+    .postcard-image {
+        margin: $sm-spacing 0;
+
+        img {
+            border: 1px solid rgba(0,0,0,.1);
+            box-shadow: 0 1px 1px rgba(0,0,0,.1);
+        }
+    }
+}

@@ -1,14 +1,11 @@
 .dropdown-menu {
-   @extend .list-unstyled;
    position: absolute;
    z-index: $top;
    min-width: 160px;
-   @include equal-radius;
-   background-color: $sheet;
-   box-shadow: 0 0 4px rgba(0,0,0,0.12),
-        0 4px 4px rgba(0,0,0,0.24);
+   @extend .menu;
    // margin-top: -1px;
    z-index: $dropdown;
+   margin: 0;
 
    &.init {
       display: none;
@@ -24,15 +21,34 @@
    }
 
    li {
+       list-style-type: none;
+       margin: 0;
 
-      a {
-         display: block;
-         padding: $sm-spacing $base-spacing;
-      }
+       &:first-child {
+           margin-top: $tiny-spacing;
+       }
 
-      &:hover {
-         background: $lt-gray;
-      }
+       &:last-child {
+           margin-bottom: $tiny-spacing;
+       }
+
+       svg.iconic {
+           margin-right: $tiny-spacing;
+       }
+
+       a {
+            display: block;
+            padding: $tiny-spacing $sm-spacing;
+
+            &:hover {
+                color: $white;
+                background-color: $color-primary;
+
+                svg.iconic {
+                    fill: $white;
+                }
+            }
+       }
    }
 
    .form-field {

@@ -3706,6 +3706,24 @@ blockquote {
 table {
   border-collapse: collapse; }
 
+/* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_containers.scss */
+.sheet {
+  border-radius: 2px;
+  background-color: #FAFAFA;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.24); }
+
+/* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_containers.scss */
+.menu, .dropdown-menu {
+  border-radius: 2px;
+  background-color: #FAFAFA;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.24); }
+
+/* line 15, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_containers.scss */
+.card, .postcard {
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24); }
+
 /*------------------------------------*\
 $BUTTONS
 \*------------------------------------*/
@@ -4608,16 +4626,21 @@ span.date {
 /*------------------------------------*\
     $IMAGES
 \*------------------------------------*/
-/* line 5, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_images.scss */
+/* line 4, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_images.scss */
+img {
+  max-width: 100%; }
+
+/* line 7, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_images.scss */
 .circular {
   border-radius: 50%;
   width: 100%;
   height: 100%;
   max-width: 100px; }
 
-/* line 12, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_images.scss */
+/* line 14, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_images.scss */
 .avatar {
-  border-radius: 2px; }
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.1); }
 
 /*------------------------------------*\
     $GENERAL SELECTORS
@@ -4777,38 +4800,53 @@ fieldset {
   position: absolute;
   z-index: 500;
   min-width: 160px;
-  border-radius: 2px;
-  background-color: #FAFAFA;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.24);
-  z-index: 5000; }
-  /* line 13, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  z-index: 5000;
+  margin: 0; }
+  /* line 10, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
   .dropdown-menu.init {
     display: none; }
-    /* line 16, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    /* line 13, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
     .dropdown-menu.init.active {
       display: block;
       clear: both; }
-  /* line 22, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  /* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
   .header .dropdown-menu {
     text-shadow: none; }
-  /* line 28, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-  .dropdown-menu li a {
-    display: block;
-    padding: 16px 24px; }
-  /* line 33, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
-  .dropdown-menu li:hover {
-    background: #eeeeee; }
-  /* line 38, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  /* line 23, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  .dropdown-menu li {
+    list-style-type: none;
+    margin: 0; }
+    /* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    .dropdown-menu li:first-child {
+      margin-top: 8px; }
+    /* line 31, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    .dropdown-menu li:last-child {
+      margin-bottom: 8px; }
+    /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    .dropdown-menu li svg.iconic {
+      margin-right: 8px; }
+    /* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    .dropdown-menu li a {
+      display: block;
+      padding: 8px 16px; }
+      /* line 43, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+      .dropdown-menu li a:hover {
+        color: #FFFFFF;
+        background-color: #373E46; }
+        /* line 47, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+        .dropdown-menu li a:hover svg.iconic {
+          fill: #FFFFFF; }
+  /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
   .dropdown-menu .form-field {
     margin: 8px 16px; }
-    /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    /* line 57, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
     .dropdown-menu .form-field:first-child {
       margin-top: 16px; }
-    /* line 45, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
     .dropdown-menu .form-field:last-child {
       margin-bottom: 16px; }
 
-/* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+/* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
 .dropdown-trigger.init {
   position: relative;
   padding: 8px 16px; }
@@ -4823,12 +4861,12 @@ fieldset {
     mask: url(../img/icons/chevron-bottom.svg) right center/contain no-repeat;
     transition: content, .25s;
     margin-left: 8px; }
-  /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+  /* line 77, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
   .dropdown-trigger.init.active {
     border: 1px solid #D6D5D2;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
-    /* line 65, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
+    /* line 81, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_dropdown.scss */
     .dropdown-trigger.init.active:after {
       -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
@@ -8243,6 +8281,82 @@ aside .filters {
   /* line 7, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_page-footer.scss */
   .page-footer button {
     float: right; }
+
+/* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+.postcard {
+  position: relative; }
+  /* line 5, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .postcard-band {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 6px;
+    border-radius: 2px 0 0 2px;
+    background-color: #EEEEEE; }
+  /* line 15, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .postcard-body {
+    padding: 16px;
+    padding-right: 48px; }
+  /* line 20, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .postcard-actions-trigger {
+    display: inline-block;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 16px;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 100%;
+    background-color: #D6D5D2;
+    transition: 0.3s; }
+    /* line 33, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+    .postcard .postcard-actions-trigger svg.iconic {
+      fill: #FFFFFF;
+      margin-top: 4px; }
+    /* line 38, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+    .postcard .postcard-actions-trigger.active {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+  /* line 43, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .dropdown-menu {
+    top: 36px !important;
+    right: 16px !important; }
+  /* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .postcard-title {
+    color: #222222;
+    font-weight: 400;
+    font-size: 1em;
+    font-size: 16px;
+    font-size: 1.14286rem;
+    margin-bottom: 8px; }
+  /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .postcard-metadata {
+    font-size: 12px; }
+  /* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .postcard-author {
+    color: #222222;
+    font-weight: 900; }
+    /* line 62, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+    .postcard .postcard-author .avatar {
+      display: inline;
+      float: left;
+      width: 20px;
+      height: 20px;
+      margin-top: -3px;
+      margin-right: 4px; }
+      /* line 70, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+      .postcard .postcard-author .avatar:hover {
+        border-color: rgba(0, 0, 0, 0.24); }
+  /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  .postcard .postcard-image {
+    margin: 16px 0; }
+    /* line 79, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+    .postcard .postcard-image img {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1); }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_post-summary.scss */
 .post-summary {
