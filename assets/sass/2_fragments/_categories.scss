@@ -1,6 +1,6 @@
 .category {
 	@include direction;
-	@include lrswap(margin, $sm-spacing $base-spacing $sm-spacing 0);
+    @include lrswap(margin, $sm-spacing $base-spacing $sm-spacing 0);
 	font-size: em(14);
 
     @include media($small) {
@@ -16,22 +16,17 @@
 }
 
 .categories-list {
-	@extend .list-unstyled;
+    margin: 0;
 
 	.category {
-		margin-bottom: $sm-spacing;
+        list-style-type: none;
 	}
 
-}
+    &.inline {
+        overflow:hidden;
 
-.categories-list-inline {
-	@extend .list-unstyled;
-	overflow:hidden;
-
-	.category {
-		@include float(left);
-		display: inline;
-		@include padding-right($sm-spacing);
-	}
-
+        .category {
+            display: inline;
+        }
+    }
 }

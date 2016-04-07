@@ -1,10 +1,11 @@
-.pagination, .stepper {
-    padding: $sm-spacing 0;
+.pagination,
+.stepper {
     text-align: center;
+    margin: $sm-spacing auto;
 
     ul {
-        @extend .list-unstyled;
         display: inline-block;
+        margin: 0;
 
         &.page-numbers {
             @include direction;
@@ -12,14 +13,15 @@
 
         li {
             display: inline-block;
-            /* @include float(left); */
+            list-style-type: none;
             color: $link-color;
             font-weight: $bold;
+            margin: 0;
             padding: 0 $sm-spacing;
             cursor: pointer;
 
             &.active {
-                color: $base-color;
+                color: $color-primary-alpha;
                 cursor: default;
 
                 &:hover {
@@ -35,47 +37,37 @@
                     display: inline-block;
                 }
 
-                &:hover {
-                    color: $link-hover-color;
+                a {
+                    color: $color-primary-epsilon;
+
+                    &:hover {
+                        color: $color-primary;
+                    }
                 }
 
             }
 
-            &.prev, &.next {
+            &.prev,
+            &.next {
+                position: relative;
+                color: $highlight;
                 border: $base-border;
                 @include border-top-radius($global-radius);
                 @include border-bottom-radius($global-radius);
-                color: $highlight;
-                padding: 10px;
-                position: relative;
+                padding: $tiny-spacing;
                 @include transition(0.3s);
-
-                a {
-                    color: $yellow;
-                }
 
                 &:hover{
                     border: $base-border-hover;
                 }
 
-            }
+                svg.iconic {
+                    fill: $link-color;
+                }
 
-            &.prev {
-                margin-right: $sm-spacing;
-                @include icon(before, chevron-left);
             }
-
-            &.next {
-                margin-left: $sm-spacing;
-                @include icon(before, chevron-right);
-            }
-
         }
 
     }
 
-}
-
-.pagination {
-    margin: $base-spacing auto;
 }

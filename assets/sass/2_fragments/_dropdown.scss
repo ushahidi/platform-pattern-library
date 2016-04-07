@@ -35,21 +35,16 @@
       }
    }
 
-   label {
-      padding: $sm-spacing;
-
-      @include media($medium) {
-         padding: $sm-spacing $base-spacing;
-      }
-
-      input[type="checkbox"],
-      input[type="radio"] {
-         margin-bottom: 0;
-      }
-   }
-
    .form-field {
-      padding: 5px $sm-spacing;
+      margin: $tiny-spacing $sm-spacing;
+
+      &:first-child {
+          margin-top: $sm-spacing;
+      }
+
+      &:last-child {
+          margin-bottom: $sm-spacing;
+      }
    }
 }
 
@@ -57,7 +52,11 @@
 
    &.init {
       position: relative;
-      @include lrswap(padding, 7px 30px 7px $sm-spacing);
+      padding: $tiny-spacing $sm-spacing;
+
+      @include iconic(after, chevron-bottom, $color-light-alpha) {
+          margin-left: $tiny-spacing;
+      }
 
       &.active {
          border: $base-border;
@@ -66,25 +65,6 @@
          &:after {
             @include transform(rotate(180deg));
          }
-      }
-
-      .fa {
-
-         &:before {
-            color: $yellow;
-         }
-      }
-
-      @include icon($after, chevron-down) {
-         @include radius(0, $global-radius, $global-radius, 0);
-         position: absolute;
-         top: 0;
-         @include right(0);
-         line-height: 30px;
-         text-shadow: none;
-         padding: 0 8px;
-         pointer-events: none;
-         color: $yellow;
       }
    }
 }

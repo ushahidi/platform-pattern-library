@@ -3,48 +3,36 @@ fieldset {
    @include clearfix;
    margin-bottom: $base-spacing;
 
-   &:first-child {
-
-      label {
-         margin-top: 0;
-      }
-   }
-
    &:last-child,
    .form-field {
       margin-bottom: 0;
    }
 
    label {
-      @extend .delta-alt;
-      display: block;
-      @include lrswap(padding, 0 $sm-spacing 0 0);
+      display: inline-block;
+      margin-bottom: $tiny-spacing;
 
-      + .small {
+      + p {
          font-style: italic;
+         margin: $tiny-spacing 0;
       }
    }
 
    .alert {
-      display: inline-block;
-      @include border-left(3px solid $border-color);
-      padding: $tiny-spacing $sm-spacing;
-      margin: 0;
-      background-color: lighten( $lt-gray, 4% );
+      margin: $tiny-spacing 0;
    }
 
    // REQUIRED FIELD
    &.required {
 
       label {
-         @include padding-left(2px);
 
-         @include icon($after, asterisk) {
-            position: relative;
-            top: -6px;
-            font-size: 6px;
-            @include lrswap(padding, 0 1px 0 5px);
-            color: $error-color;
+         &:after {
+             content: '\2217';
+             color: $red;
+             font-weight: normal;
+             font-size: 1.75em;
+             @include margin-left($tiny-spacing);
          }
       }
    }
@@ -69,18 +57,6 @@ fieldset {
          }
       }
 
-      .alert {
-         border-color: $error-color;
-         background-color: lighten( $error-color, 50% );
-
-         @include icon(before, alert) {
-            display: inline-block;
-            color: $error-color;
-            font-size: em(18);
-            @include padding-right($sm-spacing);
-         }
-
-      }
    }
 
    // VALID FORM FIELD VALUE
@@ -88,12 +64,9 @@ fieldset {
 
       label {
 
-         @include icon($after, check-circle) {
-            color: $confirmation-color;
-            display: inline-block;
-            font-size: em(18);
-            @include padding-left($tiny-spacing);
-         }
+          @include iconic(after, circle-check, $confirmation-color) {
+              margin-left: $tiny-spacing;
+          }
       }
 
       input,
@@ -108,24 +81,26 @@ fieldset {
             border-color: $confirmation-color;
          }
       }
-
-      .alert {
-         border-color: $confirmation-color;
-         background-color: lighten( $confirmation-color, 50% );
-      }
    }
 
    // CHECKBOX OR RADIO BUTTON
    &.checkbox,
    &.radio {
+       position: relative;
+       padding-left: 14px + $tiny-spacing;
 
       label {
-         @include float(left);
          color: $text-color;
-         font-weight: normal;
+         @include typeBase;
          text-transform: none;
          letter-spacing: 0;
-         margin: 0 0 5px;
+      }
+
+      input[type="checkbox"],
+      input[type="radio"] {
+          position: absolute;
+          top: 0;
+          left: 0;
       }
    }
 
@@ -143,12 +118,10 @@ fieldset {
    &.search, &.location {
       position: relative;
 
-      @include icon($before, search) {
+      @include iconic(before, magnifying-glass, $color-primary, 14px) {
          position: absolute;
          top: 10px;
          left: $tiny-spacing;
-         color: $color-primary;
-         font-size: 16px;
       }
 
       label {
@@ -301,7 +274,7 @@ fieldset {
 
 .form-fieldgroup {
    border-bottom: $base-border;
-   padding: $sm-spacing 0;
+   padding: $tiny-spacing 0;
 
    &:last-of-type {
       border-bottom: none;

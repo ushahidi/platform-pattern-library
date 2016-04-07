@@ -5,16 +5,17 @@ $NAVIGATION
 .pl-nav {
     @include clearfix;
     background: $color-primary-alpha;
-    padding: $base-spacing;
+    padding: $sm-spacing;
 
     @include media($small) {
-        padding: $base-spacing 0 0;
+        padding: 1px $tiny-spacing 0;
     }
 
     ul {
-        @extend .list-unstyled;
+        margin: 0;
 
         li {
+            list-style-type: none;
             color: $white;
             font-weight: $bold;
             line-height: 2;
@@ -32,6 +33,8 @@ $NAVIGATION
             }
 
             a {
+                display: block;
+                float: left;
                 color: $color-primary-epsilon;
                 padding-left: 12px;
                 margin-top: 8px;
@@ -42,15 +45,10 @@ $NAVIGATION
                 }
 
                 @include media($small) {
-                    display: block;
-                    float: left;
+                    display: inline-block;
                     border-left: 0px;
                     border-bottom: $blue 0px solid;
-                    padding: 0 ($base-spacing+5px) $base-spacing;
-                }
-
-                @include media($medium) {
-                    padding: 0 $lg-spacing $base-spacing;
+                    padding: $sm-spacing;
                 }
             }
         }
@@ -83,25 +81,21 @@ $NAVIGATION
 
 .pl-jump-nav {
     @include span-columns(12);
+    border-bottom: $base-border;
     background: $white;
     max-width: $max-width;
 
     @include media($small) {
-        border-bottom: $base-border;
+        @include span-columns(8);
+        border-bottom: none;
+    }
+
+    @include media($large) {
+        @include span-columns(9);
     }
 
     ul {
-        @extend .list-unstyled;
-        @include span-columns(12);
-        padding: $base-spacing ($base-spacing + 10px);
-
-        @include media($small) {
-            @include span-columns(8);
-        }
-
-        @include media($large) {
-            @include span-columns(9);
-        }
+        margin: $sm-spacing $base-spacing;
     }
 
     li {
@@ -117,10 +111,8 @@ $NAVIGATION
     }
 }
 
-ul.pl-read-direction-nav {
-    @extend .list-unstyled;
+.pl-read-direction-nav {
     @include span-columns(12);
-    padding: $base-spacing;
 
     @include media($small) {
         @include span-columns(4);
@@ -131,15 +123,36 @@ ul.pl-read-direction-nav {
         @include span-columns(3);
     }
 
-    li {
-        margin: 0;
-        padding: 0 0 0 10px;
-        border: none;
+    span {
+        display: inline-block;
+        padding: $tiny-spacing $tiny-spacing $tiny-spacing $base-spacing;
 
-        a.cta {
-            font-size: 1em;
+        @include media($small) {
+            padding-top: $sm-spacing;
+            padding-bottom: $sm-spacing;
         }
     }
+
+    ul {
+        display: inline;
+        margin: 0;
+
+        @include media($small) {
+            margin-right: $base-spacing;
+        }
+
+        li {
+            display: inline;
+            list-style-type: none;
+            margin: 0;
+            border: none;
+
+            a.cta {
+                font-size: 1em;
+            }
+        }
+    }
+
 }
 
 .pl-fixed {

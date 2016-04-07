@@ -14,27 +14,21 @@
 
       legend {
          position: relative;
-         min-height: 32px;
          @include direction;
-         @include radius($global-radius);
-         border: $base-border;
-         background: $white;
-         color: $black;
-         font-family: $base-font-family;
-         font-weight: 400;
-         font-size: em(15);
+         @include equal-radius;
+         color: $text-color;
+         @include typeBase;
          text-transform: none;
          letter-spacing: 0;
+         border: $base-border;
+         background: $color-light-delta;
 
          &:hover {
             cursor: pointer;
          }
 
-         [class*="icon-"] {
-
-            &:before {
-               color: $yellow;
-            }
+         svg.iconic {
+             fill: $color-primary;
          }
       }
 
@@ -49,51 +43,6 @@
          + button {
             margin-top: 0;
             margin-bottom: $sm-spacing;
-         }
-      }
-
-      .form-field {
-
-         &.bar {
-            background-color: $dk-brown;
-
-            &:first-child {
-               border-bottom: $base-border;
-            }
-
-            &:last-child {
-               border-top: $base-border;
-            }
-
-            input,
-            input[type="text"],
-            input[type="email"],
-            input[type="password"],
-            input[type="search"] {
-               margin-bottom: $sm-spacing;
-            }
-         }
-
-         &.checkbox,
-         &.radio {
-            padding: $sm-spacing;
-
-            label {
-               margin: 0;
-            }
-
-            input[type="checkbox"],
-            input[type="radio"] {
-                  margin-bottom: 0;
-            }
-         }
-
-         &.search {
-
-            &:before {
-               top: 21px;
-               left: 18px;
-            }
          }
       }
 
