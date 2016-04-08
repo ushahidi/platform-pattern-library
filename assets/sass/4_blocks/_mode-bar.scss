@@ -186,12 +186,47 @@
                     margin: -3px 7px 0 -3px;
                 }
             }
+
+            @include media($medium) {
+                position: relative;
+
+                &:hover {
+
+                    .label {
+                        @extend .bug;
+                        display: block;
+                        position: absolute;
+                        top: 0;
+                        left: 100%;
+                        margin-left: $tiny-spacing;
+                    }
+                }
+            }
         }
 
         .label {
 
             @include media($medium) {
                 display: none;
+            }
+
+            @include media($medium-down) {
+
+                .badge {
+                    display: inline-block;
+                    height: $sm-spacing;
+                    width: $sm-spacing;
+                    color: $color-primary-alpha;
+                    font-size: 10px;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: 1.4;
+                    white-space: nowrap;
+                    vertical-align: middle;
+                    @include equal-radius(100%);
+                    background: $color-secondary;
+                    @include lrswap(margin, 0 0 3px 8px);
+                }
             }
         }
     }
@@ -200,12 +235,7 @@
 
         @include media($medium-down) {
             .account-menu {
-                display: -webkit-box;
-                display: -moz-box;
-                display: -ms-flexbox;
-                display: -moz-flex;
-                display: -webkit-flex;
-                display: flex;
+                display: block;
             }
 
             .deployment-menu li {
