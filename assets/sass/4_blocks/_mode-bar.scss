@@ -1,18 +1,19 @@
 .mode-bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: $color-primary;
+    @include clearfix;
+    display: flex;
+    flex-direction: column;
+    position: relative;
     z-index: $modebar;
+    max-width: $lg-spacing*2;
+    background-color: $color-primary;
 
-    @include media($medium) {
-        left: 0;
-        width: 60px;
-        height: 100vh;
+    @include media($medium-down) {
+        max-width: none;
+        background-color: $color-primary-zeta;
     }
 
     ul {
-        margin: 0;
+        @extend .list-reset;
     }
 
     li {
@@ -21,26 +22,35 @@
         flex-grow: 1;
         justify-content: space-around;
         */
-        @include float(left);
-        width: 25%;
-        list-style-type: none;
-        text-align: center;
-        margin: 0;
-
-        @include media($medium) {
-            display: inline-block;
-            flex-grow: 1;
-            width: 100%;
-            margin-top: 15px;
-            padding: 0 10px;
-        }
 
         a {
             display: block;
             color: $color-tertiary;
-            font-size: 11px;
-            padding: $tiny-spacing/2 0;
+            font-size: 12px;
+            text-align: center;
+            padding: $sm-spacing 2px;
             @include transition(0.3s);
+
+            @include media($medium-down) {
+                font-size: 11px;
+                padding: $tiny-spacing/2 0;
+            }
+
+            svg.iconic {
+                display: block;
+                width: $sm-spacing;
+                height: $sm-spacing;
+                fill: $color-tertiary;
+                margin: 4px auto 6px;
+                @include transition(0.3s);
+            }
+
+            .avatar {
+                width: $base-spacing;
+                height: $base-spacing;
+                margin: 4px auto 6px;
+            }
+
 
             &:hover {
                 color: $white;
@@ -51,65 +61,185 @@
             }
         }
 
-        svg.iconic {
-            display: block;
-            width: $sm-spacing;
-            height: $sm-spacing;
-            fill: $color-tertiary;
-            margin: 4px auto 6px;
-            @include transition(0.3s);
-        }
+        &.more-menu-trigger {
+            display: none;
 
-        &.active {
-
-            a {
-                color: $color-secondary;
-
-                svg.iconic {
-                    fill: $color-secondary;
-                }
+            @include media($medium-down) {
+                display: block;
             }
         }
-
     }
 
-    .mode-bar-trigger {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 75%;
-        text-align: center;
-        background-color: $color-primary;
+    .deployment-menu {
 
-        svg.iconic {
-            display: block;
-            width: $sm-spacing;
-            height: $sm-spacing;
-            fill: $color-tertiary;
-            margin: 4px auto 6px;
-            @include transition(0.3s);
+        @include media($medium-down) {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
         }
 
-        a {
-            display: block;
-            color: $color-tertiary;
-            font-size: 11px;
-            padding: $tiny-spacing/2 0;
-            @include transition(0.3s);
+        li {
 
-            &:hover {
-                color: $white;
+            &.persist {
 
-                svg.iconic {
-                    fill: $white;
+                @include media($medium-down) {
+                    display: block;
+                    position: static;
+                    @include float(left);
+                    width: 25%;
+                    list-style-type: none;
+                    text-align: center;
+                    background-color: $color-primary;
+                }
+
+                &.active {
+
+                    a {
+                        color: $color-secondary;
+
+                        svg.iconic {
+                            fill: $color-secondary;
+                        }
+                    }
+                }
+            }
+
+            &.tuck {
+
+                @include media($medium-down) {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    bottom: 100%;
+                    left: 0;
+
+                    a {
+                        color: $link-color;
+                        @include typeBase;
+                        text-align: left;
+                        padding: $sm-spacing;
+
+                        svg.iconic {
+                            display: inline-block;
+                            position: relative;
+                            top: 2px;
+                            fill: $link-color;
+                            width: 1em;
+                            height: 1em;
+                            margin: 0;
+                            margin-right: $tiny-spacing;
+                        }
+                    }
                 }
             }
         }
     }
 
     .account-menu {
-        display: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -moz-flex;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+
+        @include media($medium-down) {
+            display: none;
+            padding-bottom: $huge-spacing*3;
+        }
+
+        a {
+            padding: $tiny-spacing 2px;
+
+            @include media($medium-down) {
+                color: $link-color;
+                @include typeBase;
+                text-align: left;
+                padding: $sm-spacing;
+
+                &:hover {
+                    color: $link-hover-color;
+
+                    svg.iconic {
+                        fill: $link-hover-color;
+                    }
+                }
+
+                svg.iconic {
+                    display: inline-block;
+                    position: relative;
+                    top: 2px;
+                    fill: $link-color;
+                    width: 1em;
+                    height: 1em;
+                    margin: 0;
+                    margin-right: $tiny-spacing;
+                }
+
+                .avatar {
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    margin: -3px 7px 0 -3px;
+                }
+            }
+        }
+
+        .label {
+
+            @include media($medium) {
+                display: none;
+            }
+        }
+    }
+
+    &.active {
+
+        @include media($medium-down) {
+            .account-menu {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -moz-flex;
+                display: -webkit-flex;
+                display: flex;
+            }
+
+            .deployment-menu li {
+
+                &.persist {
+
+                    &.active {
+
+                        a {
+                            color: $color-tertiary;
+
+                            svg.iconic {
+                                fill: $color-tertiary;
+                            }
+                        }
+                    }
+
+                    &.more-menu-trigger {
+
+                        a {
+                            color: $color-secondary;
+
+                            svg.iconic {
+                                fill: $color-secondary;
+                            }
+                        }
+                    }
+                }
+
+                &.tuck {
+                    display: block;
+                }
+            }
+        }
     }
 
     .main-nav {

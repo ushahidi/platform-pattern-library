@@ -1,27 +1,26 @@
 // Initialize each toggle pair
 $('.mode-bar').each(function(){
    var context = $(this),
-   trigger = $(context).find('.mode-bar-trigger'),
-   target = $(context).find('nav');
+   trigger = $(context).find('.more-menu-trigger');
 
    // Add 'init' class to the Mode Bar
    $(context).addClass('init');
 
+   // Add 'persist' class to items that appear in bar at all times (first four deployment menu items)
+   $(context).find('.deployment-menu li').addClass('tuck').slice(0,3).addClass('persist').removeClass('tuck');
+   $(trigger).addClass('persist').removeClass('tuck');
+
    // Add 'click' handler to toggle trigger
    $(trigger).on('click', function(e){
 
-      // IF: Target is active
-      if ($(target).hasClass('active')) {
-          $(trigger).removeClass('active');
-          $(target).removeClass('active');
-          $(context).find('li').removeClass('active');
-
-         // ELSE: Target is currently visible
-      } else {
+      // IF: Mode Bar isn't already active
+      if (!$(context).hasClass('active')) {
           $(trigger).addClass('active');
-          $(target).addClass('active');
+          $(context).addClass('active');
       }
 
       e.preventDefault();
    });
+
+   console.log('Mode Bar ready');
 });
