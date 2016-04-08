@@ -1,9 +1,8 @@
-.mode-bar{
+.mode-bar {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 70px;
-    background-color: $mid-black;
+    background-color: $color-primary;
     z-index: $modebar;
 
     @include media($medium) {
@@ -12,28 +11,105 @@
         height: 100vh;
     }
 
+    ul {
+        margin: 0;
+    }
+
     li {
+        /*
         display: flex;
         flex-grow: 1;
         justify-content: space-around;
+        */
         @include float(left);
+        width: 25%;
+        list-style-type: none;
         text-align: center;
-        margin-top: 18px;
+        margin: 0;
 
         @include media($medium) {
             display: inline-block;
             flex-grow: 1;
             width: 100%;
-            text-align: center;
             margin-top: 15px;
             padding: 0 10px;
         }
 
         a {
-            color: $white;
-            font-size: em(13);
+            display: block;
+            color: $color-tertiary;
+            font-size: 11px;
+            padding: $tiny-spacing/2 0;
+            @include transition(0.3s);
+
+            &:hover {
+                color: $white;
+
+                svg.iconic {
+                    fill: $white;
+                }
+            }
         }
 
+        svg.iconic {
+            display: block;
+            width: $sm-spacing;
+            height: $sm-spacing;
+            fill: $color-tertiary;
+            margin: 4px auto 6px;
+            @include transition(0.3s);
+        }
+
+        &.active {
+
+            a {
+                color: $color-secondary;
+
+                svg.iconic {
+                    fill: $color-secondary;
+                }
+            }
+        }
+
+    }
+
+    .mode-bar-trigger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 75%;
+        text-align: center;
+        background-color: $color-primary;
+
+        svg.iconic {
+            display: block;
+            width: $sm-spacing;
+            height: $sm-spacing;
+            fill: $color-tertiary;
+            margin: 4px auto 6px;
+            @include transition(0.3s);
+        }
+
+        a {
+            display: block;
+            color: $color-tertiary;
+            font-size: 11px;
+            padding: $tiny-spacing/2 0;
+            @include transition(0.3s);
+
+            &:hover {
+                color: $white;
+
+                svg.iconic {
+                    fill: $white;
+                }
+            }
+        }
+    }
+
+    .account-menu {
+        display: none;
     }
 
     .main-nav {

@@ -3700,13 +3700,21 @@ ul li {
   list-style: disc; }
 
 /* line 88, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
+.list-reset {
+  margin: 0; }
+  /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
+  .list-reset li {
+    list-style-type: none;
+    margin: 0; }
+
+/* line 97, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
 blockquote {
   border-left: 4px solid #EEEEEE;
   padding-left: 16px;
   font-style: italic;
   margin: 24px 0; }
 
-/* line 95, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
+/* line 104, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
 table {
   border-collapse: collapse; }
 
@@ -10215,28 +10223,28 @@ aside .filters {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 70px;
-  background-color: #363636;
+  background-color: #373E46;
   z-index: 4000; }
   @media screen and (min-width: 64em)  {
     .mode-bar {
       left: 0;
       width: 60px;
       height: 100vh; } }
-  /* line 15, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  /* line 14, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  .mode-bar ul {
+    margin: 0; }
+  /* line 18, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
   .mode-bar li {
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-grow: 1;
-        -ms-flex-positive: 1;
-            flex-grow: 1;
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+    /*
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-around;
+        */
     float: left;
+    width: 25%;
+    list-style-type: none;
     text-align: center;
-    margin-top: 18px; }
+    margin: 0; }
     @media screen and (min-width: 64em)  {
       .mode-bar li {
         display: inline-block;
@@ -10244,14 +10252,69 @@ aside .filters {
             -ms-flex-positive: 1;
                 flex-grow: 1;
         width: 100%;
-        text-align: center;
         margin-top: 15px;
         padding: 0 10px; } }
-    /* line 32, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 38, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar li a {
-      color: #FFFFFF;
-      font-size: 0.8125em; }
-  /* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      display: block;
+      color: #C7CCD4;
+      font-size: 11px;
+      padding: 4px 0;
+      transition: 0.3s; }
+      /* line 45, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      .mode-bar li a:hover {
+        color: #FFFFFF; }
+        /* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+        .mode-bar li a:hover svg.iconic {
+          fill: #FFFFFF; }
+    /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    .mode-bar li svg.iconic {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: #C7CCD4;
+      margin: 4px auto 6px;
+      transition: 0.3s; }
+    /* line 65, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    .mode-bar li.active a {
+      color: #FFC334; }
+      /* line 68, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      .mode-bar li.active a svg.iconic {
+        fill: #FFC334; }
+  /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  .mode-bar .mode-bar-trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 75%;
+    text-align: center;
+    background-color: #373E46; }
+    /* line 85, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    .mode-bar .mode-bar-trigger svg.iconic {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: #C7CCD4;
+      margin: 4px auto 6px;
+      transition: 0.3s; }
+    /* line 94, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    .mode-bar .mode-bar-trigger a {
+      display: block;
+      color: #C7CCD4;
+      font-size: 11px;
+      padding: 4px 0;
+      transition: 0.3s; }
+      /* line 101, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      .mode-bar .mode-bar-trigger a:hover {
+        color: #FFFFFF; }
+        /* line 104, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+        .mode-bar .mode-bar-trigger a:hover svg.iconic {
+          fill: #FFFFFF; }
+  /* line 111, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  .mode-bar .account-menu {
+    display: none; }
+  /* line 115, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
   .mode-bar .main-nav {
     margin: 0;
     display: -webkit-flex;
@@ -10263,10 +10326,10 @@ aside .filters {
     @media screen and (min-width: 64em)  {
       .mode-bar .main-nav {
         display: block; } }
-    /* line 55, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 131, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .main-nav li:hover a, .mode-bar .main-nav li.active a {
       color: #FFC334; }
-    /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 137, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .main-nav .ushahidi a {
       display: block;
       background: url('/assets/img/ushahidi-logo.png') no-repeat;
@@ -10274,13 +10337,13 @@ aside .filters {
       height: 30px;
       width: 30px;
       margin: auto; }
-    /* line 70, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 146, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .main-nav i {
       float: left;
       padding: 0 16px 16px 12px;
       font-size: 1.25em;
       transition: none; }
-    /* line 77, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 153, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .main-nav span {
       float: left;
       clear: both; }
@@ -10295,26 +10358,26 @@ aside .filters {
       box-shadow: none;
       background-color: transparent;
       margin-top: 0; } }
-  /* line 100, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  /* line 176, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
   .mode-bar .dropdown-menu li:hover {
     background: transparent; }
-  /* line 106, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  /* line 182, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
   .mode-bar .secondary-nav {
     margin: 0 0 40px 0; }
     @media screen and (min-width: 64em)  {
       .mode-bar .secondary-nav {
         position: absolute;
         bottom: 0; } }
-    /* line 114, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 190, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .secondary-nav li {
       margin: 0;
       padding: 0; }
-      /* line 118, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 194, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar .secondary-nav li a {
         margin: 10px 20px;
         padding: 0;
         font-size: 1em; }
-      /* line 124, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 200, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar .secondary-nav li:hover a {
         color: #FFFFFF; }
     /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -10334,7 +10397,7 @@ aside .filters {
       speak: none;
       transition: content, .25s;
       font-size: 1em; }
-    /* line 139, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 215, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .secondary-nav .notifications.active a:before {
       color: #FFC334; }
     /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
@@ -10354,10 +10417,10 @@ aside .filters {
       speak: none;
       transition: content, .25s;
       font-size: 1em; }
-    /* line 156, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 232, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .secondary-nav .account-settings {
       margin-top: 20px; }
-      /* line 159, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 235, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar .secondary-nav .account-settings a {
         width: 35px;
         margin: auto;
