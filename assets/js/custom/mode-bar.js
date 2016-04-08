@@ -21,6 +21,4 @@ $('.mode-bar').each(function(){
 
       e.preventDefault();
    });
-
-   console.log('Mode Bar ready');
 });

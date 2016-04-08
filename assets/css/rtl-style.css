@@ -3179,7 +3179,6 @@ li.pl-color {
 /* line 13, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/basics/_typography.scss */
 .typography-gamma {
   font-weight: 400;
-  font-size: 1em;
   font-size: 16px;
   font-size: 1.14286rem; }
 
@@ -3712,7 +3711,7 @@ table {
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.24); }
 
 /* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_containers.scss */
-.menu, .dropdown-menu {
+.menu, .dropdown-menu, .mode-context {
   border-radius: 2px;
   background-color: #FAFAFA;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.12), 0 8px 8px rgba(0, 0, 0, 0.24); }
@@ -6873,7 +6872,6 @@ a:hover.tooltip span {
   .list-item strong {
     display: block;
     font-weight: 400;
-    font-size: 1em;
     font-size: 16px;
     font-size: 1.14286rem;
     margin: 0; }
@@ -6886,7 +6884,6 @@ a:hover.tooltip span {
 /* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_list-items.scss */
 dt.list-item {
   font-weight: 400;
-  font-size: 1em;
   font-size: 16px;
   font-size: 1.14286rem;
   border: none;
@@ -8366,7 +8363,6 @@ aside .filters {
   .postcard .postcard-title {
     color: #222222;
     font-weight: 400;
-    font-size: 1em;
     font-size: 16px;
     font-size: 1.14286rem;
     margin-bottom: 8px; }
@@ -10066,10 +10062,10 @@ aside .filters {
     border-right: 6px solid #4fab2f; }
   /* line 14, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
   .forms-list li {
-    padding: 10px 10px 10px 10px;
-    margin: 0 -20px 5px -20px;
     color: #FFFFFF;
-    background: #373E46; }
+    background: #373E46;
+    padding: 10px 10px 10px 10px;
+    margin: 0 0 5px 0; }
     /* line 20, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
     .forms-list li:last-of-type {
       margin-bottom: 20px; }
@@ -10253,8 +10249,9 @@ aside .filters {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  z-index: 4000;
+  z-index: 3000;
   max-width: 64px;
+  border-radius: 0;
   background-color: #373E46; }
   /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
   .mode-bar:after {
@@ -10271,14 +10268,14 @@ aside .filters {
     .mode-bar {
       max-width: none;
       background-color: #F1F1F4; } }
-  /* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  /* line 20, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
   .mode-bar li {
     /*
         display: flex;
         flex-grow: 1;
         justify-content: space-around;
         */ }
-    /* line 26, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar li a {
       display: block;
       color: #C7CCD4;
@@ -10290,7 +10287,7 @@ aside .filters {
         .mode-bar li a {
           font-size: 11px;
           padding: 4px 0; } }
-      /* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar li a svg.iconic {
         display: block;
         width: 16px;
@@ -10298,18 +10295,18 @@ aside .filters {
         fill: #C7CCD4;
         margin: 4px auto 6px;
         transition: 0.3s; }
-      /* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar li a .avatar {
         width: 24px;
         height: 24px;
         margin: 4px auto 6px; }
-      /* line 55, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 56, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar li a:hover {
         color: #FFFFFF; }
-        /* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+        /* line 59, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
         .mode-bar li a:hover svg.iconic {
           fill: #FFFFFF; }
-    /* line 64, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 65, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar li.more-menu-trigger {
       display: none; }
       @media screen and (max-width: 64em)  {
@@ -10324,10 +10321,10 @@ aside .filters {
       list-style-type: none;
       text-align: center;
       background-color: #373E46; } }
-  /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  /* line 92, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
   .mode-bar .deployment-menu li.persist.active a {
     color: #FFC334; }
-    /* line 94, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 95, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .deployment-menu li.persist.active a svg.iconic {
       fill: #FFC334; }
   @media screen and (max-width: 64em)  {
@@ -10337,7 +10334,7 @@ aside .filters {
       right: 0;
       bottom: 100%;
       left: 0; }
-      /* line 110, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 111, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar .deployment-menu li.tuck a {
         color: #373E46;
         font-weight: 400;
@@ -10345,7 +10342,7 @@ aside .filters {
         font-size: 1rem;
         text-align: left;
         padding: 16px; }
-        /* line 116, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+        /* line 117, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
         .mode-bar .deployment-menu li.tuck a svg.iconic {
           display: inline-block;
           position: relative;
@@ -10355,7 +10352,7 @@ aside .filters {
           height: 1em;
           margin: 0;
           margin-right: 8px; } }
-  /* line 132, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+  /* line 133, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
   .mode-bar .account-menu {
     display: -ms-flexbox;
     display: -moz-flex;
@@ -10368,7 +10365,7 @@ aside .filters {
       .mode-bar .account-menu {
         display: none;
         padding-bottom: 120px; } }
-    /* line 147, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 148, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar .account-menu a {
       padding: 8px 2px; }
       @media screen and (max-width: 64em)  {
@@ -10379,13 +10376,13 @@ aside .filters {
           font-size: 1rem;
           text-align: left;
           padding: 16px; }
-          /* line 156, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+          /* line 157, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
           .mode-bar .account-menu a:hover {
             color: #0a0b0d; }
-            /* line 159, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+            /* line 160, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
             .mode-bar .account-menu a:hover svg.iconic {
               fill: #0a0b0d; }
-          /* line 164, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+          /* line 165, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
           .mode-bar .account-menu a svg.iconic {
             display: inline-block;
             position: relative;
@@ -10395,7 +10392,7 @@ aside .filters {
             height: 1em;
             margin: 0;
             margin-right: 8px; }
-          /* line 175, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+          /* line 176, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
           .mode-bar .account-menu a .avatar {
             float: left;
             width: 20px;
@@ -10404,7 +10401,7 @@ aside .filters {
       @media screen and (min-width: 64em)  {
         .mode-bar .account-menu a {
           position: relative; }
-          /* line 188, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+          /* line 189, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
           .mode-bar .account-menu a:hover .label {
             display: block;
             position: absolute;
@@ -10415,7 +10412,7 @@ aside .filters {
       .mode-bar .account-menu .label {
         display: none; } }
     @media screen and (max-width: 64em)  {
-      /* line 208, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 209, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar .account-menu .label .badge {
         display: inline-block;
         height: 16px;
@@ -10431,123 +10428,160 @@ aside .filters {
         background: #FFC334;
         margin: 0 8px 3px 0; } }
   @media screen and (max-width: 64em)  {
-    /* line 231, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 232, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar.active .deployment-menu {
       position: absolute;
       right: 0;
       bottom: 0;
       left: 0; }
-    /* line 238, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 239, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar.active .account-menu {
       display: block; }
-    /* line 248, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar.active .deployment-menu li.persist.active a {
       color: #C7CCD4; }
-      /* line 251, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 252, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar.active .deployment-menu li.persist.active a svg.iconic {
         fill: #C7CCD4; }
-    /* line 259, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 260, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar.active .deployment-menu li.persist.more-menu-trigger a {
       color: #FFC334; }
-      /* line 262, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+      /* line 263, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
       .mode-bar.active .deployment-menu li.persist.more-menu-trigger a svg.iconic {
         fill: #FFC334; }
-    /* line 269, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
+    /* line 270, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-bar.scss */
     .mode-bar.active .deployment-menu li.tuck {
       display: block; } }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
 .mode-context {
-  top: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #222222;
+  position: relative;
   color: #FFFFFF;
-  padding: 0px 20px 16px 20px;
-  transition: all .25s;
-  overflow: hidden;
-  z-index: 3000; }
-  @media screen and (min-width: 64em)  {
-    .mode-context {
-      width: 290px;
-      height: 100vh;
-      padding-right: 80px; } }
-  /* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
-  .mode-context.open {
-    height: auto;
-    overflow: scroll; }
-  /* line 24, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+  border-radius: 0;
+  background-color: #1E232A;
+  transition: all .25s; }
+  /* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
   .mode-context h6 {
     text-transform: uppercase;
     font-size: 0.75em;
     font-weight: 900; }
-  /* line 30, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
-  .mode-context .deployment-title {
-    display: block;
-    padding-right: 47px;
-    color: #FFFFFF; }
+  /* line 15, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+  .mode-context .mode-context-title {
+    color: #FFFFFF;
+    font-size: 22px;
+    font-size: 1.57143rem;
+    line-height: 1.3em; }
     @media screen and (min-width: 64em)  {
-      .mode-context .deployment-title {
-        padding: 0; } }
-  /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
-  .mode-context .context-toggle {
-    display: block;
+      .mode-context .mode-context-title {
+        font-size: 26px;
+        font-size: 1.85714rem; } }
+  /* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+  .mode-context .mode-context-header {
+    position: relative;
+    padding: 0 16px; }
+    /* line 31, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context .mode-context-header a {
+      color: #FFFFFF; }
+    /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context .mode-context-header .mode-context-title {
+      padding-right: 48px;
+      margin: 16px 0; }
+      @media screen and (min-width: 64em)  {
+        .mode-context .mode-context-header .mode-context-title {
+          padding: 0; } }
+    /* line 44, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context .mode-context-header .deployment-logo {
+      position: absolute;
+      top: 0;
+      right: 16px;
+      height: 34px;
+      width: 34px;
+      border-radius: 100%;
+      box-shadow: 0 1px 4px #1E232A, 0 0 0 1px #1E232A;
+      margin-top: -6px; }
+      @media screen and (min-width: 64em)  {
+        .mode-context .mode-context-header .deployment-logo {
+          position: relative;
+          top: 0;
+          right: 0;
+          height: 100px;
+          width: 100px;
+          box-shadow: none;
+          margin: auto; } }
+  /* line 67, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+  .mode-context .mode-context-trigger {
+    display: none;
     position: absolute;
-    top: 22px;
-    left: 16px; }
-    /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_font-awesome.scss */
-    .mode-context .context-toggle:after {
-      content: "\f078";
-      font-family: FontAwesome;
-      font-size: 1em;
-      font-style: normal;
-      font-weight: normal;
-      display: inline-block;
-      text-decoration: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      line-height: 1;
-      padding: 0 1px 0 8px;
-      speak: none;
-      transition: content, .25s;
-      color: #FFFFFF;
-      padding: 0; }
+    top: 0;
+    right: 0;
+    background-color: #1E232A;
+    box-shadow: -1px 0 4px 0 #1e232a;
+    padding: 20px 16px; }
+    /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context .mode-context-trigger svg.iconic {
+      fill: #C7CCD4;
+      transition: 0.3s; }
+    /* line 83, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context .mode-context-trigger.active svg.iconic {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+  /* line 89, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+  .mode-context.init {
+    max-height: 55px;
+    overflow-y: hidden; }
+    /* line 95, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context.init .mode-context-header .mode-context-title {
+      width: 100%;
+      overflow-x: scroll;
+      white-space: nowrap;
+      padding-right: 40px; }
+    /* line 103, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context.init .mode-context-trigger {
+      display: inline-block; }
+    /* line 107, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context.init .mode-context-body {
+      display: none; }
+    /* line 111, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    .mode-context.init.active {
+      max-height: none;
+      overflow-y: scroll; }
+      /* line 117, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+      .mode-context.init.active .mode-context-header .mode-context-title {
+        width: auto;
+        overflow-x: visible;
+        white-space: normal; }
+      /* line 124, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+      .mode-context.init.active .mode-context-body {
+        display: block; }
     @media screen and (min-width: 64em)  {
-      .mode-context .context-toggle {
-        display: none; } }
-  /* line 56, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
-  .mode-context .image {
-    position: absolute;
-    top: 13px;
-    right: 17px;
-    background-image: url('/assets/img/deployment-logo.png');
-    height: 35px;
-    width: 35px;
-    background-size: 100%; }
-    @media screen and (min-width: 64em)  {
-      .mode-context .image {
-        position: relative;
-        top: 0;
-        right: 0;
-        height: 100px;
-        width: 100px;
-        margin: auto; } }
-  /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
-  .mode-context .description {
-    margin: 20px 0; }
-    /* line 79, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
-    .mode-context .description p {
-      font-weight: 700; }
-  /* line 85, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+      .mode-context.init {
+        max-height: none;
+        overflow-y: visible; }
+        /* line 133, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+        .mode-context.init .mode-context-header {
+          padding-top: 1px; }
+          /* line 136, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+          .mode-context.init .mode-context-header .mode-context-title {
+            white-space: normal; }
+        /* line 141, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+        .mode-context.init .mode-context-trigger {
+          display: none; }
+        /* line 145, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+        .mode-context.init .mode-context-body {
+          display: block; } }
+  /* line 151, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+  .mode-context .mode-context-body {
+    padding: 0 16px; }
+  /* line 155, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
   .mode-context .mode-group {
     position: relative;
     overflow: hidden;
     margin-bottom: 20px; }
-    /* line 90, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    /* line 160, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
     .mode-context .mode-group h6.zeta {
       margin: 0; }
-    /* line 94, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    /* line 164, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
     .mode-context .mode-group .toggle {
       position: absolute;
       top: -20px;
@@ -10555,14 +10589,18 @@ aside .filters {
       padding: 20px;
       font-size: 0.5em;
       cursor: pointer; }
-    /* line 103, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+    /* line 173, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
     .mode-context .mode-group .toggle-content {
       height: 0;
       font-size: 0.75em; }
-      /* line 107, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+      /* line 177, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
       .mode-context .mode-group .toggle-content.open {
         height: auto; }
-  /* line 115, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
+  @media screen and (min-width: 64em)  {
+    .mode-context .forms-list li {
+      margin-right: -16px;
+      margin-left: -16px; } }
+  /* line 193, /Users/Brandon/Sites/platform-design.dev/assets/sass/4_blocks/_mode-context.scss */
   .mode-context button {
     width: 100%; }
     @media screen and (min-width: 30.063em)  {
@@ -11876,6 +11914,35 @@ footer {
       /* line 166, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       .full-page-content .two-col .col:last-child {
         margin: 0; } }
+
+/* line 178, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+[class*="layout-"] .mode-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 3000; }
+  @media screen and (min-width: 64em)  {
+    [class*="layout-"] .mode-bar {
+      top: 0; } }
+  @media screen and (max-width: 64em)  {
+    /* line 192, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    [class*="layout-"] .mode-bar.active .account-menu {
+      position: fixed;
+      top: 54px;
+      bottom: 0;
+      width: 100%;
+      overflow-y: scroll; } }
+/* line 203, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+[class*="layout-"] .mode-context {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 4000; }
+  @media screen and (min-width: 64em)  {
+    [class*="layout-"] .mode-context {
+      bottom: 0;
+      left: 64px;
+      width: 210px; } }
 
 @media screen and (min-width: 48em)  {
   .layout-b .page-header {

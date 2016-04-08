@@ -172,3 +172,44 @@
    }
 
 }
+
+[class*="layout-"] {
+
+    .mode-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: $modebar;
+
+        @include media($medium) {
+            top: 0;
+        }
+
+        &.active {
+
+            @include media($medium-down) {
+
+                .account-menu {
+                    position: fixed;
+                    top: 54px;
+                    bottom: 0;
+                    width: 100%;
+                    overflow-y: scroll;
+                }
+            }
+        }
+    }
+
+    .mode-context {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: $modecontext;
+
+        @include media($medium) {
+            bottom: 0;
+            left: 64px;
+            width: 210px
+        }
+    }
+}

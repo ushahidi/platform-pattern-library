@@ -1,25 +1,10 @@
 .mode-context {
-    // position: fixed;
-    top: 0;
-    width: 100%;
-    height: 60px;
-    background-color: $black;
+    position: relative;
     color: $white;
-    @include lrswap(padding, 0px 20px $sm-spacing 20px);
+    @extend .menu;
+    @include equal-radius(0);
+    background-color: $color-primary-alpha;
     @include transition(all .25s);
-    overflow: hidden;
-    z-index: $modecontext;
-
-    @include media($medium) {
-        width: 290px;
-        height: 100vh;
-        @include padding-left(80px);
-    }
-
-    &.open {
-        height: auto;
-        overflow: scroll;
-    }
 
     h6 {
         text-transform: uppercase;
@@ -27,59 +12,144 @@
         font-weight: 900;
     }
 
-    .deployment-title {
-        display: block;
-        @include padding-left(47px);
+    .mode-context-title {
         color: $white;
+        font-size: 22px;
+        font-size: 1.571428571rem;
+        line-height: 1.3em;
 
         @include media($medium) {
-            padding: 0;
+            font-size: 26px;
+            font-size: 1.857142857rem;
         }
     }
 
-    .context-toggle {
-        display: block;
-        position: absolute;
-        top: 22px;
-        @include right(16px);
-        @include icon(after, chevron-down) {
+    .mode-context-header {
+        position: relative;
+        padding: 0 $sm-spacing;
+
+        a {
             color: $white;
-            padding: 0;
         }
 
-        @include media($medium) {
+        .mode-context-title {
+            @include padding-left(48px);
+            margin: $sm-spacing 0;
+
+            @include media($medium) {
+                padding: 0;
+            }
+        }
+
+        .deployment-logo {
+            position: absolute;
+            top: 0;
+            @include left($sm-spacing);
+            height: 34px;
+            width: 34px;
+            @include equal-radius(100%);
+            box-shadow: 0 1px 4px $color-primary-alpha,
+                0 0 0 1px $color-primary-alpha;
+            margin-top: -6px;
+
+            @include media($medium) {
+                position: relative;
+                top: 0;
+                @include left(0);
+                height: 100px;
+                width: 100px;
+                @include no-shadow;
+                margin: auto;
+            }
+        }
+    }
+
+    .mode-context-trigger {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $color-primary-alpha;
+        @include box-shadow($top: 0, $left: -1px, $blur: 4px, $spread: 0, $color: rgba(30,35,42,1), $inset: false);
+        padding: $sm-spacing+4 $sm-spacing;
+
+        svg.iconic {
+            fill: $color-tertiary;
+            @include transition(0.3s);
+        }
+
+        &.active {
+
+            svg.iconic {
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+
+    &.init {
+        max-height: 55px;
+        overflow-y: hidden;
+
+        .mode-context-header {
+
+            .mode-context-title {
+                width: 100%;
+                overflow-x: scroll;
+                white-space: nowrap;
+                padding-right: $huge-spacing;
+            }
+        }
+
+        .mode-context-trigger {
+            display: inline-block;
+        }
+
+        .mode-context-body {
             display: none;
         }
 
-    }
+        &.active {
+            max-height: none;
+            overflow-y: scroll;
 
-    .image {
-        position: absolute;
-        top: 13px;
-        @include left(17px);
-        background-image: url('/assets/img/deployment-logo.png');
-        height: 35px;
-        width: 35px;
-        background-size: 100%;
+            .mode-context-header {
+
+                .mode-context-title {
+                    width: auto;
+                    overflow-x: visible;
+                    white-space: normal;
+                }
+            }
+
+            .mode-context-body {
+                display: block;
+            }
+        }
 
         @include media($medium) {
-            position: relative;
-            top: 0;
-            @include left(0);
-            height: 100px;
-            width: 100px;
-            margin: auto;
-        }
+            max-height: none;
+            overflow-y: visible;
 
+            .mode-context-header {
+                padding-top: 1px;
+
+                .mode-context-title {
+                    white-space: normal;
+                }
+            }
+
+            .mode-context-trigger {
+                display: none;
+            }
+
+            .mode-context-body {
+                display: block;
+            }
+        }
     }
 
-    .description {
-        margin: 20px 0;
-
-        p {
-            font-weight: 700;
-        }
-
+    .mode-context-body {
+        padding: 0 $sm-spacing;
     }
 
     .mode-group {
@@ -110,6 +180,14 @@
 
         }
 
+    }
+
+    .forms-list li {
+
+        @include media($medium) {
+            margin-right: -$sm-spacing;
+            margin-left: -$sm-spacing;
+        }
     }
 
     button {
