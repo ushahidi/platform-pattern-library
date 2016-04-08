@@ -229,28 +229,24 @@ input[type="button"] {
 }
 
 // Floating action button
-.button-fa {
+.button-fab {
     width: 54px;
     height: 54px;
+    font-size: 18px;
     @include equal-radius(100%);
     box-shadow: 0 0 6px rgba(0,0,0,0.12),
             0 6px 6px rgba(0,0,0,0.24);
     padding: 0;
 
-    [class*="icon-"] {
-
-        &:before, &:after {
-            position: relative;
-            top: 2px;
-            font-size: 20px;
-        }
+    svg.iconic {
+        position: relative;
+        top: 2px;
+        @include transition(0.3s);
     }
 
-    &[data-toggle] {
-
-        &:after {
-            content: none;
-        }
+    &.active {
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+            0 8px 18px rgba(0,0,0,0.24);
     }
 }
 

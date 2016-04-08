@@ -1,7 +1,5 @@
 .mode-bar {
     @include clearfix;
-    display: flex;
-    flex-direction: column;
     position: relative;
     z-index: $modebar;
     max-width: $lg-spacing*2;
@@ -9,8 +7,14 @@
     background-color: $color-primary;
 
     @include media($medium-down) {
+        display: block;
         max-width: none;
         background-color: $color-primary-zeta;
+    }
+
+    @include media($medium) {
+        overflow-y: scroll;
+        padding-bottom: 140px;
     }
 
     ul {
@@ -73,6 +77,12 @@
 
     .deployment-menu {
 
+        @include media($medium-down) {
+            @include clearfix;
+            box-shadow: 0 0 4px rgba(0,0,0,0.12),
+                0 0 4px rgba(0,0,0,0.24);
+        }
+
         li {
 
             &.persist {
@@ -131,18 +141,22 @@
     }
 
     .account-menu {
-        display: -webkit-box;
-        display: -moz-box;
-        display: -ms-flexbox;
-        display: -moz-flex;
-        display: -webkit-flex;
         display: flex;
         -webkit-flex-direction: column-reverse;
         flex-direction: column-reverse;
 
         @include media($medium-down) {
             display: none;
+            position: static;
             padding-bottom: $huge-spacing*3;
+        }
+
+        @include media($medium) {
+            position: fixed;
+            width: $lg-spacing*2;
+            bottom: 0;
+            background-color: $color-primary;
+            box-shadow: 0 -4px 4px $color-primary;
         }
 
         a {

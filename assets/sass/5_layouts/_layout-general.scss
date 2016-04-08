@@ -1,3 +1,11 @@
+.main-col {
+    padding: $sm-spacing;
+
+    @include media($medium) {
+        padding: $base-spacing;
+    }
+}
+
 // Reusable grid classes -
 
 .one-col, .two-col, .three-col, .flex-col {
@@ -210,6 +218,29 @@
             bottom: 0;
             left: 64px;
             width: 210px
+        }
+    }
+
+    [role="main"] {
+        z-index: $toolbar;
+        padding-top: 107px;
+
+        @include media($medium) {
+            padding-top: 68px;
+            padding-left: 274px;
+        }
+
+        .toolbar {
+            position: fixed;
+            top: 55px;
+            width: 100%;
+
+            @include media($medium) {
+                top: 0;
+                right: 0;
+                left: 274px;
+                width: auto;
+            }
         }
     }
 }

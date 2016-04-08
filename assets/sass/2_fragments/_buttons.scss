@@ -47,15 +47,41 @@ input[type="button"] {
 
 // FLOATING ACTION BUTTON
 .fab {
-    @include transition(all, .25s);
 
-    button.active {
-        background: $white;
+    .button-fab {
 
-        .fa-plus:before {
-            transform: rotate(45deg);
+        &.active {
+            background: $white;
+
+            svg.iconic {
+                fill: $color-primary-alpha;
+                @include transform(rotate(45deg));
+            }
         }
+    }
 
+    .fab-action-type {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        text-align: center;
+        @include equal-radius(100%);
+        background: $color-dark-beta;
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+            0 8px 18px rgba(0,0,0,0.24);
+        padding-top: 12px;
+        margin-right: $tiny-spacing;
+
+        svg.iconic {
+            fill: $white;
+            margin: 0 auto;
+        }
+    }
+
+    .bug {
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+            0 8px 18px rgba(0,0,0,0.24);
     }
 
     .fab-options {
@@ -63,69 +89,28 @@ input[type="button"] {
         flex-direction: column-reverse;
         flex-wrap: wrap;
         @extend .list-reset;
-        @include margin-right(6px);
-        opacity: 0;
+        margin: $tiny-spacing 6px;
+
+        li {
+            position: relative;
+            top: -100px;
+            margin: 5px 0;
+            @include transition(all, .5s);
+        }
 
         &.active {
             display: flex;
-            opacity: 1;
-            @include transition(all, .25s);
+
+            li {
+                top: 0;
+            }
         }
 
         @include media($medium) {
             top: 100px;
             bottom: 0;
             flex-direction: column;
-            @include margin-left(6px);
         }
-
-        li {
-            @extend .list-reset;
-            text-align: right;
-            padding: 10px 0;
-            @include icon(after, file) {
-                @include lrswap(margin, 0 0 0 10px);
-            }
-
-            @include media($medium) {
-                text-align: left;
-                @include icon(before, file) {
-                    @include lrswap(margin, 0 10px 0 0);
-                }
-
-                &:after {
-                    content: none;
-                }
-
-            }
-
-            &:before,
-            &:after {
-                width: 40px;
-                height: 40px;
-                color: white;
-                @include lrswap(padding, 13px 13px 13px 15px);
-                border-radius: 20px;
-                font-size: em(15);
-                background: red;
-            }
-
-            $colors: $red, $yellow, $blue, $green;
-
-            @for $i from 1 through length($colors) {
-                &:nth-child(#{length($colors)}n+#{$i}) {
-
-                    &:before,
-                    &:after {
-                        background: nth($colors, $i)
-                    }
-
-                }
-
-            }
-
-        }
-
     }
 
 }

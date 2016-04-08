@@ -1,15 +1,35 @@
 .toolbar {
-    @include span-columns(12);
-    @include float(left);
+    @include clearfix;
+    position: relative;
+    @extend .bar;
+    @include equal-radius(0px);
     background-color: $color-primary;
-    padding: $sm-spacing;
+    padding: $tiny-spacing $sm-spacing;
     margin: auto;
+
+    @include media($medium) {
+        padding: $sm-spacing $base-spacing;
+    }
 
     .fab {
         display: none;
+
+        @include media($medium) {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: $base-spacing;
+            margin-top: -27px;
+        }
     }
 
-    .search {
+    .searchbar {
+
+        @include media($medium) {
+            float: left;
+            width: 47.6814516%;
+            margin-left: $base-spacing+54;
+        }
 
         .form-field.search {
 
