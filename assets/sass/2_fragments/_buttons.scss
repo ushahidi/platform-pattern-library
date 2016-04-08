@@ -47,16 +47,29 @@ input[type="button"] {
 
 // FLOATING ACTION BUTTON
 .fab {
+    @include transition(all, .25s);
+
+    button.active {
+        background: $white;
+
+        .fa-plus:before {
+            transform: rotate(45deg);
+        }
+
+    }
 
     .fab-options {
         display: none;
         flex-direction: column-reverse;
         flex-wrap: wrap;
-        @extend .list-unstyled;
-        @include transition(all, .25s);
+        @extend .list-reset;
+        @include margin-right(6px);
+        opacity: 0;
 
         &.active {
             display: flex;
+            opacity: 1;
+            @include transition(all, .25s);
         }
 
         @include media($medium) {
@@ -67,6 +80,7 @@ input[type="button"] {
         }
 
         li {
+            @extend .list-reset;
             text-align: right;
             padding: 10px 0;
             @include icon(after, file) {
@@ -123,10 +137,8 @@ input[type="button"] {
 
         }
 
-        &.open {
-            opacity: 1;
-        }
     }
+
 }
 
 .button-split {
