@@ -13,6 +13,13 @@
     margin: 5px auto;
     @include transition(0.3s);
 
+    .post-band {
+        z-index: 100;
+        width: 4px;
+        @include equal-radius(0);
+        background-color: $color-dark-gamma;
+    }
+
     .survey-filter-label {
         position: relative;
         float: left;
@@ -47,9 +54,10 @@
 
     .survey-filter-total {
         position: absolute;
+        top: 50%;
         right: 0;
         box-shadow: 0 0 $tiny-spacing 2px #292E34;
-        margin-top: $tiny-spacing;
+        margin-top: -10px;
         margin-right: $sm-spacing;
         @include iconic($position: after, $iconic-icon: chevron-bottom, $iconic-color: #292E34, $iconic-size: 10px, $styles: true) {
             position: relative;
@@ -59,6 +67,9 @@
         };
 
         &.active {
+            color: #292E34 !important;
+            text-shadow: none;
+            background-color: $color-light-delta !important;
 
             &:after {
                 @include transform(rotate(180deg));
@@ -79,6 +90,10 @@
 
         label {
             color: $white;
+        }
+
+        .post-band {
+            background-color: $color-light-alpha;
         }
 
         .survey-filter-total {

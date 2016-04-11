@@ -21,6 +21,7 @@
    }
 
    li {
+       position: relative;
        list-style-type: none;
        margin: 0;
 
@@ -33,7 +34,13 @@
        }
 
        svg.iconic {
-           margin-right: $tiny-spacing;
+           position: absolute;
+           left: $sm-spacing;
+
+           + .label {
+               display: inline-block;
+               padding-left: $sm-spacing+12;
+           }
        }
 
        a {
