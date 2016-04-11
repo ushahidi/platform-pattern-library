@@ -1,8 +1,7 @@
 .survey-filter {
 
-    @include media($medium) {
-        margin-right: -$sm-spacing;
-        margin-left: -$sm-spacing;
+    .survey-filter-checkbox {
+        margin: 5px auto;
     }
 }
 
@@ -10,37 +9,29 @@
     position: relative;
     @include clearfix;
     background-color: #292E34;
-    margin: 5px auto;
     @include transition(0.3s);
 
     .post-band {
+        display: none;
         z-index: 100;
         width: 4px;
         @include equal-radius(0);
-        background-color: $color-dark-gamma;
+        background-color: $color-light-alpha;
     }
 
     .survey-filter-label {
         position: relative;
         float: left;
         width: 72.9613734%;
-        overflow: hidden;
 
         label {
-            position: relative;
-            left: 0;
             padding: $tiny-spacing*1.5 $sm-spacing;
-            @include transition(0.3s);
-
-            &:hover {
-                cursor: pointer;
-                left: $sm-spacing+15;
-            }
+            padding-left: $base-spacing+15;
         }
 
         input[type="checkbox"] {
             position: absolute;
-            right: 100%;
+            left: $sm-spacing;
         }
     }
 
@@ -85,15 +76,46 @@
         margin-left: $sm-spacing;
     }
 
+    &.init {
+
+        .survey-filter-label {
+            overflow: hidden;
+
+            label {
+                position: relative;
+                left: 0;
+                @include transition(0.3s);
+
+                @include media($medium) {
+                    padding-left: $sm-spacing;
+
+                    &:hover {
+                        cursor: pointer;
+                        left: $sm-spacing+15;
+                    }
+                }
+            }
+
+            input[type="checkbox"] {
+                position: absolute;
+
+                @include media($medium) {
+                    right: 100%;
+                    left: auto;
+                }
+            }
+        }
+    }
+
     &.checked {
         background-color: #3F4349;
 
-        label {
-            color: $white;
+        .post-band {
+            display: inline-block;
         }
 
-        .post-band {
-            background-color: $color-light-alpha;
+        label {
+            color: $white;
         }
 
         .survey-filter-total {

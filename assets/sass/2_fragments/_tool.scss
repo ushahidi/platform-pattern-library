@@ -1,0 +1,42 @@
+.tool {
+    position: relative;
+
+    .tool-heading {
+        @extend .caps;
+        color: $color-tertiary;
+    }
+
+    [data-toggle] {
+        position: absolute;
+        top: -$tiny-spacing;
+        right: -$tiny-spacing;
+        padding: $tiny-spacing;
+        @include transition(0.3s);
+
+        svg.iconic {
+            width: .571428571em;
+            height: .571428571em;
+            fill: $color-tertiary;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            svg.iconic {
+                fill: $color-light-gamma;
+            }
+        }
+
+        &.active {
+            @include transform(rotate(180deg));
+        }
+    }
+
+    .toggle-content {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
