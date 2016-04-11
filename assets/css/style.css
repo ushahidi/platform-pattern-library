@@ -3684,10 +3684,10 @@ ul li {
   list-style: disc; }
 
 /* line 88, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
-.list-reset, .pl-front-end-guidelines .page-content .side-nav ul, .actions-content .dropdown-menu, .fab .fab-options, .settings .dropdown-menu, ul.breadcrumb, .accordion-menu .accordion-menu-list, .accordion-menu .accordion-menu-content, .tabs-menu .tabs-menu-list, .tabs-secondary ul, .step-list .step-list-content ul, .forms-list, .mode-bar ul, .mode-nav .forms, .mode-nav .views, .mode-nav .layers, .mode-nav .sub-nav, .navigation .main-nav, .navigation .sub-nav, .footer-nav {
+.list-reset, .pl-front-end-guidelines .page-content .side-nav ul, .actions-content .dropdown-menu, .fab .fab-options, .settings .dropdown-menu, ul.breadcrumb, .accordion-menu .accordion-menu-list, .accordion-menu .accordion-menu-content, .tabs-menu .tabs-menu-list, .tabs-secondary ul, .step-list .step-list-content ul, .mode-bar ul, .mode-nav .forms, .mode-nav .views, .mode-nav .layers, .mode-nav .sub-nav, .navigation .main-nav, .navigation .sub-nav, .footer-nav {
   margin: 0; }
   /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
-  .list-reset li, .pl-front-end-guidelines .page-content .side-nav ul li, .actions-content .dropdown-menu li, .fab .fab-options li, .settings .dropdown-menu li, ul.breadcrumb li, .accordion-menu .accordion-menu-list li, .accordion-menu .accordion-menu-content li, .tabs-menu .tabs-menu-list li, .tabs-secondary ul li, .step-list .step-list-content ul li, .forms-list li, .mode-bar ul li, .mode-nav .forms li, .mode-nav .views li, .mode-nav .layers li, .mode-nav .sub-nav li, .navigation .main-nav li, .navigation .sub-nav li, .footer-nav li {
+  .list-reset li, .pl-front-end-guidelines .page-content .side-nav ul li, .actions-content .dropdown-menu li, .fab .fab-options li, .settings .dropdown-menu li, ul.breadcrumb li, .accordion-menu .accordion-menu-list li, .accordion-menu .accordion-menu-content li, .tabs-menu .tabs-menu-list li, .tabs-secondary ul li, .step-list .step-list-content ul li, .mode-bar ul li, .mode-nav .forms li, .mode-nav .views li, .mode-nav .layers li, .mode-nav .sub-nav li, .navigation .main-nav li, .navigation .sub-nav li, .footer-nav li {
     list-style-type: none;
     margin: 0; }
 
@@ -10047,90 +10047,121 @@ aside .filters {
 .tiers.show-payment .tier-view-all {
   display: none; }
 
-/* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-.forms-list {
-  margin-bottom: 40px;
-  width: 100%; }
-  /* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-  .forms-list li:nth-child(4n+1) {
-    border-left: 6px solid #de0000; }
-  /* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-  .forms-list li:nth-child(4n+2) {
-    border-left: 6px solid #FFC334; }
-  /* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-  .forms-list li:nth-child(4n+3) {
-    border-left: 6px solid #87582D; }
-  /* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-  .forms-list li:nth-child(4n+4) {
-    border-left: 6px solid #4fab2f; }
-  /* line 14, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-  .forms-list li {
+@media screen and (min-width: 64em)  {
+  .survey-filter {
+    margin-right: -16px;
+    margin-left: -16px; } }
+
+/* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+.survey-filter-checkbox {
+  position: relative;
+  background-color: #292E34;
+  margin: 5px auto;
+  transition: 0.3s; }
+  /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .survey-filter-checkbox:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+    font-size: 0; }
+  /* line 12, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
+  .lt-ie8 .survey-filter-checkbox {
+    zoom: 1; }
+  /* line 16, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+  .survey-filter-checkbox .survey-filter-label {
+    position: relative;
+    float: left;
+    width: 72.96137%;
+    overflow: hidden; }
+    /* line 22, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+    .survey-filter-checkbox .survey-filter-label label {
+      position: relative;
+      left: 0;
+      padding: 12px 16px;
+      transition: 0.3s; }
+      /* line 28, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+      .survey-filter-checkbox .survey-filter-label label:hover {
+        cursor: pointer;
+        left: 31px; }
+    /* line 34, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+    .survey-filter-checkbox .survey-filter-label input[type="checkbox"] {
+      position: absolute;
+      right: 100%; }
+  /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+  .survey-filter-checkbox label {
+    display: block;
+    color: #8E9297;
+    font-weight: 400;
+    font-size: 16px;
+    font-size: 1.14286rem;
+    text-transform: none;
+    letter-spacing: normal; }
+  /* line 48, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+  .survey-filter-checkbox .survey-filter-total {
+    position: absolute;
+    right: 0;
+    box-shadow: 0 0 8px 2px #292E34;
+    margin-top: 8px;
+    margin-right: 16px; }
+    /* line 5, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_iconic.scss */
+    .survey-filter-checkbox .survey-filter-total:after {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background-color: #292E34;
+      -webkit-mask: url(../img/icons/chevron-bottom.svg) right center/contain no-repeat;
+      mask: url(../img/icons/chevron-bottom.svg) right center/contain no-repeat;
+      transition: content, .25s;
+      position: relative;
+      top: 1px;
+      margin-left: 6px;
+      transition: 0.3s; }
+    /* line 63, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+    .survey-filter-checkbox .survey-filter-total.active:after {
+      -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+  /* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+  .survey-filter-checkbox .dropdown-menu {
+    top: 90% !important;
+    left: auto !important;
+    max-width: 300px;
+    margin-right: -16px;
+    margin-left: 16px; }
+  /* line 77, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+  .survey-filter-checkbox.checked {
+    background-color: #3F4349; }
+    /* line 80, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+    .survey-filter-checkbox.checked label {
+      color: #FFFFFF; }
+    /* line 84, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+    .survey-filter-checkbox.checked .survey-filter-total {
+      color: #FFFFFF;
+      box-shadow: 0 0 8px 2px #3F4349;
+      background-color: #8E9297; }
+      /* line 89, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+      .survey-filter-checkbox.checked .survey-filter-total:after {
+        background-color: #3F4349; }
+
+/* line 96, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+.survey-filter-total {
+  display: inline-block;
+  color: #8E9297;
+  border-radius: 20px;
+  font-size: 12px;
+  text-shadow: 0 1px 1px black;
+  background-color: #373E46;
+  padding: 4px 8px;
+  transition: 0.3s; }
+  /* line 108, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_survey-filter.scss */
+  .survey-filter-total.init:hover {
+    cursor: pointer;
     color: #FFFFFF;
-    background: #373E46;
-    padding: 10px 10px 10px 10px;
-    margin: 0 0 5px 0; }
-    /* line 20, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-    .forms-list li:last-of-type {
-      margin-bottom: 20px; }
-    /* line 24, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-    .forms-list li i {
-      float: left;
-      padding-right: 10px; }
-    /* line 29, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-    .forms-list li [data-toggle] {
-      float: right;
-      padding: 0;
-      cursor: pointer; }
-    /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-    .forms-list li.unknown {
-      border-left: none;
-      background: #222d3c;
-      padding-left: 42px; }
-      /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-      .forms-list li.unknown:after {
-        content: none; }
-    /* line 46, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-    .forms-list li .dropdown-menu.init {
-      margin: -9px -7px 0 0;
-      border-radius: 3px; }
-      @media screen and (min-width: 64em)  {
-        .forms-list li .dropdown-menu.init {
-          width: 215px;
-          margin: -23px 0 0 -194px; } }
-      /* line 55, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-      .forms-list li .dropdown-menu.init i.fa-chevron-circle-up {
-        position: absolute;
-        top: 8px;
-        right: -5px;
-        color: #959595;
-        cursor: pointer; }
-        @media screen and (min-width: 64em)  {
-          .forms-list li .dropdown-menu.init i.fa-chevron-circle-up {
-            top: 9px;
-            right: -3px; } }
-      /* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-      .forms-list li .dropdown-menu.init li {
-        color: #444444;
-        background: transparent;
-        border: none;
-        width: 100%;
-        margin: 0;
-        padding: 10px 0 10px 30px;
-        line-height: 1.3em; }
-        /* line 78, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-        .forms-list li .dropdown-menu.init li i {
-          position: absolute;
-          left: 20px;
-          padding-top: 2px; }
-      /* line 86, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-      .forms-list li .dropdown-menu.init .divider {
-        width: 82%;
-        margin: 0 0 0 30px;
-        background: #EEEEEE; }
-  /* line 96, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_forms-list.scss */
-  .forms-list .see-more {
-    padding-left: 20px;
-    font-size: 0.875em; }
+    background-color: #60646B;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.12), 0 4px 4px rgba(0, 0, 0, 0.24); }
 
 /*------------------------------------*\
     $BLOCKS
@@ -12008,21 +12039,25 @@ footer {
       bottom: 0;
       left: 64px;
       width: 210px; } }
-/* line 225, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  @media screen and (max-width: 64em)  {
+    [class*="layout-"] .mode-context.active {
+      bottom: 45px;
+      box-shadow: none; } }
+/* line 233, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
 [class*="layout-"] [role="main"] {
   padding-top: 107px; }
   @media screen and (min-width: 64em)  {
     [class*="layout-"] [role="main"] {
       padding-top: 68px;
       padding-left: 274px; } }
-  /* line 233, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  /* line 241, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   [class*="layout-"] [role="main"] .toolbar {
     position: fixed;
     top: 55px;
     z-index: 2000;
     width: 100%; }
     @media screen and (max-width: 64em)  {
-      /* line 241, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      /* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       [class*="layout-"] [role="main"] .toolbar .fab {
         display: -webkit-flex;
         display: -ms-flexbox;

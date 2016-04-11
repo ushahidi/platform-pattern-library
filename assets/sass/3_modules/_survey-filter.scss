@@ -1,0 +1,116 @@
+.survey-filter {
+
+    @include media($medium) {
+        margin-right: -$sm-spacing;
+        margin-left: -$sm-spacing;
+    }
+}
+
+.survey-filter-checkbox {
+    position: relative;
+    @include clearfix;
+    background-color: #292E34;
+    margin: 5px auto;
+    @include transition(0.3s);
+
+    .survey-filter-label {
+        position: relative;
+        float: left;
+        width: 72.9613734%;
+        overflow: hidden;
+
+        label {
+            position: relative;
+            left: 0;
+            padding: $tiny-spacing*1.5 $sm-spacing;
+            @include transition(0.3s);
+
+            &:hover {
+                cursor: pointer;
+                left: $sm-spacing+15;
+            }
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            right: 100%;
+        }
+    }
+
+    label {
+        display: block;
+        color: $color-primary-epsilon;
+        @include typeGamma;
+        text-transform: none;
+        letter-spacing: normal;
+    }
+
+    .survey-filter-total {
+        position: absolute;
+        right: 0;
+        box-shadow: 0 0 $tiny-spacing 2px #292E34;
+        margin-top: $tiny-spacing;
+        margin-right: $sm-spacing;
+        @include iconic($position: after, $iconic-icon: chevron-bottom, $iconic-color: #292E34, $iconic-size: 10px, $styles: true) {
+            position: relative;
+            top: 1px;
+            margin-left: 6px;
+            @include transition(0.3s);
+        };
+
+        &.active {
+
+            &:after {
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+
+    .dropdown-menu {
+        top: 90% !important;
+        left: auto !important;
+        max-width: 300px;
+        margin-right: -$sm-spacing;
+        margin-left: $sm-spacing;
+    }
+
+    &.checked {
+        background-color: #3F4349;
+
+        label {
+            color: $white;
+        }
+
+        .survey-filter-total {
+            color: $white;
+            box-shadow: 0 0 $tiny-spacing 2px #3F4349;
+            background-color: $color-primary-epsilon;
+
+            &:after {
+                background-color: #3F4349;
+            }
+        }
+    }
+}
+
+.survey-filter-total {
+    display: inline-block;
+    color: $color-primary-epsilon;
+    @include equal-radius(20px);
+    font-size: 12px;
+    text-shadow: 0 1px 1px rgba(0,0,0,1);
+    background-color: $color-primary;
+    padding: 4px $tiny-spacing;
+    @include transition(0.3s);
+
+    &.init {
+
+        &:hover {
+            cursor: pointer;
+            color: $white;
+            background-color: $color-primary-delta;
+            box-shadow: 0 0 4px rgba(0,0,0,0.12),
+                0 4px 4px rgba(0,0,0,0.24);
+        }
+    }
+}
