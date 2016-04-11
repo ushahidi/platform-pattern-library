@@ -200,7 +200,8 @@
                 .account-menu {
                     position: fixed;
                     top: 54px;
-                    bottom: 0;
+                    bottom: 45px;
+                    z-index: $body;
                     width: 100%;
                     overflow-y: scroll;
                 }
@@ -222,7 +223,6 @@
     }
 
     [role="main"] {
-        z-index: $toolbar;
         padding-top: 107px;
 
         @include media($medium) {
@@ -233,13 +233,25 @@
         .toolbar {
             position: fixed;
             top: 55px;
+            z-index: $toolbar;
             width: 100%;
+
+            @include media($medium-down) {
+
+                .fab {
+                    display: block;
+                    position: fixed;
+                    right: $sm-spacing;
+                    bottom: $sm-spacing+45;
+                }
+            }
 
             @include media($medium) {
                 top: 0;
                 right: 0;
                 left: 274px;
                 width: auto;
+
             }
         }
     }

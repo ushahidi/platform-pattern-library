@@ -24,10 +24,14 @@
     }
 
     .searchbar {
+        float: left;
+        width: 72.7272727%;
+
+        @include media($small) {
+            width: 47.6814516%;
+        }
 
         @include media($medium) {
-            float: left;
-            width: 47.6814516%;
             margin-left: $base-spacing+54;
         }
 
@@ -52,4 +56,39 @@
         }
     }
 
+    .button-group {
+        float: right;
+
+        @include media($small) {
+        }
+
+        button,
+        .button {
+            height: 36px;
+            font-weight: normal;
+            text-transform: none;
+            letter-spacing: 0px;
+            @include equal-radius($radius: 0);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+
+    .searchbar,
+    .button-group {
+
+        button,
+        .button {
+
+            svg.iconic {
+
+                + .button-label {
+
+                    @include media($mobile-down) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
 }
