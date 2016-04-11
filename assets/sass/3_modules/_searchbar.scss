@@ -40,10 +40,34 @@
                 color: $color-primary-alpha;
                 background-color: $color-light-delta;
 
-                [class*="fa-"] {
+                svg.iconic {
+                    fill: $color-primary-alpha;
+                }
+            }
 
-                    &:before, &:after {
-                        color: $color-primary-alpha;
+            &.search-options-filter {
+
+                svg.iconic {
+
+                    @include media($small) {
+                        display: none;
+                    }
+                }
+
+                .button-label {
+                    display: none;
+
+                    @include media($small) {
+                        display: inline-block;
+                        margin-left: 0;
+                    }
+
+                    + svg.iconic {
+                        display: none;
+
+                        @include media($small) {
+                            display: inline-block;
+                        }
                     }
                 }
             }

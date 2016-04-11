@@ -16,6 +16,8 @@ input[type="button"] {
     .button-label {
 
         + svg.iconic {
+            width: .571428571em;
+            height: .571428571em;
             @include margin-left($tiny-spacing);
         }
     }
@@ -24,8 +26,11 @@ input[type="button"] {
 
         &.active {
 
-            svg.iconic {
-                @include transform(rotate(180deg));
+            .button-label {
+
+                + svg.iconic {
+                    @include transform(rotate(180deg));
+                }
             }
         }
     }
@@ -47,8 +52,15 @@ input[type="button"] {
 
 // FLOATING ACTION BUTTON
 .fab {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
 
     .button-fab {
+
+        @include media($medium-down) {
+            margin-left: auto;
+        }
 
         &.active {
             background: $white;
@@ -106,13 +118,25 @@ input[type="button"] {
             }
         }
 
+        @include media($medium-down) {
+
+            .bug {
+                float: right
+            }
+
+            .fab-action-type {
+                float: right;
+                margin-right: 0;
+                margin-left: $tiny-spacing;
+            }
+        }
+
         @include media($medium) {
             top: 100px;
             bottom: 0;
             flex-direction: column;
         }
     }
-
 }
 
 .button-split {
