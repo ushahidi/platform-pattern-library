@@ -113,14 +113,17 @@ $NAVIGATION
 
 .pl-read-direction-nav {
     @include span-columns(12);
+    @include margin-right(0);
 
     @include media($small) {
         @include span-columns(4);
+        @include margin-right(0);
         text-align: right;
     }
 
     @include media($large) {
         @include span-columns(3);
+        @include margin-right(0);
     }
 
     span {
@@ -128,8 +131,7 @@ $NAVIGATION
         padding: $tiny-spacing $tiny-spacing $tiny-spacing $base-spacing;
 
         @include media($small) {
-            padding-top: $sm-spacing;
-            padding-bottom: $sm-spacing;
+            padding: 21px 0;
         }
     }
 
@@ -150,7 +152,14 @@ $NAVIGATION
             a.cta {
                 font-size: 1em;
             }
+
+            svg.iconic {
+                vertical-align: middle;
+                @include margin-left(10px);
+            }
+
         }
+
     }
 
 }
