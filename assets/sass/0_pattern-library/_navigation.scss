@@ -84,18 +84,29 @@ $NAVIGATION
     border-bottom: $base-border;
     background: $white;
     max-width: $max-width;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
 
-    @include media($small) {
-        @include span-columns(8);
-        border-bottom: none;
+    @include media($medium) {
+        margin: 0;
+        padding: 0;
     }
 
-    @include media($large) {
-        @include span-columns(9);
-    }
+    .pl-jump-nav-list {
+        @include span-columns(12);
+        margin: $tiny-spacing*2 0 $tiny-spacing*2 $base-spacing;
 
-    ul {
-        margin: $sm-spacing $base-spacing;
+        @include media($small) {
+            @include span-columns(8);
+            border-bottom: none;
+            margin-right: 0;
+        }
+
+        @include media($large) {
+            @include span-columns(9);
+            margin-right: 0;
+        }
+
     }
 
     li {
@@ -113,24 +124,27 @@ $NAVIGATION
 
 .pl-read-direction-nav {
     @include span-columns(12);
-    @include margin-right(0);
+    margin-right: 0;
 
     @include media($small) {
         @include span-columns(4);
-        @include margin-right(0);
+        margin-right: 0;
+    }
+
+    @include media($medium) {
         text-align: right;
     }
 
     @include media($large) {
         @include span-columns(3);
-        @include margin-right(0);
+        margin-right: 0;
     }
 
     span {
         display: inline-block;
         padding: $tiny-spacing $tiny-spacing $tiny-spacing $base-spacing;
 
-        @include media($small) {
+        @include media($medium) {
             padding: 21px 0;
         }
     }
@@ -155,7 +169,7 @@ $NAVIGATION
 
             svg.iconic {
                 vertical-align: middle;
-                @include margin-left(10px);
+                margin-left: 10px;
             }
 
         }
