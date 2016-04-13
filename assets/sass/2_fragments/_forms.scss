@@ -65,7 +65,7 @@ fieldset {
       label {
 
           @include iconic(after, circle-check, $confirmation-color) {
-              margin-left: $tiny-spacing;
+              @include margin-left($tiny-spacing);
           }
       }
 
@@ -87,7 +87,7 @@ fieldset {
    &.checkbox,
    &.radio {
        position: relative;
-       padding-left: 14px + $tiny-spacing;
+       @include padding-left(14px + $tiny-spacing);
 
       label {
          color: $text-color;
@@ -100,7 +100,7 @@ fieldset {
       input[type="radio"] {
           position: absolute;
           top: 0;
-          left: 0;
+          @include left(0);
       }
    }
 
@@ -118,10 +118,10 @@ fieldset {
    &.search, &.location {
       position: relative;
 
-      @include iconic(before, magnifying-glass, $color-primary, 14px) {
+      @include iconic(before, magnifying-glass, $color-primary, 12px) {
          position: absolute;
-         top: 10px;
-         left: $tiny-spacing;
+         top: 13px;
+         @include left(11px);
       }
 
       label {
@@ -129,14 +129,14 @@ fieldset {
       }
 
       input[type="search"], input[type="text"] {
-         padding-left: $base-spacing;
+         @include padding-left($base-spacing);
       }
    }
 
    &.select {
 
       .custom-select {
-         margin-right: $tiny-spacing;
+         @include margin-right($tiny-spacing);
       }
 
       label {
@@ -153,7 +153,7 @@ fieldset {
       @include icon($before, locate) {
          position: absolute;
          top: 8px;
-         left: $sm-spacing;
+         @include left($sm-spacing);
          color: $blue;
          font-size: 16px;
       }
@@ -189,7 +189,7 @@ fieldset {
             display: inline-block;
             border-right: $base-border;
             border-bottom: $base-border;
-            border-left: $base-border;
+            @include border-left($base-border);
             padding: 10px;
             background-color: $lt-brown;
 
@@ -253,7 +253,7 @@ fieldset {
       input[type="search"],
       .custom-select {
          display: inline-block;
-         margin-right: 5px;
+         @include margin-right(5px);
 
          @include media($mobile-down) {
             display: block;
