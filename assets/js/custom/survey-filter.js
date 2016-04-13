@@ -20,6 +20,4 @@ $('.survey-filter-checkbox').each(function(){
            $(context).removeClass('checked');
        }
    });
-
-   console.log('working');
 });

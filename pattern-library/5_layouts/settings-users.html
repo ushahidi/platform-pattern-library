@@ -7,192 +7,290 @@
 
 @@include('../partials/_pl-head.html')
 
-<body>
+<body class="layout-a">
 
-   @@include('../partials/_mode-bar-context.html')
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
 
-   <div class="wrapper">
+    <div class="mode-context">
 
-      
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="">March on City Hall</a></li>
+                <li><a href="">Settings</a></li>
+            </ol>
 
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>Settings</li>
-            </ul>
+            <h1 class="mode-context-title">Users</h1>
+        </header>
 
-            <div class="page-header-body">
-               <h1 class="page-title">Users</h1>
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+
+        <div class="mode-context-body">
+
+        </div>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="fab">
+                <button type="button" class="button-alpha button-fab">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="hidden">Add</span>
+                </button>
             </div>
 
-            <div class="page-header-actions">
-               @@include('../partials/_filters.html')
+            <form role="search" class="searchbar">
+                <div class="form-field search">
+                    <input type="search" placeholder="Search users">
+                </div>
+
+                <div class="search-options">
+                    <a href="#" class="button search-options-filter" data-toggle="search-filters">
+                        <svg class="iconic">
+                          <use xlink:href="/assets/img/iconic-sprite.svg#bolt"></use>
+                        </svg>
+                        <span class="button-label">Filters</span>
+                        <svg class="iconic">
+                          <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="dropdown-menu" data-toggle-target="search-filters">
+                    <fieldset>
+                        <legend>Forms</legend>
+                        <div class="form-field-wrapper">
+                            <div class="form-field checkbox">
+                                <label for="traffic">
+                                    <input type="checkbox" name="traffic" value="Traffic" id="traffic"> Traffic
+                                </label>
+                            </div>
+                            <div class="form-field checkbox">
+                                <label for="police-encounters">
+                                    <input type="checkbox" name="police-encounters" value="Police encounters" id="police-encounters"> Police encounters
+                                </label>
+                            </div>
+                            <div class="form-field checkbox">
+                                <label for="protester-photos">
+                                    <input type="checkbox" name="protester-photos" value="Protester photos" id="protester-photos"> Protester photos
+                                </label>
+                            </div>
+                            <div class="form-field checkbox">
+                                <label for="traffic">
+                                    <input type="checkbox" name="traffic" value="Traffic" id="traffic"> Traffic
+                                </label>
+                            </div>
+                            <div class="form-field checkbox">
+                                <label for="police-encounters">
+                                    <input type="checkbox" name="police-encounters" value="Police encounters" id="police-encounters"> Police encounters
+                                </label>
+                            </div>
+                            <div class="form-field checkbox">
+                                <label for="protester-photos">
+                                    <input type="checkbox" name="protester-photos" value="Protester photos" id="protester-photos"> Protester photos
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Categories</legend>
+                        <div class="form-field-wrapper">
+                            <div class="form-field checkbox">
+                                <label for="speakers">
+                                    <input type="checkbox" name="speakers" value="Speakers" id="speakers"> Speakers
+                                </label>
+                            </div>
+                            <div class="form-field checkbox">
+                                <label for="opposition">
+                                    <input type="checkbox" name="opposition" value="Opposition" id="opposition"> Opposition
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Who Can See It</legend>
+                        <div class="form-field-wrapper">
+                            <div class="form-field radio">
+                                <label for="everyone">
+                                    <input type="radio" name="everyone" value="Everyone" id="everyone"> Everyone
+                                </label>
+                            </div>
+                            <div class="form-field radio">
+                                <label for="members">
+                                    <input type="radio" name="members" value="Members" id="members"> Members
+                                </label>
+                            </div>
+                            <div class="form-field radio">
+                                <label for="administrators">
+                                    <input type="radio" name="administrators" value="Administrators" id="administrators"> Administrators
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </form>
+
+            <div class="button-group">
+                <button type="button">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#external-link"></use>
+                    </svg>
+                    <span class="button-label">Export</span>
+                </button>
             </div>
-         </div>
+        </div>
 
-         <div class="main-col">
 
-            <div class="list-actions">
-               <button class="button-link cta">Select All</button>
+       <div class="main-col">
 
-               <div class="bulk-actions">
-                  <fieldset class="custom-fieldset">
-                     <legend>Change Role</legend>
+            <div class="listing">
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
 
-                     <label class="radio-label" for="contributor">
-                        <input type="radio" name="role" id="contributor" />
-                        Contributor
-                     </label>
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
 
-                     <label class="radio-label" for="editor">
-                        <input type="radio" name="role" id="editor" />
-                        Editor
-                     </label>
+                        <h2 class="listing-item-title"><a href="">Harry Dunne</a></h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
 
-                     <label class="radio-label" for="admin">
-                        <input type="radio" name="role" id="admin" />
-                        Administrator
-                     </label>
-                  </fieldset>
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
 
-                  <button type="button" class="button-secondary alt">
-                     <span class="icon-left fa-external-link">Export Contacts</span>
-                  </button>
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
 
-                  <button type="button" class="button-destructive alt">
-                     <span class="icon-left fa-trash">Delete</span>
-                  </button>
+                        <h2 class="listing-item-title"><a href="">Mary Swanson</a></h2>
+                        <p class="listing-item-secondary">Contributor</p>
+                    </div>
+                </div>
 
-                  <a type="button" class="button-secondary">
-                     <span class="icon-left fa-plus">Add User</span>
-                 </a>
-               </div>
-            </div><!--list-actions-->
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
 
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">Harry Dunne</a>
-                  </h3>
-                  <h4 class="user-type">Editor</h4>
-               </div>
-            </div>
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">Mary Swanson</a>
-                  </h3>
-                  <h4 class="user-type">Contributor</h4>
-               </div>
-            </div>
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">Lloyd Christmas</a>
-                  </h3>
-                  <h4 class="user-type">Editor</h4>
-               </div>
-            </div>
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">Joe Mentalino</a>
-                  </h3>
-                  <h4 class="user-type">Contributor</h4>
-               </div>
-            </div>
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">Karl Swanson</a>
-                  </h3>
-                  <h4 class="user-type">Administrator</h4>
-               </div>
-            </div>
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">Nicholas Andre</a>
-                  </h3>
-                  <h4 class="user-type">Editor</h4>
-               </div>
-            </div>
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">J.P. Shay</a>
-                  </h3>
-                  <h4 class="user-type">Administrator</h4>
-               </div>
-            </div>
-            <div class="settings-listing user-listing media">
-               <div class="select">
-                  <input type="checkbox">
-               </div>
-               <div class="img">
-                  <img class="circular" src="http://placehold.it/100x100" alt="">
-               </div>
-               <div class="user bd">
-                  <h3>
-                     <a href="">Mynameis Alongname</a>
-                  </h3>
-                  <h4 class="user-type">Administrator</h4>
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Lloyd Christmas</a></h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Joe Mentalino</a></h2>
+                        <p class="listing-item-secondary">Contributor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Karl Swanson</a></h2>
+                        <p class="listing-item-secondary">Administrator</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Nicholas Andre</a></h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-toolbar">
+                    <strong class="listing-toolbar-summary">1 selected</strong>
+
+                    <fieldset class="custom-fieldset">
+                        <legend>Change Role</legend>
+
+                        <div class="form-field radio">
+                            <label for="contributor">
+                                <input type="radio" name="role" id="contributor">
+                                Contributor
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="editor">
+                                <input type="radio" name="role" id="editor">
+                                Editor
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="admin">
+                                <input type="radio" name="role" id="admin">
+                                Administrator
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <button type="button" class="button-destructive">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label hidden">Delete</span>
+                    </button>
                </div>
             </div>
 
             @@include('../partials/_pagination.html')
 
-         </div> <!--end main column-->
+        </div>
 
-      </main> <!--end layout a-->
+    </main>
 
-   </div>
+    @@include('../partials/_scripts.html')
 
-   @@include('../partials/_footer.html')
-
-   @@include('../partials/_scripts.html')
 </body>
 
 </html>

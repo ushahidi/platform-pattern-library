@@ -27,7 +27,6 @@
         }
 
         .mode-context-title {
-            @include padding-left(48px);
             margin: $sm-spacing 0;
 
             @include media($medium) {
@@ -56,6 +55,13 @@
                 margin: auto;
             }
         }
+
+        &.has-logo {
+
+            .mode-context-title {
+                @include padding-left(48px);
+            }
+        }
     }
 
     .mode-context-trigger {
@@ -76,6 +82,34 @@
 
             svg.iconic {
                 @include transform(rotate(180deg));
+            }
+        }
+    }
+
+    .breadcrumbs {
+        display: none;
+        margin: $sm-spacing 0;
+
+        @include media($medium) {
+            display: block;
+        }
+
+        a {
+            color: $color-tertiary;
+
+            &:hover {
+                color: $white;
+            }
+        }
+
+        li {
+
+            &:after {
+                background-color: $color-light-gamma;
+            }
+
+            &:first-child {
+
             }
         }
     }
@@ -115,6 +149,7 @@
                 }
             }
 
+            .breadcrumbs,
             .mode-context-body {
                 display: block;
             }
