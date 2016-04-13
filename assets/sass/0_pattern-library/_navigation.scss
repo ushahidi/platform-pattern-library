@@ -124,57 +124,84 @@ $NAVIGATION
 
 .pl-read-direction-nav {
     @include span-columns(12);
-    margin-right: 0;
+    margin: 21px 0 21px 0;
+    padding-left: $base-spacing;
 
     @include media($small) {
         @include span-columns(4);
-        margin-right: 0;
-    }
-
-    @include media($medium) {
-        text-align: right;
     }
 
     @include media($large) {
         @include span-columns(3);
-        margin-right: 0;
     }
 
-    span {
-        display: inline-block;
-        padding: $tiny-spacing $tiny-spacing $tiny-spacing $base-spacing;
+    .pl-read-direction-wrapper {
+        color: $black;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none;
 
         @include media($medium) {
-            padding: 21px 0;
-        }
-    }
-
-    ul {
-        display: inline;
-        margin: 0;
-
-        @include media($small) {
-            margin-right: $base-spacing;
+            float: right;
+            padding: 0 19px;
         }
 
-        li {
-            display: inline;
-            list-style-type: none;
-            margin: 0;
-            border: none;
+        .ltr,
+        .rtl {
+            background: $color-primary-alpha;
+            color: $white;
+            margin: 0 0 0 10px;
+            padding: 5px 10px;
 
-            a.cta {
-                font-size: 1em;
-            }
-
-            svg.iconic {
-                vertical-align: middle;
-                margin-left: 10px;
+            &.active {
+                background: $red;
             }
 
         }
 
     }
+
+    // span {
+    //     display: inline-block;
+    //     padding: $tiny-spacing $tiny-spacing $tiny-spacing $base-spacing;
+    //
+    //     @include media($medium) {
+    //         padding: 11px 0;
+    //     }
+    //
+    //     &.direction {
+    //         padding: 0;
+    //     }
+    //
+    // }
+
+    // ul {
+    //     display: inline;
+    //     margin: 0;
+    //
+    //     @include media($small) {
+    //         margin: 0 $base-spacing;
+    //     }
+    //
+    //     li {
+    //         display: inline;
+    //         list-style-type: none;
+    //         margin: 0;
+    //         border: none;
+    //
+    //         a.cta {
+    //             font-size: 1em;
+    //         }
+    //
+    //         svg.iconic {
+    //             vertical-align: middle;
+    //             margin-left: 10px;
+    //             fill: $white;
+    //         }
+    //
+    //     }
+    //
+    // }
 
 }
 
