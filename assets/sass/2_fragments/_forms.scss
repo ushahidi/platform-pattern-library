@@ -238,12 +238,6 @@ fieldset {
       }
 
       > label {
-/*         color: $text-color;
-         font-weight: normal;
-         font-size: 1em;
-         text-transform: none;
-         letter-spacing: 0;
-         */
          padding: 0 0 $sm-spacing;
          margin: 0;
       }
@@ -285,4 +279,38 @@ fieldset {
    &:last-of-type {
       border-bottom: none;
    }
+}
+
+.form-field-adapt {
+    position: relative;
+
+    label {
+        position: absolute;
+        top: 25px;
+        font-size: em(14);
+        pointer-events: none;
+        @include transition(all .25s);
+    }
+
+    input[type="text"] {
+        box-shadow: none;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        padding: 16px 0 8px 0;
+    }
+
+    &.is-focused {
+
+        label {
+            top: 0px;
+            font-size: em(12);
+        }
+
+        input[type="text"] {
+            padding: 16px 0 8px 0;
+        }
+
+    }
+
 }

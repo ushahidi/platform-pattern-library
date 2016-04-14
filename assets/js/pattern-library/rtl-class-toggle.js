@@ -1,17 +1,9 @@
-$(function() {
-    $( '#button-ltr' ).click(function() {
-        $(this).parent().addClass('hidden');
-        $(this).parent().siblings('li').removeClass('hidden');
-        $( 'body' ).removeClass('rtl');
-        return false;
-    });
+$('.rtl').click(function() {
+    $(this).addClass('active').siblings('.ltr').removeClass('active');
+    $('body').addClass('rtl');
 });
 
-$(function() {
-    $( '#button-rtl' ).click(function() {
-        $(this).parent().addClass('hidden');
-        $(this).parent().siblings('li').removeClass('hidden');
-        $( 'body' ).addClass('rtl');
-        return false;
-    });
+$('.ltr').click(function() {
+    $(this).addClass('active').siblings('.rtl').removeClass('active');
+    $('body').removeClass('rtl');
 });

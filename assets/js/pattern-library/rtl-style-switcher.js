@@ -1,16 +1,11 @@
-var ltrButton = document.getElementById('button-ltr');
-var rtlButton = document.getElementById('button-rtl');
+$(document).ready(function() {
 
-function changeStylesheet(sheet) {
-   document.getElementById('stylesheet').setAttribute('href', sheet);
-}
+    $('.ltr').click(function() {
+    $('#stylesheet').attr({href : '../../css/style.css'});
+    });
 
-if ($('#button-ltr').length > 0) {
-    ltrButton.onclick = function () {
-      changeStylesheet('../../css/style.css');
-    };
+    $('.rtl').click(function() {
+    $('#stylesheet').attr({href : '../../css/rtl-style.css'});
+    });
 
-    rtlButton.onclick = function () {
-      changeStylesheet('../../css/rtl-style.css');
-    };
-}
+});
