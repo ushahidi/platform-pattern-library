@@ -291,13 +291,20 @@ fieldset {
         font-size: em(14);
         pointer-events: none;
         @include transition(all .25s);
+        z-index: $top;
     }
 
-    input[type="text"] {
+    .textarea-label {
+        top: 45px;
+    }
+
+    input[type="text"],
+    textarea {
         box-shadow: none;
         border-top: 0;
         border-left: 0;
         border-right: 0;
+        height: auto;
         padding: 16px 0 8px 0;
     }
 
@@ -306,6 +313,10 @@ fieldset {
         label {
             top: 0px;
             font-size: em(12);
+        }
+
+        textarea {
+            padding: 16px 0 8px 0;
         }
 
     }
