@@ -45,7 +45,7 @@
 
        <div class="main-col">
 
-           <div class="form-sheet">
+            <div class="form-sheet">
                 <div class="form-field title">
                     <label class="hidden">Name</label>
                     <input type="text" placeholder="Survey name" value="Getting around">
@@ -56,108 +56,136 @@
                         Description
                     </label>
                     <textarea name="description" rows="8" cols="40">Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+                </div>
+
+                <div class="form-field select">
+                    <div class="custom-select">
+                        <select>
+                            <option>Everyone</option>
+                            <option>Editors</option>
+                            <option>Administrators</option>
+                        </select>
+                    </div>
+                    <label> can add to this survey</label>
+                </div>
+
+                <div class="form-field switch">
+                    <label><strong>Require moderation</strong> of new submissions before they're visible to everyone</label>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="switch2" type="checkbox">
+                        <label class="tgl-btn" for="switch2"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listing">
+                <h3 class="listing-heading">Fields</h3>
+
+                <nav class="tabs-menu">
+                    <ul>
+                        <li class="active">
+                            <a href="#tasks-survey">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                                </svg>
+                                Post
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tasks-verification">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
+                                </svg>
+                                Verify
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tasks-translation">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#transfer"></use>
+                                </svg>
+                                Translate
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div id="tasks-survey" class="tabs-content">
+
+                     <div class="listing-item">
+                         <div class="listing-item-primary">
+                             <h2 class="listing-item-title"><a href="">Title</a></h2>
+                         </div>
+                     </div>
+
+                     <div class="listing-item">
+                         <div class="listing-item-primary">
+                             <h2 class="listing-item-title"><a href="">Description</a></h2>
+                         </div>
+                     </div>
+
+                     <div class="listing-item">
+                         <div class="listing-item-select">
+                             <div class="buttons-updown">
+                                <button type="button" class="button-beta" disabled>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button type="button" class="button-beta">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                         </div>
+
+                         <div class="listing-item-primary">
+                             <h2 class="listing-item-title"><a href="">Location</a></h2>
+                         </div>
+                     </div>
+
+                     <div class="listing-item">
+                         <div class="listing-item-select">
+                             <div class="buttons-updown">
+                                <button type="button" class="button-beta">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button type="button" class="button-beta" disabled>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                         </div>
+
+                         <div class="listing-item-primary">
+                             <h2 class="listing-item-title"><a href="" data-modal="edit-field">Witness</a></h2>
+                         </div>
+                     </div>
+
+                     <div class="listing-item">
+                         <div class="listing-item-primary">
+                             <h2 class="listing-item-title">
+                                 <a href="" class="button button-flat" data-modal="add-field">
+                                     <svg class="iconic">
+                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                                     </svg>
+                                    Add field
+                                 </a>
+                             </h2>
+                         </div>
+                     </div>
 
                 </div>
 
-               <fieldset>
-                   <legend>Permission</legend>
-
-                   <div class="form-field checkbox">
-                       <label for="users">
-                           <input type="checkbox" id="users">
-                           Add, edit, and delete users
-                       </label>
-                   </div>
-                   <div class="form-field checkbox">
-                       <label for="surveys">
-                           <input type="checkbox" id="surveys">
-                           Add, edit, and delete surveys
-                       </label>
-                   </div>
-                   <div class="form-field checkbox">
-                       <label for="categories">
-                           <input type="checkbox" id="categories">
-                           Add, edit, and delete categories
-                       </label>
-                   </div>
-                   <div class="form-field checkbox">
-                       <label for="sources">
-                           <input type="checkbox" id="sources">
-                           Add, edit, and delete data sources
-                       </label>
-                   </div>
-                   <div class="form-field checkbox">
-                       <label for="posts-edit">
-                           <input type="checkbox" id="posts-edit">
-                           Edit posts
-                       </label>
-                   </div>
-                   <div class="form-field checkbox">
-                       <label for="posts-import">
-                           <input type="checkbox" id="posts-import">
-                           Import posts
-                       </label>
-                   </div>
-               </fieldset>
-
-               <div class="vertical-tabs">
-                  <nav class="vertical-tabs-menu init">
-                     <ul>
-                        <li class="active"><a href="">Post</a></li>
-                        <li><a href="">Add Verification</a></li>
-                        <li><a href="">Add Translation</a></li>
-                     </ul>
-                  </nav>
-
-                  <div class="vertical-tabs-content">
-                     <div class="page-header">
-                        <div class="page-header-body">
-                           <h2 class="delta-alt">Fields</h2>
-                           <p class="small">Choose and order the fields that you would like to include in this post type.</p>
-                        </div>
-                        <div class="page-header-actions">
-                           <button class="button-secondary" data-modal="add-field"><span class="icon-left fa-plus">Add field</span></button>
-                        </div>
-                     </div>
-
-                     <div class="settings-listing">
-                        <h3 class="settings-listing-title"><a href="">Title</a></h3>
-                     </div>
-                     <div class="settings-listing">
-                        <h3 class="settings-listing-title"><a href="">Description</a></h3>
-                     </div>
-                     <div class="settings-listing">
-                        <div class="upvote-downvote">
-                           <button type="button" class="button-secondary icon-only alt upvote" disabled></button>
-                           <button type="button" class="button-secondary icon-only alt downvote"></button>
-                        </div>
-                        <h3 class="settings-listing-title"><a href="">Location</a></h3>
-                        <div class="actions">
-                           <button type="button" class="button-destructive alt"></button>
-                        </div>
-                     </div>
-                     <div class="settings-listing">
-                        <div class="upvote-downvote">
-                           <button type="button" class="button-secondary icon-only alt upvote"></button>
-                           <button type="button" class="button-secondary icon-only alt downvote" disabled></button>
-                        </div>
-                        <h3 class="settings-listing-title"><a href="" data-modal="edit-field">Witness</a></h3>
-                        <div class="actions">
-                           <button type="button" class="button-destructive alt"></button>
-                        </div>
-                     </div>
-
-                     <div class="step-actions">
-                          <button type="button" class="button-secondary">Rename</button>
-                          <button type="button" class="button-destructive">Delete</button></button>
-                      </div>
-                  </div>
-               </div>
-
-               <div class="form-field">
-                   <button type="button" class="button-destructive">Delete role</button>
-               </div>
-           </div>
+            </div>
 
         </div>
 
@@ -165,9 +193,14 @@
 
     <div id="add-field" class="modal">
         <div class="modal-window">
-           <a href="" class="close modal-trigger"></a>
-           <h3 class="modal-title"><span class="icon-left fa-plus">Add field</span></h3>
-           <div class="divider padded"></div>
+            <button href="" class="button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#x"></use>
+                </svg>
+               <span class="hidden">Close</span>
+            </button>
+
+           <h3 class="modal-title">Add field</h3>
 
            <dl class="modal-body">
               <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
@@ -204,9 +237,14 @@
 
      <div id="edit-field" class="modal">
         <div class="modal-window">
-           <a href="" class="close modal-trigger"></a>
-           <h3 class="modal-title"><span class="icon-left fa-pencil">Edit field</span> <em>short text</em></h3>
-           <div class="divider padded"></div>
+            <button href="" class="button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#x"></use>
+                </svg>
+               <span class="hidden">Close</span>
+            </button>
+
+           <h3 class="modal-title">Edit field <em>short text</em></h3>
 
            <div class="form-field">
               <label>Name</label>
@@ -234,15 +272,13 @@
            <div class="form-field switch">
               <label>Include this field in filters</label>
               <div class="toggle-switch">
-                 <input class="tgl" id="switch1" type="checkbox">
-                 <label class="tgl-btn" for="switch1"></label>
+                 <input class="tgl" id="switch2" type="checkbox">
+                 <label class="tgl-btn" for="switch2"></label>
               </div>
            </div>
 
-           <div class="divider white"></div>
-
-           <div class="modal-submit">
-              <button type="button" class="button-primary modal-trigger">Save &amp; close</button>
+           <div class="form-field">
+              <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
            </div>
         </div>
 

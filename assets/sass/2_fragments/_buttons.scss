@@ -50,6 +50,13 @@ input[type="button"] {
     }
 }
 
+.button-gamma {
+
+    svg.iconic {
+        fill: $link-color;
+    }
+}
+
 // FLOATING ACTION BUTTON
 .fab {
     display: flex;
@@ -265,27 +272,24 @@ input[type="button"] {
 
 }
 
-.upvote-downvote {
+.buttons-updown {
 
-   button.icon-only {
-      @include direction;
-      @include float(left);
-      clear: both;
-      padding: 5px 6px 7px 6px;
+    button {
+        display: block;
+        padding: 4px $tiny-spacing;
 
-      &.downvote {
-         @include border-top-radius(0);
-         margin-top: -1px;
-      }
+        svg.iconic {
+            width: .714285714em;
+            height: .714285714em;
+        }
 
-      &.upvote {
-         @include border-bottom-radius(0);
+        &:first-child {
+            @include border-bottom-radius(0);
+        }
 
-         &:before,
-         &:after {
-            padding: 0 3px;
-         }
-      }
+        &:last-child {
+            @include border-top-radius(0);
+        }
 
    }
 

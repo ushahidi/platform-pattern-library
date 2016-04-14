@@ -4,6 +4,12 @@
     background-color: $color-light-delta;
     @include transition(0.3s);
 
+    .listing-heading {
+        display: block;
+        @include typeBeta;
+        padding: $base-spacing $sm-spacing;
+    }
+
     .listing-item {
         border-bottom: 1px solid $color-light-gamma;
 
@@ -60,6 +66,12 @@
         top: $base-spacing+1;
         left: $sm-spacing;
         z-index: $body;
+
+        .buttons-updown {
+            position: relative;
+            top: -14px;
+            left: -4px;
+        }
 
         + .listing-item-primary {
             padding-left: 46px;
@@ -124,6 +136,10 @@
 
     .listing-item-body {
         margin: $sm-spacing;
+
+        &.active {
+            display: block;
+        }
     }
 
     .listing-item-image {
@@ -132,6 +148,12 @@
 
     .listing-item-title {
         @include typeGamma;
+
+        svg.iconic {
+            width: .857142857em;
+            height: .857142857em;
+            margin-right: 4px;
+        }
     }
 }
 

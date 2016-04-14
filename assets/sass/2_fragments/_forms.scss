@@ -149,8 +149,7 @@ fieldset {
       label {
          display: inline;
          color: $text-color;
-         font-weight: normal;
-         font-size: em(15);
+         @include typeBase;
          text-transform: none;
          letter-spacing: 0;
       }
@@ -230,8 +229,12 @@ fieldset {
 
    // TOGGLE SWITCH
    &.switch {
+       position: relative;
 
       .toggle-switch {
+          position: absolute;
+          top: 0;
+          right: 0;
 
          label {
             margin: 0;
@@ -239,8 +242,12 @@ fieldset {
       }
 
       > label {
-         padding: 0 0 $sm-spacing;
-         margin: 0;
+          display: inline-block;
+          color: $text-color;
+          @include typeBase;
+          text-transform: none;
+          letter-spacing: 0;
+          padding-right: 72px;
       }
    }
 

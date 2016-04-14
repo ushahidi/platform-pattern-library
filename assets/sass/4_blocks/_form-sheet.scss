@@ -3,6 +3,11 @@
     @extend .card;
     background-color: $color-light-delta;
 
+    &:before,
+    &:after {
+        content: '\00a0';
+    }
+
     .form-sheet-title {
         @include typeBeta;
     }
@@ -101,10 +106,6 @@
     }
 
     .main-col & {
-
-        @include media($medium) {
-            margin-right: 230px;
-        }
 
         .form-sheet-actions {
             position: fixed;
