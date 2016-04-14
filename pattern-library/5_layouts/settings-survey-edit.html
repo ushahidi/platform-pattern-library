@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+@@include('../partials/_pl-head.html')
+
+<body class="layout-a">
+
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
+
+    <div class="mode-context">
+
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="">March on City Hall</a></li>
+                <li><a href="">Settings</a></li>
+                <li><a href="">Surveys</a></li>
+            </ol>
+
+            <h1 class="mode-context-title">Edit Survey</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Save</button>
+            </div>
+        </div>
+
+       <div class="main-col">
+
+           <div class="form-sheet">
+                <div class="form-field title">
+                    <label class="hidden">Name</label>
+                    <input type="text" placeholder="Survey name" value="Getting around">
+                </div>
+
+                <div class="form-field form-field-adapt">
+                    <label>
+                        Description
+                    </label>
+                    <textarea name="description" rows="8" cols="40">Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+
+                </div>
+
+               <fieldset>
+                   <legend>Permission</legend>
+
+                   <div class="form-field checkbox">
+                       <label for="users">
+                           <input type="checkbox" id="users">
+                           Add, edit, and delete users
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="surveys">
+                           <input type="checkbox" id="surveys">
+                           Add, edit, and delete surveys
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="categories">
+                           <input type="checkbox" id="categories">
+                           Add, edit, and delete categories
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="sources">
+                           <input type="checkbox" id="sources">
+                           Add, edit, and delete data sources
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="posts-edit">
+                           <input type="checkbox" id="posts-edit">
+                           Edit posts
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="posts-import">
+                           <input type="checkbox" id="posts-import">
+                           Import posts
+                       </label>
+                   </div>
+               </fieldset>
+
+               <div class="vertical-tabs">
+                  <nav class="vertical-tabs-menu init">
+                     <ul>
+                        <li class="active"><a href="">Post</a></li>
+                        <li><a href="">Add Verification</a></li>
+                        <li><a href="">Add Translation</a></li>
+                     </ul>
+                  </nav>
+
+                  <div class="vertical-tabs-content">
+                     <div class="page-header">
+                        <div class="page-header-body">
+                           <h2 class="delta-alt">Fields</h2>
+                           <p class="small">Choose and order the fields that you would like to include in this post type.</p>
+                        </div>
+                        <div class="page-header-actions">
+                           <button class="button-secondary" data-modal="add-field"><span class="icon-left fa-plus">Add field</span></button>
+                        </div>
+                     </div>
+
+                     <div class="settings-listing">
+                        <h3 class="settings-listing-title"><a href="">Title</a></h3>
+                     </div>
+                     <div class="settings-listing">
+                        <h3 class="settings-listing-title"><a href="">Description</a></h3>
+                     </div>
+                     <div class="settings-listing">
+                        <div class="upvote-downvote">
+                           <button type="button" class="button-secondary icon-only alt upvote" disabled></button>
+                           <button type="button" class="button-secondary icon-only alt downvote"></button>
+                        </div>
+                        <h3 class="settings-listing-title"><a href="">Location</a></h3>
+                        <div class="actions">
+                           <button type="button" class="button-destructive alt"></button>
+                        </div>
+                     </div>
+                     <div class="settings-listing">
+                        <div class="upvote-downvote">
+                           <button type="button" class="button-secondary icon-only alt upvote"></button>
+                           <button type="button" class="button-secondary icon-only alt downvote" disabled></button>
+                        </div>
+                        <h3 class="settings-listing-title"><a href="" data-modal="edit-field">Witness</a></h3>
+                        <div class="actions">
+                           <button type="button" class="button-destructive alt"></button>
+                        </div>
+                     </div>
+
+                     <div class="step-actions">
+                          <button type="button" class="button-secondary">Rename</button>
+                          <button type="button" class="button-destructive">Delete</button></button>
+                      </div>
+                  </div>
+               </div>
+
+               <div class="form-field">
+                   <button type="button" class="button-destructive">Delete role</button>
+               </div>
+           </div>
+
+        </div>
+
+    </main>
+
+    <div id="add-field" class="modal">
+        <div class="modal-window">
+           <a href="" class="close modal-trigger"></a>
+           <h3 class="modal-title"><span class="icon-left fa-plus">Add field</span></h3>
+           <div class="divider padded"></div>
+
+           <dl class="modal-body">
+              <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
+              <dd>A sentence or less</dd>
+
+              <dt class="list-item"><a href="">Long text</a></dt>
+              <dd>Multiple sentences or paragraphs</dd>
+
+              <dt class="list-item"><a href="">Number</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Location</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Date</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Time</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Radio Button(s)</a></dt>
+              <dd>Allows the user to choose only one of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Checkbox(es)</a></dt>
+              <dd>Allows the user to choose one or more of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Related Post Type</a></dt>
+              <dd></dd>
+           </dl>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
+     <div id="edit-field" class="modal">
+        <div class="modal-window">
+           <a href="" class="close modal-trigger"></a>
+           <h3 class="modal-title"><span class="icon-left fa-pencil">Edit field</span> <em>short text</em></h3>
+           <div class="divider padded"></div>
+
+           <div class="form-field">
+              <label>Name</label>
+              <input type="text" value="Witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Key</label>
+              <input type="text" value="witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Default value</label>
+              <input type="text" />
+           </div>
+
+           <div class="form-field switch">
+              <label>Require this field be completed</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch1" type="checkbox">
+                 <label class="tgl-btn" for="switch1"></label>
+              </div>
+           </div>
+
+           <div class="form-field switch">
+              <label>Include this field in filters</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch1" type="checkbox">
+                 <label class="tgl-btn" for="switch1"></label>
+              </div>
+           </div>
+
+           <div class="divider white"></div>
+
+           <div class="modal-submit">
+              <button type="button" class="button-primary modal-trigger">Save &amp; close</button>
+           </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
+    @@include('../partials/_scripts.html')
+    <script>
+    // Treat window as dialog, open on page load
+    modalInit(true, false);
+    </script>
+
+</body>
+
+</html>

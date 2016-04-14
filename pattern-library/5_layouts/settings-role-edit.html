@@ -7,7 +7,7 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="layout-c">
+<body class="layout-a">
 
     @@include('../partials/_mode-bar.html', {
       "context": "settings"
@@ -24,14 +24,28 @@
 
             <h1 class="mode-context-title">Edit Role</h1>
         </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
     </div>
 
 
     <main role="main">
 
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Save</button>
+            </div>
+        </div>
+
        <div class="main-col">
 
-           <form class="form-sheet">
+           <div class="form-sheet">
                 <div class="form-field">
                     <label>
                         Name
@@ -87,11 +101,10 @@
                    </div>
                </fieldset>
 
-               <div class="form-sheet-actions">
-                   <button type="button" class="button button-flat">Cancel</button>
-                   <button type="button" class="button button-alpha">Save</button>
+               <div class="form-field">
+                   <button type="button" class="button-destructive">Delete role</button>
                </div>
-           </form>
+           </div>
 
         </div>
 

@@ -7,7 +7,7 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="layout-b">
+<body class="layout-a">
 
     @@include('../partials/_mode-bar.html', {
       "context": "settings"
@@ -36,13 +36,9 @@
     <main role="main">
 
         <div class="toolbar">
-            <div class="fab">
-                <button type="button" class="button-alpha button-fab">
-                    <svg class="iconic">
-                      <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
-                    </svg>
-                    <span class="hidden">Add</span>
-                </button>
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Save</button>
             </div>
         </div>
 
@@ -50,14 +46,10 @@
        <div class="main-col">
 
             <div class="listing">
-                <div class="listing-item">
-                    <div class="listing-item-select">
-                        <input type="checkbox">
-                    </div>
-
+                <div class="listing-item active">
                     <div class="listing-item-secondary">
                         <div class="toggle-switch">
-                            <input class="tgl" id="switch1" type="checkbox">
+                            <input class="tgl" id="switch1" type="checkbox" checked>
                             <label class="tgl-btn" for="switch1"></label>
                         </div>
                     </div>
@@ -67,18 +59,42 @@
                             <img class="icon" src="/assets/img/twitter.png" alt="">
                         </div>
 
-                        <h2 class="listing-item-title"><a href="">Tweets from user</a></h2>
+                        <h2 class="listing-item-title">Tweets from user</h2>
                     </div>
 
                     <div class="listing-item-body">
+                        <form>
+                            <div class="form-field">
+                                <label>
+                                    Twitter username
+                                    <input type="text" placeholder="@ushahidi" value="@ushahidi" />
+                                </label>
+                            </div>
+
+                            <div class="form-field select">
+                                <label>
+                                    Import as
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>Survey 1</option>
+                                            <option selected>Survey 2</option>
+                                            <option>Survey 3</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    Require moderation
+                                </label>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <div class="listing-item">
-                    <div class="listing-item-select">
-                        <input type="checkbox">
-                    </div>
-
                     <div class="listing-item-secondary">
                         <div class="toggle-switch">
                             <input class="tgl" id="switch2" type="checkbox">
@@ -91,15 +107,42 @@
                             <img class="icon" src="/assets/img/twitter.png" alt="">
                         </div>
 
-                        <h2 class="listing-item-title"><a href="">Tweets with keyword</a></h2>
+                        <h2 class="listing-item-title">Tweets with keyword</h2>
+                    </div>
+
+                    <div class="listing-item-body">
+                        <form>
+                            <div class="form-field">
+                                <label>
+                                    Keyword
+                                    <input type="text" placeholder="#ushahidi" />
+                                </label>
+                            </div>
+
+                            <div class="form-field select">
+                                <label>
+                                    Import as
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>Survey 1</option>
+                                            <option selected>Survey 2</option>
+                                            <option>Survey 3</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    Require moderation
+                                </label>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <div class="listing-item">
-                    <div class="listing-item-select">
-                        <input type="checkbox">
-                    </div>
-
                     <div class="listing-item-secondary">
                         <div class="toggle-switch">
                             <input class="tgl" id="switch3" type="checkbox">
@@ -108,15 +151,42 @@
                     </div>
 
                     <div class="listing-item-primary">
-                        <h2 class="listing-item-title"><a href="">SMS</a></h2>
+                        <h2 class="listing-item-title">SMS</h2>
+                    </div>
+
+                    <div class="listing-item-body">
+                        <form>
+                            <div class="form-field">
+                                <label>
+                                    Sender's phone number
+                                    <input type="tel" placeholder="123-456-7890" />
+                                </label>
+                            </div>
+
+                            <div class="form-field select">
+                                <label>
+                                    Import as
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>Survey 1</option>
+                                            <option>Survey 2</option>
+                                            <option>Survey 3</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <label>
+                                    <input type="checkbox">
+                                    Require moderation
+                                </label>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
                 <div class="listing-item">
-                    <div class="listing-item-select">
-                        <input type="checkbox">
-                    </div>
-
                     <div class="listing-item-secondary">
                         <div class="toggle-switch">
                             <input class="tgl" id="switch4" type="checkbox">
@@ -129,7 +199,7 @@
                             <img class="icon" src="/assets/img/facebook.png" alt="">
                         </div>
 
-                        <h2 class="listing-item-title"><a href="">Facebook</a></h2>
+                        <h2 class="listing-item-title">Facebook</h2>
                     </div>
                 </div>
 

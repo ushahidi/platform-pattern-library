@@ -10,6 +10,17 @@
         &:last-child {
             border-bottom: none;
         }
+
+        .listing-item-body {
+            display: none;
+        }
+
+        &.active {
+
+            .listing-item-body {
+                display: block;
+            }
+        }
     }
 
     .listing-toolbar {
@@ -52,6 +63,10 @@
 
         + .listing-item-primary {
             padding-left: 46px;
+
+            .listing-item-image {
+                left: 46px;
+            }
         }
 
         + .listing-item-secondary {
@@ -69,11 +84,10 @@
         .listing-item-image {
             position: absolute;
             top: $base-spacing;
-            left: 46px;
 
             .icon {
                 position: relative;
-                top: -4px;
+                top: -8px;
             }
 
             + .listing-item-title {
@@ -87,6 +101,7 @@
 
         .listing-item-secondary {
             position: static;
+            width: auto;
             text-align: left;
             margin: 4px 0;
         }
@@ -105,6 +120,10 @@
         + .listing-item-primary {
             padding-right: 72px;
         }
+    }
+
+    .listing-item-body {
+        margin: $sm-spacing;
     }
 
     .listing-item-image {
@@ -127,10 +146,23 @@
         margin-bottom: $tiny-spacing;
     }
 
-    fieldset,
-    button,
-    .button {
-        float: left;
-        margin: 0 $tiny-spacing 0 0;
+    .listing-toolbar-actions {
+
+        fieldset,
+        button,
+        .button {
+            float: left;
+            margin: 0 $tiny-spacing 0 0;
+        }
+    }
+
+    .button-link {
+        color: $color-tertiary;
+        font-size: .857142857em;
+        padding: 0 $sm-spacing;
+
+        &:hover {
+            color: $white;
+        }
     }
 }

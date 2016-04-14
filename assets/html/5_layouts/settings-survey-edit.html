@@ -102,10 +102,10 @@
             <ol class="breadcrumbs">
                 <li><a href="">March on City Hall</a></li>
                 <li><a href="">Settings</a></li>
-                <li><a href="">Roles</a></li>
+                <li><a href="">Surveys</a></li>
             </ol>
 
-            <h1 class="mode-context-title">Edit Role</h1>
+            <h1 class="mode-context-title">Edit Survey</h1>
         </header>
 
         <span class="mode-context-trigger">
@@ -129,18 +129,17 @@
        <div class="main-col">
 
            <div class="form-sheet">
-                <div class="form-field">
-                    <label>
-                        Name
-                        <input type="text" value="Editor">
-                    </label>
+                <div class="form-field title">
+                    <label class="hidden">Name</label>
+                    <input type="text" placeholder="Survey name" value="Getting around">
                 </div>
 
-                <div class="form-field">
+                <div class="form-field form-field-adapt">
                     <label>
                         Description
-                        <textarea name="description" rows="8" cols="40">Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
                     </label>
+                    <textarea name="description" rows="8" cols="40">Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+
                 </div>
 
                <fieldset>
@@ -184,6 +183,60 @@
                    </div>
                </fieldset>
 
+               <div class="vertical-tabs">
+                  <nav class="vertical-tabs-menu init">
+                     <ul>
+                        <li class="active"><a href="">Post</a></li>
+                        <li><a href="">Add Verification</a></li>
+                        <li><a href="">Add Translation</a></li>
+                     </ul>
+                  </nav>
+
+                  <div class="vertical-tabs-content">
+                     <div class="page-header">
+                        <div class="page-header-body">
+                           <h2 class="delta-alt">Fields</h2>
+                           <p class="small">Choose and order the fields that you would like to include in this post type.</p>
+                        </div>
+                        <div class="page-header-actions">
+                           <button class="button-secondary" data-modal="add-field"><span class="icon-left fa-plus">Add field</span></button>
+                        </div>
+                     </div>
+
+                     <div class="settings-listing">
+                        <h3 class="settings-listing-title"><a href="">Title</a></h3>
+                     </div>
+                     <div class="settings-listing">
+                        <h3 class="settings-listing-title"><a href="">Description</a></h3>
+                     </div>
+                     <div class="settings-listing">
+                        <div class="upvote-downvote">
+                           <button type="button" class="button-secondary icon-only alt upvote" disabled></button>
+                           <button type="button" class="button-secondary icon-only alt downvote"></button>
+                        </div>
+                        <h3 class="settings-listing-title"><a href="">Location</a></h3>
+                        <div class="actions">
+                           <button type="button" class="button-destructive alt"></button>
+                        </div>
+                     </div>
+                     <div class="settings-listing">
+                        <div class="upvote-downvote">
+                           <button type="button" class="button-secondary icon-only alt upvote"></button>
+                           <button type="button" class="button-secondary icon-only alt downvote" disabled></button>
+                        </div>
+                        <h3 class="settings-listing-title"><a href="" data-modal="edit-field">Witness</a></h3>
+                        <div class="actions">
+                           <button type="button" class="button-destructive alt"></button>
+                        </div>
+                     </div>
+
+                     <div class="step-actions">
+                          <button type="button" class="button-secondary">Rename</button>
+                          <button type="button" class="button-destructive">Delete</button></button>
+                      </div>
+                  </div>
+               </div>
+
                <div class="form-field">
                    <button type="button" class="button-destructive">Delete role</button>
                </div>
@@ -193,10 +246,100 @@
 
     </main>
 
+    <div id="add-field" class="modal">
+        <div class="modal-window">
+           <a href="" class="close modal-trigger"></a>
+           <h3 class="modal-title"><span class="icon-left fa-plus">Add field</span></h3>
+           <div class="divider padded"></div>
+
+           <dl class="modal-body">
+              <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
+              <dd>A sentence or less</dd>
+
+              <dt class="list-item"><a href="">Long text</a></dt>
+              <dd>Multiple sentences or paragraphs</dd>
+
+              <dt class="list-item"><a href="">Number</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Location</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Date</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Time</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Radio Button(s)</a></dt>
+              <dd>Allows the user to choose only one of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Checkbox(es)</a></dt>
+              <dd>Allows the user to choose one or more of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Related Post Type</a></dt>
+              <dd></dd>
+           </dl>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
+     <div id="edit-field" class="modal">
+        <div class="modal-window">
+           <a href="" class="close modal-trigger"></a>
+           <h3 class="modal-title"><span class="icon-left fa-pencil">Edit field</span> <em>short text</em></h3>
+           <div class="divider padded"></div>
+
+           <div class="form-field">
+              <label>Name</label>
+              <input type="text" value="Witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Key</label>
+              <input type="text" value="witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Default value</label>
+              <input type="text" />
+           </div>
+
+           <div class="form-field switch">
+              <label>Require this field be completed</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch1" type="checkbox">
+                 <label class="tgl-btn" for="switch1"></label>
+              </div>
+           </div>
+
+           <div class="form-field switch">
+              <label>Include this field in filters</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch1" type="checkbox">
+                 <label class="tgl-btn" for="switch1"></label>
+              </div>
+           </div>
+
+           <div class="divider white"></div>
+
+           <div class="modal-submit">
+              <button type="button" class="button-primary modal-trigger">Save &amp; close</button>
+           </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 
+    <script>
+    // Treat window as dialog, open on page load
+    modalInit(true, false);
+    </script>
 
 </body>
 
