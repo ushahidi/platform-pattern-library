@@ -1,13 +1,16 @@
 .form-sheet {
-    @extend .sheet;
     position: relative;
-    max-width: 360px;
-    padding: 0 20px;
+    @extend .sheet;
+    padding-top: 1px;
+    padding-bottom: 1px;
+
+    .form-sheet-title {
+        @include typeBeta;
+    }
 
     .form-sheet-summary {
         position: relative;
-        margin: 0 -20px 0 -20px;
-        padding: 10px 20px;
+        padding: $sm-spacing;
 
         .post-band {
             border-radius: 2px 0 0 0;
@@ -21,6 +24,46 @@
 
         }
 
+    }
+
+    .form-field,
+    fieldset {
+        max-width: 450px;
+        margin: $sm-spacing;
+
+        @include media($medium) {
+            margin: $base-spacing;
+        }
+
+        &.title {
+            max-width: none;
+            margin-top: 0;
+            margin-right: 0;
+            margin-left: 0;
+
+            label {
+                display: block;
+            }
+
+            input[type="text"] {
+                width: 100%;
+                border-top-color: $color-light-beta;
+                border-right-color: transparent;
+                border-bottom-color: $color-light-beta;
+                border-left-color: transparent;
+                @include equal-radius(0);
+
+                &:focus {
+                    outline: none;
+                    border-top-color: $color-secondary;
+                    border-bottom-color: $color-secondary;
+                }
+            }
+        }
+
+        .form-field {
+            margin: 0 0 $tiny-spacing 0;
+        }
     }
 
     .location {
@@ -47,11 +90,51 @@
     }
 
     .form-sheet-actions {
+        margin: $sm-spacing;
 
-        p {
-            font-size: em(14);
+        @include media($medium) {
+            text-align: right;
+            margin: $base-spacing;
         }
 
+        button,
+        .button {
+            margin: $tiny-spacing;
+        }
+    }
+
+    .layout-b & {
+
+        @include media($medium) {
+
+        }
+    }
+
+    .main-col & {
+        padding-bottom: 91px;
+
+        @include media($medium) {
+            padding-bottom: 1px;
+            margin-top: 44px;
+            margin-right: 230px;
+        }
+
+        .form-sheet-actions {
+            position: fixed;
+            right: $tiny-spacing;
+            bottom: 61px;
+            left: $tiny-spacing;
+            @extend .sheet;
+            background-color: $color-primary;
+            margin: 0;
+
+            @include media($medium) {
+                top: $base-spacing;
+                right: 254px;
+                bottom: auto;
+                left: 298px;
+            }
+        }
     }
 
 }

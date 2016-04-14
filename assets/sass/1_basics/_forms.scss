@@ -212,13 +212,9 @@ form, .form {
       width: 100%;
       max-width: 100%;
    }
-
-   button, input[type="button"] {
-      margin: $sm-spacing 0 $base-spacing;
-   }
 }
 
-.tgl{//http://codepen.io/mallendeo/pen/eLIiG
+.tgl {//http://codepen.io/mallendeo/pen/eLIiG
    display: none !important;
    // add default box-sizing for this scope
    &, &:after, &:before,
@@ -235,22 +231,24 @@ form, .form {
       @include direction;
       outline: 0;
       display: inline-block;
-      width: 55px;
-      height: 30px;
+      width: 44px;
+      height: 16px;
       position: relative;
       cursor: pointer;
       user-select: none;
-      background: $mid-gray-bg;
       border-radius: 2em;
-      padding: 3px;
+      background: $color-light-beta;
       transition: all .4s ease;
 
       &:after, &:before {
-         position: relative;
          display: block;
          content: "";
+         position: relative;
+         top: -4px;
          width: 50%;
-         height: 100%;
+         height: 22px;
+         box-shadow: 0 0 2px rgba(0,0,0,0.12),
+          0 2px 2px rgba(0,0,0,0.24);
       }
 
       &:after {
@@ -269,11 +267,11 @@ form, .form {
    &:checked{
 
       + .tgl-btn {
-         background: $confirmation-color;
+         background: lighten( $confirmation-color, 40% );
 
          &:after {
             @include left(50%);
-            background: $white;
+            background: $confirmation-color;
          }
 
       }

@@ -7,94 +7,97 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="has-fixed-bottom">
+<body class="layout-c">
 
-   @@include('../partials/_mode-bar-context.html')
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
 
-   <div class="wrapper">
+    <div class="mode-context">
 
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>
-                    <a href="settings.html">Settings</a>
-               </li>
-               <li>
-                  <a href="settings-custom-roles.html">Roles</a>
-               </li>
-               <li>
-                   Edit Role
-               </li>
-            </ul>
-            <div class="page-header-body">
-               <h1 class="page-title"><span class="icon-left fa-pencil">Edit Role</span></h1>
-            </div>
-            <div class="page-header-actions">
-               <button>Save Role</button>
-            </div>
-         </div>
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="">March on City Hall</a></li>
+                <li><a href="">Settings</a></li>
+                <li><a href="">Roles</a></li>
+            </ol>
 
-         <div class="main-col">
-            <div class="form-field title">
-               <label>Name</label>
-               <input type="text" value="Role #1" />
-            </div>
+            <h1 class="mode-context-title">Edit Role</h1>
+        </header>
+    </div>
 
-            <div class="form-field">
-               <label>Description</label>
-               <textarea>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
-            </div>
 
-            <fieldset>
-               <legend>Permissions</legend>
-               <label class="checkbox-label" for="permission1">
-                   <input id="permission1" type="checkbox">
-                   Manage users (add, delete, edit)
-               </label>
-               <label class="checkbox-label" for="permission2">
-                   <input id="permission2" type="checkbox">
-                   Manage Forms (post types)
-               </label>
-               <label class="checkbox-label" for="permission3">
-                   <input id="permission3" type="checkbox">
-                   Manage Categories
-               </label>
-               <label class="checkbox-label" for="permission4">
-                   <input id="permission4" type="checkbox">
-                   Manage Data Sources
-               </label>
-               <label class="checkbox-label" for="permission5">
-                   <input id="permission5" type="checkbox">
-                   Edit posts
-               </label>
-               <label class="checkbox-label" for="permission6">
-                   <input id="permission6" type="checkbox">
-                   Add posts to…(checkbox for each available Form)
-               </label>
-               <label class="checkbox-label" for="permission7">
-                   <input id="permission7" type="checkbox">
-                   Import posts
-               </label>
-            </fieldset>
+    <main role="main">
 
-         </div><!--end main col-->
+       <div class="main-col">
 
-         <div class="page-footer">
-            <button>Save Role</button>
-         </div>
+           <form class="form-sheet">
+                <div class="form-field">
+                    <label>
+                        Name
+                        <input type="text" value="Editor">
+                    </label>
+                </div>
 
-      </main> <!--end layout a-->
+                <div class="form-field">
+                    <label>
+                        Description
+                        <textarea name="description" rows="8" cols="40">Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+                    </label>
+                </div>
 
-   </div>
+               <fieldset>
+                   <legend>Permission</legend>
 
-   @@include('../partials/_footer.html')
+                   <div class="form-field checkbox">
+                       <label for="users">
+                           <input type="checkbox" id="users">
+                           Add, edit, and delete users
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="surveys">
+                           <input type="checkbox" id="surveys">
+                           Add, edit, and delete surveys
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="categories">
+                           <input type="checkbox" id="categories">
+                           Add, edit, and delete categories
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="sources">
+                           <input type="checkbox" id="sources">
+                           Add, edit, and delete data sources
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="posts-edit">
+                           <input type="checkbox" id="posts-edit">
+                           Edit posts
+                       </label>
+                   </div>
+                   <div class="form-field checkbox">
+                       <label for="posts-import">
+                           <input type="checkbox" id="posts-import">
+                           Import posts
+                       </label>
+                   </div>
+               </fieldset>
 
-   @@include('../partials/_scripts.html')
+               <div class="form-sheet-actions">
+                   <button type="button" class="button button-flat">Cancel</button>
+                   <button type="button" class="button button-alpha">Save</button>
+               </div>
+           </form>
 
-   <script>
-   // Treat window as dialog, open on page load
-   modalInit(true, false);
-   </script>
+        </div>
+
+    </main>
+
+    @@include('../partials/_scripts.html')
 
 </body>
 

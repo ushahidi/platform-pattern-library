@@ -51,6 +51,16 @@ input[type="button"] {
       box-shadow: none;
    }
 
+   &.button-flat {
+       @include no-shadow;
+       font-weight: normal;
+
+       &:hover {
+           box-shadow: 0 0 2px rgba(0,0,0,0.12),
+            0 3px 5px rgba(0,0,0,0.24);
+       }
+   }
+
    &.icon-only {
 
       &:before {
@@ -128,58 +138,7 @@ input[type="button"] {
 
    }
 
-   &.alt {
-
-      &:before,
-      &:after,
-      .icon-only:before {
-         color: $link-color;
-      }
-
-      &.disabled, &[disabled] {
-         opacity: 0.75;
-
-         &:before, &:after {
-            color: $mid-gray; //icon colors
-         }
-      }
-   }
-
-   &.icon-only {
-      @include padding-left(14px);
-   }
-
-   &.icon-only-when-small {
-      @include padding-left(14px);
-
-      @include media($small) {
-         @include padding-left(10px);
-      }
-
-      span {
-         display: none;
-
-         @include media($small) {
-            display: inline;
-         }
-
-      }
-   }
-
-   &.close.deactive {
-      color: lighten( $dk-gray, 35% );
-
-      span {
-         color: lighten( $dk-gray, 35% );
-      }
-
-      &:before, &:after {
-         color: lighten( $dk-gray, 35% );
-         @include transform(rotate(-45deg));
-         -ms-transform-origin: 50% 50%;
-         -webkit-transform-origin: 50% 50%;
-         transform-origin: 40% 50%;
-      }
+   &.button-flat {
 
    }
 
@@ -208,6 +167,10 @@ input[type="button"] {
          color: $mid-gray; //icon colors
       }
    }
+
+   &.button-flat {
+
+   }
 }
 
 .button-gamma {
@@ -220,10 +183,10 @@ input[type="button"] {
    }
 
    &.button-flat {
-       background-color: transparent;
+       //background-color: transparent;
 
        &:hover, &:active {
-           background-color: transparent;
+           //background-color: transparent;
        }
    }
 }
@@ -250,6 +213,7 @@ input[type="button"] {
     }
 }
 
+/*
 .button-flat {
     font-weight: normal;
     box-shadow: none;
@@ -259,6 +223,7 @@ input[type="button"] {
        box-shadow: none;
    }
 }
+*/
 
 .button-destructive {
    color: $white;

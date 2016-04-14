@@ -7,60 +7,88 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="has-fixed-bottom">
+<body class="layout-b">
 
-   @@include('../partials/_mode-bar-context.html')
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
 
-   <div class="wrapper">
+    <div class="mode-context">
 
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>
-                   <a href="settings.html">Settings</a>
-               </li>
-               <li>
-                   Roles
-               </li>
-            </ul>
-            <div class="page-header-body">
-               <h1 class="page-title">Roles</h1>
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="">March on City Hall</a></li>
+                <li><a href="">Settings</a></li>
+            </ol>
+
+            <h1 class="mode-context-title">Roles</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="fab">
+                <button type="button" class="button-alpha button-fab">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="hidden">Add</span>
+                </button>
             </div>
-            <div class="page-header-actions">
-               <a class="button-secondary"><span class="icon-left fa-plus">Add Role</span></a>
-            </div>
-         </div>
+        </div>
 
-         <div class="main-col">
-            <div class="divider white"></div>
 
-            <div class="settings-listing">
-               <h3 class="settings-listing-title"><a href="settings-custom-role-detail.html">Role #1</a></h3>
-               <div class="actions">
-                  <button type="button" class="button-destructive alt"></button>
+       <div class="main-col">
+
+            <div class="listing">
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="">Editor</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="">Contributor</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-toolbar">
+                    <strong class="listing-toolbar-summary"><span class="total"></span> selected</strong>
+
+                    <button type="button" class="button-destructive">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label hidden">Delete</span>
+                    </button>
                </div>
             </div>
-            <div class="settings-listing">
-               <h3 class="settings-listing-title"><a href="settings-custom-role-detail.html">Role #2</a></h3>
-               <div class="actions">
-                  <button type="button" class="button-destructive alt"></button>
-               </div>
-            </div>
 
-         </div><!--end main col-->
+            @@include('../partials/_pagination.html')
 
-      </main> <!--end layout a-->
+        </div>
 
-   </div>
+    </main>
 
-   @@include('../partials/_footer.html')
-
-   @@include('../partials/_scripts.html')
-
-   <script>
-   // Treat window as dialog, open on page load
-   modalInit(true, false);
-   </script>
+    @@include('../partials/_scripts.html')
 
 </body>
 

@@ -7,126 +7,146 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="has-fixed-bottom">
+<body class="layout-b">
 
-   @@include('../partials/_mode-bar-context.html')
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
 
-   <div class="wrapper">
+    <div class="mode-context">
 
-      
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="">March on City Hall</a></li>
+                <li><a href="">Settings</a></li>
+            </ol>
 
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>Settings</li>
-            </ul>
-            <div class="page-header-body">
-               <h1 class="page-title">Data Sources</h1>
+            <h1 class="mode-context-title">Data Sources</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="fab">
+                <button type="button" class="button-alpha button-fab">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="hidden">Add</span>
+                </button>
             </div>
-            <div class="page-header-actions">
-               <button class="button-secondary"><span class="icon-left fa-plus">Add Data Source</span></button>
-            </div>
-         </div>
+        </div>
 
-         <div class="main-col">
-            <p>
-               <em>You can configure options for data sources, and then turn on and off sources.</em>
-            </p>
 
-            <div class="settings-listing">
-               <div class="toggle-switch">
-                  <input class="tgl" id="switch3" type="checkbox">
-                  <label class="tgl-btn" for="switch3"></label>
-               </div>
-               <h3 class="settings-listing-title">Twitter User</h3>
-               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
-                  <span>Options</span>
-               </button>
-               <form class="toggle-content">
-                  <label class="input-label">Twitter Username</label>
-                  <input type="text" placeholder="@example">
-                  <div class="select-inline">
-                     <label class="input-label">Import As:</label>
-                     <select name="visible-to">
-                        <option value="volvo">Option 1</option>
-                        <option value="saab">Option 2</option>
-                        <option value="fiat">Option 3</option>
-                     </select>
-                  </div>
-                  <p class="clearfix">
-                     <label>
+       <div class="main-col">
+
+            <div class="listing">
+                <div class="listing-item">
+                    <div class="listing-item-select">
                         <input type="checkbox">
-                        These posts need to be approved by administrators
-                     </label>
-                  </p>
-                  <button type="button" class="button-primary">Save Data Source</button>
-               </form>
-            </div>
-            <div class="settings-listing">
-               <div class="toggle-switch">
-                  <input class="tgl" id="switch3" type="checkbox">
-                  <label class="tgl-btn" for="switch3"></label>
-               </div>
-               <h3 class="settings-listing-title">SMS</h3>
-               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
-                  <span>Options</span>
-               </button>
-               <form class="toggle-content">
-                  <label class="input-label">From Number</label>
-                  <input type="text" placeholder="750-325-1343">
-                  <div class="select-inline">
-                     <label class="input-label">Import As:</label>
-                     <select name="visible-to">
-                        <option value="volvo">Option 1</option>
-                        <option value="saab">Option 2</option>
-                        <option value="fiat">Option 3</option>
-                     </select>
-                  </div>
-                  <p class="clearfix">
-                     <label>
-                        <input type="checkbox">
-                        These posts need to be approved by administrators
-                     </label>
-                  </p>
-                  <button type="button" class="button-primary">Save Data Source</button>
-               </form>
-            </div>
-            <div class="settings-listing">
-               <div class="toggle-switch">
-                  <input class="tgl" id="switch4" type="checkbox">
-                  <label class="tgl-btn" for="switch4"></label>
-               </div>
-               <h3 class="settings-listing-title">Facebook</h3>
-               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
-                  <span>Options</span>
-               </button>
-               <form class="toggle-content">
-                  <label class="input-label">From Number</label>
-                  <input type="text" placeholder="750-325-1343">
-                  <div class="select-inline">
-                     <label class="input-label">Import As:</label>
-                     <select name="visible-to">
-                        <option value="volvo">Option 1</option>
-                        <option value="saab">Option 2</option>
-                        <option value="fiat">Option 3</option>
-                     </select>
-                  </div>
-                  <p class="clearfix">
-                     <label>
-                        <input type="checkbox">
-                        These posts need to be approved by administrators
-                     </label>
-                  </p>
-                  <button type="button" class="button-primary">Save Data Source</button>
-               </form>
-            </div>
-         </div><!--end main col-->
-      </main> <!--end layout a-->
-   </div>
+                    </div>
 
-@@include('../partials/_footer.html')
+                    <div class="listing-item-secondary">
+                        <div class="toggle-switch">
+                            <input class="tgl" id="switch1" type="checkbox">
+                            <label class="tgl-btn" for="switch1"></label>
+                        </div>
+                    </div>
 
-@@include('../partials/_scripts.html')
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="/assets/img/twitter.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Tweets from user</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-secondary">
+                        <div class="toggle-switch">
+                            <input class="tgl" id="switch2" type="checkbox">
+                            <label class="tgl-btn" for="switch2"></label>
+                        </div>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="/assets/img/twitter.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Tweets with keyword</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-secondary">
+                        <div class="toggle-switch">
+                            <input class="tgl" id="switch3" type="checkbox">
+                            <label class="tgl-btn" for="switch3"></label>
+                        </div>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="">SMS</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="checkbox">
+                    </div>
+
+                    <div class="listing-item-secondary">
+                        <div class="toggle-switch">
+                            <input class="tgl" id="switch4" type="checkbox">
+                            <label class="tgl-btn" for="switch4"></label>
+                        </div>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="/assets/img/facebook.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Facebook</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-toolbar">
+                    <strong class="listing-toolbar-summary"><span class="total"></span> selected</strong>
+
+                    <button type="button" class="button-destructive">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label hidden">Delete</span>
+                    </button>
+               </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    @@include('../partials/_scripts.html')
 
 </body>
 

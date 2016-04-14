@@ -2,13 +2,15 @@
     @include clearfix;
     position: relative;
     @extend .bar;
+    // min-height: 52px;
     @include equal-radius(0px);
     background-color: $color-primary;
-    padding: $tiny-spacing $sm-spacing;
+    padding: 0 $sm-spacing;
     margin: auto;
 
     @include media($medium) {
-        padding: $sm-spacing $base-spacing;
+        min-height: 68px;
+        padding: 0 $base-spacing;
     }
 
     .fab {
@@ -20,6 +22,10 @@
             top: 100%;
             left: $base-spacing;
             margin-top: -27px;
+
+            + .searchbar {
+                margin-left: $base-spacing+54;
+            }
         }
     }
 
@@ -29,10 +35,6 @@
 
         @include media($small) {
             width: 47.6814516%;
-        }
-
-        @include media($medium) {
-            margin-left: $base-spacing+54;
         }
 
         .form-field.search {
@@ -59,9 +61,6 @@
     .button-group {
         float: right;
 
-        @include media($small) {
-        }
-
         button,
         .button {
             height: 36px;
@@ -76,6 +75,13 @@
 
     .searchbar,
     .button-group {
+        margin-top: $tiny-spacing;
+        margin-bottom: $tiny-spacing;
+
+        @include media($medium) {
+            margin-top: $sm-spacing;
+            margin-bottom: $sm-spacing;
+        }
 
         button,
         .button {
