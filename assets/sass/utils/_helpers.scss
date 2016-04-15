@@ -1,206 +1,212 @@
 /*------------------------------------*\
 $LAYOUT
 \*------------------------------------*/
-
 .wrapper {
-   @include clearfix;
-   max-width: $max-width;
-   margin: 0 auto;
-   flex: 1 0 auto;
+    @include clearfix;
+    max-width: $max-width;
+    margin: 0 auto;
+    flex: 1 0 auto;
 }
 
 .container {
-   clear:  both;
-   max-width: 1200px;
-   margin: 0 auto;
-   @include outer-container;
+    clear: both;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include outer-container;
 }
 
 .container-centered {
-   @extend .container;
-   text-align: center;
+    @extend .container;
+    text-align: center;
 }
 
 .hidden {
-   display: none !important;
+    display: none !important;
 }
 
-.hide-when-mobile, .button.hide-when-mobile {
-   display: inline-block;
-   position: relative;
+.button.hide-when-mobile,
+.hide-when-mobile {
+    display: inline-block;
+    position: relative;
 
-   @include media($mobile) {
-      display: none;
-   }
-
-}
-
-.hidden-when-small, .hide-when-small, .button.hide-when-small {
-   display: inline-block;
-
-   @include media($small-down) {
-      display: none;
-   }
+    @include media($mobile) {
+        display: none;
+    }
 
 }
 
-.hide-when-large, .button.hide-when-large {
-   position: relative;
+.button.hide-when-small,
+.hidden-when-small,
+.hide-when-small {
+    display: inline-block;
 
-   @include media($large) {
-      display: none;
-   }
+    @include media($small-down) {
+        display: none;
+    }
+
+}
+
+.button.hide-when-large,
+.hide-when-large {
+    position: relative;
+
+    @include media($large) {
+        display: none;
+    }
 
 }
 
 .hidden-content {
-   display: none;
+    display: none;
 
-   ul {
-      @include margin-left(0);
-      margin-bottom: 0;
+    ul {
+        @include margin-left(0);
+        margin-bottom: 0;
 
-      li {
-         display: inline-block;
-         @include margin-right(10px)
-      }
+        li {
+            display: inline-block;
+            @include margin-right(10px)
+        }
 
-   }
+    }
 
 }
 
 .clearfix {
-   clear: both;
+    clear: both;
 }
 
 .fade-out {
-   opacity: 0 !important;
+    opacity: 0 !important;
 }
 
 .fade-in {
-   opacity: 1 !important;
+    opacity: 1 !important;
 }
 
-.has-fixed-bottom { //this goes on the body when something gets fixed to the bottom
-   padding-bottom: 72px;
+.has-fixed-bottom {
+    //this goes on the body when something gets fixed to the bottom
+    padding-bottom: 72px;
 
-   @include media($small) {
-      padding-bottom: 0;
-   }
+    @include media($small) {
+        padding-bottom: 0;
+    }
 
 }
 
 .fixed-bottom {
-   width: 100%;
-   border-top: $base-border;
-   background: $white;
-   position: fixed;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   padding: $sm-spacing;
-   z-index: $fixed-at-bottom;
+    width: 100%;
+    border-top: $base-border;
+    background: $white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: $sm-spacing;
+    z-index: $fixed-at-bottom;
 
-   @include media($small) {
-      width: auto;
-      border-top: 0px;
-      background: transparent;
-      position: relative;
-      padding: 0;
-      z-index: $bottom;
-   }
+    @include media($small) {
+        width: auto;
+        border-top: 0;
+        background: transparent;
+        position: relative;
+        padding: 0;
+        z-index: $bottom;
+    }
 
-   button.button-primary {
-      margin: 0;
-      float: none;
-   }
+    button.button-primary {
+        margin: 0;
+        float: none;
+    }
 
 }
 
 .absolute {
-   position: absolute !important;
+    position: absolute !important;
 }
 
 .visible {
-   display: block !important;
+    display: block !important;
 }
 
-.zebra-list { //this is a helper class for lists of gray & white (most list pages)
-   background: $white;
-   border-top: $base-border;
+.zebra-list {
+    //this is a helper class for lists of gray & white (most list pages)
+    background: $white;
+    border-top: $base-border;
 
-   &:nth-child(odd) {
-      background: $dk-brown;
-   }
+    &:nth-child(odd) {
+        background: $dk-brown;
+    }
 
-   &:last-of-type {
-      border-bottom: $base-border;
-   }
+    &:last-of-type {
+        border-bottom: $base-border;
+    }
 
 }
 
 .zebra-list-alt {
-   @extend .zebra-list;
+    @extend .zebra-list;
 
-   &:nth-child(even) {
-      background: $dk-brown;
-   }
+    &:nth-child(even) {
+        background: $dk-brown;
+    }
 
-   &:nth-child(odd) {
-      background: $white;
-   }
+    &:nth-child(odd) {
+        background: $white;
+    }
 
 }
 
-.divider  {
-   height: 1px;
-   width: 100%;
-   background: $lt-gray;
-   margin: $sm-spacing 0;
-   clear: both;
+.divider {
+    height: 1px;
+    width: 100%;
+    background: $lt-gray;
+    margin: $sm-spacing 0;
+    clear: both;
 
-   &.padded {
-      margin: $base-spacing 0;
-   }
+    &.padded {
+        margin: $base-spacing 0;
+    }
 
-   &.white {
-      background: $lt-brown;
-   }
+    &.white {
+        background: $lt-brown;
+    }
+
 }
 
 .inline {
-   display: inline;
+    display: inline;
 }
 
 // media: http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/
 .media {
 
-   .img {
-      @include float(left);
-      //margin-right: $sm-spacing;
+    .img {
+        @include float(left);
+        //margin-right: $sm-spacing;
 
-      img{
-         display: block;
-      }
+        img {
+            display: block;
+        }
 
-   }
+    }
 
-   .imgExt{
-      @include float(right);
-   }
+    .imgExt {
+        @include float(right);
+    }
 
 }
 
-.media, .bd {
-   overflow:hidden;
-   _overflow:visible;
-   zoom:1;
+.bd,
+.media {
+    overflow: hidden;
+    _overflow: visible;
+    zoom: 1;
 }
 
 .segment {
-   margin: 30px auto;
+    margin: 30px auto;
 }
-
 
 .post-band {
     // parent needs to be position: relative;
