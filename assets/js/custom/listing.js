@@ -29,4 +29,12 @@ $('.listing').each(function(){
            $(this).closest('.listing-item').removeClass('active');
        }
    });
+
+   if ($(toolbar).find('.listing-toolbar-actions').find('button, .button, fieldset').length > 2) {
+       $(toolbar).addClass('truncated');
+
+       $(toolbar).find('.listing-toolbar-toggle').on('click', function(){
+           $(toolbar).toggleClass('expanded');
+       });
+   }
 });

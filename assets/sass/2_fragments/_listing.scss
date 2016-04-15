@@ -1,7 +1,5 @@
 .listing {
     position: relative;
-    @extend .card;
-    background-color: $color-light-delta;
     @include transition(0.3s);
 
     .listing-heading {
@@ -29,6 +27,14 @@
         }
     }
 
+    .postcard {
+        margin: $sm-spacing;
+
+        @include media($medium) {
+            margin: $sm-spacing auto;
+        }
+    }
+
     .listing-toolbar {
         display: none;
         position: absolute;
@@ -42,6 +48,10 @@
             right: $base-spacing;
             left: 298px;
         }
+    }
+
+    &.card {
+        background-color: $color-light-delta;
     }
 
     &.toolbar-active {
@@ -159,6 +169,7 @@
 
 .listing-toolbar {
     @extend .sheet;
+    @include clearfix;
     background-color: $color-primary;
     padding: $sm-spacing;
 
@@ -170,11 +181,43 @@
 
     .listing-toolbar-actions {
 
+        .listing-toolbar-actions-left,
+        .listing-toolbar-actions-right {
+            display: inline;
+        }
+
+        @include media($medium) {
+
+            .listing-toolbar-actions-left {
+                float: left;
+            }
+
+            .listing-toolbar-actions-right {
+                float: right;
+            }
+        }
+
         fieldset,
         button,
         .button {
-            float: left;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
             margin: 0 $tiny-spacing 0 0;
+        }
+
+        button,
+        .button {
+            font-weight: normal;
+            text-transform: none;
+            letter-spacing: 0px;
+        }
+
+        .listing-toolbar-toggle {
+            display: none;
+            font-style: italic;
+            background-color: $color-primary-gamma;
+            box-shadow: 0 0 16px rgba(55,62,70,.8);
         }
     }
 
@@ -185,6 +228,66 @@
 
         &:hover {
             color: $white;
+        }
+    }
+
+    &.truncated {
+
+        .listing-toolbar-actions {
+
+            @include media($medium-down) {
+                position: relative;
+                width: 100%;
+                overflow-x: hidden;
+                white-space: nowrap;
+                line-height: 30px;
+
+                .listing-toolbar-toggle {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin: 0;
+
+                    &.more {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        &.expanded {
+            overflow-y: scroll;
+
+            @include media($medium-down) {
+
+                .listing-toolbar-actions {
+
+                    fieldset,
+                    button,
+                    .button {
+                        display: block;
+                        margin: $sm-spacing 0;
+                    }
+
+                    .listing-toolbar-toggle {
+                        margin: 0;
+
+                        &.more {
+                            display: none;
+                        }
+
+                        &.less {
+                            display: inline-block;
+                            @include no-shadow;
+                        }
+                    }
+                }
+            }
+
+            @include media($medium) {
+                bottom: auto;
+                overflow-y: auto;
+            }
         }
     }
 }

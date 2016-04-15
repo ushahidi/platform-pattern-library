@@ -255,6 +255,7 @@
                     position: fixed;
                     right: $sm-spacing;
                     bottom: $sm-spacing+45;
+                    z-index: $toolbar;
                 }
             }
 
@@ -274,6 +275,40 @@
                 display: block;
                 position: fixed;
                 top: -200px;
+                right: 0;
+                left: 0;
+                z-index: $toolbox;
+                @include equal-radius(0);
+                background-color: $color-primary-gamma;
+
+                @include media($medium) {
+                    left: 274px;
+                    padding-top: $huge-spacing;
+                }
+
+                &.expanded {
+
+                    @include media($medium-down) {
+                        z-index: $toolbar;
+                        bottom: 0;
+                    }
+                }
+            }
+
+            &.toolbar-active {
+                margin-top: 87px;
+
+                @include media($medium) {
+                    margin-top: 100px;
+                }
+
+                .listing-toolbar {
+                    top: 107px;
+
+                    @include media($medium) {
+                        top: 68px;
+                    }
+                }
             }
         }
 
@@ -291,7 +326,7 @@
 
         .progress {
             margin-bottom: $base-spacing;
-            
+
             @include media($medium) {
                 margin-right: 230px;
             }

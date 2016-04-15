@@ -2,14 +2,18 @@
     position: relative;
     @extend .card;
 
-    .postcard-band {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 6px;
+    .post-band {
         @include radius(2px, 0, 0, 2px);
-        background-color: $color-light-gamma;
+    }
+
+    .listing-item-select {
+        position: absolute;
+        top: $sm-spacing;
+        left: $sm-spacing;
+
+        + .postcard-body {
+            padding-left: $huge-spacing;
+        }
     }
 
     .postcard-body {
@@ -30,12 +34,17 @@
         background-color: $color-light-beta;
         @include transition(0.3s);
 
+        &:hover {
+            cursor: pointer;
+        }
+
         svg.iconic {
             fill: $white;
             margin-top: 4px;
         }
 
         &.active {
+            background-color: $color-dark-beta;
             @include transform(rotate(180deg));
         }
     }
