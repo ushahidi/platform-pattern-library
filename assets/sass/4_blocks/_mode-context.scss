@@ -6,6 +6,10 @@
     background-color: $color-primary-alpha;
     @include transition(all .25s);
 
+    a {
+        color: $color-secondary;
+    }
+
     .mode-context-title {
         color: $white;
         font-size: 20px;
@@ -181,6 +185,38 @@
         padding: 0 $sm-spacing;
     }
 
+    .search-summary-wrapper {
+        margin: $base-spacing auto;
+
+        .search-summary-actions {
+            display: block;
+
+            button {
+                display: inline;
+
+                @include media($medium) {
+                    display: block;
+                    width: 80%;
+                    margin: 20px auto 10px;
+                }
+
+            }
+
+            .button-flat {
+                background: transparent;
+                margin-top: 10px;
+                color: $highlight;
+                font-size: em(13);
+
+                @include media($medium) {
+                    width: 100%;
+                }
+
+            }
+
+        }
+    }
+
     .survey-filter {
         margin: $base-spacing auto;
 
@@ -192,10 +228,6 @@
 
     .tool {
         margin: $huge-spacing auto;
-
-        a {
-            color: $color-secondary;
-        }
 
         p {
 

@@ -4,7 +4,6 @@
     @include typeBase;
     text-align: center;
     border-radius: 25px;
-    white-space: nowrap;
     background: $color-primary;
     padding: $tiny-spacing $sm-spacing;
 
@@ -29,6 +28,35 @@
         @include equal-radius(100%);
         background: $highlight;
         @include lrswap(margin, 0 0 3px 8px);
+    }
+
+}
+
+.search-summary-bug {
+    @extend .bug;
+    position: relative;
+    margin-bottom: 10px;
+    padding: 8px 11px;
+    text-align: left;
+
+    @include media($medium) {
+        min-width: 179px;
+    }
+
+    svg {
+        position: absolute;
+        top: 50%;
+        margin-top: -6px;
+        fill: $highlight;
+    }
+
+    span {
+        display: block;
+        @include padding-left(20px);
+    }
+
+    em {
+        @include padding-right(5px);
     }
 
 }

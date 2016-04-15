@@ -3,557 +3,560 @@
 <!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-@@include('../partials/_pl-head.html')
+    @@include('../partials/_pl-head.html')
 
-<body class="pl modal-visible">
+    <body class="pl modal-visible">
 
-<div class="wrapper">
+        <div class="wrapper">
 
-    @@include('../partials/_pl-page-header.html', {
-      "context": "blocks"
-    })
+            @@include('../partials/_pl-page-header.html', {
+              "context": "blocks"
+            })
 
-    <nav class="pl-jump-nav">
-        <ul class="pl-jump-nav-list">
-            <li><a href="#pl-pattern-mode-bar">Mode Bar</a></li>
-            <li><a href="#pl-pattern-mode-context">Mode Context</a></li>
-            <li><a href="#pl-pattern-mode-nav">Mode Nav</a></li>
-            <li><a href="#pl-pattern-toolbar">Toolbar</a></li>
-            <li><a href="#pl-pattern-footer">Footer</a></li>
-            <li><a href="#pl-pattern-typography">Map</a></li>
-            <li><a href="#pl-pattern-main-menu">Main Menu</a></li>
-            <li><a href="#pl-pattern-modal">Modal</a></li>
-            <li><a href="#pl-pattern-confirmation">Confirmation Message</a></li>
-            <li><a href="#pl-pattern-dashboard-stats">Dashboard Stats</a></li>
-            <li><a href="#pl-pattern-post-type-cards">Post Type Cards</a></li>
-            <li><a href="#pl-pattern-tiers">Tiers</a></li>
-            <li><a href="#pl-pattern-add-edit-post">Add/Edit Post</a></li>
+            <nav class="pl-jump-nav">
+                <ul class="pl-jump-nav-list">
+                    <li><a href="#pl-pattern-mode-bar">Mode Bar</a></li>
+                    <li><a href="#pl-pattern-mode-context">Mode Context</a></li>
+                    <li><a href="#pl-pattern-mode-nav">Mode Nav</a></li>
+                    <li><a href="#pl-pattern-toolbar">Toolbar</a></li>
+                    <li><a href="#pl-pattern-footer">Footer</a></li>
+                    <li><a href="#pl-pattern-typography">Map</a></li>
+                    <li><a href="#pl-pattern-main-menu">Main Menu</a></li>
+                    <li><a href="#pl-pattern-modal">Modal</a></li>
+                    <li><a href="#pl-pattern-confirmation">Confirmation Message</a></li>
+                    <li><a href="#pl-pattern-dashboard-stats">Dashboard Stats</a></li>
+                    <li><a href="#pl-pattern-post-type-cards">Post Type Cards</a></li>
+                    <li><a href="#pl-pattern-tiers">Tiers</a></li>
+                    <li><a href="#pl-pattern-add-edit-post">Add/Edit Post</a></li>
+                </ul>
+                @@include('../partials/_read-direction.html')
+            </nav>
+
+            <section class="pl-pattern" id="pl-pattern-mode-bar">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Mode Bar
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">&nbsp;</h4>
+                        <div class="pl-sub-pattern-markup">
+                            @@include('../partials/_mode-bar.html')
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-mode-context">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Mode Context
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">&nbsp;</h4>
+                        <div class="pl-sub-pattern-markup">
+                            @@include('../partials/_mode-context.html')
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-toolbar">
+                <div class="pl-pattern-description">
+                    <h2>Toolbar</h2>
+                    <div class="pl-divider"></div>
+                </div>
+
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">&nbsp;</h4>
+                        <div class="pl-sub-pattern-markup">
+                            @@include('../partials/_toolbar.html')
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-footer">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Footer
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <div class="pl-sub-pattern-markup">
+                            @@include('../partials/_footer.html')
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+
+            <section class="pl-pattern" id="pl-pattern-map">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Map
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Map w/ markers and popups</h4>
+                        <div class="pl-sub-pattern-markup">
+                            <div id="map" class="map"></div>
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-main-menu">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Mode Navigation
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Main Menu</h4>
+                        <div class="pl-sub-pattern-markup">
+        <ul class="main-menu dropdown-menu" role="menu">
+            @@include('../partials/_new-main-menu.html')
         </ul>
-        @@include('../partials/_read-direction.html')
-    </nav>
-
-    <section class="pl-pattern" id="pl-pattern-mode-bar">
-        <div class="pl-pattern-description">
-            <h2>
-                Mode Bar
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">&nbsp;</h4>
-                <div class="pl-sub-pattern-markup">
-                    @@include('../partials/_mode-bar.html')
-                </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-mode-context">
-        <div class="pl-pattern-description">
-            <h2>
-                Mode Context
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">&nbsp;</h4>
-                <div class="pl-sub-pattern-markup">
-                    @@include('../partials/_mode-context.html')
-                </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-toolbar">
-        <div class="pl-pattern-description">
-            <h2>Toolbar</h2>
-            <div class="pl-divider"></div>
-        </div>
-
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">&nbsp;</h4>
-                <div class="pl-sub-pattern-markup">
-                    @@include('../partials/_toolbar.html')
-                </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-footer">
-        <div class="pl-pattern-description">
-            <h2>
-                Footer
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <div class="pl-sub-pattern-markup">
-                    @@include('../partials/_footer.html')
-                </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-
-    <section class="pl-pattern" id="pl-pattern-map">
-        <div class="pl-pattern-description">
-            <h2>
-                Map
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Map w/ markers and popups</h4>
-                <div class="pl-sub-pattern-markup">
-                    <div id="map" class="map"></div>
-                </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-main-menu">
-        <div class="pl-pattern-description">
-            <h2>
-                Mode Navigation
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Main Menu</h4>
-                <div class="pl-sub-pattern-markup">
-<ul class="main-menu dropdown-menu" role="menu">
-    @@include('../partials/_new-main-menu.html')
-</ul>
-                </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-modal">
-        <div class="pl-pattern-description">
-            <h2>
-                Modal
-            </h2>
-            <p>A modal sits on top of the existing layout so that a user can access content without navigating away from the page they are on. Generally this should always be used for settings or selection options when creating something new. See <a href="../5_layouts/modal.html">an example</a> of how this will work on a page. It can also be used for <a href="../5_layouts/modal-delete.html">confirmation</a>.</p>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Modal</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="modal">
-    <div class="modal-window">
-        <a href="" class="close"></a> <!-- add class `modal-trigger` for this to work-->
-        <h3 class="settings">Post Type Settings</h3>
-        <div class="divider padded"></div>
-        <label class="input-label">Post Type Name</label>
-        <input type="text" placeholder="Title">
-        <label class="input-label">Post Type Description</label>
-        <textarea placeholder="Type description here"></textarea>
-        <label class="input-label">Who can create this post type?</label>
-        <div class="custom-select">
-            <select name="visible-to">
-                <option value="1">Everyone</option>
-                <option value="2">Administrators</option>
-                <option value="3">Only Me</option>
-            </select>
-        </div>
-        <label class="input-label">Who should see this post type?</label>
-        <div class="custom-select">
-            <select name="visible-to">
-                <option value="1">Everyone</option>
-                <option value="2">Administrators</option>
-                <option value="3">Only Me</option>
-            </select>
-        </div>
-        <div class="divider white"></div>
-        <div class="modal-submit">
-            <button type="button" class="button-primary">Save Settings</button>
-        </div>
-    </div>
-
-    <!-- <div class="modal-overlay"></div> THIS IS COMMENTED OUT FOR THE PATTERN LIBRARY EXAMPLE ONLY-->
-</div>
-                </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-confirmation">
-        <div class="pl-pattern-description">
-            <h2>
-                Confirmation Message
-            </h2>
-            <p>See <a href="../5_layouts/confirmation.html">an example</a> of how this will work on a page.</p>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Confirmation Message</h4>
-                <div class="pl-sub-pattern-markup">
-                    <div class="confirmation-message">
-                        <div class="confirmation-message-wrapper">
-                            <p>Your post <a href="">Man Skids Off Road and Hits Wall</a> has been published!</p>
-                            <div class="close hide-confirmation-message"></div>
                         </div>
-                    </div>
-                    <a class="button confirmation-trigger">Trigger confirmation Message</a>
+                    </div><!--end sub pattern-->
                 </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
+            </section>
 
-    <section class="pl-pattern" id="pl-pattern-dashboard-stats">
-        <div class="pl-pattern-description">
-            <h2>
-                Statistics
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Dashboard Statistics</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="container dashboard-stats">
-    <div class="stat">
-        <p class="statistic"><span class="big-number">456</span> Posts</p>
-        <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
-    </div>
-    <div class="stat">
-        <p class="statistic"><span class="big-number">231</span> Comments</p>
-        <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
-    </div>
-    <div class="stat">
-        <p class="statistic"><span class="big-number">16</span> Collections</p>
-        <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
-    </div>
-    <div class="stat">
-        <p class="statistic"><span class="big-number">28</span> Users</p>
-        <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
-    </div>
-</div>
+            <section class="pl-pattern" id="pl-pattern-modal">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Modal
+                    </h2>
+                    <p>A modal sits on top of the existing layout so that a user can access content without navigating away from the page they are on. Generally this should always be used for settings or selection options when creating something new. See <a href="../5_layouts/modal.html">an example</a> of how this will work on a page. It can also be used for <a href="../5_layouts/modal-delete.html">confirmation</a>.</p>
+                    <div class="pl-divider"></div>
                 </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-post-type-cards">
-        <div class="pl-pattern-description">
-            <h2>
-                Card Selection
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Post Type Cards</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="cards-select">
-
-    <div class="selection-card">
-        <a href="">
-            <h3>Post Type Name</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
-            </p>
-        </a>
-    </div>
-
-    <div class="selection-card">
-        <a href="">
-            <h3>Post Type Name</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
-            </p>
-        </a>
-    </div>
-
-    <div class="selection-card">
-        <a href="">
-            <h3>Post Type Name</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
-            </p>
-        </a>
-    </div>
-
-    <div class="selection-card">
-        <a href="">
-            <h3>Post Type Name</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
-            </p>
-        </a>
-    </div>
-
-    <div class="selection-card">
-        <a href="">
-            <h3>Post Type Name</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
-            </p>
-        </a>
-    </div>
-
-    <div class="selection-card">
-        <a href="">
-            <h3>Post Type Name</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
-            </p>
-        </a>
-    </div>
-
-    <div class="selection-card">
-        <a href="">
-            <h3>Post Type Name</h3>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
-            </p>
-        </a>
-    </div>
-
-</div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Modal</h4>
+                        <div class="pl-sub-pattern-markup">
+        <div class="modal">
+            <div class="modal-window">
+                <a href="" class="close"></a> <!-- add class `modal-trigger` for this to work-->
+                <h3 class="settings">Post Type Settings</h3>
+                <div class="divider padded"></div>
+                <label class="input-label">Post Type Name</label>
+                <input type="text" placeholder="Title">
+                <label class="input-label">Post Type Description</label>
+                <textarea placeholder="Type description here"></textarea>
+                <label class="input-label">Who can create this post type?</label>
+                <div class="custom-select">
+                    <select name="visible-to">
+                        <option value="1">Everyone</option>
+                        <option value="2">Administrators</option>
+                        <option value="3">Only Me</option>
+                    </select>
                 </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-dashboard-activity">
-        <div class="pl-pattern-description">
-            <h2>
-                Activity Timeline
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <div class="pl-sub-pattern-markup">
-                    <div class="activity-timeline timeline-full-width">
-                        <div class="timestamp">3 Hours Ago</div>
-                        <div class="activity-listing">
-                            <div class="listing-summary">
-                                <h3>
-                                    <a href="">Bus carring Shiite pilgrims bombed</a>
-                                </h3>
-                                <p>By <a href="">David Kobia</a></p>
-                            </div>
-                            <div class="activity-type post">
-                                New Post
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="activity-listing">
-                            <div class="listing-summary">
-                                <p>
-                                    By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
-                                </p>
-                                <blockquote>
-                                    Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. Quis nostexercitation ullamco laboris nisi ut aliquip ex ea commodo aute irure dolor in reprehenderitvoluptate velit esse cillum dolore eu fugiat.
-                                </blockquote>
-                            </div>
-                            <div class="activity-type comment">
-                                New Comment
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="activity-listing">
-                            <div class="listing-summary">
-                                <h3>
-                                    <a href="">Bus carring Shiite pilgrims bombed</a>
-                                </h3>
-                                <p>By <a href="">David Kobia</a></p>
-                            </div>
-                            <div class="activity-type collection">
-                                New Collection
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="timestamp">Today</div>
-                        <div class="activity-listing">
-                            <div class="listing-summary">
-                                <h3>
-                                    <a href="">Bus carring Shiite pilgrims bombed</a>
-                                </h3>
-                                <p>By <a href="">David Kobia</a></p>
-                            </div>
-                            <div class="activity-type saved-search">
-                                New Saved Search
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="activity-listing">
-                            <div class="listing-summary">
-                                <h3>
-                                    <a href="">Bus carring Shiite pilgrims bombed</a>
-                                </h3>
-                                <p>By <a href="">David Kobia</a></p>
-                            </div>
-                            <div class="activity-type post">
-                                Edited Post
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="timestamp">Yesterday</div>
-                        <div class="activity-listing">
-                            <div class="listing-summary">
-                                <p>
-                                    By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
-                                </p>
-                                <blockquote>
-                                    Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. Quis nostexercitation ullamco laboris nisi ut aliquip ex ea commodo aute irure dolor in reprehenderitvoluptate velit esse cillum dolore eu fugiat.
-                                </blockquote>
-                            </div>
-                            <div class="activity-type comment">
-                                New Comment
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="activity-listing">
-                            <div class="listing-summary">
-                                <p>
-                                    By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
-                                </p>
-                                <blockquote>
-                                    Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. Quis nostexercitation ullamco laboris nisi ut aliquip ex ea commodo aute irure dolor in reprehenderitvoluptate velit esse cillum dolore eu fugiat.
-                                </blockquote>
-                            </div>
-                            <div class="activity-type comment">
-                                New Comment
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div><!--end timeline-->
+                <label class="input-label">Who should see this post type?</label>
+                <div class="custom-select">
+                    <select name="visible-to">
+                        <option value="1">Everyone</option>
+                        <option value="2">Administrators</option>
+                        <option value="3">Only Me</option>
+                    </select>
                 </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-tiers">
-        <div class="pl-pattern-description">
-            <h2>
-                Tiers
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <div class="pl-sub-pattern-markup">
-                    <div class="tiers">
-                        <div class="tier">
-                            <div class="tier-header">
-                                <h2 class="tier-name">Standard</h2>
-                                <p>For small teams that need to <br />reach more people</p>
-
-                                <strong class="tier-price">$100 <em>a month</em></strong>
-
-                                <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
-                            </div>
-
-                            <div class="tier-action">
-                                <button class="modal-trigger">Choose Standard</button>
-                            </div>
-
-                            <div class="tier-feature-list">
-                                <ul>
-                                    <li>Collect posts via SMS and Twitter</li>
-                                    <li>Turn on notifications related to your interests</li>
-                                    <li>View data in bar chart or trend graph</li>
-                                    <li>Choose from more than 10 base maps</li>
-                                </ul>
-                            </div>
-
-                            <p><a href="" class="cta">View all features</a></p>
-                        </div>
-
-                        <div class="tier recommended">
-                            <div class="tier-header">
-                                <h2 class="tier-name">Plus</h2>
-                                <p>For growing teams that need <br />to organize their workflow</p>
-
-                                <strong class="tier-price">$500 <em>a month</em></strong>
-
-                                <h3 class="tier-feature">5,000 posts <em>+$8/month per 1,000 extra</em></h3>
-                            </div>
-
-                            <div class="tier-action">
-                                <button class="modal-trigger">Choose Plus</button>
-                            </div>
-
-                            <div class="tier-feature-list">
-                                <em>&#8592; Everything from Standard, and:</em>
-                                <ul>
-                                    <li>Team collaboration with user roles</li>
-                                    <li>Publish posts to specific audiences</li>
-                                    <li>Unlimited post types</li>
-                                    <li>Break moderation into assignable 'steps'</li>
-                                </ul>
-                            </div>
-
-                            <p><a href="" class="cta">View all features</a></p>
-                        </div>
-
-                        <div class="tier">
-                            <div class="tier-header">
-                                <h2 class="tier-name">Enterprise</h2>
-                                <p>For big, sensitive data <br />with extra security.</p>
-
-                                <strong class="tier-price">$2,000 <em>a month</em></strong>
-
-                                <h3 class="tier-feature">10,000 posts <em>+$4/month per 1,000 extra</em></h3>
-                            </div>
-
-                            <div class="tier-action">
-                                <button type="button" disabled>Coming soon</button>
-                            </div>
-
-                            <div class="tier-feature-list">
-                                <em>&#8592; Everything from Standard and Plus</em>
-                            </div>
-
-                            <p><a href="" class="cta">View all features</a></p>
-                        </div>
-                    </div>
+                <div class="divider white"></div>
+                <div class="modal-submit">
+                    <button type="button" class="button-primary">Save Settings</button>
                 </div>
-            </div><!--end sub pattern-->
-        </div>
-    </section>
+            </div>
 
-    <section class="pl-pattern" id="pl-pattern-add-edit-post">
-        <div class="pl-pattern-description">
-            <h2>
-                Add/Edit Post
-            </h2>
-            <div class="pl-divider"></div>
+            <!-- <div class="modal-overlay"></div> THIS IS COMMENTED OUT FOR THE PATTERN LIBRARY EXAMPLE ONLY-->
         </div>
-
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <div class="pl-sub-pattern-markup">
-                    @@include('../partials/_form-sheet.html')
+                        </div>
+                    </div><!--end sub pattern-->
                 </div>
-            </div><!--end sub pattern-->
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-confirmation">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Confirmation Message
+                    </h2>
+                    <p>See <a href="../5_layouts/confirmation.html">an example</a> of how this will work on a page.</p>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Confirmation Message</h4>
+                        <div class="pl-sub-pattern-markup">
+                            <div class="confirmation-message">
+                                <div class="confirmation-message-wrapper">
+                                    <p>Your post <a href="">Man Skids Off Road and Hits Wall</a> has been published!</p>
+                                    <div class="close hide-confirmation-message"></div>
+                                </div>
+                            </div>
+                            <a class="button confirmation-trigger">Trigger confirmation Message</a>
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-dashboard-stats">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Statistics
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Dashboard Statistics</h4>
+                        <div class="pl-sub-pattern-markup">
+        <div class="container dashboard-stats">
+            <div class="stat">
+                <p class="statistic"><span class="big-number">456</span> Posts</p>
+                <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
+            </div>
+            <div class="stat">
+                <p class="statistic"><span class="big-number">231</span> Comments</p>
+                <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
+            </div>
+            <div class="stat">
+                <p class="statistic"><span class="big-number">16</span> Collections</p>
+                <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
+            </div>
+            <div class="stat">
+                <p class="statistic"><span class="big-number">28</span> Users</p>
+                <p class="small"><em>First Post: </em><a href="">February 4th, 2013</a></p>
+            </div>
         </div>
-    </section>
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-post-type-cards">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Card Selection
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Post Type Cards</h4>
+                        <div class="pl-sub-pattern-markup">
+        <div class="cards-select">
+
+            <div class="selection-card">
+                <a href="">
+                    <h3>Post Type Name</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
+                    </p>
+                </a>
+            </div>
+
+            <div class="selection-card">
+                <a href="">
+                    <h3>Post Type Name</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
+                    </p>
+                </a>
+            </div>
+
+            <div class="selection-card">
+                <a href="">
+                    <h3>Post Type Name</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
+                    </p>
+                </a>
+            </div>
+
+            <div class="selection-card">
+                <a href="">
+                    <h3>Post Type Name</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
+                    </p>
+                </a>
+            </div>
+
+            <div class="selection-card">
+                <a href="">
+                    <h3>Post Type Name</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
+                    </p>
+                </a>
+            </div>
+
+            <div class="selection-card">
+                <a href="">
+                    <h3>Post Type Name</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
+                    </p>
+                </a>
+            </div>
+
+            <div class="selection-card">
+                <a href="">
+                    <h3>Post Type Name</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiustempor incididunt ut labore et dolore magna aliqua. Ut enim ad miveniam, quis nostrud exercitation ullamco laboris nisi ut aliquip excommodo consequat.
+                    </p>
+                </a>
+            </div>
+
+        </div>
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-dashboard-activity">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Activity Timeline
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <div class="pl-sub-pattern-markup">
+                            <div class="activity-timeline timeline-full-width">
+                                <div class="timestamp">3 Hours Ago</div>
+                                <div class="activity-listing">
+                                    <div class="listing-summary">
+                                        <h3>
+                                            <a href="">Bus carring Shiite pilgrims bombed</a>
+                                        </h3>
+                                        <p>By <a href="">David Kobia</a></p>
+                                    </div>
+                                    <div class="activity-type post">
+                                        New Post
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="activity-listing">
+                                    <div class="listing-summary">
+                                        <p>
+                                            By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
+                                        </p>
+                                        <blockquote>
+                                            Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. Quis nostexercitation ullamco laboris nisi ut aliquip ex ea commodo aute irure dolor in reprehenderitvoluptate velit esse cillum dolore eu fugiat.
+                                        </blockquote>
+                                    </div>
+                                    <div class="activity-type comment">
+                                        New Comment
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="activity-listing">
+                                    <div class="listing-summary">
+                                        <h3>
+                                            <a href="">Bus carring Shiite pilgrims bombed</a>
+                                        </h3>
+                                        <p>By <a href="">David Kobia</a></p>
+                                    </div>
+                                    <div class="activity-type collection">
+                                        New Collection
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="timestamp">Today</div>
+                                <div class="activity-listing">
+                                    <div class="listing-summary">
+                                        <h3>
+                                            <a href="">Bus carring Shiite pilgrims bombed</a>
+                                        </h3>
+                                        <p>By <a href="">David Kobia</a></p>
+                                    </div>
+                                    <div class="activity-type saved-search">
+                                        New Saved Search
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="activity-listing">
+                                    <div class="listing-summary">
+                                        <h3>
+                                            <a href="">Bus carring Shiite pilgrims bombed</a>
+                                        </h3>
+                                        <p>By <a href="">David Kobia</a></p>
+                                    </div>
+                                    <div class="activity-type post">
+                                        Edited Post
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="timestamp">Yesterday</div>
+                                <div class="activity-listing">
+                                    <div class="listing-summary">
+                                        <p>
+                                            By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
+                                        </p>
+                                        <blockquote>
+                                            Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. Quis nostexercitation ullamco laboris nisi ut aliquip ex ea commodo aute irure dolor in reprehenderitvoluptate velit esse cillum dolore eu fugiat.
+                                        </blockquote>
+                                    </div>
+                                    <div class="activity-type comment">
+                                        New Comment
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="activity-listing">
+                                    <div class="listing-summary">
+                                        <p>
+                                            By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
+                                        </p>
+                                        <blockquote>
+                                            Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. Quis nostexercitation ullamco laboris nisi ut aliquip ex ea commodo aute irure dolor in reprehenderitvoluptate velit esse cillum dolore eu fugiat.
+                                        </blockquote>
+                                    </div>
+                                    <div class="activity-type comment">
+                                        New Comment
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div><!--end timeline-->
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-tiers">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Tiers
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <div class="pl-sub-pattern-markup">
+                            <div class="tiers">
+                                <div class="tier">
+                                    <div class="tier-header">
+                                        <h2 class="tier-name">Standard</h2>
+                                        <p>For small teams that need to <br />reach more people</p>
+
+                                        <strong class="tier-price">$100 <em>a month</em></strong>
+
+                                        <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
+                                    </div>
+
+                                    <div class="tier-action">
+                                        <button class="modal-trigger">Choose Standard</button>
+                                    </div>
+
+                                    <div class="tier-feature-list">
+                                        <ul>
+                                            <li>Collect posts via SMS and Twitter</li>
+                                            <li>Turn on notifications related to your interests</li>
+                                            <li>View data in bar chart or trend graph</li>
+                                            <li>Choose from more than 10 base maps</li>
+                                        </ul>
+                                    </div>
+
+                                    <p><a href="" class="cta">View all features</a></p>
+                                </div>
+
+                                <div class="tier recommended">
+                                    <div class="tier-header">
+                                        <h2 class="tier-name">Plus</h2>
+                                        <p>For growing teams that need <br />to organize their workflow</p>
+
+                                        <strong class="tier-price">$500 <em>a month</em></strong>
+
+                                        <h3 class="tier-feature">5,000 posts <em>+$8/month per 1,000 extra</em></h3>
+                                    </div>
+
+                                    <div class="tier-action">
+                                        <button class="modal-trigger">Choose Plus</button>
+                                    </div>
+
+                                    <div class="tier-feature-list">
+                                        <em>&#8592; Everything from Standard, and:</em>
+                                        <ul>
+                                            <li>Team collaboration with user roles</li>
+                                            <li>Publish posts to specific audiences</li>
+                                            <li>Unlimited post types</li>
+                                            <li>Break moderation into assignable 'steps'</li>
+                                        </ul>
+                                    </div>
+
+                                    <p><a href="" class="cta">View all features</a></p>
+                                </div>
+
+                                <div class="tier">
+                                    <div class="tier-header">
+                                        <h2 class="tier-name">Enterprise</h2>
+                                        <p>For big, sensitive data <br />with extra security.</p>
+
+                                        <strong class="tier-price">$2,000 <em>a month</em></strong>
+
+                                        <h3 class="tier-feature">10,000 posts <em>+$4/month per 1,000 extra</em></h3>
+                                    </div>
+
+                                    <div class="tier-action">
+                                        <button type="button" disabled>Coming soon</button>
+                                    </div>
+
+                                    <div class="tier-feature-list">
+                                        <em>&#8592; Everything from Standard and Plus</em>
+                                    </div>
+
+                                    <p><a href="" class="cta">View all features</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-add-edit-post">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Add/Edit Post
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <div class="pl-sub-pattern-markup">
+                            @@include('../partials/_form-sheet.html')
+                        </div>
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
 
 
-</div><!--end wrapper-->
+        </div><!--end wrapper-->
 
-@@include('../partials/_scripts.html')
-<script>
-// DEMONSTRATE "Header Full"
-$('#header-full .header').removeClass('header-compact').addClass('header-full');
-</script>
-</body>
+    @@include('../partials/_scripts.html')
+    <script>
+    // DEMONSTRATE "Header Full"
+    $('#header-full .header').removeClass('header-compact').addClass('header-full');
+    </script>
+
+    </body>
 
 </html>
