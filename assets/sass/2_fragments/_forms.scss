@@ -1,6 +1,7 @@
 .form-field,
 fieldset {
    @include clearfix;
+   position: relative;
    margin-bottom: $base-spacing;
 
    &:last-child,
@@ -23,6 +24,15 @@ fieldset {
       textarea {
           margin-top: $tiny-spacing;
       }
+   }
+
+   button,
+   .button {
+
+       + button,
+       + .button {
+           margin-left: $tiny-spacing;
+       }
    }
 
    .alert {
@@ -250,34 +260,64 @@ fieldset {
           padding-right: 72px;
       }
    }
+}
 
-   // INLINE ELEMENTS
-   &.inline {
+fieldset {
 
-      input,
-      input[type="text"],
-      input[type="email"],
-      input[type="password"],
-      input[type="search"],
-      .custom-select {
-         display: inline-block;
-         @include margin-right(5px);
+    .overflow {
+        display: none;
+    }
 
-         @include media($mobile-down) {
+    .form-field-toggle {
+        display: none;
+        font-size: 12px;
+        font-size: .857142857rem;
+        margin-left: 3px;
+        @include transition(0.3s);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include iconic(before, plus, $color-light-alpha, 8px) {
+            margin-right: $tiny-spacing;
+        }
+
+        @include media($medium) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 8px;
+            height: 8px;
+            overflow: hidden;
+
+            @include iconic(before, chevron-bottom, $color-light-alpha, 8px) {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &.has-overflow {
+
+        .form-field-toggle {
+            display: inline-block;
+        }
+    }
+
+    &.show-overflow {
+
+        .overflow {
             display: block;
-         }
-      }
+        }
 
-      button,
-      [class*="button-"] {
+        .form-field-toggle {
+            width: 8px;
+            height: 8px;
+            overflow: hidden;
 
-         @include media($mobile-up) {
-            position: relative;
-            top: -1px;
-            padding: 7px 15px 9px;
-         }
-      }
-   }
+            @include iconic(before, chevron-top, $color-light-alpha, 8px);
+        }
+    }
 }
 
 .form-fieldgroup {

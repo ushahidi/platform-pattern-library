@@ -38,15 +38,20 @@ input[type="button"] {
    }
 
    &:active {
-       color: $white;
+      color: $white;
       background-color: $color-primary-alpha;
       @include no-transition;
       box-shadow: 0 0 2px rgba(0,0,0,0.12),
        0 3px 5px rgba(0,0,0,0.24);
    }
 
+   &:focus {
+       color: $white;
+   }
+
    &.disabled, &[disabled] {
       cursor: not-allowed;
+      opacity: 0.5;
       background-color: $color-light-gamma;
       box-shadow: none;
    }
@@ -59,47 +64,6 @@ input[type="button"] {
            box-shadow: 0 0 2px rgba(0,0,0,0.12),
             0 3px 5px rgba(0,0,0,0.24);
        }
-   }
-
-   &.icon-only {
-
-      &:before {
-         padding: 0;
-
-         @include media($small) {
-            @include lrswap(padding, 0 $tiny-spacing 0 0)
-         }
-
-      }
-   }
-
-   .icon-only,
-   .icon-only-when-small {
-
-      &:before {
-         color: $button-text-color;
-      }
-   }
-
-   &.save-add {
-       background-color: $green;
-
-       &:hover {
-          cursor: pointer;
-          background-color: darken( $green, 10% );
-          color: $white;
-       }
-
-       &:active {
-          background-color: darken( $green, 25% );
-          @include no-transition;
-       }
-
-       &.disabled, &[disabled] {
-          cursor: not-allowed;
-          background-color: $button-bg-disabled-color;
-       }
-
    }
 
 }
@@ -116,26 +80,16 @@ input[type="button"] {
    }
 
    &:hover {
-       color: $color-primary-beta;
+      color: $color-primary-beta;
       background-color: darken( $color-secondary, 10% );
    }
 
    &.disabled, &[disabled] {
-      opacity: 0.75;
-      cursor: not-allowed;
-
-      &:before, &:after {
-         color: $mid-gray; //icon colors
-      }
 
       &:hover {
-         border: $base-border;
+          background-color: $color-light-gamma;
+          box-shadow: none;
       }
-
-      &:active {
-         border: $base-border;
-      }
-
    }
 
    &.button-flat {
@@ -160,11 +114,10 @@ input[type="button"] {
    }
 
    &.disabled, &[disabled] {
-      opacity: 0.75;
-      cursor: not-allowed;
 
-      &:before, &:after {
-         color: $mid-gray; //icon colors
+      &:hover {
+          background-color: $color-light-delta;
+          box-shadow: none;
       }
    }
 
@@ -180,6 +133,14 @@ input[type="button"] {
     &:hover, &:active {
        color: $link-hover-color;
        background-color: darken( $white, 10% );
+   }
+
+   &.disabled, &[disabled] {
+
+      &:hover {
+          background-color: $white;
+          box-shadow: none;
+      }
    }
 
    &.button-flat {
@@ -203,6 +164,14 @@ input[type="button"] {
         color: $link-hover-color;
         background-color: transparent;
         @include no-shadow;
+    }
+
+    &.disabled, &[disabled] {
+        background-color: transparent;
+
+       &:hover {
+           background-color: transparent;
+       }
     }
 }
 

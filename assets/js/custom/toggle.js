@@ -43,6 +43,7 @@ $('[data-toggle]').each(function(){
       if ($(target).is(':hidden')) {
          $(trigger).addClass('active');
          $(target).addClass('active');
+         $('body').addClass('noscroll');
          if ($(target).hasClass('dropdown-menu')) {
             dropdownXpos(trigger, target);
          }
@@ -51,6 +52,7 @@ $('[data-toggle]').each(function(){
       } else {
          $(trigger).removeClass('active');
          $(target).removeClass('active').removeAttr('style');
+         $('body').removeClass('noscroll');
       }
 
     //   overflowCheck(target);

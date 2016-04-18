@@ -1,17 +1,13 @@
-$('#filters fieldset').each(function(){
+$('.searchbar .dropdown-menu fieldset').each(function(){
 	var fieldset = $(this),
 		fieldCount = fieldset.find('.form-field').length;
 
 		if (fieldCount > 3) {
-			fieldset.find('.form-field:eq(2)').nextAll().addClass('overflow');
+			fieldset.find('.form-field:eq(2)').nextAll('.form-field').addClass('overflow');
+            fieldset.addClass('has-overflow');
 
-			fieldset.append('<span class="toggle"><i class="fa  fa-caret-square-o-down"></i></span>').on('click', function(){
-				fieldset.toggleClass('show-overflow');
-			});
+            $('.form-field-toggle').on('click', function(){
+                fieldset.toggleClass('show-overflow');
+            });
 		}
-});
-
-$('.toggle').click(function(e){
-    $(this).children('i').toggleClass('fa-caret-square-o-down fa-caret-square-o-up')
-    $(this).siblings('.form-field-wrapper').toggleClass('expand');
 });
