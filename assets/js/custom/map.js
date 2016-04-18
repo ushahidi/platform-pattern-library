@@ -54,7 +54,7 @@ if ($('#map').length) {
                 <svg class="iconic">
                     <use xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
                 </svg>
-                Add to Collection
+                <span class="label">Add to Collection</span>
                 </a>
             </li>
             <li>
@@ -62,7 +62,7 @@ if ($('#map').length) {
                 <svg class="iconic">
                     <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
                 </svg>
-                Share
+                <span class="label">Share</span>
                 </a>
             </li>
             <li>
@@ -70,7 +70,7 @@ if ($('#map').length) {
                 <svg class="iconic">
                     <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
                 </svg>
-                Assign to...
+                <span class="label">Assign to ...</span>
                 </a>
             </li>
             <li>
@@ -78,7 +78,7 @@ if ($('#map').length) {
                 <svg class="iconic">
                     <use xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
                 </svg>
-                Delete
+                <span class="label">Delete</span>
                 </a>
             </li>
         </ul>
