@@ -32,85 +32,80 @@ if ($('#map').length) {
         maxZoom: 18,
         }).addTo(map);
 
-    var popup = '<div class="post-popup">
-    <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-    <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-    </p>
-    <div class="actions-inline">
-        <button type="button" class="button-secondary plus toggle-js hide-when-small">
-            <span>Options</span>
-        </button>
-    </div>
-    <div class="actions-content toggle-content">
-        <ul class="dropdown-menu list-unstyled" role="menu">
+    var popup = '<article class="postcard">
+        <div class="post-band" style="background-color: #8D1919;"></div>
+        <div class="postcard-body">
+            <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+            <span class="postcard-metadata"><a href="" class="postcard-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS</span>
+
+            <div class="postcard-image">
+                <img src="http://lorempixel.com/400/300/" />
+            </div>
+        </div>
+
+        <span class="postcard-actions-trigger" data-toggle="dropdown-menu">
+            <svg class="iconic">
+              <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
+        <ul class="dropdown-menu">
             <li>
-                <button type="button" class="button-secondary edit">
-                    <a href="#!">Edit</a>
-                </button>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
+                </svg>
+                Add to Collection
+                </a>
             </li>
             <li>
-                <div class="custom-select">
-    <select>
-        <option>Add to Collection</option>
-        <option>Collection #1</option>
-        <option>Collection #2</option>
-    </select>
-</div>
-
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
+                </svg>
+                Share
+                </a>
+            </li>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
+                </svg>
+                Assign to...
+                </a>
+            </li>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                </svg>
+                Delete
+                </a>
             </li>
         </ul>
-    </div>
-</div>';
-
-    var popupHasImage = '<div class="post-popup has-image">
-    <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-    <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-    </p>
-    <div class="actions-inline">
-        <button type="button" class="button-secondary plus toggle-js hide-when-small">
-            <span>Options</span>
-        </button>
-    </div>
-    <div class="actions-content toggle-content">
-        <ul class="dropdown-menu" role="menu">
-            <li>
-                <button type="button" class="button-secondary edit">
-                    <a href="#!">Edit</a>
-                </button>
-            </li>
-            <li>
-                <div class="custom-select">
-    <select>
-        <option>Add to Collection</option>
-        <option>Collection #1</option>
-        <option>Collection #2</option>
-    </select>
-</div>
-
-            </li>
-        </ul>
-    </div>
-    <img src="https://photos.travelblog.org/Photos/11053/262872/f/2165432-Deserted-main-road-of-Quneitra-Syria-1.jpg">
-</div>';
+    </article>';
 
     var popupOptions =
         {
             'minWidth': '400',
             'maxWidth': '400',
             'className': 'pl-popup',
-            'offset':  new L.Point(14, 15),
+            'offset':  new L.Point(20, 15),
         };
 
     var customIcon = L.divIcon({
         className: 'custom-map-marker',
-        html: '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200"><ellipse class="map-marker-shadow" cx="59.7" cy="178.7" rx="46.3" ry="14.6"/><path class="map-marker-icon" d="M101.9,18.4C90.3,6.8,76.3,1,60,1C43.6,1,29.7,6.8,18.1,18.4C6.4,30,0.6,44,0.6,60.4
-        c0,10.7,2.5,20.4,7.6,29.1l48.4,87.8c0.7,1.2,1.8,1.9,3.3,1.9c1.5,0,2.6-0.6,3.3-1.9l48.4-87.8c5.1-9.1,7.6-18.8,7.6-29.1
-        C119.4,44,113.6,30,101.9,18.4z M59.7,90.3c-16.2,0-29.3-13.1-29.3-29.3c0-16.2,13.1-29.3,29.3-29.3C75.9,31.7,89,44.8,89,61
-        C89,77.2,75.9,90.3,59.7,90.3z"/></svg>',
+        html: '<svg class="iconic map-marker-icon">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use>
+    </svg>',
+        iconSize: null,
+        iconAnchor: null
+    });
+
+    var customIconAlt = L.divIcon({
+        className: 'custom-map-marker',
+        html: '<svg class="iconic map-marker-icon-alt">
+      <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use>
+    </svg>',
         iconSize: null,
         iconAnchor: null
     });
@@ -119,11 +114,11 @@ if ($('#map').length) {
         icon: customIcon
     })
     .addTo(map)
-    .bindPopup(popupHasImage, popupOptions)
+    .bindPopup(popup, popupOptions)
     .on('popupopen', popupActions);
 
     var marker = L.marker([36.072635, -79.791975], {
-            icon: customIcon
+            icon: customIconAlt
     })
     .addTo(map)
     .bindPopup(popup, popupOptions)
