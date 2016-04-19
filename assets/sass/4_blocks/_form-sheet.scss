@@ -2,135 +2,58 @@
     position: relative;
     @extend .card;
     background-color: $color-light-delta;
-
-    &:before,
-    &:after {
-        content: '\00a0';
-    }
-
-    .form-sheet-title {
-        @include typeBeta;
-    }
+    max-width: 500px;
 
     .form-sheet-summary {
         position: relative;
-
-        .post-band {
-            border-radius: 2px 0 0 0;
-        }
-    }
-
-    .form-sheet-summary,
-    .form-field,
-    fieldset {
-        max-width: 450px;
-        margin: $sm-spacing;
-
-        @include media($medium) {
-            margin: $base-spacing;
-        }
-
-        &.title {
-            max-width: none;
-            margin-top: 0;
-            margin-right: 0;
-            margin-left: 0;
-
-            label {
-                display: block;
-            }
-
-            input[type="text"] {
-                width: 100%;
-                border-top-color: $color-light-beta;
-                border-right-color: transparent;
-                border-bottom-color: $color-light-beta;
-                border-left-color: transparent;
-                @include equal-radius(0);
-
-                &:focus {
-                    outline: none;
-                    border-top-color: $color-secondary;
-                    border-bottom-color: $color-secondary;
-                }
-            }
-        }
-
-        .form-field {
-            margin: 0 0 $tiny-spacing 0;
-        }
-    }
-
-    .form-sheet-summary {
+        margin: 0;
+        @include padding-left(20px);
 
         &:not(:first-of-type) {
             border-top: $base-border;
             padding-top: $lg-spacing;
         }
-    }
 
-    .location {
-
-        &:before {
-            top: 36px;
-            @include left(5px);
-            height: 10px;
+        .post-band {
+            border-radius: 2px 0 0 0;
         }
 
-        .form-field {
-            @include float(left);
-        }
-
-        .custom-select {
-            @include float(right);
-        }
-
-        button {
-            @include float(left);
-            clear: both;
+        .description {
+            margin: 0;
+            @include lrswap(padding, 20px $sm-spacing 20px 0 );
         }
 
     }
 
-    .form-sheet-actions {
+    form {
         margin: $sm-spacing;
 
         @include media($medium) {
-            text-align: right;
             margin: $base-spacing;
         }
 
-        button,
-        .button {
-            margin: $tiny-spacing;
-        }
-    }
+        .form-field {
 
-    .layout-b & {
-
-        @include media($medium) {
-
-        }
-    }
-
-    .main-col & {
-
-        .form-sheet-actions {
-            position: fixed;
-            right: $tiny-spacing;
-            bottom: 61px;
-            left: $tiny-spacing;
-            @extend .sheet;
-            background-color: $color-primary;
-            margin: 0;
-
-            @include media($medium) {
-                top: $base-spacing;
-                right: 254px;
-                bottom: auto;
-                left: 298px;
+            input[type="text"] {
+                max-width: 500px;
             }
         }
-    }
 
+        .location {
+
+            &:before {
+                top: 36px;
+                @include left(5px);
+                height: 10px;
+            }
+            .iconic {
+                margin-right: 10px;
+            }
+
+        }
+
+        fieldset {
+            margin-bottom: $base-spacing*2;
+        }
+    }
 }
