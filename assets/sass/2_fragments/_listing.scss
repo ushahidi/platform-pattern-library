@@ -6,6 +6,14 @@
         display: block;
         @include typeBeta;
         padding: $base-spacing $sm-spacing;
+
+        @include media($medium) {
+            padding: $base-spacing;
+        }
+
+        + .listing-item {
+            margin-top: -$sm-spacing;
+        }
     }
 
     .listing-item {
@@ -80,7 +88,7 @@
         .buttons-updown {
             position: relative;
             top: -14px;
-            left: -4px;
+            left: -3px;
         }
 
         + .listing-item-primary {
@@ -103,6 +111,11 @@
         position: relative;
         padding: $base-spacing $sm-spacing;
 
+        @include media($medium) {
+            padding-right: $base-spacing;
+            padding-left: $base-spacing
+        }
+
         .listing-item-image {
             position: absolute;
             top: $base-spacing;
@@ -117,6 +130,10 @@
 
                 + .listing-item-secondary {
                     padding-left: 48px;
+
+                    + p {
+                        padding-left: 48px;
+                    }
                 }
             }
         }
@@ -139,8 +156,16 @@
         font-size: .857142857em;
         text-align: right;
 
+        @include media($medium) {
+            right: $base-spacing;
+        }
+
         + .listing-item-primary {
             padding-right: 72px;
+
+            @include media($medium) {
+                padding-right: 80px;
+            }
         }
     }
 
@@ -173,10 +198,20 @@
     background-color: $color-primary;
     padding: $sm-spacing;
 
+    @include media($medium) {
+        padding-right: $base-spacing;
+        padding-left: $base-spacing;
+    }
+
     .listing-toolbar-summary {
         display: block;
         color: $white;
         margin-bottom: $tiny-spacing;
+
+        .button-link {
+            padding: 0;
+            margin-left: $sm-spacing;
+        }
     }
 
     .listing-toolbar-actions {

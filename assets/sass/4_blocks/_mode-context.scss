@@ -6,10 +6,6 @@
     background-color: $color-primary-alpha;
     @include transition(all .25s);
 
-    a {
-        color: $color-secondary;
-    }
-
     .mode-context-title {
         color: $white;
         font-size: 20px;
@@ -26,12 +22,21 @@
         position: relative;
         padding: 0 $sm-spacing;
 
+        @include media($medium) {
+            padding: 0 $base-spacing;
+        }
+
         a {
             color: $white;
         }
 
         .mode-context-title {
+            position: relative;
             margin: $sm-spacing 0;
+
+            .post-band {
+                left: -$sm-spacing;
+            }
 
             @include media($medium) {
                 padding: 0;
@@ -64,6 +69,10 @@
 
             .mode-context-title {
                 @include padding-left(48px);
+
+                @include media($medium) {
+                    padding: 0;
+                }
             }
         }
     }
@@ -118,6 +127,40 @@
         }
     }
 
+    .tool {
+
+        a {
+            color: $color-secondary;
+        }
+    }
+
+    .mode-context-body {
+        padding: 0 $sm-spacing;
+
+        @include media($medium) {
+            padding: 0 $base-spacing;
+
+            button,
+            .button,
+            input[type="button"] {
+                position: relative;
+                text-align: left;
+                padding-left: 40px;
+
+                svg.iconic {
+                    position: absolute;
+                    top: 50%;
+                    left: $sm-spacing;
+                    margin-top: -6px;
+
+                    + .button-label {
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
     &.init {
         max-height: 55px;
         overflow-y: hidden;
@@ -129,6 +172,10 @@
                 overflow-x: scroll;
                 white-space: nowrap;
                 padding-right: $huge-spacing;
+
+                @include media($medium) {
+                    overflow: visible;
+                }
             }
         }
 
@@ -181,10 +228,6 @@
         }
     }
 
-    .mode-context-body {
-        padding: 0 $sm-spacing;
-    }
-
     .search-summary-wrapper {
         margin: $base-spacing auto;
 
@@ -221,8 +264,8 @@
         margin: $base-spacing auto;
 
         @include media($medium) {
-            margin-right: -$sm-spacing;
-            margin-left: -$sm-spacing;
+            margin-right: -$base-spacing;
+            margin-left: -$base-spacing;
         }
     }
 

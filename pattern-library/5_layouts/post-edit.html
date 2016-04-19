@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+@@include('../partials/_pl-head.html')
+
+<body class="layout-a">
+
+    @@include('../partials/_mode-bar.html')
+
+    <div class="mode-context">
+
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="">March on City Hall</a></li>
+            </ol>
+
+            <h1 class="mode-context-title">Police encounters</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+
+        <div class="mode-context-body">
+            <p>Curabitur consectetur sem nec sem rutrum, ac mollis diam convallis.</p>
+        </div>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Save</button>
+            </div>
+        </div>
+
+       <div class="main-col">
+
+            <div class="form-sheet">
+                <div class="form-field title">
+                    <label class="hidden">Title</label>
+                    <input type="text" placeholder="Survey name" value="Overcrowding between 5th St. &amp; Salem Ave.">
+                </div>
+
+                <div class="form-field">
+                    <span class="postcard-metadata"><a href="" class="postcard-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS</span>
+                </div>
+
+                <div class="form-field select">
+                    <div class="custom-select">
+                        <select>
+                            <option>Everyone</option>
+                            <option>Editors</option>
+                            <option selected>Administrators</option>
+                       </select>
+                    </div>
+                   <label><span class="nodisplay">Who</span> can see this</label>
+                </div>
+
+               <!-- IF: User has permission to see other 'Tasks' -->
+               <nav class="tabs-menu" data-tabs="tabs-content">
+                   <ul>
+                       <li>
+                           <a href="#tasks-submit">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                               </svg>
+                               Submit
+                           </a>
+                       </li>
+                       <li>
+                           <a href="#tasks-verify">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
+                               </svg>
+                               Verify
+                           </a>
+                       </li>
+                       <li>
+                           <a href="#tasks-translate">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#transfer"></use>
+                               </svg>
+                               Translate
+                           </a>
+                       </li>
+                   </ul>
+               </nav>
+               <!--// END IF -->
+
+               <div id="tasks-submit" class="tabs-content">
+                   <div class="form-field form-field-adapt">
+                       <label class="textarea-label">
+                           Description
+                       </label>
+                       <textarea class="adapt-field" name="description" rows="8" cols="40">Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
+                   </div>
+
+                   <div class="form-field">
+                       <label>Photo</label>
+                       <figure>
+                           <img src="http://lorempixel.com/400/300/" class="postcard-image" />
+                           <button class="button-flat">Delete</button>
+                       </figure>
+                       <input type="file" />
+                   </div>
+
+                   <fieldset>
+                       <legend>Categories</legend>
+
+                       <div class="form-field checkbox">
+                           <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                       </div>
+                       <div class="form-field checkbox">
+                           <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                       </div>
+                       <div class="form-field checkbox">
+                           <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                       </div>
+                   </fieldset>
+
+                   <div class="form-field">
+                       <label>Time &amp; date of encounter</label>
+                       <input type="datetime" />
+                   </div>
+
+                   <div class="form-field">
+                       <label>Location</label>
+                       <input type="text" placeholder="lat,lng" />
+                   </div>
+               </div>
+
+               <div id="tasks-verify" class="tabs-content">
+                   <div class="form-field switch">
+                       <label>Verified</label>
+                       <div class="toggle-switch">
+                           <input class="tgl" id="switch1" type="checkbox" checked>
+                           <label class="tgl-btn" for="switch1"></label>
+                       </div>
+                   </div>
+
+                   <div class="form-field form-field-adapt">
+                       <label class="textarea-label">
+                           Notes
+                       </label>
+                       <textarea class="adapt-field" name="description" rows="8" cols="40">Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
+                   </div>
+               </div>
+
+        </div>
+
+    </main>
+
+    @@include('../partials/_scripts.html')
+
+</body>
+
+</html>
