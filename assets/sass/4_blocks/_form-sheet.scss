@@ -2,64 +2,69 @@
     position: relative;
     @extend .card;
     background-color: $color-light-delta;
-
-    &:before,
-    &:after {
-        content: '\00a0';
-    }
-
-    .form-sheet-title {
-        @include typeBeta;
-    }
+    max-width: 500px;
 
     .form-sheet-summary {
         position: relative;
+        margin: 0;
+        @include padding-left(20px);
 
         .post-band {
             border-radius: 2px 0 0 0;
         }
+
+        .description {
+            margin: 0;
+            @include lrswap(padding, 20px $sm-spacing 20px 0 );
+        }
+
     }
 
-    .form-sheet-summary,
-    .form-field,
-    fieldset {
-        max-width: 450px;
+    form {
         margin: $sm-spacing;
 
         @include media($medium) {
             margin: $base-spacing;
         }
 
-        &.title {
-            max-width: none;
-            margin-top: 0;
-            margin-right: 0;
-            margin-left: 0;
-
-            label {
-                display: block;
-            }
-
-            input[type="text"] {
-                width: 100%;
-                border-top-color: $color-light-beta;
-                border-right-color: transparent;
-                border-bottom-color: $color-light-beta;
-                border-left-color: transparent;
-                @include equal-radius(0);
-
-                &:focus {
-                    outline: none;
-                    border-top-color: $color-secondary;
-                    border-bottom-color: $color-secondary;
-                }
-            }
+        input[type="text"] {
+            max-width: 500px;
         }
 
-        .form-field {
-            margin: 0 0 $tiny-spacing 0;
-        }
     }
+
+    // .form-field,
+    // fieldset {
+    //
+    //     &.title {
+    //         max-width: none;
+    //         margin-top: 0;
+    //         margin-right: 0;
+    //         margin-left: 0;
+    //
+    //         label {
+    //             display: block;
+    //         }
+    //
+    //         input[type="text"] {
+    //             width: 100%;
+    //             border-top-color: $color-light-beta;
+    //             border-right-color: transparent;
+    //             border-bottom-color: $color-light-beta;
+    //             border-left-color: transparent;
+    //             @include equal-radius(0);
+    //
+    //             &:focus {
+    //                 outline: none;
+    //                 border-top-color: $color-secondary;
+    //                 border-bottom-color: $color-secondary;
+    //             }
+    //
+    //         }
+    //
+    //     }
+    //
+    // }
 
     .location {
 
@@ -67,6 +72,7 @@
             top: 36px;
             @include left(5px);
             height: 10px;
+            z-index: 1
         }
 
         .form-field {
@@ -85,24 +91,12 @@
     }
 
     .form-sheet-actions {
-        margin: $sm-spacing;
-
-        @include media($medium) {
-            text-align: right;
-            margin: $base-spacing;
-        }
 
         button,
         .button {
-            margin: $tiny-spacing;
+            @include lrswap(margin, $sm-spacing $sm-spacing $sm-spacing 0);
         }
-    }
 
-    .layout-b & {
-
-        @include media($medium) {
-
-        }
     }
 
     .main-col & {
@@ -118,11 +112,13 @@
 
             @include media($medium) {
                 top: $base-spacing;
-                right: 254px;
+                @include right(254px);
                 bottom: auto;
-                left: 298px;
+                @include left(298px);
             }
+
         }
+
     }
 
 }
