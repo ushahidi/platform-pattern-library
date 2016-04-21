@@ -46,28 +46,38 @@
        <div class="main-col">
 
             <div class="form-sheet">
-                <div class="form-field title">
-                    <label class="hidden">Title</label>
-                    <input type="text" placeholder="Survey name" value="Overcrowding between 5th St. &amp; Salem Ave.">
+                <div class="form-field form-field-adapt title">
+                    <label>Title</label>
+                    <input type="text" value="Overcrowding between 5th St. &amp; Salem Ave.">
                 </div>
 
-                <div class="form-field">
-                    <span class="postcard-metadata"><a href="" class="postcard-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS</span>
+                <!-- IF: Editing an existing post -->
+                <div class="postcard-metadata">
+                    <a href="" class="postcard-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS
                 </div>
+                <!-- ELSE IF: Adding a new post w/o permission to manage who it's visible to
+                <div class="postcard-metadata">
+                    <strong>This post will need to be moderated</strong> before it's visible to the public.
+                </div>
+                END: IF -->
 
+                <!-- IF: User has permission to manage who it's visible to -->
                 <div class="form-field select">
-                    <div class="custom-select">
-                        <select>
-                            <option>Everyone</option>
-                            <option>Editors</option>
-                            <option selected>Administrators</option>
-                       </select>
-                    </div>
-                   <label><span class="nodisplay">Who</span> can see this</label>
+                    <label>
+                        <div class="custom-select">
+                            <select>
+                                <option>Everyone</option>
+                                <option>Editors</option>
+                                <option selected>Administrators</option>
+                           </select>
+                        </div>
+                        <span class="nodisplay">Who</span> can see this
+                    </label>
                 </div>
+                <!-- END: IF -->
 
                <!-- IF: User has permission to see other 'Tasks' -->
-               <nav class="tabs-menu" data-tabs="tabs-content">
+               <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
                    <ul>
                        <li>
                            <a href="#tasks-submit">
@@ -97,24 +107,24 @@
                </nav>
                <!--// END IF -->
 
-               <div id="tasks-submit" class="tabs-content">
+               <div id="tasks-submit" class="tabs-tasks">
                    <div class="form-field form-field-adapt">
-                       <label class="textarea-label">
+                       <label>
                            Description
                        </label>
-                       <textarea class="adapt-field" name="description" rows="8" cols="40">Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
+                       <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
                    </div>
 
                    <div class="form-field">
                        <label>Photo</label>
                        <figure>
                            <img src="http://lorempixel.com/400/300/" class="postcard-image" />
-                           <button class="button-flat">Delete</button>
+                           <button class="button-flat">Delete photo</button>
                        </figure>
                        <input type="file" />
                    </div>
 
-                   <fieldset>
+                   <fieldset id="categories" class="error">
                        <legend>Categories</legend>
 
                        <div class="form-field checkbox">
@@ -139,7 +149,7 @@
                    </div>
                </div>
 
-               <div id="tasks-verify" class="tabs-content">
+               <div id="tasks-verify" class="tabs-tasks">
                    <div class="form-field switch">
                        <label>Verified</label>
                        <div class="toggle-switch">
@@ -149,19 +159,58 @@
                    </div>
 
                    <div class="form-field form-field-adapt">
-                       <label class="textarea-label">
+                       <label>
                            Notes
                        </label>
-                       <textarea class="adapt-field" name="description" rows="8" cols="40">Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
+                       <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
                    </div>
                </div>
 
+           </div>
+
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Delete this submission</h3>
+                </div>
+
+                <div class="form-field">
+                    <p><strong>If you delete this submission</strong>, all of its comments and messages will also be deleted. Proceed with caution.</p>
+
+                    <button class="button-destructive">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label">Delete submission</span>
+                    </button>
+                </div>
+            </div>
+
+        </div> <!-- END main column -->
+
+    </main> <!-- END main container -->
+
+    <div id="required" class="message">
+        <div class="message-image error">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#warning"></use>
+            </svg>
         </div>
 
-    </main>
+        <div class="message-body">
+            <p><strong>Please select at least one category</strong> before submitting this survey.</p>
+
+            <a href="#categories" class="button button-beta button-flat message-trigger">Edit categories</a>
+
+            <button class="button-flat message-trigger">
+                Dismiss
+            </button>
+        </div>
+    </div>
 
     @@include('../partials/_scripts.html')
-
+    <script>
+        messageToggle($('#required'));
+    </script>
 </body>
 
 </html>

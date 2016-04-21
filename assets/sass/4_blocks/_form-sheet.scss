@@ -2,12 +2,20 @@
     position: relative;
     @extend .card;
     background-color: $color-light-delta;
-    max-width: 500px;
+
+    &:before,
+    &:after {
+        content: '\00a0';
+        display: block;
+        height: 1px;
+    }
+
+    .form-sheet-title {
+        @include typeBeta;
+    }
 
     .form-sheet-summary {
         position: relative;
-        margin: 0;
-        @include padding-left(20px);
 
         &:not(:first-of-type) {
             border-top: $base-border;
@@ -17,43 +25,74 @@
         .post-band {
             border-radius: 2px 0 0 0;
         }
-
-        .description {
-            margin: 0;
-            @include lrswap(padding, 20px $sm-spacing 20px 0 );
-        }
-
     }
 
-    form {
-        margin: $sm-spacing;
+    .form-sheet-summary,
+    .form-field,
+    fieldset {
+        max-width: 450px;
+        margin: $base-spacing $sm-spacing;
 
         @include media($medium) {
-            margin: $base-spacing;
+            margin: $lg-spacing $base-spacing;
+        }
+
+        &.title {
+            max-width: none;
+            margin-right: 0;
+            margin-left: 0;
+
+            input[type="text"] {
+                width: 100%;
+//                border-top-color: $color-light-beta;
+                border-right-color: transparent;
+//                border-bottom-color: $color-light-beta;
+                border-left-color: transparent;
+                @include equal-radius(0);
+
+                @include media($medium) {
+                    padding-right: $base-spacing;
+                    padding-left: $base-spacing;
+                }
+
+                &:focus {
+                    outline: none;
+                    border-top-color: $color-secondary;
+                    border-bottom-color: $color-secondary;
+                }
+            }
+
+            &.form-field-adapt {
+                margin-right: $sm-spacing;
+                margin-left: $sm-spacing;
+
+                @include media($medium) {
+                    margin-right: $base-spacing;
+                    margin-left: $base-spacing;
+                }
+
+                label {
+                    display: block;
+                }
+            }
         }
 
         .form-field {
+            margin: 0 0 $tiny-spacing 0;
+        }
+    }
 
-            input[type="text"] {
-                max-width: 500px;
-            }
+    .postcard-metadata {
+        @include clearfix;
+        margin: $base-spacing $sm-spacing;
+
+        @include media($medium) {
+            margin: $lg-spacing $base-spacing;
         }
 
-        .location {
-
-            &:before {
-                top: 36px;
-                @include left(5px);
-                height: 10px;
-            }
-            .iconic {
-                margin-right: 10px;
-            }
-
-        }
-
-        fieldset {
-            margin-bottom: $base-spacing*2;
+        + .form-field {
+            margin-top: -$tiny-spacing;
+            margin-bottom: $sm-spacing;
         }
     }
 }

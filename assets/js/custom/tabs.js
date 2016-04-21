@@ -2,10 +2,10 @@ $('.tabs-menu').each(function(){
     var menu = $(this),
         targetIdentifier = menu.attr('data-tabs');
 
-    if (window.location.hash) {
+    if (window.location.hash && menu.find('a[href="'+window.location.hash+'"]').length) {
+        menu.find('li').removeClass('active');
         menu.find('a[href="'+window.location.hash+'"]').parent('li').addClass('active');
         $('#'+window.location.hash.substring(1)).addClass('active');
-        console.log(window.location.hash);
     } else if (menu.find('li.active').length) {
         $('#'+menu.find('li.active a').attr('href').substring(1)).addClass('active');
     } else {
@@ -14,7 +14,7 @@ $('.tabs-menu').each(function(){
     }
 
     menu.addClass('init');
-    $('.'+targetIdentifier).addClass('init');
+    $('.'+targetIdentifier).addClass('tabs-target');
 
     menu.find('a').on('click',function(e){
         var targetVal = $(this).attr('href').substring(1),
@@ -27,11 +27,13 @@ $('.tabs-menu').each(function(){
         $('.'+targetIdentifier).not(target).removeClass('active');
         target.addClass('active');
 
-        if (history.pushState) {
-            history.pushState(null, null, $(this).attr('href'));
-        }
-        else {
-            location.hash = $(this).attr('href');
+        if (menu[0].hasAttribute('data-tabs-hash')) {
+            if (history.pushState) {
+                history.pushState(null, null, $(this).attr('href'));
+            }
+            else {
+                location.hash = $(this).attr('href');
+            }
         }
 
         e.preventDefault();

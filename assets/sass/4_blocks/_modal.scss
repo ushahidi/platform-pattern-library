@@ -36,14 +36,25 @@
 
    .modal-title {
        font-weight: $bold;
-       font-size: 24px;
-       font-size: 1.714285714rem;
+       font-size: 20px;
+       font-size: 1.428571429rem;
        margin-bottom: $base-spacing;
+
+       @include media($small) {
+           font-size: 24px;
+           font-size: 1.714285714rem;
+       }
 
       em {
          @include typeGamma;
          color: $color-dark-delta;
          font-style: normal;
+      }
+
+      svg.iconic {
+          width: .833333333em;
+          height: .833333333em;
+          fill: $color-dark-delta;
       }
    }
 
@@ -57,9 +68,69 @@
       @include right($sm-spacing);
 
       @include media($mobile) {
-          top: $base-spacing;
+          top: $base-spacing - 4;
          @include right($base-spacing);
       }
+   }
+
+   .tabs-menu {
+       margin-right: -$sm-spacing;
+       margin-bottom: $base-spacing;
+       margin-left: -$sm-spacing;
+
+       @include media($medium) {
+           margin-right: -$base-spacing;
+           margin-left: -$base-spacing;
+       }
+   }
+
+   .listing {
+       @include radius;
+       border: 1px solid $color-light-beta;
+       background-color: $color-light-gamma;
+       margin-bottom: $sm-spacing;
+
+       @include media($medium) {
+           margin-bottom: $base-spacing;
+       }
+
+       .listing-heading {
+           border-bottom: 1px solid $color-light-beta;
+           background-color: $color-light-beta;
+           padding: $sm-spacing;
+
+           @include media($medium) {
+               padding: $sm-spacing $base-spacing;
+           }
+
+           + .listing-item {
+               margin-top: 0;
+           }
+       }
+
+       .listing-item {
+           border-bottom-color: $color-light-beta;
+       }
+   }
+
+   [data-toggle] {
+       color: $link-color;
+
+       &:hover {
+           color: $link-hover-color;
+       }
+
+       &.active {
+           display: none;
+       }
+   }
+
+   .toggle-content {
+       display: none;
+
+       &.active {
+           display: block;
+       }
    }
 }
 

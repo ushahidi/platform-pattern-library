@@ -138,7 +138,7 @@ select {
     font-size: $base-font-size;
     font-family: $base-font-family;
     @include equal-radius;
-    border: $base-border;
+    border: $base-border-dark;
     //background: $color-light-delta url(../img/icons/chevron-bottom.svg) 90% center no-repeat;
     background-color: $color-light-delta;
     @include lrswap(padding, $tiny-spacing 26px $tiny-spacing $tiny-spacing);
@@ -277,6 +277,19 @@ form, .form {
 
       }
 
+   }
+
+   &:disabled {
+
+       + .tgl-btn {
+          background: $color-light-gamma;
+
+          &:after {
+              background-color: $color-light-beta;
+             @include no-shadow;
+          }
+
+       }
    }
 
 }

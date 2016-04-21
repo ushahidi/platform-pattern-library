@@ -1,93 +1,21 @@
-.listing {
-    position: relative;
-    @include transition(0.3s);
-
-    .listing-heading {
-        display: block;
-        @include typeBeta;
-        padding: $base-spacing $sm-spacing;
-
-        @include media($medium) {
-            padding: $base-spacing;
-        }
-
-        + .listing-item {
-            margin-top: -$sm-spacing;
-        }
-    }
-
-    .listing-item {
-        border-bottom: 1px solid $color-light-gamma;
-
-        &:last-child {
-            border-bottom: none;
-        }
-
-        .listing-item-body {
-            display: none;
-        }
-
-        &.active {
-
-            .listing-item-body {
-                display: block;
-            }
-        }
-    }
-
-    .postcard {
-        margin: $sm-spacing;
-
-        @include media($medium) {
-            margin: $sm-spacing auto;
-        }
-    }
-
-    .listing-toolbar {
-        display: none;
-        position: absolute;
-        top: -100px;
-        right: $sm-spacing;
-        left: $sm-spacing;
-        z-index: $top;
-        @include transition(0.3s);
-
-        @include media($medium) {
-            right: $base-spacing;
-            left: 298px;
-        }
-    }
-
-    &.card {
-        background-color: $color-light-delta;
-    }
-
-    &.toolbar-active {
-        margin-top: 116px;
-
-        @include media($medium) {
-            margin-top: 100px;
-        }
-
-        .listing-toolbar {
-            display: block;
-        }
-    }
-}
-
 .listing-item {
     position: relative;
     @include clearfix;
 
     .listing-item-select {
         position: absolute;
-        top: $base-spacing+1;
+        top: 0;
         left: $sm-spacing;
         z-index: $body;
 
+        input[type="checkbox"] {
+            position: relative;
+            top: $base-spacing+1;
+        }
+
         .buttons-updown {
             position: relative;
-            top: -14px;
+            top: 10px;
             left: -3px;
         }
 
@@ -150,7 +78,6 @@
         position: absolute;
         top: $base-spacing;
         right: $sm-spacing;
-        bottom: 0;
         z-index: $body;
         width: 56px;
         font-size: .857142857em;
@@ -158,6 +85,20 @@
 
         @include media($medium) {
             right: $base-spacing;
+        }
+
+        button,
+        .button {
+            margin-top: -$tiny-spacing;
+
+            svg.iconic {
+                width: 1.142857143em;
+                height: 1.142857143em;
+            }
+
+            .button-label {
+                display: none;
+            }
         }
 
         + .listing-item-primary {
@@ -170,26 +111,67 @@
     }
 
     .listing-item-body {
-        margin: $sm-spacing;
+        background-color: $white;
+        box-shadow: 0 1px 4px rgba(0,0,0,.24) inset;
+        padding: $sm-spacing;
+
+        @include media($medium) {
+            padding: $sm-spacing $base-spacing;
+        }
 
         &.active {
             display: block;
+        }
+
+        .tabs-menu {
+            margin-top: -$sm-spacing;
+            margin-right: -$sm-spacing;
+            margin-bottom: $base-spacing;
+            margin-left: -$sm-spacing;
+
+            @include media($medium) {
+                margin-right: -$base-spacing;
+                margin-left: -$base-spacing;
+            }
+        }
+
+        .form-field-toggle {
+            margin-bottom: $base-spacing;
         }
     }
 
     .listing-item-image {
         width: $lg-spacing;
+        text-align: center;
+
+        svg.iconic {
+            width: 1em;
+            height: 1em;
+        }
     }
 
     .listing-item-title {
         @include typeGamma;
+
+        em {
+            color: $color-dark-delta;
+            font-style: normal;
+            font-size: .857142857em;
+        }
 
         svg.iconic {
             width: .857142857em;
             height: .857142857em;
             margin-right: 4px;
         }
+
+        .status-indicator {
+            top: -2px;
+            margin-right: $tiny-spacing;
+            margin-left: $tiny-spacing;
+        }
     }
+
 }
 
 .listing-toolbar {

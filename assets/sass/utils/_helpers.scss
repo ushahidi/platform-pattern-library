@@ -218,3 +218,34 @@ $LAYOUT
     // border-radius: 2px 0 0 2px;
     background-color: #EEEEEE;
 }
+
+.status-indicator {
+    display: inline-block;
+    position: relative;
+    width: 8px;
+    height: 8px;
+    @include equal-radius(100%);
+    background-color: $color-light-beta;
+    box-shadow: 0 0 0 rgba(0,0,0,.16) inset;
+
+    &.green {
+        background-color: $green;
+        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
+            0 0 8px $green;
+    }
+
+    &.red {
+        background-color: $red;
+        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
+            0 0 8px $red;
+    }
+}
+
+.swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: $color-light-gamma;
+    box-shadow: 0 0 1px rgba(0,0,0,.24) inset;
+    margin-right: $tiny-spacing;
+}

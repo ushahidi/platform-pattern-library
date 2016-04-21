@@ -1,8 +1,6 @@
 modalToggle = function(element) {
    var target = typeof element !== 'undefined' ? element : '.modal';
 
-   console.log(target);
-
    if ($('body').hasClass('modal-visible')) { // If modal is already visible...
       $('body').removeClass('modal-visible');
       setTimeout(function() {
@@ -24,28 +22,12 @@ modalYpos = function() {
    }
 }
 
-modalInit = function(dialog, open) {
-   // Click anything with class name 'modal-trigger'
-   $('[data-modal], .modal-trigger').click(function(e) {
-      if ($(this)[0].hasAttribute('data-modal')) {
-         modalToggle('#'+$(this).attr('data-modal'));
-      } else {
-         modalToggle();
-      }
+$('[data-modal], .modal-trigger').click(function(e) {
+    if ($(this)[0].hasAttribute('data-modal')) {
+        modalToggle('#'+$(this).attr('data-modal'));
+    } else {
+      modalToggle($(this).closest('.modal'));
+    }
 
-      e.preventDefault();
-   });
-
-   if (open == true) {
-      modalToggle();
-   }
-
-   if (dialog == false) {
-      return false;
-   } else {
-      // When modal is visible, click outside the window to close
-      $('.modal-overlay').click(function() {
-         modalToggle();
-      });
-   }
-}
+    e.preventDefault();
+});

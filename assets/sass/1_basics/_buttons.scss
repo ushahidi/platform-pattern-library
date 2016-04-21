@@ -10,7 +10,8 @@ input[type="button"] {
    @include direction;
    color: $white;
    font-weight: $bold;
-   font-size: em(16);
+   font-size: 14px;
+   font-size: 1rem;
    font-family: $base-font-family;
    text-align: center;
    text-transform: uppercase;
@@ -25,10 +26,6 @@ input[type="button"] {
     0 2px 2px rgba(0,0,0,0.24);
    @include lrswap(padding, $tiny-spacing $sm-spacing);
    @include transition(0.3s);
-
-   i:not(.fa-spin) {
-      @include padding-right(10px);
-   }
 
    &:hover {
       cursor: pointer;
@@ -67,18 +64,15 @@ input[type="button"] {
        }
    }
 
+   &[data-button-type="color"] {
+       border-top: 4px solid transparent;
+   }
+
 }
 
 .button-alpha {
     color: $color-primary-beta;
    background-color: $color-secondary;
-
-   [class*="fa-"] {
-
-       &:before, &:after {
-           color: $color-primary-beta;
-       }
-   }
 
    &:hover {
       color: $color-primary-beta;
@@ -156,7 +150,7 @@ input[type="button"] {
     &:focus {
         color: $black;
     }
-    
+
 }
 
 .button-link {
@@ -237,21 +231,6 @@ input[type="button"] {
          border: $base-border;
       }
 
-   }
-
-}
-
-.button-toggle {
-   position: relative;
-   z-index: $bottom + 2;
-   @include transition(0);
-
-   @include icon(after, chevron-down) {
-      padding: 0;
-   }
-
-   &.open:after, .open &:after {
-      @include transform(rotate(180deg));
    }
 
 }

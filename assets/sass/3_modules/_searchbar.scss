@@ -10,13 +10,16 @@
             height: 36px;
             margin: 0;
         }
+
+        + .searchbar-options {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+        }
     }
 
     .searchbar-options {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
 
         .button {
             float: left;
@@ -78,9 +81,6 @@
         top: 100% !important;
         right: 0 !important;
         left: 0 !important;
-    }
-
-    .dropdown-menu {
 
         fieldset {
             margin-bottom: $base-spacing;
@@ -116,6 +116,25 @@
                     width: 32%;
                     padding-right: 1%;
                     margin-bottom: $sm-spacing !important;
+                }
+            }
+
+            .form-field-toggle {
+                font-size: 12px;
+                font-size: .857142857rem;
+                margin-left: 3px;
+
+                @include media($medium) {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 8px;
+                    height: 8px;
+                    overflow: hidden;
+
+                    @include iconic(before, chevron-bottom, $color-light-alpha, 8px) {
+                        margin-right: 0;
+                    }
                 }
             }
         }

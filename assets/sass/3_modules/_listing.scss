@@ -1,0 +1,139 @@
+.listing {
+    position: relative;
+    @include transition(0.3s);
+
+    .listing-heading {
+        display: block;
+        @include typeBeta;
+
+        + .listing-item {
+            margin-top: -$sm-spacing;
+        }
+    }
+
+    .listing-heading-section {
+        display: block;
+        position: relative;
+        @extend .caps;
+    }
+
+    .listing-item {
+        border-bottom: 1px solid $color-light-gamma;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .listing-item-body {
+            display: none;
+        }
+
+        &.active {
+
+            .listing-item-body {
+                display: block;
+            }
+
+            .listing-item-toggle {
+
+                svg.iconic {
+                    @include transform(rotate(180deg));
+                }
+            }
+        }
+    }
+
+    .postcard {
+        margin: $sm-spacing;
+
+        @include media($medium) {
+            margin: $sm-spacing auto;
+        }
+    }
+
+    .listing-toolbar {
+        display: none;
+        position: absolute;
+        top: -100px;
+        right: $sm-spacing;
+        left: $sm-spacing;
+        z-index: $top;
+        @include transition(0.3s);
+
+        @include media($medium) {
+            right: $base-spacing;
+            left: 298px;
+        }
+    }
+
+    &.card {
+        background-color: $color-light-delta;
+
+        .listing-heading {
+            padding: $base-spacing $sm-spacing;
+
+            @include media($medium) {
+                padding: $base-spacing;
+            }
+        }
+    }
+
+    &.timeline {
+
+        .listing-heading,
+        .listing-heading-section {
+            text-align: center;
+        }
+
+        .listing-heading {
+            margin: $sm-spacing;
+
+            @include media($medium) {
+                text-align: left;
+                margin: $tiny-spacing 0;
+            }
+        }
+
+        .listing-heading-section {
+            padding: $tiny-spacing;
+        }
+
+        .postcard,
+        .listing-heading-section {
+
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                top: 100%;
+                left: 50%;
+                width: 4px;
+                height: $sm-spacing;
+                background-color: $color-light-beta;
+                margin-left: -2px;
+            }
+        }
+
+        .postcard {
+
+            &:last-child {
+
+                &:after {
+                    content: none;
+                }
+            }
+        }
+    }
+
+    &.toolbar-active {
+        margin-top: 116px;
+
+        @include media($medium) {
+            margin-top: 100px;
+        }
+
+        .listing-toolbar {
+            display: block;
+        }
+    }
+}

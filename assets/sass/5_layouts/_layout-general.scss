@@ -1,4 +1,5 @@
-.main-col {
+.main-col,
+.secondary-col {
     padding-bottom: 45px;
 
     @include media($medium) {
@@ -191,6 +192,8 @@
 
         @include media($medium) {
             top: 0;
+            box-shadow: -2px 0 6px rgba(0,0,0,0.12) inset,
+                -2px 0 6px rgba(0,0,0,0.24) inset;
 
             .account-menu {
                 position: fixed;
@@ -230,6 +233,27 @@
             @include media($medium-down) {
                 bottom: 45px;
                 @include no-shadow;
+            }
+        }
+    }
+
+    .message {
+        position: fixed;
+        top: -200px;
+        right: 0;
+        left: 0;
+        z-index: $toolbar;
+        @include transition(0.3s);
+
+        @include media($medium) {
+            left: 288px;
+        }
+
+        &.active {
+            top: 55px;
+
+            @include media($medium) {
+                top: 0;
             }
         }
     }

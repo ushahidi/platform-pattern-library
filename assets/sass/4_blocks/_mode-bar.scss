@@ -13,7 +13,6 @@
     }
 
     @include media($medium) {
-        overflow-y: scroll;
         padding-bottom: 140px;
     }
 
@@ -51,8 +50,8 @@
             }
 
             .avatar {
-                width: $base-spacing;
-                height: $base-spacing;
+                width: $lg-spacing;
+                height: $lg-spacing;
                 margin: 4px auto 6px;
             }
 
@@ -142,7 +141,7 @@
             &.active {
 
                 @include media($medium) {
-                    
+
                     a {
                         color: $color-secondary;
 
@@ -217,12 +216,7 @@
                 &:hover {
 
                     .label {
-                        @extend .bug;
                         display: block;
-                        position: absolute;
-                        top: 0;
-                        left: 100%;
-                        margin-left: $tiny-spacing;
                     }
                 }
             }
@@ -232,25 +226,36 @@
 
             @include media($medium) {
                 display: none;
+                position: absolute;
+                top: $tiny-spacing;
+                left: 90%;
+                z-index: $modal;
+                color: $white;
+                @include typeBase;
+                text-align: center;
+                white-space: nowrap;
+                border-radius: 25px;
+                background: $color-primary;
+                padding: $tiny-spacing $sm-spacing;
+                margin-left: 0;
+                box-shadow: 0 0 16px rgba(0,0,0,0.12),
+                    0 16px 16px rgba(0,0,0,0.24);
             }
 
-            @include media($medium-down) {
-
-                .badge {
-                    display: inline-block;
-                    height: $sm-spacing;
-                    width: $sm-spacing;
-                    color: $color-primary-alpha;
-                    font-size: 10px;
-                    font-weight: bold;
-                    text-align: center;
-                    line-height: 1.4;
-                    white-space: nowrap;
-                    vertical-align: middle;
-                    @include equal-radius(100%);
-                    background: $color-secondary;
-                    @include lrswap(margin, 0 0 3px 8px);
-                }
+            .badge {
+                display: inline-block;
+                height: $sm-spacing;
+                width: $sm-spacing;
+                color: $color-primary-alpha;
+                font-size: 10px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 1.4;
+                white-space: nowrap;
+                vertical-align: middle;
+                @include equal-radius(100%);
+                background: $color-secondary;
+                @include lrswap(margin, 0 0 3px 8px);
             }
         }
     }

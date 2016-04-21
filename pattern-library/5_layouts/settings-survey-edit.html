@@ -52,11 +52,27 @@
                 </div>
 
                 <div class="form-field form-field-adapt">
-                    <label class="textarea-label">
+                    <label>
                         Description
                     </label>
-                    <textarea class="adapt-field" name="description" rows="8" cols="40">Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+                    <textarea name="description" data-min-rows='1' rows='1'>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
                 </div>
+
+                <fieldset class="custom-fieldset" data-fieldset-type="color">
+                    <legend>Color</legend>
+
+                    <div class="form-field">
+                        <label>Hex value</label>
+                        <input type="text" data-input-type="color" value="2274B4" />
+                    </div>
+
+                    <div class="form-field">
+                        <button class="button-gamma" data-button-type="color" value="8D1919" disabled>Red</button>
+                        <button class="button-gamma" data-button-type="color" value="CB872E">Orange</button>
+                        <button class="button-gamma" data-button-type="color" value="2274B4">Blue</button>
+                        <button class="button-gamma" data-button-type="color" value="517923">Green</button>
+                    </div>
+                </fieldset>
 
                 <div class="form-field select">
                     <div class="custom-select">
@@ -84,7 +100,7 @@
             <div class="listing card">
                 <h3 class="listing-heading">Fields</h3>
 
-                <nav class="tabs-menu">
+                <nav class="tabs-menu" data-tabs="tasks-tabs">
                     <ul>
                         <li class="active">
                             <a href="#tasks-submit">
@@ -113,7 +129,7 @@
                     </ul>
                 </nav>
 
-                <div id="tasks-submit" class="tabs-content">
+                <div id="tasks-submit" class="tasks-tabs">
 
                      <div class="listing-item">
                          <div class="listing-item-primary">
@@ -169,7 +185,7 @@
                          </div>
 
                          <div class="listing-item-primary">
-                             <h2 class="listing-item-title"><a href="" data-modal="edit-field">Witness</a></h2>
+                             <h2 class="listing-item-title"><a href="" data-modal="edit-field">Witness</a> <em>text field</em></h2>
                          </div>
                      </div>
 
@@ -185,6 +201,22 @@
                              </h2>
                          </div>
                      </div>
+
+                </div>
+
+                <div id="tasks-verify" class="tasks-tabs">
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title"><a href="">Verified</a> <em>toggle switch</em></h2>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title"><a href="">Notes</a> <em>long text</em></h2>
+                        </div>
+                    </div>
 
                 </div>
 
@@ -306,10 +338,6 @@
      </div>
 
     @@include('../partials/_scripts.html')
-    <script>
-    // Treat window as dialog, open on page load
-    modalInit(true, false);
-    </script>
 
 </body>
 

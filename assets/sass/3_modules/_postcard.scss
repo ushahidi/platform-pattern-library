@@ -61,10 +61,26 @@
         position: relative;
         color: $color-dark-alpha;
         @include typeGamma;
+        margin-right: $lg-spacing;
         margin-bottom: 10px;
 
         .post-band {
             left: -$sm-spacing;
+        }
+    }
+
+    .postcard-image {
+        position: absolute;
+        top: $sm-spacing;
+        left: $sm-spacing;
+
+        + .postcard-title {
+            padding-left: 56px;
+            margin-right: 0;
+
+            + .postcard-metadata {
+                padding-left: 56px;
+            }
         }
     }
 
@@ -86,6 +102,15 @@
             height: 20px;
             margin-top: -3px;
             margin-right: $tiny-spacing/2;
+        }
+    }
+
+    .postcard-author,
+    .postcard-title {
+
+        .avatar {
+            width: 20px;
+            height: 20px;
 
             &:hover {
                 border-color: rgba(0,0,0,.24);
@@ -105,6 +130,7 @@
         }
 
         img.postcard-image {
+            position: static;
             border: 1px solid rgba(0,0,0,.1);
             box-shadow: 0 1px 1px rgba(0,0,0,.1);
         }
@@ -150,6 +176,13 @@
             .form-label {
                 border-top: $base-border;
             }
+
+            &:first-child {
+
+                .form-label {
+                    border-top: none;
+                }
+            }
         }
 
         .postcard-actions-trigger {
@@ -159,6 +192,10 @@
                 top: $lg-spacing;
                 right: $base-spacing;
             }
+        }
+
+        .dropdown-menu {
+            top: 56px !important;
         }
     }
 }

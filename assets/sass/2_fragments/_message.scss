@@ -1,0 +1,83 @@
+.message {
+    position: relative;
+    @extend .sheet;
+    color: $color-light-delta;
+    @include equal-radius(0px);
+    background-color: $color-primary;
+    padding: $tiny-spacing $sm-spacing;
+
+    @include media($medium) {
+        padding: $tiny-spacing $base-spacing;
+    }
+
+    p {
+        margin: $tiny-spacing 0;
+    }
+
+    strong {
+        color: $white;
+    }
+
+    button,
+    .button {
+        margin: $tiny-spacing;
+        margin-left: 0;
+
+        + .button-link {
+            padding-right: $sm-spacing;
+            padding-left: $sm-spacing;
+            margin: $tiny-spacing;
+            margin-left: 0;
+        }
+    }
+
+    .button-link {
+        color: $color-tertiary;
+        padding-right: 0;
+        padding-left: 0;
+        margin: 0 $tiny-spacing 0 0;
+
+        svg.iconic {
+            fill: $color-tertiary;
+        }
+    }
+
+    .message-image {
+        width: 40px;
+        height: 40px;
+        @include equal-radius(100%);
+        text-align: center;
+        background-color: $color-primary-delta;
+        margin: $tiny-spacing auto;
+
+        + .message-body {
+            margin-top: $sm-spacing;
+        }
+
+        @include media($medium) {
+            position: absolute;
+            top: $tiny-spacing;
+            left: $base-spacing;
+
+            + .message-body {
+                padding-left: 56px;
+                margin-top: 0;
+            }
+        }
+
+        &.confirmation {
+            background-color: $confirmation-color;
+        }
+
+        &.error {
+            background-color: $error-color;
+        }
+
+        svg.iconic {
+            width: $base-spacing;
+            height: $base-spacing;
+            fill: $white;
+            margin-top: 7px;
+        }
+    }
+}
