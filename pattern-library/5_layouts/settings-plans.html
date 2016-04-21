@@ -4,33 +4,40 @@
 <!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]-->
 <!--[if gt IE 9]><!-->
-<html class="no-js" lang="en">
+<html lang="en">
 <!--<![endif]-->
 
 @@include('../partials/_pl-head.html')
 
-    <body class="layout-a">
+    <body class="layout-c">
 
-        @@include('../partials/_mode-bar-context.html')
+        @@include('../partials/_mode-bar.html')
 
-        <div class="wrapper">
+        <div class="mode-context">
 
-            <main class="page-content" role="main">
+            <header class="mode-context-header">
+                <ol class="breadcrumbs">
+                    <li><a href="">March on City Hall</a></li>
+                    <li><a href="">Settings</a></li>
+                </ol>
 
-                @@include('../partials/_toolbar.html')
-                @@include('../partials/_toolbox.html')
+                <h1 class="mode-context-title">Plans</h1>
+            </header>
 
-                <div class="page-header">
-                    <ul class="breadcrumb">
-                        <li>
-                            Settings
-                        </li>
-                    </ul>
-                    <h1>Plans</h1>
-                </div>
+            <span class="mode-context-trigger">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show more/less</span>
+            </span>
+        </div>
 
-                <div class="main-col">
-                    <div class="tiers" style="margin-top:20px">
+        <main role="main">
+
+           <div class="main-col">
+
+                    <div class="tiers">
+
                         <div class="tier">
                             <div class="tier-header">
                                 <h2 class="tier-name">Mapper</h2>
@@ -43,7 +50,7 @@
                             </div>
 
                             <div class="tier-action">
-                                <button disabled>&check; Subscribed</button>
+                                <button class="button-alpha" disabled>&check; Subscribed</button>
                             </div>
 
                             <div class="tier-feature-list">
@@ -70,7 +77,7 @@
                             </div>
 
                             <div class="tier-action">
-                                <button>Choose Surveyor</button>
+                                <button class="button-alpha" data-modal="payment">Choose Surveyor</button>
                             </div>
 
                             <div class="tier-feature-list">
@@ -83,7 +90,7 @@
                             </div>
                         </div>
 
-                        <div class="tier disabled">
+                        <div class="tier">
                             <div class="tier-header">
                                 <h2 class="tier-name">Responder</h2>
                                 <p>For organizations that need to manage their data workflow</p>
@@ -97,7 +104,7 @@
                             </div>
 
                             <div class="tier-action">
-                                <a href="http://ushahidi.com/contact" target="_blank" class="button tour-link">Contact us</a>
+                                <a href="http://ushahidi.com/contact" target="_blank" class="button button-beta tour-link">Contact us</a>
                             </div>
 
                             <div class="tier-feature-list">
@@ -110,7 +117,7 @@
                             </div>
                         </div>
 
-                        <div class="tier disabled">
+                        <div class="tier">
                             <div class="tier-header">
                                 <h2 class="tier-name">Orbiter</h2>
                                 <p>For enterprises managing large, sensitive data sets</p>
@@ -124,7 +131,7 @@
                             </div>
 
                             <div class="tier-action">
-                                <a href="http://ushahidi.com/contact" target="_blank" class="button tour-link">Contact us</a>
+                                <a href="http://ushahidi.com/contact" target="_blank" class="button button-beta tour-link">Contact us</a>
                             </div>
 
                             <div class="tier-feature-list">
@@ -137,13 +144,77 @@
                             </div>
                         </div>
                     </div>
-                </div>
+
+            </div>
                 <!--end main col-->
 
-            </main>
-            <!--end layout a-->
+        </main>
 
-        </div>
+        <div id="payment" class="modal">
+            <div class="modal-window">
+               <h3 class="modal-title">
+                   Change your plan to Surveyor
+               </h3>
+
+               <div class="modal-body">
+
+                   <div class="form-field">
+                       <label class="required">Name on card</label>
+                       <input type="text" required placeholder="Jane Doe" />
+                   </div>
+
+                   <div class="form-field">
+                       <label class="required">Credit card number</label>
+                       <input type="text" required inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number">
+                   </div>
+
+                   <div class="flex-col">
+                        <div class="col">
+                            <fieldset>
+                                <legend class="required">Expiration</legend>
+                                <div class="custom-select">
+                                    <select name="cc-exp-month" required autocomplete="cc-exp-month">
+                                        <option value="1">Month</option>
+                                        <option value="2">January</option>
+                                        <option value="3">February</option>
+                                    </select>
+                                </div>
+                                <div class="custom-select">
+                                    <select name="cc-exp-year" required autocomplete="cc-exp-year">
+                                        <option value="1">Year</option>
+                                        <option value="2">2015</option>
+                                        <option value="3">2016</option>
+                                    </select>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-field">
+                                <label class="required">CVV</label>
+                                <input style="width:80px;" type="text" required inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv" />
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="form-field">
+                                <label>Zip/Postal Code</label>
+                                <input style="width:100px;" type="text" placeholder="" id="cc-zip" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <p>* These fields are required.</p>
+
+                   <div class="form-field">
+                       <button type="button" class="button-link  modal-trigger">Cancel</button>
+                       <button type="button" class="button-alpha modal-trigger">Continue</button>
+                   </div>
+               </div>
+            </div>
+
+            <div class="modal-overlay"></div>
+         </div>
 
         @@include('../partials/_scripts.html')
     </body>

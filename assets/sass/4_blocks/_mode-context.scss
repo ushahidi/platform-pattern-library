@@ -137,6 +137,27 @@
     .mode-context-body {
         padding: 0 $sm-spacing $base-spacing;
 
+        .form-field {
+            text-align: center;
+            margin-top: $sm-spacing;
+
+            button,
+            .button {
+                margin: $tiny-spacing;
+            }
+        }
+
+        .button-link {
+            color: $color-secondary;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        .bug {
+            text-align: left;
+            margin: 4px auto;
+        }
+
         @include media($medium) {
             padding: 0 $base-spacing $base-spacing;
 
@@ -145,7 +166,6 @@
             input[type="button"] {
                 position: relative;
                 text-align: left;
-                padding-left: 40px;
 
                 svg.iconic {
                     position: absolute;
@@ -154,6 +174,8 @@
                     margin-top: -6px;
 
                     + .button-label {
+                        display: inline-block;
+                        padding-left: $base-spacing;
                         margin-left: 0;
                     }
                 }
@@ -225,38 +247,6 @@
             .mode-context-body {
                 display: block;
             }
-        }
-    }
-
-    .search-summary-wrapper {
-        margin: $base-spacing auto;
-
-        .search-summary-actions {
-            display: block;
-
-            button {
-                display: inline;
-
-                @include media($medium) {
-                    display: block;
-                    width: 80%;
-                    margin: 20px auto 10px;
-                }
-
-            }
-
-            .button-flat {
-                background: transparent;
-                margin-top: 10px;
-                color: $highlight;
-                font-size: em(13);
-
-                @include media($medium) {
-                    width: 100%;
-                }
-
-            }
-
         }
     }
 

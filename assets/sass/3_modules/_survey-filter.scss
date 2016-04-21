@@ -92,11 +92,6 @@
 
                 @include media($medium) {
                     padding-left: $base-spacing;
-
-                    &:hover {
-                        cursor: pointer;
-                        left: $base-spacing+15;
-                    }
                 }
             }
 
@@ -106,6 +101,22 @@
                 @include media($medium) {
                     right: 100%;
                     left: auto;
+                }
+            }
+
+            @include media($medium) {
+
+                &:hover {
+                    cursor: pointer;
+
+                    label {
+                        cursor: pointer;
+                        left: $base-spacing+15;
+                    }
+
+                    input[type="checkbox"] {
+                        cursor: pointer;
+                    }
                 }
             }
         }

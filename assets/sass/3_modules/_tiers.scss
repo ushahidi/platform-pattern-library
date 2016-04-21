@@ -1,9 +1,8 @@
 .tier {
     @include clearfix;
     position: relative;
-    color: $dk-gray;
+    @extend .card;
     text-align: center;
-    background-color: #EFECE8;
     margin: $base-spacing auto;
 
     @include media($small) {
@@ -12,11 +11,12 @@
     }
 
     .tier-header {
-        position: relative;
-        overflow: hidden;
-        border: $base-border;
-        background-color: $white;
-        padding: 0 $base-spacing 35px;
+        padding: $base-spacing $sm-spacing 35px;
+
+        @include media($small) {
+            padding-right: $base-spacing;
+            padding-left: $base-spacing;
+        }
 
         .tier-header-body {
             position: relative;
@@ -39,17 +39,6 @@
         .tier-header {
             background-color: $white;
         }
-    }
-
-    &.disabled {
-
-        .tier-action button,
-        .tier-action .button {
-            color: $dk-gray;
-            border: 2px solid #EFECE8;
-            background-color: $white;
-        }
-
     }
 
     .tier-summary {
@@ -159,44 +148,19 @@
 
     .tier-action {
         position: absolute;
-        z-index: 1;
         right: 0;
         left: 0;
+        z-index: $body;
         text-align: center;
         margin-top: -$base-spacing;
 
-        button,
-        .button {
-            color: $black;
-            background-color: $yellow;
-            margin: 0 auto;
+        button {
 
-            &.disabled, &[disabled] {
-                color: $white;
-                background-color: $button-bg-disabled-color;
+            &[disabled],
+            &:disabled {
+                opacity: 1;
+                color: $color-dark-delta;
             }
-
-            &:hover {
-                cursor: pointer;
-
-                &.disabled, &[disabled] {
-                    cursor: not-allowed;
-                }
-            }
-        }
-
-        .button-tertiary {
-            color: $white;
-            background-color: $dk-gray;
-        }
-
-        .btn {
-            display: inline-block;
-            border: 2px solid $blue;
-            @include equal-radius;
-            background-color: $white;
-            padding: 5px 10px;
-            margin: $sm-spacing 0;
         }
     }
 
@@ -214,22 +178,19 @@
     }
 
     .tier-feature-list {
-        background-color: #EFECE8;
-        padding-top: $base-spacing;
-        padding-bottom: $sm-spacing;
+        border-top: $base-border;
+        background-color: $color-light-delta;
+        padding-top: $sm-spacing;
 
         ul, ol {
-            margin: 0;
+            @extend .list-reset;
         }
 
         li,
         em {
             display: block;
-            color: $mid-black;
-            font-size: em(14);
             border-bottom: $base-border;
-            border-bottom-color: #E0E0E0;
-            padding: 15px;
+            padding: $sm-spacing;
             margin-bottom: 0;
         }
 
@@ -239,13 +200,6 @@
                 border-bottom-color: transparent;
             }
         }
-    }
-
-    .cta {
-        font-weight: $bold;
-        font-size: em(12);
-        text-transform: uppercase;
-        text-decoration: none;
     }
 }
 
@@ -258,19 +212,19 @@
 
     .tier {
         max-width: none;
-        margin: $base-spacing 0 $lg-spacing;
+        margin: $base-spacing $sm-spacing;
         @include transition(0.85s ease-in-out);
 
-        @include media($small) {
-            float: left;
-            width: 50%;
-            height: 530px;
-            margin: 0;
-        }
-
         @include media($medium) {
+            float: left;
             width: 25%;
-            height: 600px;
+            height: 680px;
+            background-color: $color-light-delta;
+            margin: 0;
+
+            .tier-header {
+                background-color: $white;
+            }
 
             .tier-feature-list {
                 padding-bottom: $base-spacing;

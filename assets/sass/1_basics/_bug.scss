@@ -1,5 +1,6 @@
 .bug {
     display: inline-block;
+    position: relative;
     color: $white;
     @include typeBase;
     text-align: center;
@@ -30,33 +31,17 @@
         @include lrswap(margin, 0 0 3px 8px);
     }
 
-}
-
-.search-summary-bug {
-    @extend .bug;
-    position: relative;
-    margin-bottom: 10px;
-    padding: 8px 11px;
-    text-align: left;
-
-    @include media($medium) {
-        min-width: 179px;
-    }
-
-    svg {
+    svg.iconic {
         position: absolute;
         top: 50%;
+        left: 10px;
         margin-top: -6px;
         fill: $highlight;
-    }
 
-    span {
-        display: block;
-        @include padding-left(20px);
-    }
-
-    em {
-        @include padding-right(5px);
+        + * {
+            display: block;
+            @include padding-left(20px);
+        }
     }
 
 }

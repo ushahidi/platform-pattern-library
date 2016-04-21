@@ -17,6 +17,7 @@
     <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>-->
     <link href='../../fonts/Lato/css/fonts.css' rel='stylesheet' type='text/css'>
     <link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 
 
@@ -525,7 +526,7 @@
 
 
     <div class="button-group">
-        <button type="button">
+        <button type="button" data-modal="share">
             <svg class="iconic">
               <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
             </svg>
@@ -782,7 +783,79 @@
 
     </main> <!--end layout a-->
 
-    <div id="collections" class="modal">
+    <div id="share" class="modal">
+    <div class="modal-window">
+        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#x"></use>
+            </svg>
+           <span class="hidden">Close</span>
+        </button>
+
+       <h3 class="modal-title">
+           <svg class="iconic">
+               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#share"></use>
+           </svg>
+           <span class="label">Share</span>
+       </h3>
+
+       <div class="modal-body">
+
+           <div class="listing">
+
+               <div class="listing-item">
+                   <div class="listing-item-primary">
+                       <div class="listing-item-image">
+                           <img class="icon" src="/assets/img/facebook.png" alt="">
+                       </div>
+                       <h2 class="listing-item-title"><a href="https://www.facebook.com/sharer/sharer.php?u=THISURL">Facebook</a></h2>
+                   </div>
+               </div>
+
+               <div class="listing-item">
+                   <div class="listing-item-primary">
+                       <div class="listing-item-image">
+                           <img class="icon" src="/assets/img/twitter.png" alt="">
+                       </div>
+                       <h2 class="listing-item-title"><a href="https://twitter.com/home?status=THISURL">Twitter</a></h2>
+                   </div>
+               </div>
+
+               <div class="listing-item">
+                   <div class="listing-item-secondary">
+                       <button type="button" class="button-link listing-item-toggle">
+                           <svg class="iconic">
+                             <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                           </svg>
+                           <span class="button-label">Configure</span>
+                       </button>
+                   </div>
+
+                   <div class="listing-item-primary">
+                       <h2 class="listing-item-title listing-item-toggle">Embed</h2>
+                   </div>
+
+                   <div class="listing-item-body">
+                       <div class="form-field">
+                           <label>HTML</label>
+                           <textarea><iframe width="560" height="315" src="https://www.youtube.com/embed/HQMcLhcwmgc" frameborder="0" allowfullscreen></iframe></textarea>
+                       </div>
+                   </div>
+               </div>
+
+               <div class="listing-item">
+                   <div class="listing-item-primary">
+                       <h2 class="listing-item-title"><a href="">Export to CSV</a></h2>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+ </div>
+
+<div id="collections" class="modal">
     <div class="modal-window">
         <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
             <svg class="iconic">

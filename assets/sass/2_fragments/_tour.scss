@@ -16,7 +16,7 @@
 .tour-mask {
     display: none;
     position: fixed;
-    z-index: 999;
+    z-index: $modal;
     top: 0;
     right: 0;
     bottom: 0;
@@ -28,43 +28,31 @@
     @include scale(0);
     @include border-box;
     position: absolute;
-    z-index: 2999;
+    z-index: $modal;
     top: -100%;
     width: 90%;
     max-height: 85%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    color: $white;
-    text-align: center;
-    border: 5px solid #2b323a;
-    @include equal-radius(6px);
-//    background: #2b323a url(http://github.ushahidi.org/dotcom-pattern-library/assets/img/map-bg.png);
-    background-color: #3F4751;
-    @include box-shadow($top: 0, $left: 0, $blur: 25px, $spread: 0, $color: rgba(0,0,0,.8), $inset: false);
-    padding: $base-spacing;
-    margin: auto 5%;
+    @extend .sheet;
+    padding: $sm-spacing;
+    margin: auto $sm-spacing;
 
     @include media($small) {
         width: 50%;
-        padding: $lg-spacing;
         margin: 0;
         margin-left: -25%;
     }
 
     @include media($medium) {
         width: 60%;
-        padding: $lg-spacing;
+        padding: $base-spacing;
         margin-left: -30%;
     }
 
     .tour-tagline {
         display: block;
-        color: #C7CCD4;
-        font-weight: 300;
-        font-size: 2.25em;
-        text-transform: uppercase;
-        text-shadow: 0 1px 1px $black;
-        letter-spacing: 2px;
+        @include typeAlpha;
         margin-bottom: $sm-spacing;
 
         @include media($small) {

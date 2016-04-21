@@ -1,4 +1,5 @@
 popupActions = function() {
+    /*
     $('.post-popup .toggle-js').click(function() {
         $(this).toggleClass('open');
         $(this).parent().siblings('.toggle-content').toggleClass('visible');
@@ -9,13 +10,11 @@ popupActions = function() {
         $(this).closest('.toggle-content').removeClass('visible');
         $(this).parents('ul, li, .toggle-content').siblings('.toggle-js').removeClass('open');
     });
+    */
+    console.log('yp');
 };
 
 if ($('#map').length) {
-
-    if ( $('.post-popup').hasClass('has-image') ) {
-        $('.post-popup').parents('.leaflet-popup-content-wrapper').siblings('.leaflet-popup-tip-container').children('.leaflet-popup-tip').addClass('black-arrow');
-    }
 
     var map = L.map('map', {
         center: [30.267153, -97.743061],
@@ -32,7 +31,8 @@ if ($('#map').length) {
         maxZoom: 18,
         }).addTo(map);
 
-    var popup = '<article class="postcard">
+    var popup = L.popup()
+    .setContent('<article class="postcard">
         <div class="post-band" style="background-color: #8D1919;"></div>
         <div class="postcard-body">
             <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
@@ -82,7 +82,7 @@ if ($('#map').length) {
                 </a>
             </li>
         </ul>
-    </article>';
+    </article>');
 
     var popupOptions =
         {
@@ -114,13 +114,19 @@ if ($('#map').length) {
         icon: customIcon
     })
     .addTo(map)
-    .bindPopup(popup, popupOptions)
-    .on('popupopen', popupActions);
+    .bindPopup(popup);
 
     var marker = L.marker([36.072635, -79.791975], {
             icon: customIconAlt
     })
     .addTo(map)
-    .bindPopup(popup, popupOptions)
-    .on('popupopen', popupActions);
+    .bindPopup(popup)
+    .on('click', markerClick);
+
+    function markerClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .openOn(map);
+            console.log('pop');
+    }
 }

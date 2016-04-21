@@ -10,11 +10,17 @@ label,
         color: $error-color;
     }
 
-    &[required],
     &.required {
-        content: '\2217';
-        color: $red;
-        padding-left: $tiny-spacing;
+
+        &:after {
+            content: '\2217';
+            position: relative;
+            top: -2px;
+            color: $red;
+            font-weight: normal;
+            font-size: 1.428571429em;
+            margin-left: 4px;
+        }
     }
 }
 
@@ -68,6 +74,10 @@ textarea {
    .rtl & {
       max-width: 100%;
    }
+}
+
+input[type="search"] {
+    -webkit-appearance: none;
 }
 
 input[type="file"] {
@@ -137,12 +147,12 @@ select {
     @include direction;
     font-size: $base-font-size;
     font-family: $base-font-family;
+    line-height: 1.4;
     @include equal-radius;
     border: $base-border-dark;
     //background: $color-light-delta url(../img/icons/chevron-bottom.svg) 90% center no-repeat;
     background-color: $color-light-delta;
     @include lrswap(padding, $tiny-spacing 26px $tiny-spacing $tiny-spacing);
-    line-height: 1.2;
 }
 
 .custom-select {
@@ -171,6 +181,19 @@ fieldset {
       top: 0;
       @include left(0);
       @extend .caps;
+
+      &.required {
+
+          &:after {
+              content: '\2217';
+              position: relative;
+              top: -2px;
+              color: $red;
+              font-weight: normal;
+              font-size: 1.428571429em;
+              margin-left: 4px;
+          }
+      }
 
       svg.iconic {
           fill: $text-color;
