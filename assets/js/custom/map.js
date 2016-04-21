@@ -22,6 +22,8 @@ if ($('#map').length) {
         scrollWheelZoom: false
     });
 
+    map.zoomControl.setPosition('bottomleft');
+
     mapLink =
         '<a href="http://openstreetmap.org">OpenStreetMap</a>';
 
@@ -29,7 +31,7 @@ if ($('#map').length) {
         'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; ' + mapLink + ' Contributors',
         maxZoom: 18,
-        }).addTo(map);
+    }).addTo(map);
 
     var popup = L.popup()
     .setContent('<article class="postcard">
