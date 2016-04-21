@@ -38,8 +38,8 @@ if ($('#map').length) {
             <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
             <span class="postcard-metadata"><a href="" class="postcard-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS</span>
 
-            <div class="postcard-image">
-                <img src="http://lorempixel.com/400/300/" />
+            <div class="postcard-field">
+                <img src="http://lorempixel.com/400/300/" class="postcard-image" />
             </div>
         </div>
 
