@@ -9,8 +9,7 @@
    left: 5%;
    top: $base-spacing;
    @extend .sheet;
-   padding: $sm-spacing;
-   padding-bottom: $tiny-spacing;
+   padding: 0 $sm-spacing;
    margin-bottom: $base-spacing;
 
    &.ushahidi-logo {
@@ -24,7 +23,7 @@
    }
 
    @include media($mobile) {
-      padding: $base-spacing;
+      padding: 0 $base-spacing;
    }
 
    @include media($small) {
@@ -38,7 +37,7 @@
        font-weight: $bold;
        font-size: 20px;
        font-size: 1.428571429rem;
-       margin-bottom: $base-spacing;
+       margin: $base-spacing 0;
 
        @include media($small) {
            font-size: 24px;
@@ -65,11 +64,11 @@
 
    .modal-trigger-close {
       position: absolute;
-      top: $sm-spacing - 4;
+      top: $base-spacing;
       @include right($sm-spacing);
+      margin-top: -$tiny-spacing;
 
       @include media($mobile) {
-          top: $base-spacing - 4;
          @include right($base-spacing);
       }
    }
@@ -111,6 +110,13 @@
 
        .listing-item {
            border-bottom-color: $color-light-beta;
+       }
+   }
+
+   .form-field {
+
+       &:last-child {
+           margin-bottom: $sm-spacing;
        }
    }
 

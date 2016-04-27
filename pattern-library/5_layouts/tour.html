@@ -9,68 +9,75 @@
 
 @@include('../partials/_pl-head.html')
 
-    <body class="layout-b tour-focused">
+    <body class="layout-a tour-focused">
 
         <div class="tour-mask"></div>
+
+        <div class="tour-pin">
+            <span class="pulse"></span>
+        </div>
 
         <div id="start" class="tour-message tour-modal">
             <strong class="tour-tagline">Howdy</strong>
             <h2 class="tour-heading">And welcome to your new Ushahidi deployment.</h2>
-            <p class="tour-body">While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
-            <div class="tour-actions">
-                <button data-cue="add-post" class="button">Continue</button>
-                <a data-cue="plans" class="cta">Skip</a>
+
+            <p>While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
+
+            <div class="form-field">
+                <button data-cue="add-post" class="button-alpha">Continue</button>
             </div>
+            <a data-cue="plans" class="button button-link">Skip</a>
         </div>
 
         <div id="add-post" class="tour-message">
             <h2 class="tour-heading">Collect Data</h2>
             <!--img src="http://ushahidi.com/uploads/feature-images/feature-1.svg" class="tour-image" /-->
-            <p class="tour-body">Gather submissions from many sources, starting with your deployment's
+            <p>Gather submissions from many sources, starting with your deployment's
                 <em>"Add post"</em>
                 button, or from SMS, email, and Twitter. You can collect multiple data types, as well, using custom
                 <em>"Post Types."</em>
             </p>
-            <div class="tour-actions">
-                <a data-cue="start" class="cta">&lsaquo; Back</a>
-                <button data-cue="views" class="button">Continue</button>
-                <a data-cue="plans" class="cta">Skip</a>
+            <div class="form-field">
+                <a data-cue="start" class="button button-beta">&lsaquo; Back</a>
+                <button data-cue="views" class="button-alpha">Continue</button>
             </div>
+            <a data-cue="plans" class="button button-link">Skip</a>
         </div>
 
         <div id="views" class="tour-message">
             <h2 class="tour-heading">Data Visualization</h2>
-            <p class="tour-body">Every data set can be viewed in a Map, List, Bar Chart, or Timeline. Just select the view you want at any time.</p>
-            <div class="tour-actions">
-                <a data-cue="add-post" class="cta">&lsaquo; Back</a>
-                <button data-cue="search" class="button">Continue</button>
-                <a data-cue="plans" class="cta">Skip</a>
+            <p>Every data set can be viewed in a Map, List, Bar Chart, or Timeline. Just select the view you want at any time.</p>
+
+            <div class="form-field">
+                <a data-cue="add-post" class="button button-beta">&lsaquo; Back</a>
+                <button data-cue="search" class="button-alpha">Continue</button>
             </div>
+            <a data-cue="plans" class="button button-link">Skip</a>
         </div>
 
         <div id="search" class="tour-message">
             <h2 class="tour-heading">Filter, Search, and Save</h2>
-            <p class="tour-body">Drill into the data you need using power filters. Once you have the data you need, create a
+            <p>Drill into the data you need using power filters. Once you have the data you need, create a
                 <em>Saved Search</em>
                 so you can easily return to or share it. Your Saved Searches are always available from your deployment's main menu.</p>
 
-            <div class="tour-actions">
-                <a data-cue="views" class="cta">&lsaquo; Back</a>
-                <button data-cue="customize" data-pin="false" class="button">Continue</button>
-                <a data-cue="plans" data-pin="false" class="cta">Skip</a>
+            <div class="form-field">
+                <a data-cue="views" class="button button-beta">&lsaquo; Back</a>
+                <button data-cue="customize" data-pin="false" class="button-alpha">Continue</button>
             </div>
+            <a data-cue="plans" data-pin="false" class="button button-link">Skip</a>
         </div>
 
         <div id="customize" class="tour-message">
             <h2 class="tour-heading">Customize</h2>
-            <p class="tour-body">Add a description, create a new Post Type, configure how data flows through your deployment, and more -- all from your deployment's
+            <p>Add a description, create a new Post Type, configure how data flows through your deployment, and more -- all from your deployment's
                 <em>Settings</em>.</p>
 
-            <div class="tour-actions">
-                <a data-cue="search" class="cta">&lsaquo; Back</a>
-                <button data-cue="plans" data-pin="false" class="button">Continue</button>
-                <a data-cue="plans" data-pin="false" class="cta">Skip</a>
+            <div class="form-field">
+                <a data-cue="search" class="button button-beta">&lsaquo; Back</a>
+                <button data-cue="plans" data-pin="false" class="button-alpha">Continue</button>
             </div>
+            <a data-cue="plans" data-pin="false" class="button button-link">Skip</a>
         </div>
 
         <div id="plans" class="tour-message tour-modal">
@@ -78,47 +85,49 @@
 
             <div class="tiers">
                 <div class="payment">
-                    <h3>Enter your payment information</h3>
+                    <h3 class="tour-heading">Enter your payment information</h3>
                     <form>
-                        <label class="input-label required" for="cc-name">Name on card</label>
-                        <input type="text" placeholder="Jane Doe" id="cc-name"></input>
-
-                        <label class="input-label required" for="cc-number">Credit Card Number</label>
-                        <input type="text" inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number"/>
-
-                        <div class="flex-col">
-                            <div class="col">
-                                <fieldset>
-                                    <legend class="input-label">Expiration</legend>
-                                    <div class="custom-select">
-                                        <select name="cc-exp-month" autocomplete="cc-exp-month">
-                                            <option value="1">Month</option>
-                                            <option value="2">January</option>
-                                            <option value="3">February</option>
-                                        </select>
-                                    </div>
-                                    <div class="custom-select">
-                                        <select name="cc-exp-year" autocomplete="cc-exp-year">
-                                            <option value="1">Year</option>
-                                            <option value="2">2015</option>
-                                            <option value="3">2016</option>
-                                        </select>
-                                    </div>
-                                </fieldset>
-                            </div>
-
-                            <div class="col">
-                                <label class="input-label required" for="cc-cvv">CVV</label>
-                                <input style="width:80px;" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv"></input>
-                            </div>
-
-                            <div class="col">
-                                <label class="input-label required" for="cc-zip">Zip/Postal Code</label>
-                                <input style="width:100px;" type="text" placeholder="" id="cc-zip"></input>
-                            </div>
+                        <div class="form-field">
+                            <label class="required">Name on card</label>
+                            <input type="text" required placeholder="Jane Doe" />
                         </div>
 
-                        <p class="small">*These fields are required.</p>
+                        <div class="form-field">
+                            <label class="required">Credit card number</label>
+                            <input type="text" required inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number">
+                        </div>
+
+                         <fieldset>
+                             <legend class="required">Expiration</legend>
+                             <div class="custom-select">
+                                 <select name="cc-exp-month" required autocomplete="cc-exp-month">
+                                     <option value="1">Month</option>
+                                     <option value="2">January</option>
+                                     <option value="3">February</option>
+                                 </select>
+                             </div>
+                             <div class="custom-select">
+                                 <select name="cc-exp-year" required autocomplete="cc-exp-year">
+                                     <option value="1">Year</option>
+                                     <option value="2">2015</option>
+                                     <option value="3">2016</option>
+                                 </select>
+                             </div>
+                         </fieldset>
+
+                         <div class="form-field">
+                             <label class="required">CVV</label>
+                             <input style="width:80px;" type="text" required inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv" />
+                         </div>
+
+                         <div class="form-field">
+                             <label>Zip/Postal Code</label>
+                             <input style="width:100px;" type="text" placeholder="" id="cc-zip" />
+                         </div>
+
+                         <div class="form-field">
+                             <p>* These fields are required.</p>
+                         </div>
 
                         <input type="hidden" id="selected-tier" name="selected-tier" value=""/>
 
@@ -139,7 +148,7 @@
                     </div>
 
                     <div class="tier-action">
-                        <button data-cue="finished">Choose Mapper</button>
+                        <button data-cue="finished" class="button-alpha">Choose Mapper</button>
                     </div>
 
                     <div class="tier-feature-list">
@@ -166,7 +175,7 @@
                     </div>
 
                     <div class="tier-action">
-                        <button data-payment="surveyor">Choose Surveyor</button>
+                        <button data-payment="surveyor" class="button-alpha">Choose Surveyor</button>
                     </div>
 
                     <div class="tier-feature-list">
@@ -193,7 +202,7 @@
                     </div>
 
                     <div class="tier-action">
-                        <a href="http://ushahidi.com/contact" target="_blank" class="button tour-link">Contact us</a>
+                        <a href="http://ushahidi.com/contact" target="_blank" class="button button-beta tour-link">Contact us</a>
                     </div>
 
                     <div class="tier-feature-list">
@@ -220,7 +229,7 @@
                     </div>
 
                     <div class="tier-action">
-                        <a href="http://ushahidi.com/contact" target="_blank" class="button tour-link">Contact us</a>
+                        <a href="http://ushahidi.com/contact" target="_blank" class="button button-beta tour-link">Contact us</a>
                     </div>
 
                     <div class="tier-feature-list">
@@ -234,20 +243,20 @@
                 </div>
 
                 <div class="tier-view-all">
-                    <a href="http://ushahidi.com/plans-detail" target="_blank" class="cta">View &amp; compare all plan features</a>
+                    <a href="http://ushahidi.com/plans-detail" target="_blank">View &amp; compare all plan features</a>
                 </div>
             </div>
 
             <div class="two-col">
                 <div class="col">
                     <h2 class="tour-heading">Free for charities</h2>
-                    <p class="tour-body">Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
+                    <p>Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
                     <a href="" target="_blank" class="button">Apply for Free Ushahidi</a>
                 </div>
 
                 <div class="col">
                     <h2 class="tour-heading">Self-hosted Ushahidi</h2>
-                    <p class="tour-body">Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
+                    <p>Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
                     <a href="" target="_blank" class="button">Download Open Source Code</a>
                 </div>
             </div>
@@ -258,12 +267,12 @@
 
             <!--// IF DEPLOYMENT IS READY //-->
             <h2 class="tour-heading">We hope you enjoy your new deployment.</h2>
-            <p class="tour-body">If you ever need help, you can always find it at Ushahidi's
+            <p>If you ever need help, you can always find it at Ushahidi's
                 <a href="" class="tour-link" target="_blank">Support</a>
                 page.</p>
 
             <div class="tour-actions">
-                <a href="home-map.html" class="button">Done</a>
+                <a href="map.html" class="button button-alpha">Go to your deployment</a>
             </div>
 
             <!--// ELSE //
@@ -276,39 +285,21 @@
    //-->
         </div>
 
-        <div class="tour-pin">
-            <span class="pulse"></span>
-        </div>
 
-        @@include('../partials/_mode-bar-context.html')
 
-        <div class="wrapper">
+        @@include('../partials/_mode-bar.html', {
+          "context": "map"
+        })
 
-            <main class="page-content layout-b" role="main">
+        @@include('../partials/_mode-context.html')
 
-                @@include('../partials/_toolbar.html')
-                @@include('../partials/_toolbox.html')
+        <main role="main">
+            @@include('../partials/_toolbar.html')
+            @@include('../partials/_toolbox.html')
 
-                <div class="page-header">
-                    <h1>All Posts</h1>
+            <div id="map" class="map"></div>
+        </main>
 
-                    <div class="tabs-with-filter">
-                        @@include('../partials/_tabs-with-label.html', {
-                            "context": "map"
-                        })
-                        @@include('../partials/_filters.html')
-                    </div>
-                </div>
-
-                <div class="main-col">
-                    <div id="map" class="map"></div>
-                </div>
-            </main>
-            <!--end layout a-->
-
-        </div>
-
-        @@include('../partials/_footer.html')
         @@include('../partials/_scripts.html')
 
         <script>

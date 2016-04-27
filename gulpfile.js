@@ -40,7 +40,7 @@ gulp.task('html', function() {
     return gulp.src([
         './*.html',
         './pattern-library/**/*.html',
-        '!./pattern-library/partials/*.html'
+        //'!./pattern-library/partials/*.html'
         ])
     .pipe(fileinclude())
     .pipe(gulp.dest('./assets/html/'))
