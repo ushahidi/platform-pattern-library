@@ -1,4 +1,4 @@
-modalToggle = function(element) {
+var modalToggle = function(element) {
    var target = typeof element !== 'undefined' ? element : '.modal';
 
    console.log(target);
@@ -16,7 +16,7 @@ modalToggle = function(element) {
    }
 }
 
-modalYpos = function() {
+var modalYpos = function() {
    var windowYpos = $(window).scrollTop();
    if (windowYpos > 0) {
       $('.modal-window').css('top', windowYpos + 40);
@@ -24,7 +24,7 @@ modalYpos = function() {
    }
 }
 
-modalInit = function(dialog, open) {
+var modalInit = function(dialog, open) {
    // Click anything with class name 'modal-trigger'
    $('[data-modal], .modal-trigger').click(function(e) {
       if ($(this)[0].hasAttribute('data-modal')) {

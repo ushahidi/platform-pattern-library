@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     insert = require('gulp-insert'),
-    minifyCSS = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
@@ -13,7 +12,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify'),
-    html5Lint = require('gulp-html5-lint');
+    html5Lint = require('gulp-html5-lint'),
+    babel = require('gulp-babel');
 
 function errorHandler (err) {
     gutil.beep();
@@ -136,11 +136,30 @@ gulp.task('uglifyJS', function() {
     .pipe(plumber({
         errorHandler: errorHandler
     }))
+    .pipe(babel({
+        presets: ['es2015']
+    }))
     .pipe(uglify())
     .pipe(concat('app.js'))
     .pipe(plumber.stop())
     .pipe(gulp.dest('./assets/js'))
     .pipe(notify('JS minified and concatenated into app.js'))
+    .pipe(livereload());
+});
+
+gulp.task('uglifyCloudJS', function() {
+    return gulp.src(['./assets/js/custom/map.js','./assets/js/cloud/*'])
+    .pipe(plumber({
+        errorHandler: errorHandler
+    }))
+    .pipe(babel({
+        presets: ['es2015']
+    }))
+    .pipe(uglify())
+    .pipe(concat('cloud.js'))
+    .pipe(plumber.stop())
+    .pipe(gulp.dest('./assets/js'))
+    .pipe(notify('JS minified and concatenated into cloud.js'))
     .pipe(livereload());
 });
 
@@ -170,7 +189,8 @@ gulp.task('default', ['webserver'], function() {
     livereload.listen();
 
     // Watch JS
-    gulp.watch(['./assets/js/pattern-library/*','./assets/js/custom/*'], ['uglifyJS']);
+    gulp.watch(['./assets/js/pattern-library/*', './assets/js/custom/*'], ['uglifyJS']);
+    gulp.watch(['./assets/js/cloud/*'], ['uglifyCloudJS']);
 
     // Watch Sass
     gulp.watch(['./assets/sass/**/*.scss'], ['sass']);
@@ -184,5 +204,5 @@ gulp.task('default', ['webserver'], function() {
 * Task: `build`
 * Builds sass, fonts and js
 */
-gulp.task('build', ['sass', 'uglifyJS', 'html', 'font'], function() {
+gulp.task('build', ['sass', 'uglifyJS', 'uglifyCloudJS', 'html', 'font'], function() {
 });

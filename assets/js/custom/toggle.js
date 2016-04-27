@@ -1,4 +1,4 @@
-dropdownXpos = function(trigger, target) {
+var dropdownXpos = function(trigger, target) {
    var triggerPos = $(trigger).offset();
 
    // IF: Right-to-left language OR trigger is within 200px of the right of the screen
