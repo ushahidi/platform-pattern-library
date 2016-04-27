@@ -2,7 +2,7 @@ var tiersInit = function(element, selected) {
     var context = element !== 'undefined' ? element : $('.tiers'),
         selectedTier = selected !== 'undefined' ? selected : context.find('.tier.selected'), // Selected Tier
         liteTier = context.siblings('.tier.lite'), // Free Tier
-        form = context.find('.payment'); // Payment form
+        form = context.find('.payment'), // Payment form
         selectedTierInput = $('#selected-tier');
 
     // IF: Payment form is currently visible
