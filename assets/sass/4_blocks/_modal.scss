@@ -3,34 +3,12 @@
 }
 
 .modal-window {
-   position: absolute;
-   z-index: $modal + 1;
-   width: 90%;
-   left: 5%;
-   top: $base-spacing;
-   @extend .sheet;
-   padding: 0 $sm-spacing;
-   margin-bottom: $base-spacing;
-
-   &.ushahidi-logo {
-      background: $white url("../img/ushahidi-logo.svg") no-repeat;
-      background-size: 17%;
-      background-position: 96% 2%;
-
-      .divider {
-         width: 80%;
-      }
-   }
+    position: relative;
+    @extend .sheet;
+    padding: 0 $sm-spacing;
 
    @include media($mobile) {
       padding: 0 $base-spacing;
-   }
-
-   @include media($small) {
-      top: $lg-spacing;
-      width: 600px;
-      margin-left: -300px;
-      left: 50%;
    }
 
    .modal-title {
@@ -152,31 +130,4 @@
    overflow: hidden;
    background: rgba(0, 0, 0, 0.75);
    z-index: $modal; //variable defined in settings.scss
-}
-
-.modal {
-   display: none;
-
-   .modal-window {
-      @include transition(all 0.35s);
-      opacity: 0;
-      margin-top: -999px;
-   }
-
-   .modal-overlay {
-      @include transition(all 0.2s);
-      opacity: 0;
-   }
-
-   .modal-visible & {
-
-      .modal-window {
-         opacity: 1;
-         margin-top: 0;
-      }
-
-      .modal-overlay {
-         opacity: 1;
-      }
-   }
 }

@@ -1,7 +1,7 @@
 messageToggle = function(element) {
    var target = typeof element !== 'undefined' ? element : '.message';
 
-   target.toggleClass('active');
+   $(target).toggleClass('active');
 }
 
 $('[data-message], .message-trigger').click(function(e) {

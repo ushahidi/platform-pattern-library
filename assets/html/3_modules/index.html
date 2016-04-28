@@ -52,9 +52,6 @@
                     <li><a href="#pl-pattern-forms">Forms</a></li>
                     <li><a href="#pl-pattern-tabs">Tabs</a></li>
                     <li><a href="#pl-pattern-filters">Filters</a></li>
-                    <li><a href="#pl-pattern-dashboard-listing">Activity listing</a></li>
-                    <li><a href="#pl-pattern-post-popup">Post Pop-up</a></li>
-                    <li><a href="#pl-pattern-step-list">Step List</a></li>
                     <li><a href="#pl-pattern-tier">Tier</a></li>
                     <li><a href="#pl-pattern-postcard">Post Card</a></li>
                     <li><a href="#pl-pattern-survey-filter">Survey Filter</a></li>
@@ -114,15 +111,15 @@
                     <div class="pl-sub-pattern">
                         <h4 class="pl-h4">Custom fieldset, with controls</h4>
                         <div class="pl-sub-pattern-markup">
-        <fieldset class="custom-fieldset">
-   <legend><span class="icon-left fa-th">Collections</span></legend>
+<fieldset class="custom-fieldset">
+   <legend>Collections</legend>
 
-   <div class="form-field search bar">
-      <label for="search-collections" class="nodisplay">Search Collections</label>
-      <input type="search" id="search-collections" placeholder="Search Collections" />
+   <div class="form-field search">
+      <label>Search Collections</label>
+      <input type="search" placeholder="Search Collections" />
    </div>
 
-   <div class="fieldset-results">
+   <div class="form-fieldgroup">
       <div class="form-field checkbox">
          <input type="checkbox" id="collection1" />
          <label for="collection1">Collection 1</label>
@@ -154,15 +151,10 @@
       </div>
    </div>
 
-   <div class="form-field bar">
-      <a href="#create-collection" class="button button-link" data-toggle="toggle-content"><i class="fa fa-plus"></i>Create Collection</a>
-      <div class="toggle-content">
-         <input type="text" id="create-collection" placeholder="Create Collection" />
-         <button type="button">Create</button>
-      </div>
+   <div class="form-field">
+      <button class="button button-link">Create new Collection</button>
    </div>
 </fieldset>
-
                         </div>
                     </div>
                 </div>
@@ -225,6 +217,9 @@
                         <div class="pl-sub-pattern-markup">
         <form role="search" class="searchbar" data-message="search">
     <div class="searchbar-input form-field search">
+        <svg class="iconic">
+          <use xlink:href="/assets/img/iconic-sprite.svg#magnifying-glass"></use>
+        </svg>
         <input type="search" placeholder="Search">
     </div>
 
@@ -250,6 +245,9 @@
     <div class="dropdown-menu" data-toggle-target="search-saved">
 
         <div class="form-field search">
+            <svg class="iconic">
+              <use xlink:href="/assets/img/iconic-sprite.svg#magnifying-glass"></use>
+            </svg>
              <label>Find a saved search</label>
              <input type="search" placeholder="Find a saved search...">
         </div>
@@ -319,7 +317,12 @@
                         <input type="checkbox" name="protester-photos" value="Protester photos" id="protester-photos"> Protester photos
                     </label>
                 </div>
-                <span class="form-field-toggle">More</span>
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
             </fieldset>
 
             <fieldset>
@@ -489,59 +492,6 @@
                 </div>
             </section>
 
-            <section class="pl-pattern" id="pl-pattern-step-list">
-                <div class="pl-pattern-description">
-                    <h2>
-                        Step List
-                    </h2>
-                    <div class="pl-divider"></div>
-                </div>
-                <div class="container">
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Step List in sidebar <a href="../5_layouts/post-detail.html">example</a></h4>
-                        <div class="pl-sub-pattern-markup">
-                            <h4 class="delta-alt">
-    This Post's Steps
-</h4>
-<div class="step-list">
-    <div class="step-list-trigger">
-        <button type="button" class="button-secondary dropdown-trigger" data-toggle="steps">
-            <span>Choose the step you'd like to edit</span>
-        </button>
-    </div>
-    <div id="steps" class="step-list-content">
-        <ul>
-            <li>
-                <a href="">
-                    <h6 class="complete">Structure</h6>
-                </a>
-            </li>
-            <li class="active">
-                <h6>Verification</h6>
-                <p class="small">
-                    This is the step you're working on now. You can add a short description.
-                </p>
-                <button type="button" class="button-secondary check">Mark As Complete</button>
-            </li>
-            <li>
-                <a href="">
-                    <h6>Translation</h6>
-                </a>
-            </li>
-            <li class="disabled">
-                <a href="">
-                    <h6>Disabled Step</h6>
-                </a>
-            </li>
-        </ul>
-    </div><!--end toggle content-->
-</div><!--end step list-->
-
-                        </div><!--end markup-->
-                    </div><!--end sub pattern-->
-                </div>
-            </section>
-
             <section class="pl-pattern" id="pl-pattern-tier">
                 <div class="pl-pattern-description">
                     <h2>
@@ -551,68 +501,34 @@
                 </div>
                 <div class="container">
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Default</h4>
+                        <h4 class="pl-h4">&nbsp;</h4>
                         <div class="pl-sub-pattern-markup">
-                            <div class="tier">
-                                <div class="tier-header">
-                                    <h2 class="tier-name">Standard</h2>
-                                    <p>For small teams that need to <br />reach more people</p>
+<div class="tier">
+    <div class="tier-header">
+        <h2 class="tier-name">Standard</h2>
+        <p>For small teams that need to <br />reach more people</p>
 
-                                    <strong class="tier-price">$100 <em>a month</em></strong>
+        <strong class="tier-price">$100 <em>a month</em></strong>
 
-                                    <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
-                                </div>
+        <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
+    </div>
 
-                                <div class="tier-action">
-                                    <button class="modal-trigger">Choose Standard</button>
-                                </div>
+    <div class="tier-action">
+        <button class="modal-trigger">Choose Standard</button>
+    </div>
 
-                                <div class="tier-feature-list">
-                                    <ul>
-                                        <li>Collect posts via SMS and Twitter</li>
-                                        <li>Turn on notifications related to your interests</li>
-                                        <li>View data in bar chart or trend graph</li>
-                                        <li>Choose from more than 10 base maps</li>
-                                    </ul>
-                                </div>
-
-                                <p><a href="" class="cta">View all features</a></p>
-                            </div>
+    <div class="tier-feature-list">
+        <ul>
+            <li>Collect posts via SMS and Twitter</li>
+            <li>Turn on notifications related to your interests</li>
+            <li>View data in bar chart or trend graph</li>
+            <li>Choose from more than 10 base maps</li>
+        </ul>
+    </div>
+</div>
                         </div><!--end markup-->
                     </div><!--end sub pattern-->
 
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">With image</h4>
-                        <div class="pl-sub-pattern-markup">
-                            <div class="tier">
-                                <div class="tier-header">
-                                    <div class="tier-image">
-                                        <img src="../../img/header-bk.jpg" alt="">
-                                    </div>
-
-                                    <div class="tier-header-body">
-                                        <h2 class="tier-heading">Get started <strong>for free</strong> with Lite</h2>
-
-                                        <h3 class="tier-feature">250 posts <em>from the web and RSS</em></h3>
-                                    </div>
-                                </div>
-
-                                <div class="tier-action">
-                                    <!--button>Choose Lite</button-->
-                                    <a href="setup-customize2.html" class="button">Choose Lite</a>
-                                </div>
-
-                                <div class="tier-feature-list">
-                                    <ul>
-                                        <li>5 post types</li>
-                                        <li>View data in a map or list</li>
-                                        <li>Save searches and collections</li>
-                                        <li>See trends developing within your deployment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end markup-->
-                    </div><!--end sub pattern-->
                 </div>
             </section>
 
@@ -625,7 +541,7 @@
                 </div>
                 <div class="container">
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Default</h4>
+                        <h4 class="pl-h4">&nbsp;</h4>
                         <div class="pl-sub-pattern-markup">
 <article class="postcard">
     <div class="post-band" style="background-color: #8D1919;"></div>
@@ -712,7 +628,12 @@
                 Getting around
             </label>
         </div>
-        <span class="survey-filter-total" data-toggle="dropdown-menu">18</span>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            18
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
         <ul class="dropdown-menu">
             <li>
                 <a href="">
@@ -753,7 +674,12 @@
                 Police encounters
             </label>
         </div>
-        <span class="survey-filter-total" data-toggle="dropdown-menu">2</span>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            2
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
         <ul class="dropdown-menu">
             <li>
                 <a href="">
@@ -794,7 +720,12 @@
                 Protester photos
             </label>
         </div>
-        <span class="survey-filter-total" data-toggle="dropdown-menu">4</span>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            4
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
         <ul class="dropdown-menu">
             <li>
                 <a href="">
@@ -835,7 +766,12 @@
                 Official events
             </label>
         </div>
-        <span class="survey-filter-total" data-toggle="dropdown-menu">3</span>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            3
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
         <ul class="dropdown-menu">
             <li>
                 <a href="">
@@ -875,10 +811,15 @@
                 Unknown
             </label>
         </div>
-        <span class="survey-filter-total" data-toggle="dropdown-menu">6</span>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            6
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
         <ul class="dropdown-menu">
-            <li><a href="">Show only Getting around</a></li>
-            <li><a href="">Hide Getting around</a></li>
+            <li><a href="">Show only Unknown</a></li>
+            <li><a href="">Hide Unknown</a></li>
             <div class="divider"></div>
             <li>
                 <a href="">

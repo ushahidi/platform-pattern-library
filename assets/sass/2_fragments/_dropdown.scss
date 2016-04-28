@@ -123,15 +123,20 @@
           cursor: pointer;
       }
 
-      @include iconic(after, chevron-bottom, $color-light-alpha) {
+      svg.chevron {
+          width: 10px;
+          height: 10px;
+          fill: $color-light-alpha;
+          margin-right: 0;
           margin-left: $tiny-spacing;
+          @include transition(0.3s);
       }
 
       &.active {
 
-         &:after {
-            @include transform(rotate(180deg));
-         }
+          svg.chevron {
+              @include transform(rotate(180deg));
+          }
       }
    }
 }

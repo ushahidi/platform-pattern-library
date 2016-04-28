@@ -158,18 +158,26 @@ fieldset {
    &.search, &.location {
       position: relative;
 
+/*
       @include iconic(before, magnifying-glass, $color-primary, 12px) {
          position: absolute;
          top: 13px;
          @include left(11px);
-      }
+     }*/
 
       label {
          display: none;
       }
 
       input[type="search"], input[type="text"] {
-         @include padding-left($base-spacing);
+         @include padding-left($lg-spacing);
+      }
+
+      svg.iconic {
+          position: absolute;
+          top: 13px;
+          @include left(16px);
+          fill: $color-primary;
       }
    }
 
@@ -332,16 +340,25 @@ fieldset,
     .form-field-toggle {
         display: none;
         color: $color-primary;
-        @include transition(0.3s);
+        padding: $tiny-spacing;
 
         &:hover {
             cursor: pointer;
             color: $color-primary-alpha;
         }
 
+        svg.iconic {
+            width: 8px;
+            height: 8px;
+            fill: $color-primary;
+            margin-right: $tiny-spacing;
+            @include transition(0.3s);
+        }
+/*
         @include iconic(before, plus, $color-primary, 8px) {
             margin-right: $tiny-spacing;
         }
+        */
     }
 
     &.has-overflow {
@@ -358,11 +375,10 @@ fieldset,
         }
 
         .form-field-toggle {
-            width: 8px;
-            height: 8px;
-            overflow: hidden;
 
-            @include iconic(before, chevron-top, $color-light-alpha, 8px);
+            svg.iconic {
+                @include transform(rotate(180deg));
+            }
         }
     }
 }

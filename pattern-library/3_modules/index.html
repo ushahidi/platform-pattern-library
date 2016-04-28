@@ -22,9 +22,6 @@
                     <li><a href="#pl-pattern-forms">Forms</a></li>
                     <li><a href="#pl-pattern-tabs">Tabs</a></li>
                     <li><a href="#pl-pattern-filters">Filters</a></li>
-                    <li><a href="#pl-pattern-dashboard-listing">Activity listing</a></li>
-                    <li><a href="#pl-pattern-post-popup">Post Pop-up</a></li>
-                    <li><a href="#pl-pattern-step-list">Step List</a></li>
                     <li><a href="#pl-pattern-tier">Tier</a></li>
                     <li><a href="#pl-pattern-postcard">Post Card</a></li>
                     <li><a href="#pl-pattern-survey-filter">Survey Filter</a></li>
@@ -79,7 +76,50 @@
                     <div class="pl-sub-pattern">
                         <h4 class="pl-h4">Custom fieldset, with controls</h4>
                         <div class="pl-sub-pattern-markup">
-        @@include('../partials/_add-to-collection.html')
+<fieldset class="custom-fieldset">
+   <legend>Collections</legend>
+
+   <div class="form-field search">
+      <label>Search Collections</label>
+      <input type="search" placeholder="Search Collections" />
+   </div>
+
+   <div class="form-fieldgroup">
+      <div class="form-field checkbox">
+         <input type="checkbox" id="collection1" />
+         <label for="collection1">Collection 1</label>
+      </div>
+
+      <div class="form-field checkbox">
+         <input type="checkbox" id="collection2" checked />
+         <label for="collection2">Another Collection 2</label>
+      </div>
+
+      <div class="form-field checkbox">
+         <input type="checkbox" id="collection3" />
+         <label for="collection3">Extra Collection 3</label>
+      </div>
+
+      <div class="form-field checkbox">
+         <input type="checkbox" id="collection1" />
+         <label for="collection1">Collection 4</label>
+      </div>
+
+      <div class="form-field checkbox">
+         <input type="checkbox" id="collection2" checked />
+         <label for="collection2">Another Collection 5</label>
+      </div>
+
+      <div class="form-field checkbox">
+         <input type="checkbox" id="collection3" />
+         <label for="collection3">Extra Collection 6</label>
+      </div>
+   </div>
+
+   <div class="form-field">
+      <button class="button button-link">Create new Collection</button>
+   </div>
+</fieldset>
                         </div>
                     </div>
                 </div>
@@ -235,23 +275,6 @@
                 </div>
             </section>
 
-            <section class="pl-pattern" id="pl-pattern-step-list">
-                <div class="pl-pattern-description">
-                    <h2>
-                        Step List
-                    </h2>
-                    <div class="pl-divider"></div>
-                </div>
-                <div class="container">
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Step List in sidebar <a href="../5_layouts/post-detail.html">example</a></h4>
-                        <div class="pl-sub-pattern-markup">
-                            @@include('../partials/_step-list.html')
-                        </div><!--end markup-->
-                    </div><!--end sub pattern-->
-                </div>
-            </section>
-
             <section class="pl-pattern" id="pl-pattern-tier">
                 <div class="pl-pattern-description">
                     <h2>
@@ -261,68 +284,34 @@
                 </div>
                 <div class="container">
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Default</h4>
+                        <h4 class="pl-h4">&nbsp;</h4>
                         <div class="pl-sub-pattern-markup">
-                            <div class="tier">
-                                <div class="tier-header">
-                                    <h2 class="tier-name">Standard</h2>
-                                    <p>For small teams that need to <br />reach more people</p>
+<div class="tier">
+    <div class="tier-header">
+        <h2 class="tier-name">Standard</h2>
+        <p>For small teams that need to <br />reach more people</p>
 
-                                    <strong class="tier-price">$100 <em>a month</em></strong>
+        <strong class="tier-price">$100 <em>a month</em></strong>
 
-                                    <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
-                                </div>
+        <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
+    </div>
 
-                                <div class="tier-action">
-                                    <button class="modal-trigger">Choose Standard</button>
-                                </div>
+    <div class="tier-action">
+        <button class="modal-trigger">Choose Standard</button>
+    </div>
 
-                                <div class="tier-feature-list">
-                                    <ul>
-                                        <li>Collect posts via SMS and Twitter</li>
-                                        <li>Turn on notifications related to your interests</li>
-                                        <li>View data in bar chart or trend graph</li>
-                                        <li>Choose from more than 10 base maps</li>
-                                    </ul>
-                                </div>
-
-                                <p><a href="" class="cta">View all features</a></p>
-                            </div>
+    <div class="tier-feature-list">
+        <ul>
+            <li>Collect posts via SMS and Twitter</li>
+            <li>Turn on notifications related to your interests</li>
+            <li>View data in bar chart or trend graph</li>
+            <li>Choose from more than 10 base maps</li>
+        </ul>
+    </div>
+</div>
                         </div><!--end markup-->
                     </div><!--end sub pattern-->
 
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">With image</h4>
-                        <div class="pl-sub-pattern-markup">
-                            <div class="tier">
-                                <div class="tier-header">
-                                    <div class="tier-image">
-                                        <img src="../../img/header-bk.jpg" alt="">
-                                    </div>
-
-                                    <div class="tier-header-body">
-                                        <h2 class="tier-heading">Get started <strong>for free</strong> with Lite</h2>
-
-                                        <h3 class="tier-feature">250 posts <em>from the web and RSS</em></h3>
-                                    </div>
-                                </div>
-
-                                <div class="tier-action">
-                                    <!--button>Choose Lite</button-->
-                                    <a href="setup-customize2.html" class="button">Choose Lite</a>
-                                </div>
-
-                                <div class="tier-feature-list">
-                                    <ul>
-                                        <li>5 post types</li>
-                                        <li>View data in a map or list</li>
-                                        <li>Save searches and collections</li>
-                                        <li>See trends developing within your deployment</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div><!--end markup-->
-                    </div><!--end sub pattern-->
                 </div>
             </section>
 
@@ -335,7 +324,7 @@
                 </div>
                 <div class="container">
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Default</h4>
+                        <h4 class="pl-h4">&nbsp;</h4>
                         <div class="pl-sub-pattern-markup">
 @@include('../partials/_postcard.html')
                         </div><!--end markup-->

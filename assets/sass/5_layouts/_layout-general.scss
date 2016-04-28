@@ -7,181 +7,6 @@
     }
 }
 
-// Reusable grid classes -
-
-.one-col, .two-col, .three-col, .flex-col {
-   @include clearfix;
-   margin-bottom: $base-spacing;
-}
-
-.two-col .col {
-   margin-bottom: $base-spacing;
-
-   @include media($small) {
-      @include span-columns(6);
-      margin-bottom: auto;
-   }
-
-}
-
-.three-col .col {
-
-   @include media($small) {
-      @include span-columns(4);
-   }
-
-}
-
-.flex-col .col {
-
-   @include media($small) {
-      display: block;
-      float: left;
-      width: auto;
-      margin-right: $base-spacing;
-   }
-
-}
-
-.page-content {
-    position: relative;
-   @include outer-container;
-
-   @include media($medium) {
-      @include float(left);
-      width: 100%;
-   }
-
-   .main-col {
-      padding: 0 $sm-spacing;
-
-      @include media($small) {
-         padding: 0 $base-spacing;
-      }
-
-      &.map-background {
-          width: 100%;
-          padding: 0;
-      }
-
-      h6 {
-         clear: both;
-         margin: 0;
-      }
-
-   }
-
-   &.has-aside {
-
-      aside {
-         @include clearfix;
-         @include span-columns(12);
-         @include margin-right(2.35765%);
-         @include margin-left(0);
-         position: relative;
-      }
-
-      @include media($small) {
-
-         .main-col {
-            @include span-columns(9);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
-
-         aside {
-            @include span-columns(3);
-            @include float(left);
-            @include omega();
-            padding: $base-spacing 0 $lg-spacing;
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-
-            &.is-right { //specific styling for when the aside comes first in the source order
-               @include float(right);
-               padding: 0;
-            }
-
-            &.has-border { //specific styling for when you want the aside to have a border
-               @include border-left($base-border);
-               @include lrswap(padding, $base-spacing 0 $lg-spacing $base-spacing);
-            }
-
-         }
-
-      }
-
-      @include media($medium) {
-
-         .main-col {
-            @include span-columns(8);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
-
-         aside {
-            @include span-columns(4);
-            @include float(left);
-            @include margin-right(0);
-            @include margin-left(0);
-         }
-
-      }
-
-      @include media($large) {
-
-         .main-col {
-            @include span-columns(9);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
-
-         aside {
-            @include span-columns(3);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
-
-      }
-
-   }
-
-}
-
-.full-page-content {
-   padding: 0 $sm-spacing;
-   margin-top: $sm-spacing;
-
-   @include media($small) {
-      padding: 0 $base-spacing;
-   }
-
-   @include media($medium) {
-      margin-top: $lg-spacing;
-   }
-
-   .two-col .col {
-
-      @include media($small) {
-         @include span-columns(6);
-         @include float(left);
-         @include margin-right(2.35765%);
-         @include margin-left(0);
-
-         &:last-child {
-            margin: 0;
-         }
-
-      }
-
-   }
-
-}
-
 [class*="layout-"] {
 
     .mode-bar {
@@ -347,6 +172,24 @@
             }
         }
 
+        .map {
+
+            &.full-size {
+                position: fixed;
+                top: 55px;
+                right: 0;
+                bottom: 45px;
+                left: 0;
+                z-index: $body;
+
+                @include media($medium) {
+                    top: 0;
+                    bottom: 0;
+                    left: 288px;
+                }
+            }
+        }
+
         .form-sheet,
         .postcard[role="article"] {
             margin-bottom: $base-spacing;
@@ -391,6 +234,60 @@
             @include media($medium) {
                 top: 92px;
             }
+        }
+    }
+
+    .modal {
+        display: none;
+
+        .modal-window {
+            position: absolute;
+            z-index: $modal + 1;
+            opacity: 0;
+            width: 90%;
+            left: 5%;
+            top: $base-spacing;
+            margin-top: -999px;
+            margin-bottom: $base-spacing;
+            @include transition(all 0.35s);
+
+            @include media($small) {
+               top: $lg-spacing;
+               left: 50%;
+               width: 600px;
+               margin-left: -300px;
+            }
+
+           .modal-body {
+
+               .message {
+                   position: absolute;
+                   top: -1000px;
+                   right: 0;
+                   left: 0;
+
+                   &.active {
+                       top: 0;
+                   }
+               }
+           }
+        }
+
+        .modal-overlay {
+           @include transition(all 0.2s);
+           opacity: 0;
+        }
+    }
+
+    &.modal-visible {
+
+        .modal-window {
+           opacity: 1;
+           margin-top: 0;
+        }
+
+        .modal-overlay {
+           opacity: 1;
         }
     }
 }

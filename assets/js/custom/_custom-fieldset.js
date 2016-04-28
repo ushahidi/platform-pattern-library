@@ -6,7 +6,7 @@ $('.custom-fieldset').each(function(){
 
    $(context).addClass('init');
    $(fields).wrapAll('<div class="dropdown-menu" />');
-   $(trigger).addClass('dropdown-trigger').attr('data-toggle','dropdown-menu');
+   $(trigger).addClass('dropdown-trigger').attr('data-toggle','dropdown-menu').append('<svg class="iconic chevron"><use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use></svg>');
 
    if ($(context)[0].hasAttribute('data-legend')) {
       $(context).attr('data-legend', $(trigger).text());

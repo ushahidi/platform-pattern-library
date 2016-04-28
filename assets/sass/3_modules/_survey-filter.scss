@@ -50,15 +50,26 @@
         box-shadow: 0 0 $tiny-spacing 2px #292E34;
         margin-top: -10px;
         margin-right: $sm-spacing;
+/*
         @include iconic($position: after, $iconic-icon: chevron-bottom, $iconic-color: #292E34, $iconic-size: 10px, $styles: true) {
             position: relative;
             top: 1px;
             margin-left: 6px;
             @include transition(0.3s);
-        };
+        };*/
 
         @include media($medium) {
             margin-right: $base-spacing;
+        }
+
+        svg.iconic {
+            position: relative;
+            top: 1px;
+            fill: #292E34;
+            width: 10px;
+            height: 10px;
+            margin-left: 6px;
+            @include transition(0.3s);
         }
 
         &.active {
@@ -66,7 +77,7 @@
             text-shadow: none;
             background-color: $color-light-delta !important;
 
-            &:after {
+            svg.iconic {
                 @include transform(rotate(180deg));
             }
         }

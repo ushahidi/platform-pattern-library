@@ -162,11 +162,18 @@ select {
     display: inline-block;
     position: relative;
 
-    @include iconic(after, chevron-bottom, $color-light-alpha) {
+    &:after {
+        content: '';
         position: absolute;
         top: 50%;
-        right: $tiny-spacing;
-        margin-top: -4px;
+        right: 10px;
+        width: 7px;
+        height: 7px;
+        background: transparent;
+    	border-top: 2.5px solid $color-light-alpha;
+    	border-right: 2.5px solid $color-light-alpha;
+        margin-top: -6px;
+        @include transform(rotate(135deg));
     }
 
     select {
@@ -177,6 +184,7 @@ select {
 
 fieldset {
    position: relative;
+   border: none;
    padding-top: $base-spacing;
 
    legend {
