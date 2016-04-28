@@ -26,5 +26,61 @@
             width: 234px;
             overflow-y: auto;
         }
+
+        .listing {
+
+            &.timeline {
+                padding-left: 0;
+
+                .listing-heading,
+                .listing-heading-section {
+                    text-align: center;
+                }
+
+                .listing-heading {
+                    margin: $sm-spacing;
+
+                    @include media($medium) {
+                        text-align: left;
+                        margin: $tiny-spacing 0;
+                    }
+                }
+
+                .postcard,
+                .listing-heading-section {
+
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        z-index: -1;
+                        top: 100%;
+                        left: 50%;
+                        width: 4px;
+                        height: $sm-spacing;
+                        background-color: $color-light-beta;
+                        margin-left: -2px;
+                    }
+                }
+
+                .postcard {
+
+                    &:last-of-type {
+
+                        &:after {
+                            content: none;
+                        }
+                    }
+                }
+
+                .listing-heading-section {
+
+                    @include media($medium) {
+                        display: block;
+                        color: $color-dark-delta;
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
     }
 }

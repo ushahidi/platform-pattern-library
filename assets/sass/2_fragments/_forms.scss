@@ -198,6 +198,19 @@ fieldset {
       }
    }
 
+   &.url {
+
+       input[type="text"],
+       input[type="url"] {
+           display: inline-block;
+           width: auto;
+
+           + .domain {
+               margin-left: $tiny-spacing;
+           }
+       }
+   }
+
    &.location {
       @include icon($before, locate) {
          position: absolute;
@@ -308,6 +321,12 @@ fieldset,
 
     .overflow {
         display: none;
+    }
+
+    .form-fieldgroup {
+        border-top: 1px solid $color-light-beta;
+        padding-top: $tiny-spacing;
+        margin-top: $tiny-spacing;
     }
 
     .form-field-toggle {

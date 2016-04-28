@@ -60,7 +60,7 @@ if ($('#map').length) {
                 coordinates: [-97.693820, 30.301458]
             },
             properties: {
-                color: '8D1919'
+                color: '2274B4'
             }
         },
         {
@@ -75,26 +75,36 @@ if ($('#map').length) {
         }
     ];
 
+    //## Icon configuration
+    function pointIcon(feature, size, class){
+        return L.divIcon({
+            className: 'custom-map-marker '+class,
+            html: '<svg class="iconic" style="fill:#'+feature.properties.color+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use></svg>',
+            iconSize: size,
+            iconAnchor: size,
+            popupAnchor: [-16, -32]
+        });
+    }
+
     var markers = new L.geoJson(deploymentGeoJSON, {
         pointToLayer: function (feature, latlng) {
-            //## Icon configuration
-            var pointIcon = L.divIcon({
-                className: 'custom-map-marker',
-                html: '<svg class="iconic" style="fill:#'+feature.properties.color+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use></svg>',
-                iconSize: [32, 32],
-                iconAnchor: [32, 32],
-                popupAnchor: [-16, -24]
-            });
 
             return L.marker(latlng, {
-                icon: pointIcon
+                icon: pointIcon(feature, [32, 32])
             });
         },
         onEachFeature: onEachFeature
     }).addTo(map);
 
     function onEachFeature(feature, layer) {
-        layer.bindPopup(popup);
+        layer.bindPopup(popup)
+            .on('click', function(e){
+                layer.setIcon(pointIcon(feature, [40, 40], 'selected'));
+
+                map.on('popupclose', function(e) {
+                    layer.setIcon(pointIcon(feature, [32, 32]));
+                });
+            });
     }
 
     map.zoomControl.setPosition('bottomright');

@@ -1,8 +1,6 @@
 .toolbox {
-    position: absolute;
-    top: 130px;
-    @include right(15px);
-    z-index: $toolbox;
+    @extend .sheet;
+    padding: $sm-spacing;
 
     @include media($small) {
         top: 146px;
@@ -12,36 +10,19 @@
         top: 85px;
     }
 
-    fieldset.init .form-field {
-        margin: 20px;
-    }
+    .tool {
 
-    .custom-fieldset.init .form-field.radio label {
-        color: $dark-text-color;
-    }
-
-    .dropdown-trigger.init {
-        width: 200px;
-        padding: 17px 20px;
-        color: $dk-gray;
-        font-size: 0.75em;
-        font-weight: 900;
-        text-transform: uppercase;
-        @include equal-radius(3px);
-
-        &:after {
-            @include float(right);
+        .tool-heading {
+            color: $color-dark-delta;
         }
 
-    }
+        [data-toggle] {
+            padding-top: 6px;
 
-    .dropdown-menu.init.active {
-        min-width: 200px;
-        @include lrswap(margin, -85px 0 0 -1274px);
-        box-shadow: none;
-        background: $white;
-        border: 1px solid $color-light-beta;
-        border-top: 0;
+            svg.iconic {
+                fill: $color-dark-delta;
+            }
+        }
     }
 
 }

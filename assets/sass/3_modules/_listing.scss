@@ -80,21 +80,12 @@
 
     &.timeline {
 
-        .listing-heading,
+        @include media($medium) {
+            padding-left: 78px;
+        }
+
         .listing-heading-section {
             text-align: center;
-        }
-
-        .listing-heading {
-            margin: $sm-spacing;
-
-            @include media($medium) {
-                text-align: left;
-                margin: $tiny-spacing 0;
-            }
-        }
-
-        .listing-heading-section {
             padding: $tiny-spacing;
         }
 
@@ -112,14 +103,79 @@
                 background-color: $color-light-beta;
                 margin-left: -2px;
             }
+
+            @include media($medium) {
+
+                &:after {
+                    top: 0;
+                    bottom: -16px;
+                    left: -54px;
+                    height: auto;
+                    margin-left: 0;
+                }
+            }
         }
 
         .postcard {
 
-            &:last-child {
+            @include media($medium) {
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: $body;
+                    top: $sm-spacing;
+                    left: -54px;
+                    width: $sm-spacing;
+                    height: $sm-spacing;
+                    border: 4px solid $color-light-beta;
+                    @include equal-radius(100%);
+                    background-color: $color-primary-zeta;
+                    margin-left: -6px;
+                }
+            }
+
+            &:last-of-type {
 
                 &:after {
-                    content: none;
+                    bottom: auto;
+                    height: $base-spacing;
+
+                    @include media($medium-down) {
+                        content: none;
+                    }
+                }
+            }
+        }
+
+        .listing-heading-section {
+
+            @include media($medium) {
+                display: inline-block;
+                color: $color-dark-gamma;
+                @include equal-radius();
+                background-color: $color-light-beta;
+                padding: $tiny-spacing $sm-spacing;
+                margin: 0 auto;
+
+                /*
+                text-shadow: 0 0 $sm-spacing $color-primary-zeta,
+                    0 4px $tiny-spacing $color-primary-zeta,
+                    0 -4px $sm-spacing $color-primary-zeta;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 50%;
+                    right: 0;
+                    left: 0;
+                    height: 1px;
+                    background-color: $color-light-beta;
+                }
+*/
+                &:after {
+                    top: -$sm-spacing;
                 }
             }
         }

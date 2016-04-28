@@ -16,6 +16,10 @@
         max-width: 100% !important;
     }
 
+    .dropdown-menu li a:hover {
+        color: $white !important;
+    }
+
     .leaflet-popup-content-wrapper,
     .leaflet-popup-tip {
         @include no-shadow;
@@ -62,6 +66,38 @@
             height: 16px;
             background-color: $white;
             margin-left: -8px;
+        }
+
+        &.selected {
+
+            &:after {
+                width: 24px;
+                height: 24px;
+                margin-left: -12px;
+            }
+        }
+    }
+
+    .leaflet-control-container {
+
+        .leaflet-right {
+
+            .leaflet-control {
+                margin: 0 $sm-spacing $sm-spacing;
+            }
+
+            .leaflet-control-attribution {
+                margin: 0;
+            }
+
+            @include media($small-down) {
+                right: auto;
+                left: 0;
+
+                .leaflet-control {
+                    float: left;
+                }
+            }
         }
     }
 }

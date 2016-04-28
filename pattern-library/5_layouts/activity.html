@@ -12,14 +12,15 @@
     <body class="layout-d">
 
         @@include('../partials/_mode-bar.html', {
-          "context": "activity"
+            "logged_in": true,
+            "context": "activity"
         })
 
         <div class="mode-context">
 
             <header class="mode-context-header">
                 <ol class="breadcrumbs">
-                    <li><a href="">March on City Hall</a></li>
+                    <li><a href="map.html">March on City Hall</a></li>
                 </ol>
 
                 <h1 class="mode-context-title">Activity</h1>
@@ -102,10 +103,30 @@
                        </div>
 
                        <div class="listing-item-primary">
-                           <h2 class="listing-item-title">Amount of activity over time</h2>
+                           <h2 class="listing-item-title">Activity over time</h2>
                        </div>
 
                        <div class="listing-item-body">
+                           <fieldset class="custom-fieldset">
+                               <legend>Compare...</legend>
+
+                               <div class="form-field radio">
+                                   <label for="nothing"><input type="radio" name="timeline" id="nothing" checked>Nothing; Show all posts</label>
+                               </div>
+                               <div class="form-field radio">
+                                   <label for="surveys"><input type="radio" name="timeline" id="surveys">Surveys</label>
+                               </div>
+                               <div class="form-field radio">
+                                   <label for="categories"><input type="radio" name="timeline" id="categories">Categories</label>
+                               </div>
+
+                               <div class="form-fieldgroup">
+                                   <div class="form-field checkbox">
+                                       <label><input type="checkbox" />Show cumulative totals</label>
+                                   </div>
+                               </div>
+                           </fieldset>
+
                            <img src="../../img/example-graph1.svg" />
                        </div>
                    </div>
@@ -121,10 +142,21 @@
                        </div>
 
                        <div class="listing-item-primary">
-                           <h2 class="listing-item-title">Active categories</h2>
+                           <h2 class="listing-item-title">Activity by volume</h2>
                        </div>
 
                        <div class="listing-item-body">
+                           <fieldset class="custom-fieldset">
+                               <legend>Compare...</legend>
+
+                               <div class="form-field radio">
+                                   <label for="surveys"><input type="radio" name="barchart" id="surveys" checked>Surveys</label>
+                               </div>
+                               <div class="form-field radio">
+                                   <label for="categories"><input type="radio" name="barchart" id="categories">Categories</label>
+                               </div>
+                           </fieldset>
+
                            <img src="../../img/example-graph3.svg" />
                        </div>
                    </div>
@@ -140,7 +172,7 @@
                        </div>
 
                        <div class="listing-item-primary">
-                           <h2 class="listing-item-title">Active regions</h2>
+                           <h2 class="listing-item-title">Activity by region</h2>
                        </div>
 
                        <div class="listing-item-body">
@@ -163,7 +195,7 @@
 
                     <article class="postcard">
                         <div class="postcard-body">
-                            <img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar postcard-image" />
+                            <img src="https://avatars.io/instagram/jshorland" class="avatar postcard-image" />
                             <h1 class="postcard-title"><a href="">Jess Shorland signed up</a></h1>
                             <span class="postcard-metadata">90 mins</span>
                         </div>
@@ -177,6 +209,8 @@
             </aside>
 
         </main>
+
+        @@include('../partials/_modals-global.html')
 
         @@include('../partials/_scripts.html')
 
