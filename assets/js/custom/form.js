@@ -31,12 +31,17 @@ $('.form-field-toggle').each(function(){
 	var fieldgroup = $(this).closest('fieldset, .form-fieldgroup'),
 		fieldCount = fieldgroup.find('.form-field').length;
 
-		if (fieldCount > 3) {
-			fieldgroup.find('.form-field:eq(2)').nextAll('.form-field').addClass('overflow');
+		if (fieldCount > 2) {
+			fieldgroup.find('.form-field:eq(1)').nextAll('.form-field').addClass('overflow');
             fieldgroup.addClass('has-overflow');
 
-            $('.form-field-toggle').on('click', function(){
+            $(this).on('click', function(){
                 fieldgroup.toggleClass('show-overflow');
             });
 		}
+});
+
+$('input[type="date"]').pickadate({
+    format: 'mmmm d, yyyy',
+    today: 'Choose today'
 });

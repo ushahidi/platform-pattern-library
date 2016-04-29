@@ -50,18 +50,10 @@
 
             &.searchbar-options-filter {
 
-                svg.iconic {
-
-                    @include media($small) {
-                        display: none;
-                    }
-                }
-
                 .button-label {
-                    display: none;
+                    display: inline-block;
 
                     @include media($small) {
-                        display: inline-block;
                         margin-left: 0;
                     }
 
@@ -89,15 +81,11 @@
                 border-bottom: 1px solid $color-light-gamma;
                 padding-top: 0;
                 padding-left: 25%;
-                margin: $sm-spacing;
-
-                &:first-child {
-                    margin-top: $base-spacing;
-                }
+                margin-top: $base-spacing !important;
+                margin-bottom: $base-spacing !important;
 
                 &:last-child {
                     border-bottom: none;
-                    margin-bottom: $base-spacing;
                 }
             }
 
@@ -113,7 +101,7 @@
 
                 @include media($medium) {
                     float: left;
-                    width: 32%;
+                    width: 48%;
                     padding-right: 1%;
                     margin-bottom: $sm-spacing !important;
                 }
@@ -146,12 +134,55 @@
 
         .form-field {
 
+            svg.iconic {
+
+                @include media($medium) {
+                    top: 10px;
+                }
+            }
+
+            input[type="text"],
+            input[type="email"],
+            input[type="url"],
+            input[type="password"],
+            input[type="search"],
+            input[type="date"],
+            input[type="datetime"] {
+                font-size: 12px;
+                font-size: .857142857rem;
+
+                @include media($medium) {
+                    margin-top: -$tiny-spacing;
+                }
+            }
+
             &.checkbox,
             &.radio {
 
                 label {
                     font-size: 12px;
                     font-size: .857142857rem;
+                }
+            }
+
+            &.date {
+
+                input[type="date"],
+                input[type="datetime"] {
+                    font-size: 16px;
+                    font-size: 1.142857143rem;
+                }
+
+                .date-joiner {
+
+                    @include media($medium) {
+                        position: absolute;
+                        z-index: $body;
+                        top: 50%;
+                        right: -12px;
+                        margin-top: -14px;
+                        margin-left: 0;
+                    }
                 }
             }
         }

@@ -10,4 +10,11 @@ $('[data-message], .message-trigger').click(function(e) {
     } else {
         messageToggle($(this).closest('.message'));
     }
+
+    // If its 'href' value includes a hash, scroll to the appropriate location on the page
+    if (/#/.test(this.href)) {
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top - 124
+        }, 1000);
+    }
 });

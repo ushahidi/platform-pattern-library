@@ -12,6 +12,7 @@
     <title>The Ushahidi Platform Pattern Library</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" type="image/ico" href="../../favicon.ico" />
@@ -459,7 +460,10 @@
     <div class="fab" data-message="add-post">
     <button type="button" class="button-alpha button-fab" data-toggle="fab-options">
         <svg class="iconic">
-          <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+          <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+          <foreignObject>
+              <img class="icon" src="/assets/img/icons/png/plus-2x.png">
+          </foreignObject>
         </svg>
         <span class="hidden">Add</span>
     </button>
@@ -525,9 +529,6 @@
         </a>
 
         <a href="#" class="button searchbar-options-filter" data-toggle="search-filters">
-            <svg class="iconic">
-              <use xlink:href="/assets/img/iconic-sprite.svg#bolt"></use>
-            </svg>
             <span class="button-label">Filters</span>
             <svg class="iconic">
               <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
@@ -536,6 +537,7 @@
     </div>
 
     <div class="dropdown-menu" data-toggle-target="search-saved">
+        <h4 class="dropdown-menu-title">Saved Searches</h4>
 
         <div class="form-field search">
             <svg class="iconic">
@@ -582,32 +584,32 @@
 
                 <div class="form-field checkbox">
                     <label for="traffic">
-                        <input type="checkbox" name="traffic" value="Traffic" id="traffic"> Traffic
+                        <input type="checkbox" name="getting-around" checked>
+                        Getting around
                     </label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="police-encounters">
-                        <input type="checkbox" name="police-encounters" value="Police encounters" id="police-encounters"> Police encounters
+                        <input type="checkbox" name="police-encounters" checked>
+                        Police encounters
                     </label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="protester-photos">
-                        <input type="checkbox" name="protester-photos" value="Protester photos" id="protester-photos"> Protester photos
-                    </label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="traffic">
-                        <input type="checkbox" name="traffic" value="Traffic" id="traffic"> Traffic
+                        <input type="checkbox" name="protester-photos" checked>
+                        Protester photos
                     </label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="police-encounters">
-                        <input type="checkbox" name="police-encounters" value="Police encounters" id="police-encounters"> Police encounters
+                        <input type="checkbox" name="official-events" checked>
+                        Official events
                     </label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="protester-photos">
-                        <input type="checkbox" name="protester-photos" value="Protester photos" id="protester-photos"> Protester photos
+                        <input type="checkbox" name="unknown">
+                        Unknown
                     </label>
                 </div>
                 <span class="form-field-toggle">
@@ -631,7 +633,12 @@
                         <input type="checkbox" name="opposition" value="Opposition" id="opposition"> Opposition
                     </label>
                 </div>
-                <span class="form-field-toggle">More</span>
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
             </fieldset>
 
             <fieldset>
@@ -639,20 +646,50 @@
 
                 <div class="form-field radio">
                     <label for="everyone">
-                        <input type="radio" name="everyone" value="Everyone" id="everyone"> Everyone
+                        <input type="radio" name="visibility" value="Everyone" checked>
+                        Everyone
                     </label>
                 </div>
                 <div class="form-field radio">
                     <label for="members">
-                        <input type="radio" name="members" value="Members" id="members"> Members
+                        <input type="radio" name="visibility" value="Members">
+                        Members
                     </label>
                 </div>
                 <div class="form-field radio">
                     <label for="administrators">
-                        <input type="radio" name="administrators" value="Administrators" id="administrators"> Administrators
+                        <input type="radio" name="visibility" value="Administrators">
+                        Administrators
                     </label>
                 </div>
-                <span class="form-field-toggle">More</span>
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Date range</legend>
+
+                <div class="form-field date">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <label class="hidden">Start date</label>
+                    <input type="date" placeholder="Start date" />
+                    <span class="date-joiner">to</span>
+                </div>
+
+                <div class="form-field date">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <label class="hidden">End date</label>
+                    <input type="date" placeholder="End date" />
+                </div>
+
             </fieldset>
         </div>
 

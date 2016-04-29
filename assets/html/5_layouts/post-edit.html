@@ -10,6 +10,7 @@
     <title>The Ushahidi Platform Pattern Library</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" type="image/ico" href="../../favicon.ico" />
@@ -147,7 +148,7 @@
         <div class="toolbar">
             <div class="button-group">
                 <button type="button" class="button-flat">Cancel</button>
-                <button type="button" class="button-alpha">Save</button>
+                <button type="button" class="button-alpha" onclick="messageToggle($('#required'))">Save</button>
             </div>
         </div>
 
@@ -251,9 +252,17 @@
                        <input type="datetime" />
                    </div>
 
-                   <div class="form-field">
+                   <div class="form-field location">
                        <label>Location</label>
+                       <div id="map" class="map"></div>
+
                        <input type="text" placeholder="lat,lng" />
+                       <button class="button-flat">
+                           <svg class="iconic">
+                               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#location"></use>
+                           </svg>
+                           <span class="button-label">Use your current location</span>
+                       </button>
                    </div>
                </div>
 
@@ -319,9 +328,6 @@
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 
-    <script>
-        messageToggle($('#required'));
-    </script>
 </body>
 
 </html>

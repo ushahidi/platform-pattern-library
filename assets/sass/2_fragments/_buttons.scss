@@ -114,6 +114,7 @@ input[type="button"] {
     .bug {
         box-shadow: 0 0 8px rgba(0,0,0,0.12),
             0 8px 18px rgba(0,0,0,0.24);
+        @include transition(all, .3s);
     }
 
     .fab-options {
@@ -127,7 +128,15 @@ input[type="button"] {
             position: relative;
             top: -100px;
             margin: 5px 0;
-            @include transition(all, .5s);
+            @include transition(all, .3s);
+
+            &:hover {
+                @include scale(1.025);
+
+                .bug {
+                    background-color: $color-primary-alpha;
+                }
+            }
         }
 
         &.active {
@@ -157,128 +166,6 @@ input[type="button"] {
             flex-direction: column;
         }
     }
-}
-
-.button-split {
-
-   .form-field,
-   .custom-fieldset {
-      display: inline-block;
-      width: 70%;
-      @include margin-right(-3px);
-
-      @include media($small) {
-         display: block;
-         width: auto;
-         margin-bottom: $sm-spacing;
-      }
-
-      .dropdown-menu {
-         bottom: 31px;
-         padding: $base-spacing $base-spacing $sm-spacing;
-         width: 65%;
-
-         @include media($small) {
-            bottom: auto;
-            width: 100%;
-            padding: $sm-spacing 0;
-         }
-
-         &.active {
-
-         }
-      }
-
-   }
-
-   .dropdown-menu {
-      bottom: 50px;
-      padding: $base-spacing $base-spacing $sm-spacing;
-      width: 65%;
-
-      @include media($small) {
-         @include border-top-right-radius($global-radius);
-         @include border-bottom-left-radius(0);
-      }
-
-   }
-
-   .button-primary {
-      height: 40px;
-      width: 30%;
-
-      @include media($small) {
-         width: auto;
-         height: auto;
-      }
-
-      .dropdown.open {
-         @include border-top-radius(0);
-         @include border-bottom-left-radius($global-radius);
-
-         @include media($small) {
-            @include border-top-radius($global-radius);
-            @include border-bottom-left-radius(0);
-         }
-      }
-
-      @include media($small) {
-         width: 100%;
-      }
-
-   }
-
-   .button-secondary {
-      height: 40px;
-      width: 100%;
-      @include border-top-right-radius(0);
-      @include border-bottom-right-radius(0);
-      border-color: darken( $lt-gray, 20% );;
-
-      @include media($small) {
-         @include border-top-right-radius($global-radius);
-         @include border-bottom-left-radius(0);
-      }
-
-   }
-
-   button.button-primary {
-      height: 40px;
-      width: 30%;
-      @include border-top-left-radius(0);
-      @include border-bottom-left-radius(0);
-      margin-top:-2px;
-
-      @include media($small) {
-         width: 100%;
-         @include border-top-right-radius(0);
-         @include border-bottom-left-radius($global-radius);
-      }
-
-   }
-
-   button.dropdown {
-      padding: 8px;
-      @include icon ($before, chevron-down) {
-         padding: 0 3px;
-         @include transform(rotate(-180deg));
-      }
-
-      @include media($small) {
-         @include icon ($before, chevron-down) {
-            @include transform(rotate(0deg));
-         }
-      }
-
-      &.open:before {
-         @include transform(rotate(0deg));
-
-         @include media($small) {
-            @include transform(rotate(-180deg));
-         }
-      }
-   }
-
 }
 
 .buttons-updown {

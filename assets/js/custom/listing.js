@@ -25,17 +25,19 @@ $('.listing').each(function(){
    });
 
    // Toggle the visibility of the listing's toolbar if one or more items are checked
-   $(select_checkboxes).on('change', function(e){
-       select_checkboxes_checked = $(context).find('.listing-item-select input[type="checkbox"]:checked');
+   if ($(toolbar).length) {
+       $(select_checkboxes).on('change', function(e){
+           select_checkboxes_checked = $(context).find('.listing-item-select input[type="checkbox"]:checked');
 
-       if ($(select_checkboxes_checked).length) {
-           $(context).addClass('toolbar-active');
-       } else {
-           $(context).removeClass('toolbar-active');
-       }
+           if ($(select_checkboxes_checked).length) {
+               $(context).addClass('toolbar-active');
+           } else {
+               $(context).removeClass('toolbar-active');
+           }
 
-       $(toolbar).find('.listing-toolbar-summary .total').text($(select_checkboxes_checked).length);
-   });
+           $(toolbar).find('.listing-toolbar-summary .total').text($(select_checkboxes_checked).length);
+       });
+   }
 
    // Initialize listing toolbar based on number of buttons
    if ($(toolbar).find('.listing-toolbar-actions').find('button, .button, fieldset').length > 2) {
