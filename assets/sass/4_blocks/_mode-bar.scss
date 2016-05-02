@@ -49,6 +49,14 @@
                 @include transition(0.3s);
             }
 
+            svg.ushahidi-logo {
+                display: block;
+                width: $base-spacing;
+                height: $base-spacing;
+                fill: $color-tertiary;
+                margin: 4px auto 6px;
+            }
+
             .avatar {
                 width: $lg-spacing;
                 height: $lg-spacing;
@@ -190,7 +198,8 @@
                     }
                 }
 
-                svg.iconic {
+                svg.iconic,
+                svg.ushahidi-logo {
                     display: inline-block;
                     position: relative;
                     top: 2px;
@@ -255,6 +264,16 @@
                 @include equal-radius(100%);
                 background: $color-secondary;
                 @include lrswap(margin, 0 0 3px 8px);
+            }
+
+            .subtext {
+                margin-top: 4px;
+                font-size: .857142857em;
+                color: $color-light-alpha;
+
+                @include media($medium) {
+                    display: block;                    
+                }
             }
         }
     }
