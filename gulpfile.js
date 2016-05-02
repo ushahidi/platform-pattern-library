@@ -148,7 +148,7 @@ gulp.task('uglifyJS', function() {
 });
 
 gulp.task('uglifyCloudJS', function() {
-    return gulp.src(['./assets/js/custom/map.js','./assets/js/cloud/*'])
+    return gulp.src(['./assets/js/custom/map.js','./assets/js/custom/toggle.js','./assets/js/cloud/*'])
     .pipe(plumber({
         errorHandler: errorHandler
     }))
