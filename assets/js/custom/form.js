@@ -41,7 +41,23 @@ $('.form-field-toggle').each(function(){
 		}
 });
 
+// Initialize date fields with 'PickaDate.js'
 $('input[type="date"]').pickadate({
     format: 'mmmm d, yyyy',
     today: 'Choose today'
+});
+
+$('.searchbar-input').each(function(){
+    var input = $(this).find('input[type="search"]'),
+        dropdownMenu = $(this).find('.dropdown-menu');
+
+    input.on('keyup', function(){
+        if (input.val()) {
+            dropdownMenu.addClass('active');            
+        }
+    });
+
+    input.on('focusout', function(){
+        dropdownMenu.removeClass('active');
+    });
 });

@@ -7,15 +7,15 @@ $('.listing').each(function(){
    select_checkboxes = $(context).find('.listing-item-select input[type="checkbox"]'),
    select_checkboxes_checked;
 
-   // Add 'init' class to the Mode Bar
+   // Add 'init' class to the listing
    $(context).addClass('init');
 
-   // Toggle the visibility of the listing's body when the user interacts with a toggle trigger
+   // When the user interacts with a toggle trigger, toggle the visibility of the listing's body
    $(toggle_button).on('click', function(e){
        $(this).closest('.listing-item').toggleClass('active');
    });
 
-   // Toggle the visibility of the listing's body when the user interacts with the toggle switch
+   // When the user interacts with the toggle "switch" checkbox pattern, toggle the visibility of the listing's body
    $(toggle_checkboxes).on('change', function(e){
        if ($(this).is(':checked')) {
            $(this).closest('.listing-item').addClass('active');
@@ -24,22 +24,24 @@ $('.listing').each(function(){
        }
    });
 
-   // Toggle the visibility of the listing's toolbar if one or more items are checked
+   // If one or more items are checked, toggle the visibility of the listing's toolbar
    if ($(toolbar).length) {
        $(select_checkboxes).on('change', function(e){
            select_checkboxes_checked = $(context).find('.listing-item-select input[type="checkbox"]:checked');
 
            if ($(select_checkboxes_checked).length) {
                $(context).addClass('toolbar-active');
+               $('.button-fab').prop('disabled', true);
            } else {
                $(context).removeClass('toolbar-active');
+               $('.button-fab').prop('disabled', false);
            }
 
            $(toolbar).find('.listing-toolbar-summary .total').text($(select_checkboxes_checked).length);
        });
    }
 
-   // Initialize listing toolbar based on number of buttons
+   // If the listing toolbar has two or more buttons, initialize truncated interaction
    if ($(toolbar).find('.listing-toolbar-actions').find('button, .button, fieldset').length > 2) {
        $(toolbar).addClass('truncated');
 

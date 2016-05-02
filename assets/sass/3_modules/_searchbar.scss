@@ -3,7 +3,10 @@
     position: relative;
 
     .searchbar-input {
-        margin: 0;
+
+        .form-field {
+            margin: 0;
+        }
 
         input[type="search"] {
             max-width: none;
@@ -11,11 +14,50 @@
             margin: 0;
         }
 
+        .dropdown-menu {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+
         + .searchbar-options {
             position: absolute;
             top: 0;
             right: 0;
             bottom: 0;
+        }
+    }
+
+    .searchbar-results {
+
+        .tool {
+
+            .tool-heading {
+                color: $color-dark-delta;
+                margin: 0 $sm-spacing;
+
+                svg.iconic {
+                    fill: $color-dark-delta;
+                }
+            }
+        }
+
+        .loading {
+            width: 100px;
+        }
+
+        dl {
+
+            dt.list-item {
+
+                em {
+                    color: $color-dark-alpha;
+                    font-style: normal;
+                    font-weight: $bold;
+                }
+            }
         }
     }
 

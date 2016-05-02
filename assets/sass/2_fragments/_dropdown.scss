@@ -3,9 +3,9 @@
    z-index: $top;
    min-width: 160px;
    @extend .menu;
-   // margin-top: -1px;
    z-index: $dropdown;
    margin: 0;
+   @include transition(0.3s);
 
    &.init {
       display: none;
@@ -13,6 +13,11 @@
       &.active {
          display: block;
          clear: both;
+      }
+
+      &[data-toggle-animate] {
+          display: none;
+          opacity: 0;
       }
    }
 

@@ -3,7 +3,7 @@ toggleInit = function(triggerSelector) {
     targetVal = $(trigger).attr('data-toggle'),
     target = $('[data-toggle-target="'+targetVal+'"]').length ? $('[data-toggle-target="'+targetVal+'"]') : $(trigger).next('.'+targetVal);
 
-    // Add 'init' class to pair of elements
+    // Add 'init' class to target and trigger
     $(trigger).addClass('init');
     $(target).addClass('init');
 
@@ -27,7 +27,19 @@ toggleInit = function(triggerSelector) {
        // IF: Target is currently hidden
        if ($(target).is(':hidden')) {
           $(trigger).addClass('active');
+
+          // IF: Target has the 'data-toggle-animate' attribute, animate it
+          if ($(target)[0].hasAttribute('data-toggle-animate')) {
+            // IF: The target's 'data-toggle-animate' attribute has a value, use it to determine which 'display' value to animate to. If it has no value, default to 'block'
+              var animateAttr = $(target).attr('data-toggle-animate'),
+                animateTo = animateAttr == '' ? 'block' : animateAttr;
+
+              $(target).css('display', animateTo).animate({
+                  opacity: 1
+              }, 150);
+          }
           $(target).addClass('active');
+
           $('body').addClass('noscroll');
           if ($(target).hasClass('dropdown-menu')) {
              dropdownXpos(trigger, target);
@@ -36,7 +48,19 @@ toggleInit = function(triggerSelector) {
           // ELSE: Target is currently visible
        } else {
           $(trigger).removeClass('active');
-          $(target).removeClass('active').removeAttr('style');
+
+          // IF: Target has the 'data-toggle-animate' attribute, animate it
+          if ($(target)[0].hasAttribute('data-toggle-animate')) {
+              $(target).animate({
+                  opacity: 0
+              }, 150, function() {
+                  $(this).css('display', 'none');
+              });
+          } else {
+              $(target).removeAttr('style');
+          }
+          $(target).removeClass('active');
+
           $('body').removeClass('noscroll');
        }
 

@@ -70,13 +70,15 @@ input[type="button"] {
     display: flex;
     flex-direction: column-reverse;
     flex-wrap: wrap;
-    @include transition(0.3);
+    @include transition(0.3s);
 
     @include media($medium) {
         display: block;
     }
 
     .button-fab {
+        position: relative;
+        z-index: $body;
 
         @include media($medium-down) {
             margin-left: auto;
@@ -119,6 +121,7 @@ input[type="button"] {
 
     .fab-options {
         display: none;
+        opacity: 0;
         flex-direction: column-reverse;
         flex-wrap: wrap;
         @extend .list-reset;
@@ -126,9 +129,13 @@ input[type="button"] {
 
         li {
             position: relative;
-            top: -100px;
+            top: 48px;
             margin: 5px 0;
-            @include transition(all, .3s);
+            @include transition(all, 0.24s);
+
+            @include media($medium) {
+                top: -48px;
+            }
 
             &:hover {
                 @include scale(1.025);
@@ -137,10 +144,41 @@ input[type="button"] {
                     background-color: $color-primary-alpha;
                 }
             }
+
+            &:nth-child(2) {
+                transition-delay: 0.025s;
+            }
+
+            &:nth-child(3) {
+                transition-delay: 0.05s;
+            }
+
+            &:nth-child(4) {
+                transition-delay: 0.075s;
+            }
+
+            &:nth-child(5) {
+                transition-delay: 0.1s;
+            }
+
+            &:nth-child(6) {
+                transition-delay: 0.125s;
+            }
+
+            &:nth-child(7) {
+                transition-delay: 0.15s;
+            }
+
+            &:nth-child(8) {
+                transition-delay: 0.175s;
+            }
+
+            &:nth-child(9) {
+                transition-delay: 0.2s;
+            }
         }
 
         &.active {
-            display: flex;
 
             li {
                 top: 0;

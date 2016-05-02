@@ -96,14 +96,30 @@
             z-index: $toolbar;
             width: 100%;
 
-            @include media($medium-down) {
 
-                .fab {
+            .fab {
+
+                .button-fab {
+                    bottom: 0;
+
+                    &:disabled {
+                        bottom: 240px;
+                    }
+                }
+
+                @include media($medium-down) {
                     display: flex;
                     position: fixed;
                     right: $sm-spacing;
                     bottom: $sm-spacing+45;
                     z-index: $toolbar;
+
+                    .button-fab {
+
+                        &:disabled {
+                            bottom: -400px;
+                        }
+                    }
                 }
             }
 
@@ -112,7 +128,6 @@
                 right: 0;
                 left: 288px;
                 width: auto;
-
             }
 
             .searchbar {
@@ -142,7 +157,6 @@
 
                 @include media($medium) {
                     left: 288px;
-                    padding-top: $huge-spacing;
                 }
 
                 &.expanded {
@@ -159,7 +173,7 @@
                 margin-top: 87px;
 
                 @include media($medium) {
-                    margin-top: 100px;
+                    margin-top: 80px;
                 }
 
                 .listing-toolbar {
