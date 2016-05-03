@@ -12,8 +12,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify'),
-    html5Lint = require('gulp-html5-lint'),
-    babel = require('gulp-babel');
+    html5Lint = require('gulp-html5-lint');
 
 function errorHandler (err) {
     gutil.beep();
@@ -135,9 +134,6 @@ gulp.task('uglifyJS', function() {
     return gulp.src(['./assets/js/pattern-library/*','./assets/js/custom/*'])
     .pipe(plumber({
         errorHandler: errorHandler
-    }))
-    .pipe(babel({
-        presets: ['es2015']
     }))
     .pipe(uglify())
     .pipe(concat('app.js'))
