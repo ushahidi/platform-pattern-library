@@ -4,7 +4,6 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     insert = require('gulp-insert'),
-    minifyCSS = require('gulp-minify-css'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
@@ -13,7 +12,8 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify'),
-    html5Lint = require('gulp-html5-lint');
+    html5Lint = require('gulp-html5-lint'),
+    babel = require('gulp-babel');
 
 function errorHandler (err) {
     gutil.beep();
@@ -136,6 +136,9 @@ gulp.task('uglifyJS', function() {
     .pipe(plumber({
         errorHandler: errorHandler
     }))
+    .pipe(babel({
+        presets: ['es2015']
+    }))
     .pipe(uglify())
     .pipe(concat('app.js'))
     .pipe(plumber.stop())
@@ -170,7 +173,7 @@ gulp.task('default', ['webserver'], function() {
     livereload.listen();
 
     // Watch JS
-    gulp.watch(['./assets/js/pattern-library/*','./assets/js/custom/*'], ['uglifyJS']);
+    gulp.watch(['./assets/js/pattern-library/*', './assets/js/custom/*'], ['uglifyJS']);
 
     // Watch Sass
     gulp.watch(['./assets/sass/**/*.scss'], ['sass']);

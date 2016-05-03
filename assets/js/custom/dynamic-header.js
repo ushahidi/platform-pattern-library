@@ -1,4 +1,4 @@
-headerScrollReact = function(headerHeight, lastScrollTop, parallaxReady) {
+var headerScrollReact = function(headerHeight, lastScrollTop, parallaxReady) {
     // When scrolling, fade content relative to scroll position and speed
     $(window).scroll(function(event){
        var scrollAmt = $(this).scrollTop();
@@ -32,7 +32,7 @@ headerScrollReact = function(headerHeight, lastScrollTop, parallaxReady) {
     });
 }
 
-headerMakeDynamic = function(){
+var headerMakeDynamic = function(){
     $('.header').removeClass('header-compact').addClass('header-full');
     $('.parallax').hide().fadeIn(400);
 
@@ -51,8 +51,8 @@ headerMakeDynamic = function(){
 }
 
 $(document).ready(function(){
-    var body = $('body')
-        navClose = '<div class="close-nav"></div>'
+    var body = $('body'),
+        navClose = '<div class="close-nav"></div>';
 
     $('.nav-icon-js').click(function(){
         body.toggleClass('navigation-open');
