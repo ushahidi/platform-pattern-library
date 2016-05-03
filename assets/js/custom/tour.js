@@ -1,4 +1,4 @@
-tourPin = function(prevStep, nextStep, target, position) {
+var tourPin = function(prevStep, nextStep, target, position) {
     var targetPos = $(target).offset(),
         targetWidth = $(target).outerWidth(),
         targetHeight = $(target).outerHeight();
@@ -109,7 +109,7 @@ tourPin = function(prevStep, nextStep, target, position) {
     }
 }
 
-tourStep = function(step, init) {
+var tourStep = function(step, init) {
     var start = typeof step !== 'undefined' ? false : true,
         prevStep = $('body').attr('data-step'),
         nextStep = typeof step !== 'undefined' ? step : 'start';
@@ -138,7 +138,7 @@ tourStep = function(step, init) {
     }
 }
 
-tourStepLookup = function(step) {
+var tourStepLookup = function(step) {
     // IF: The current URL includes a hash
     if (window.location.hash) {
         return window.location.hash.substr(1);
@@ -151,7 +151,7 @@ tourStepLookup = function(step) {
     }
 }
 
-tourInit = function(step) {
+var tourInit = function(step) {
     // Disable all other links and buttons on the deployment
     $('*').not('[data-cue], [data-payment], .tour-link').on('click', function(e){
         e.preventDefault();
