@@ -26,6 +26,11 @@
             font-size: 26px;
             font-size: 1.857142857rem;
         }
+
+        svg.iconic {
+            fill: $color-tertiary;
+            margin-right: 4px;
+        }
     }
 
     .mode-context-header {
@@ -108,6 +113,29 @@
         }
     }
 
+    .metadata {
+        margin-bottom: $sm-spacing;
+
+        a.metadata-author {
+            color: $color-secondary;
+
+            &:hover {
+                color: darken($color-secondary, 20%);
+            }
+        }
+
+        .metadata-visibility {
+
+            &.tooltip {
+
+                .bug {
+                    right: auto;
+                    left: 100%;
+                }
+            }
+        }
+    }
+
     .breadcrumbs {
         display: none;
         margin: $sm-spacing 0;
@@ -147,12 +175,23 @@
         padding: 0 $sm-spacing $base-spacing;
 
         .form-field {
-            text-align: center;
             margin-top: $sm-spacing;
+
+            @include media($medium) {
+                text-align: center;
+            }
 
             button,
             .button {
                 margin: $tiny-spacing;
+            }
+
+            .dropdown-menu {
+                top: auto !important;
+                left: auto !important;
+                font-size: $base-font-size;
+                text-align: left;
+                margin-top: -$sm-spacing;
             }
         }
 
@@ -160,6 +199,10 @@
             color: $color-secondary;
             padding-top: 0;
             padding-bottom: 0;
+
+            svg.iconic {
+                fill: $color-secondary;
+            }
         }
 
         .bug {
@@ -170,6 +213,7 @@
         @include media($medium) {
             padding: 0 $base-spacing $base-spacing;
 
+/*
             button,
             .button,
             input[type="button"] {
@@ -188,7 +232,17 @@
                         margin-left: 0;
                     }
                 }
+
+                .button-label {
+
+                    + svg.iconic {
+                        position: static;
+                        margin-top: 0;
+                        margin-left: 4px;
+                    }
+                }
             }
+*/
         }
     }
 
@@ -206,6 +260,7 @@
 
                 @include media($medium) {
                     overflow: visible;
+                    padding-right: 0;
                 }
             }
         }

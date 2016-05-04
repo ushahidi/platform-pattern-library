@@ -69,48 +69,6 @@
         }
     }
 
-    .postcard-visibility {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        text-align: center;
-        @include equal-radius(100%);
-        background-color: $red;
-        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $red;
-        padding: 2px;
-        margin: 0 $tiny-spacing;
-
-        svg.iconic {
-            width: 12px;
-            height: 12px;
-            fill: $color-light-delta;
-        }
-
-        &.public {
-            background-color: $green;
-            box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-                0 0 8px $green;
-        }
-
-        &.tooltip {
-
-            &:hover {
-
-                svg.iconic {
-
-                }
-            }
-
-            .bug {
-                top: -6px;
-                right: 100%;
-            }
-        }
-    }
-
-
-
     .postcard-image {
         position: absolute;
         top: $sm-spacing;
@@ -121,35 +79,25 @@
             padding-left: 56px;
             margin-right: 0;
 
-            + .postcard-metadata {
+            + .metadata {
                 padding-left: 56px;
             }
         }
     }
 
-    .postcard-metadata {
+    .metadata {
 
-        + .postcard-metadata {
+        + .metadata {
             margin-top: $tiny-spacing;
         }
-    }
 
-    .postcard-author {
-        color: $color-dark-alpha;
-        font-weight: $bold;
-
-        .avatar {
-            display: inline;
-            float: left;
-            width: 20px;
-            height: 20px;
-            margin-top: -3px;
-            margin-right: $tiny-spacing/2;
+        a.metadata-author {
+            color: $color-dark-alpha;
         }
     }
 
-    .postcard-author,
-    .postcard-title {
+    .postcard-title,
+    .metadata-author {
 
         .avatar {
             width: 20px;
@@ -250,29 +198,6 @@
 
         .dropdown-menu {
             top: 56px !important;
-        }
-    }
-}
-
-.postcard-metadata {
-    display: block;
-    font-size: 12px;
-}
-
-.postcard-author {
-    color: $color-dark-alpha;
-    font-weight: $bold;
-
-    .avatar {
-        display: inline;
-        float: left;
-        width: 20px;
-        height: 20px;
-        margin-top: -5px;
-        margin-right: 5px;
-
-        &:hover {
-            border-color: rgba(0,0,0,.24);
         }
     }
 }
