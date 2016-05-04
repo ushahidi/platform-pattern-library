@@ -207,13 +207,25 @@ fieldset {
        .map {
            height: 400px;
            border: 1px solid $color-light-beta;
+           margin-bottom: $tiny-spacing;
 
-           + input[type="text"] {
+           + .form-field {
                position: absolute;
                z-index: $body;
                top: $base-spacing;
+               right: $tiny-spacing;
                left: $tiny-spacing;
-               width: 60%;
+
+               input[type="text"] {
+                   display: inline-block;
+                   width: 60%;
+
+                   + button,
+                   + .button {
+                       margin-left: 4px;
+                   }
+               }
+
            }
        }
    }

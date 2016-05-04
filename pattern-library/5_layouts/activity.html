@@ -9,7 +9,7 @@
 
 @@include('../partials/_pl-head.html')
 
-    <body class="layout-d">
+    <body class="layout-a">
 
         @@include('../partials/_mode-bar.html', {
             "logged_in": true,
@@ -157,53 +157,29 @@
                        </div>
                    </div>
 
-                   <div class="listing-item active">
-                       <div class="listing-item-secondary">
-                           <button type="button" class="button-beta button-flat">
-                               <svg class="iconic">
-                                 <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
-                               </svg>
-                               <span class="hidden">Share</span>
-                           </button>
-                       </div>
+               </div>
 
-                       <div class="listing-item-primary">
-                           <h2 class="listing-item-title">Activity by region</h2>
-                       </div>
+               <div class="listing timeline">
+                   <h2 class="listing-heading">Timeline of activity</h2>
+                   <h3 class="listing-heading-section">Today</h3>
 
-                       <div class="listing-item-body">
-                           <div id="map" class="map" style="height:300px;"></div>
-                       </div>
-                   </div>
+                   @@include('../partials/_postcard.html')
 
+                   <article class="postcard">
+                       <div class="postcard-body">
+                           <img src="https://avatars.io/instagram/jshorland" class="avatar postcard-image" />
+                           <h1 class="postcard-title"><a href="">Jess Shorland signed up</a></h1>
+                           <span class="metadata">90 mins</span>
+                       </div>
+                   </article>
+
+                   <h3 class="listing-heading-section">Yesterday</h3>
+
+                   @@include('../partials/_postcard.html')
+                   @@include('../partials/_postcard.html')
                </div>
 
             </div>
-
-            <aside class="secondary-col">
-
-                <div class="listing timeline">
-                    <h3 class="listing-heading">Timeline of latest activity</h3>
-
-                    <h4 class="listing-heading-section">Today</h4>
-
-                    @@include('../partials/_postcard.html')
-
-                    <article class="postcard">
-                        <div class="postcard-body">
-                            <img src="https://avatars.io/instagram/jshorland" class="avatar postcard-image" />
-                            <h1 class="postcard-title"><a href="">Jess Shorland signed up</a></h1>
-                            <span class="postcard-metadata">90 mins</span>
-                        </div>
-                    </article>
-
-                    <h4 class="listing-heading-section">Yesterday</h4>
-
-                    @@include('../partials/_postcard.html')
-                    @@include('../partials/_postcard.html')
-                </div>
-            </aside>
-
         </main>
 
         @@include('../partials/_modals-global.html')

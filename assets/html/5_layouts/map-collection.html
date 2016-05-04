@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
@@ -22,12 +24,12 @@
 </head>
 
 
-<body class="layout-c">
+    <body class="layout-a">
 
-    <div class="mode-bar">
+        <div class="mode-bar">
     <nav>
         <ul class="deployment-menu">
-            <li data-message="views">
+            <li class="active"data-message="views">
                 <a href="map.html">
                     <svg class="iconic">
                         <use xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use>
@@ -241,296 +243,715 @@
 </div>
 
 
-    <div class="mode-context">
+        <div class="mode-context">
 
-        <header class="mode-context-header">
-            <ol class="breadcrumbs">
-                <li><a href="map.html">March on City Hall</a></li>
-            </ol>
+            <header class="mode-context-header">
+                <ol class="breadcrumbs">
+                    <li><a href="map.html">March on City Hall</a></li>
+                </ol>
 
-            <h1 class="mode-context-title">Police encounters</h1>
-        </header>
+                <h1 class="mode-context-title">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
+                    </svg>
+                    Read later
+                </h1>
+            </header>
 
-        <span class="mode-context-trigger">
+            <span class="mode-context-trigger">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show more/less</span>
+            </span>
+
+            <div class="mode-context-body">
+                <!--// IF: Saved Search has description //-->
+                <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales.</p>
+                <!--// END IF //-->
+
+                <div class="metadata">
+                    Created by <a href="" class="metadata-author">Jess Shorland</a>
+                    <span class="metadata-visibility public tooltip">
+                        <svg class="iconic">
+                          <use xlink:href="/assets/img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <span class="bug">This Collection is visible to the public</span>
+                    </span>
+
+                    <!--// IF: User has permission to edit the Saved Search //-->
+                    <div class="form-field">
+                        <button type="button" data-modal="edit-collection">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#pencil"></use>
+                            </svg>
+                            <span class="button-label">Edit</span>
+                        </button>
+
+                        <button type="button" data-toggle="dropdown-menu">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#ellipses"></use>
+                            </svg>
+                            <span class="button-label hidden">More</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="/assets/img/iconic-sprite.svg#bell"></use>
+                                </svg>
+                                <span class="label">Get notifications</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="label">Delete</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--// END IF //-->
+
+                    <!--// IF: User does not have permission to edit the Saved Search //
+                    <div class="form-field">
+                        // IF: User is not yet getting notifications about this Saved Search //
+                        <button type="button">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#bell"></use>
+                            </svg>
+                            <span class="button-label">Get notifications</span>
+                        </button>
+
+                        // ELSE //
+
+                        <button type="button" class="button-flat">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#bell"></use>
+                            </svg>
+                            <span class="button-label">Turn off notifications</span>
+                        </button>
+                        // END IF //
+                    </div>
+                    // END IF //-->
+                </div>
+
+                <form class="survey-filter">
+    <div class="survey-filter-checkbox">
+        <div class="survey-filter-label">
+            <span class="post-band" style="background-color:#8D1919;"></span>
+            <label>
+                <input type="checkbox" checked />
+                Getting around
+            </label>
+        </div>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            18
             <svg class="iconic">
                 <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
             </svg>
-            <span class="label hidden">Show more/less</span>
         </span>
-
-        <div class="mode-context-body">
-            <p>Curabitur consectetur sem nec sem rutrum, ac mollis diam convallis.</p>
-            <button class="button-flat">
+        <ul class="dropdown-menu">
+            <li>
+                <a href="">
                 <svg class="iconic">
                     <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
                 </svg>
-                <span class="button-label">Add to survey</span>
+                <span class="label">Add to Getting around</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
+                </svg>
+                <span class="label">Assign someone to add to Getting around</span>
+                </a>
+            </li>
+            <div class="divider"></div>
+            <li><a href="">Show only Getting around</a></li>
+            <li><a href="">Hide Getting around</a></li>
+            <div class="divider"></div>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <span class="label">Survey settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="survey-filter-checkbox">
+        <div class="survey-filter-label">
+            <span class="post-band" style="background-color:#CB872E;"></span>
+            <label>
+                <input type="checkbox" checked />
+                Police encounters
+            </label>
+        </div>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            2
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                </svg>
+                <span class="label">Add to Police encounters</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
+                </svg>
+                <span class="label">Assign someone to add to Police encounters</span>
+                </a>
+            </li>
+            <div class="divider"></div>
+            <li><a href="">Show only Police encounters</a></li>
+            <li><a href="">Hide Police encounters</a></li>
+            <div class="divider"></div>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <span class="label">Survey settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="survey-filter-checkbox">
+        <div class="survey-filter-label">
+            <span class="post-band" style="background-color:#2274B4;"></span>
+            <label>
+                <input type="checkbox" checked />
+                Protester photos
+            </label>
+        </div>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            4
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                </svg>
+                <span class="label">Add to Protester photos</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
+                </svg>
+                <span class="label">Assign someone to add to Protester photos</span>
+                </a>
+            </li>
+            <div class="divider"></div>
+            <li><a href="">Show only Protester photos</a></li>
+            <li><a href="">Hide Protester photos</a></li>
+            <div class="divider"></div>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <span class="label">Survey settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="survey-filter-checkbox">
+        <div class="survey-filter-label">
+            <span class="post-band" style="background-color:#517923;"></span>
+            <label>
+                <input type="checkbox" checked />
+                Official events
+            </label>
+        </div>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            3
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
+        <ul class="dropdown-menu">
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                </svg>
+                <span class="label">Add to Official events</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
+                </svg>
+                <span class="label">Assign someone to add to Official events</span>
+                </a>
+            </li>
+            <div class="divider"></div>
+            <li><a href="">Show only Official events</a></li>
+            <li><a href="">Hide Official events</a></li>
+            <div class="divider"></div>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <span class="label">Survey settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="survey-filter-checkbox">
+        <div class="survey-filter-label">
+            <label>
+                <input type="checkbox" />
+                Unknown
+            </label>
+        </div>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            6
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
+        <ul class="dropdown-menu">
+            <li><a href="">Show only Unknown</a></li>
+            <li><a href="">Hide Unknown</a></li>
+            <div class="divider"></div>
+            <li>
+                <a href="">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <span class="label">Unknown survey settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</form>
+
+
+            </div>
+        </div>
+
+        <main role="main">
+            <div class="toolbar">
+    <div class="fab" data-message="add-post">
+    <button type="button" class="button-alpha button-fab" data-toggle="fab-options">
+        <svg class="iconic">
+          <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+          <foreignObject>
+              <img class="icon" src="/assets/img/icons/png/plus-2x.png">
+          </foreignObject>
+        </svg>
+        <span class="hidden">Add</span>
+    </button>
+    <ul class="fab-options" data-toggle-animate="flex">
+        <li>
+            <a href="">
+                <span class="fab-action-type" style="background-color: #8D1919;">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                    </svg>
+                </span>
+                <span class="bug">Getting around</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <span class="fab-action-type" style="background-color: #CB872E;">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                    </svg>
+                </span>
+                <span class="bug">Police encounters</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <span class="fab-action-type" style="background-color: #2274B4;">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                    </svg>
+                </span>
+                <span class="bug">Protester photos</span>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <span class="fab-action-type" style="background-color: #517923;">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                    </svg>
+                </span>
+                <span class="bug">Official events</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+    <form role="search" class="searchbar" data-message="search">
+    <div class="searchbar-input">
+        <div class="form-field search">
+            <svg class="iconic">
+              <use xlink:href="/assets/img/iconic-sprite.svg#magnifying-glass"></use>
+            </svg>
+            <input type="search" placeholder="Search">
+        </div>
+        <div class="searchbar-results dropdown-menu">
+            <div class="form-field">
+                <button class="button-plain">
+                    <span class="button-label">Search all posts for "<em>Polic</em>"</span>
+                </button>
+            </div>
+
+            <!-- IF: LOADING SEARCH SUGGESTIONS //
+            <div class="loading">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            // END IF -->
+
+            <div class="tool">
+                <h6 class="tool-heading">Suggestions</h6>
+                <dl class="dropdown-menu-body">
+                    <dt class="list-item"><a href="#"><em>Polic</em>e</a></dt>
+                </dl>
+            </div>
+
+            <div class="tool">
+                <h6 class="tool-heading">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#star"></use>
+                    </svg>
+                    Saved
+                </h6>
+                <dl class="dropdown-menu-body">
+                    <dt class="list-item"><a href="#">City <em>Polic</em>e Hearings</a></dt>
+                    <dt class="list-item"><a href="#">Incidents involving <em>Polic</em>e</a></dt>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+    <div class="searchbar-options">
+        <a href="#" class="button" data-toggle="search-saved">
+            <svg class="iconic">
+              <use xlink:href="/assets/img/iconic-sprite.svg#star"></use>
+            </svg>
+            <span class="button-label hidden">Saved</span>
+        </a>
+
+        <a href="#" class="button searchbar-options-filter" data-toggle="search-filters">
+            <span class="button-label">Filters</span>
+            <svg class="iconic">
+              <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </a>
+    </div>
+
+    <div class="dropdown-menu" data-toggle-target="search-saved" data-toggle-animate>
+        <h4 class="dropdown-menu-title">Saved Searches</h4>
+
+        <div class="form-field search">
+            <svg class="iconic">
+              <use xlink:href="/assets/img/iconic-sprite.svg#magnifying-glass"></use>
+            </svg>
+             <label>Find a saved search</label>
+             <input type="search" placeholder="Find a saved search...">
+        </div>
+        <dl class="dropdown-menu-body">
+            <dt class="list-item"><a href="map-saved.html">Actions on Congress Avenue</a></dt>
+
+            <dt class="list-item"><a href="#">Photos</a></dt>
+
+            <dt class="list-item"><a href="#">Reports on Wednesday</a></dt>
+
+            <dt class="list-item"><a href="#">Assigned to me</a></dt>
+
+            <dt class="list-item"><a href="#">Unknown form with attachment</a></dt>
+            <dd>by <a href="">Robbie MacKay</a></dd>
+
+            <dt class="list-item"><a href="#">Unknown form with attachment</a></dt>
+            <dd>by <a href="">Robbie MacKay</a></dd>
+
+            <dt class="list-item"><a href="#">Unknown form with attachment</a></dt>
+            <dd>by <a href="">Robbie MacKay</a></dd>
+
+            <dt class="list-item"><a href="#">Unknown form with attachment</a></dt>
+            <dd>by <a href="">Robbie MacKay</a></dd>
+        </dl>
+        <div class="form-field">
+            <button type="button" class="button-beta">
+                <svg class="iconic">
+                  <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                </svg>
+                <span class="button-label">Create new</span>
             </button>
         </div>
     </div>
 
+    <div class="dropdown-menu" data-toggle-target="search-filters" data-toggle-animate>
+        <div class="dropdown-menu-body">
+            <fieldset>
+                <legend>Surveys</legend>
 
-    <main role="main">
-
-       <div class="main-col">
-
-            <article class="postcard" role="article">
-
-                <div class="postcard-body">
-                    <h1 class="postcard-title">
-                        <div class="post-band" style="background-color: #CB872E;"></div>
-                        Overcrowding between 5th St. &amp; Salem Ave.
-                    </h1>
-
-                    <div class="metadata">
-                        <a href="" class="metadata-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS
-                        <span class="metadata-visibility tooltip">
-                            <svg class="iconic">
-                              <use xlink:href="/assets/img/iconic-sprite.svg#lock-locked"></use>
-                            </svg>
-                            <span class="bug">This post is only visible to Editors</span>
-                        </span>
-                    </div>
-
-                   <!-- IF: User has permission to see other 'Tasks' -->
-                   <nav class="tabs-menu" data-tabs="tasks-tabs" data-tabs-hash>
-                       <ul>
-                           <li class="active">
-                               <a href="#tasks-post">
-                                   <svg class="iconic">
-                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#file"></use>
-                                   </svg>
-                                   Post
-                               </a>
-                           </li>
-                           <li>
-                               <a href="#tasks-verification">
-                                   <svg class="iconic">
-                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
-                                   </svg>
-                                   Verify
-                               </a>
-                           </li>
-                           <li>
-                               <a href="#tasks-translation">
-                                   <svg class="iconic">
-                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#transfer"></use>
-                                   </svg>
-                                   Translate
-                               </a>
-                           </li>
-                       </ul>
-                   </nav>
-                   <!--// END IF -->
-
-                   <div id="tasks-post" class="tasks-tabs">
-
-                        <div class="postcard-field">
-                            <img src="http://lorempixel.com/400/300/" class="postcard-image" />
-                        </div>
-
-                        <div class="postcard-field">
-                            <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</p>
-                            <p>Nam eget urna in nulla tincidunt laoreet. Nulla facilisi. Mauris consequat sem augue, venenatis faucibus erat placerat et. </p>
-                        </div>
-
-                        <div class="postcard-field">
-                            <h2 class="form-label">Category</h2>
-                            <p>Harrassment</p>
-                        </div>
-
-                        <div class="postcard-field">
-                            <h2 class="form-label">Time &amp; date of encounter</h2>
-                            <p>2016-03-04 12:04:00</p>
-                        </div>
-
-                        <div class="postcard-field">
-                            <h2 class="form-label">Location</h2>
-                            <p>1234 Main St. Austin, TX USA</p>
-                            <div id="map" class="map"></div>
-                        </div>
-                    </div>
-
-                    <div id="tasks-verification" class="tasks-tabs">
-
-                        <div class="postcard-field">
-                            <h2 class="form-label">Verified</h2>
-                            <p>Yes</p>
-                        </div>
-
-                         <div class="postcard-field">
-                             <h2 class="form-label">Notes</h2>
-                             <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</p>
-                             <p>Nam eget urna in nulla tincidunt laoreet. Nulla facilisi. Mauris consequat sem augue, venenatis faucibus erat placerat et. </p>
-                         </div>
-
-                    </div>
-
-                    <div id="tasks-translation" class="tasks-tabs">
-
-                        <div class="postcard-field">
-                            <h2 class="form-label">Translation completed</h2>
-                            <p>Yes</p>
-                        </div>
-                    </div>
-
+                <div class="form-field checkbox">
+                    <label for="traffic">
+                        <input type="checkbox" name="getting-around" checked>
+                        Getting around
+                    </label>
                 </div>
-
-                <span class="postcard-actions-trigger" data-toggle="dropdown-menu">
+                <div class="form-field checkbox">
+                    <label for="police-encounters">
+                        <input type="checkbox" name="police-encounters" checked>
+                        Police encounters
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="protester-photos">
+                        <input type="checkbox" name="protester-photos" checked>
+                        Protester photos
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="police-encounters">
+                        <input type="checkbox" name="official-events" checked>
+                        Official events
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="protester-photos">
+                        <input type="checkbox" name="unknown">
+                        Unknown
+                    </label>
+                </div>
+                <span class="form-field-toggle">
                     <svg class="iconic">
                       <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
                     </svg>
+                    More
                 </span>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="post-edit.html">
-                        <svg class="iconic">
-                            <use xlink:href="/assets/img/iconic-sprite.svg#pencil"></use>
-                        </svg>
-                        <span class="label">Edit</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-modal="add-to-collection">
-                        <svg class="iconic">
-                            <use xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
-                        </svg>
-                        <span class="label">Add to Collection</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="" data-modal="share">
-                        <svg class="iconic">
-                            <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
-                        </svg>
-                        <span class="label">Share</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                        <svg class="iconic">
-                            <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
-                        </svg>
-                        <span class="label">Assign to...</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                        <svg class="iconic">
-                            <use xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
-                        </svg>
-                        <span class="label">Delete</span>
-                        </a>
-                    </li>
-                </ul>
+            </fieldset>
 
-           </article>
+            <fieldset>
+                <legend>Categories</legend>
 
-           <div class="listing card">
-                <h3 class="listing-heading">Comments</h3>
+                <div class="form-field checkbox">
+                    <label for="speakers">
+                        <input type="checkbox" name="speakers" value="Speakers" id="speakers"> Speakers
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="opposition">
+                        <input type="checkbox" name="opposition" value="Opposition" id="opposition"> Opposition
+                    </label>
+                </div>
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
+            </fieldset>
 
-                <div class="listing-item">
-                    <div class="listing-item-primary">
-                        <div class="listing-item-image">
-                            <img class="avatar" src="http://placehold.it/100x100" alt="">
-                        </div>
+            <fieldset>
+                <legend>Who it's visible to</legend>
 
-                        <h2 class="listing-item-title"><a href="">Mary Swanson</a></h2>
-                        <p class="listing-item-secondary">45 mins</p>
+                <div class="form-field radio">
+                    <label for="everyone">
+                        <input type="radio" name="visibility" value="Everyone" checked>
+                        Everyone
+                    </label>
+                </div>
+                <div class="form-field radio">
+                    <label for="members">
+                        <input type="radio" name="visibility" value="Members">
+                        Members
+                    </label>
+                </div>
+                <div class="form-field radio">
+                    <label for="administrators">
+                        <input type="radio" name="visibility" value="Administrators">
+                        Administrators
+                    </label>
+                </div>
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
+            </fieldset>
 
-                        <p>Cras tempus sodales molestie. Ut a ante mollis, dictum nulla quis, accumsan arcu. Donec et lacus libero. Phasellus a ultricies lorem. Ut gravida, nibh a tincidunt auctor, turpis odio tincidunt nisl, laoreet aliquet dui erat ut lorem. Donec eleifend eleifend nisl, vel maximus ipsum vestibulum in.</p>
-                    </div>
+            <fieldset>
+                <legend>Date range</legend>
+
+                <div class="form-field date">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <label class="hidden">Start date</label>
+                    <input type="date" placeholder="Start date" />
+                    <span class="date-joiner">to</span>
                 </div>
 
-                <div class="listing-item">
-                    <div class="listing-item-primary">
-                        <div class="listing-item-image">
-                            <img class="avatar" src="http://placehold.it/100x100" alt="">
-                        </div>
-
-                        <h2 class="listing-item-title"><a href="">Mary Swanson</a></h2>
-                        <p class="listing-item-secondary">45 mins</p>
-
-                        <p>Cras tempus sodales molestie. Ut a ante mollis, dictum nulla quis, accumsan arcu. Donec et lacus libero. Phasellus a ultricies lorem. Ut gravida, nibh a tincidunt auctor, turpis odio tincidunt nisl, laoreet aliquet dui erat ut lorem. Donec eleifend eleifend nisl, vel maximus ipsum vestibulum in.</p>
-                    </div>
+                <div class="form-field date">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <label class="hidden">End date</label>
+                    <input type="date" placeholder="End date" />
                 </div>
 
-                <div class="listing-item">
-                    <div class="listing-item-primary">
-                        <h2 class="listing-item-title">
-                            <a href="" class="button button-beta button-flat">Load more comments</a>
-                        </h2>
-                    </div>
-                </div>
+            </fieldset>
+        </div>
 
-                <div class="listing-item">
-                    <div class="listing-item-primary">
-                        <h2 class="listing-item-title">
-                            <a href="" class="button button-flat" data-modal="add-comment">
-                                <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
-                                </svg>
-                               Add comment
-                            </a>
-                        </h2>
-                    </div>
-                </div>
+        <div class="form-field">
+            <button type="button" class="button-link" disabled>Cancel</button>
+            <button type="button" class="button-alpha" disabled>Apply filters</button>
+        </div>
+    </div>
+</form>
 
+
+    <div class="button-group">
+        <button type="button" data-modal="share">
+            <svg class="iconic">
+              <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
+            </svg>
+            <span class="button-label">Share</span>
+        </button>
+    </div>
+</div>
+
+            <div class="toolbox">
+
+    <div class="tool">
+        <h6 class="tool-heading">Layers</h6>
+
+        <span data-toggle="toggle-content">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show/hide</span>
+        </span>
+
+        <div class="toggle-content">
+            <fieldset>
+                <div class="form-field radio">
+                    <label for="streets"><input type="radio" name="layers" id="streets" checked />Streets</label>
+                </div>
+                <div class="form-field radio">
+                    <label for="satellite"><input type="radio" name="layers" id="satellite" />Satellite</label>
+                </div>
+                <div class="form-field radio">
+                    <label for="terrain"><input type="radio" name="layers" id="terrain" />Terrain</label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+</div>
+
+
+            <div id="map" class="map full-size"></div>
+        </main>
+
+        <div id="edit-collection" class="modal">
+            <div class="modal-window">
+               <h3 class="modal-title">
+                   Edit Collection
+               </h3>
+
+               <div class="modal-body">
+
+                   <div class="form-field title">
+                       <label>Name</label>
+                       <input type="text" value="Read later" placeholder="Name your Collection..." />
+                   </div>
+
+                   <div class="form-field">
+                       <label>
+                           Description
+                       </label>
+                       <textarea>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales.</textarea>
+                   </div>
+
+                   <div class="form-field switch">
+                       <label>
+                           Featured
+                           <span class="tooltip">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#question-mark"></use>
+                               </svg>
+                               <span class="bug">Featured Collections appear to all users in <br />the "Collections" menu</span>
+                           </span>
+                       </label>
+                       <div class="toggle-switch">
+                           <input class="tgl" id="switch1" type="checkbox">
+                           <label class="tgl-btn" for="switch1"></label>
+                       </div>
+                   </div>
+
+                   <div class="form-field">
+                       <label>Default viewing mode</label>
+                       <div class="custom-select">
+                           <select>
+                               <option>Map</option>
+                               <option>Timeline</option>
+                          </select>
+                       </div>
+                   </div>
+
+                   <div class="form-field select">
+                       <label>
+                           <div class="custom-select">
+                               <select>
+                                   <option>Everyone</option>
+                                   <option>Editors</option>
+                                   <option selected>Administrators</option>
+                              </select>
+                           </div>
+                           <span class="nodisplay">Who</span> can see this
+                       </label>
+                   </div>
+
+                   <div class="form-field">
+                       <button type="button" class="button-link  modal-trigger">Cancel</button>
+                       <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+                   </div>
+               </div>
             </div>
 
-        </div>
+            <div class="modal-overlay"></div>
+         </div>
 
-    </main>
-
-    <div id="add-comment" class="modal">
-       <div class="modal-window">
-           <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
-               <svg class="iconic">
-                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#x"></use>
-               </svg>
-              <span class="hidden">Close</span>
-           </button>
-
-          <h3 class="modal-title">Add comment</h3>
-
-          <div class="form-field">
-             <label class="hidden">Comment</label>
-             <textarea placeholder="Write something..."></textarea>
-          </div>
-
-          <div class="form-field">
-             <button type="button" class="button-alpha modal-trigger">Save</button>
-          </div>
-       </div>
-
-       <div class="modal-overlay"></div>
-    </div>
-
-    <div id="submitted" class="message">
-        <div class="message-image confirmation">
-            <svg class="iconic">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
-            </svg>
-        </div>
-
-        <div class="message-body">
-            <p><strong>Your Police encounters post was saved successfully</strong>. It's only visible to you and the deployment's moderators at the moment.</p>
-            <p>Your post will need to be moderated before it's visible to the public.</p>
-
-            <button class="button-beta button-flat">
-                <svg class="iconic">
-                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#pencil"></use>
-                </svg>
-                <span class="button-label">Edit post</span>
-            </button>
-
-            <button class="button-flat message-trigger">
-                Dismiss
-            </button>
-        </div>
-    </div>
-
-    <div id="share" class="modal">
+        <div id="share" class="modal">
     <div class="modal-window">
         <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
             <svg class="iconic">
@@ -986,14 +1407,11 @@
     </div>
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 
 
-    <script>
-        messageToggle($('#submitted'));
-    </script>
-</body>
+    </body>
 
 </html>
