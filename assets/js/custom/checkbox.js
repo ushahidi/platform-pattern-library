@@ -1,4 +1,4 @@
-checkboxState = function(checkbox){
+var checkboxState = function(checkbox){
     var label = $(checkbox).parent('label');
 
     if ($(checkbox).is(':checked')) {

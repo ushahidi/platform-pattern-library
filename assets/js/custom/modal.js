@@ -1,4 +1,4 @@
-modalToggle = function(element) {
+var modalToggle = function(element) {
    var target = typeof element !== 'undefined' ? element : '.modal';
 
    if ($('body').hasClass('modal-visible')) { // If modal is already visible...
@@ -14,7 +14,7 @@ modalToggle = function(element) {
    }
 }
 
-modalYpos = function() {
+var modalYpos = function() {
    var windowYpos = $(window).scrollTop();
    if (windowYpos > 0) {
       $('.modal-window').css('top', windowYpos + 40);
