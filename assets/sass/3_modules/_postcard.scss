@@ -86,10 +86,7 @@
     }
 
     .metadata {
-
-        + .metadata {
-            margin-top: $tiny-spacing;
-        }
+        margin-bottom: $sm-spacing;
 
         a.metadata-author {
             color: $color-dark-alpha;
@@ -170,7 +167,11 @@
         }
 
         .postcard-body {
-            padding: $base-spacing;
+            padding: $base-spacing $sm-spacing;
+
+            @include media($medium) {
+                padding: $base-spacing;
+            }
         }
 
         .postcard-field {
@@ -193,6 +194,14 @@
             @include media($medium) {
                 top: $lg-spacing;
                 right: $base-spacing;
+            }
+        }
+
+        .tabs-menu {
+
+            @include media($medium) {
+                margin-right: -$base-spacing;
+                margin-left: -$base-spacing;
             }
         }
 
