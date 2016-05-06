@@ -27,6 +27,17 @@
             top: 0;
             right: 0;
             bottom: 0;
+
+            .button {
+
+                &:first-of-type {
+                    @include equal-radius(0px);
+                }
+
+                &:last-of-type {
+                    @include radius($top-left: 0px, $top-right: 2px, $bottom-right: 2px, $bottom-left: 0px);
+                }
+            }
         }
     }
 
@@ -69,19 +80,8 @@
             font-weight: normal;
             text-transform: none;
             letter-spacing: 0px;
-            @include equal-radius($radius: 0);
             padding-top: 10px;
             padding-bottom: 10px;
-
-/*
-            &:first-of-type {
-                @include radius($top-left: 2px, $top-right: 0px, $bottom-right: 0px, $bottom-left: 2px);
-            }
-*/
-
-            &:last-of-type {
-                @include radius($top-left: 0px, $top-right: 2px, $bottom-right: 2px, $bottom-left: 0px);
-            }
 
             &.active {
                 color: $color-primary-alpha;
