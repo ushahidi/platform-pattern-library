@@ -44,7 +44,7 @@
                 <form role="search" class="searchbar">
                     <div class="searchbar-options">
                         <a href="#" class="button searchbar-options-filter" data-toggle="search-filters">
-                            <span class="button-label">Filters</span>
+                            <span class="button-label">Date range</span>
                             <svg class="iconic">
                               <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
                             </svg>
@@ -55,29 +55,31 @@
                         <div class="dropdown-menu" data-toggle-target="search-filters">
                             <div class="dropdown-menu-body">
                                 <fieldset>
-                                    <legend>Date range</legend>
+                                    <legend>Range</legend>
 
-                                    <div class="form-field radio">
-                                        <label for="alltime">
-                                            <input type="radio" name="date-range" checked id="alltime"> All time
-                                        </label>
+                                    <div class="form-field date">
+                                        <svg class="iconic">
+                                          <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        <label class="hidden">Start date</label>
+                                        <input type="date" placeholder="Start date" />
+                                        <span class="date-joiner">to</span>
                                     </div>
-                                    <div class="form-field radio">
-                                        <label for="thisweek">
-                                            <input type="radio" name="date-range" value="Police encounters" id="thisweek"> This week
-                                        </label>
+
+                                    <div class="form-field date">
+                                        <svg class="iconic">
+                                          <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        <label class="hidden">End date</label>
+                                        <input type="date" placeholder="End date" />
                                     </div>
-                                    <div class="form-field radio">
-                                        <label for="thismonth">
-                                            <input type="radio" name="date-range" id="thismonth"> This month
-                                        </label>
-                                    </div>
+
                                 </fieldset>
                             </div>
 
                             <div class="form-field">
                                 <button type="button" class="button-link" disabled>Cancel</button>
-                                <button type="button" class="button-alpha" disabled>Apply filters</button>
+                                <button type="button" class="button-alpha" disabled>Apply filter</button>
                             </div>
                         </div>
                     </div>
