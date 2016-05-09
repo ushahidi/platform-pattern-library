@@ -33,7 +33,6 @@
         text-align: center;
         @include equal-radius(100%);
         background-color: $color-light-beta;
-        @include transition(0.3s);
 
         &:hover {
             cursor: pointer;
@@ -42,19 +41,27 @@
         svg.iconic {
             fill: $white;
             margin-top: 4px;
+            @include transition(0.3s);
         }
 
         &.active {
+            z-index: 5001;
+            font-weight: $bold;
             background-color: $color-dark-beta;
-            @include transform(rotate(180deg));
+
+            svg.iconic {
+                margin-top: 2px;
+                @include transform(rotate(180deg));
+            }
         }
 
     }
 
     .dropdown-menu {
-        top: $lg-spacing+4 !important;
-        right: $sm-spacing !important;
+        top: 4px !important;
+        right: 4px !important;
         left: auto !important;
+        padding-top: $lg-spacing;
     }
 
     .postcard-title {
