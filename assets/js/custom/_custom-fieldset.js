@@ -6,7 +6,7 @@ $('.custom-fieldset').each(function(){
 
    $(context).addClass('init');
    $(fields).wrapAll('<div class="dropdown-menu" />');
-   $(trigger).addClass('dropdown-trigger').attr('data-toggle','dropdown-menu').append('<svg class="iconic chevron"><use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use></svg>');
+   $(trigger).wrapInner('<span class="legend-label"></span>').addClass('dropdown-trigger').attr('data-toggle','dropdown-menu').append('<svg class="iconic chevron"><use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use></svg>');
 
    if ($(context)[0].hasAttribute('data-legend')) {
       $(context).attr('data-legend', $(trigger).text());
@@ -43,5 +43,38 @@ $('[data-fieldset-type="color"]').each(function(){
         colorVal = $(this).val();
 
         fieldsetLegend.children('.swatch').attr('style', 'background-color: #'+colorVal+';');
+    });
+});
+
+// Configure custom fieldset for selecting a date range
+$('[data-fieldset-type="date-range"]').each(function(){
+    var daterangeFieldset = $(this),
+        daterangeFieldsetLegend = daterangeFieldset.find('.legend-label'),
+        daterangeInputFields = daterangeFieldset.find('.form-field.date'),
+        daterangeInputs = daterangeInputFields.find('input');
+
+    // Function to toggle the visibility of custom date range inputs & update the legend's label with the label for the selected radio button
+    updateDateRangeControl = function(checkedButton) {
+        daterangeFieldsetLegend.text($('label[for="'+checkedButton.val()+'"]').text());
+
+        // If 'custom' is not selected
+        if (checkedButton.val() !== 'custom') {
+            daterangeInputFields.fadeOut(300);
+        } else {
+            daterangeInputFields.fadeIn(300);
+        }
+    }
+
+    // Initialize on page load
+    updateDateRangeControl(daterangeFieldset.find('input[type="radio"]:checked'));
+
+    // When the selected radio button changes
+    daterangeFieldset.find('input[type="radio"]').on('change', function(){
+        updateDateRangeControl(daterangeFieldset.find('input[type="radio"]:checked'));
+    });
+
+    // When the values for the custom date range inputs change
+    daterangeInputs.on('change', function(){
+        daterangeFieldsetLegend.text($('input[name="startdate"]').val() + ' - ' + $('input[name="enddate"]').val());
     });
 });

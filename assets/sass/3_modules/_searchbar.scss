@@ -111,6 +111,64 @@
                 }
             }
         }
+
+        .custom-fieldset {
+
+            .dropdown-menu {
+
+                .form-field {
+
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="url"],
+                    input[type="password"],
+                    input[type="search"],
+                    input[type="date"],
+                    input[type="datetime"] {
+
+                        @include media($medium) {
+                            margin-top: 0;
+                        }
+                    }
+
+                    &.date {
+
+                        svg.iconic {
+                            top: 10px;
+                        }
+
+                        .date-joiner {
+
+                            @include media($medium) {
+                                position: static;
+                                margin-top: $tiny-spacing;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.init {
+
+                legend {
+                    color: $white;
+                    background-color: $color-primary;
+
+                    svg.iconic {
+                        fill: $color-tertiary;
+                    }
+
+                    &.active {
+                        color: $color-primary-alpha;
+                        background-color: $color-light-delta;
+
+                        svg.iconic {
+                            fill: $color-primary-alpha;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     .dropdown-menu {
