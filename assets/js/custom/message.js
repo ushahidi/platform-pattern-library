@@ -1,7 +1,14 @@
-messageToggle = function(element) {
+messageToggle = function(element, sustain) {
    var target = typeof element !== 'undefined' ? element : '.message';
 
    $(target).toggleClass('active');
+
+   // IF 'sustain' is false or undefined, inactivate the message after five seconds.
+   if (!sustain) {
+    setTimeout(function() {
+        $(target).toggleClass('active');
+    }, 5000);
+   }
 }
 
 $('[data-message], .message-trigger').click(function(e) {
