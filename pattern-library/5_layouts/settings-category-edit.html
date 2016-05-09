@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+@@include('../partials/_pl-head.html')
+
+<body class="layout-a">
+
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
+
+    <div class="mode-context">
+
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="settings-categories.html">Categories</a></li>
+            </ol>
+
+            <h1 class="mode-context-title">Edit Category</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Save</button>
+            </div>
+        </div>
+
+       <div class="main-col">
+
+            <div class="form-sheet">
+                <div class="form-field title">
+                    <label class="hidden">Name</label>
+                    <input type="text" placeholder="Category name" value="Category A">
+                </div>
+
+                <div class="form-field form-field-adapt">
+                    <label>
+                        Description
+                    </label>
+                    <textarea name="description" data-min-rows='1' rows='1'>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+                </div>
+
+                <fieldset class="custom-fieldset" data-fieldset-type="color">
+                    <legend>Color</legend>
+
+                    <div class="form-field">
+                        <label>Hex value</label>
+                        <input type="text" data-input-type="color" value="C390D4" />
+                    </div>
+                </fieldset>
+
+                <div class="form-field select">
+                    <label>
+                        <div class="custom-select">
+                            <select>
+                                <option>Everyone</option>
+                                <option>Editors</option>
+                                <option>Administrators</option>
+                            </select>
+                        </div>
+                        <span class="nodisplay">Who</span> can see and add to this category
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Delete this category</h3>
+                </div>
+
+                <div class="form-field">
+                    <p><strong>If you delete this category</strong>, it will no longer be asociated with any posts. Proceed with caution.</p>
+
+                    <button class="button-destructive">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label">Delete category</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="add-field" class="modal">
+        <div class="modal-window">
+            <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#x"></use>
+                </svg>
+               <span class="hidden">Close</span>
+            </button>
+
+           <h3 class="modal-title">Add field</h3>
+
+           <dl class="modal-body">
+              <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
+              <dd>A sentence or less</dd>
+
+              <dt class="list-item"><a href="">Long text</a></dt>
+              <dd>Multiple sentences or paragraphs</dd>
+
+              <dt class="list-item"><a href="">Number</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Location</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Date</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Time</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Radio Button(s)</a></dt>
+              <dd>Allows the user to choose only one of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Checkbox(es)</a></dt>
+              <dd>Allows the user to choose one or more of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Related Post Type</a></dt>
+              <dd></dd>
+           </dl>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
+     <div id="edit-field" class="modal">
+        <div class="modal-window">
+            <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#x"></use>
+                </svg>
+               <span class="hidden">Close</span>
+            </button>
+
+           <h3 class="modal-title">Edit field <em>short text</em></h3>
+
+           <div class="form-field">
+              <label>Name</label>
+              <input type="text" value="Witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Key</label>
+              <input type="text" value="witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Default value</label>
+              <input type="text" />
+           </div>
+
+           <div class="form-field switch">
+              <label>Require this field be completed</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch1" type="checkbox">
+                 <label class="tgl-btn" for="switch1"></label>
+              </div>
+           </div>
+
+           <div class="form-field switch">
+              <label>Include this field in filters</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch2" type="checkbox">
+                 <label class="tgl-btn" for="switch2"></label>
+              </div>
+           </div>
+
+           <div class="form-field">
+              <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+           </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
+    @@include('../partials/_scripts.html')
+
+</body>
+
+</html>
