@@ -101,53 +101,50 @@
             <div class="tiers">
                 <div class="payment">
                     <h3 class="tour-heading">Enter your payment information</h3>
-                    <form>
-                        <div class="form-field">
-                            <label class="required">Name on card</label>
-                            <input type="text" required placeholder="Jane Doe" />
+
+                    <form method="POST" action="" id="payment-form" class="tour-form">
+
+                        <div class="alert error payment-error" style="display: none;">
+                            <p>There was an error processing your payment info</p>
+                             <p class="payment-message" style="display: none;">
+                            </p>
                         </div>
 
                         <div class="form-field">
-                            <label class="required">Credit card number</label>
-                            <input type="text" required inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number">
+                            <label class="input-label required" for="cc-number">Credit Card Number</label>
+                            <div id="cc-number" class="input"></div>
                         </div>
 
-                         <fieldset>
-                             <legend class="required">Expiration</legend>
-                             <div class="custom-select">
-                                 <select name="cc-exp-month" required autocomplete="cc-exp-month">
-                                     <option value="1">Month</option>
-                                     <option value="2">January</option>
-                                     <option value="3">February</option>
-                                 </select>
-                             </div>
-                             <div class="custom-select">
-                                 <select name="cc-exp-year" required autocomplete="cc-exp-year">
-                                     <option value="1">Year</option>
-                                     <option value="2">2015</option>
-                                     <option value="3">2016</option>
-                                 </select>
-                             </div>
-                         </fieldset>
+                        <fieldset>
+                            <legend class="required">Expiration</legend>
+                            <div id="cc-exp-month" style="width: 50px;" class="input"></div>
+                            <div id="cc-exp-year" style="width: 65px;" class="input"></div>
+                        </fieldset>
 
-                         <div class="form-field">
-                             <label class="required">CVV</label>
-                             <input style="width:80px;" type="text" required inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv" />
-                         </div>
+                        <div class="form-field">
+                            <label class="input-label required" for="cc-cvv">CVV</label>
+                            <div id="cc-cvv" style="width: 80px;" class="input"></div>
+                        </div>
 
-                         <div class="form-field">
-                             <label>Zip/Postal Code</label>
-                             <input style="width:100px;" type="text" placeholder="" id="cc-zip" />
-                         </div>
+                        <div class="form-field">
+                            <label class="input-label required" for="cc-zip">Postal Code</label>
+                            <div id="cc-zip" style="width: 100px;" class="input"></div>
+                        </div>
 
-                         <div class="form-field">
-                             <p>* These fields are required.</p>
-                         </div>
+                        <p><em>* These fields are required</em></p>
 
-                        <input type="hidden" id="selected-tier" name="selected-tier" value=""/>
+                        <p><a class="tour-link" data-toggle="coupon-toggle">Redeem a coupon?</a></p>
+                        <div id="coupon-toggle" class="form-field input-and-button">
+                            <input id="coupon" name="coupon" placeholder="Coupon code..." />
+                            <button type="button">Redeem</button>
+                        </div>
 
-                        <button data-cue="finished">Continue</button>
-                        <a data-payment="cancel" class="cta" href="">Cancel</a>
+                        <p class="small"><strong>You will be charged $<span class="price-estimate">199</span>/month</strong> plus taxes (if any) on a recurring basis. You can change your plan at any time on your plans page, or cancel your subscription by <a href="https://www.ushahidi.com/contact" class="tour-link" target="_blank">contacting us</a>. By clicking "continue", you are authorizing this recurring charge.</p>
+
+                        <div class="form-field">
+                            <button data-payment="cancel" class="button-beta button-flat">Cancel</button>
+                            <button type="submit" class="button-alpha">Continue</button>
+                        </div>
                     </form>
                 </div>
 
@@ -258,23 +255,30 @@
                 </div>
 
                 <div class="tier-view-all">
-                    <a href="http://ushahidi.com/plans-detail" target="_blank">View &amp; compare all plan features</a>
+                    <a href="http://ushahidi.com/plans-detail" class="button" target="_blank">View &amp; compare all plan features</a>
                 </div>
             </div>
 
-            <div class="two-col">
-                <div class="col">
-                    <h2 class="tour-heading">Free for charities</h2>
-                    <p>Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
-                    <a href="" target="_blank" class="button">Apply for Free Ushahidi</a>
+            <div class="listing">
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">Free for charities</h2>
+                        <p class="listing-item-secondary">Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
+                        <a href="" target="_blank" class="button button-beta">Apply for Free Ushahidi</a>
+                    </div>
                 </div>
 
-                <div class="col">
-                    <h2 class="tour-heading">Self-hosted Ushahidi</h2>
-                    <p>Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
-                    <a href="" target="_blank" class="button">Download Open Source Code</a>
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">Self-hosted Ushahidi</h2>
+                        <p class="listing-item-secondary">Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
+                        <a href="" target="_blank" class="button button-beta">Download Open Source Code</a>
+                    </div>
                 </div>
+
             </div>
+
         </div>
 
         <div id="finished" class="tour-message tour-modal">
@@ -1098,17 +1102,97 @@
             <div id="map" class="map"></div>
         </main>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-<script src="../../js/app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script type="text/javascript" src="https://js.braintreegateway.com/v2/braintree.js"></script>
+    <script src="../../js/cloud.js"></script>
 
+    <script>
+    $(document).ready(function(){
+        // Initialize Tour
+        tourInit();
 
-        <script>
-            $(document).ready(function() {
-                // Initialize Tour
-                tourInit();
-            });
-        </script>
+        var clientToken = "eyJ2ZXJzaW9uIjoyLCJhdXRob3JpemF0aW9uRmluZ2VycHJpbnQiOiI4MWQ2YTlhYjU2MmMxMWViNTllZGI2ZGRmYTZiODlmNWY2OGVlOGEyYWM3MWMzNDJiNjE4MjY0ODFhOGU1MzA5fGNyZWF0ZWRfYXQ9MjAxNi0wNC0yN1QwMjo1ODo0NS4zNjI0MDc5ODgrMDAwMFx1MDAyNm1lcmNoYW50X2lkPTM0OHBrOWNnZjNiZ3l3MmJcdTAwMjZwdWJsaWNfa2V5PTJuMjQ3ZHY4OWJxOXZtcHIiLCJjb25maWdVcmwiOiJodHRwczovL2FwaS5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tOjQ0My9tZXJjaGFudHMvMzQ4cGs5Y2dmM2JneXcyYi9jbGllbnRfYXBpL3YxL2NvbmZpZ3VyYXRpb24iLCJjaGFsbGVuZ2VzIjpbXSwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwiY2xpZW50QXBpVXJsIjoiaHR0cHM6Ly9hcGkuc2FuZGJveC5icmFpbnRyZWVnYXRld2F5LmNvbTo0NDMvbWVyY2hhbnRzLzM0OHBrOWNnZjNiZ3l3MmIvY2xpZW50X2FwaSIsImFzc2V0c1VybCI6Imh0dHBzOi8vYXNzZXRzLmJyYWludHJlZWdhdGV3YXkuY29tIiwiYXV0aFVybCI6Imh0dHBzOi8vYXV0aC52ZW5tby5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tIiwiYW5hbHl0aWNzIjp7InVybCI6Imh0dHBzOi8vY2xpZW50LWFuYWx5dGljcy5zYW5kYm94LmJyYWludHJlZWdhdGV3YXkuY29tLzM0OHBrOWNnZjNiZ3l3MmIifSwidGhyZWVEU2VjdXJlRW5hYmxlZCI6dHJ1ZSwicGF5cGFsRW5hYmxlZCI6dHJ1ZSwicGF5cGFsIjp7ImRpc3BsYXlOYW1lIjoiQWNtZSBXaWRnZXRzLCBMdGQuIChTYW5kYm94KSIsImNsaWVudElkIjpudWxsLCJwcml2YWN5VXJsIjoiaHR0cDovL2V4YW1wbGUuY29tL3BwIiwidXNlckFncmVlbWVudFVybCI6Imh0dHA6Ly9leGFtcGxlLmNvbS90b3MiLCJiYXNlVXJsIjoiaHR0cHM6Ly9hc3NldHMuYnJhaW50cmVlZ2F0ZXdheS5jb20iLCJhc3NldHNVcmwiOiJodHRwczovL2NoZWNrb3V0LnBheXBhbC5jb20iLCJkaXJlY3RCYXNlVXJsIjpudWxsLCJhbGxvd0h0dHAiOnRydWUsImVudmlyb25tZW50Tm9OZXR3b3JrIjp0cnVlLCJlbnZpcm9ubWVudCI6Im9mZmxpbmUiLCJ1bnZldHRlZE1lcmNoYW50IjpmYWxzZSwiYnJhaW50cmVlQ2xpZW50SWQiOiJtYXN0ZXJjbGllbnQzIiwiYmlsbGluZ0FncmVlbWVudHNFbmFibGVkIjp0cnVlLCJtZXJjaGFudEFjY291bnRJZCI6ImFjbWV3aWRnZXRzbHRkc2FuZGJveCIsImN1cnJlbmN5SXNvQ29kZSI6IlVTRCJ9LCJjb2luYmFzZUVuYWJsZWQiOmZhbHNlLCJtZXJjaGFudElkIjoiMzQ4cGs5Y2dmM2JneXcyYiIsInZlbm1vIjoib2ZmIn0=";
+
+        var formId = 'payment-form',
+            $form = $('#'+formId);
+
+        braintree.setup(clientToken, "custom", {
+            id: formId,
+            hostedFields: {
+                number: {
+                    selector: "#cc-number"
+                },
+                cvv: {
+                    selector: "#cc-cvv"
+                },
+                expirationMonth: {
+                    selector: "#cc-exp-month",
+                    placeholder: "MM"
+                },
+                expirationYear: {
+                    selector: "#cc-exp-year",
+                    placeholder: "YYYY"
+                },
+                postalCode: {
+                    selector: "#cc-zip"
+                },
+                styles: {
+                    "input": {
+                        "font-weight": "300",
+                        "font-family": "'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif",
+                        "font-size": "0.8em"
+                    }
+                },
+                onFieldEvent: function (event) {
+                    if (event.type === "fieldStateChange") {
+                        var labelFor;
+                        // Handle a change in validation or card type
+                        // console.log(event.isValid); // true|false
+                        // console.log(event);
+
+                        // hack for expiry fields
+                        if (event.target.container.id === 'cc-exp-year') {
+                            labelFor = 'cc-exp-month';
+                        } else {
+                            labelFor = event.target.container.id;
+                        }
+
+                        // Add/remove error classes
+                        // If its complete + valid - mark success
+                        if (event.isValid) {
+                            $(event.target.container)
+                                .addClass('success')
+                                .removeClass('error');
+                            $("label[for='"+labelFor+"']")
+                                .addClass('success')
+                                .removeClass('error');
+                        } else {
+                            // If it could be valid, but isn't complete - remove error class
+                            if (event.isPotentiallyValid) {
+                                $(event.target.container).removeClass('error').removeClass('success');
+                                $("label[for='"+labelFor+"']").removeClass('error').removeClass('success');
+                            } else {
+                                console.log($("label[for='"+event.target.container.id+"']"));
+                                $(event.target.container).addClass('error');
+                                $("label[for='"+labelFor+"']").addClass('error');
+                            }
+                        }
+                    }
+                }
+            },
+            onError: function (event) {
+                console.log (event);
+                if (event.type === "VALIDATION") {
+                    $form.find('.payment-error').show();
+                    if (event.message) {
+                        $form.find('.payment-message').show().text(event.message);
+                    }
+                }
+            },
+        });
+    });
+    </script>
 
     </body>
 

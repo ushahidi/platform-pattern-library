@@ -67,6 +67,10 @@
         margin: 0 auto;
     }
 
+    .tour-form {
+        margin: $sm-spacing 0;
+    }
+
     .form-field:last-of-type {
         margin: 0;
     }
@@ -143,6 +147,34 @@
         }
     }
 
+    .listing {
+        @include radius;
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-gamma;
+        margin-bottom: $sm-spacing;
+
+        @include media($medium) {
+            margin-bottom: $base-spacing;
+        }
+
+        .listing-heading {
+            border-bottom: 1px solid $color-light-beta;
+            background-color: $color-light-beta;
+            padding: $sm-spacing;
+
+            @include media($medium) {
+                padding: $sm-spacing $base-spacing;
+            }
+
+            + .listing-item {
+                margin-top: 0;
+            }
+        }
+
+        .listing-item {
+            border-bottom-color: $color-light-beta;
+        }
+    }
 
     &.active {
         @include scale(1);
@@ -265,6 +297,32 @@
 
         .pulse:before {
             @include animation($aniname: stemMove2, $aniduration: 2s, $animtiming: ease-in-out, $animdelay: 0s, $animiteration: 1, $animdirection: normal, $animfillmode: none);
+        }
+    }
+}
+
+#payment-form {
+
+    .input {
+        @extend input[type="text"];
+        height: 37px;
+        background-color: $white;
+    }
+
+    #cc-exp-month,
+    #cc-exp-year {
+        display: inline-block;
+    }
+
+    .braintree-hosted-fields-invalid {
+        border-color: $error-color;
+    }
+
+    #coupon-toggle {
+        display: none;
+
+        &.active {
+            display: block;
         }
     }
 }

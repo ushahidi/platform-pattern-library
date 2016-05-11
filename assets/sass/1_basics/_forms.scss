@@ -58,8 +58,12 @@ textarea {
 
    + button,
    + [type="button"] {
-      margin-top: -$sm-spacing;
-   }
+       margin-top: $tiny-spacing;
+
+        @include media($medium) {
+           margin-top: -$sm-spacing;
+        }
+    }
 
    &:focus {
       @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.3), $inset: true);
