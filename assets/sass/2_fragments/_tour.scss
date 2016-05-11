@@ -67,6 +67,10 @@
         margin: 0 auto;
     }
 
+    .tour-form {
+        margin: $sm-spacing 0;
+    }
+
     .form-field:last-of-type {
         margin: 0;
     }
@@ -143,6 +147,34 @@
         }
     }
 
+    .listing {
+        @include radius;
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-gamma;
+        margin-bottom: $sm-spacing;
+
+        @include media($medium) {
+            margin-bottom: $base-spacing;
+        }
+
+        .listing-heading {
+            border-bottom: 1px solid $color-light-beta;
+            background-color: $color-light-beta;
+            padding: $sm-spacing;
+
+            @include media($medium) {
+                padding: $sm-spacing $base-spacing;
+            }
+
+            + .listing-item {
+                margin-top: 0;
+            }
+        }
+
+        .listing-item {
+            border-bottom-color: $color-light-beta;
+        }
+    }
 
     &.active {
         @include scale(1);
@@ -270,23 +302,25 @@
 }
 
 #payment-form {
+
     .input {
-        height: 2em;
+        @extend input[type="text"];
+        height: 37px;
         background-color: $white;
     }
-    .exp-col .input {
-        display: inline-block;
-        margin-top: 0;
-    }
-    .braintree-hosted-fields-valid {
 
+    #cc-exp-month,
+    #cc-exp-year {
+        display: inline-block;
     }
+
     .braintree-hosted-fields-invalid {
         border-color: $error-color;
     }
 
-    .coupon-toggle {
+    #coupon-toggle {
         display: none;
+
         &.active {
             display: block;
         }

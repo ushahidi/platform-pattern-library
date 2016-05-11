@@ -86,46 +86,51 @@
             <div class="tiers">
                 <div class="payment">
                     <h3 class="tour-heading">Enter your payment information</h3>
-                    <form method="POST" action="" id="payment-form">
+
+                    <form method="POST" action="" id="payment-form" class="tour-form">
+
                         <div class="alert error payment-error" style="display: none;">
                             <p>There was an error processing your payment info</p>
                              <p class="payment-message" style="display: none;">
                             </p>
                         </div>
 
-                        <label class="input-label required" for="cc-number">Credit Card Number</label>
-                        <div id="cc-number" class="input"></div>
-
-                        <div class="flex-col">
-                            <div class="col exp-col">
-                                <label class="input-label required" for="cc-exp-month">Expiration</label>
-                                <div id="cc-exp-month" style="width: 50px;" class="input"></div>
-                                <div id="cc-exp-year" style="width: 65px;" class="input"></div>
-                            </div>
-
-                            <div class="col">
-                                <label class="input-label required" for="cc-cvv">CVV</label>
-                                <div id="cc-cvv" style="width: 80px;" class="input"></div>
-                            </div>
-
-                            <div class="col">
-                                <label class="input-label required" for="cc-zip">Postal Code</label>
-                                <div id="cc-zip" style="width: 100px;" class="input"></div>
-                            </div>
+                        <div class="form-field">
+                            <label class="input-label required" for="cc-number">Credit Card Number</label>
+                            <div id="cc-number" class="input"></div>
                         </div>
 
-                        <a class="small tour-link" data-toggle="coupon-toggle">Redeem a coupon?</a>
-                        <div class="input-inline coupon-toggle">
-                            <input id="coupon" name="coupon" placeholder="Enter coupon code" /> <button type="button">Check</button>
+                        <fieldset>
+                            <legend class="required">Expiration</legend>
+                            <div id="cc-exp-month" style="width: 50px;" class="input"></div>
+                            <div id="cc-exp-year" style="width: 65px;" class="input"></div>
+                        </fieldset>
+
+                        <div class="form-field">
+                            <label class="input-label required" for="cc-cvv">CVV</label>
+                            <div id="cc-cvv" style="width: 80px;" class="input"></div>
                         </div>
 
-                        <p class="small">* These fields are required</p>
+                        <div class="form-field">
+                            <label class="input-label required" for="cc-zip">Postal Code</label>
+                            <div id="cc-zip" style="width: 100px;" class="input"></div>
+                        </div>
 
-                        <button type="submit">Continue</button>
-                        <a data-payment="cancel" class="cta" href="">Cancel</a>
+                        <p><em>* These fields are required</em></p>
+
+                        <p><a class="tour-link" data-toggle="coupon-toggle">Redeem a coupon?</a></p>
+                        <div id="coupon-toggle" class="form-field input-and-button">
+                            <input id="coupon" name="coupon" placeholder="Coupon code..." />
+                            <button type="button">Redeem</button>
+                        </div>
+
+                        <p class="small"><strong>You will be charged $<span class="price-estimate">199</span>/month</strong> plus taxes (if any) on a recurring basis. You can change your plan at any time on your plans page, or cancel your subscription by <a href="https://www.ushahidi.com/contact" class="tour-link" target="_blank">contacting us</a>. By clicking "continue", you are authorizing this recurring charge.</p>
+
+                        <div class="form-field">
+                            <button data-payment="cancel" class="button-beta button-flat">Cancel</button>
+                            <button type="submit" class="button-alpha">Continue</button>
+                        </div>
                     </form>
-
-                    <p class="small"><strong>You will be charged $<span class="price-estimate">199</span>/month</strong> plus taxes (if any) on a recurring basis. You can change your plan at any time on your plans page, or cancel your subscription by <a href="https://www.ushahidi.com/contact" class="tour-link" target="_blank">contacting us</a>. By clicking "continue", you are authorizing this recurring charge.</p>
                 </div>
 
                 <div id="mapper" class="tier">
@@ -235,23 +240,30 @@
                 </div>
 
                 <div class="tier-view-all">
-                    <a href="http://ushahidi.com/plans-detail" target="_blank">View &amp; compare all plan features</a>
+                    <a href="http://ushahidi.com/plans-detail" class="button" target="_blank">View &amp; compare all plan features</a>
                 </div>
             </div>
 
-            <div class="two-col">
-                <div class="col">
-                    <h2 class="tour-heading">Free for charities</h2>
-                    <p>Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
-                    <a href="" target="_blank" class="button">Apply for Free Ushahidi</a>
+            <div class="listing">
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">Free for charities</h2>
+                        <p class="listing-item-secondary">Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
+                        <a href="" target="_blank" class="button button-beta">Apply for Free Ushahidi</a>
+                    </div>
                 </div>
 
-                <div class="col">
-                    <h2 class="tour-heading">Self-hosted Ushahidi</h2>
-                    <p>Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
-                    <a href="" target="_blank" class="button">Download Open Source Code</a>
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">Self-hosted Ushahidi</h2>
+                        <p class="listing-item-secondary">Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
+                        <a href="" target="_blank" class="button button-beta">Download Open Source Code</a>
+                    </div>
                 </div>
+
             </div>
+
         </div>
 
         <div id="finished" class="tour-message tour-modal">
