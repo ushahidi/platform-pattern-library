@@ -16,10 +16,12 @@ var modalToggle = function(element) {
 
 var modalYpos = function() {
    var windowYpos = $(window).scrollTop();
+
    if (windowYpos > 0) {
       $('.modal-window').css('top', windowYpos + 40);
-      $('.modal-body').css('height', $(window).height() * 0.66);
    }
+
+   $('.modal-body').css('max-height', $(window).height() * 0.66);
 }
 
 $('[data-modal], .modal-trigger').click(function(e) {

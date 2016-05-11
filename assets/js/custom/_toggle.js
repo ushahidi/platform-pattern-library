@@ -22,7 +22,7 @@ toggleInit = function(triggerSelector) {
 
        // Deactivate (close) other active dropdown triggers and targets
        $('[data-toggle]').not($(trigger)).removeClass('active');
-       $('[data-toggle-target]').not($(target)).removeClass('active').removeAttr('style');
+       $('[data-toggle-target], .dropdown-menu').not($(target)).removeClass('active').removeAttr('style');
 
        // IF: Target is currently hidden
        if ($(target).is(':hidden')) {
@@ -40,7 +40,7 @@ toggleInit = function(triggerSelector) {
           }
           $(target).addClass('active');
 
-          $('body').addClass('noscroll');
+          //$('body').addClass('noscroll');
           if ($(target).hasClass('dropdown-menu')) {
              dropdownXpos(trigger, target);
           }
