@@ -36,14 +36,6 @@
               margin-top: -10px;
           }
 
-          @include iconic(after, chevron-right, $color-light-beta) {
-              position: absolute;
-              top: 50%;
-              right: 12px;
-              z-index: 0;
-              margin-top: -5px;
-          }
-
           &:first-child,
           &:last-child {
 
@@ -96,13 +88,6 @@
          color: $color-light-beta;
       }
 
-      .complete {
-
-         @include iconic(after, check, $confirmation-color) {
-             margin-left: $tiny-spacing;
-         }
-      }
-
    }
 
    a {
@@ -138,17 +123,6 @@
       &.disabled {
          color: $dk-gray;
          cursor: default;
-      }
-
-      &.add-new {
-
-         span {
-            @include icon($before, plus) {
-               @include lrswap(padding, 0 5px 0 1px);
-               font-size: em(16);
-            }
-         }
-
       }
 
       @include media($small) {
@@ -213,27 +187,6 @@
 
       } //end of medium mq
 
-      span {
-
-         &.completed {
-
-            @include icon($after, check) {
-               color: $confirmation-color;
-               @include padding-left(5px);
-               font-size: em(16);
-            }
-
-         }
-
-      }
-
    }
 
-}
-
-.progress + .button-save {
-   @include media($small) {
-      @include float(right);
-      margin: $tiny-spacing 0 0;
-   }
 }
