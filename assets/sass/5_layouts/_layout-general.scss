@@ -53,6 +53,23 @@
             width: 224px
         }
 
+        // "Loading" the mode context, as a direct descendant of the pattern
+        > .loading {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            margin-top: -$sm-spacing;
+
+            .line {
+                position: relative;
+                z-index: $modal+1;
+                @include box-shadow(0, 0, $tiny-spacing, $tiny-spacing, rgba(0,0,0,.4), false);
+            }
+        }
+
         &.active {
 
             @include media($medium-down) {
@@ -80,6 +97,32 @@
             @include media($medium) {
                 top: 0;
             }
+        }
+    }
+
+    // "Loading" the document, as a direct descendant of the body
+    > .loading {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        text-align: center;
+        margin-top: -$sm-spacing;
+
+        &:after {
+            content: '';
+            position: fixed;
+            z-index: $modal;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.5);
+        }
+
+        .line {
+            position: relative;
+            z-index: $modal+1;
         }
     }
 
@@ -247,6 +290,27 @@
             @include media($medium) {
                 display: block;
                 top: 92px;
+            }
+        }
+
+        // "Loading" the main content area, as a direct descendant of the pattern
+        > .loading {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            margin-top: -$sm-spacing;
+
+            @include media($medium) {
+                left: 288px;
+            }
+
+            .line {
+                position: relative;
+                z-index: $modal+1;
+                @include box-shadow(0, 0, $tiny-spacing, $tiny-spacing/2, rgba(0,0,0,.24), false);
             }
         }
 
