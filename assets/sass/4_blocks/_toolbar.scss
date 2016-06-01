@@ -41,31 +41,37 @@
 
             .form-field {
 
-                &.search {
+                input[type="search"] {
+                    color: $white;
+                    border-color: transparent;
+                    background-color: $color-primary-delta;
+
+                    &::placeholder {
+                       color: $white;
+                    }
+
+                    &:focus {
+                        color: $black;
+                        outline-color: $color-primary-beta;
+                        border-color: $base-border-dark;
+                        background-color: $white;
+                    }
+                }
+
+                .input-with-icon {
 
                     input[type="search"] {
-                        color: $white;
-                        border-color: transparent;
-                        background-color: $color-primary-delta;
-
-                        + svg.iconic {
-                            fill: $white;
-                        }
-
-                        &::placeholder {
-                           color: $white;
-                        }
 
                         &:focus {
-                            color: $black;
-                            outline-color: $color-primary-beta;
-                            border-color: $base-border-dark;
-                            background-color: $white;
 
                             + svg.iconic {
-                                fill: $color-primary;
+                                fill: $color-primary-beta;
                             }
                         }
+                    }
+
+                    svg.iconic {
+                        fill: $white;
                     }
                 }
             }

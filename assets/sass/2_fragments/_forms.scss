@@ -167,26 +167,6 @@ fieldset {
       }
    }
 
-   // SEARCH
-   &.search {
-
-      label {
-         display: none;
-      }
-
-      input[type="search"],
-      input[type="text"] {
-         @include padding-left($lg-spacing);
-      }
-
-      svg.iconic {
-          position: absolute;
-          top: 13px;
-          @include left(16px);
-          fill: $color-primary;
-      }
-   }
-
    &.location {
 
        input[type="text"] {
@@ -263,17 +243,14 @@ fieldset {
 
    &.date {
 
+/*
        svg.iconic {
            position: absolute;
            top: 11px;
            @include left(16px);
            fill: $color-primary;
        }
-
-       input[type="date"],
-       input[type="datetime"] {
-          @include padding-left($lg-spacing);
-       }
+*/
 
        input[type="date"] {
            padding-right: 4px;
@@ -391,6 +368,34 @@ fieldset {
           padding-right: 72px;
       }
    }
+}
+
+.input-with-icon {
+    position: relative;
+
+    input[type="text"],
+    input[type="color"],
+    input[type="date"],
+    input[type="datetime"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="month"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="time"],
+    input[type="url"],
+    input[type="week"] {
+       @include padding-left($lg-spacing);
+    }
+
+    svg.iconic {
+        position: absolute;
+        top: 13px;
+        @include left(16px);
+        fill: $color-primary;
+    }
 }
 
 fieldset {

@@ -236,13 +236,6 @@
 
         .form-field {
 
-            svg.iconic {
-
-                @include media($medium) {
-                    top: 10px;
-                }
-            }
-
             input[type="text"],
             input[type="email"],
             input[type="url"],
@@ -252,10 +245,6 @@
             input[type="datetime"] {
                 font-size: 12px;
                 font-size: .857142857rem;
-
-                @include media($medium) {
-                    margin-top: -$tiny-spacing;
-                }
             }
 
             &.checkbox,
@@ -269,19 +258,6 @@
 
             &.date {
 
-                svg.iconic {
-
-                    @include media($medium) {
-                        top: 3px;
-                    }
-                }
-
-                input[type="date"],
-                input[type="datetime"] {
-                    font-size: 16px;
-                    font-size: 1.142857143rem;
-                }
-
                 .date-joiner {
                     margin-bottom: 0;
 
@@ -290,10 +266,18 @@
                         z-index: $body;
                         top: 50%;
                         right: -12px;
-                        margin-top: -14px;
+                        margin-top: -10px;
                         margin-left: 0;
                     }
                 }
+            }
+        }
+
+        .input-with-icon {
+
+            svg.iconic {
+                top: 11px;
+                @include left(13px);
             }
         }
     }
