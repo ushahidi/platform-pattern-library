@@ -332,6 +332,31 @@
                 bottom: 0;
             }
         }
+
+        .picker--time .picker__holder {
+
+            @include media($medium) {
+
+                &:before,
+                &:after {
+                    content: '';
+                    position: fixed;
+                    z-index: $toolbar;
+                    height: $sm-spacing;
+                }
+
+                &:before {
+                    bottom: 284px;
+                    @include vert-gradient($color1: rgba(55,62,70,0.85), $color2: rgba(55,62,70,0));
+
+                }
+
+                &:after {
+                    bottom: 0;
+                    @include vert-gradient($color1: rgba(55,62,70,0), $color2: rgba(55,62,70,0.85));
+                }
+            }
+        }
     }
 
     .modal {

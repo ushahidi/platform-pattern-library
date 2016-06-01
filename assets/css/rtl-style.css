@@ -1604,10 +1604,10 @@ ul li {
   list-style: disc; }
 
 /* line 88, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
-.list-reset, .pl-front-end-guidelines .page-content .side-nav ul, .fab .fab-options, .dropdown-menu ul, .breadcrumbs, .progress, .tabs-menu ul, .tier .tier-feature-list ul, .tier .tier-feature-list ol, .mode-bar ul {
+.list-reset, .pl-front-end-guidelines .page-content .side-nav ul, .fab .fab-options, .dropdown-menu ul, .breadcrumbs, .progress, .tabs-menu ul, .tier .tier-feature-list ul, .tier .tier-feature-list ol, .mode-bar ul, .picker__list {
   margin: 0; }
   /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
-  .list-reset li, .pl-front-end-guidelines .page-content .side-nav ul li, .fab .fab-options li, .dropdown-menu ul li, .breadcrumbs li, .progress li, .tabs-menu ul li, .tier .tier-feature-list ul li, .tier .tier-feature-list ol li, .mode-bar ul li {
+  .list-reset li, .pl-front-end-guidelines .page-content .side-nav ul li, .fab .fab-options li, .dropdown-menu ul li, .breadcrumbs li, .progress li, .tabs-menu ul li, .tier .tier-feature-list ul li, .tier .tier-feature-list ol li, .mode-bar ul li, .picker__list li {
     list-style-type: none;
     margin: 0; }
 
@@ -6361,10 +6361,29 @@ fieldset, .form-fieldgroup {
   @media screen and (min-width: 64em)  {
     [class*="layout-"] [role="main"] .picker__frame {
       bottom: 0; } }
-/* line 337, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+@media screen and (min-width: 64em)  {
+  /* line 341, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  [class*="layout-"] [role="main"] .picker--time .picker__holder:before, [class*="layout-"] [role="main"] .picker--time .picker__holder:after {
+    content: '';
+    position: fixed;
+    z-index: 2000;
+    height: 16px; }
+  /* line 348, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  [class*="layout-"] [role="main"] .picker--time .picker__holder:before {
+    bottom: 284px;
+    background: rgba(55, 62, 70, 0.85);
+    background: linear-gradient(to bottom, rgba(55, 62, 70, 0.85) 0%, rgba(55, 62, 70, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=0 ); }
+  /* line 354, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  [class*="layout-"] [role="main"] .picker--time .picker__holder:after {
+    bottom: 0;
+    background: rgba(55, 62, 70, 0);
+    background: linear-gradient(to bottom, rgba(55, 62, 70, 0) 0%, rgba(55, 62, 70, 0.85) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color1', endColorstr='$color2',GradientType=0 ); } }
+/* line 362, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
 [class*="layout-"] .modal {
   display: none; }
-  /* line 340, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  /* line 365, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   [class*="layout-"] .modal .modal-window {
     position: absolute;
     z-index: 10001;
@@ -6381,24 +6400,24 @@ fieldset, .form-fieldgroup {
         left: 50%;
         width: 600px;
         margin-left: -300px; } }
-    /* line 360, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+    /* line 385, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
     [class*="layout-"] .modal .modal-window .modal-body .message {
       position: absolute;
       top: -1000px;
       right: 0;
       left: 0; }
-      /* line 366, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      /* line 391, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       [class*="layout-"] .modal .modal-window .modal-body .message.active {
         top: 0; }
-  /* line 373, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  /* line 398, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   [class*="layout-"] .modal .modal-overlay {
     transition: all 0.2s;
     opacity: 0; }
-/* line 381, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+/* line 406, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
 [class*="layout-"].modal-visible .modal-window {
   opacity: 1;
   margin-top: 0; }
-/* line 386, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+/* line 411, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
 [class*="layout-"].modal-visible .modal-overlay {
   opacity: 1; }
 
@@ -6895,6 +6914,107 @@ fieldset, .form-fieldgroup {
 /* ==========================================================================
    $DEFAULT-DATE-PICKER
    ========================================================================== */
+/* ==========================================================================
+   $BASE-TIME-PICKER
+   ========================================================================== */
+/**
+ * The list of times.
+ */
+/**
+ * The times on the clock.
+ */
+/* line 13, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker__list-item {
+  border-bottom: 1px solid #EEEEEE;
+  padding: 16px; }
+
+/* Hovered time */
+/* line 19, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker__list-item:hover {
+  cursor: pointer;
+  z-index: 10;
+  color: #222222;
+  background-color: #EEEEEE; }
+
+/* Highlighted and hovered/focused time */
+/* line 26, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker__list-item--highlighted {
+  z-index: 10; }
+
+/* line 30, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker__list-item--highlighted:hover, .picker--focused .picker__list-item--highlighted {
+  cursor: pointer;
+  color: #222222;
+  font-weight: 900;
+  background: #FFC334; }
+
+/* Selected and hovered/focused time */
+/* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker__list-item--selected, .picker__list-item--selected:hover, .picker--focused .picker__list-item--selected {
+  z-index: 10;
+  color: #222222;
+  background: #FFC334; }
+
+/* Disabled time */
+/* line 47, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker__list-item--disabled, .picker__list-item--disabled:hover, .picker--focused .picker__list-item--disabled {
+  background: #f5f5f5;
+  border-color: #f5f5f5;
+  color: #dddddd;
+  cursor: default;
+  border-color: #dddddd;
+  z-index: auto; }
+
+/**
+ * The clear button
+ */
+/* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker--time .picker__button--clear {
+  margin: 16px; }
+
+/* line 64, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker--time .picker__button--clear:before {
+  top: -0.25em;
+  color: #666;
+  font-size: 1.25em;
+  font-weight: bold; }
+
+/* line 71, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker--time .picker__button--clear:hover:before, .picker--time .picker__button--clear:focus:before {
+  color: #ffffff;
+  border-color: #ffffff; }
+
+/* ==========================================================================
+   $DEFAULT-TIME-PICKER
+   ========================================================================== */
+/* line 84, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker--time .picker__holder:before, .picker--time .picker__holder:after {
+  right: 0;
+  left: 9999px;
+  transition: 0.3s; }
+/* line 96, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker--time.picker--opened .picker__holder:before, .picker--time.picker--opened .picker__holder:after {
+  left: 0; }
+
+/**
+ * The frame the bounds the time picker.
+ */
+@media screen and (min-width: 64em)  {
+  .picker--time .picker__frame {
+    height: 300px;
+    overflow: scroll; } }
+
+/**
+ * The picker box.
+ */
+/* line 118, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/pickadate/_pickadate.time.scss */
+.picker--time .picker__box .picker__list {
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
+  max-width: 300px;
+  margin: 0 auto; }
+
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/overrides/_leaflet-overrides.scss */
 .leaflet-container {
   font-weight: 400;
