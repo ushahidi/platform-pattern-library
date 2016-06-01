@@ -503,7 +503,7 @@ fieldset,
         &.value {
 
             label {
-                top: 0px;
+                top: -6px;
                 @extend .caps;
                 font-size: 10px !important;
                 font-size: .714285714rem !important;
@@ -557,6 +557,22 @@ fieldset,
             }
         }
     }
+
+    &.required {
+
+       label {
+
+            &:after {
+                content: '\2217';
+                color: $red;
+                font-weight: normal;
+                font-size: 1.4em;
+                line-height: 0;
+                @include margin-left($tiny-spacing);
+            }
+        }
+    }
+
 }
 
 .location-adapt {
