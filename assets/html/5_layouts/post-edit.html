@@ -300,18 +300,46 @@
                 END: IF -->
 
                 <!-- IF: User has permission to manage who it's visible to -->
-                <div class="form-field select">
-                    <label>
-                        <div class="custom-select">
-                            <select>
-                                <option>Everyone</option>
-                                <option>Editors</option>
-                                <option selected>Administrators</option>
-                           </select>
+                <fieldset class="custom-fieldset">
+                    <legend><span class="custom-fieldset-value">Who</span> can see this</legend>
+
+                    <div class="form-field radio">
+                        <input type="radio" name="special" id="special1" value="you" checked />
+                        <label for="special1">Only you</label>
+                    </div>
+
+                    <div class="form-field radio">
+                        <input type="radio" name="special" id="special2" value="everyone" />
+                        <label for="special2">Everyone</label>
+                    </div>
+
+                    <div class="form-field radio">
+                        <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
+                        <label for="special3">Specific roles...</label>
+
+                        <div class="form-fieldgroup" data-fieldgroup-target="roles">
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection1" />
+                                <label for="collection1">Members</label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection2" />
+                                <label for="collection2">Editors</label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection3" />
+                                <label for="collection3">Operators</label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection4" />
+                                <label for="collection4">Administrators</label>
+                            </div>
                         </div>
-                        <span class="nodisplay">Who</span> can see this
-                    </label>
-                </div>
+                    </div>
+                </fieldset>
                 <!-- END: IF -->
 
                <!-- IF: User has permission to see other 'Tasks' -->

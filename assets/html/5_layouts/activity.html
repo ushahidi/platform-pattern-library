@@ -280,48 +280,54 @@
 
                     <div class="searchbar-options">
                         <fieldset class="custom-fieldset" data-fieldset-type="date-range">
-                            <legend>Date range</legend>
+                            <legend><span class="custom-fieldset-value">Date range</span></legend>
 
                             <div class="form-field radio">
                                 <label for="alltime">
-                                    <input type="radio" name="daterange" value="alltime" checked>
+                                    <input type="radio" name="daterange" id="alltime" checked>
                                     All time
                                 </label>
                             </div>
                             <div class="form-field radio">
                                 <label for="thisweek">
-                                    <input type="radio" name="daterange" value="thisweek">
+                                    <input type="radio" name="daterange" id="thisweek">
                                     This week
                                 </label>
                             </div>
                             <div class="form-field radio">
                                 <label for="thismonth">
-                                    <input type="radio" name="daterange" value="thismonth">
+                                    <input type="radio" name="daterange" id="thismonth">
                                     This month
                                 </label>
                             </div>
                             <div class="form-field radio">
                                 <label for="custom">
-                                    <input type="radio" name="daterange" value="custom">
+                                    <input type="radio" name="daterange" id="custom" data-fieldgroup-toggle="daterange">
                                     Custom date range
                                 </label>
-                            </div>
 
-                            <div class="form-field date">
-                                <svg class="iconic">
-                                  <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
-                                </svg>
-                                <label for="startdate" class="hidden">Start date</label>
-                                <input type="date" name="startdate" placeholder="Start date" />
-                                <span class="date-joiner">to</span>
-                            </div>
+                                <div class="fieldgroup" data-fieldgroup-target="daterange">
+                                    <div class="form-field date">
+                                        <label for="startdate" class="hidden">Start date</label>
+                                        <div class="input-with-icon">
+                                            <svg class="iconic">
+                                              <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                            </svg>
+                                            <input type="date" name="startdate" placeholder="Start date" />
+                                        </div>
+                                        <span class="date-joiner">to</span>
+                                    </div>
 
-                            <div class="form-field date">
-                                <svg class="iconic">
-                                  <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
-                                </svg>
-                                <label for="enddate" class="hidden">End date</label>
-                                <input type="date" name="enddate" placeholder="End date" />
+                                    <div class="form-field date">
+                                        <label for="enddate" class="hidden">End date</label>
+                                        <div class="input-with-icon">
+                                            <svg class="iconic">
+                                              <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                            </svg>
+                                            <input type="date" name="enddate" placeholder="End date" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="form-field">
@@ -354,16 +360,16 @@
 
                        <div class="listing-item-body">
                            <fieldset class="custom-fieldset">
-                               <legend>Compare...</legend>
+                               <legend><span class="custom-fieldset-value">Compare...</span></legend>
 
                                <div class="form-field radio">
-                                   <label for="nothing"><input type="radio" name="timeline" id="nothing" checked>Nothing; Show all posts</label>
+                                   <label for="timeline-nothing"><input type="radio" name="timeline" id="timeline-nothing" checked>Show all posts</label>
                                </div>
                                <div class="form-field radio">
-                                   <label for="surveys"><input type="radio" name="timeline" id="surveys">Surveys</label>
+                                   <label for="timeline-surveys"><input type="radio" name="timeline" id="timeline-surveys">Compare surveys</label>
                                </div>
                                <div class="form-field radio">
-                                   <label for="categories"><input type="radio" name="timeline" id="categories">Categories</label>
+                                   <label for="timeline-categories"><input type="radio" name="timeline" id="timeline-categories">Compare categories</label>
                                </div>
 
                                <div class="form-fieldgroup">
@@ -393,13 +399,13 @@
 
                        <div class="listing-item-body">
                            <fieldset class="custom-fieldset">
-                               <legend>Compare...</legend>
+                               <legend><span class="custom-fieldset-value">Compare...</span></legend>
 
                                <div class="form-field radio">
-                                   <label for="surveys"><input type="radio" name="barchart" id="surveys" checked>Surveys</label>
+                                   <label for="barchart-surveys"><input type="radio" name="barchart" id="barchart-surveys" checked>Compare surveys</label>
                                </div>
                                <div class="form-field radio">
-                                   <label for="categories"><input type="radio" name="barchart" id="categories">Categories</label>
+                                   <label for="barchart-categories"><input type="radio" name="barchart" id="barchart-categories">Compare categories</label>
                                </div>
                            </fieldset>
 

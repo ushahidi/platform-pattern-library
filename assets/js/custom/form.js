@@ -55,6 +55,7 @@ $('input[type="time"]').pickatime({
     }
 });
 
+// Display search suggestions in dropdown when search input is in focus and has a value
 $('.searchbar-input').each(function(){
     var input = $(this).find('input[type="search"]'),
         dropdownMenu = $(this).find('.dropdown-menu');

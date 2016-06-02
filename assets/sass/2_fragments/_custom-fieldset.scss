@@ -35,8 +35,11 @@
 
          &.active {
              z-index: $dropdown+1;
-             font-weight: $bold;
              @include no-shadow;
+         }
+
+         .custom-fieldset-value {
+             font-weight: $bold;
          }
 
          svg.iconic {
@@ -113,6 +116,14 @@
 
       .dropdown-content {
          min-width: 200px;
+      }
+
+      [data-fieldgroup-target] {
+          display: none;
+
+          &.active {
+              display: block;
+          }
       }
    }
 }
