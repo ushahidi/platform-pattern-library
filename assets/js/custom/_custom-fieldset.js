@@ -7,7 +7,7 @@ updateFieldsetLegend = function(fieldset) {
     $('[data-fieldgroup-target]').removeClass('active');
 
     // If the selected radio button is attached to another fieldgroup...
-    if (checkedRadio[0].hasAttribute('data-fieldgroup-toggle')) {
+    if (checkedRadio.length && checkedRadio[0].hasAttribute('data-fieldgroup-toggle')) {
         var target = $('[data-fieldgroup-target="'+checkedRadio.attr('data-fieldgroup-toggle')+'"]'),
             targetCheckboxes = [],
             targetInputs = [];
