@@ -66,22 +66,22 @@ $('[data-fieldset-type="color"]').each(function(){
         colorVal = colorInput.val(),
         fieldsetLegend = $(this).find('legend');
 
-    fieldsetLegend.prepend('<span class="swatch" style="background-color: #'+colorVal+';"></span>');
+    fieldsetLegend.prepend('<span class="swatch" style="background-color: '+colorVal+';"></span>');
 
-    $('[data-button-type="color"]').each(function(){
-        $(this).attr('style', 'border-top-color: #'+$(this).val()+';')
-    });
-
-    $('[data-button-type="color"]').on('click', function(){
-        colorVal = $(this).val();
-
-        colorInput.val(colorVal);
-        fieldsetLegend.children('.swatch').attr('style', 'background-color: #'+colorVal+';');
-    });
-
-    colorInput.on('keyup', function(){
-        colorVal = $(this).val();
-
-        fieldsetLegend.children('.swatch').attr('style', 'background-color: #'+colorVal+';');
+    colorInput.minicolors({
+        control: 'hue',
+        defaultValue: colorVal,
+        format: 'hex',
+        inline: true,
+        swatches: [
+            '#A51A1A',
+            '#E69327',
+            '#2274B4',
+            '#5BAA00'
+        ],
+        change: function(hex, opacity) {
+            fieldsetLegend.children('.swatch').attr('style', 'background-color: '+hex+';');
+        },
+        theme: 'default'
     });
 });
