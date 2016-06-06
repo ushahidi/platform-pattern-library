@@ -277,7 +277,7 @@
         <div class="toolbar">
             <div class="button-group">
                 <button type="button" class="button-flat">Cancel</button>
-                <button type="button" class="button-alpha" onclick="messageToggle($('#required'))">Save</button>
+                <button type="button" class="button-alpha" onclick="messageToggle($('#required'))">Submit</button>
             </div>
         </div>
 
@@ -287,20 +287,14 @@
                 <div class="form-field form-field-adapt title">
                     <div class="post-band" style="background-color: #E69327;"></div>
                     <label>Title</label>
-                    <input type="text" value="Overcrowding between 5th St. &amp; Salem Ave.">
+                    <input type="text" value="">
                 </div>
 
-                <!-- IF: Editing an existing post -->
-                <div class="metadata">
-                    <a href="" class="metadata-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS
-                </div>
-                <!-- ELSE IF: Adding a new post w/o permission to manage who it's visible to
+                <!-- IF: Adding a new post w/o permission to manage who it's visible to -->
                 <div class="form-field">
                     <strong>This post will need to be moderated</strong> before it's visible to the public.
                 </div>
-                END: IF -->
-
-                <!-- IF: User has permission to manage who it's visible to -->
+                <!-- ELSE IF: User has permission to manage who it's visible to
                 <fieldset class="custom-fieldset">
                     <legend><span class="custom-fieldset-value">Who</span> can see this</legend>
 
@@ -341,9 +335,9 @@
                         </div>
                     </div>
                 </fieldset>
-                <!-- END: IF -->
+                END: IF -->
 
-               <!-- IF: User has permission to see other 'Tasks' -->
+               <!-- IF: User has permission to see other 'Tasks' //
                <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
                    <ul>
                        <li>
@@ -372,26 +366,22 @@
                        </li>
                    </ul>
                </nav>
-               <!--// END IF -->
+               // END IF -->
 
                <div id="tasks-post" class="tabs-tasks">
                    <div class="form-field form-field-adapt">
                        <label>
                            Description
                        </label>
-                       <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
+                       <textarea name="description" data-min-rows='1' rows='1'></textarea>
                    </div>
 
                    <div class="form-field">
                        <label>Photo</label>
-                       <figure>
-                           <img src="http://lorempixel.com/400/300/" class="postcard-image" />
-                           <button class="button-flat">Delete photo</button>
-                       </figure>
                        <input type="file" />
                    </div>
 
-                   <fieldset id="categories" class="error">
+                   <fieldset id="categories">
                        <legend>Categories</legend>
 
                        <div class="form-field checkbox">
@@ -428,6 +418,7 @@
                    </div>
                </div>
 
+               <!-- IF: User has permission to see other 'Tasks'
                <div id="tasks-verify" class="tabs-tasks">
                    <div class="form-field switch">
                        <label>Verified</label>
@@ -441,7 +432,7 @@
                        <label>
                            Notes
                        </label>
-                       <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
+                       <textarea name="description" data-min-rows='1' rows='1'></textarea>
                    </div>
                </div>
 
@@ -454,25 +445,9 @@
                        </div>
                    </div>
                </div>
+               // END IF -->
 
            </div>
-
-            <div class="form-sheet">
-                <div class="form-sheet-summary">
-                    <h3 class="form-sheet-title">Delete this post</h3>
-                </div>
-
-                <div class="form-field">
-                    <p><strong>If you delete this post</strong>, all of its comments and messages will also be deleted. Proceed with caution.</p>
-
-                    <button class="button-destructive">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
-                        </svg>
-                        <span class="button-label">Delete post</span>
-                    </button>
-                </div>
-            </div>
 
         </div> <!-- END main column -->
 
