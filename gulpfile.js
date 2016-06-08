@@ -148,9 +148,6 @@ gulp.task('uglifyCloudJS', function() {
     .pipe(plumber({
         errorHandler: errorHandler
     }))
-    .pipe(babel({
-        presets: ['es2015']
-    }))
     .pipe(uglify())
     .pipe(concat('cloud.js'))
     .pipe(plumber.stop())
