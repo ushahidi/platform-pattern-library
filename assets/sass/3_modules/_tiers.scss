@@ -1,7 +1,6 @@
 .tier {
-    @include clearfix;
     position: relative;
-    @extend .card;
+    @include containerCard;
     text-align: center;
     margin: $base-spacing auto;
 
@@ -179,28 +178,43 @@
     }
 
     .tier-feature-list {
-        border-top: $base-border;
-        background-color: $color-light-delta;
         padding-top: $sm-spacing;
+
+        p {
+            margin: 0 $sm-spacing;
+        }
 
         ul, ol {
             @extend .list-reset;
-        }
 
-        li,
-        em {
-            display: block;
-            border-bottom: $base-border;
-            padding: $sm-spacing;
-            margin-bottom: 0;
-        }
+            li {
+                display: block;
+                border-bottom: $base-border;
+                padding: $sm-spacing;
+                margin: 0 $sm-spacing;
 
-        li {
+                strong {
+                    color: $color-dark-alpha;
+                    font-weight: normal;
+                }
 
-            &:last-child {
-                border-bottom-color: transparent;
+                em {
+                    display: block;
+                    color: $color-dark-gamma;
+                    font-size: .857142857em;
+                    margin-top: 2px;
+                }
+
+                &:last-child {
+                    border-bottom-color: transparent;
+                }
             }
         }
+    }
+
+    .tier-form {
+        text-align: left;
+        margin: 0 $sm-spacing;
     }
 }
 
@@ -211,6 +225,10 @@
         position: relative;
     }
 
+    @include media($medium) {
+        @include containerSheet;
+    }
+
     .tier {
         max-width: none;
         margin: $base-spacing $sm-spacing;
@@ -219,12 +237,58 @@
         @include media($medium) {
             float: left;
             width: 25%;
-            height: 680px;
-            background-color: $color-light-delta;
+            @include no-shadow;
+            background-color: transparent;
             margin: 0;
 
+            &:before {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                left: 0;
+                height: $tiny-spacing;
+                background-color: $color-secondary;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: 3;
+                top: $lg-spacing;
+                right: 0;
+                bottom: $lg-spacing;
+                width: 1px;
+                background-color: $color-light-gamma;
+            }
+
+            &:nth-child(1) {
+
+                &:before {
+                    background-color: lighten( $color-secondary, 25% );
+                }
+            }
+
+            &:nth-child(2) {
+
+                &:before {
+                    background-color: lighten( $color-secondary, 15% );
+                }
+            }
+
+            &:nth-child(3) {
+
+                &:before {
+                    background-color: lighten( $color-secondary, 5% );
+                }
+            }
+
             .tier-header {
-                background-color: $white;
+
+                p {
+                    height: 55px;
+                }
             }
 
             .tier-feature-list {
