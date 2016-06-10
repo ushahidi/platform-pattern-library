@@ -109,6 +109,15 @@
                         // END IF //
                     </div>
                     // END IF //-->
+
+                    <div class="form-field">
+                        <button type="button" class="button-link">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#arrow-left"></use>
+                            </svg>
+                            <span class="button-label">Return to all posts</span>
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -190,9 +199,34 @@
             <div class="modal-overlay"></div>
          </div>
 
+         <div id="empty" class="message">
+             <div class="message-image">
+                 <svg class="iconic">
+                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
+                 </svg>
+             </div>
+
+             <div class="message-body">
+                 <p><strong>There are no posts</strong> in this "Read later" Collection.</p>
+                 <p>You can add a post to this Collection anywhere you encounter one, including this deployment's unfiltered <a href="">Map</a> and <a href="">Timeline</a>.</p>
+
+                 <button class="button-alpha">
+                     See all posts
+                 </button>
+
+                 <button class="button-flat message-trigger">
+                     Dismiss
+                 </button>
+             </div>
+         </div>
+
         @@include('../partials/_modals-global.html')
 
         @@include('../partials/_scripts.html')
+
+        <script>
+            messageToggle($('#empty'), true);
+        </script>
 
     </body>
 

@@ -29,7 +29,7 @@
         <div class="mode-bar">
     <nav>
         <ul class="deployment-menu">
-            <li class="active" data-message="views">
+            <li class="active"data-message="views">
                 <a href="map.html">
                     <svg class="iconic">
                         <use xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use>
@@ -53,7 +53,7 @@
                     Activity
                 </a>
             </li>
-            <li  data-message="customize">
+            <li data-message="customize">
                 <a href="settings.html">
                     <svg class="iconic">
                         <use xlink:href="/assets/img/iconic-sprite.svg#cog"></use>
@@ -344,6 +344,15 @@
                         // END IF //
                     </div>
                     // END IF //-->
+
+                    <div class="form-field">
+                        <button type="button" class="button-link">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#arrow-left"></use>
+                            </svg>
+                            <span class="button-label">Return to all posts</span>
+                        </button>
+                    </div>
                 </div>
 
             </div>
@@ -751,6 +760,27 @@
             </div>
 
             <div class="modal-overlay"></div>
+         </div>
+
+         <div id="empty" class="message">
+             <div class="message-image">
+                 <svg class="iconic">
+                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
+                 </svg>
+             </div>
+
+             <div class="message-body">
+                 <p><strong>There are no posts</strong> in this "Read later" Collection.</p>
+                 <p>You can add a post to this Collection anywhere you encounter one, including this deployment's unfiltered <a href="">Map</a> and <a href="">Timeline</a>.</p>
+
+                 <button class="button-alpha">
+                     See all posts
+                 </button>
+
+                 <button class="button-flat message-trigger">
+                     Dismiss
+                 </button>
+             </div>
          </div>
 
         <div id="delete-post" class="modal">
@@ -1244,6 +1274,10 @@
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 
+
+        <script>
+            messageToggle($('#empty'), true);
+        </script>
 
     </body>
 
