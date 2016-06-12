@@ -86,9 +86,9 @@ if ($('#map').length) {
     ];
 
     //## Icon configuration
-    function pointIcon(feature, size, class){
+    function pointIcon(feature, size, className){
         return L.divIcon({
-            className: 'custom-map-marker '+class,
+            className: 'custom-map-marker '+className,
             html: '<svg class="iconic" style="fill:#'+feature.properties.color+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use></svg><span class="iconic-bg" style="background-color:#'+feature.properties.color+';""></span>',
             iconSize: size,
             iconAnchor: size,
