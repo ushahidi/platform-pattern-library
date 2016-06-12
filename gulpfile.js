@@ -147,6 +147,7 @@ gulp.task('uglifyCloudJS', function() {
     return gulp.src([
         './assets/js/custom/_toggle.js',
         './assets/js/custom/survey-filter.js',
+        './assets/js/custom/map.js',
         './assets/js/cloud/*'
     ])
     .pipe(plumber({
