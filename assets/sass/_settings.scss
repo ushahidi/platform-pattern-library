@@ -4,7 +4,7 @@
 
 $grid-columns: 12;     // The number of columns in the grid
 $gutter: 1.6888em;     // The width of margin between columns
-$max-width: 1580px;    // The max width of the grid
+$max-width: 1980px;    // The max width of the grid
 
 // Breakpoint Widths
 $mobile-min-width: (30em) !default; // 480px
@@ -22,9 +22,9 @@ $xtall-min-height: (850px) !default; // for vertical breakpoints -- taller
 $mobile: new-breakpoint(min-width $mobile-min-width);
 $mobile-down: new-breakpoint(max-width $mobile-up-min-width);
 $mobile-up: new-breakpoint(min-width $mobile-up-min-width);
-$small-down: new-breakpoint(max-width $small-min-width);
+$small-down: new-breakpoint(max-width 767px);
 $small: new-breakpoint(min-width $small-min-width);
-$medium-down: new-breakpoint(max-width $medium-min-width);
+$medium-down: new-breakpoint(max-width 1023px);
 $medium: new-breakpoint(min-width $medium-min-width);
 $large: new-breakpoint(min-width $large-min-width);
 $xlarge: new-breakpoint(min-width $xlarge-min-width);
@@ -51,14 +51,6 @@ body.rtl {
     .pl-jump-nav {
         text-align: left;
     }
-
-    .pl-read-direction-nav {
-        text-align: left;
-
-        @include media($small) {
-            text-align: right;
-        }
-    }
     // end testing
 }
 
@@ -70,22 +62,49 @@ body.rtl {
     $COLORS
 \*------------------------------------*/
 
-$black: #181c21;
-$lt-black: lighten( $black, 8% );
-$blue: #2274b4;
-$white: #ffffff;
-$lt-gray: #dddddd;
+// color scheme foundation
+$color-primary: #373E46; // faded blue
+$color-secondary: #FFC334; // gold
+$color-tertiary: #C7CCD4; // pale grey
+
+// blacks and dark greys
+$color-dark-alpha: #222222;
+$color-dark-beta: #444444;
+$color-dark-gamma: #666666;
+$color-dark-delta: #888888;
+
+// whites and light greys
+$color-light-alpha: #959595;
+$color-light-beta: #D6D5D2;
+$color-light-gamma: #EEEEEE;
+$color-light-delta: #FAFAFA;
+
+// primary color spectrum, based on primary color (faded blue)
+$color-primary-alpha: #1E232A;
+$color-primary-beta: #2B323A;
+$color-primary-gamma: #40444A;
+$color-primary-delta: #60646B;
+$color-primary-epsilon: #8E9297;
+$color-primary-zeta: #F1F1F4;
+
+$black: $color-dark-alpha;
+$mid-black: lighten( $color-dark-alpha, 8% );
+$lt-black: lighten(desaturate(adjust-hue($color-dark-alpha, 4.8485), 10.3708), 28.6275);
+$white: #FFFFFF;
+$lt-gray: #eeeeee;
 $dk-gray: #737373;
 $mid-gray: lighten( $dk-gray, 15% );
 $lt-brown: #FBF9F6;
 $dk-brown: #EFECE8;
-$yellow: #ffc334;
+$blue: #2274b4;
+$yellow: $color-secondary;
 $green: #4fab2f;
-$red: #de0000;
+$red: #B00F23;
+$brown: #87582D;
 
 // Text
-$text-color: $black;
-$base-color: $black;
+$text-color: $color-dark-beta;
+$base-color: $color-dark-alpha;
 $dark-text-color: $dk-gray;
 $big-number-color: $dk-gray;
 $lt-text-color: $white;
@@ -94,14 +113,14 @@ $confirmation-color: $green;
 $error-color: $red;
 
 // Links
-$link-color: $blue;
+$link-color: $color-primary;
 $link-hover-color: darken( $link-color, 20% );
-$link-color-lt: lighten( $link-color, 25% );
-$link-color-dark-bg: $link-color-lt;
-$link-color-dark-bg-hover: lighten( $link-color-lt, 10% );
+
+$link-color-dark-bg: $color-secondary;
+$link-color-dark-bg-hover: lighten( $link-color-dark-bg, 10% );
 
 // Backgrounds
-$dark-bg: $black;
+$dark-bg: $color-primary-alpha;
 $dark-gray-bg: $dk-gray;
 $lt-gray-bg: lighten( $lt-gray, 5% );
 $mid-gray-bg: darken( $lt-gray, 5% );
@@ -111,16 +130,6 @@ $header-bg-color: #303742;
 $header-bg-dark: rgba($header-bg-color, 1);
 $header-bg-transparent: rgba($header-bg-color, .5);
 
-// Buttons
-$button-bg-create-post: $black;
-$button-bg-create-post-hover: lighten( $button-bg-create-post, 10% );
-$button-bg-create-post-active: lighten( $button-bg-create-post, 20% );
-$button-bg-color: $blue;
-$button-bg-disabled-color: $dk-gray;
-$button-hover-color: darken( $button-bg-color, 10% );
-$button-active-color: darken( $button-bg-color, 25% );
-$button-text-color: $white;
-
 // Progress
 $progress-active-color: lighten( $lt-gray, 3% );
 $progress-hover-color: darken( $lt-gray, 3% );
@@ -129,10 +138,14 @@ $progress-hover-color: darken( $lt-gray, 3% );
 $tab-active-color: darken( $lt-gray, 5% );
 
 // Borders
-$border-color: $lt-gray;
+$border-color: $color-light-gamma;
 $border-color-dark: darken( $border-color, 15% );
 $border-color-hover: darken( $border-color, 10% );
 $border-color-active: darken( $border-color, 25% );
+
+//Social Networks
+$facebook: #375392;
+$twitter: #45B4F3;
 
 // Other
 $highlight: $yellow;
@@ -142,7 +155,6 @@ $sass: #CC6699;
 /*------------------------------------*\
     $TYPE
 \*------------------------------------*/
-$fa-font-path:        "../../../fonts" !default; //icon fonts
 $base-font-family: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $base-font-color: $base-color;
 $sub-base-font-color: $text-color;
@@ -151,41 +163,28 @@ $body-font-weight: 400;
 $body-font-style: normal;
 $bold: 900;
 
-$base-font-size: 18px;
-$base-line-height: 1.5;
+$base-font-size: 14px;
+$base-line-height: 1.266666667;
 $small-font-size: em(14);
-
-@mixin typeBase {
-    font-weight: 400;
-    font-family: $base-font-family;
-}
-
-@mixin typeAlpha {
-    font-weight: 700;
-    font-family: $base-font-family;
-}
-
-@mixin typeBeta {
-    font-weight: 600;
-    font-family: $base-font-family;
-}
 
 
 /*------------------------------------*\
     $Z-INDEX
 \*------------------------------------*/
 
-$modal: 2000;
-$top: 1000;
-$topbar: 600;
-$fixed-at-bottom: 600;
-$offcanvas: 500;
-$filter: 400;
-$map: 300;
-$on-top-of-map: ($map + 1);
-$body: 200;
-$overlay: 100;
-$bg-img: 50;
+$modal: 10000;
+
+$modebar: 4000;
+$modecontext: 3000;
+$toolbar: 2000;
+$dropdown: 1500;
+$toolbox: 1000;
+
+$top: 500;
+$fixed-at-bottom: 400;
+$filter: 300;
+$map: 200;
+$body: 100;
 $bottom: 0;
 $below: -1;
 
@@ -195,15 +194,15 @@ $below: -1;
 \*------------------------------------*/
 
 //Transition
-$transition-duration: 0.1s;
+$transition-duration: 0.3s;
 
 //Layout
-$global-radius: 5px;
-$base-spacing: 20px;
-$sm-spacing: $base-spacing/2;
-$tiny-spacing: $base-spacing/4;
-$lg-spacing: $base-spacing*2;
-$huge-spacing: $base-spacing*4;
+$global-radius: 2px;
+$base-spacing: 24px;
+$tiny-spacing: $base-spacing/3; // 8px
+$sm-spacing: $base-spacing/1.5; // 16px
+$lg-spacing: $base-spacing*1.333333333; // 32px
+$huge-spacing: $base-spacing*1.666666667; // 40px
 
 //Border
 $base-border: 1px solid $border-color;

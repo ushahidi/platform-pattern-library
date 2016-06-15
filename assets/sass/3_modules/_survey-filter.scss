@@ -1,0 +1,179 @@
+.survey-filter {
+
+    .survey-filter-checkbox {
+        margin: 5px auto;
+    }
+}
+
+.survey-filter-checkbox {
+    position: relative;
+    @include clearfix;
+    background-color: #292E34;
+    @include transition(0.3s);
+
+    .post-band {
+        display: none;
+        z-index: 100;
+        width: 4px;
+        @include equal-radius(0);
+        background-color: $color-light-alpha;
+    }
+
+    .survey-filter-label {
+        position: relative;
+        float: left;
+        width: 72.9613734%;
+
+        label {
+            padding: $tiny-spacing*1.5 $sm-spacing;
+            padding-left: $base-spacing+15;
+        }
+
+        input[type="checkbox"] {
+            position: absolute;
+            left: $sm-spacing;
+        }
+    }
+
+    label {
+        display: block;
+        color: $color-primary-epsilon;
+        @include typeGamma;
+        text-transform: none;
+        letter-spacing: normal;
+    }
+
+    .survey-filter-total {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        box-shadow: 0 0 $tiny-spacing 2px #292E34;
+        margin-top: -10px;
+        margin-right: $sm-spacing;
+/*
+        @include iconic($position: after, $iconic-icon: chevron-bottom, $iconic-color: #292E34, $iconic-size: 10px, $styles: true) {
+            position: relative;
+            top: 1px;
+            margin-left: 6px;
+            @include transition(0.3s);
+        };*/
+
+        @include media($medium) {
+            margin-right: $base-spacing;
+        }
+
+        svg.iconic {
+            position: relative;
+            top: 1px;
+            fill: #292E34;
+            width: 10px;
+            height: 10px;
+            margin-left: 6px;
+            @include transition(0.3s);
+        }
+
+        &.active {
+            color: #292E34 !important;
+            text-shadow: none;
+            background-color: $color-light-delta !important;
+
+            svg.iconic {
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+
+    .dropdown-menu {
+        top: 90% !important;
+        left: auto !important;
+        max-width: 300px;
+        margin-right: -$sm-spacing;
+        margin-left: $sm-spacing;
+    }
+
+    &.init {
+
+        .survey-filter-label {
+            overflow: hidden;
+
+            label {
+                position: relative;
+                left: 0;
+                @include transition(0.3s);
+
+                @include media($medium) {
+                    padding-left: $base-spacing;
+                }
+            }
+
+            input[type="checkbox"] {
+                position: absolute;
+
+                @include media($medium) {
+                    right: 100%;
+                    left: auto;
+                }
+            }
+
+            @include media($medium) {
+
+                &:hover {
+                    cursor: pointer;
+
+                    label {
+                        cursor: pointer;
+                        left: $base-spacing+15;
+                    }
+
+                    input[type="checkbox"] {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+    &.checked {
+        background: $color-primary;
+
+        .post-band {
+            display: inline-block;
+        }
+
+        label {
+            color: $white;
+        }
+
+        .survey-filter-total {
+            color: $white;
+            box-shadow: 0 0 $tiny-spacing 2px #3F4349;
+            background-color: $color-primary-epsilon;
+
+            &:after {
+                background-color: #3F4349;
+            }
+        }
+    }
+}
+
+.survey-filter-total {
+    display: inline-block;
+    color: $color-primary-epsilon;
+    @include equal-radius(20px);
+    font-size: 12px;
+    text-shadow: 0 1px 1px rgba(0,0,0,1);
+    background-color: $color-primary;
+    padding: 4px $tiny-spacing;
+    @include transition(0.3s);
+
+    &.init {
+
+        &:hover {
+            cursor: pointer;
+            color: $white;
+            background-color: $color-primary-delta;
+            box-shadow: 0 0 4px rgba(0,0,0,0.12),
+                0 4px 4px rgba(0,0,0,0.24);
+        }
+    }
+}

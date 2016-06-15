@@ -1,0 +1,329 @@
+.mode-bar {
+    @include clearfix;
+    position: relative;
+    z-index: $modebar;
+    max-width: $lg-spacing*2;
+    @include equal-radius(0);
+    background-color: $color-primary;
+
+    @include media($medium-down) {
+        display: block;
+        max-width: none;
+        background-color: $color-primary-zeta;
+    }
+
+    @include media($medium) {
+        padding-bottom: 140px;
+    }
+
+    ul {
+        @extend .list-reset;
+    }
+
+    li {
+        /*
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-around;
+        */
+
+        a {
+            display: block;
+            color: $color-tertiary;
+            font-size: 12px;
+            text-align: center;
+            padding: $sm-spacing 2px;
+            @include transition(0.3s);
+
+            @include media($medium-down) {
+                font-size: 11px;
+                padding: $tiny-spacing/2 0;
+            }
+
+            svg.iconic {
+                display: block;
+                width: $sm-spacing;
+                height: $sm-spacing;
+                fill: $color-tertiary;
+                margin: 4px auto 6px;
+                @include transition(0.3s);
+            }
+
+            svg.ushahidi-logo {
+                display: block;
+                width: $base-spacing;
+                height: $base-spacing;
+                fill: $color-tertiary;
+                margin: 4px auto 6px;
+            }
+
+            .avatar {
+                width: $lg-spacing;
+                height: $lg-spacing;
+                margin: 4px auto 6px;
+            }
+
+
+            &:hover {
+                color: $white;
+
+                svg.iconic {
+                    fill: $white;
+                }
+            }
+        }
+
+        &.more-menu-trigger {
+            display: none;
+
+            @include media($medium-down) {
+                display: block;
+            }
+        }
+    }
+
+    .deployment-menu {
+
+        @include media($medium-down) {
+            @include clearfix;
+            box-shadow: 0 0 4px rgba(0,0,0,0.12),
+                0 0 4px rgba(0,0,0,0.24);
+        }
+
+        li {
+
+            &.persist {
+
+                @include media($medium-down) {
+                    display: block;
+                    position: static;
+                    @include float(left);
+                    width: 25%;
+                    list-style-type: none;
+                    text-align: center;
+                    background-color: $color-primary;
+                }
+
+                &.active {
+
+                    a {
+                        color: $color-secondary;
+
+                        svg.iconic {
+                            fill: $color-secondary;
+                        }
+                    }
+                }
+            }
+
+            &.tuck {
+
+                @include media($medium-down) {
+                    display: none;
+                    position: absolute;
+                    right: 0;
+                    bottom: 100%;
+                    left: 0;
+                    z-index: $modebar;
+
+                    a {
+                        color: $link-color;
+                        @include typeBase;
+                        text-align: left;
+                        padding: $sm-spacing;
+
+                        svg.iconic {
+                            display: inline-block;
+                            position: relative;
+                            top: 2px;
+                            fill: $link-color;
+                            width: 1em;
+                            height: 1em;
+                            margin: 0;
+                            margin-right: $tiny-spacing;
+                        }
+                    }
+                }
+            }
+
+            &.active {
+
+                @include media($medium) {
+
+                    a {
+                        color: $color-secondary;
+
+                        svg.iconic {
+                            fill: $color-secondary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .account-menu {
+        display: flex;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+
+        @include media($medium-down) {
+            display: none;
+            position: static;
+            background-color: $color-primary-zeta;
+            padding-bottom: $huge-spacing*3;
+        }
+
+        @include media($medium) {
+            // position: fixed;
+            width: $lg-spacing*2;
+            bottom: 0;
+//            box-shadow: 0 -4px 4px $color-primary;
+        }
+
+        a {
+            padding: $tiny-spacing 2px;
+
+            @include media($medium-down) {
+                color: $link-color;
+                @include typeBase;
+                text-align: left;
+                padding: $sm-spacing;
+
+                &:hover {
+                    color: $link-hover-color;
+
+                    svg.iconic {
+                        fill: $link-hover-color;
+                    }
+                }
+
+                svg.iconic,
+                svg.ushahidi-logo {
+                    display: inline-block;
+                    position: relative;
+                    top: 2px;
+                    fill: $link-color;
+                    width: 1em;
+                    height: 1em;
+                    margin: 0;
+                    margin-right: $tiny-spacing;
+                }
+
+                .avatar {
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    margin: -3px 7px 0 -3px;
+                }
+            }
+
+            @include media($medium) {
+                position: relative;
+
+                &:hover {
+
+                    .label {
+                        display: block;
+                    }
+                }
+            }
+        }
+
+        .label {
+
+            @include media($medium) {
+                display: none;
+                position: absolute;
+                top: $tiny-spacing;
+                left: 90%;
+                z-index: $modal;
+                color: $white;
+                @include typeBase;
+                text-align: center;
+                white-space: nowrap;
+                border-radius: 25px;
+                background: $color-primary;
+                padding: $tiny-spacing $sm-spacing;
+                margin-left: 0;
+                box-shadow: 0 0 16px rgba(0,0,0,0.12),
+                    0 16px 16px rgba(0,0,0,0.24);
+            }
+
+            .badge {
+                display: inline-block;
+                height: $sm-spacing;
+                width: $sm-spacing;
+                color: $color-primary-alpha;
+                font-size: 10px;
+                font-weight: bold;
+                text-align: center;
+                line-height: 1.4;
+                white-space: nowrap;
+                vertical-align: middle;
+                @include equal-radius(100%);
+                background: $color-secondary;
+                @include lrswap(margin, 0 0 3px 8px);
+            }
+
+            .subtext {
+                margin-top: 4px;
+                font-size: .857142857em;
+                color: $color-light-alpha;
+
+                @include media($medium) {
+                    display: block;                    
+                }
+            }
+        }
+    }
+
+    &.active {
+
+        @include media($medium-down) {
+
+            .deployment-menu {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+
+            .account-menu {
+                display: block;
+            }
+
+            .deployment-menu li {
+
+                &.persist {
+
+                    &.active {
+
+                        a {
+                            color: $color-tertiary;
+
+                            svg.iconic {
+                                fill: $color-tertiary;
+                            }
+                        }
+                    }
+
+                    &.more-menu-trigger {
+
+                        a {
+                            color: $color-secondary;
+
+                            svg.iconic {
+                                fill: $color-secondary;
+                            }
+                        }
+                    }
+                }
+
+                &.tuck {
+                    display: block;
+                }
+            }
+        }
+    }
+}

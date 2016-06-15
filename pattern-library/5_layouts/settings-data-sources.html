@@ -7,126 +7,406 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="has-fixed-bottom">
+<body class="layout-a">
 
-   @@include('../partials/_header-full.html')
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
 
-   <div class="wrapper">
+    <div class="mode-context">
 
-      @@include('../partials/_main-menu.html')
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ol>
 
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>Settings</li>
-            </ul>
-            <div class="page-header-body">
-               <h1 class="page-title">Data Sources</h1>
+            <h1 class="mode-context-title">Data Sources</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Save</button>
             </div>
-            <div class="page-header-actions">
-               <button class="button-secondary"><span class="icon-left fa-plus">Add Data Source</span></button>
-            </div>
-         </div>
+        </div>
 
-         <div class="main-col">
-            <p>
-               <em>You can configure options for data sources, and then turn on and off sources.</em>
-            </p>
 
-            <div class="settings-listing">
-               <div class="toggle-switch">
-                  <input class="tgl" id="switch3" type="checkbox">
-                  <label class="tgl-btn" for="switch3"></label>
-               </div>
-               <h3 class="settings-listing-title">Twitter User</h3>
-               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
-                  <span>Options</span>
-               </button>
-               <form class="toggle-content">
-                  <label class="input-label">Twitter Username</label>
-                  <input type="text" placeholder="@example">
-                  <div class="select-inline">
-                     <label class="input-label">Import As:</label>
-                     <select name="visible-to">
-                        <option value="volvo">Option 1</option>
-                        <option value="saab">Option 2</option>
-                        <option value="fiat">Option 3</option>
-                     </select>
-                  </div>
-                  <p class="clearfix">
-                     <label>
-                        <input type="checkbox">
-                        These posts need to be approved by administrators
-                     </label>
-                  </p>
-                  <button type="button" class="button-primary">Save Data Source</button>
-               </form>
-            </div>
-            <div class="settings-listing">
-               <div class="toggle-switch">
-                  <input class="tgl" id="switch3" type="checkbox">
-                  <label class="tgl-btn" for="switch3"></label>
-               </div>
-               <h3 class="settings-listing-title">SMS</h3>
-               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
-                  <span>Options</span>
-               </button>
-               <form class="toggle-content">
-                  <label class="input-label">From Number</label>
-                  <input type="text" placeholder="750-325-1343">
-                  <div class="select-inline">
-                     <label class="input-label">Import As:</label>
-                     <select name="visible-to">
-                        <option value="volvo">Option 1</option>
-                        <option value="saab">Option 2</option>
-                        <option value="fiat">Option 3</option>
-                     </select>
-                  </div>
-                  <p class="clearfix">
-                     <label>
-                        <input type="checkbox">
-                        These posts need to be approved by administrators
-                     </label>
-                  </p>
-                  <button type="button" class="button-primary">Save Data Source</button>
-               </form>
-            </div>
-            <div class="settings-listing">
-               <div class="toggle-switch">
-                  <input class="tgl" id="switch4" type="checkbox">
-                  <label class="tgl-btn" for="switch4"></label>
-               </div>
-               <h3 class="settings-listing-title">Facebook</h3>
-               <button type="button" class="actions button-secondary icon-only-when-small edit" data-toggle="toggle-content">
-                  <span>Options</span>
-               </button>
-               <form class="toggle-content">
-                  <label class="input-label">From Number</label>
-                  <input type="text" placeholder="750-325-1343">
-                  <div class="select-inline">
-                     <label class="input-label">Import As:</label>
-                     <select name="visible-to">
-                        <option value="volvo">Option 1</option>
-                        <option value="saab">Option 2</option>
-                        <option value="fiat">Option 3</option>
-                     </select>
-                  </div>
-                  <p class="clearfix">
-                     <label>
-                        <input type="checkbox">
-                        These posts need to be approved by administrators
-                     </label>
-                  </p>
-                  <button type="button" class="button-primary">Save Data Source</button>
-               </form>
-            </div>
-         </div><!--end main col-->
-      </main> <!--end layout a-->
-   </div>
+       <div class="main-col">
 
-@@include('../partials/_footer.html')
+            <div class="listing card">
 
-@@include('../partials/_scripts.html')
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            Email
+                            <span class="status-indicator"></span>
+                        </h2>
+                    </div>
+
+                    <div class="listing-item-body">
+
+                        <form>
+
+                            <div class="form-field switch">
+                               <label>Accept survey submissions from this source</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch1" type="checkbox" disabled>
+                                  <label class="tgl-btn" for="switch1"></label>
+                               </div>
+                               <p class="alert">You need to configure this data source below before it can begin accepting submissions.</p>
+                            </div>
+
+                            <nav class="tabs-menu" data-tabs="email-tab">
+                                <ul>
+                                    <li><a href="#email-address">Address</a></li>
+                                    <li><a href="#email-incoming">Incoming server</a></li>
+                                    <li><a href="#email-outgoing">Incoming server</a></li>
+                                </ul>
+                            </nav>
+
+
+                            <div id="email-address" class="email-tab">
+                                <div class="form-field">
+                                    <label>Email address</label>
+                                    <p>This will be used to send outgoing emails</p>
+                                    <input type="email" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Sender name</label>
+                                    <p>Appears in the 'from:' field on outgoing emails</p>
+                                    <input type="text" />
+                                </div>
+                            </div>
+
+                            <div id="email-incoming" class="email-tab form-fieldgroup">
+                                <div class="form-field">
+                                    <label>Incoming server type</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>POP</option>
+                                            <option>IMAP</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming server</label>
+                                    <p>Examples: mail.yourwebsite.com, imap.gmail.com, pop.gmail.com</p>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming server port</label>
+                                    <p>Common ports: 110 (POP3), 143 (IMAP), 995 (POP3 with SSL), 993 (IMAP with SSL)</p>
+                                    <input type="number" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming server security</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>None</option>
+                                            <option>SSL</option>
+                                            <option>TLS</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming username</label>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming password</label>
+                                    <input type="password" />
+                                </div>
+
+                            </div>
+
+                            <div id="email-outgoing" class="email-tab form-fieldgroup">
+                                <div class="form-field">
+                                    <label>Outgoing server type</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>SMTP</option>
+                                            <option>sendmail</option>
+                                            <option>Native</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing server</label>
+                                    <p>Examples: smtp.yourhost.com, smtp.gmail.com</p>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing server port</label>
+                                    <p>Common ports: 25 (SMTP default), 465 (SMTP with SSL)</p>
+                                    <input type="number" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing server security</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>None</option>
+                                            <option>SSL</option>
+                                            <option>TLS</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing username</label>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing password</label>
+                                    <input type="password" />
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="/assets/img/twitter.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title">
+                            Tweets from user
+                            <span class="status-indicator green"></span>
+                        </h2>
+                    </div>
+
+                    <div class="listing-item-body">
+
+                        <div class="form-field switch">
+                           <label>Accept survey submissions from this source</label>
+                           <div class="toggle-switch">
+                              <input class="tgl" id="switch1" type="checkbox" checked>
+                              <label class="tgl-btn" for="switch1"></label>
+                           </div>
+                        </div>
+
+                        <form class="form-fieldgroup">
+                            <div class="form-field">
+                                <label>
+                                    Twitter username
+                                    <input type="text" placeholder="@ushahidi" value="@ushahidi" />
+                                </label>
+                            </div>
+
+                            <div class="form-field select">
+                                <label>Import as</label>
+                                <div class="custom-select">
+                                    <select>
+                                        <option>Survey 1</option>
+                                        <option selected>Survey 2</option>
+                                        <option>Survey 3</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-field switch">
+                               <label>Require moderation of new submissions</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch2" type="checkbox">
+                                  <label class="tgl-btn" for="switch2"></label>
+                               </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="/assets/img/twitter.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title">
+                            Tweets with keyword
+                            <span class="status-indicator"></span>
+                        </h2>
+                    </div>
+
+                    <div class="listing-item-body">
+                        <form>
+                            <div class="form-field switch">
+                               <label>Accept survey submissions from this source</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch3" type="checkbox">
+                                  <label class="tgl-btn" for="switch3"></label>
+                               </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label>
+                                    Keyword
+                                    <input type="text" placeholder="#ushahidi" />
+                                </label>
+                            </div>
+
+                            <div class="form-field select">
+                                <label>
+                                    Import as
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>Survey 1</option>
+                                            <option selected>Survey 2</option>
+                                            <option>Survey 3</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="form-field switch">
+                               <label>Require moderation of new submissions</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch4" type="checkbox">
+                                  <label class="tgl-btn" for="switch4"></label>
+                               </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            SMS
+                            <span class="status-indicator green"></span>
+                        </h2>
+                    </div>
+
+                    <div class="listing-item-body">
+                        <form>
+                            <div class="form-field switch">
+                               <label>Accept survey submissions from this source</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch5" type="checkbox" checked="">
+                                  <label class="tgl-btn" for="switch5"></label>
+                               </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label>
+                                    Sender's phone number
+                                    <input type="tel" placeholder="123-456-7890" value="+1-123-456-7890" />
+                                </label>
+                            </div>
+
+                            <div class="form-field select">
+                                <label>
+                                    Import as
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>Survey 1</option>
+                                            <option selected>Survey 2</option>
+                                            <option>Survey 3</option>
+                                        </select>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="form-field switch">
+                               <label>Require moderation of new survey submssions</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch6" type="checkbox" checked="">
+                                  <label class="tgl-btn" for="switch6"></label>
+                               </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="/assets/img/facebook.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title">
+                            Facebook
+                            <span class="status-indicator"></span>
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    @@include('../partials/_scripts.html')
 
 </body>
 

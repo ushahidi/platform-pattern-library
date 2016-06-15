@@ -4,17 +4,18 @@ $NAVIGATION
 
 .pl-nav {
     @include clearfix;
-    background: $dark-bg;
-    padding: $base-spacing;
+    background: $color-primary-alpha;
+    padding: $sm-spacing;
 
     @include media($small) {
-        padding: $base-spacing 0 0;
+        padding: 1px $tiny-spacing 0;
     }
 
     ul {
-        @extend .list-unstyled;
+        margin: 0;
 
         li {
+            list-style-type: none;
             color: $white;
             font-weight: $bold;
             line-height: 2;
@@ -32,7 +33,9 @@ $NAVIGATION
             }
 
             a {
-                color: $link-color-dark-bg;
+                display: block;
+                float: left;
+                color: $color-primary-epsilon;
                 padding-left: 12px;
                 margin-top: 8px;
 
@@ -42,15 +45,10 @@ $NAVIGATION
                 }
 
                 @include media($small) {
-                    display: block;
-                    float: left;
+                    display: inline-block;
                     border-left: 0px;
                     border-bottom: $blue 0px solid;
-                    padding: 0 ($base-spacing+5px) $base-spacing;
-                }
-
-                @include media($medium) {
-                    padding: 0 $lg-spacing $base-spacing;
+                    padding: $sm-spacing;
                 }
             }
         }
@@ -85,23 +83,28 @@ $NAVIGATION
     @include span-columns(12);
     background: $white;
     max-width: $max-width;
+    padding-bottom: 20px;
 
-    @include media($small) {
+    @include media($medium) {
         border-bottom: $base-border;
+        padding: 0;
     }
 
-    ul {
-        @extend .list-unstyled;
+    .pl-jump-nav-list {
         @include span-columns(12);
-        padding: $base-spacing ($base-spacing + 10px);
+        margin: $tiny-spacing*2 0 $tiny-spacing*2 $base-spacing;
 
         @include media($small) {
             @include span-columns(8);
+            border-bottom: none;
+            margin-right: 0;
         }
 
         @include media($large) {
-            @include span-columns(9);
+            @include span-columns(8);
+            margin-right: 0;
         }
+
     }
 
     li {
@@ -115,40 +118,117 @@ $NAVIGATION
             border-right: 0px;
         }
     }
+
+    &.pl-fixed {
+        @include box-shadow;
+    }
+
 }
 
-ul.pl-read-direction-nav {
-    @extend .list-unstyled;
+.pl-read-direction-nav {
     @include span-columns(12);
-    padding: $base-spacing;
+    margin: 21px 0 21px 0;
+    padding-left: $base-spacing;
 
     @include media($small) {
         @include span-columns(4);
-        text-align: right;
     }
 
     @include media($large) {
-        @include span-columns(3);
+        width: auto;
+        float: right;
     }
 
-    li {
-        margin: 0;
-        padding: 0 0 0 10px;
-        border: none;
+    .pl-read-direction-wrapper {
+        color: $black;
+        font-weight: bold;
+        user-select: none;
 
-        a.cta {
-            font-size: 1em;
+        @include media($large) {
+            float: right;
+            padding: 0 19px;
         }
+
+        .ltr,
+        .rtl {
+            background: $color-primary-alpha;
+            color: $white;
+            margin: 0 0 0 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+
+            &.active {
+                background: $green;
+            }
+
+        }
+
     }
+
+    // span {
+    //     display: inline-block;
+    //     padding: $tiny-spacing $tiny-spacing $tiny-spacing $base-spacing;
+    //
+    //     @include media($medium) {
+    //         padding: 11px 0;
+    //     }
+    //
+    //     &.direction {
+    //         padding: 0;
+    //     }
+    //
+    // }
+
+    // ul {
+    //     display: inline;
+    //     margin: 0;
+    //
+    //     @include media($small) {
+    //         margin: 0 $base-spacing;
+    //     }
+    //
+    //     li {
+    //         display: inline;
+    //         list-style-type: none;
+    //         margin: 0;
+    //         border: none;
+    //
+    //         a.cta {
+    //             font-size: 1em;
+    //         }
+    //
+    //         svg.iconic {
+    //             vertical-align: middle;
+    //             margin-left: 10px;
+    //             fill: $white;
+    //         }
+    //
+    //     }
+    //
+    // }
+
 }
 
 .pl-fixed {
+    width: 100%;
+
+    @include media($medium) {
+        width: 90%;
+    }
+
+    @include media($xlarge) {
+        width: 75%;
+    }
+
+    @include media($xxlarge) {
+        width: 65%;
+    }
 
     @include media($tall){
         position: fixed;
         top: 0px;
         margin-top: 0px;
         /* height: 68px; */
-        z-index: $top;
+        z-index: 15000;
     }
 }

@@ -1,0 +1,349 @@
+.listing-item {
+    position: relative;
+    @include clearfix;
+
+    .listing-item-select {
+        position: absolute;
+        top: 0;
+        left: $sm-spacing;
+        z-index: $body;
+
+        input[type="checkbox"] {
+            position: relative;
+            top: $base-spacing+1;
+        }
+
+        .buttons-updown {
+            position: relative;
+            top: 10px;
+            left: -3px;
+        }
+
+        + .listing-item-primary {
+            padding-left: 46px;
+
+            .listing-item-image {
+                left: 46px;
+            }
+        }
+
+        + .listing-item-secondary {
+
+            + .listing-item-primary {
+                padding-left: 46px;
+            }
+        }
+    }
+
+    .listing-item-primary {
+        position: relative;
+        padding: $base-spacing $sm-spacing;
+
+        @include media($medium) {
+            padding-right: $base-spacing;
+            padding-left: $base-spacing
+        }
+
+        .listing-item-image {
+            position: absolute;
+            top: $base-spacing;
+
+            .icon {
+                position: relative;
+                top: -8px;
+            }
+
+            + .listing-item-title {
+                padding-left: 48px;
+
+                + .listing-item-secondary {
+                    padding-left: 48px;
+
+                    + p {
+                        padding-left: 48px;
+                    }
+                }
+            }
+        }
+
+        .listing-item-secondary {
+            position: static;
+            width: auto;
+            text-align: left;
+            margin: 4px 0;
+        }
+    }
+
+    .listing-item-secondary {
+        position: absolute;
+        top: $base-spacing;
+        right: $sm-spacing;
+        z-index: $body;
+        width: 56px;
+        font-size: .857142857em;
+        text-align: right;
+
+        @include media($medium) {
+            right: $base-spacing;
+        }
+
+        button,
+        .button {
+            line-height: normal;
+            margin-top: -$tiny-spacing;
+
+/*
+            svg.iconic {
+                width: 1.142857143em;
+                height: 1.142857143em;
+            }
+*/
+            .button-label {
+                display: none;
+            }
+        }
+
+        + .listing-item-primary {
+            padding-right: 72px;
+
+            @include media($medium) {
+                padding-right: 80px;
+            }
+        }
+    }
+
+    .listing-item-body {
+        background-color: $white;
+        box-shadow: 0 1px 4px rgba(0,0,0,.24) inset;
+        padding: $sm-spacing;
+
+        @include media($medium) {
+            padding: $sm-spacing $base-spacing;
+        }
+
+        &.active {
+            display: block;
+        }
+
+        .listing {
+            border: 1px solid $color-light-beta;
+            @include radius;
+            background-color: $color-light-gamma;
+
+            .listing-heading {
+                @extend .caps;
+                color: $color-dark-gamma;
+                border-bottom: 1px solid $color-light-beta;
+                background-color: $color-light-beta;
+                padding: $sm-spacing;
+            }
+
+            .listing-item {
+                border-bottom-color: $color-light-beta;
+            }
+        }
+
+        .tabs-menu {
+            margin-top: -$sm-spacing;
+            margin-right: -$sm-spacing;
+            margin-bottom: $base-spacing;
+            margin-left: -$sm-spacing;
+
+            @include media($medium) {
+                margin-right: -$base-spacing;
+                margin-left: -$base-spacing;
+            }
+        }
+
+        .form-field-toggle {
+            margin-bottom: $base-spacing;
+        }
+    }
+
+    .listing-item-image {
+        width: $lg-spacing;
+        text-align: center;
+
+        svg.iconic {
+            width: 1em;
+            height: 1em;
+        }
+
+        img {
+
+            + svg.iconic {
+                position: absolute;
+                z-index: $body;
+                top: 50%;
+                left: -$tiny-spacing;
+                fill: $color-primary;
+                margin-top: -$tiny-spacing;
+            }
+        }
+    }
+
+    .listing-item-title {
+        @include typeGamma;
+
+        em {
+            color: $color-dark-delta;
+            font-style: normal;
+            font-size: .857142857em;
+        }
+
+        svg.iconic {
+            width: .857142857em;
+            height: .857142857em;
+            margin-right: 4px;
+        }
+
+        .status-indicator {
+            top: -2px;
+            margin-right: $tiny-spacing;
+            margin-left: $tiny-spacing;
+        }
+    }
+
+    .listing-item-toggle {
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}
+
+.listing-toolbar {
+    @extend .sheet;
+    @include clearfix;
+    background-color: $color-primary;
+    padding: $sm-spacing;
+
+    @include media($medium) {
+        padding-right: $base-spacing;
+        padding-left: $base-spacing;
+    }
+
+    .listing-toolbar-summary {
+        display: block;
+        color: $white;
+        margin-bottom: $tiny-spacing;
+
+        .button-link {
+            padding: 0;
+            margin-left: $sm-spacing;
+        }
+    }
+
+    .listing-toolbar-actions {
+
+        .listing-toolbar-actions-left,
+        .listing-toolbar-actions-right {
+            display: inline;
+        }
+
+        @include media($medium) {
+
+            .listing-toolbar-actions-left {
+                float: left;
+            }
+
+            .listing-toolbar-actions-right {
+                float: right;
+            }
+        }
+
+        fieldset,
+        button,
+        .button {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+            margin: 0 $tiny-spacing 0 0;
+        }
+
+        button,
+        .button {
+            font-weight: normal;
+            text-transform: none;
+            letter-spacing: 0px;
+        }
+
+        .listing-toolbar-toggle {
+            display: none;
+            font-style: italic;
+            background-color: $color-primary-gamma;
+            box-shadow: 0 0 16px rgba(55,62,70,.8);
+        }
+    }
+
+    .button-link {
+        color: $color-tertiary;
+        font-size: .857142857em;
+        padding: 0 $sm-spacing;
+
+        &:hover {
+            color: $white;
+        }
+    }
+
+    &.truncated {
+
+        .listing-toolbar-actions {
+
+            @include media($medium-down) {
+                position: relative;
+                width: 100%;
+                overflow-x: hidden;
+                white-space: nowrap;
+                line-height: 30px;
+
+                .listing-toolbar-toggle {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin: 0;
+
+                    &.more {
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+
+        &.expanded {
+            overflow-y: scroll;
+
+            @include media($medium-down) {
+
+                .listing-toolbar-actions {
+
+                    fieldset,
+                    button,
+                    .button {
+                        display: block;
+                        margin: $sm-spacing 0;
+                    }
+
+                    .listing-toolbar-toggle {
+                        margin: 0;
+
+                        &.more {
+                            display: none;
+                        }
+
+                        &.less {
+                            display: inline-block;
+                            @include no-shadow;
+                        }
+                    }
+                }
+            }
+
+            @include media($medium) {
+                bottom: auto;
+                overflow-y: auto;
+            }
+        }
+    }
+}

@@ -1,32 +1,36 @@
 .alert {
+    display: inline-block;
     @include direction;
     font-style: italic;
-    font-size: em(16);
-    margin: 20px 0;
+    @include border-left(3px solid $border-color);
+    background-color: lighten( $lt-gray, 4% );
+    margin-bottom: $sm-spacing;
+    padding: $tiny-spacing $sm-spacing;
+
+    svg.iconic {
+        margin-right: $tiny-spacing;
+    }
 
     p {
         margin: 0;
-        padding: $tiny-spacing $sm-spacing;
-        display: inline-block;
-        @include border-left(3px solid $border-color);
-        background-color: lighten( $lt-gray, 4% );
     }
 
-    &.error p {
+    &.error {
         border-color: $error-color;
         background-color: lighten( $error-color, 50% );
 
-        @include icon(before, alert) {
-            color: $error-color;
-            display: inline-block;
-            font-size: em(18);
-            @include padding-right($sm-spacing);
+        svg.iconic {
+            fill: $error-color;
         }
     }
 
-    &.confirmation p {
+    &.confirmation {
         border-color: $confirmation-color;
         background-color: lighten( $confirmation-color, 50% );
+
+        svg.iconic {
+            fill: $confirmation-color;
+        }
     }
 
 }

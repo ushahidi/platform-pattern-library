@@ -7,137 +7,145 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="has-fixed-bottom">
+<body class="layout-c">
 
-   @@include('../partials/_header-full.html')
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
 
-   <div class="wrapper has-full-header">
+    <div class="mode-context">
 
-      @@include('../partials/_main-menu.html')
-
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>
-                  Settings
-               </li>
-               <li>
-                  <a href="">Import</a>
-               </li>
-            </ul>
-
-            <h1>Import CSV</h1>
-         </div>
-
-         <div class="main-col">
-            <ol class="progress">
-               <li><span class="complete">Choose file</span></li>
-               <li class="active">Organize data</li>
-               <li class="disabled">Configure posts</li>
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+                <li><a href="settings.html">Settings</a></li>
             </ol>
 
-            <h2>Organize your imported data</h2>
+            <h1 class="mode-context-title">Import</h1>
+        </header>
 
-            <form class="segment">
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
 
-               <fieldset class="form-field">
-                  <legend>Assign CSV columns to post fields</legend>
-                  <p class="small">Each of the column names from your CSV file are listed below. Choose the <strong>Accident Report</strong> field that you'd like each column to be imported to.</p>
 
-                  <table>
-                     <thead>
-                        <tr>
-                           <th>CSV column name</th>
-                           <th>Accident Report field name</th>
-                        </tr>
-                     </thead>
+    <main role="main">
 
-                     <tbody>
-                        <tr>
-                           <td>Title</td>
-                           <td>
-                              <div class="custom-select">
-                                 <select>
-                                    <option selected>Don't import</option>
-                                    <option>Title</option>
-                                    <option>Description</option>
-                                    <option>Location</option>
-                                    <option>Date posted</option>
-                                    <option>Author</option>
-                                    <option>Source</option>
-                                 </select>
-                              </div>
-                           </td>
-                        </tr>
+       <div class="main-col">
 
-                        <tr>
-                           <td>Date</td>
-                           <td>
-                              <div class="custom-select">
-                                 <select>
-                                    <option selected>Don't import</option>
-                                    <option>Title</option>
-                                    <option>Description</option>
-                                    <option>Location</option>
-                                    <option>Date posted</option>
-                                    <option>Author</option>
-                                    <option>Source</option>
-                                 </select>
-                              </div>
-                           </td>
-                        </tr>
+           <ol class="progress">
+              <li>Choose file</li>
+              <li class="active">Organize data</li>
+              <li class="disabled">Configure posts</li>
+           </ol>
 
-                        <tr>
-                           <td>Location</td>
-                           <td>
-                              <div class="custom-select">
-                                 <select>
-                                    <option selected>Don't import</option>
-                                    <option>Title</option>
-                                    <option>Description</option>
-                                    <option>Location</option>
-                                    <option>Date posted</option>
-                                    <option>Author</option>
-                                    <option>Source</option>
-                                 </select>
-                              </div>
-                           </td>
-                        </tr>
-
-                        <tr>
-                           <td>Body</td>
-                           <td>
-                              <div class="custom-select">
-                                 <select>
-                                    <option selected>Don't import</option>
-                                    <option>Title</option>
-                                    <option>Description</option>
-                                    <option>Location</option>
-                                    <option>Date posted</option>
-                                    <option>Author</option>
-                                    <option>Source</option>
-                                 </select>
-                              </div>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </fieldset>
-
-               <div class="actions-inline actions-right">
-                  <button class="button-link">Cancel import</button>
-                  <button type="submit">Next</button>
+           <div class="form-sheet">
+               <div class="form-sheet-summary">
+                   <h2 class="form-sheet-title">Organize your imported data</h2>
                </div>
-            </form>
-         </div><!--end main col-->
 
-      </main> <!--end layout a-->
+               <form>
 
-   </div>
+                  <fieldset class="form-field">
+                     <legend>Assign CSV columns to post fields</legend>
+                     <p>Each of the column names from your CSV file are listed below. Choose the <strong>Accident Report</strong> field that you'd like each column to be imported to.</p>
 
-   @@include('../partials/_footer.html')
+                     <table>
+                        <thead>
+                           <tr>
+                              <th>CSV column name</th>
+                              <th>Accident Report field name</th>
+                           </tr>
+                        </thead>
 
-   @@include('../partials/_scripts.html')
+                        <tbody>
+                           <tr>
+                              <td>Title</td>
+                              <td>
+                                 <div class="custom-select">
+                                    <select>
+                                       <option selected>Don't import</option>
+                                       <option>Title</option>
+                                       <option>Description</option>
+                                       <option>Location</option>
+                                       <option>Date posted</option>
+                                       <option>Author</option>
+                                       <option>Source</option>
+                                    </select>
+                                 </div>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <td>Date</td>
+                              <td>
+                                 <div class="custom-select">
+                                    <select>
+                                       <option selected>Don't import</option>
+                                       <option>Title</option>
+                                       <option>Description</option>
+                                       <option>Location</option>
+                                       <option>Date posted</option>
+                                       <option>Author</option>
+                                       <option>Source</option>
+                                    </select>
+                                 </div>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <td>Location</td>
+                              <td>
+                                 <div class="custom-select">
+                                    <select>
+                                       <option selected>Don't import</option>
+                                       <option>Title</option>
+                                       <option>Description</option>
+                                       <option>Location</option>
+                                       <option>Date posted</option>
+                                       <option>Author</option>
+                                       <option>Source</option>
+                                    </select>
+                                 </div>
+                              </td>
+                           </tr>
+
+                           <tr>
+                              <td>Body</td>
+                              <td>
+                                 <div class="custom-select">
+                                    <select>
+                                       <option selected>Don't import</option>
+                                       <option>Title</option>
+                                       <option>Description</option>
+                                       <option>Location</option>
+                                       <option>Date posted</option>
+                                       <option>Author</option>
+                                       <option>Source</option>
+                                    </select>
+                                 </div>
+                              </td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </fieldset>
+
+                  <div class="form-field">
+                      <button type="button" class="button-link">Cancel import</button>
+                      <button type="button" class="button-alpha">Next</button>
+                  </div>
+               </form>
+
+           </div>
+        </div>
+
+    </main>
+
+    @@include('../partials/_scripts.html')
 
 </body>
 

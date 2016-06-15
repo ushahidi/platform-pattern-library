@@ -1,174 +1,212 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 
 @@include('../partials/_pl-head.html')
 
-<body>
+    <body class="layout-a">
 
-   @@include('../partials/_header-full.html')
+        @@include('../partials/_mode-bar.html', {
+            "logged_in": true,
+            "context": "activity"
+        })
 
-   <div class="wrapper">
+        <div class="mode-context">
 
-      @@include('../partials/_main-menu.html')
+            <header class="mode-context-header">
+                <ol class="breadcrumbs">
+                    <li><a href="map.html">March on City Hall</a></li>
+                </ol>
 
-      <main class="page-content layout-b" role="main">
-         <div class="page-header">
-            <h1>Activity</h1>
+                <h1 class="mode-context-title">Activity</h1>
+            </header>
 
-            <div class="tabs-menu">
-               <button type="button" class="button-toggle tabs-menu-button-js"></button>
-               <ul class="tabs-menu-list">
-                  <li class="active"><a>Today</a></li>
-                  <li><a>This Week</a></li>
-                  <li><a>This Month</a></li>
-                  <li><a>All Time</a></li>
-               </ul>
+            <span class="mode-context-trigger">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show more/less</span>
+            </span>
+
+            <div class="mode-context-body">
+                <p>A summary of how people are interacting with March on City Hall.</p>
             </div>
-         </div>
+        </div>
 
-         <div class="main-col">
-            <div class="one-col activity-data-single">
-               <h4 class="header-border">Total Deployment Activity</h4>
-               <img src="../../img/example-graph1.svg">
+        <main role="main">
+
+            <div class="toolbar">
+                <form role="search" class="searchbar">
+
+                    <div class="searchbar-options">
+                        <fieldset class="custom-fieldset">
+                            <legend><span class="custom-fieldset-value">Date range</span></legend>
+
+                            <div class="form-field radio">
+                                <label for="alltime">
+                                    <input type="radio" name="daterange" id="alltime" checked>
+                                    All time
+                                </label>
+                            </div>
+                            <div class="form-field radio">
+                                <label for="thisweek">
+                                    <input type="radio" name="daterange" id="thisweek">
+                                    This week
+                                </label>
+                            </div>
+                            <div class="form-field radio">
+                                <label for="thismonth">
+                                    <input type="radio" name="daterange" id="thismonth">
+                                    This month
+                                </label>
+                            </div>
+                            <div class="form-field radio">
+                                <label for="custom">
+                                    <input type="radio" name="daterange" id="custom" data-fieldgroup-toggle="daterange">
+                                    Custom date range
+                                </label>
+
+                                <div class="fieldgroup" data-fieldgroup-target="daterange">
+                                    <div class="form-field date">
+                                        <label for="startdate" class="hidden">Start date</label>
+                                        <div class="input-with-icon">
+                                            <svg class="iconic">
+                                              <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                            </svg>
+                                            <input type="date" name="startdate" placeholder="Start date" />
+                                        </div>
+                                        <span class="date-joiner">to</span>
+                                    </div>
+
+                                    <div class="form-field date">
+                                        <label for="enddate" class="hidden">End date</label>
+                                        <div class="input-with-icon">
+                                            <svg class="iconic">
+                                              <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                            </svg>
+                                            <input type="date" name="enddate" placeholder="End date" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-field">
+                                <button type="button" class="button-link" disabled>Cancel</button>
+                                <button type="button" class="button-alpha" disabled>Apply filter</button>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                </form>
             </div>
-            <div class="two-col">
-               <div class="col activity-data-single">
-                  <h4 class="header-border">Most Active Post</h4>
-                  <div class="embedded-post">
-                     <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-                     <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-                     </p>
-                     @@include('../partials/_actions-toggle.html')
-                  </div>
+
+            <div class="main-col">
+
+               <div class="listing card">
+
+                   <div class="listing-item active">
+                       <div class="listing-item-secondary">
+                           <button type="button" class="button-beta button-flat">
+                               <svg class="iconic">
+                                 <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
+                               </svg>
+                               <span class="hidden">Share</span>
+                           </button>
+                       </div>
+
+                       <div class="listing-item-primary">
+                           <h2 class="listing-item-title">Activity over time</h2>
+                       </div>
+
+                       <div class="listing-item-body">
+                           <fieldset class="custom-fieldset">
+                               <legend><span class="custom-fieldset-value">Compare...</span></legend>
+
+                               <div class="form-field radio">
+                                   <label for="timeline-nothing"><input type="radio" name="timeline" id="timeline-nothing" checked>Show all posts</label>
+                               </div>
+                               <div class="form-field radio">
+                                   <label for="timeline-surveys"><input type="radio" name="timeline" id="timeline-surveys">Compare surveys</label>
+                               </div>
+                               <div class="form-field radio">
+                                   <label for="timeline-categories"><input type="radio" name="timeline" id="timeline-categories">Compare categories</label>
+                               </div>
+
+                               <div class="form-fieldgroup">
+                                   <div class="form-field checkbox">
+                                       <label><input type="checkbox" />Show cumulative totals</label>
+                                   </div>
+                               </div>
+                           </fieldset>
+
+                           <img src="../../img/example-graph1.svg" />
+                       </div>
+                   </div>
+
+                   <div class="listing-item active">
+                       <div class="listing-item-secondary">
+                           <button type="button" class="button-beta button-flat">
+                               <svg class="iconic">
+                                 <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
+                               </svg>
+                               <span class="hidden">Share</span>
+                           </button>
+                       </div>
+
+                       <div class="listing-item-primary">
+                           <h2 class="listing-item-title">Activity by volume</h2>
+                       </div>
+
+                       <div class="listing-item-body">
+                           <fieldset class="custom-fieldset">
+                               <legend><span class="custom-fieldset-value">Compare...</span></legend>
+
+                               <div class="form-field radio">
+                                   <label for="barchart-surveys"><input type="radio" name="barchart" id="barchart-surveys" checked>Compare surveys</label>
+                               </div>
+                               <div class="form-field radio">
+                                   <label for="barchart-categories"><input type="radio" name="barchart" id="barchart-categories">Compare categories</label>
+                               </div>
+                           </fieldset>
+
+                           <img src="../../img/example-graph3.svg" />
+                       </div>
+                   </div>
+
                </div>
-               <div class="col activity-data-single">
-                  <h4 class="header-border">Active Categories</h4>
-                  <img src="../../img/example-graph2.svg">
+
+               <div class="listing timeline">
+                   <h2 class="listing-heading">Timeline of activity</h2>
+                   <h3 class="listing-heading-section">Today</h3>
+
+                   @@include('../partials/_postcard.html')
+
+                   <article class="postcard">
+                       <div class="postcard-body">
+                           <img src="https://avatars.io/instagram/jshorland" class="avatar postcard-image" />
+                           <h1 class="postcard-title"><a href="">Jess Shorland signed up</a></h1>
+                           <span class="metadata">90 mins</span>
+                       </div>
+                   </article>
+
+                   <h3 class="listing-heading-section">Yesterday</h3>
+
+                   @@include('../partials/_postcard.html')
+                   @@include('../partials/_postcard.html')
                </div>
+
             </div>
-            <div class="two-col">
-               <div class="col activity-data-single">
-                  <h4 class="header-border">Most Active Post</h4>
-                  <img src="../../img/example-graph3.svg">
-               </div>
-               <div class="col activity-data-single">
-                  <h4 class="header-border">Active Categories</h4>
-                  <img src="../../img/example-graph4.svg">
-               </div>
-            </div>
-            <div class="two-col">
-               <div class="col activity-data-single">
-                  <h4 class="header-border">Active Users</h4>
-                  <img src="../../img/example-graph4.svg">
-               </div>
-               <div class="col activity-data-single">
-                  <h4 class="header-border">Active Regions</h4>
-                  <img src="../../img/example-graph3.svg">
-               </div>
-            </div>
+        </main>
 
-         </div> <!--end main column-->
+        @@include('../partials/_modals-global.html')
 
-         <aside class="secondary-col" role="complementary">
+        @@include('../partials/_scripts.html')
 
-            <h3>Recent Activity Timeline</h3>
-            <!--<p><a class="cta">View Full Timeline</a></p>-->
-
-            <div class="activity-timeline">
-
-               <div class="timestamp">3 Hours Ago</div>
-
-               <div class="activity-listing">
-                  <div class="activity-type post">
-                     New Post
-                  </div>
-                  <div class="listing-summary">
-                     <h3>
-                        <a href="">Bus carring Shiite pilgrims bombed</a>
-                     </h3>
-                     <p>By <a href="">David Kobia</a></p>
-                  </div>
-                  <div class="clearfix"></div>
-               </div>
-
-               <div class="activity-listing">
-                  <div class="activity-type comment">
-                     New Comment
-                  </div>
-                  <div class="listing-summary">
-                     <p>
-                        By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
-                     </p>
-                     <blockquote>
-                        Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.
-                     </blockquote>
-                  </div>
-                  <div class="clearfix"></div>
-               </div>
-
-               <div class="activity-listing">
-                  <div class="activity-type collection">
-                     New Collection
-                  </div>
-                  <div class="listing-summary">
-                     <h3>
-                        <a href="">Bus carring Shiite pilgrims bombed</a>
-                     </h3>
-                     <p>By <a href="">David Kobia</a></p>
-                  </div>
-
-                  <div class="clearfix"></div>
-               </div>
-
-               <div class="timestamp">6 Hours Ago</div>
-
-               <div class="activity-listing">
-                  <div class="activity-type saved-search">
-                     New Saved Search
-                  </div>
-                  <div class="listing-summary">
-                     <h3>
-                        <a href="">Missing Children since 2012</a>
-                     </h3>
-                     <p>By <a href="">David Kobia</a></p>
-                  </div>
-                  <div class="clearfix"></div>
-               </div>
-
-               <div class="activity-listing">
-                  <div class="activity-type post">
-                     New Post
-                  </div>
-                  <div class="listing-summary">
-                     <h3>
-                        <a href="">Bus carring Shiite pilgrims bombed</a>
-                     </h3>
-                     <p>By <a href="">David Kobia</a></p>
-                  </div>
-                  <div class="clearfix"></div>
-               </div>
-
-            </div><!--end timeline-->
-
-            <a class="button" href="activity-timeline.html">
-               <span>View Full Timeline</span>
-            </a>
-
-         </aside>
-
-      </main> <!--end layout a-->
-
-   </div>
-
-   @@include('../partials/_footer.html')
-
-   @@include('../partials/_scripts.html')
-</body>
+    </body>
 
 </html>

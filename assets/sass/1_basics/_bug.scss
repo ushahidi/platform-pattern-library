@@ -1,0 +1,52 @@
+.bug {
+    display: inline-block;
+    position: relative;
+    color: $white;
+    @include typeBase;
+    text-align: center;
+    border-radius: 25px;
+    background: $color-primary;
+    padding: $tiny-spacing $sm-spacing;
+
+    .subtext {
+        display: block;
+        margin-top: 4px;
+        font-size: .857142857em;
+        color: $color-light-alpha;
+    }
+
+    .badge {
+        display: inline-block;
+        height: $sm-spacing;
+        width: $sm-spacing;
+        color: black;
+        font-size: 10px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1.4;
+        white-space: nowrap;
+        vertical-align: middle;
+        @include equal-radius(100%);
+        background: $highlight;
+        @include lrswap(margin, 0 0 3px 8px);
+    }
+
+    svg.iconic {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        margin-top: -6px;
+        fill: $highlight;
+
+        &:hover {
+            cursor: pointer;
+            fill: darken($color-secondary, 20%);
+        }
+
+        + * {
+            display: block;
+            @include padding-left(20px);
+        }
+    }
+
+}

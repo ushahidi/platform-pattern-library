@@ -1,177 +1,412 @@
-// Reusable grid classes -
+.main-col,
+.secondary-col {
+    padding-bottom: 45px;
 
-.one-col, .two-col, .three-col, .flex-col {
-   @include clearfix;
-   margin-bottom: $base-spacing;
+    @include media($medium) {
+        padding: $base-spacing;
+    }
 }
 
-.two-col .col {
-   margin-bottom: $base-spacing;
+[class*="layout-"] {
 
-   @include media($small) {
-      @include span-columns(6);
-      margin-bottom: auto;
-   }
+    .mode-bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: $modebar;
 
-}
+        @include media($medium) {
+            top: 0;
+            box-shadow: -2px 0 6px rgba(0,0,0,0.12) inset,
+                -2px 0 6px rgba(0,0,0,0.24) inset;
 
-.three-col .col {
+            .account-menu {
+                position: fixed;
+            }
+        }
 
-   @include media($small) {
-      @include span-columns(4);
-   }
+        &.active {
 
-}
+            @include media($medium-down) {
 
-.flex-col .col {
+                .account-menu {
+                    position: fixed;
+                    top: 0;
+                    bottom: 45px;
+                    z-index: $body;
+                    width: 100%;
+                    overflow-y: scroll;
+                }
+            }
+        }
+    }
 
-   @include media($small) {
-      display: block;
-      float: left;
-      width: auto;
-      margin-right: $base-spacing;
-   }
+    .mode-context {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: $modecontext;
 
-}
+        @include media($medium) {
+            bottom: 0;
+            left: 64px;
+            width: 224px
+        }
 
-.page-content {
-   @include outer-container;
-   margin-bottom: $base-spacing;
+        // "Loading" the mode context, as a direct descendant of the pattern
+        > .loading {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            margin-top: -$sm-spacing;
 
-   @include media($medium) {
-      @include float(right);
-      width: 80%;
-      @include lrswap(padding, 0 $base-spacing 0 0);
-      margin-top: $lg-spacing;
-      margin-bottom: $lg-spacing;
-   }
+            .line {
+                position: relative;
+                z-index: $modal+1;
+                @include box-shadow(0, 0, $tiny-spacing, $tiny-spacing, rgba(0,0,0,.4), false);
+            }
+        }
 
-   .main-col {
-      padding: 0 $sm-spacing;
-      margin-bottom: $lg-spacing;
+        &.active {
 
-      @include media($small) {
-         padding: 0 $base-spacing;
-      }
+            @include media($medium-down) {
+                bottom: 45px;
+                @include no-shadow;
+            }
+        }
+    }
 
-      &.map-background {
-          padding: 0;
-      }
+    .message {
+        position: fixed;
+        top: -200px;
+        right: 0;
+        left: 0;
+        z-index: $toolbar;
+        @include transition(0.3s);
 
-      h6 {
-         clear: both;
-         margin: 0;
-      }
+        @include media($medium) {
+            left: 288px;
+        }
 
-   }
+        &.active {
+            top: 55px;
 
-   &.has-aside {
+            @include media($medium) {
+                top: 0;
+            }
+        }
+    }
 
-      aside {
-         @include clearfix;
-         @include span-columns(12);
-         @include margin-right(2.35765%);
-         @include margin-left(0);
-         position: relative;
-      }
+    // "Loading" the document, as a direct descendant of the body
+    > .loading {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        left: 0;
+        text-align: center;
+        margin-top: -$sm-spacing;
 
-      @include media($small) {
+        &:after {
+            content: '';
+            position: fixed;
+            z-index: $modal;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.5);
+        }
 
-         .main-col {
-            @include span-columns(9);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
+        .line {
+            position: relative;
+            z-index: $modal+1;
+        }
+    }
 
-         aside {
-            @include span-columns(3);
-            @include float(left);
-            @include omega();
-            padding: $base-spacing 0 $lg-spacing;
-            @include margin-right(2.35765%);
-            @include margin-left(0);
+    [role="main"] {
 
-            &.is-right { //specific styling for when the aside comes first in the source order
-               @include float(right);
-               padding: 0;
+        @include media($medium) {
+            padding-top: 68px;
+            padding-left: 288px;
+        }
+
+        .toolbar {
+            position: fixed;
+            top: 55px;
+            z-index: $toolbar;
+            width: 100%;
+
+
+            .fab {
+
+                .button-fab {
+                    bottom: 0;
+
+                    &:disabled {
+                        bottom: 240px;
+                    }
+                }
+
+                @include media($medium-down) {
+                    display: flex;
+                    position: fixed;
+                    right: $sm-spacing;
+                    bottom: $sm-spacing+45;
+                    z-index: $toolbar;
+
+                    .button-fab {
+
+                        &:disabled {
+                            bottom: -400px;
+                        }
+                    }
+                }
             }
 
-            &.has-border { //specific styling for when you want the aside to have a border
-               @include border-left($base-border);
-               @include lrswap(padding, $base-spacing 0 $lg-spacing $base-spacing);
+            @include media($medium) {
+                top: 0;
+                right: 0;
+                left: 288px;
+                width: auto;
             }
 
-         }
+            .searchbar {
 
-      }
+                .dropdown-menu {
+                    right: -37.5% !important;
 
-      @include media($medium) {
+                    @include media($small) {
+                        right: 0 !important;
+                    }
+                }
+            }
+        }
 
-         .main-col {
-            @include span-columns(8);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
+        .listing {
+            margin-bottom: $base-spacing;
 
-         aside {
-            @include span-columns(4);
-            @include float(left);
-            @include margin-right(0);
-            @include margin-left(0);
-         }
+            .listing-toolbar {
+                display: block;
+                position: fixed;
+                top: -200px;
+                right: 0;
+                left: 0;
+                z-index: $toolbox;
+                @include equal-radius(0);
+                background-color: $color-primary-gamma;
 
-      }
+                @include media($medium) {
+                    left: 288px;
+                }
 
-      @include media($large) {
+                &.expanded {
 
-         .main-col {
-            @include span-columns(9);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
+                    @include media($medium-down) {
+                        z-index: $toolbar;
+                        bottom: 0;
+                        overflow-y: scroll;
+                    }
+                }
+            }
 
-         aside {
-            @include span-columns(3);
-            @include float(left);
-            @include margin-right(2.35765%);
-            @include margin-left(0);
-         }
+            &.toolbar-active {
+                margin-top: 87px;
 
-      }
+                @include media($medium) {
+                    margin-top: 80px;
+                }
 
-   }
+                .listing-toolbar {
+                    top: 107px;
 
-}
+                    @include media($medium) {
+                        top: 68px;
+                    }
+                }
+            }
+        }
 
-.full-page-content {
-   padding: 0 $sm-spacing;
-   margin-top: $sm-spacing;
+        .map {
 
-   @include media($small) {
-      padding: 0 $base-spacing;
-   }
+            &.full-size {
+                position: fixed;
+                top: 55px;
+                right: 0;
+                bottom: 45px;
+                left: 0;
+                z-index: $body;
 
-   @include media($medium) {
-      margin-top: $lg-spacing;
-   }
+                @include media($medium) {
+                    top: 0;
+                    bottom: 0;
+                    left: 288px;
+                }
+            }
+        }
 
-   .two-col .col {
+        .form-sheet,
+        .postcard[role="article"] {
+            margin-bottom: $base-spacing;
 
-      @include media($small) {
-         @include span-columns(6);
-         @include float(left);
-         @include margin-right(2.35765%);
-         @include margin-left(0);
+            @include media($medium) {
+                margin-right: 230px;
 
-         &:last-child {
-            margin: 0;
-         }
+                + .listing {
+                    margin-right: 230px;
 
-      }
+                    + .listing {
+                        margin-right: 230px;
+                    }
+                }
+            }
+        }
 
-   }
+        .postcard[role="article"] {
+            margin-bottom: $sm-spacing;
 
+            @include media($medium) {
+                margin-bottom: $base-spacing;
+            }
+        }
+
+        .progress {
+            margin-bottom: $base-spacing;
+
+            @include media($medium) {
+                margin-right: 230px;
+            }
+        }
+
+        .toolbox {
+            display: none;
+            position: absolute;
+            @include right(24px);
+            z-index: $toolbox;
+            width: 206px;
+
+            @include media($small) {
+                top: 131px;
+            }
+
+            @include media($medium) {
+                display: block;
+                top: 92px;
+            }
+        }
+
+        // "Loading" the main content area, as a direct descendant of the pattern
+        > .loading {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            margin-top: -$sm-spacing;
+
+            @include media($medium) {
+                left: 288px;
+            }
+
+            .line {
+                position: relative;
+                z-index: $modal+1;
+                @include box-shadow(0, 0, $tiny-spacing, $tiny-spacing/2, rgba(0,0,0,.24), false);
+            }
+        }
+
+        .picker__holder {
+
+            @include media($medium) {
+                left: 288px;
+            }
+        }
+
+        .picker__frame {
+            bottom: 45px;
+
+            @include media($medium) {
+                bottom: 0;
+            }
+        }
+
+        .picker--time .picker__holder {
+
+            @include media($medium) {
+
+                &:before,
+                &:after {
+                    content: '';
+                    position: fixed;
+                    z-index: $toolbar;
+                    height: $sm-spacing;
+                }
+
+                &:before {
+                    bottom: 284px;
+                    @include vert-gradient($color1: rgba(55,62,70,0.85), $color2: rgba(55,62,70,0));
+
+                }
+
+                &:after {
+                    bottom: 0;
+                    @include vert-gradient($color1: rgba(55,62,70,0), $color2: rgba(55,62,70,0.85));
+                }
+            }
+        }
+    }
+
+    .modal {
+        display: none;
+
+        .modal-window {
+            position: absolute;
+            z-index: $modal + 1;
+            opacity: 0;
+            width: 90%;
+            left: 5%;
+            top: $base-spacing;
+            margin-top: -999px;
+            margin-bottom: $base-spacing;
+            @include transition(all 0.35s);
+
+            @include media($small) {
+               top: $lg-spacing;
+               left: 50%;
+               width: 600px;
+               margin-left: -300px;
+            }
+
+           .message {
+               position: absolute;
+               top: -1000px;
+               right: 0;
+               left: 0;
+
+               &.active {
+                   top: 0;
+               }
+           }
+        }
+
+        .modal-overlay {
+           @include transition(all 0.2s);
+           opacity: 0;
+        }
+    }
+
+    &.modal-visible {
+
+        .modal-window {
+           opacity: 1;
+           margin-top: 0;
+        }
+
+        .modal-overlay {
+           opacity: 1;
+        }
+    }
 }

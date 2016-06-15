@@ -1,0 +1,136 @@
+.toolbar {
+    @include clearfix;
+    position: relative;
+    @extend .bar;
+    // min-height: 52px;
+    @include equal-radius(0px);
+    background-color: $color-primary;
+    padding: 0 $sm-spacing;
+    margin: auto;
+
+    @include media($medium) {
+        min-height: 68px;
+        padding: 0 $base-spacing;
+    }
+
+    .fab {
+        display: none;
+
+        @include media($medium) {
+            display: block;
+            position: absolute;
+            top: 100%;
+            left: $base-spacing;
+            margin-top: -27px;
+
+            + .searchbar {
+                margin-left: $base-spacing+54;
+            }
+        }
+    }
+
+    .searchbar {
+        float: left;
+        width: 72.7272727%;
+
+        @include media($small) {
+            width: 47.6814516%;
+        }
+
+        .searchbar-input {
+
+            .form-field {
+
+                input[type="search"] {
+                    color: $white;
+                    border-color: transparent;
+                    background-color: $color-primary-delta;
+
+                    &::placeholder {
+                       color: $white;
+                    }
+
+                    &:focus {
+                        color: $black;
+                        outline-color: $color-primary-beta;
+                        border-color: $base-border-dark;
+                        background-color: $white;
+                    }
+                }
+
+                .input-with-icon {
+
+                    input[type="search"] {
+
+                        &:focus {
+
+                            + svg.iconic {
+                                fill: $color-primary-beta;
+                            }
+                        }
+                    }
+
+                    svg.iconic {
+                        fill: $white;
+                    }
+                }
+            }
+
+        }
+
+        + .button-group,
+        + .fab + .button-group {
+
+            button,
+            .button {
+                font-weight: normal;
+                text-transform: none;
+                letter-spacing: 0px;
+            }
+        }
+
+        .dropdown-menu {
+
+            .dropdown-menu-body {
+                max-height: 300px;
+            }
+        }
+    }
+
+    .button-group {
+        float: right;
+
+        button,
+        .button {
+            height: 36px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: $tiny-spacing;
+        }
+    }
+
+    .searchbar,
+    .button-group {
+        margin-top: $tiny-spacing;
+        margin-bottom: $tiny-spacing;
+
+        @include media($medium) {
+            margin-top: $sm-spacing;
+            margin-bottom: $sm-spacing;
+        }
+
+        button,
+        .button {
+
+            svg.iconic {
+
+                + .button-label {
+
+                    @include media($mobile-down) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

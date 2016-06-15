@@ -3,791 +3,291 @@
 <!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 9]><!-->
+<html class="no-js">
+<!--<![endif]-->
 
-@@include('../partials/_pl-head.html')
+    @@include('../partials/_pl-head.html')
 
-<body class="pl">
+    <body class="pl">
 
-<div class="wrapper">
+        <div class="wrapper">
 
-    @@include('../partials/_pl-page-header.html', {
-      "context": "modules"
-    })
+            @@include('../partials/_pl-page-header.html', {
+              "context": "modules"
+            })
 
-    <nav class="pl-jump-nav">
+            <nav class="pl-jump-nav">
+                <ul class="pl-jump-nav-list">
+                    <li><a href="#pl-pattern-forms">Forms</a></li>
+                    <li><a href="#pl-pattern-tabs">Tabs</a></li>
+                    <li><a href="#pl-pattern-filters">Filters</a></li>
+                    <li><a href="#pl-pattern-tier">Tier</a></li>
+                    <li><a href="#pl-pattern-postcard">Post Card</a></li>
+                    <li><a href="#pl-pattern-survey-filter">Survey Filter</a></li>
+                </ul>
+                @@include('../partials/_read-direction.html')
+            </nav>
+
+            <section class="pl-pattern" id="pl-pattern-forms">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Forms
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Form with multiple fields</h4>
+                        <div class="pl-sub-pattern-markup">
+        <form>
+           <div class="form-field">
+              <label>Text input</label>
+              <input type="text" />
+           </div>
+
+           <div class="form-field">
+              <label>Select control</label>
+              <div class="custom-select">
+                 <select>
+                    <option>Option 1</option>
+                    <option>Option 2</option>
+                 </select>
+              </div>
+           </div>
+
+           <fieldset>
+               <legend>Fieldset of checkboxes</legend>
+               <div class="form-field checkbox">
+                   <input type="checkbox" id="colt" />
+                   <label for="colt">Nalle Colt</label>
+               </div>
+               <div class="form-field checkbox">
+                   <input type="checkbox" id="vaughan" />
+                   <label for="vaughan">Stevie Ray Vaughan</label>
+               </div>
+           </fieldset>
+
+           <button type="submit">Submit button</button>
+        </form>
+                        </div>
+                    </div>
+
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Custom Fieldset, with nested field groups</h4>
+                        <div class="pl-sub-pattern-markup">
+
+<fieldset class="custom-fieldset">
+    <legend><span class="custom-fieldset-value">Who</span> can see this</legend>
+
+    <div class="form-field radio">
+        <input type="radio" name="special" id="special1" value="you" checked />
+        <label for="special1">Only you</label>
+    </div>
+
+    <div class="form-field radio">
+        <input type="radio" name="special" id="special2" value="everyone" />
+        <label for="special2">Everyone</label>
+    </div>
+
+    <div class="form-field radio">
+        <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
+        <label for="special3">Specific roles...</label>
+
+        <div class="form-fieldgroup" data-fieldgroup-target="roles">
+            <div class="form-field checkbox">
+                <input type="checkbox" id="collection1" />
+                <label for="collection1">Members</label>
+            </div>
+
+            <div class="form-field checkbox">
+                <input type="checkbox" id="collection2" />
+                <label for="collection2">Editors</label>
+            </div>
+
+            <div class="form-field checkbox">
+                <input type="checkbox" id="collection3" />
+                <label for="collection3">Operators</label>
+            </div>
+
+            <div class="form-field checkbox">
+                <input type="checkbox" id="collection4" />
+                <label for="collection4">Administrators</label>
+            </div>
+        </div>
+    </div>
+</fieldset>
+
+                        </div>
+                    </div>
+
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Custom Fieldset, with color picker</h4>
+                        <div class="pl-sub-pattern-markup">
+
+<fieldset class="custom-fieldset" data-fieldset-type="color">
+    <legend>Color</legend>
+
+    <div class="form-field">
+        <label class="hidden">Hex value</label>
+        <input type="text" data-input-type="color" value="#A51A1A" />
+    </div>
+</fieldset>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-tabs">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Tabs menu
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Default</h4>
+                        <div class="pl-sub-pattern-markup">
+<nav class="tabs-menu">
+    <ul>
+        <li class="active">
+            <a href="#tasks-survey">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                </svg>
+                Post
+            </a>
+        </li>
+        <li>
+            <a href="#tasks-verification">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
+                </svg>
+                Verify
+            </a>
+        </li>
+        <li>
+            <a href="#tasks-translation">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#transfer"></use>
+                </svg>
+                Translate
+            </a>
+        </li>
+    </ul>
+</nav>
+                        </div>
+                    </div>
+                </div><!--end container-->
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-filters">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Filters
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Search</h4>
+                        <div class="pl-sub-pattern-markup">
+        @@include('../partials/_search.html')
+                        </div>
+                    </div>
+
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Toolbox</h4>
+                        <div class="pl-sub-pattern-markup">
+        @@include('../partials/_toolbox.html')
+                        </div>
+                    </div>
+                </div><!--end container-->
+
+            </section>
+
+            <section class="pl-pattern" id="pl-pattern-tier">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Tier
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">&nbsp;</h4>
+                        <div class="pl-sub-pattern-markup">
+<div class="tier">
+    <div class="tier-header">
+        <h2 class="tier-name">Standard</h2>
+        <p>For small teams that need to <br />reach more people</p>
+
+        <strong class="tier-price">$100 <em>a month</em></strong>
+
+        <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
+    </div>
+
+    <div class="tier-action">
+        <button class="modal-trigger">Choose Standard</button>
+    </div>
+
+    <div class="tier-feature-list">
         <ul>
-            <li><a href="#pl-pattern-forms">Forms</a></li>
-            <li><a href="#pl-pattern-tabs">Tabs</a></li>
-            <li><a href="#pl-pattern-filters">Search &amp; Filters</a></li>
-            <li><a href="#pl-pattern-list-view-controls">List &amp; View Controls</a></li>
-            <li><a href="#pl-pattern-keywords">Applied Keywords</a></li>
-            <li><a href="#pl-pattern-settings-listings">Settings Listings</a></li>
-            <li><a href="#pl-pattern-post-listing">Post Listing</a></li>
-            <li><a href="#pl-pattern-dashboard-listing">Dashboard Listing</a></li>
-            <li><a href="#pl-pattern-post-popup">Post Pop-up</a></li>
-            <li><a href="#pl-pattern-step-list">Step List</a></li>
-            <li><a href="#pl-pattern-tier">Tier</a></li>
-        </ul>
-
-        @@include('../partials/_read-direction.html')
-    </nav>
-
-    <section class="pl-pattern" id="pl-pattern-forms">
-        <div class="pl-pattern-description">
-            <h2>
-                Forms
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Form with multiple fields</h4>
-                <div class="pl-sub-pattern-markup">
-<form>
-   <div class="form-field">
-      <label>Text input</label>
-      <input type="text" />
-   </div>
-
-   <div class="form-field">
-      <label>Select control</label>
-      <div class="custom-select">
-         <select>
-            <option>Option 1</option>
-            <option>Option 2</option>
-         </select>
-      </div>
-   </div>
-
-   <fieldset>
-       <legend>Fieldset of checkboxes</legend>
-       <div class="form-field checkbox">
-           <input type="checkbox" id="colt" />
-           <label for="colt">Nalle Colt</label>
-       </div>
-       <div class="form-field checkbox">
-           <input type="checkbox" id="vaughan" />
-           <label for="vaughan">Stevie Ray Vaughan</label>
-       </div>
-   </fieldset>
-
-   <button type="submit">Submit button</button>
-</form>
-                </div>
-            </div>
-
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Custom fieldset, with controls</h4>
-                <div class="pl-sub-pattern-markup">
-@@include('../partials/_add-to-collection.html')
-                </div>
-            </div>
-        </div><!--end container-->
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-tabs">
-        <div class="pl-pattern-description">
-            <h2>
-                Tabs
-            </h2>
-            <p>
-                Tab description
-            </p>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Tabs, without a label</h4>
-                <div class="pl-sub-pattern-markup">
-@@include('../partials/_tabs-without-label.html')
-                </div>
-            </div>
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Tabs, with a label</h4>
-                <div class="pl-sub-pattern-markup">
-@@include('../partials/_tabs-with-label.html')
-                </div>
-            </div>
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Vertical tabs</h4>
-                <p class="small">Intended to provide navigation between related web pages; not to toggle the visibility of content already on the page.</p>
-                <div class="pl-sub-pattern-markup">
-<div class="vertical-tabs">
-   <nav class="vertical-tabs-menu">
-      <ul>
-         <li class="active"><a href="">Post</a></li>
-         <li><a href="">Verification</a> <span class="status complete"></span></li>
-         <li><a href="">Spanish Translation</a> <span class="status"></span></li>
-      </ul>
-   </nav>
-
-   <div class="vertical-tabs-content">
-       <div class="step-actions">
-            <button type="button" class="button-secondary">Rename</button>
-            <button type="button" class="button-destructive">Delete</button></button>
-        </div>
-   </div>
-</div>
-                </div>
-            </div>
-        </div><!--end container-->
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-filters">
-        <div class="pl-pattern-description">
-            <h2>
-                Filters
-            </h2>
-            <p>
-                This will provide filter options.
-            </p>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Filters with dropdown</h4>
-                <div class="pl-sub-pattern-markup pl-filters">
-@@include('../partials/_filters.html')
-                </div>
-            </div>
-
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Filters Aside</h4>
-                <div class="pl-sub-pattern-markup pl-filters">
-@@include('../partials/_filters-aside.html')
-                </div>
-            </div>
-        </div><!--end container-->
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-list-view-controls">
-        <div class="pl-pattern-description">
-            <h2>
-                List &amp; View Controls
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Tabs &amp; Filter</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="tabs-with-filter">
-@@include('../partials/_tabs-without-label.html')
-    @@include('../partials/_filters.html')
-</div><!--end view with filter-->
-                </div> <!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">List Actions</h4>
-                <div class="pl-sub-pattern-markup">
-                    @@include('../partials/_list-actions.html')
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-
-    <section class="pl-pattern" id="pl-pattern-keywords">
-        <div class="pl-pattern-description">
-            <h2>
-                Applied Keywords &amp; Filters
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Keywords &amp; Filters, with disabled save button</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="applied-filters">
-    <div class="pills">
-        <button type="button" class="button-secondary alt close">
-            <em>Keyword:</em> Terrorist
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Category:</em> Attack
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Category:</em> Explosion
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Category:</em> Casualty
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Dates:</em> 2/1/2012 - 2/1/2013
-        </button>
-    </div>
-    <div class="save-button">
-        <button type="button" class="save check" disabled>
-            Saved
-        </button>
-    </div>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Keywords &amp; Filters, with save button</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="applied-filters">
-    <div class="pills">
-        <button type="button" class="button-secondary alt close">
-            <em>Keyword:</em> Terrorist
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Category:</em> Attack
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Category:</em> Explosion
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Category:</em> Casualty
-        </button>
-        <button type="button" class="button-secondary alt close">
-            <em>Dates:</em> 2/1/2012 - 2/1/2013
-        </button>
-    </div>
-    <div class="save-button">
-        <button type="button" class="save">
-            Save This Search
-        </button>
-    </div>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-        </div><!--end container-->
-    </section>
-
-
- <section class="pl-pattern" id="pl-pattern-settings-listings">
-        <div class="pl-pattern-description">
-            <h2>
-                Settings Listings
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">With up/downvote, title, edit, &amp; trash (<a href="">seen here</a>)</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="settings-listing">
-    <div class="upvote-downvote">
-        <button type="button" class="button-secondary icon-only alt upvote"></button>
-        <button type="button" class="button-secondary icon-only alt downvote"></button>
-    </div>
-    <h3>
-        <a href="">Title</a>
-    </h3>
-    <div class="actions">
-        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="title">
-            <span>Edit</span>
-        </button>
-        <button type="button" class="button-secondary icon-only alt trash"></button>
-    </div>
-    <form id="title" class="toggle-content">
-        <label class="input-label">Field Name</label>
-        <input type="text" placeholder="Title">
-        <div class="select-inline">
-            <label class="input-label">Visible To:</label>
-            <select name="visible-to">
-                <option value="volvo">Public</option>
-                <option value="saab">Administrators</option>
-                <option value="fiat">Only Me</option>
-            </select>
-        </div>
-        <div class="select-inline">
-            <label class="input-label">Editable By:</label>
-            <select name="visible-to">
-                <option value="fiat">Only Me</option>
-                <option value="volvo">Public</option>
-                <option value="saab">Administrators</option>
-            </select>
-        </div>
-        <p>
-            <label class="checkbox-label">
-                <input type="checkbox">
-                This field is required
-            </label>
-        </p>
-        <p class="clearfix">
-            <a class="cta toggle-content-trigger">
-                Add instructions to this field
-            </a>
-        </p>
-        <div class="toggle-content">
-            <p>
-                <em>These instructions will be presented as a tooltip to a user when filling in this field.</em>
-            </p>
-            <textarea placeholder="Instructions for field"></textarea>
-        </div>
-        <button type="button" class="button-primary">Save &amp; Close</button>
-    </form>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">With title, edit, &amp; toggle (<a href="">seen here</a>)</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="settings-listing">
-    <div class="toggle-switch">
-        <input class="tgl" id="switch1" type="checkbox">
-        <label class="tgl-btn" for="switch1"></label>
-    </div>
-    <h3>
-        <a href="">Name</a>
-    </h3>
-    <div class="actions">
-        <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="name">
-            <span>Edit</span>
-        </button>
-    </div>
-    <form id="name" class="toggle-content">
-        <label class="input-label">Field Name</label>
-        <input type="text" placeholder="Title">
-        <div class="select-inline">
-            <label class="input-label">Visible To:</label>
-            <select name="visible-to">
-                <option value="volvo">Public</option>
-                <option value="saab">Administrators</option>
-                <option value="fiat">Only Me</option>
-            </select>
-        </div>
-        <div class="select-inline">
-            <label class="input-label">Editable By:</label>
-            <select name="visible-to">
-                <option value="fiat">Only Me</option>
-                <option value="volvo">Public</option>
-                <option value="saab">Administrators</option>
-            </select>
-        </div>
-        <p>
-            <label class="checkbox-label">
-                <input type="checkbox">
-                This field is required
-            </label>
-        </p>
-        <p class="clearfix">
-            <a class="cta toggle-content-trigger">
-                Add instructions to this field
-            </a>
-        </p>
-        <div class="toggle-content">
-            <p>
-                <em>These instructions will be presented as a tooltip to a user when filling in this field.</em>
-            </p>
-            <textarea placeholder="Instructions for field"></textarea>
-        </div>
-        <button type="button" class="button-primary">Save &amp; Close</button>
-    </form>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">With up/downvote, title, edit, &amp; toggle (<a href="">seen here</a>)</h4>
-                <div class="pl-sub-pattern-markup">
-                    <div class="settings-listing">
-                        <div class="upvote-downvote">
-                            <button type="button" class="button-secondary icon-only alt upvote"></button>
-                            <button type="button" class="button-secondary icon-only alt downvote"></button>
-                        </div>
-                        <div class="toggle-switch">
-                            <input class="tgl" id="switch2" type="checkbox">
-                            <label class="tgl-btn" for="switch2"></label>
-                        </div>
-                        <h3>
-                            <a href="">Map</a>
-                        </h3>
-                        <div class="actions">
-                            <button type="button" class="button-secondary icon-only-when-small edit" data-toggle="map-control">
-                                <span>Edit</span>
-                            </button>
-                        </div>
-                        <form id="map-control" class="toggle-content">
-                            <label class="input-label">Field Name</label>
-                            <input type="text" placeholder="Title">
-                            <div class="select-inline">
-                                <label class="input-label">Visible To:</label>
-                                <select name="visible-to">
-                                    <option value="volvo">Public</option>
-                                    <option value="saab">Administrators</option>
-                                    <option value="fiat">Only Me</option>
-                                </select>
-                            </div>
-                            <div class="select-inline">
-                                <label class="input-label">Editable By:</label>
-                                <select name="visible-to">
-                                    <option value="fiat">Only Me</option>
-                                    <option value="volvo">Public</option>
-                                    <option value="saab">Administrators</option>
-                                </select>
-                            </div>
-                            <p>
-                                <label class="checkbox-label">
-                                    <input type="checkbox">
-                                    This field is required
-                                </label>
-                            </p>
-                            <p class="clearfix">
-                                <a class="cta toggle-content-trigger">
-                                    Add instructions to this field
-                                </a>
-                            </p>
-                            <div class="toggle-content">
-                                <p>
-                                    <em>These instructions will be presented as a tooltip to a user when filling in this field.</em>
-                                </p>
-                                <textarea placeholder="Instructions for field"></textarea>
-                            </div>
-                            <button type="button" class="button-primary">Save &amp; Close</button>
-                        </form>
-                    </div>
-                </div><!--end markup-->
-            </div><!--end ub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">With check, avatar, title &amp; category (<a href="">seen here</a>)</h4>
-                <div class="pl-sub-pattern-markup">
-                <div class="settings-listing user-listing media">
-                    <div class="select">
-                        <input type="checkbox">
-                    </div>
-                    <div class="img">
-                        <img class="circular" src="http://placehold.it/100x100" alt="">
-                    </div>
-                    <div class="user bd">
-                        <h3>
-                            <a href="">Mynameis Alongname</a>
-                        </h3>
-                        <h4 class="user-type">Administrator</h4>
-                    </div>
-                </div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">With button &amp; title (<a href="">seen here</a>)</h4>
-                <div class="pl-sub-pattern-markup">
-                <div class="settings-listing">
-                    <a href="">
-                        <div class="button-secondary icon-only alt plus"></div>
-                        <h3>
-                            Add New Item
-                        </h3>
-                    </a>
-                </div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">With Select &amp; title</h4>
-                <div class="pl-sub-pattern-markup">
-                    <div class="settings-listing">
-                        <div class="select">
-                            <input type="checkbox">
-                        </div>
-                        <h3>
-                            <a href="">Category Name</a>
-                        </h3>
-                    </div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-        </div><!--end container-->
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-post-listing">
-        <div class="pl-pattern-description">
-            <h2>
-                Post Listing
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Post Listing, with image</h4>
-                <div class="pl-sub-pattern-markup">
-@@include('../partials/_post-listing-with-image.html')
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Post Listing, without image</h4>
-                <div class="pl-sub-pattern-markup">
-@@include('../partials/_post-listing-without-image.html')
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-<section class="pl-pattern" id="pl-pattern-dashboard-listing">
-        <div class="pl-pattern-description">
-            <h2>
-                Activity Listings
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">New Post</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="activity-listing">
-    <div class="listing-summary">
-        <h3>
-            <a href="">Bus carring Shiite pilgrims bombed</a>
-        </h3>
-        <p>By <a href="">David Kobia</a></p>
-    </div>
-    <div class="activity-type post">
-        New Post
-    </div>
-    <div class="clearfix"></div>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Updated Set</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="activity-listing">
-    <div class="listing-summary">
-        <h3>
-            <a href="">Bus carring Shiite pilgrims bombed</a>
-        </h3>
-        <p>By <a href="">David Kobia</a></p>
-    </div>
-    <div class="activity-type saved-search">
-        New Saved Search
-    </div>
-    <div class="clearfix"></div>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Updated Collection</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="activity-listing">
-    <div class="listing-summary">
-        <h3>
-            <a href="">Bus carring Shiite pilgrims bombed</a>
-        </h3>
-        <p>By <a href="">David Kobia</a></p>
-    </div>
-    <div class="activity-type collection">
-        New Collection
-    </div>
-    <div class="clearfix"></div>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">New Comment</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="activity-listing">
-    <div class="listing-summary">
-        <p>
-            By <a href="">David Kobia</a> on <a href="">Unstable building due to explosion next to road</a>:
-        </p>
-        <blockquote>
-            Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae. Quis nostexercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderitvoluptate velit esse cillum dolore eu fugiat.
-        </blockquote>
-    </div>
-    <div class="activity-type comment">
-        New Comment
-    </div>
-    <div class="clearfix"></div>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-    <section class="pl-pattern" id="pl-pattern-post-popup">
-        <div class="pl-pattern-description">
-            <h2>
-                Post Pop-ups &amp; Embedded Posts
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Post Pop-up, no image</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="post-popup">
-    <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-    <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-    </p>
-    <div class="actions-inline">
-        <button type="button" class="button-secondary plus toggle-content-trigger hide-when-small">
-            <span>Options</span>
-        </button>
-    </div>
-    <div class="actions-content toggle-content">
-        <ul class="dropdown-menu" role="menu">
-            <li>
-                <button type="button" class="button-secondary edit">
-                    <span>Edit</span>
-                </button>
-            </li>
-            <li>
-                @@include('../partials/_add-to-collection.html')
-            </li>
+            <li>Collect posts via SMS and Twitter</li>
+            <li>Turn on notifications related to your interests</li>
+            <li>View data in bar chart or trend graph</li>
+            <li>Choose from more than 10 base maps</li>
         </ul>
     </div>
 </div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Post Pop-up, with image</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="post-popup has-image">
-    <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-    <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-    </p>
-    <div class="actions-inline">
-        <button type="button" class="button-secondary plus toggle-content-trigger hide-when-small">
-            <span>Options</span>
-        </button>
-    </div>
-    <div class="actions-content toggle-content">
-        <ul class="dropdown-menu" role="menu">
-            <li>
-                <button type="button" class="button-secondary edit">
-                    <span>Edit</span>
-                </button>
-            </li>
-            <li>
-                @@include('../partials/_add-to-collection.html')
-            </li>
-        </ul>
-    </div>
-    <img src="https://photos.travelblog.org/Photos/11053/262872/f/2165432-Deserted-main-road-of-Quneitra-Syria-1.jpg" alt="Deserted main road of Quneitra Syria">
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Embedded Post, no image</h4>
-                <div class="pl-sub-pattern-markup">
-<div class="embedded-post">
-    <span class="meta-data"><span class="date">January 10, 2015</span>10AM, via SMS</span>
-    <h3 class="gamma"><a href="">Unstable building due to explosion next to road</a></h3>
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation...
-    </p>
-    <div class="actions-inline">
-        <button type="button" class="button-secondary plus toggle-content-trigger hide-when-small">
-            <span>Options</span>
-        </button>
-    </div>
-    <div class="actions-content toggle-content">
-        <ul class="dropdown-menu" role="menu">
-            <li>
-                <button type="button" class="button-secondary edit">
-                    <span>Edit</span>
-                </button>
-            </li>
-            <li>
-                @@include('../partials/_add-to-collection.html')
-            </li>
-        </ul>
-    </div>
-</div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-    </section>
+                        </div><!--end markup-->
+                    </div><!--end sub pattern-->
 
-    <section class="pl-pattern" id="pl-pattern-step-list">
-        <div class="pl-pattern-description">
-            <h2>
-                Step List
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Step List in sidebar <a href="../5_layouts/post-detail.html">example</a></h4>
-                <div class="pl-sub-pattern-markup">
-                    @@include('../partials/_step-list.html')
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-        </div>
-    </section>
+                </div>
+            </section>
 
-    <section class="pl-pattern" id="pl-pattern-tier">
-        <div class="pl-pattern-description">
-            <h2>
-                Tier
-            </h2>
-            <div class="pl-divider"></div>
-        </div>
-        <div class="container">
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">Default</h4>
-                <div class="pl-sub-pattern-markup">
-                    <div class="tier">
-                        <div class="tier-header">
-                            <h2 class="tier-name">Standard</h2>
-                            <p>For small teams that need to <br />reach more people</p>
+            <section class="pl-pattern" id="pl-pattern-postcard">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Post Card
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">&nbsp;</h4>
+                        <div class="pl-sub-pattern-markup">
+@@include('../partials/_postcard.html')
+                        </div><!--end markup-->
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
 
-                            <strong class="tier-price">$100 <em>a month</em></strong>
+            <section class="pl-pattern" id="pl-pattern-survey-filter">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Survey Filter
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+                <div class="container">
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">&nbsp;</h4>
+                        <div class="pl-sub-pattern-markup">
+@@include('../partials/_survey-filter.html')
+                        </div><!--end markup-->
+                    </div><!--end sub pattern-->
+                </div>
+            </section>
 
-                            <h3 class="tier-feature">500 posts <em>+$10/month per 1,000 extra</em></h3>
-                        </div>
+        </div><!--end wrapper-->
 
-                        <div class="tier-action">
-                            <button class="modal-trigger">Choose Standard</button>
-                        </div>
+    @@include('../partials/_scripts.html')
 
-                        <div class="tier-feature-list">
-                            <ul>
-                                <li>Collect posts via SMS and Twitter</li>
-                                <li>Turn on notifications related to your interests</li>
-                                <li>View data in bar chart or trend graph</li>
-                                <li>Choose from more than 10 base maps</li>
-                            </ul>
-                        </div>
-
-                        <p><a href="" class="cta">View all features</a></p>
-                    </div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-
-            <div class="pl-sub-pattern">
-                <h4 class="pl-h4">With image</h4>
-                <div class="pl-sub-pattern-markup">
-                    <div class="tier">
-                        <div class="tier-header">
-                            <div class="tier-image">
-                                <img src="../../img/header-bk.jpg" alt="">
-                            </div>
-
-                            <div class="tier-header-body">
-                                <h2 class="tier-heading">Get started <strong>for free</strong> with Lite</h2>
-
-                                <h3 class="tier-feature">250 posts <em>from the web and RSS</em></h3>
-                            </div>
-                        </div>
-
-                        <div class="tier-action">
-                            <!--button>Choose Lite</button-->
-                            <a href="setup-customize2.html" class="button">Choose Lite</a>
-                        </div>
-
-                        <div class="tier-feature-list">
-                            <ul>
-                                <li>5 post types</li>
-                                <li>View data in a map or list</li>
-                                <li>Save searches and collections</li>
-                                <li>See trends developing within your deployment</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div><!--end markup-->
-            </div><!--end sub pattern-->
-        </div>
-    </section>
-
-</div><!--end wrapper-->
-
-@@include('../partials/_scripts.html')
-</body>
+    </body>
 
 </html>

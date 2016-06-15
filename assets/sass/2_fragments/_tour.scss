@@ -16,7 +16,7 @@
 .tour-mask {
     display: none;
     position: fixed;
-    z-index: 999;
+    z-index: $modal;
     top: 0;
     right: 0;
     bottom: 0;
@@ -28,105 +28,65 @@
     @include scale(0);
     @include border-box;
     position: absolute;
-    z-index: 2999;
+    z-index: $modal;
     top: -100%;
     width: 90%;
     max-height: 85%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    color: $white;
-    text-align: center;
-    border: 5px solid #2b323a;
-    @include equal-radius(6px);
-//    background: #2b323a url(http://github.ushahidi.org/dotcom-pattern-library/assets/img/map-bg.png);
-    background-color: #3F4751;
-    @include box-shadow($top: 0, $left: 0, $blur: 25px, $spread: 0, $color: rgba(0,0,0,.8), $inset: false);
-    padding: $base-spacing;
-    margin: auto 5%;
+    @extend .sheet;
+    padding: $sm-spacing;
+    margin: auto $sm-spacing;
 
     @include media($small) {
         width: 50%;
-        padding: $lg-spacing;
         margin: 0;
         margin-left: -25%;
     }
 
     @include media($medium) {
         width: 60%;
-        padding: $lg-spacing;
-        margin-left: -30%;
+        padding: $base-spacing;
+        margin-left: -34%;
     }
 
     .tour-tagline {
         display: block;
-        color: #C7CCD4;
-        font-weight: 300;
-        font-size: 2.25em;
-        text-transform: uppercase;
-        text-shadow: 0 1px 1px $black;
-        letter-spacing: 2px;
-        margin-bottom: $sm-spacing;
-
-        @include media($small) {
-            font-size: 3.25em;
-        }
+        @include typeAlpha;
+        font-size: 24px;
+        font-size: 1.714285714rem;
+        margin-bottom: $tiny-spacing;
     }
 
     .tour-heading {
-        color: #C7CCD4;
-        font-weight: normal;
-        font-size: 1.35em;
-        text-shadow: 0 1px 1px $black;
-        line-height: 1.25em;
-        margin: 0;
-
-        @include media($small) {
-            font-size: 1.65em;
-        }
+        @include typeBeta;
+        line-height: 1.3;
     }
 
     .tour-image {
         margin: 0 auto;
     }
 
-    .tour-body {
-        text-shadow: 0 1px 1px $black;
+    .tour-form {
+        margin: $sm-spacing 0;
+    }
 
-        @include media($small) {
-            font-size: 1.1em;
-        }
+    .form-field:last-of-type {
+        margin: 0;
+    }
 
-        a {
-            color: $white;
+    a[data-cue="plans"] {
+        position: absolute;
+        top: $tiny-spacing;
+        right: $sm-spacing;
+
+        @include media($medium) {
+            top: $sm-spacing;
         }
     }
 
-    .tour-actions {
-
-        button,
-        .button,
-        .cta {
-            margin: $sm-spacing;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-
-        .cta {
-            color: #C7CCD4;
-            text-transform: uppercase;
-
-            &:hover {
-                color: $white;
-            }
-
-            &[data-cue="plans"] {
-                position: absolute;
-                top: $sm-spacing;
-                right: $sm-spacing;
-            }
-        }
+    .loading {
+        text-align: center;
     }
 
     .tier {
@@ -179,12 +139,42 @@
     }
 
     .tiers {
+        margin-right: -$sm-spacing;
+        margin-left: -$sm-spacing;
 
-        @include media($small) {
-            margin: $lg-spacing auto;
+        @include media($medium) {
+            margin: $base-spacing auto;
         }
     }
 
+    .listing {
+        @include radius;
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-gamma;
+        margin-bottom: $sm-spacing;
+
+        @include media($medium) {
+            margin-bottom: $base-spacing;
+        }
+
+        .listing-heading {
+            border-bottom: 1px solid $color-light-beta;
+            background-color: $color-light-beta;
+            padding: $sm-spacing;
+
+            @include media($medium) {
+                padding: $sm-spacing $base-spacing;
+            }
+
+            + .listing-item {
+                margin-top: 0;
+            }
+        }
+
+        .listing-item {
+            border-bottom-color: $color-light-beta;
+        }
+    }
 
     &.active {
         @include scale(1);
@@ -233,7 +223,7 @@
 
 .tour-pin {
     position: absolute;
-    z-index: 999;
+    z-index: $modal;
     top: -100%;
     width: 20px;
     height: 20px;
@@ -312,23 +302,25 @@
 }
 
 #payment-form {
+
     .input {
-        height: 2em;
+        @extend input[type="text"];
+        height: 37px;
         background-color: $white;
     }
-    .exp-col .input {
-        display: inline-block;
-        margin-top: 0;
-    }
-    .braintree-hosted-fields-valid {
 
+    #cc-exp-month,
+    #cc-exp-year {
+        display: inline-block;
     }
+
     .braintree-hosted-fields-invalid {
         border-color: $error-color;
     }
 
-    .coupon-toggle {
+    #coupon-toggle {
         display: none;
+
         &.active {
             display: block;
         }

@@ -2,7 +2,7 @@
     display: block;
     list-style-type: none;
     border-bottom: $base-border;
-    border-bottom-width: 2px;
+    border-bottom-width: 1px;
     padding: $base-spacing 0;
 
     &:last-child {
@@ -11,7 +11,7 @@
 
     strong {
         display: block;
-        @extend .epsilon;
+        @include typeGamma;
         margin: 0;
     }
 
@@ -23,7 +23,7 @@
 }
 
 dt.list-item {
-    @extend .epsilon;
+    @include typeGamma;
     border: none;
     padding-bottom: 0;
     margin: 0 0 $sm-spacing;
@@ -31,42 +31,12 @@ dt.list-item {
     + dd {
         color: $dk-gray;
         border-bottom: $base-border;
-        border-bottom-width: 2px;
+        border-bottom-width: 1px;
         padding-bottom: $base-spacing;
+        margin-top: -$tiny-spacing;
 
         &:last-of-type {
             border-bottom-color: transparent;
-        }
-    }
-
-    &.add {
-        position: relative;
-        padding-left: $lg-spacing;
-
-        @include icon($before, plus) {
-            @include lrswap(padding, 0 5px 0 1px);
-            position: absolute;
-            z-index: 1;
-            left: 0;
-            width: 25px;
-            height: 25px;
-            color: $yellow;
-            font-size: 19px;
-            text-align: center;
-            @include equal-radius(100%);
-            background-color: $black;
-            padding: 4px;
-        }
-
-        a {
-            position: relative;
-            z-index: 2;
-            padding-left: $lg-spacing;
-            margin-left: -$lg-spacing;
-        }
-
-        + dd {
-            padding-left: $lg-spacing;
         }
     }
 }

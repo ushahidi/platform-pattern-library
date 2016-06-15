@@ -1,598 +1,287 @@
-/*------------------------------------*\
-$BUTTONS
-\*------------------------------------*/
-
 button,
 .button,
 input[type="button"] {
-   display: inline-block;
-   outline: none;
-   @include direction;
-   background-color: $button-bg-color;
-   color: $button-text-color;
-   text-align: center;
-   text-decoration: none;
-   @include lrswap(padding, 10px 15px 12px);
-   border: 0px;
-   font-family: $base-font-family;
-   font-weight: $bold;
-   @include border-top-radius($global-radius);
-   @include border-bottom-radius($global-radius);
-   @include transition(0.3s);
-   font-size: em(16);
 
-   @include media($small) {
-      font-size: em(18);
-   }
+    svg.iconic {
+        display: initial;
+        width: .866666667em;
+        height: .866666667em;
+        fill: $white;
+        @include transition(0.3s);
 
-   a {
-      color: $black;
-   }
-
-   i:not(.fa-spin) {
-      @include padding-right(10px);
-   }
-
-   &:hover {
-      cursor: pointer;
-      background-color: $button-hover-color;
-      color: $white;
-   }
-
-   &:active {
-      background-color: $button-active-color;
-      @include no-transition;
-   }
-
-   &.disabled, &[disabled] {
-      cursor: not-allowed;
-      background-color: $button-bg-disabled-color;
-   }
-
-   &.icon-only {
-
-      &:before {
-         padding: 0;
-
-         @include media($small) {
-            @include lrswap(padding, 0 $tiny-spacing 0 0)
-         }
-
-      }
-   }
-
-   .icon-only,
-   .icon-only-when-small {
-
-      &:before {
-         color: $button-text-color;
-      }
-   }
-
-   &.save-add {
-       background-color: $green;
-
-       &:hover {
-          cursor: pointer;
-          background-color: darken( $green, 10% );
-          color: $white;
-       }
-
-       &:active {
-          background-color: darken( $green, 25% );
-          @include no-transition;
-       }
-
-       &.disabled, &[disabled] {
-          cursor: not-allowed;
-          background-color: $button-bg-disabled-color;
-       }
-
-   }
-
-}
-
-/*-- .button-create DEPRECATED --*/
-.button-create {
-   font-size: em(14);
-   text-transform: uppercase;
-   letter-spacing: 1px;
-   background-color: $button-bg-create-post;
-   @include lrswap(padding, 12px 22px 15px 20px);
-
-   @include icon($before, plus) {
-      position: relative;
-      bottom: -2px;
-      font-size: em(22);
-      color: $highlight;
-      @include lrswap(padding, 0 5px 0 1px);
-   }
-
-   @include media($small) {
-      font-size: em(14);
-      @include lrswap(padding, 14px 25px 18px 20px);
-   }
-
-   &:hover {
-      background-color: $button-bg-create-post-hover;
-   }
-
-   &:active {
-      background-color: $button-bg-create-post-active;
-   }
-
-}
-
-.button-secondary {
-   @extend .button;
-   background-color: $white;
-   color: $black;
-   border: $base-border;
-   padding: 8px 10px;
-   font-weight: 400;
-   font-size: em(15);
-
-   &:hover {
-      background-color: $white;
-      color: $black;
-      border: $base-border-hover;
-   }
-
-   &:active {
-      border: $base-border-active;
-   }
-
-   &.disabled, &[disabled] {
-      opacity: 0.75;
-      background-color: $white;
-      cursor: not-allowed;
-      color: $dk-gray;
-
-      &:before, &:after {
-         color: $mid-gray; //icon colors
-      }
-
-      &:hover {
-         border: $base-border;
-      }
-
-      &:active {
-         border: $base-border;
-      }
-
-   }
-
-   &.alt {
-
-      &:before,
-      &:after,
-      .icon-only:before {
-         color: $link-color;
-      }
-
-      &.disabled, &[disabled] {
-         opacity: 0.75;
-
-         &:before, &:after {
-            color: $mid-gray; //icon colors
-         }
-      }
-   }
-
-   &.icon-only {
-      @include padding-left(14px);
-   }
-
-   &.icon-only-when-small {
-      @include padding-left(14px);
-
-      @include media($small) {
-         @include padding-left(10px);
-      }
-
-      span {
-         display: none;
-
-         @include media($small) {
-            display: inline;
-         }
-
-      }
-   }
-
-   &.close.deactive {
-      color: lighten( $dk-gray, 35% );
-
-      span {
-         color: lighten( $dk-gray, 35% );
-      }
-
-      &:before, &:after {
-         color: lighten( $dk-gray, 35% );
-         @include transform(rotate(-45deg));
-         -ms-transform-origin: 50% 50%;
-         -webkit-transform-origin: 50% 50%;
-         transform-origin: 40% 50%;
-      }
-
-   }
-
-   [class*="icon-"] {
-
-      &:before {
-         color: $yellow;
-      }
-   }
-}
-
-.button-destructive {
-   @extend .button;
-   background-color: $white;
-   color: $red;
-   border: 1px solid lighten( $red, 25% );
-   padding: 8px 10px;
-   font-weight: 400;
-   font-size: em(15);
-
-   @include icon(before, trash) {
-       color: $red;
-       font-size: 1em;
-   }
-
-   &:hover {
-      color: $white;
-      border-color: $red;
-      background-color: darken( $red, 10% );
-
-      @include icon(before, trash) {
-          color: $white;
-          font-size: 1em;
-      }
-
-   }
-
-   &:active {
-      border: $base-border-active;
-   }
-
-   &.disabled, &[disabled] {
-      background-color: $white;
-      cursor: default;
-      color: $dk-gray;
-
-      &:before, &:after {
-         color: $dk-gray; //icon colors
-      }
-
-      &:hover {
-         border: $base-border;
-      }
-
-      &:active {
-         border: $base-border;
-      }
-
-   }
-
-    &.icon-only,
-    &.alt {
-        @include icon(before, trash) {
-            font-size: 1em;
-            padding: 0;
+        + .button-label {
+            @include margin-left($tiny-spacing);
         }
-
-        &:hover {
-
-            @include icon(before, trash) {
-                font-size: 1em;
-                padding: 0;
-            }
-
-        }
-
     }
 
+    .button-label {
+
+        + svg.iconic {
+            width: .571428571em;
+            height: .571428571em;
+            @include margin-left($tiny-spacing);
+        }
+    }
+
+    .loading {
+        display: inline-block;
+        position: relative;
+        top: -6px;
+
+        .line {
+            width: $tiny-spacing;
+            height: $tiny-spacing;
+            @include equal-radius($tiny-spacing);
+            background-color: $white;
+            margin: 2px;
+        }
+
+        + .button-label {
+            @include margin-left($tiny-spacing);
+        }
+    }
+
+    &[data-toggle] {
+
+        &.active {
+
+            .button-label {
+
+                + svg.iconic {
+                    @include transform(rotate(180deg));
+                }
+            }
+        }
+    }
+}
+
+.button-alpha {
+
+    svg.iconic {
+        fill: $color-primary-beta;
+    }
+
+    .loading {
+
+        .line {
+            background-color: $color-primary-beta;
+        }
+    }
+}
+
+.button-beta {
+
+    svg.iconic {
+        fill: $link-color;
+    }
+
+    .loading {
+
+        .line {
+            background-color: $link-color;
+        }
+    }
+}
+
+.button-gamma {
+
+    svg.iconic {
+        fill: $link-color;
+    }
+
+    .loading {
+
+        .line {
+            background-color: $link-color;
+        }
+    }
 }
 
 .button-link {
-   @extend p;
-   @extend a;
-   background: transparent;
-   padding: 0;
-   font-weight: normal;
 
-   &:hover, &:active {
-      background: transparent;
-   }
+    svg.iconic {
+        fill: $link-color;
+    }
+
+    .loading {
+
+        .line {
+            background-color: $link-color;
+        }
+    }
 }
 
-.button-toggle {
-   @extend .button-secondary;
-   position: relative;
-   z-index: $bottom + 2;
-   @include transition(0);
+.button-dropdown {
 
-   @include icon(after, chevron-down) {
-      padding: 0;
-   }
+    &.active {
+        background: $white;
 
-   &.open:after, .open &:after {
-      @include transform(rotate(180deg));
-   }
-
-}
-
-.button-split {
-
-   .form-field,
-   .custom-fieldset {
-      display: inline-block;
-      width: 70%;
-      @include margin-right(-3px);
-
-      @include media($small) {
-         display: block;
-         width: auto;
-         margin-bottom: $sm-spacing;
-      }
-
-      .dropdown-menu {
-         bottom: 31px;
-         padding: $base-spacing $base-spacing $sm-spacing;
-         width: 65%;
-
-         @include media($small) {
-            bottom: auto;
-            width: 100%;
-            padding: $sm-spacing 0;
-         }
-
-         &.active {
-
-         }
-      }
-
-   }
-
-   .dropdown-menu {
-      bottom: 50px;
-      padding: $base-spacing $base-spacing $sm-spacing;
-      width: 65%;
-
-      @include media($small) {
-         @include border-top-right-radius($global-radius);
-         @include border-bottom-left-radius(0);
-      }
-
-   }
-
-   .button-primary {
-      height: 40px;
-      width: 30%;
-
-      @include media($small) {
-         width: auto;
-         height: auto;
-      }
-
-      .dropdown.open {
-         @include border-top-radius(0);
-         @include border-bottom-left-radius($global-radius);
-
-         @include media($small) {
-            @include border-top-radius($global-radius);
-            @include border-bottom-left-radius(0);
-         }
-      }
-
-      @include media($small) {
-         width: 100%;
-      }
-
-   }
-
-   .button-secondary {
-      height: 40px;
-      width: 100%;
-      @include border-top-right-radius(0);
-      @include border-bottom-right-radius(0);
-      border-color: darken( $lt-gray, 20% );;
-
-      @include media($small) {
-         @include border-top-right-radius($global-radius);
-         @include border-bottom-left-radius(0);
-      }
-
-   }
-
-   button.button-primary {
-      height: 40px;
-      width: 30%;
-      @include border-top-left-radius(0);
-      @include border-bottom-left-radius(0);
-      margin-top:-2px;
-
-      @include media($small) {
-         width: 100%;
-         @include border-top-right-radius(0);
-         @include border-bottom-left-radius($global-radius);
-      }
-
-   }
-
-   button.dropdown {
-      padding: 8px;
-      @include icon ($before, chevron-down) {
-         padding: 0 3px;
-         @include transform(rotate(-180deg));
-      }
-
-      @include media($small) {
-         @include icon ($before, chevron-down) {
-            @include transform(rotate(0deg));
-         }
-      }
-
-      &.open:before {
-         @include transform(rotate(0deg));
-
-         @include media($small) {
-            @include transform(rotate(-180deg));
-         }
-      }
-   }
-
-}
-
-.upvote-downvote {
-
-   button.icon-only {
-      @include direction;
-      @include float(left);
-      clear: both;
-      padding: 5px 6px 7px 6px;
-
-      &.downvote {
-         @include border-top-radius(0);
-         margin-top: -1px;
-      }
-
-      &.upvote {
-         @include border-bottom-radius(0);
-
-         &:before,
-         &:after {
-            padding: 0 3px;
-         }
-      }
-
-   }
-
-}
-
-
-/*------------------------------------*\
-$CLASSES FOR BUTTONS WITH ICONS
-\*------------------------------------*/
-button,
-.button {
-
-   &.dropdown, &.add-to-collection, &.down, &.downvote {
-      padding: 8px;
-      @include icon ($before, chevron-down) {
-         padding: 0 3px;
-      }
-
-      &.open:before {
-         @include transform(rotate(-180deg));
-      }
-
-   }
-
-   &.tabbed {
-
-      &.open {
-         border-bottom-left-radius: 0;
-         border-bottom-right-radius: 0;
-         border-bottom: 0px;
-      }
-
-   }
-
-   &.edit {
-      @include icon($before, pencil) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
-
-   }
-
-   &.close {
-      @include lrswap(margin, $tiny-spacing $tiny-spacing 0 0);
-      @include icon($before, circle-close) {
-         font-size: em(18);
-         @include lrswap(padding, 0 5px 0 1px);
-      }
-
-      span {
-         color: $dk-gray;
-         font-style: italic;
-      }
-
-   }
-
-   &.share {
-      @include icon($before, share) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
-
-   }
-
-   &.trash {
-      @include icon($before, trash) {
-         display: initial;
-         @include lrswap(padding, 0 5px 0 1px);
-      }
-
-   }
-
-   &.check {
-      @include icon($before, check) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
-
-   }
-
-   &.plus {
-      @include icon($before, plus) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
-
-      &.active {
-
-         &:before {
+        svg.iconic {
+            fill: $color-primary-alpha;
             @include transform(rotate(45deg));
-            transform-origin: 35% 50%;
-         }
+        }
+    }
+}
 
-         &:after {
-            @include transform(rotate(45deg));
-            transform-origin: 60% 50%;
-         }
-      }
-   }
+// FLOATING ACTION BUTTON
+.fab {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    @include transition(0.3s);
 
-   &.check {
-      @include icon($before, check) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
+    @include media($medium) {
+        display: block;
+    }
 
-   }
+    .button-fab {
+        position: relative;
+        z-index: $body;
 
-   &.export {
-      @include icon($before, external-link) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
+        @include media($medium-down) {
+            margin-left: auto;
+        }
 
-   }
+        &.active {
+            background: $white;
 
-   &.up, &.upvote {
-      @include icon($before, chevron-up) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
+            svg.iconic {
+                fill: $color-primary-alpha;
+                @include transform(rotate(45deg));
+            }
+        }
+    }
 
-   }
+    .fab-action-type {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        text-align: center;
+        @include equal-radius(100%);
+        background: $color-dark-beta;
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+            0 8px 18px rgba(0,0,0,0.24);
+        padding-top: 12px;
+        margin-right: $tiny-spacing;
 
-   &.search {
-      @include icon($before, search) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
+        svg.iconic {
+            fill: $white;
+            margin: 0 auto;
+        }
+    }
 
-   }
+    .bug {
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+            0 8px 18px rgba(0,0,0,0.24);
+        @include transition(all, .3s);
+    }
 
-   &.photo {
-      @include icon($before, photo) {
-         @include lrswap(padding, 0 5px 0 1px);
-      }
+    .fab-options {
+        display: none;
+        opacity: 0;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        @extend .list-reset;
+        margin: $tiny-spacing 6px;
+
+        li {
+            position: relative;
+            top: 48px;
+            margin: 5px 0;
+            @include transition(all, 0.24s);
+
+            @include media($medium) {
+                top: -48px;
+            }
+
+            &:hover {
+                @include scale(1.025);
+
+                .bug {
+                    background-color: $color-primary-alpha;
+                }
+            }
+
+            &:nth-child(2) {
+                transition-delay: 0.025s;
+            }
+
+            &:nth-child(3) {
+                transition-delay: 0.05s;
+            }
+
+            &:nth-child(4) {
+                transition-delay: 0.075s;
+            }
+
+            &:nth-child(5) {
+                transition-delay: 0.1s;
+            }
+
+            &:nth-child(6) {
+                transition-delay: 0.125s;
+            }
+
+            &:nth-child(7) {
+                transition-delay: 0.15s;
+            }
+
+            &:nth-child(8) {
+                transition-delay: 0.175s;
+            }
+
+            &:nth-child(9) {
+                transition-delay: 0.2s;
+            }
+        }
+
+        &.active {
+
+            li {
+                top: 0;
+            }
+        }
+
+        @include media($medium-down) {
+
+            .bug {
+                float: right
+            }
+
+            .fab-action-type {
+                float: right;
+                margin-right: 0;
+                margin-left: $tiny-spacing;
+            }
+        }
+
+        @include media($medium) {
+            top: 100px;
+            bottom: 0;
+            flex-direction: column;
+        }
+    }
+}
+
+.buttons-updown {
+
+    button {
+        display: block;
+        padding: 2px 6px;
+
+        svg.iconic {
+            width: .714285714em;
+            height: .714285714em;
+        }
+
+        &:first-child {
+            @include border-bottom-radius(0);
+        }
+
+        &:last-child {
+            @include border-top-radius(0);
+        }
 
    }
 

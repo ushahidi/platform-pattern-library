@@ -1,573 +1,346 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
     <title>The Ushahidi Platform Pattern Library</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <link rel="shortcut icon" type="image/ico" href="../../favicon.ico" />
 
     <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>-->
     <link href='../../fonts/Lato/css/fonts.css' rel='stylesheet' type='text/css'>
-<link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 
 
-<body class="has-fixed-bottom">
+    <body class="layout-a">
 
-   <div class="tour-mask"></div>
-
-   <div id="plans" class="tour-message tour-modal">
-      <strong class="tour-tagline">Change your plan</strong>
-
-      <div class="tiers">
-         <div class="payment">
-            <h3>Enter your payment information</h3>
-            <!--form-->
-            <label class="input-label required" for="cc-name">Name on card</label>
-            <input type="text" placeholder="Jane Doe" id="cc-name"></input>
-
-            <label class="input-label required" for="cc-number">Credit Card Number</label>
-            <input type="text" inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number" />
-
-            <div class="flex-col">
-               <div class="col">
-                  <fieldset>
-                     <legend class="input-label">Expiration</legend>
-                     <div class="custom-select">
-                        <select name="cc-exp-month" autocomplete="cc-exp-month">
-                           <option value="1">Month</option>
-                           <option value="2">January</option>
-                           <option value="3">February</option>
-                        </select>
-                     </div>
-                     <div class="custom-select">
-                        <select name="cc-exp-year" autocomplete="cc-exp-year">
-                           <option value="1">Year</option>
-                           <option value="2">2015</option>
-                           <option value="3">2016</option>
-                        </select>
-                     </div>
-                  </fieldset>
-               </div>
-
-               <div class="col">
-                  <label class="input-label required" for="cc-cvv">CVV</label>
-                  <input style="width:80px;" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv"></input>
-               </div>
-
-               <div class="col">
-                  <label class="input-label required" for="cc-zip">Zip/Postal Code</label>
-                  <input style="width:100px;" type="text" placeholder="" id="cc-zip"></input>
-               </div>
-            </div>
-
-            <p class="small">*These fields are required.</p>
-
-            <button data-cue="finished">Continue</button>
-            <a data-payment="cancel" class="cta" href="">Cancel</a>
-            <!--/form-->
-         </div>
-
-         <div id="mapper" class="tier">
-            <div class="tier-header">
-               <h2 class="tier-name">Mapper</h2>
-               <p>For people who need to gather one type of data on a map</p>
-
-               <strong class="tier-price">Free</strong>
-               <h3 class="tier-feature">150 posts <em>+$15/mo per 100 extra</em></h3>
-            </div>
-
-            <div class="tier-action">
-               <button data-cue="finished">Choose Mapper</button>
-            </div>
-
-            <div class="tier-feature-list">
-               <ul>
-                  <li>1 post type from the web, email, &amp; Twitter</li>
-                  <li>Manage data with Filters, Saved Searches, Collections</li>
-                  <li>View data in a map, list, or chart</li>
-                  <li>Web support</li>
-               </ul>
-            </div>
-         </div>
-
-         <div id="surveyor" class="tier">
-            <div class="tier-header">
-               <h2 class="tier-name">Surveyor</h2>
-               <p>For teams collecting multiple data types from many sources</p>
-
-               <strong class="tier-price">$199 <em>/mo</em></strong>
-               <h3 class="tier-feature">1000 posts <em>+$10/mo per 1,000 extra</em></h3>
-            </div>
-
-            <div class="tier-action">
-               <button data-payment="surveyor">Choose Surveyor</button>
-            </div>
-
-            <div class="tier-feature-list">
-               <ul>
-                  <li>5 post types, from all sources and SMS</li>
-                  <li>Data management, plus notifications</li>
-                  <li>View data in a map, list or chart plus analytics</li>
-                  <li>Web and email support</li>
-               </ul>
-            </div>
-         </div>
-
-         <div id="responder" class="tier disabled">
-            <div class="tier-header">
-               <h2 class="tier-name">Responder</h2>
-               <p>For organizations that need to manage their data workflow</p>
-
-               <strong class="tier-price"><span>Coming soon!</span></strong>
-               <h3 class="tier-feature">5000 posts <em>+$7.50/mo per 1,000 extra</em></h3>
-            </div>
-
-            <div class="tier-action">
-               <a href="http://ushahidi.com/contact" target="_blank" class="button tour-link">Contact us</a>
-            </div>
-
-            <div class="tier-feature-list">
-               <ul>
-                  <li>Unlimited post types, RSS, CSV &amp; XML imports</li>
-                  <li>Data management, plus notifications and team collaboration with custom workflows</li>
-                  <li>View data in a map, list or chart plus analytics</li>
-                  <li>Web and email support</li>
-               </ul>
-            </div>
-         </div>
-
-         <div id="orbiter" class="tier disabled">
-            <div class="tier-header">
-               <h2 class="tier-name">Orbiter</h2>
-               <p>For enterprises managing large, sensitive data sets</p>
-
-               <strong class="tier-price"><span>Coming soon!</span></strong>
-               <h3 class="tier-feature">Unlimited posts <em>&nbsp;</em></h3>
-            </div>
-
-            <div class="tier-action">
-               <a href="http://ushahidi.com/contact" target="_blank" class="button tour-link">Contact us</a>
-            </div>
-
-            <div class="tier-feature-list">
-               <ul>
-                  <li>Unlimited posts, all data sources</li>
-                  <li>Data management, notifications, collaboration and workflows with private data on a dedicated server</li>
-                  <li>View data in a map, list or chart plus analytics</li>
-                  <li>Web, email and phone support</li>
-               </ul>
-            </div>
-         </div>
-
-         <div class="tier-view-all">
-            <a href="http://ushahidi.com/plans-detail" target="_blank" class="cta">View &amp; compare all plan features</a>
-         </div>
-      </div>
-
-      <div class="two-col">
-         <div class="col">
-            <h2 class="tour-heading">Free for charities</h2>
-            <p class="tour-body">Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
-            <a href="" target="_blank" class="button">Apply for Free Ushahidi</a>
-         </div>
-
-         <div class="col">
-            <h2 class="tour-heading">Self-hosted Ushahidi</h2>
-            <p class="tour-body">Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
-            <a href="" target="_blank" class="button">Download Open Source Code</a>
-         </div>
-      </div>
-   </div>
-
-   <header class="header header-compact overlay" role="banner">
-    <div class="container">
-        <div class="hero-image">
-            <img src="../../img/header-bk.jpg" alt="" />
-        </div>
-
-        <div class="color-overlay">
-            <div class="parallax">
-                <div class="nav-icon nav-icon-js">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <a href="">
-                    <h1 class="beta">Syria Tracker</h1>
+        <div class="mode-bar">
+    <nav>
+        <ul class="deployment-menu">
+            <li  data-message="views">
+                <a href="map.html">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use>
+                    </svg>
+                    Map
                 </a>
-                <p class="header-description">Crowdsourcing the data of the Syrian Conflict since April 2011</p>
+            </li>
+            <li >
+                <a href="timeline.html">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#list-rich"></use>
+                    </svg>
+                    Timeline
+                </a>
+            </li>
+            <li >
+                <a href="activity.html">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#pulse"></use>
+                    </svg>
+                    Activity
+                </a>
+            </li>
+            <li  data-message="customize">
+                <a href="settings.html">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#cog"></use>
+                    </svg>
+                    Settings
+                </a>
+            </li>
+            <li class="more-menu-trigger">
+                <a href="#">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#ellipses"></use>
+                    </svg>
+                    More
+                </a>
+            </li>
+        </ul>
 
-                <div class="create-admin">
-                    <a class="button button-primary" href="choose-post-type.html">
-                        <span class="icon-left fa-plus">Add Post</span>
-                    </a>
+        <ul class="account-menu">
+            <li>
+                <a href="https://www.ushahidi.com/support" data-modal="support">
+                    <svg class="ushahidi-logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 273.5 266.5" xml:space="preserve">
+                        <g>
+                        	<circle cx="248.8" cy="207.1" r="21.6"/>
+                        	<path d="M239.8,81.7c7.9-6.6,12.9-16.5,12.9-27.6c0-19.8-16.1-35.9-35.9-35.9c-7,0-13.6,2.1-19.1,5.5
+                        		c-2.1-6.2-8-10.7-15-10.7c-5.1,0-9.6,2.4-12.5,6.1c-9.9-3-20.4-4.6-31.3-4.6c-40.6,0-75.9,22.1-94.8,54.9
+                        		c-23.2,3-41.3,22.8-41.3,46.9c0,21.3,14.1,39.3,33.6,45.2c7.7,20.9,21.6,38.8,39.4,51.5c10.6,28.7,38.2,49.2,70.5,49.2
+                        		c38.4,0,70.1-28.9,74.6-66.1c17-19.3,27.3-44.5,27.3-72.2C248.2,108.9,245.2,94.7,239.8,81.7 M139,209.4
+                        		c-47.3,0-85.6-38.3-85.6-85.6S91.7,38.2,139,38.2s85.6,38.3,85.6,85.6C224.5,171.1,186.2,209.4,139,209.4"/>
+                        	<circle cx="25.1" cy="57.9" r="12.3"/>
+                        	<g>
+                        		<path d="M137,198.5c0.5,0,1.1,0.1,1.6,0.1c-0.4,0-0.8,0-1.3-0.1C137.2,198.5,137.1,198.5,137,198.5z"/>
+                        		<path d="M70,94.5L70,94.5l-0.1,0.2l0,0C69.9,94.6,70,94.6,70,94.5z"/>
+                        		<path d="M177.5,57.6c-0.1-0.1-0.2-0.1-0.3-0.2c-0.1,0-0.1-0.1-0.2-0.1C177.2,57.5,177.3,57.5,177.5,57.6z"/>
+                        		<path d="M153.9,190.5c-8.7-0.5-18.3-2.3-28.1-5.3c-2.9,5.8-5.2,9.3-6.8,10c5.8,1.7,11.4,2.8,16.6,3.1
+                        			c0.2,0,0.4,0,0.6,0C142.2,198.4,148.3,195.7,153.9,190.5z"/>
+                        		<path d="M136.3,198.4c-0.1,0-0.1,0-0.2,0c0.3,0,0.6,0,0.9,0c0.1,0,0.2,0,0.3,0C136.9,198.5,136.6,198.4,136.3,198.4z"
+                        			/>
+                        		<path d="M77.2,81c0.1-0.2,0.3-0.4,0.4-0.6C77.4,80.7,77.3,80.8,77.2,81z"/>
+                        		<path d="M176,189.2c1.1-0.6,2.2-1.3,3.2-2c-5.3,2.4-12.5,3.6-20.9,3.4c-6,5.2-12.6,7.9-19.3,7.9c0.3,0,0.6,0,0.9,0
+                        			c11.3,0,21.9-2.5,31.5-6.9l0.3-0.2C173,190.8,174.5,190,176,189.2z"/>
+                        		<path d="M118.2,195.4c2.7,0.8,5.4,1.4,8.1,1.9c-2.6-0.5-5.2-1.1-7.8-1.9H118.2z"/>
+                        		<path d="M116.8,194.9c0.4,0.1,0.9,0.3,1.3,0.4L117,195L116.8,194.9z"/>
+                        		<path d="M129,197.8c-0.7-0.1-1.3-0.2-2-0.3C127.7,197.5,128.4,197.7,129,197.8z"/>
+                        		<path d="M74.8,84.9l1.4-2.3C75.7,83.3,75.2,84.1,74.8,84.9z"/>
+                        		<path d="M97.7,185.7c-0.1-0.1-0.2-0.1-0.3-0.2C97.6,185.6,97.7,185.6,97.7,185.7z"/>
+                        		<path d="M106.9,190.9c-2.1-1-4.2-2.1-6-3.2l-0.6-0.4c4.8,3,10,5.4,15.4,7.2h0.1C112.8,193.5,109.8,192.3,106.9,190.9z
+                        			"/>
+                        		<path d="M132.4,198.2c-0.2,0-0.4,0-0.6-0.1C132,198.1,132.2,198.1,132.4,198.2z"/>
+                        		<path d="M94.8,183.6c-0.1-0.1-0.2-0.2-0.4-0.3c0.6,0.4,1.1,0.8,1.7,1.2c-0.3-0.2-0.7-0.5-1.1-0.8
+                        			C95,183.7,94.9,183.7,94.8,183.6z"/>
+                        		<path d="M135.7,198.4c-0.5,0-1-0.1-1.5-0.1c0.9,0.1,1.9,0.1,2.8,0.2c-0.3,0-0.6,0-0.9,0
+                        			C135.9,198.4,135.8,198.4,135.7,198.4z"/>
+                        		<path d="M93.3,136.7c-9-6-15.8-12.4-20.2-18.5c-3.7,10.9-4.3,21.3-2.4,30.7c3.8,5.4,9.9,10.9,17.7,16.2
+                        			C88.1,157.2,89.6,147.5,93.3,136.7z"/>
+                        		<path d="M92.7,170.6c0.4,7.3,2.6,12.7,6.4,15.8c2.2,1.3,4.6,2.6,7.1,3.8c3.2,1.5,6.6,2.9,9.9,4
+                        			c0.8-1,2.4-4.7,4.8-10.7c-5.5-1.9-11-4.1-16.3-6.6C100.2,174.9,96.3,172.8,92.7,170.6z"/>
+                        		<path d="M94.8,132.7c4.2-10.9,10-21.6,16.8-31.3c-7.7-5.2-13.7-10.7-17.5-16c-8.4,8.3-15.2,18.1-19.5,28.8
+                        			C79,120.3,85.9,126.6,94.8,132.7z"/>
+                        		<path d="M95.6,79.7c9-7.6,19.5-13.6,30.6-17.3c-1.7-3-2.2-5.8-1.3-8.1c-11.5,1.5-22.3,5.5-31.5,11.7
+                        			C91.9,69.9,92.7,74.6,95.6,79.7z"/>
+                        		<path d="M204.1,120.9c-5.4,2.5-12.8,3.6-21.3,3.5c-0.2,11.9-2.1,23.9-5.6,34.9c9.8,0.2,18.4-1.2,24.6-4
+                        			C205.2,144.3,205.8,132.5,204.1,120.9z"/>
+                        		<path d="M170.6,163.3c-10.3-0.6-21.6-2.7-33.2-6.2c-3.8,10.7-7.4,19.5-10.4,25.9c10.1,3,20.1,4.9,29.1,5.4
+                        			C161.6,182.5,166.6,174,170.6,163.3z"/>
+                        		<path d="M97.3,82.3c3.7,5.1,9.4,10.4,16.8,15.4c7-9.5,14.9-18,23-24.7c-4.4-3-7.8-6.1-9.9-9.1
+                        			C116.4,68,106.1,74.4,97.3,82.3z"/>
+                        		<path d="M160.6,188.6c8.6,0.1,16.1-1,21.6-3.6c7.8-6.2,14.2-14.8,18.2-25.6c-6.3,2.9-14.8,4.2-24.7,4
+                        			C171.8,174.2,166.5,182.6,160.6,188.6z"/>
+                        		<path d="M150.8,114.6c9.6,2.9,19.1,4.6,27.7,5.2c0.3-11.8-0.9-23.4-3.3-33.8c-5-0.3-10.6-1.4-16.3-3.1
+                        			C156.7,92.5,154,103.3,150.8,114.6z"/>
+                        		<path d="M69.8,94.9c-0.4,1.1-0.9,2.2-1.3,3.3l0.2-0.5L69.8,94.9z"/>
+                        		<path d="M203.3,116.6c-2.3-11.5-7-22.6-13.6-32.5c-3.1,1.4-7.3,2.1-12.1,2c3.2,10.4,5,22,5.1,33.9
+                        			C191,120.1,198.1,119,203.3,116.6z"/>
+                        		<path d="M207.9,113.8c3.3-2.7,4.7-6.1,4.5-9.9c-3.3-10.2-9.2-19.5-17.3-27.3c0.1,2.2-0.7,4.3-2.7,5.9
+                        			c-0.4,0.3-0.8,0.6-1.2,0.9c7,9.6,12,20.6,14.6,31.9C206.6,114.8,207.3,114.3,207.9,113.8z"/>
+                        		<path d="M98.1,139.8c-3.7,10.8-5.5,20.3-5.5,28c3.7,2.3,7.8,4.5,12.2,6.6c5.6,2.6,11.3,5,16.9,6.9
+                        			c2.5-6.5,5.8-15.4,9.6-26.1c-6.5-2.2-13-4.8-19.3-7.9C107,144.9,102.4,142.4,98.1,139.8z"/>
+                        		<path d="M127.7,110.4c-4.3-2.1-8.3-4.2-12-6.5c-6.4,10-12,20.9-16.1,31.8c4.3,2.6,8.9,5.1,13.9,7.5
+                        			c6.3,3,12.8,5.6,19.3,7.8c3.9-11,7.9-22.6,11.6-33.8C138.8,115.3,133.2,113.1,127.7,110.4z"/>
+                        		<path d="M178.3,124.3c-8.9-0.6-18.7-2.4-28.7-5.4c-3.3,11.4-7,23.1-10.8,34.1c11.6,3.5,23,5.6,33.2,6.2
+                        			C175.6,148.1,177.7,136.1,178.3,124.3z"/>
+                        		<path d="M118.1,100.2c3.5,2.2,7.4,4.3,11.6,6.3c5.3,2.5,10.7,4.7,16.1,6.5c3.7-11.1,7.1-21.8,10-31
+                        			c-3.2-1.1-6.4-2.4-9.5-3.9c-2.5-1.2-4.7-2.4-6.8-3.7C132.1,81.6,124.7,90.5,118.1,100.2z"/>
+                        		<path d="M210.4,149.8c-0.9,2.3-2.4,4.4-4.6,6.2c-0.8,0.6-1.6,1.2-2.5,1.8c-4.1,10.7-10.6,19.4-18.6,25.8
+                        			c0.5-0.3,0.9-0.6,1.4-1c12.2-9.5,21.4-22.6,25.9-37.7l-1.1,3.4L210.4,149.8z"/>
+                        		<path d="M91.2,66.2c0.7-1.1,1.6-2.1,2.8-3.1c0.3-0.2,0.6-0.5,0.9-0.7l3-2.1c0.4-0.3,0.8-0.6,1.2-0.8
+                        			c-8,5.1-14.9,11.7-20.5,19.3C82.3,74,86.5,69.8,91.2,66.2z"/>
+                        		<path d="M72.6,111c4.3-10.7,11.2-20.4,19.8-28.4c-3-5.2-3.9-10.1-2.2-14.3C82.9,73.8,77,80.8,72.6,89
+                        			c-1,1.9-1.9,3.9-2.7,5.6C68.1,99.4,69.1,105.1,72.6,111z"/>
+                        		<path d="M142.4,47.6c0.6,0,1.2,0,1.8,0.1C143.6,47.7,143,47.7,142.4,47.6z"/>
+                        		<path d="M131.4,62.4c1.9,2.7,5,5.5,8.9,8.1c7.6-5.8,15.3-10,22.6-12C152.4,57.6,141.7,59,131.4,62.4z"/>
+                        		<path d="M131.3,51.2c-0.6,0.5-1,1-1.4,1.6c10.7-0.4,21.9,1.4,32.9,5.9c-8.3-6-17-9.2-25.4-10.1
+                        			C134.9,49,132.8,49.9,131.3,51.2z"/>
+                        		<path d="M69.9,94.7L69.9,94.7v-0.2C70,94.6,69.9,94.6,69.9,94.7z"/>
+                        		<path d="M71.1,115.1c-3.3-5.7-4.4-11-2.9-15.7c-2.4,7.4-3.8,15.4-3.8,23.6c0,5.9,0.7,11.6,2,17.1c0.5,2,1.4,4,2.6,6.1
+                        			C66.9,136.6,67.4,126,71.1,115.1z"/>
+                        		<path d="M129.4,53.8c-0.9,2.1-0.4,4.6,1.1,7.3c10.5-3,21.6-3.9,32.3-2.5C151.6,54.5,140.2,53,129.4,53.8z"/>
+                        		<path d="M155.5,49.2c-0.3,0-0.5-0.1-0.7-0.1c3.2,0.7,6,3.7,8,9.5c3.3-3.9,5.6-5.4,7-4.8c0.8,0.3,1.8,0.8,2.6,1.2
+                        			c-2.2-1-5.4,0.1-9.6,3.6c8.9-0.7,16.5,1,22.6,4.6c-2.1-1.8-4.7-3.7-7.6-5.4c-0.1-0.1-0.2-0.1-0.3-0.2c-0.1-0.1-0.3-0.2-0.4-0.2
+                        			c-0.4-0.2-0.8-0.5-1.2-0.7l0,0c-0.3-0.2-0.6-0.3-0.9-0.5c-6.3-3.3-13.2-5.8-20.5-7.2l0.3,0.1L155.5,49.2z"/>
+                        		<path d="M175.8,56.7c0.2,0.1,0.5,0.3,0.7,0.4c-0.4-0.3-0.9-0.5-1.4-0.7C175.4,56.4,175.6,56.6,175.8,56.7L175.8,56.7z
+                        			"/>
+                        		<path d="M77.2,165c-0.8-1.2-1.6-2.5-2.3-3.6l-0.2-0.3c-2.1-3.6-3.7-7.4-4.9-11.4c-1-1.8-1.8-3.5-2.3-5.1
+                        			c2.4,8,6,15.4,10.8,22.1c-0.3-0.4-0.6-0.9-0.9-1.3C77.3,165.2,77.2,165.1,77.2,165z"/>
+                        		<path d="M142.1,47.6c-0.8,0-1.5-0.1-2.3-0.1c-3.4,0-6.8,0.3-10.2,0.7c2.1-0.3,4.2-0.4,6.3-0.3
+                        			C137.9,47.7,140,47.6,142.1,47.6z"/>
+                        		<path d="M97.2,60.9c-1.1,0.9-2,1.9-2.7,2.9c9.1-6,19.7-9.7,31.1-10.8c0.4-0.6,0.9-1.2,1.6-1.7c1.7-1.4,4-2.4,6.8-3
+                        			c-3.4-0.1-6.8,0.3-10,1c1.6-0.3,3.7-0.7,5.4-1c-11,1.5-21.2,5.4-30.1,11.2l-1.2,0.9C97.7,60.5,97.4,60.7,97.2,60.9z"/>
+                        		<path d="M152.3,48.6c-4.8-0.8-9.3-0.9-13-0.4c7.9,0.9,16,4.3,23.6,10.4C159.9,52.7,156.2,49.4,152.3,48.6z"/>
+                        		<path d="M151.9,48.5h0.3c-1.8-0.3-3.5-0.5-5.3-0.7h0.1C148.4,48.1,150.4,48.3,151.9,48.5z"/>
+                        		<path d="M189.4,66.3c3.1,3,5,6.1,5.6,8.9c8,7.3,13.9,16.4,17.2,26.3c-0.1-0.6-0.3-1.2-0.5-1.8l0,0
+                        			c-3.8-11.8-10.5-22.3-19.2-30.8l0.7,0.6C192,68.4,190.7,67.3,189.4,66.3z"/>
+                        		<path d="M148.4,75.2c2.8,1.3,5.6,2.5,8.5,3.4c2.6-8.3,4.6-15.2,5.9-20c-6.5,2.4-13.5,7.1-20.4,13.3
+                        			C144.2,73,146.3,74.1,148.4,75.2z"/>
+                        		<path d="M179.6,58.9c-0.7-0.4-1.4-0.8-2.1-1.2c0.1,0,0.1,0.1,0.2,0.1C178.2,58.1,178.8,58.4,179.6,58.9z"/>
+                        		<path d="M213.5,107.7c0.2,3.9-1.3,7.5-4.7,10.3c-0.7,0.5-1.4,1-2.1,1.5c2,11.4,1.5,23.2-1.9,34.2
+                        			c0.9-0.6,1.7-1.1,2.5-1.8c2.4-2,4-4.4,4.8-7c2.1-6.9,3.2-14.3,3.2-21.9c0-1.7-0.1-3.3-0.2-5c-0.1-1.1-0.2-2-0.2-2.8
+                        			C214.6,112.7,214.2,110.2,213.5,107.7z"/>
+                        		<path d="M215,116c-0.1-0.6-0.1-1.1-0.2-1.6c0,0.3,0.1,0.6,0.1,0.9C214.9,115.5,215,115.8,215,116z"/>
+                        		<path d="M95,183.8c0.5,0.4,1,0.7,1.6,1.1c-4.4-3.5-7.1-9.3-8-16.8c-7.6-5.1-13.4-10.5-17.1-15.6
+                        			c1.3,4.5,3.2,8.8,5.6,12.6c0.1,0.1,0.1,0.2,0.2,0.3c0.3,0.5,0.6,0.9,0.9,1.3c4.4,6.2,9.7,11.7,15.7,16.3c0.3,0.2,0.6,0.4,0.8,0.6
+                        			C94.9,183.7,95,183.7,95,183.8z"/>
+                        		<path d="M186.8,64.6c-6.5-4-14.6-6.2-24-6c11.3,2.7,21.1,7.5,29.1,14C191.3,70.1,189.6,67.3,186.8,64.6z"/>
+                        		<path d="M174.1,82.2c-2.6-9.3-6.4-17.5-11.3-23.6c-0.3,5.1-1.5,12.4-3.2,20.9C164.6,81,169.6,81.9,174.1,82.2z"/>
+                        		<path d="M187.2,80.5c-6.6-8.8-14.8-16.4-24.4-21.9c5.7,6.2,10.3,14.3,13.6,23.7C180.7,82.3,184.5,81.8,187.2,80.5z"/>
+                        		<path d="M181.4,60.1c0.5,0.3,1,0.7,1.5,1C182.4,60.7,181.9,60.4,181.4,60.1z"/>
+                        		<path d="M190.2,66.8l0.7,0.7C190.7,67.3,190.5,67.1,190.2,66.8z"/>
+                        		<path d="M188.6,79.8c0.4-0.2,0.7-0.5,1.1-0.8c1.7-1.5,2.5-3.2,2.4-5.2c-8-6.8-17.9-12.1-29.2-15.2
+                        			C172.9,63.8,181.6,71.2,188.6,79.8z"/>
+                        		<line class="st4" x1="70" y1="94.5" x2="69.9" y2="94.8"/>
+                        		<path d="M77.2,165c0.1,0.1,0.1,0.2,0.2,0.3C77.3,165.2,77.2,165.1,77.2,165z"/>
+                        		<path d="M78.3,166.7L78.3,166.7L78.3,166.7c-0.3-0.4-0.6-0.9-0.9-1.3C77.7,165.8,78,166.3,78.3,166.7z"/>
+                        		<path d="M175.8,56.7L175.8,56.7L175.8,56.7z"/>
+                        	</g>
+                        </g>
+                    </svg>
+                    <span class="label">Ushahidi Support</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#account-logout"></use>
+                    </svg>
+                    <span class="label">Log out</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" data-modal="account">
+                    <img src="../../img/avatar1.png" class="avatar" />
+                    <span class="label">Account settings <span class="subtext">for Brandon Rosage</span></span>
+                </a>
+            </li>
 
-                    <div class="user-admin logged-in">
-    <div data-toggle="toggle-content">
-        <div class="user-avatar">
-            <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
-        </div>
-        <a href="" class="username">Jonathan Doe</a>
-    </div>
-    <ul class="dropdown-menu toggle-content" role="menu">
-        <li><a href="#">Account Settings</a></li>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="#">Log Out</a></li>
-    </ul>
+<!--// IF: Logged out
+            <li>
+                <a href="#" data-modal="signup">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#person"></use>
+                    </svg>
+                    Sign up
+                </a>
+            </li>
+
+            <li>
+                <a href="#" data-modal="login">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#account-login"></use>
+                    </svg>
+                    Log in
+                </a>
+            </li>
+// END IF: Logged out -->
+
+            <li>
+                <a href="#" data-modal="collections">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
+                    </svg>
+                    <span class="label">Collections</span>
+                </a>
+            </li>
+            <!-- FUTURE FEATURE
+            <li>
+                <a href="#">
+                    <svg class="iconic">
+                        <use xlink:href="/assets/img/iconic-sprite.svg#bell"></use>
+                    </svg>
+                    <span class="label">Alerts <span class="badge">2</span></span>
+                </a>
+            </li>
+            END: FUTURE FEATURE -->
+        </ul>
+    </nav>
 </div>
 
+
+        <div class="mode-context">
+
+            <header class="mode-context-header">
+                <ol class="breadcrumbs">
+                    <li><a href="map.html">March on City Hall</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="">Plans</a></li>
+                </ol>
+
+                <h1 class="mode-context-title">Change your plan</h1>
+            </header>
+
+            <span class="mode-context-trigger">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show more/less</span>
+            </span>
+        </div>
+
+        <main role="main">
+
+            <div class="toolbar">
+                <div class="button-group">
+                    <button type="button" class="button-flat">Cancel</button>
+                    <button type="button" class="button-alpha">Continue</button>
                 </div>
             </div>
-        </div>
 
-    </div>
-</header>
+           <div class="main-col">
 
+               <div class="form-sheet">
+                   <div class="form-sheet-summary">
+                       <h2 class="form-sheet-title">Enter your payment information</h2>
+                       <p>When you're finished, your deployment will be upgraded to Responder.</p>
+                   </div>
 
-   <div class="wrapper">
+                   <div class="form-field">
+                       <label class="required">Name on card</label>
+                       <input type="text" required placeholder="Jane Doe" />
+                   </div>
 
-      <nav class="navigation" role="navigation">
-    <div class="nav-icon nav-icon-js open">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <a class="button button-primary">
-        <span class="icon-left fa-plus">Add Post</span>
-    </a>
-    <ul class="main-nav">
-        <li><a href="home-map.html">Home</a></li>
-        <li><a href="layout-a.html">About</a></li>
-        <li><a href="activity.html">Activity</a></li>
-        <li data-message="customize">
-            <span data-toggle="toggle-content">Settings</span>
-            <ul class="toggle-content">
-                <li><a href="#">General</a></li>
-                <li><a href="#">Appearance</a></li>
-                <li><a href="data-sources.html">Data Sources</a></li>
-                <li><a href="#">Plugins</a></li>
-                <li><a href="tools-structure.html">Posts &amp; Entities</a></li>
-                <li><a href="#">Categories</a></li>
-                <li><a href="users.html">Users</a></li>
-                <li><a href="#">Permissions</a></li>
-            </ul>
-        </li>
-    </ul>
+                   <div class="form-field">
+                       <label class="required">Credit card number</label>
+                       <input type="text" required inputmode="numeric" autocomplete="cc-number" placeholder="" id="cc-number">
+                   </div>
 
-    <div class="user-admin logged-in">
-    <div data-toggle="toggle-content">
-        <div class="user-avatar">
-            <img src="http://www.gravatar.com/avatar/00000000000000000000000000000000" alt="Avatar">
-        </div>
-        <a href="" class="username">Jonathan Doe</a>
-    </div>
-    <ul class="dropdown-menu toggle-content" role="menu">
-        <li><a href="#">Account Settings</a></li>
-        <li><a href="#">Notifications</a></li>
-        <li><a href="#">Log Out</a></li>
-    </ul>
-</div>
+                        <fieldset>
+                            <legend class="required">Expiration</legend>
+                            <div class="custom-select">
+                                <select name="cc-exp-month" required autocomplete="cc-exp-month">
+                                    <option value="1">Month</option>
+                                    <option value="2">January</option>
+                                    <option value="3">February</option>
+                                </select>
+                            </div>
+                            <div class="custom-select">
+                                <select name="cc-exp-year" required autocomplete="cc-exp-year">
+                                    <option value="1">Year</option>
+                                    <option value="2">2015</option>
+                                    <option value="3">2016</option>
+                                </select>
+                            </div>
+                        </fieldset>
 
+                        <div class="form-field">
+                            <label class="required">CVV</label>
+                            <input style="width:80px;" type="text" required inputmode="numeric" autocomplete="cc-csc" placeholder="" id="cc-cvv" />
+                        </div>
 
-    <div class="sub-nav">
-        <h6 class="zeta saved-searches">Saved Searches</h6>
-        <ul>
-            <li><a href="" class="saved-search">Public Posts</a><span class="star"></span></li>
-            <li><a href="">Terrorist Attacks, 2013</a><span class="star"></span></li>
-            <li><a href="">Missing People</a><span class="star"></span></li>
-            <li><a href="">Roadside Explosions</a><span class="star"></span></li>
-            <li><a href="">Violence in Aleppo</a><span class="star"></span></li>
-            <li><a href="">Posts by David Kobia</a> <span class="star"></span>
-                <p class="credit">By <a href="">David Kobia</a></p>
-            </li>
-            <li><a href="">Missing Children since 2012</a><span class="star"></span>
-                <p class="credit">By <a href="">Brandon Rosage</a></p>
-            </li>
-        </ul>
-    </div>
+                        <div class="form-field">
+                            <label>Zip/Postal Code</label>
+                            <input style="width:100px;" type="text" placeholder="" id="cc-zip" />
+                        </div>
 
-    <div class="sub-nav">
-        <h6 class="zeta collections">Collections</h6>
-        <ul>
-            <li><a href="">Needs Follow-up</a><span class="star"></span></li>
-            <li><a href="">Hi-res Photos</a><span class="star"></span></li>
-            <li><a href="">Shared on Facebook</a><span class="star"></span></li>
-            <li><a href="">Kobia's Saved Posts</a><span class="star"></span>
-                <p class="credit">By <a href="">David Kobia</a></p>
-            </li>
-        </ul>
-        <button type="button" class="button-secondary plus">
-            <span>New Collection</span>
-        </button>
-    </div>
-</nav>
+                        <div class="form-field">
+                            <p>* These fields are required.</p>
+                        </div>
+                    </div>
+               </div>
 
-
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>
-                  Settings
-               </li>
-            </ul>
-            <h1>Plans</h1>
-         </div>         
-      </main> <!--end layout a-->
-
-   </div>
-
-   <footer role="contentinfo">
-      <div class="wrapper">
-         <div class="footer-container">
-            <div class="footer-main-col">
-               <h2>March on City Hall</h2>
-               <ul class="footer-nav">
-                  <li><a href="">Home</a></li>
-                  <li><a href="">About</a></li>
-                  <li><a href="">Activity</a></li>
-                  <li><a href="">Settings</a></li>
-                  <li><a href="">Help</a></li>
-               </ul>
             </div>
-            <div class="footer-secondary-col">
-               <a class="button button-create">
-                  <span>Add Post</span>
-               </a>
-            </div>
-         </div>
-      </div>
-   </footer>
+                <!--end main col-->
 
+        </main>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 
-
-   <script>
-   tourPin = function(prevStep, nextStep, target, position) {
-      var targetPos = $(target).offset(),
-      targetWidth = $(target).outerWidth(),
-      targetHeight = $(target).outerHeight();
-
-      $('#'+prevStep).removeClass('active'); // Remove 'active' state from previous step
-
-      // Apply correct state to pin
-      // IF: Previous step was a modal
-      if ($('#'+prevStep).hasClass('tour-modal')) {
-         $('.tour-pin').removeClass(function (index, css) {
-            return (css.match (/(^|\s)pin-\S+/g) || []).join(' ');
-         }).addClass('pin-enter');
-
-         // ELSE: Previous step was a pin AND the next step is a modal
-      } else if (!$('#'+prevStep).hasClass('tour-modal') && $('#'+nextStep).hasClass('tour-modal')) {
-         $('.tour-pin').removeClass(function (index, css) {
-            return (css.match (/(^|\s)pin-\S+/g) || []).join(' ');
-         }).css('top','-100%');
-
-         // ELSE: Previous step was a pin AND the next step is a pin
-      } else {
-         $('.tour-pin').removeClass('pin-enter').toggleClass('pin-move');
-      }
-
-      // IF: Message is attached to a Pin
-      if (typeof target !== 'undefined') {
-         // Position Pin
-         if (typeof position === 'undefined') {
-            $('.tour-pin').css({
-               'top' : '-100%',
-               'left' : '50%'
-            });
-         } else if (position === 'top-left') {
-            $('.tour-pin').css({
-               'top' : targetPos.top - 10,
-               'left' : targetPos.left - 10
-            });
-         } else if (position === 'top-right') {
-            $('.tour-pin').css({
-               'top' : targetPos.top,
-               'left' : targetPos.left + targetWidth - 10
-            });
-         } else if (position === 'bottom-left') {
-            $('.tour-pin').css({
-               'top' : targetPos.top + targetHeight - 10,
-               'left' : targetPos.left
-            });
-         } else if (position === 'bottom-right') {
-            $('.tour-pin').css({
-               'top' : targetPos.top + targetHeight - 10,
-               'left' : targetPos.left + targetWidth - 10
-            });
-         } else if (position === 'center') {
-            $('.tour-pin').css({
-               'top' : targetPos.top + targetHeight/2 - 10,
-               'left' : targetPos.left + targetWidth/2 - 10
-            });
-         } else if (position === 'top-center') {
-            $('.tour-pin').css({
-               'top' : targetPos.top,
-               'left' : targetPos.left + targetWidth/2 - 10
-            });
-         } else if (position === 'bottom-center') {
-            $('.tour-pin').css({
-               'top' : targetPos.top + targetHeight - 10,
-               'left' : targetPos.left + targetWidth/2 - 10
-            });
-         }
-
-         // Position message
-         $('#'+nextStep).addClass('active').css({ // Add 'active' state to Message and position it horizontally
-         'top' : targetPos.top + targetHeight + 40
-      });
-
-      // IF: Browser window is wider than 767px, position the message horizontally
-      if ($(window).width() > 767) {
-         if ((targetPos.left + targetWidth/2) > $(window).width()/2) { // IF: The Pin is positioned on the right half of the screen
-            $('#'+nextStep).css({
-               'left' : '65%'
-            });
-         } else if ((targetPos.left + targetWidth/2) < $(window).width()/2) { // IF: The Pin is positioned on the left half of the screen
-            $('#'+nextStep).css({
-               'left' : '35%'
-            });
-         } else { // IF: The Pin is positioned in the center of the screen
-            $('#'+nextStep).css({
-               'left' : '50%'
-            });
-         }
-      }
-
-      // IF: The Pin is positioned more than 33% down the browser window, scroll to it
-      if ((targetPos.top + targetHeight) > ($(window).height()/1.5)) {
-         $('html, body').animate({
-            scrollTop: targetPos.top - 70
-         }, 1000);
-      }
-
-      // ELSE: Message is a Modal
-   } else {
-      // Scroll the browser window to the top
-      $('html, body').animate({
-         scrollTop: 0
-      }, 1000);
-
-      // Add 'active' state to Message
-      $('#'+nextStep).addClass('active');
-   }
-}
-
-tourStep = function(step) {
-   var prevStep = $('body').attr('data-step'),
-   nextStep = step;
-
-   // Set the body's 'data-step' attribute to the next step
-   $('body').attr('data-step', nextStep);
-
-   // IF: Next step is a modal
-   if ($('#'+nextStep).hasClass('tour-modal')) {
-      $('.tour-mask').fadeIn(1000);
-      tourPin(prevStep, nextStep); // Position pin and message
-
-      // ELSE: Next step is a pin
-   } else {
-      $('.tour-mask').fadeOut(500); // Fade out mask
-      tourPin(prevStep, nextStep, '[data-message="'+nextStep+'"]', 'bottom-center'); // Position pin and message
-   }
-
-   // IF: Browser supports pushState
-   if (history.pushState) {
-      history.pushState(null, null, '#'+nextStep);
-   } else {
-      window.location.hash = nextStep;
-   }
-}
-
-tiersInit = function(element, selected) {
-   var context = element !== 'undefined' ? element : $('.tiers'),
-   selectedTier = selected !== 'undefined' ? selected : context.find('.tier.selected'), // Selected Tier
-   liteTier = context.siblings('.tier.lite'), // Free Tier
-   form = context.find('.payment'); // Payment form
-
-   // IF: Payment form is currently visible
-   if (context.hasClass('show-payment')) {
-      form.fadeOut(500); // Hide the payment form
-      context.find('.tier').removeClass('selected'); // Deselect the selected Tier
-      context.removeClass('show-payment');
-      setTimeout(function(){
-         liteTier.slideDown(500).animate({opacity: 1}, 500); // Show the Free Tier
-      }, 500);
-
-      // ELSE: Payment form is hidden
-   } else {
-      form.fadeIn(500); // Show the payment form
-      selectedTier.addClass('selected'); // Apple the 'selected' state to the selected Tier
-      context.addClass('show-payment');
-      setTimeout(function(){
-         liteTier.animate({opacity: 0}, 500).slideUp(500); // Hide the Free Tier
-      }, 500);
-   }
-
-   // Scroll to the top of the window
-   context.parent().animate({
-      scrollTop: 0
-   }, 500);
-}
-
-$(document).ready(function(){
-   // Look up current step
-   function lookupStep() {
-      // IF: The current URL includes a hash
-      if (window.location.hash) {
-         return window.location.hash.substr(1);
-
-         // ELSE: Start from the first step
-      } else {
-         return 'plans';
-      }
-   }
-
-   var step = lookupStep();
-
-   // Disable all other links and buttons on the deployment
-   $('*').not('[data-cue], .tour-link').on('click', function(e){
-      e.preventDefault();
-   }).off('click');
-
-   // Click event for cue buttons
-   $('[data-cue]').on('click', function() {
-      tourStep($(this).attr('data-cue'));
-   });
-
-   // Click event for Plans buttons
-   $('[data-payment]').on('click', function(e) {
-      tiersInit($(this).closest('.tiers'), $(this).closest('.tier'));
-      e.preventDefault();
-   });
-
-   tiersInit($('.tiers'), $('#responder'));
-
-   // Animate in the appropriate step
-   setTimeout(function(){
-      tourStep(step);
-   }, 1000);
-
-   // Go to correct step on 'Back' button
-   window.onpopstate = function(event) {
-      tourStep(lookupStep());
-   };
-});
-
-</script>
-</body>
+    </body>
 
 </html>

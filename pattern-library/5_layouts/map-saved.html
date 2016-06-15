@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+@@include('../partials/_pl-head.html')
+
+    <body class="layout-a">
+
+        @@include('../partials/_mode-bar.html', {
+          "context": "map",
+          "state": "logged_in"
+        })
+
+        <div class="mode-context">
+
+            <header class="mode-context-header">
+                <ol class="breadcrumbs">
+                    <li><a href="map.html">March on City Hall</a></li>
+                </ol>
+
+                <h1 class="mode-context-title">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#star"></use>
+                    </svg>
+                    Actions on Congress Avenue
+                </h1>
+            </header>
+
+            <span class="mode-context-trigger">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show more/less</span>
+            </span>
+
+            <div class="mode-context-body">
+                <!--// IF: Saved Search has description //-->
+                <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales.</p>
+                <!--// END IF //-->
+
+                <div class="metadata">
+                    Created by <a href="" class="metadata-author">Jess Shorland</a>
+                    <span class="metadata-visibility public tooltip">
+                        <svg class="iconic">
+                          <use xlink:href="/assets/img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <span class="bug">This Saved Search is visible to the public</span>
+                    </span>
+
+                    <!--// IF: User has permission to edit the Saved Search //-->
+                    <div class="form-field">
+                        <button type="button" data-modal="edit-saved-search">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#pencil"></use>
+                            </svg>
+                            <span class="button-label">Edit</span>
+                        </button>
+
+                        <button type="button" data-toggle="dropdown-menu">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#ellipses"></use>
+                            </svg>
+                            <span class="button-label hidden">More</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="/assets/img/iconic-sprite.svg#bell"></use>
+                                </svg>
+                                <span class="label">Get notifications</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="label">Delete</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--// END IF //-->
+
+                    <!--// IF: User does not have permission to edit the Saved Search //
+                    <div class="form-field">
+                        // IF: User is not yet getting notifications about this Saved Search //
+                        <button type="button">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#bell"></use>
+                            </svg>
+                            <span class="button-label">Get notifications</span>
+                        </button>
+
+                        // ELSE //
+
+                        <button type="button" class="button-flat">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#bell"></use>
+                            </svg>
+                            <span class="button-label">Turn off notifications</span>
+                        </button>
+                        // END IF //
+                    </div>
+                    // END IF //-->
+                </div>
+
+                @@include('../partials/_survey-filter.html')
+
+                <span class="bug">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#circle-x"></use>
+                    </svg>
+                    <span><em>Location:</em> Austin, Texas</span>
+                </span>
+
+                <span class="bug">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#circle-x"></use>
+                    </svg>
+                    <span><em>Date:</em> June 26, 2016</span>
+                </span>
+
+                <span class="bug">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#circle-x"></use>
+                    </svg>
+                    <span><em>Categories:</em> Speakers, Congestion, Seminars, Traffic</span>
+                </span>
+
+                <div class="form-field">
+                    <!--// IF: User makes changes to filter parameters on Saved Search //
+                    <button type="button" class="button-alpha">Save Changes</button>
+                    // END IF //-->
+                    <button type="button" class="button-link">Clear search</button>
+                </div>
+
+            </div>
+        </div>
+
+        <main role="main">
+            @@include('../partials/_toolbar.html')
+            @@include('../partials/_toolbox.html')
+
+            <div id="map" class="map full-size"></div>
+        </main>
+
+        <div id="edit-saved-search" class="modal">
+            <div class="modal-window">
+               <h3 class="modal-title">
+                   Edit Saved Search
+               </h3>
+
+               <nav class="tabs-menu" data-tabs="saved-tab">
+                   <ul>
+                       <li><a href="#saved-general">General</a></li>
+                       <li><a href="#saved-filters">Filters</a></li>
+                   </ul>
+               </nav>
+
+               <div class="modal-body">
+
+                   <div id="saved-general" class="saved-tab">
+
+                       <div class="form-field title">
+                           <label>Name</label>
+                           <input type="text" value="Actions on Congress Avenue" placeholder="Name your Saved Search..." />
+                       </div>
+
+                       <div class="form-field">
+                           <label>
+                               Description
+                           </label>
+                           <textarea>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales.</textarea>
+                       </div>
+
+                       <div class="form-field switch">
+                           <label>
+                               Featured
+                               <span class="tooltip">
+                                   <svg class="iconic">
+                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#question-mark"></use>
+                                   </svg>
+                                   <span class="bug">Featured searches appear to all users in <br />the "Saved Searches" menu</span>
+                               </span>
+                           </label>
+                           <div class="toggle-switch">
+                               <input class="tgl" id="switch1" type="checkbox">
+                               <label class="tgl-btn" for="switch1"></label>
+                           </div>
+                       </div>
+
+                       <div class="form-field">
+                           <label>Default viewing mode</label>
+                           <div class="custom-select">
+                               <select>
+                                   <option>Map</option>
+                                   <option>Timeline</option>
+                              </select>
+                           </div>
+                       </div>
+
+                       <div class="form-field select">
+                           <label>
+                               <div class="custom-select">
+                                   <select>
+                                       <option>Everyone</option>
+                                       <option>Editors</option>
+                                       <option selected>Administrators</option>
+                                  </select>
+                               </div>
+                               <span class="nodisplay">Who</span> can see this
+                           </label>
+                       </div>
+
+                   </div>
+
+                   <div id="saved-filters" class="saved-tab">
+                       <div class="form-field">
+                           <label>Keyword</label>
+                           <div class="input-with-icon">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#magnifying-glass"></use>
+                               </svg>
+                               <input type="search" placeholder="Keyword..."/>
+                           </div>
+                       </div>
+
+                       <fieldset>
+                           <legend>Surveys</legend>
+
+                           <div class="form-field checkbox">
+                               <label for="traffic">
+                                   <input type="checkbox" name="getting-around" checked>
+                                   Getting around
+                               </label>
+                           </div>
+                           <div class="form-field checkbox">
+                               <label for="police-encounters">
+                                   <input type="checkbox" name="police-encounters" checked>
+                                   Police encounters
+                               </label>
+                           </div>
+                           <div class="form-field checkbox">
+                               <label for="protester-photos">
+                                   <input type="checkbox" name="protester-photos" checked>
+                                   Protester photos
+                               </label>
+                           </div>
+                           <div class="form-field checkbox">
+                               <label for="police-encounters">
+                                   <input type="checkbox" name="official-events" checked>
+                                   Official events
+                               </label>
+                           </div>
+                           <div class="form-field checkbox">
+                               <label for="protester-photos">
+                                   <input type="checkbox" name="unknown">
+                                   Unknown
+                               </label>
+                           </div>
+                           <span class="form-field-toggle">
+                               <svg class="iconic">
+                                 <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                               </svg>
+                               More
+                           </span>
+                       </fieldset>
+
+                       <fieldset>
+                           <legend>Categories</legend>
+
+                           <div class="form-field checkbox">
+                               <label for="speakers">
+                                   <input type="checkbox" name="speakers" value="Speakers" id="speakers"> Speakers
+                               </label>
+                           </div>
+                           <div class="form-field checkbox">
+                               <label for="opposition">
+                                   <input type="checkbox" name="opposition" value="Opposition" id="opposition"> Opposition
+                               </label>
+                           </div>
+                           <span class="form-field-toggle">
+                               <svg class="iconic">
+                                 <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                               </svg>
+                               More
+                           </span>
+                       </fieldset>
+
+                       <fieldset>
+                           <legend>Who it's visible to</legend>
+
+                           <div class="form-field radio">
+                               <label for="everyone">
+                                   <input type="radio" name="visibility" value="Everyone" checked>
+                                   Everyone
+                               </label>
+                           </div>
+                           <div class="form-field radio">
+                               <label for="members">
+                                   <input type="radio" name="visibility" value="Members">
+                                   Members
+                               </label>
+                           </div>
+                           <div class="form-field radio">
+                               <label for="administrators">
+                                   <input type="radio" name="visibility" value="Administrators">
+                                   Administrators
+                               </label>
+                           </div>
+                           <span class="form-field-toggle">
+                               <svg class="iconic">
+                                 <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                               </svg>
+                               More
+                           </span>
+                       </fieldset>
+
+                       <fieldset>
+                           <legend>Date range</legend>
+
+                           <div class="form-field date">
+                               <label class="hidden">Start date</label>
+                               <div class="input-with-icon">
+                                   <svg class="iconic">
+                                     <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                   </svg>
+                                   <input type="date" placeholder="Start date" />
+                               </div>
+                               <span class="date-joiner">to</span>
+                           </div>
+
+                           <div class="form-field date">
+                               <label class="hidden">End date</label>
+                               <div class="input-with-icon">
+                                   <svg class="iconic">
+                                     <use xlink:href="/assets/img/iconic-sprite.svg#calendar"></use>
+                                   </svg>
+                                   <input type="date" placeholder="End date" />
+                               </div>
+                            </div>
+                       </fieldset>
+                   </div>
+
+                   <div class="form-field">
+                       <button type="button" class="button-link  modal-trigger">Cancel</button>
+                       <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+                   </div>
+               </div>
+            </div>
+
+            <div class="modal-overlay"></div>
+         </div>
+
+        @@include('../partials/_modals-global.html')
+
+        @@include('../partials/_scripts.html')
+
+    </body>
+
+</html>

@@ -1,0 +1,211 @@
+.listing {
+    position: relative;
+    @include transition(0.3s);
+
+    .listing-heading {
+        display: block;
+        @include typeBeta;
+
+        + .listing-item {
+            margin-top: -$sm-spacing;
+        }
+    }
+
+    .listing-heading-section {
+        display: block;
+        position: relative;
+        @extend .caps;
+    }
+
+    .listing-item {
+        border-bottom: 1px solid $color-light-gamma;
+
+        &:last-child {
+            border-bottom: none;
+        }
+
+        .listing-item-body {
+            display: none;
+        }
+
+        &.active {
+
+            .listing-item-body {
+                display: block;
+            }
+
+            .listing-item-toggle {
+
+                svg.iconic {
+                    @include transform(rotate(180deg));
+                }
+            }
+        }
+    }
+
+    .postcard {
+        margin: $sm-spacing;
+
+        @include media($medium) {
+            margin: $sm-spacing auto;
+        }
+    }
+
+    .listing-toolbar {
+        display: none;
+        position: absolute;
+        top: -100px;
+        right: $sm-spacing;
+        left: $sm-spacing;
+        z-index: $top;
+        @include transition(0.3s);
+
+        @include media($medium) {
+            right: $base-spacing;
+            left: 298px;
+        }
+    }
+
+    &.card {
+        background-color: $color-light-delta;
+
+        .listing-heading {
+            border-bottom: $base-border;
+            padding: $base-spacing $sm-spacing;
+
+            @include media($medium) {
+                padding: $base-spacing;
+            }
+
+            + .listing-item {
+                margin-top: 0;
+            }
+        }
+    }
+
+    &.timeline {
+
+        @include media($medium) {
+            padding-left: 78px;
+        }
+
+        .listing-heading {
+            text-align: center;
+            margin: $lg-spacing $sm-spacing $sm-spacing;
+
+            @include media($medium) {
+                text-align: left;
+                margin-bottom: $lg-spacing;
+                margin-left: -78px;
+            }
+        }
+
+        .listing-heading-section {
+            text-align: center;
+            padding: $tiny-spacing;
+        }
+
+        .postcard,
+        .listing-heading-section {
+
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: 0;
+                top: 100%;
+                left: 50%;
+                width: 4px;
+                height: $sm-spacing;
+                background-color: $color-light-beta;
+                margin-left: -2px;
+            }
+
+            @include media($medium) {
+
+                &:after {
+                    top: 0;
+                    bottom: -16px;
+                    left: -54px;
+                    height: auto;
+                    margin-left: 0;
+                }
+            }
+        }
+
+        .postcard {
+
+            @include media($medium) {
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: $body;
+                    top: $sm-spacing;
+                    left: -54px;
+                    width: $sm-spacing;
+                    height: $sm-spacing;
+                    border: 4px solid $color-light-beta;
+                    @include equal-radius(100%);
+                    background-color: $color-primary-zeta;
+                    margin-left: -6px;
+                }
+            }
+
+            &:last-of-type {
+
+                &:after {
+                    bottom: auto;
+                    height: $base-spacing;
+
+                    @include media($medium-down) {
+                        content: none;
+                    }
+                }
+            }
+        }
+
+        .listing-heading-section {
+
+            @include media($medium) {
+                display: inline-block;
+                color: $color-light-alpha;
+                @include equal-radius();
+                background-color: $color-light-beta;
+                padding: $tiny-spacing $sm-spacing;
+                margin: 0 auto;
+
+                /*
+                text-shadow: 0 0 $sm-spacing $color-primary-zeta,
+                    0 4px $tiny-spacing $color-primary-zeta,
+                    0 -4px $sm-spacing $color-primary-zeta;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 50%;
+                    right: 0;
+                    left: 0;
+                    height: 1px;
+                    background-color: $color-light-beta;
+                }
+*/
+                &:after {
+                    top: -$sm-spacing;
+                }
+            }
+        }
+    }
+
+    &.toolbar-active {
+        margin-top: 116px;
+
+        @include media($medium) {
+            margin-top: 100px;
+        }
+
+        .listing-toolbar {
+            display: block;
+        }
+    }
+}

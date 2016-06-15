@@ -3,115 +3,76 @@
 \*------------------------------------*/
 
 p {
-    line-height: 1.25;
-    font-size: em(16);
+    line-height: 1.357142857;
     margin: $sm-spacing 0;
 
-    @include media($small) {
-        font-size: em(18);
-    }
+    a {
+        border-bottom: 1px dotted $link-color;
 
-}
-
-.small, p.small {
-    font-size: em(14);
-}
-
-// Headings
-h1, .alpha {
-	font-size: em(28);
-	font-weight: $body-font-weight;
-	margin: $base-spacing 0 $sm-spacing;
-    clear: both;
-
-	@include media($small) {
-		font-size: em(38);
-	}
-
-    &.inline {
-        display: block;
-
-        @include media($small) {
-            margin: $base-spacing $tiny-spacing $sm-spacing 0;
+        &:hover,
+        &:focus {
+            border-bottom: 1px solid $link-hover-color;
         }
-
     }
-
-   em {
-      color: $dk-gray;
-      font-style: normal;
-   }
-
 }
 
-h2, .beta {
-	font-size: em(24);
-	margin: $base-spacing 0 $sm-spacing;
-
-	@include media($small) {
-		font-size: em(32);
-	}
+/* inline */
+em {
+    font-style: italic;
 }
 
-h3, .gamma {
-	font-size: em(20);
-	margin: $base-spacing 0 $sm-spacing;
-
-	@include media($small) {
-		font-size: em(24);
-	}
-
+strong {
+    font-weight: 900;
 }
 
-h4, .delta {
-	font-size: em(13);
-    font-weight: $bold;
-	text-transform: uppercase;
-	letter-spacing: 1px;
-	margin: $base-spacing 0 $sm-spacing;
-
-	@include media($small) {
-		font-size: em(14);
-	}
-
+.caps {
+    color: $color-dark-delta;
+    font-weight: 900;
+    font-size: 10px;
+    font-size: .714285714rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-h5, .epsilon {
-	font-size: em(18);
-	font-weight: $body-font-weight;
-	margin: $base-spacing 0 $sm-spacing;
+a {
+    color: $link-color;
+    text-decoration: none;
+    @include transition;
 
-	@include media($small) {
-		font-size: em(20);
-	}
-
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        color: $link-hover-color;
+    }
 }
 
-h6, .zeta {
-	font-size: em(14);
-	margin: $base-spacing 0 $sm-spacing;
+img {
+    display: block;
+    max-width: 100%;
 
-	@include media($small) {
-		font-size: em(16);
-	}
-
+    a & {
+        border: none;
+    }
 }
 
-.header-border {
-    border-bottom: $base-border;
-    padding-bottom: $sm-spacing;
-    margin-bottom: $base-spacing;
+caption { }
+
+
+code {
+    font: 12px/1 'Courier New', Courier, monospace;
+}
+
+sub, sup {
+    line-height: 0;
 }
 
 // Lists
 ol, ul {
-    font-size: em(16);
-    margin: $base-spacing 0 $base-spacing $base-spacing;
+    margin: $sm-spacing;
 
     li {
-        color: $base-color;
-        line-height: 1.25;
-        margin-bottom: $sm-spacing;
+        line-height: 1.357142857;
+        margin: $sm-spacing $sm-spacing $sm-spacing auto;
     }
 
 }
@@ -124,127 +85,26 @@ ul {
 
 }
 
-ul.bullets-open {
-
-    li {
-        list-style: circle;
-        margin-left: 40px;
-    }
-
-}
-
-.list-unstyled {
+.list-reset {
     margin: 0;
 
-	li {
-		list-style-type: none;
-        line-height: 1;
+    li {
+        list-style-type: none;
         margin: 0;
-	}
-
+    }
 }
 
 blockquote {
-	@extend p;
-	@include border-left(4px solid $border-color);
+	@include border-left(4px solid $color-light-gamma);
 	@include padding-left($sm-spacing);
 	font-style: italic;
     margin: $base-spacing 0;
 }
 
-
-// CTA
-h1.inline {
-    @include float(left);
-    width: 100%;
-
-    @include media($medium) {
-        width: auto;
-    }
-
-    ~ .cta {
-        @include margin-left(10px);
-
-        @include media($medium) {
-            @include float(left);
-            @include clear(right);
-            margin-top: 39px;
-            @include margin-left(10px);
-            padding: 0 $tiny-spacing;
-        }
-
-        + p {
-            @include direction;
-            clear: both;
-            padding-top: 10px;
-        }
-
-    }
-
-    + p {
-        @include direction;
-        clear: both;
-        padding-top: 10px;
-    }
-
+table {
+    border-collapse: collapse;
 }
 
-.cta {
-   text-decoration: underline;
-   font-size: em(14);
-   margin-bottom: $tiny-spacing;
+th { }
 
-    &.hidden-content-trigger, &.toggle-content-trigger {
-        @include icon($before, plus) {
-            @include lrswap(padding, 0 5px 0 1px);
-        }
-
-        text-decoration: none;
-    }
-
-    &.open {
-        @include icon($before, minus) {
-            @include lrswap(padding, 0 5px 0 1px);
-        }
-
-    }
-
-    &.edit {
-        @include icon($before, pencil) {
-            @include lrswap(padding, 0 5px 0 1px);
-            text-decoration: none;
-        }
-
-    }
-
-    &.settings {
-        @include icon($before, settings) {
-            @include lrswap(padding, 0 5px 0 1px);
-            text-decoration: none;
-        }
-
-    }
-
-    &.plus {
-        @include icon($before, plus) {
-            @include lrswap(padding, 0 5px 0 1px);
-            text-decoration: none;
-        }
-        display: block;
-        margin-bottom: $sm-spacing;
-
-        @include media($small) {
-            display: inline;
-        }
-
-    }
-
-    &.notify {
-        @include icon($before, bell) {
-            @include lrswap(padding, 0 5px 0 1px);
-            text-decoration: none;
-        }
-
-    }
-
-}
+td { }

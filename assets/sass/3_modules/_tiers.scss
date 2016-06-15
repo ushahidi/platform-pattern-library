@@ -1,9 +1,7 @@
 .tier {
-    @include clearfix;
     position: relative;
-    color: $dk-gray;
+    @include containerCard;
     text-align: center;
-    background-color: #EFECE8;
     margin: $base-spacing auto;
 
     @include media($small) {
@@ -12,11 +10,12 @@
     }
 
     .tier-header {
-        position: relative;
-        overflow: hidden;
-        border: $base-border;
-        background-color: $white;
-        padding: 0 $base-spacing 35px;
+        padding: $base-spacing $sm-spacing 35px;
+
+        @include media($small) {
+            padding-right: $base-spacing;
+            padding-left: $base-spacing;
+        }
 
         .tier-header-body {
             position: relative;
@@ -39,17 +38,6 @@
         .tier-header {
             background-color: $white;
         }
-    }
-
-    &.disabled {
-
-        .tier-action button,
-        .tier-action .button {
-            color: $dk-gray;
-            border: 2px solid #EFECE8;
-            background-color: $white;
-        }
-
     }
 
     .tier-summary {
@@ -129,7 +117,7 @@
 
     .tier-status {
         display: block;
-        color: $lt-black;
+        color: $mid-black;
         font-weight: $body-font-weight;
         font-size: em(30);
         margin: 30px 0;
@@ -159,44 +147,21 @@
 
     .tier-action {
         position: absolute;
-        z-index: 1;
         right: 0;
         left: 0;
+        z-index: $body;
         text-align: center;
         margin-top: -$base-spacing;
 
         button,
         .button {
-            color: $black;
-            background-color: $yellow;
-            margin: 0 auto;
 
-            &.disabled, &[disabled] {
-                color: $white;
-                background-color: $button-bg-disabled-color;
+            &[disabled],
+            &:disabled,
+            &.disabled {
+                opacity: 1;
+                color: $color-dark-delta;
             }
-
-            &:hover {
-                cursor: pointer;
-
-                &.disabled, &[disabled] {
-                    cursor: not-allowed;
-                }
-            }
-        }
-
-        .button-tertiary {
-            color: $white;
-            background-color: $dk-gray;
-        }
-
-        .btn {
-            display: inline-block;
-            border: 2px solid $blue;
-            @include equal-radius;
-            background-color: $white;
-            padding: 5px 10px;
-            margin: $sm-spacing 0;
         }
     }
 
@@ -206,46 +171,50 @@
 
             button,
             .button {
-                color: $dk-gray;
-                border: 2px solid $lt-gray;
-                background-color: #FBF9F6;
+                color: $color-dark-gamma;
+                background-color: $color-light-gamma;
             }
         }
     }
 
     .tier-feature-list {
-        background-color: #EFECE8;
-        padding-top: $base-spacing;
-        padding-bottom: $sm-spacing;
+        padding-top: $sm-spacing;
+
+        p {
+            margin: 0 $sm-spacing;
+        }
 
         ul, ol {
-            margin: 0;
-        }
+            @extend .list-reset;
 
-        li,
-        em {
-            display: block;
-            color: $lt-black;
-            font-size: em(14);
-            border-bottom: $base-border;
-            border-bottom-color: #E0E0E0;
-            padding: 15px;
-            margin-bottom: 0;
-        }
+            li {
+                display: block;
+                border-bottom: $base-border;
+                padding: $sm-spacing;
+                margin: 0 $sm-spacing;
 
-        li {
+                strong {
+                    color: $color-dark-alpha;
+                    font-weight: normal;
+                }
 
-            &:last-child {
-                border-bottom-color: transparent;
+                em {
+                    display: block;
+                    color: $color-dark-gamma;
+                    font-size: .857142857em;
+                    margin-top: 2px;
+                }
+
+                &:last-child {
+                    border-bottom-color: transparent;
+                }
             }
         }
     }
 
-    .cta {
-        font-weight: $bold;
-        font-size: em(12);
-        text-transform: uppercase;
-        text-decoration: none;
+    .tier-form {
+        text-align: left;
+        margin: 0 $sm-spacing;
     }
 }
 
@@ -256,21 +225,71 @@
         position: relative;
     }
 
+    @include media($medium) {
+        @include containerSheet;
+    }
+
     .tier {
         max-width: none;
-        margin: $base-spacing 0 $lg-spacing;
+        margin: $base-spacing $sm-spacing;
         @include transition(0.85s ease-in-out);
 
-        @include media($small) {
-            float: left;
-            width: 50%;
-            height: 530px;
-            margin: 0;
-        }
-
         @include media($medium) {
+            float: left;
             width: 25%;
-            height: 600px;
+            @include no-shadow;
+            background-color: transparent;
+            margin: 0;
+
+            &:before {
+                content: '';
+                position: absolute;
+                z-index: 1;
+                top: 0;
+                right: 0;
+                left: 0;
+                height: $tiny-spacing;
+                background-color: $color-secondary;
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                z-index: 3;
+                top: $lg-spacing;
+                right: 0;
+                bottom: $lg-spacing;
+                width: 1px;
+                background-color: $color-light-gamma;
+            }
+
+            &:nth-child(1) {
+
+                &:before {
+                    background-color: lighten( $color-secondary, 25% );
+                }
+            }
+
+            &:nth-child(2) {
+
+                &:before {
+                    background-color: lighten( $color-secondary, 15% );
+                }
+            }
+
+            &:nth-child(3) {
+
+                &:before {
+                    background-color: lighten( $color-secondary, 5% );
+                }
+            }
+
+            .tier-header {
+
+                p {
+                    height: 55px;
+                }
+            }
 
             .tier-feature-list {
                 padding-bottom: $base-spacing;
@@ -327,30 +346,11 @@
 
     .tier-view-all {
         clear: both;
-        margin: 0;
-        width: 100%;
-        font-weight: 600;
         text-align: center;
-        text-transform: uppercase;
-        border: $base-border;
-        border-top: 0px;
+        margin: $sm-spacing;
 
-        @include media($small) {
-            border-top: $base-border;
-        }
-
-        a {
-            display: block;
-            text-decoration: none;
-            padding: $base-spacing;
-            margin: -1px 0 0;
-            background-color: $white;
-
-            &:hover {
-                cursor: pointer;
-                background-color: $link-color;
-                color: $white;
-            }
+        @include media($medium) {
+            padding-top: $sm-spacing;
         }
     }
 
@@ -359,23 +359,20 @@
         position: relative;
         float: right;
         width: 100%;
-        color: $black;
-        text-align: left;
-        border: $base-border;
-        background-color: #FBF9F6;
-        padding: $sm-spacing $base-spacing;
+        @extend .card;
+        padding: $sm-spacing;
         margin-right: -125%;
         @include transition(0.8s ease-in-out);
 
         @include media($medium) {
             position: absolute;
-            z-index: 99;
             opacity: 1;
             top: 10px;
             right: -110%;
             bottom: 10px;
             left: 110%;
             width: 75%;
+            padding: $sm-spacing $base-spacing;
             @include transition(0.75s ease-in-out);
         }
     }

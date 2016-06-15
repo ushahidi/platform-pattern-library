@@ -7,61 +7,68 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="has-fixed-bottom">
+<body class="layout-c">
 
-   @@include('../partials/_header-full.html')
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
 
-   <div class="wrapper has-full-header">
+    <div class="mode-context">
 
-      @@include('../partials/_main-menu.html')
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ol>
 
-      <main class="page-content" role="main">
-         <div class="page-header">
-            <ul class="breadcrumb">
-               <li>
-                  Settings
-               </li>
-            </ul>
-            <h1>Import</h1>
-         </div>
+            <h1 class="mode-context-title">Import</h1>
+        </header>
 
-         <div class="main-col">
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
 
-            <form class="dk-bg">
-               <h2>CSV</h2>
-               <p><em>Import the data from a CSV spreadsheet into your deployment as posts belonging to a specific post type.</em></p>
-               <div class="divider padded"></div>
 
-               <div class="form-field">
-                  <label>Import to which post type?</label>
-                  <div class="custom-select">
-                     <select>
-                        <option>Accident Report</option>
-                        <option>Incident</option>
-                        <option>Hospital</option>
-                     </select>
-                  </div>
-               </div>
+    <main role="main">
 
-               <div class="form-field">
-                  <label>CSV file</label>
-                  <input type="file" />
-               </div>
+       <div class="main-col">
 
-               <div class="form-field">
-                  <button type="submit">Import CSV</button>
-               </div>
-            </form>
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h2 class="form-sheet-title">CSV</h2>
+                    <p>Import the data from a CSV spreadsheet into your deployment as posts belonging to a specific post type.</p>
+                </div>
 
-         </div><!--end main col-->
+                <div class="form-field select">
+                   <label>Import to which post type?</label>
+                   <div class="custom-select">
+                      <select>
+                         <option>Accident Report</option>
+                         <option>Incident</option>
+                         <option>Hospital</option>
+                      </select>
+                   </div>
+                </div>
 
-      </main> <!--end layout a-->
+                <div class="form-field">
+                   <label>CSV file</label>
+                   <input type="file" />
+                </div>
 
-   </div>
+                <div class="form-field">
+                   <button type="submit" class="button-alpha">Import CSV</button>
+                </div>
+            </div>
 
-   @@include('../partials/_footer.html')
+        </div>
 
-   @@include('../partials/_scripts.html')
+    </main>
+
+    @@include('../partials/_scripts.html')
 
 </body>
 

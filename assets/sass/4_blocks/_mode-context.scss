@@ -1,0 +1,337 @@
+.mode-context {
+    position: relative;
+    color: $white;
+    @extend .menu;
+    @include equal-radius(0);
+    background-color: $color-primary-alpha;
+    @include transition(all .25s);
+
+    .breadcrumbs {
+
+        li {
+
+            &:after {
+                background: $color-primary-alpha !important;
+            }
+        }
+    }
+
+    .mode-context-title {
+        color: $white;
+        font-size: 20px;
+        font-size: 1.428571429rem;
+        line-height: 1.3em;
+
+        @include media($medium) {
+            font-size: 26px;
+            font-size: 1.857142857rem;
+        }
+
+        svg.iconic {
+            width: .769230769em;
+            height: .769230769em;
+            fill: $color-tertiary;
+            margin-right: 4px;
+        }
+    }
+
+    .mode-context-header {
+        position: relative;
+        padding: 0 $sm-spacing;
+
+        @include media($medium) {
+            padding: 0 $base-spacing;
+        }
+
+        a {
+            color: $white;
+        }
+
+        .mode-context-title {
+            position: relative;
+            margin: $sm-spacing 0;
+
+            .post-band {
+                left: -$sm-spacing;
+            }
+
+            @include media($medium) {
+                padding: 0;
+            }
+        }
+
+        .deployment-logo {
+            position: absolute;
+            top: 0;
+            @include left($sm-spacing);
+            height: 34px;
+            width: 34px;
+            box-shadow: 0 1px 4px $color-primary-alpha,
+                0 0 0 1px $color-primary-alpha;
+            margin-top: -6px;
+
+            @include media($medium) {
+                position: relative;
+                top: 0;
+                @include left(0);
+                height: 100px;
+                width: 100px;
+                @include no-shadow;
+                margin: auto;
+            }
+        }
+
+        &.has-logo {
+
+            .mode-context-title {
+                @include padding-left(48px);
+
+                @include media($medium) {
+                    padding: 0;
+                }
+            }
+        }
+    }
+
+    .mode-context-trigger {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: $color-primary-alpha;
+        @include box-shadow($top: 0, $left: -1px, $blur: 4px, $spread: 0, $color: rgba(30,35,42,1), $inset: false);
+        padding: $sm-spacing+4 $sm-spacing;
+
+        svg.iconic {
+            fill: $color-tertiary;
+            @include transition(0.3s);
+        }
+
+        &.active {
+
+            svg.iconic {
+                @include transform(rotate(180deg));
+            }
+        }
+    }
+
+    .metadata {
+        margin-bottom: $sm-spacing;
+
+        a.metadata-author {
+            color: $color-secondary;
+
+            &:hover {
+                color: darken($color-secondary, 20%);
+            }
+        }
+
+        .metadata-visibility {
+
+            &.tooltip {
+
+                .bug {
+                    right: auto;
+                    left: 100%;
+                }
+            }
+        }
+    }
+
+    .breadcrumbs {
+        display: none;
+        margin: $sm-spacing 0;
+
+        @include media($medium) {
+            display: block;
+        }
+
+        a {
+            color: $color-tertiary;
+
+            &:hover {
+                color: $white;
+            }
+        }
+
+        li {
+
+            &:after {
+                background-color: $color-light-gamma;
+            }
+
+            &:first-child {
+
+            }
+        }
+    }
+
+    .tool {
+
+        a {
+            color: $color-secondary;
+        }
+    }
+
+    .mode-context-body {
+        padding: 0 $sm-spacing $base-spacing;
+
+        .form-field {
+            margin-top: $sm-spacing;
+
+            @include media($medium) {
+                text-align: center;
+            }
+
+            button,
+            .button {
+                margin: $tiny-spacing;
+            }
+
+            .dropdown-menu {
+                top: auto !important;
+                left: auto !important;
+                font-size: $base-font-size;
+                text-align: left;
+                margin-top: -$sm-spacing;
+            }
+        }
+
+        .button-link {
+            color: $color-secondary;
+            padding: 0;
+
+            svg.iconic {
+                fill: $color-secondary;
+            }
+        }
+
+        .bug {
+            text-align: left;
+            margin: 4px auto;
+        }
+
+        @include media($medium) {
+            padding: 0 $base-spacing $base-spacing;
+
+/*
+            button,
+            .button,
+            input[type="button"] {
+                position: relative;
+                text-align: left;
+
+                svg.iconic {
+                    position: absolute;
+                    top: 50%;
+                    left: $sm-spacing;
+                    margin-top: -6px;
+
+                    + .button-label {
+                        display: inline-block;
+                        padding-left: $base-spacing;
+                        margin-left: 0;
+                    }
+                }
+
+                .button-label {
+
+                    + svg.iconic {
+                        position: static;
+                        margin-top: 0;
+                        margin-left: 4px;
+                    }
+                }
+            }
+*/
+        }
+    }
+
+    &.init {
+        max-height: 55px;
+        overflow-y: hidden;
+
+        .mode-context-header {
+
+            .mode-context-title {
+                width: 100%;
+                overflow-x: hidden;
+                white-space: nowrap;
+                padding-right: $huge-spacing;
+
+                @include media($medium) {
+                    overflow: visible;
+                    padding-right: 0;
+                }
+            }
+        }
+
+        .mode-context-trigger {
+            display: inline-block;
+        }
+
+        .mode-context-body {
+            display: none;
+        }
+
+        &.active {
+            max-height: none;
+            overflow-y: scroll;
+
+            .mode-context-header {
+
+                .mode-context-title {
+                    width: auto;
+                    overflow-x: visible;
+                    white-space: normal;
+                }
+            }
+
+            .breadcrumbs,
+            .mode-context-body {
+                display: block;
+            }
+        }
+
+        @include media($medium) {
+            max-height: none;
+            overflow-y: auto;
+
+            .mode-context-header {
+                padding-top: 1px;
+
+                .mode-context-title {
+                    white-space: normal;
+                }
+            }
+
+            .mode-context-trigger {
+                display: none;
+            }
+
+            .mode-context-body {
+                display: block;
+            }
+        }
+    }
+
+    .survey-filter {
+        margin: $base-spacing auto;
+
+        @include media($medium) {
+            margin-right: -$base-spacing;
+            margin-left: -$base-spacing;
+        }
+    }
+
+    .tool {
+        margin: $huge-spacing auto 0 auto;
+
+        p {
+
+            a:hover {
+                border-bottom-color: $color-secondary;
+            }
+        }
+    }
+}

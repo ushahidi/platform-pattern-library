@@ -1,0 +1,20 @@
+@mixin iconic($position: before, $iconic-icon: false, $iconic-color: #000000, $iconic-size: 10px, $styles: true) {
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    // Either a :before or :after pseudo-element, or both, defaulting to :before
+    &:#{$position} {
+        @if $styles {
+            content: '';
+            display: inline-block;
+            width: $iconic-size;
+            height: $iconic-size;
+            background-color: $iconic-color;
+            -webkit-mask: url(../img/icons/#{$iconic-icon}.svg) right center/contain no-repeat;
+            mask: url(../img/icons/#{$iconic-icon}.svg) right center/contain no-repeat;
+            @include transition(content, .25s);
+        }
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}

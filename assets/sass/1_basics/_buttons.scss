@@ -1,0 +1,248 @@
+/*------------------------------------*\
+$BUTTONS
+\*------------------------------------*/
+
+button,
+.button,
+input[type="button"] {
+   display: inline-block;
+   outline: none;
+   @include direction;
+   color: $white;
+   font-weight: $bold;
+   font-size: 14px;
+   font-size: 1rem;
+   font-family: $base-font-family;
+   text-align: center;
+   text-transform: uppercase;
+   text-decoration: none;
+   line-height: 1.35;
+   letter-spacing: 1px;
+   border: 0px;
+   @include border-top-radius($global-radius);
+   @include border-bottom-radius($global-radius);
+   background-color: $color-primary-gamma;
+   box-shadow: 0 0 2px rgba(0,0,0,0.12),
+    0 2px 2px rgba(0,0,0,0.24);
+   @include lrswap(padding, $tiny-spacing $sm-spacing);
+   @include transition(0.3s);
+
+   &:hover {
+      cursor: pointer;
+      color: $white;
+      background-color: $color-primary-beta;
+      box-shadow: 0 0 2px rgba(0,0,0,0.12),
+       0 3px 5px rgba(0,0,0,0.24);
+   }
+
+   &:active {
+      color: $white;
+      background-color: $color-primary-alpha;
+      @include no-transition;
+      box-shadow: 0 0 2px rgba(0,0,0,0.12),
+       0 3px 5px rgba(0,0,0,0.24);
+   }
+
+   &:focus {
+       color: $white;
+   }
+
+   &.disabled, &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: $color-light-gamma;
+      box-shadow: none;
+   }
+
+   &.button-flat {
+       @include no-shadow;
+       font-weight: normal;
+
+       &:hover {
+           box-shadow: 0 0 2px rgba(0,0,0,0.12),
+            0 3px 5px rgba(0,0,0,0.24);
+       }
+   }
+
+   &[data-button-type="color"] {
+       border-top: 4px solid transparent;
+   }
+
+}
+
+.button-alpha {
+    color: $color-primary-beta;
+   background-color: $color-secondary;
+
+   &:hover,
+   &:active,
+   &:focus {
+      color: $color-primary-beta;
+      background-color: darken( $color-secondary, 10% );
+   }
+
+   &.disabled, &[disabled] {
+
+      &:hover {
+          background-color: $color-light-gamma;
+          box-shadow: none;
+      }
+   }
+
+   &.button-flat {
+
+   }
+
+}
+
+.button-beta {
+   color: $link-color;
+   background-color: $color-light-delta;
+
+   &:hover {
+       color: $link-hover-color;
+       background-color: darken( $color-light-delta, 10% );
+   }
+
+   &.disabled, &[disabled] {
+
+      &:hover {
+          background-color: $color-light-delta;
+          box-shadow: none;
+      }
+   }
+
+}
+
+.button-gamma {
+    color: $link-color;
+    background-color: $white;
+
+    &:hover, &:active {
+       color: $link-hover-color;
+       background-color: darken( $white, 10% );
+   }
+
+   &.disabled, &[disabled] {
+
+      &:hover {
+          background-color: $white;
+          box-shadow: none;
+      }
+   }
+
+   &.button-flat {
+       //background-color: transparent;
+
+       &:hover, &:active {
+           //background-color: transparent;
+       }
+   }
+}
+
+.button-beta,
+.button-gamma {
+
+    &:focus {
+        color: $black;
+    }
+
+}
+
+.button-plain {
+    font-weight: normal;
+    font-size: 1em;
+    text-transform: none;
+    letter-spacing: normal;
+
+    em {
+        font-style: normal;
+        font-weight: $bold;
+    }
+}
+
+.button-link {
+    color: $link-color;
+    font-weight: normal;
+    font-size: 1em;
+    letter-spacing: normal;
+    background-color: transparent;
+    @include no-shadow;
+
+    &:hover {
+        color: $link-hover-color;
+        background-color: transparent;
+        @include no-shadow;
+    }
+
+    &.disabled, &[disabled] {
+        background-color: transparent;
+
+       &:hover {
+           background-color: transparent;
+       }
+    }
+}
+
+// Floating action button
+.button-fab {
+    width: 54px;
+    height: 54px;
+    font-size: 18px;
+    @include equal-radius(100%);
+    box-shadow: 0 0 6px rgba(0,0,0,0.12),
+            0 6px 6px rgba(0,0,0,0.24);
+    padding: 0;
+
+    svg.iconic {
+        position: relative;
+        top: 2px;
+        @include transition(0.3s);
+    }
+
+    &.active {
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+            0 8px 18px rgba(0,0,0,0.24);
+    }
+}
+
+a.button-fab {
+    line-height: 54px;
+}
+
+/*
+.button-flat {
+    font-weight: normal;
+    box-shadow: none;
+    padding: 0;
+
+   &:hover, &:active {
+       box-shadow: none;
+   }
+}
+*/
+
+.button-destructive {
+   color: $white;
+   background-color: $red;
+
+   &:hover {
+      background-color: darken( $red, 10% );
+   }
+
+   &.disabled, &[disabled] {
+      cursor: default;
+      color: $dk-gray;
+      background-color: $white;
+
+      &:hover {
+         border: $base-border;
+      }
+
+      &:active {
+         border: $base-border;
+      }
+
+   }
+
+}

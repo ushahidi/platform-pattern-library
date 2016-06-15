@@ -1,118 +1,24 @@
 .layout-b {
 
-   .page-header {
+    [role="main"] {
+        padding-top: 55px;
 
-      @include media($small) {
-         margin-bottom: 0;
-      }
-   }
-
-   .main-col {
-
-      @include media($small) {
-         @include span-columns(8);
-      }
-   }
-
-   .secondary-col {
-
-      @include media($small) {
-         @include span-columns(4);
-      }
-   }
-}
-
-aside.is-right {
-
-    [class*="user-credit"] {
-        padding: $sm-spacing 0;
-        width: 60%;
-        @include float(left);
-        margin-right: $base-spacing;
-
-        @include media($small) {
-            padding: $sm-spacing 0 $base-spacing;
-            width: 100%;
-            float: none;
-            border-bottom: $base-border;
-            margin-right: auto;
+        @include media($medium) {
+            padding-top: 68px;
         }
 
-    }
+        .listing {
 
-    .actions-toggle {
+            &.toolbar-active {
 
-        .actions-toggle-trigger {
-            float: right;
-            padding: $sm-spacing 0;
-        }
-    }
+                .listing-toolbar {
+                    top: 55px;
 
-    .step {
-
-        @include media($small) {
-            border-top: $base-border;
-            margin-top: $base-spacing;
-        }
-
-        p {
-            display: inline;
-
-            @include media($small) {
-                display: block;
+                    @include media($medium) {
+                        top: 68px;
+                    }
+                }
             }
-
         }
-
     }
-
-    .step-list-content {
-        width: 100%;
-        border-top: $base-border;
-        padding: $base-spacing 0;
-
-        @include media($small) {
-            border-top: 0;
-            padding: 0;
-        }
-
-    }
-
-    .published-to {
-        @include float(left);
-
-        @include media($small) {
-            padding-bottom: $base-spacing;
-            border-bottom: $base-border;
-            float: none;
-        }
-
-        h4 {
-            @include float(left);
-            @include lrswap(margin, $sm-spacing $sm-spacing 0 0);
-
-            @include media($small) {
-                float: none;
-                margin: $base-spacing 0 $sm-spacing;
-            }
-
-        }
-
-        .custom-select {
-            margin-bottom: 0;
-        }
-
-    }
-
-    .save-buttons {
-
-        @include media($small) {
-            border-top: $base-border;
-            padding-top: $base-spacing;
-            @include margin-right(10px);
-            clear: both;
-        }
-
-    }
-
 }

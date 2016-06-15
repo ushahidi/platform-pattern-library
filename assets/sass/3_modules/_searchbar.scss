@@ -1,0 +1,285 @@
+.searchbar {
+    @include clearfix;
+    position: relative;
+
+    .searchbar-input {
+
+        .form-field {
+            margin: 0;
+        }
+
+        input[type="search"] {
+            max-width: none;
+            height: 36px;
+            margin: 0;
+        }
+
+        .dropdown-menu {
+            display: none;
+
+            &.active {
+                display: block;
+            }
+        }
+
+        + .searchbar-options {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+
+            .button {
+
+                &:first-of-type {
+                    @include equal-radius(0px);
+                }
+
+                &:last-of-type {
+                    @include radius($top-left: 0px, $top-right: 2px, $bottom-right: 2px, $bottom-left: 0px);
+                }
+            }
+        }
+    }
+
+    .searchbar-results {
+
+        .tool {
+
+            .tool-heading {
+                color: $color-dark-delta;
+                margin: 0 $sm-spacing;
+
+                svg.iconic {
+                    fill: $color-dark-delta;
+                }
+            }
+        }
+
+        .loading {
+            width: 100px;
+        }
+
+        dl {
+
+            dt.list-item {
+
+                em {
+                    color: $color-dark-alpha;
+                    font-style: normal;
+                    font-weight: $bold;
+                }
+            }
+        }
+    }
+
+    .searchbar-options {
+
+        .button {
+            float: left;
+            height: 36px;
+            font-weight: normal;
+            text-transform: none;
+            letter-spacing: 0px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            &.active {
+                color: $color-primary-alpha;
+                background-color: $color-light-delta;
+
+                svg.iconic {
+                    fill: $color-primary-alpha;
+                }
+            }
+
+            &.searchbar-options-filter {
+
+                .button-label {
+                    display: inline-block;
+
+                    @include media($small) {
+                        margin-left: 0;
+                    }
+
+                    + svg.iconic {
+                        display: none;
+
+                        @include media($small) {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+
+        .custom-fieldset {
+
+            .dropdown-menu {
+
+                .form-field {
+
+                    input[type="text"],
+                    input[type="email"],
+                    input[type="url"],
+                    input[type="password"],
+                    input[type="search"],
+                    input[type="date"],
+                    input[type="datetime"] {
+
+                        @include media($medium) {
+                            margin-top: 0;
+                        }
+                    }
+
+                    &.date {
+
+                        svg.iconic {
+                            top: 10px;
+                        }
+
+                        .date-joiner {
+
+                            @include media($medium) {
+                                position: static;
+                                margin-top: $tiny-spacing;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.init {
+
+                legend {
+                    color: $white;
+                    background-color: $color-primary;
+
+                    svg.iconic {
+                        fill: $color-tertiary;
+                    }
+
+                    &.active {
+                        color: $color-primary-alpha;
+                        background-color: $color-light-delta;
+
+                        svg.iconic {
+                            fill: $color-primary-alpha;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .dropdown-menu {
+        top: 100% !important;
+        right: 0 !important;
+        left: 0 !important;
+
+        fieldset {
+            margin-bottom: $base-spacing;
+
+            @include media($medium) {
+                border-bottom: 1px solid $color-light-gamma;
+                padding-top: 0;
+                padding-left: 25%;
+                margin-top: $base-spacing !important;
+                margin-bottom: $base-spacing !important;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+
+            legend {
+
+                @include media($medium) {
+                    width: 23%;
+                    padding-right: 2%;
+                }
+            }
+
+            .form-field {
+
+                @include media($medium) {
+                    float: left;
+                    width: 48%;
+                    padding-right: 1%;
+                    margin-bottom: $sm-spacing !important;
+                }
+            }
+
+            .form-field-toggle {
+                font-size: 12px;
+                font-size: .857142857rem;
+                margin-left: 3px;
+
+                @include media($medium) {
+                    position: absolute;
+                    top: -$tiny-spacing;
+                    right: 0;
+                    width: 8px;
+                    height: 8px;
+                    overflow: hidden;
+
+                    svg.iconic {
+                        fill: $color-light-alpha;
+                        margin-right: 0;
+                    }
+/*
+                    @include iconic(before, chevron-bottom, $color-light-alpha, 8px) {
+                        margin-right: 0;
+                    }*/
+                }
+            }
+        }
+
+        .form-field {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="url"],
+            input[type="password"],
+            input[type="search"],
+            input[type="date"],
+            input[type="datetime"] {
+                font-size: 12px;
+                font-size: .857142857rem;
+            }
+
+            &.checkbox,
+            &.radio {
+
+                label {
+                    font-size: 12px;
+                    font-size: .857142857rem;
+                }
+            }
+
+            &.date {
+
+                .date-joiner {
+                    margin-bottom: 0;
+
+                    @include media($medium) {
+                        position: absolute;
+                        z-index: $body;
+                        top: 50%;
+                        right: -12px;
+                        margin-top: -10px;
+                        margin-left: 0;
+                    }
+                }
+            }
+        }
+
+        .input-with-icon {
+
+            svg.iconic {
+                top: 11px;
+                @include left(13px);
+            }
+        }
+    }
+
+}

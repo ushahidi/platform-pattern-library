@@ -1,0 +1,66 @@
+.toolbox {
+    @extend .sheet;
+    padding: $sm-spacing;
+
+    @include media($small) {
+        top: 146px;
+    }
+
+    @include media($medium) {
+        top: 85px;
+    }
+
+    .tool {
+
+        margin-bottom: $base-spacing;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        .tool-heading {
+            color: $color-dark-delta;
+        }
+
+        [data-toggle] {
+            padding-top: 6px;
+
+            svg.iconic {
+                fill: $color-dark-delta;
+            }
+        }
+
+        .form-field {
+
+            input[type="text"],
+            input[type="email"],
+            input[type="url"],
+            input[type="password"],
+            input[type="search"],
+            input[type="date"],
+            input[type="datetime"] {
+                font-size: 12px;
+                font-size: .857142857rem;
+            }
+
+            &.checkbox,
+            &.radio {
+
+                label {
+                    font-size: 12px;
+                    font-size: .857142857rem;
+                }
+            }
+
+            .input-with-icon {
+
+                svg.iconic {
+                    top: 11px;
+                    @include left(13px);
+                }
+            }
+        }
+
+    }
+
+}

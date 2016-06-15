@@ -1,114 +1,91 @@
 .progress {
-   border: $base-border;
-   @include border-top-radius($global-radius);
-   @include border-bottom-radius($global-radius);
-   overflow: auto;
-   display: inline-block;
-   background: $border-color;
-   font-size: em(14);
+    @extend .sheet;
+    @extend .list-reset;
+    @include clearfix;
    font-weight: $bold;
+   font-size: .857142857em;
    text-transform: uppercase;
    letter-spacing: 1px;
-   width: 100%;
-   margin: $sm-spacing 0;
 
-   @include media($small) {
-      width: auto;
-      margin: 0 0 $base-spacing;
+   @include media($medium) {
+
    }
 
    li {
       position: relative;
-      background: $white;
       padding: $sm-spacing;
-      margin: 0;
 
       @include media($small) {
-         @include float(left);
+          display: inline-block;
          padding: $sm-spacing $base-spacing;
-      } //end of small mq
+      }
 
-      @include media(1190px) {
-         @include float(left);
-         height: 44px;
-         @include lrswap(padding, 15px $base-spacing);
-         @include margin-right(26px);
+      @include media($medium) {
+          float: left;
+          padding-right: $huge-spacing;
 
-         &:before {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            position: absolute;
-            top: 0;
-            @include left(-25px);
-            border: 22px solid transparent;
-            border-color: $white;
-            @include border-left(14px solid transparent);
-         }
+          &:before {
+              content: '';
+              position: absolute;
+              top: 50%;
+              right: $tiny-spacing;
+              width: 20px;
+              height: 20px;
+              @include equal-radius(100%);
+              z-index: 0;
+              margin-top: -10px;
+          }
 
-         &:after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            position: absolute;
-            top: 0;
-            @include right(-36px);
-            border: 22px solid transparent;
-            @include border-left(14px solid $white);
-         }
+          &:first-child,
+          &:last-child {
 
-         &:first-of-type {
-            @include padding-right(30px);
+              &:before {
+                  content: none;
+              }
+          }
 
-            &:before {
-               display: none;
-            }
+          &:last-child {
 
-         }
-
-         &:last-of-type {
-            @include margin-right(0px);
-            @include padding-right(30px);
-
-            &:after {
-               border: none;
-            }
-
-         }
-      } //end of medium mq
+              &:after {
+                  content: none;
+              }
+          }
+      }
 
       &.active {
-         color: $black;
-         background: $border-color;
+         color: $color-dark-alpha;
+         border: 1px solid $border-color;
+         border-left: 4px solid $color-secondary;
+         background-color: $white;
+         padding-right: $base-spacing;
 
-         &:after {
-            border-color:  $border-color;
+         @include media($medium) {
+             border-left: 1px solid $border-color;
+             border-bottom: 2px solid $color-secondary;
+
+             &:before {
+                 right: 0;
+                 z-index: 1;
+                 border: 1px solid $border-color;
+                 border-left-color: transparent;
+                 background-color: $white;
+                 margin-right: -10px;
+             }
+
+             &:after {
+                 right: 0;
+                 z-index: 1;
+                 border: 1px solid $border-color;
+                 background-color: $color-dark-alpha;
+                 box-shadow: 0 0 2px rgba(0,0,0,0.12),
+                     0 2px 2px rgba(0,0,0,0.24);
+                margin-right: -6px;
+             }
          }
-
-         &:before {
-            border-color: $progress-active-color;
-            z-index: $below;
-         }
-
-         &:hover {
-            background: $border-color;
-         }
-
       }
 
       &.disabled {
-         color: $dk-gray;
-      }
-
-      .complete {
-
-         @include icon($after, check) {
-            color: $confirmation-color;
-            @include padding-left(5px);
-            font-size: em(16);
-         }
+         color: $color-light-beta;
       }
 
    }
@@ -146,17 +123,6 @@
       &.disabled {
          color: $dk-gray;
          cursor: default;
-      }
-
-      &.add-new {
-
-         span {
-            @include icon($before, plus) {
-               @include lrswap(padding, 0 5px 0 1px);
-               font-size: em(16);
-            }
-         }
-
       }
 
       @include media($small) {
@@ -221,31 +187,6 @@
 
       } //end of medium mq
 
-      span {
-
-         &.completed {
-
-            @include icon($after, check) {
-               color: $confirmation-color;
-               @include padding-left(5px);
-               font-size: em(16);
-            }
-
-         }
-
-      }
-
    }
 
-}
-
-.progress + .button-save {
-   @include media($small) {
-      @include float(right);
-      margin: $tiny-spacing 0 0;
-   }
-}
-
-ol.progress {
-   list-style-type: none;
 }

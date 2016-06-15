@@ -7,114 +7,233 @@
 
 @@include('../partials/_pl-head.html')
 
-<body class="has-fixed-bottom has-dynamic-header">
+<body class="layout-a">
 
-   @@include('../partials/_header-full.html')
+    @@include('../partials/_mode-bar.html')
 
-   <div class="wrapper">
+    <div class="mode-context">
 
-      @@include('../partials/_main-menu.html')
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+            </ol>
 
-      <main class="page-content layout-c" role="main">
+            <h1 class="mode-context-title">Police encounters</h1>
+        </header>
 
-         <div class="page-header">
-            <!-- IF: There are more than one post types available to this user -->
-            <ul class="breadcrumb">
-               <li>Add Post</li>
-            </ul>
-            <!-- END IF -->
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
 
-            <div class="page-header-body">
-               <h1 class="page-title"><span class="icon-left fa-plus">Add Incident</span></h1>
+        <div class="mode-context-body">
+            <p>Curabitur consectetur sem nec sem rutrum, ac mollis diam convallis.</p>
+        </div>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha" onclick="messageToggle($('#required'))">Submit</button>
             </div>
+        </div>
 
-            <div class="page-header-actions">
-               <button disabled>Save Post</button>
-            </div>
-         </div>
+       <div class="main-col">
 
-         <div class="page-header">
-            <div class="form-field title">
-               <label>Title</label>
-               <input type="text" value="Rescue needed near New Summit College Baneshwor" />
-            </div>
-
-            <div class="form-field">
-               <p class="alert"><strong class="icon-left fa-user">Your post will need to be moderated</strong> before it’s visible to the public</p>
-            </div>
-         </div>
-
-         <div class="vertical-tabs">
-            <div class="vertical-tabs-content">
-               <div class="form-field">
-                  <label>Description</label>
-                  <textarea></textarea>
-               </div>
-
-               <div class="form-field">
-                  <label>Location</label>
-                  <div id="map" class="map">
-                     <input type="text" placeholder="2400 S. Congress">
-                  </div>
-               </div>
-
-               <div class="form-field">
-                  <label>Short Text</label>
-                  <input type="text">
-               </div>
-
-               <div class="form-field">
-                  <label>Long Text</label>
-                  <textarea placeholder=""></textarea>
-               </div>
-
-               <div class="form-field">
-                  <fieldset>
-                     <legend>Radio Buttons</legend>
-                     <div class="form-field radio">
-                        <input type="radio" id="option1">
-                        <label for="option1">Option 1</label>
-                     </div>
-                     <div class="form-field radio">
-                        <input type="radio" id="option2">
-                        <label for="option2">Option 2</label>
-                     </div>
-                     <div class="form-field radio">
-                        <input type="radio" id="option3">
-                        <label for="option3">Option 3</label>
-                     </div>
-                  </fieldset>
-               </div>
-
-               <div class="form-field">
-                  <label>Related Post</label>
-                  <div class="custom-select">
-                     <select>
-                        <option>St. David's Medical Center</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                     </select>
-                  </div>
-               </div>
-
-               <div class="step-actions">
-                    <button type="button" class="button-secondary">Rename</button>
-                    <button type="button" class="button-destructive">Delete</button></button>
+            <div class="form-sheet">
+                <div class="form-field form-field-adapt title">
+                    <div class="post-band" style="background-color: #E69327;"></div>
+                    <label>Title</label>
+                    <input type="text" value="">
                 </div>
-            </div>
-         </div> <!--end vertical tabs-->
 
-         <div class="page-footer">
-            <button disabled>Save Post</button>
-         </div>
+                <!-- IF: Adding a new post w/o permission to manage who it's visible to -->
+                <div class="form-field">
+                    <strong>This post will need to be moderated</strong> before it's visible to the public.
+                </div>
+                <!-- ELSE IF: User has permission to manage who it's visible to
+                <fieldset class="custom-fieldset">
+                    <legend><span class="custom-fieldset-value">Who</span> can see this</legend>
 
-      </main> <!--end layout c-->
+                    <div class="form-field radio">
+                        <input type="radio" name="special" id="special1" value="you" checked />
+                        <label for="special1">Only you</label>
+                    </div>
 
-   </div>
+                    <div class="form-field radio">
+                        <input type="radio" name="special" id="special2" value="everyone" />
+                        <label for="special2">Everyone</label>
+                    </div>
 
-   @@include('../partials/_footer.html')
+                    <div class="form-field radio">
+                        <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
+                        <label for="special3">Specific roles...</label>
 
-   @@include('../partials/_scripts.html')
+                        <div class="form-fieldgroup" data-fieldgroup-target="roles">
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection1" />
+                                <label for="collection1">Members</label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection2" />
+                                <label for="collection2">Editors</label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection3" />
+                                <label for="collection3">Operators</label>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="collection4" />
+                                <label for="collection4">Administrators</label>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                END: IF -->
+
+               <!-- IF: User has permission to see other 'Tasks' //
+               <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
+                   <ul>
+                       <li>
+                           <a href="#tasks-post">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                               </svg>
+                               Post
+                           </a>
+                       </li>
+                       <li>
+                           <a href="#tasks-verify">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
+                               </svg>
+                               Verify
+                           </a>
+                       </li>
+                       <li>
+                           <a href="#tasks-translate">
+                               <svg class="iconic">
+                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#transfer"></use>
+                               </svg>
+                               Translate
+                           </a>
+                       </li>
+                   </ul>
+               </nav>
+               // END IF -->
+
+               <div id="tasks-post" class="tabs-tasks">
+                   <div class="form-field form-field-adapt">
+                       <label>
+                           Description
+                       </label>
+                       <textarea name="description" data-min-rows='1' rows='1'></textarea>
+                   </div>
+
+                   <div class="form-field">
+                       <label>Photo</label>
+                       <input type="file" />
+                   </div>
+
+                   <fieldset id="categories">
+                       <legend>Categories</legend>
+
+                       <div class="form-field checkbox">
+                           <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                       </div>
+                       <div class="form-field checkbox">
+                           <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                       </div>
+                       <div class="form-field checkbox">
+                           <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                       </div>
+                   </fieldset>
+
+                   <div class="form-field">
+                       <label>Time &amp; date of encounter</label>
+                       <input type="datetime" />
+                   </div>
+
+                   <div class="form-field location">
+                       <label>Location</label>
+                       <div id="map" class="map"></div>
+
+                       <div class="form-field">
+                           <input type="text" placeholder="lat,lng" />
+                           <button>Search</button>
+                       </div>
+
+                       <button class="button-flat">
+                           <svg class="iconic">
+                               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#location"></use>
+                           </svg>
+                           <span class="button-label">Use your current location</span>
+                       </button>
+                   </div>
+               </div>
+
+               <!-- IF: User has permission to see other 'Tasks'
+               <div id="tasks-verify" class="tabs-tasks">
+                   <div class="form-field switch">
+                       <label>Verified</label>
+                       <div class="toggle-switch">
+                           <input class="tgl" id="switch1" type="checkbox" checked>
+                           <label class="tgl-btn" for="switch1"></label>
+                       </div>
+                   </div>
+
+                   <div class="form-field form-field-adapt">
+                       <label>
+                           Notes
+                       </label>
+                       <textarea name="description" data-min-rows='1' rows='1'></textarea>
+                   </div>
+               </div>
+
+               <div id="tasks-translate" class="tabs-tasks">
+                   <div class="form-field switch">
+                       <label>Translation completed</label>
+                       <div class="toggle-switch">
+                           <input class="tgl" id="switchT" type="checkbox">
+                           <label class="tgl-btn" for="switchT"></label>
+                       </div>
+                   </div>
+               </div>
+               // END IF -->
+
+           </div>
+
+        </div> <!-- END main column -->
+
+    </main> <!-- END main container -->
+
+    <div id="required" class="message">
+        <div class="message-image error">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#warning"></use>
+            </svg>
+        </div>
+
+        <div class="message-body">
+            <p><strong>Please select at least one category</strong> before submitting this survey.</p>
+
+            <a href="#categories" class="button button-beta button-flat message-trigger">Edit categories</a>
+
+            <button class="button-flat message-trigger">
+                Dismiss
+            </button>
+        </div>
+    </div>
+
+    @@include('../partials/_scripts.html')
 </body>
 
 </html>

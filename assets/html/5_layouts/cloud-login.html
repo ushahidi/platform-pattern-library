@@ -3,50 +3,59 @@
 <!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html lang="en"> <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
     <title>The Ushahidi Platform Pattern Library</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
     <link rel="shortcut icon" type="image/ico" href="../../favicon.ico" />
 
     <!--<link href='http://fonts.googleapis.com/css?family=Lato:400,900,400italic,900italic' rel='stylesheet' type='text/css'>-->
     <link href='../../fonts/Lato/css/fonts.css' rel='stylesheet' type='text/css'>
-<link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
+    <link id="stylesheet" href="../../css/style.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 </head>
 
 
-<div class="modal">
-    <div class="modal-window ushahidi-logo">
-        <!--<a href="" class="close modal-trigger"></a>-->
-        <h3>Log In To a Deployment</h3>
-        <div class="divider padded"></div>
-        <label class="input-label" for="deployment-name">Deployment URL</label>
-        <p class="small">All lowercase, no spaces</p>
-        <input type="text" placeholder="deployment-url" id="deployment-name">
-        <div class="divider white"></div>
-        <div class="modal-submit">
-            <a class="button button-primary" href="cloud-login-specific.html">Next</a>
+<body class="layout-e">
+
+    <div id="login" class="modal">
+        <div class="modal-window">
+           <h3 class="modal-title">
+               Log into a deployment
+           </h3>
+
+           <div class="modal-body">
+               <div class="form-field url">
+                   <label>Deployment URL</label>
+                   <p>All lowercase, no spaces</p>
+                   <input type="url" placeholder="deployment-url" />
+                   <em class="domain">.ushahidi.io</em>
+               </div>
+
+               <div class="form-field">
+                   <button type="button" class="button-link modal-trigger">Cancel</button>
+                   <button type="button" class="button-alpha modal-trigger">Go to deployment</button>
+               </div>
+           </div>
         </div>
-    </div>
-</div>
 
-<body class="solid">
+        <div class="modal-overlay"></div>
+     </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
 <script src="../../js/app.js"></script>
 
 
-<script>
-// Treat window as dialog, open on page load
-modalInit(true, true);
-</script>
+    <script>
+    modalToggle('#login');
+    </script>
 
 </body>
 

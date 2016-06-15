@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+@@include('../partials/_pl-head.html')
+
+<body class="layout-c layout-embed">
+
+    <div class="mode-context">
+
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+            </ol>
+
+            <h1 class="mode-context-title">Police encounters</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+
+        <div class="mode-context-body">
+            <p>Curabitur consectetur sem nec sem rutrum, ac mollis diam convallis.</p>
+            <button class="button-flat">
+                <svg class="iconic">
+                    <use xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                </svg>
+                <span class="button-label">Add to survey</span>
+            </button>
+        </div>
+    </div>
+
+    <main role="main">
+
+       <div class="main-col">
+
+            <article class="postcard" role="article">
+
+                <div class="postcard-body">
+                    <h1 class="postcard-title">
+                        <div class="post-band" style="background-color: #E69327;"></div>
+                        Overcrowding between 5th St. &amp; Salem Ave.
+                    </h1>
+
+                    <div class="metadata">
+                        <a href="" class="metadata-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</a>, 45 mins, via SMS
+                        <span class="metadata-visibility tooltip">
+                            <svg class="iconic">
+                              <use xlink:href="/assets/img/iconic-sprite.svg#lock-locked"></use>
+                            </svg>
+                            <span class="bug">This post is only visible to Editors</span>
+                        </span>
+                    </div>
+
+                   <!-- IF: User has permission to see other 'Tasks' -->
+                   <nav class="tabs-menu" data-tabs="tasks-tabs" data-tabs-hash>
+                       <ul>
+                           <li class="active">
+                               <a href="#tasks-post">
+                                   <svg class="iconic">
+                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#file"></use>
+                                   </svg>
+                                   Post
+                               </a>
+                           </li>
+                           <li>
+                               <a href="#tasks-verification">
+                                   <svg class="iconic">
+                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
+                                   </svg>
+                                   Verify
+                               </a>
+                           </li>
+                           <li>
+                               <a href="#tasks-translation">
+                                   <svg class="iconic">
+                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#transfer"></use>
+                                   </svg>
+                                   Translate
+                               </a>
+                           </li>
+                       </ul>
+                   </nav>
+                   <!--// END IF -->
+
+                   <div id="tasks-post" class="tasks-tabs">
+
+                        <div class="postcard-field">
+                            <img src="http://lorempixel.com/400/300/" class="postcard-image" />
+                        </div>
+
+                        <div class="postcard-field">
+                            <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</p>
+                            <p>Nam eget urna in nulla tincidunt laoreet. Nulla facilisi. Mauris consequat sem augue, venenatis faucibus erat placerat et. </p>
+                        </div>
+
+                        <div class="postcard-field">
+                            <h2 class="form-label">Category</h2>
+                            <p>Harrassment</p>
+                        </div>
+
+                        <div class="postcard-field">
+                            <h2 class="form-label">Time &amp; date of encounter</h2>
+                            <p>2016-03-04 12:04:00</p>
+                        </div>
+
+                        <div class="postcard-field">
+                            <h2 class="form-label">Location</h2>
+                            <p>1234 Main St. Austin, TX USA</p>
+                            <div id="map" class="map"></div>
+                        </div>
+                    </div>
+
+                    <div id="tasks-verification" class="tasks-tabs">
+
+                        <div class="postcard-field">
+                            <h2 class="form-label">Verified</h2>
+                            <p>Yes</p>
+                        </div>
+
+                         <div class="postcard-field">
+                             <h2 class="form-label">Notes</h2>
+                             <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</p>
+                             <p>Nam eget urna in nulla tincidunt laoreet. Nulla facilisi. Mauris consequat sem augue, venenatis faucibus erat placerat et. </p>
+                         </div>
+
+                    </div>
+
+                    <div id="tasks-translation" class="tasks-tabs">
+
+                        <div class="postcard-field">
+                            <h2 class="form-label">Translation completed</h2>
+                            <p>Yes</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <span class="postcard-actions-trigger" data-toggle="dropdown-menu">
+                    <svg class="iconic">
+                      <use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                </span>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="post-edit.html">
+                        <svg class="iconic">
+                            <use xlink:href="/assets/img/iconic-sprite.svg#pencil"></use>
+                        </svg>
+                        <span class="label">Edit</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-modal="add-to-collection">
+                        <svg class="iconic">
+                            <use xlink:href="/assets/img/iconic-sprite.svg#grid-three-up"></use>
+                        </svg>
+                        <span class="label">Add to Collection</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-modal="share">
+                        <svg class="iconic">
+                            <use xlink:href="/assets/img/iconic-sprite.svg#share"></use>
+                        </svg>
+                        <span class="label">Share</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                        <svg class="iconic">
+                            <use xlink:href="/assets/img/iconic-sprite.svg#task"></use>
+                        </svg>
+                        <span class="label">Assign to...</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                        <svg class="iconic">
+                            <use xlink:href="/assets/img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="label">Delete</span>
+                        </a>
+                    </li>
+                </ul>
+
+           </article>
+
+           <div class="listing card">
+                <h3 class="listing-heading">Comments</h3>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Mary Swanson</a></h2>
+                        <p class="listing-item-secondary">45 mins</p>
+
+                        <p>Cras tempus sodales molestie. Ut a ante mollis, dictum nulla quis, accumsan arcu. Donec et lacus libero. Phasellus a ultricies lorem. Ut gravida, nibh a tincidunt auctor, turpis odio tincidunt nisl, laoreet aliquet dui erat ut lorem. Donec eleifend eleifend nisl, vel maximus ipsum vestibulum in.</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="avatar" src="http://placehold.it/100x100" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title"><a href="">Mary Swanson</a></h2>
+                        <p class="listing-item-secondary">45 mins</p>
+
+                        <p>Cras tempus sodales molestie. Ut a ante mollis, dictum nulla quis, accumsan arcu. Donec et lacus libero. Phasellus a ultricies lorem. Ut gravida, nibh a tincidunt auctor, turpis odio tincidunt nisl, laoreet aliquet dui erat ut lorem. Donec eleifend eleifend nisl, vel maximus ipsum vestibulum in.</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            <a href="" class="button button-beta button-flat">Load more comments</a>
+                        </h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            <a href="" class="button button-flat" data-modal="add-comment">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#plus"></use>
+                                </svg>
+                               Add comment
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="add-comment" class="modal">
+       <div class="modal-window">
+           <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+               <svg class="iconic">
+                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#x"></use>
+               </svg>
+              <span class="hidden">Close</span>
+           </button>
+
+          <h3 class="modal-title">Add comment</h3>
+
+          <div class="form-field">
+             <label class="hidden">Comment</label>
+             <textarea placeholder="Write something..."></textarea>
+          </div>
+
+          <div class="form-field">
+             <button type="button" class="button-alpha modal-trigger">Save</button>
+          </div>
+       </div>
+
+       <div class="modal-overlay"></div>
+    </div>
+
+    <div id="submitted" class="message">
+        <div class="message-image confirmation">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#thumb-up"></use>
+            </svg>
+        </div>
+
+        <div class="message-body">
+            <p><strong>Your Police encounters post was saved successfully</strong>. It's only visible to you and the deployment's moderators at the moment.</p>
+            <p>Your post will need to be moderated before it's visible to the public.</p>
+
+            <button class="button-beta button-flat">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#pencil"></use>
+                </svg>
+                <span class="button-label">Edit post</span>
+            </button>
+
+            <button class="button-flat message-trigger">
+                Dismiss
+            </button>
+        </div>
+    </div>
+
+    @@include('../partials/_modals-global.html')
+
+    @@include('../partials/_scripts.html')
+</body>
+
+</html>
