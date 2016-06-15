@@ -43,7 +43,7 @@ $('.custom-fieldset').each(function(){
 
     // Build structure around fields
     fieldsetFields.wrapAll('<div class="dropdown-menu" />');
-    fieldsetTrigger.wrapInner('<span class="legend-label"></span>').addClass('dropdown-trigger').attr('data-toggle','dropdown-menu').append('<svg class="iconic chevron"><use xlink:href="/assets/img/iconic-sprite.svg#chevron-bottom"></use></svg>');
+    fieldsetTrigger.wrapInner('<span class="legend-label"></span>').addClass('dropdown-trigger').attr('data-toggle','dropdown-menu').append('<svg class="iconic chevron"><use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use></svg>');
 
     // If the fieldset has a custom-fieldset-value element
     if (fieldset.find('.custom-fieldset-value').length) {

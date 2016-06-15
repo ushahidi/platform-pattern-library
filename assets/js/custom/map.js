@@ -3,7 +3,7 @@ var popupHTML = function () {
     $.ajax({
         'async': false,
         'dataType': 'html',
-        'url': '/assets/html/partials/_postcard.html',
+        'url': '../partials/_postcard.html',
         'success': function (data) {
             html = data;
         }
@@ -89,7 +89,7 @@ if ($('#map').length) {
     function pointIcon(feature, size, className){
         return L.divIcon({
             className: 'custom-map-marker '+className,
-            html: '<svg class="iconic" style="fill:#'+feature.properties.color+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/img/iconic-sprite.svg#map-marker"></use></svg><span class="iconic-bg" style="background-color:#'+feature.properties.color+';""></span>',
+            html: '<svg class="iconic" style="fill:#'+feature.properties.color+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use></svg><span class="iconic-bg" style="background-color:#'+feature.properties.color+';""></span>',
             iconSize: size,
             iconAnchor: size,
             popupAnchor: [-16, -32]
