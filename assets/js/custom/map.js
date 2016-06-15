@@ -3,7 +3,7 @@ var popupHTML = function () {
     $.ajax({
         'async': false,
         'dataType': 'html',
-        'url': '/assets/html/partials/_postcard.html',
+        'url': '../partials/_postcard.html',
         'success': function (data) {
             html = data;
         }
