@@ -25,7 +25,7 @@
         width: 72.9613734%;
 
         label {
-            padding: $tiny-spacing*1.5 $sm-spacing;
+            padding: $tiny-spacing*1.5 0;
             padding-left: $base-spacing+15;
         }
 
@@ -98,20 +98,20 @@
 
             label {
                 position: relative;
-                left: 0;
+                left: -$sm-spacing;
                 @include transition(0.3s);
 
                 @include media($medium) {
-                    padding-left: $base-spacing;
+                    padding-left: $huge-spacing;
                 }
             }
 
             input[type="checkbox"] {
                 position: absolute;
+                @include transition(0.3s);
 
                 @include media($medium) {
-                    right: 100%;
-                    left: auto;
+                    left: 0;
                 }
             }
 
@@ -122,11 +122,12 @@
 
                     label {
                         cursor: pointer;
-                        left: $base-spacing+15;
+                        left: 0;
                     }
 
                     input[type="checkbox"] {
                         cursor: pointer;
+                        left: $sm-spacing;
                     }
                 }
             }
