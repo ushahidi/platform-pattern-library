@@ -38,14 +38,23 @@ toggleInit = function(triggerSelector) {
                   opacity: 1
               }, 150);
           }
+
           $(target).addClass('active');
 
           //$('body').addClass('noscroll');
+
           if ($(target).hasClass('dropdown-menu')) {
-             dropdownXpos(trigger, target);
+            dropdownXpos(trigger, target);
+
+            $(target).oneClickOutside({
+                callback:function(){
+                    $(trigger).removeClass('active');
+                    $(target).removeClass('active').removeAttr('style');
+                }, calledFromClickInsideHandler: true
+            });
           }
 
-          // ELSE: Target is currently visible
+        // ELSE: Target is currently visible
        } else {
           $(trigger).removeClass('active');
 
@@ -59,12 +68,15 @@ toggleInit = function(triggerSelector) {
           } else {
               $(target).removeAttr('style');
           }
+
           $(target).removeClass('active');
 
           $('body').removeClass('noscroll');
-       }
 
-     //   overflowCheck(target);
+          if ($(target).hasClass('dropdown-menu')) {
+              $(target).oneClickOutside('off');
+          }
+       }
 
        e.preventDefault();
     });

@@ -24,7 +24,6 @@ $LAYOUT
     display: none !important;
 }
 
-.button.hide-when-mobile,
 .hide-when-mobile {
     display: inline-block;
     position: relative;
@@ -35,12 +34,25 @@ $LAYOUT
 
 }
 
-.button.hide-when-small,
-.hidden-when-small,
-.hide-when-small {
-    display: inline-block;
+.hide-until-small {
 
     @include media($small-down) {
+        display: none;
+    }
+
+}
+
+.hide-when-small {
+
+    @include media($small) {
+        display: none;
+    }
+
+}
+
+.hide-when-medium {
+
+    @include media($medium) {
         display: none;
     }
 
