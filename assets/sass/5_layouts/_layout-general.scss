@@ -227,6 +227,14 @@
                     }
                 }
             }
+
+            &.timeline,
+            &.activity {
+
+                @include media($medium) {
+                    margin-right: 230px;
+                }
+            }
         }
 
         .map {
@@ -243,6 +251,23 @@
                     top: 0;
                     bottom: 0;
                     left: 288px;
+                }
+            }
+
+            .postcard {
+
+                .postcard-body {
+
+                    .postcard-actions {
+
+                        .hide-until-small {
+                            display: none;
+                        }
+
+                        .hide-when-small {
+                            display: block;
+                        }
+                    }
                 }
             }
         }
@@ -282,18 +307,17 @@
 
         .toolbox {
             display: none;
+            /*
             position: absolute;
+            */
+            position: fixed;
             @include right(24px);
             z-index: $toolbox;
             width: 206px;
 
-            @include media($small) {
-                top: 131px;
-            }
 
             @include media($medium) {
                 display: block;
-                top: 92px;
             }
         }
 

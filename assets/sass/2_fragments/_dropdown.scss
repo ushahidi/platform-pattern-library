@@ -23,7 +23,6 @@
 
    .dropdown-menu-title {
        @include typeBeta;
-       padding-bottom: $tiny-spacing;
        margin: $sm-spacing;
    }
 
@@ -37,6 +36,9 @@
 
    ul {
        @extend .list-reset;
+   }
+
+   > ul {
        padding: $tiny-spacing 0;
    }
 
@@ -109,6 +111,40 @@
 
       &:last-child {
           margin-bottom: $sm-spacing !important;
+      }
+
+      &.radio {
+
+          &.icon-input {
+              padding: $tiny-spacing $sm-spacing !important;
+              margin: 0 !important;
+
+              &:first-child {
+                  margin-top: $tiny-spacing !important;
+              }
+
+              &:last-child {
+                  margin-bottom: $tiny-spacing !important;
+              }
+
+              label {
+                  margin-bottom: 0;
+
+                  &:before {
+                      top: $tiny-spacing - 2;
+                      left: 2px;
+                  }
+              }
+
+              &.checked {
+                  color: $color-dark-alpha;
+                  background-color: $color-light-gamma;
+
+                  svg.iconic {
+                      fill: $color-dark-beta;
+                  }
+              }
+          }
       }
 
       .form-field {

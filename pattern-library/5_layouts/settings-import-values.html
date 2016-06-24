@@ -35,90 +35,120 @@
 
     <main role="main">
 
-       <div class="main-col">
+        <div class="main-col">
 
-           <ol class="progress">
-              <li>Choose file</li>
-              <li>Organize data</li>
-              <li class="active">Configure posts</li>
-           </ol>
+            <ol class="progress">
+                <li>Choose file</li>
+                <li>Organize data</li>
+                <li class="active">Configure posts</li>
+            </ol>
 
-           <div class="form-sheet">
-               <div class="form-sheet-summary">
-                   <h2 class="form-sheet-title">Configure all imported posts</h2>
-               </div>
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h2 class="form-sheet-title">Mark all imported posts as...</h2>
+                </div>
 
-               <form>
+                <fieldset class="custom-fieldset">
+                    <legend><span class="custom-fieldset-value">Status</span></legend>
 
-                   <div class="form-field select">
-                       <div class="custom-select">
-                           <select>
-                               <option>Everyone</option>
-                               <option>Editors</option>
-                               <option selected>Administrators</option>
-                          </select>
-                       </div>
-                      <label><span class="nodisplay">Who</span> can see these posts</label>
-                   </div>
+                    <div class="form-field radio icon-input">
+                        <label for="status-published">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                            </svg>
+                            <input type="radio" name="status" id="status-published" checked />
+                            Published
+                        </label>
+                    </div>
 
-                   <!-- IF: Post Type has "Verification" step -->
-                   <div class="form-field switch">
-                      <label for="verified">Mark posts as <strong>Verified</strong></label>
+                    <div class="form-field radio icon-input">
+                        <label for="status-review">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                            </svg>
+                            <input type="radio" name="status" id="status-review" />
+                            Under review
+                        </label>
+                    </div>
 
-                      <div class="toggle-switch">
-                         <input class="tgl" id="verified" type="checkbox">
-                         <label class="tgl-btn" for="verified"></label>
-                      </div>
-                   </div>
-                   <!-- END:IF -->
+                    <div class="form-field radio icon-input">
+                        <label for="status-archive">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                            </svg>
+                            <input type="radio" name="status" id="status-archive" />
+                            Archived
+                        </label>
+                    </div>
+                </fieldset>
 
-                   <div class="form-sheet-summary">
-                       <h3 class="form-sheet-title">Assign a value to empty fields</h3>
-                       <p>Any unused <strong>Police encounters</strong> fields are listed below. You can assign the same value to each field for all imported posts, or leave the unused fields blank.</p>
-                   </div>
+                <!-- IF: Post Type has "Verification" step -->
+                <div class="form-field switch">
+                    <label for="verified">Verified</label>
 
-                   <div class="form-field">
-                       <label>Author</label>
-                       <input type="datetime" />
-                   </div>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="verified" type="checkbox">
+                        <label class="tgl-btn" for="verified"></label>
+                    </div>
+                </div>
+                <!-- END:IF -->
 
-                   <div class="form-field">
-                       <label>Data source</label>
-                       <div class="custom-select">
-                           <select>
-                              <option selected>Web</option>
-                              <option>SMS</option>
-                              <option>Email</option>
-                           </select>
-                       </div>
-                   </div>
+                <!-- IF: Post Type has "Translation" step -->
+                <div class="form-field switch">
+                    <label for="translation">Translated</label>
 
-                   <div class="form-field">
-                       <label>Location</label>
-                       <input type="text" placeholder="lat,lng" />
-                   </div>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="translation" type="checkbox">
+                        <label class="tgl-btn" for="translation"></label>
+                    </div>
+                </div>
+                <!-- END:IF -->
 
-                   <fieldset>
-                       <legend>Categories</legend>
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Assign a value to empty fields</h3>
+                    <p>Any unused <strong>Police encounters</strong> fields are listed below. You can assign the same value to each field for all imported posts, or leave the unused fields blank.</p>
+                </div>
 
-                       <div class="form-field checkbox">
-                           <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
-                       </div>
-                       <div class="form-field checkbox">
-                           <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                       </div>
-                       <div class="form-field checkbox">
-                           <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                       </div>
-                   </fieldset>
+                <div class="form-field">
+                    <label>Author</label>
+                    <input type="datetime" />
+                </div>
 
-                  <div class="form-field">
-                      <button type="button" class="button-link">Cancel import</button>
-                      <button type="button" class="button-alpha">Finish import</button>
-                  </div>
-               </form>
+                <div class="form-field">
+                    <label>Data source</label>
+                    <div class="custom-select">
+                        <select>
+                            <option selected>Web</option>
+                            <option>SMS</option>
+                            <option>Email</option>
+                        </select>
+                    </div>
+                </div>
 
-           </div>
+                <div class="form-field">
+                    <label>Location</label>
+                    <input type="text" placeholder="lat,lng" />
+                </div>
+
+                <fieldset>
+                    <legend>Categories</legend>
+
+                    <div class="form-field checkbox">
+                        <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-field">
+                    <button type="button" class="button-link">Cancel import</button>
+                    <button type="button" class="button-alpha">Finish import</button>
+                </div>
+            </div>
         </div>
 
     </main>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+
+@@include('../partials/_pl-head.html')
+
+<body class="layout-a">
+
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
+
+    <div class="mode-context">
+
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ol>
+
+            <h1 class="mode-context-title">Data sources</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Save</button>
+            </div>
+        </div>
+
+
+       <div class="main-col">
+
+            <div class="listing card">
+
+                <!--// EMAIL //-->
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            Email
+                            <span class="status-indicator"></span>
+                        </h2>
+                    </div>
+
+                    <div class="listing-item-body">
+
+                        <form>
+                            <div class="form-field switch">
+                               <label>Import posts from Email</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch1" type="checkbox" disabled>
+                                  <label class="tgl-btn" for="switch1"></label>
+                               </div>
+                               <p class="alert">
+                                   <svg class="iconic">
+                                     <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                                   </svg>
+                                   You need to configure your email account before you can begin importing posts.
+                               </p>
+                            </div>
+
+                            <nav class="tabs-menu" data-tabs="email-tab">
+                                <ul>
+                                    <li><a href="#email-import">Import</a></li>
+                                    <li>
+                                        <a href="#email-address">
+                                            <svg class="iconic">
+                                              <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                                            </svg>
+                                            Address
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#email-incoming">
+                                            <svg class="iconic">
+                                              <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                                            </svg>
+                                            Incoming server
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#email-outgoing">
+                                            <svg class="iconic">
+                                              <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                                            </svg>
+                                            Incoming server
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div id="email-import" class="email-tab">
+
+                                <div class="form-field switch">
+                                   <label>Assign these posts to a survey</label>
+                                   <div class="toggle-switch">
+                                      <input class="tgl" id="switch-assign" type="checkbox" data-fieldgroup-toggle="assign-email-to-survey">
+                                      <label class="tgl-btn" for="switch-assign"></label>
+                                   </div>
+
+                                   <fieldset data-fieldgroup-target="assign-email-to-survey">
+                                       <legend>Imported email will be assigned to:</legend>
+
+                                       <div class="form-field radio">
+                                           <input checked type="radio" name="assign-to-survey" id="survey1" value="Getting around" />
+                                           <label for="survey1">Getting around</label>
+                                       </div>
+
+                                       <div class="form-field radio">
+                                           <input type="radio" name="assign-to-survey" id="survey2" value="Police encounters" />
+                                           <label for="survey2">Police encounters</label>
+                                       </div>
+
+                                       <div class="form-field radio">
+                                           <input type="radio" name="assign-to-survey" id="survey3" value="Protester photos" />
+                                           <label for="survey3">Protester photos</label>
+                                       </div>
+
+                                       <div class="form-field radio">
+                                           <input type="radio" name="assign-to-survey" id="survey4" value="Official events" />
+                                           <label for="survey4">Official events</label>
+                                       </div>
+                                   </fieldset>
+                                </div>
+
+
+                                <fieldset class="custom-fieldset">
+                                    <legend><span class="custom-fieldset-value">Who</span> will be able to see these posts</legend>
+
+                                    <div class="form-field radio">
+                                        <input type="radio" name="email-visible" id="email-visible1" value="you" />
+                                        <label for="email-visible1">Only you</label>
+                                    </div>
+
+                                    <div class="form-field radio">
+                                        <input type="radio" name="email-visible" id="email-visible2" value="everyone" />
+                                        <label for="email-visible2">Everyone</label>
+                                    </div>
+
+                                    <div class="form-field radio">
+                                        <input checked type="radio" name="email-visible" id="email-visible3" value="roles" data-fieldgroup-toggle="email-visible-roles" />
+                                        <label for="email-visible3">Specific roles...</label>
+
+                                        <div class="form-fieldgroup" data-fieldgroup-target="email-visible-roles">
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection1" />
+                                                <label for="collection1">Members</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection2" />
+                                                <label for="collection2">Editors</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection3" checked />
+                                                <label for="collection3">Operators</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection4" />
+                                                <label for="collection4">Administrators</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div id="email-address" class="email-tab">
+                                <div class="form-field">
+                                    <label>Email address</label>
+                                    <p>This will be used to send outgoing emails</p>
+                                    <input type="email" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Sender name</label>
+                                    <p>Appears in the 'from:' field on outgoing emails</p>
+                                    <input type="text" />
+                                </div>
+                            </div>
+
+                            <div id="email-incoming" class="email-tab form-fieldgroup">
+                                <div class="form-field">
+                                    <label>Incoming server type</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>POP</option>
+                                            <option>IMAP</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming server</label>
+                                    <p>Examples: mail.yourwebsite.com, imap.gmail.com, pop.gmail.com</p>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming server port</label>
+                                    <p>Common ports: 110 (POP3), 143 (IMAP), 995 (POP3 with SSL), 993 (IMAP with SSL)</p>
+                                    <input type="number" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming server security</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>None</option>
+                                            <option>SSL</option>
+                                            <option>TLS</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming username</label>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Incoming password</label>
+                                    <input type="password" />
+                                </div>
+
+                            </div>
+
+                            <div id="email-outgoing" class="email-tab form-fieldgroup">
+                                <div class="form-field">
+                                    <label>Outgoing server type</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>SMTP</option>
+                                            <option>sendmail</option>
+                                            <option>Native</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing server</label>
+                                    <p>Examples: smtp.yourhost.com, smtp.gmail.com</p>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing server port</label>
+                                    <p>Common ports: 25 (SMTP default), 465 (SMTP with SSL)</p>
+                                    <input type="number" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing server security</label>
+                                    <div class="custom-select">
+                                        <select>
+                                            <option>None</option>
+                                            <option>SSL</option>
+                                            <option>TLS</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing username</label>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field">
+                                    <label>Outgoing password</label>
+                                    <input type="password" />
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--// SMS //-->
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            SMS
+                            <span class="status-indicator green"></span>
+                        </h2>
+                    </div>
+
+                    <div class="listing-item-body">
+                        <form>
+                            <div class="form-field switch">
+                               <label>Import posts from SMS</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch5" type="checkbox" checked="">
+                                  <label class="tgl-btn" for="switch5"></label>
+                               </div>
+                            </div>
+
+                            <div class="form-field">
+                                <label>
+                                    Sender's phone number
+                                    <input type="tel" placeholder="123-456-7890" value="+1-123-456-7890" />
+                                </label>
+                            </div>
+
+                            <div class="form-field switch">
+                               <label>Assign these posts to a survey</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch-assign" type="checkbox" data-fieldgroup-toggle="assign-to-survey">
+                                  <label class="tgl-btn" for="switch-assign"></label>
+                               </div>
+
+                               <fieldset data-fieldgroup-target="assign-to-survey">
+                                   <legend>Imported SMS messages will be assigned to:</legend>
+
+                                   <div class="form-field radio">
+                                       <input checked type="radio" name="assign-to-survey" id="survey1" value="Getting around" />
+                                       <label for="survey1">Getting around</label>
+                                   </div>
+
+                                   <div class="form-field radio">
+                                       <input type="radio" name="assign-to-survey" id="survey2" value="Police encounters" />
+                                       <label for="survey2">Police encounters</label>
+                                   </div>
+
+                                   <div class="form-field radio">
+                                       <input type="radio" name="assign-to-survey" id="survey3" value="Protester photos" />
+                                       <label for="survey3">Protester photos</label>
+                                   </div>
+
+                                   <div class="form-field radio">
+                                       <input type="radio" name="assign-to-survey" id="survey4" value="Official events" />
+                                       <label for="survey4">Official events</label>
+                                   </div>
+                               </fieldset>
+                            </div>
+
+                            <fieldset class="custom-fieldset">
+                                <legend><span class="custom-fieldset-value">Who</span> will be able to see these posts</legend>
+
+                                <div class="form-field radio">
+                                    <input type="radio" name="sms-visible" id="sms-visible1" value="you" />
+                                    <label for="sms-visible1">Only you</label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <input type="radio" name="sms-visible" id="sms-visible2" value="everyone" />
+                                    <label for="sms-visible2">Everyone</label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <input checked type="radio" name="sms-visible" id="sms-visible3" value="roles" data-fieldgroup-toggle="sms-roles" />
+                                    <label for="sms-visible3">Specific roles...</label>
+
+                                    <div class="form-fieldgroup" data-fieldgroup-target="sms-roles">
+                                        <div class="form-field checkbox">
+                                            <input type="checkbox" id="collection1" />
+                                            <label for="collection1">Members</label>
+                                        </div>
+
+                                        <div class="form-field checkbox">
+                                            <input type="checkbox" id="collection2" />
+                                            <label for="collection2">Editors</label>
+                                        </div>
+
+                                        <div class="form-field checkbox">
+                                            <input type="checkbox" id="collection3" checked />
+                                            <label for="collection3">Operators</label>
+                                        </div>
+
+                                        <div class="form-field checkbox">
+                                            <input type="checkbox" id="collection4" />
+                                            <label for="collection4">Administrators</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+                <!--// TWITTER //-->
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="../../img/twitter.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title">
+                            Twitter
+                            <span class="status-indicator"></span>
+                        </h2>
+                    </div>
+
+                    <div class="listing-item-body">
+                        <form>
+                            <div class="form-field switch">
+                               <label>Import posts from Twitter</label>
+                               <div class="toggle-switch">
+                                  <input class="tgl" id="switch1" type="checkbox" disabled>
+                                  <label class="tgl-btn" for="switch1"></label>
+                               </div>
+                               <p class="alert">
+                                   <svg class="iconic">
+                                     <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                                   </svg>
+                                   You need to complete Twitter's API configuration before you can begin importing posts.
+                               </p>
+                            </div>
+
+                            <nav class="tabs-menu" data-tabs="twitter-tab">
+                                <ul>
+                                    <li><a href="#twitter-import">Import</a></li>
+                                    <li>
+                                        <a href="#twitter-api">
+                                        <svg class="iconic">
+                                          <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                                        </svg>
+                                        API configuration
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div id="twitter-import" class="twitter-tab">
+
+                                <div class="form-field switch">
+                                   <label>Assign these posts to a survey</label>
+                                   <div class="toggle-switch">
+                                      <input class="tgl" id="switch-assign" type="checkbox" data-fieldgroup-toggle="assign-to-survey">
+                                      <label class="tgl-btn" for="switch-assign"></label>
+                                   </div>
+
+                                   <fieldset data-fieldgroup-target="assign-to-survey">
+                                       <legend>Imported tweets will be assigned to:</legend>
+
+                                       <div class="form-field radio">
+                                           <input checked type="radio" name="assign-to-survey" id="survey1" value="Getting around" />
+                                           <label for="survey1">Getting around</label>
+                                       </div>
+
+                                       <div class="form-field radio">
+                                           <input type="radio" name="assign-to-survey" id="survey2" value="Police encounters" />
+                                           <label for="survey2">Police encounters</label>
+                                       </div>
+
+                                       <div class="form-field radio">
+                                           <input type="radio" name="assign-to-survey" id="survey3" value="Protester photos" />
+                                           <label for="survey3">Protester photos</label>
+                                       </div>
+
+                                       <div class="form-field radio">
+                                           <input type="radio" name="assign-to-survey" id="survey4" value="Official events" />
+                                           <label for="survey4">Official events</label>
+                                       </div>
+                                   </fieldset>
+                                </div>
+
+                                <div class="form-field">
+                                    <label>
+                                        Keywords
+                                        <input type="text" placeholder="ushahidi" value="ushahidi" />
+                                    </label>
+                                    <p>Your deployment will import tweets that include any of the terms (separated by commas) you enter.</p>
+                                </div>
+
+                                <fieldset class="custom-fieldset">
+                                    <legend><span class="custom-fieldset-value">Who</span> will be able to see these posts</legend>
+
+                                    <div class="form-field radio">
+                                        <input type="radio" name="special" id="special1" value="you" />
+                                        <label for="special1">Only you</label>
+                                    </div>
+
+                                    <div class="form-field radio">
+                                        <input type="radio" name="special" id="special2" value="everyone" />
+                                        <label for="special2">Everyone</label>
+                                    </div>
+
+                                    <div class="form-field radio">
+                                        <input checked type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
+                                        <label for="special3">Specific roles...</label>
+
+                                        <div class="form-fieldgroup" data-fieldgroup-target="roles">
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection1" />
+                                                <label for="collection1">Members</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection2" />
+                                                <label for="collection2">Editors</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection3" checked />
+                                                <label for="collection3">Operators</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="collection4" />
+                                                <label for="collection4">Administrators</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div id="twitter-api" class="twitter-tab">
+                                <p>To connect Twitter to your deployment, you'll need to:</p>
+                                <ol>
+                                    <li><a href="https://apps.twitter.com/app/new" target="_blank">Create a "Twitter Application."</a></li>
+                                    <li>Select "Keys and Access Tokens."</li>
+                                    <li>Select "Generate Consumer Key and Secret."</li>
+                                    <li>Copy and paste the necessary keys, tokens, and secrets into the fields below.</li>
+                                </ol>
+
+                                <div class="form-field required">
+                                    <label>Consumer key</label>
+                                    <input type="text" />
+                                </div>
+
+                                <div class="form-field required">
+                                    <label>Consumer secret</label>
+                                    <input type="text" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--// FACEBOOK //-->
+                <div class="listing-item">
+                    <div class="listing-item-secondary">
+                        <button type="button" class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img class="icon" src="../../img/facebook.png" alt="">
+                        </div>
+
+                        <h2 class="listing-item-title">
+                            Facebook
+                            <span class="status-indicator"></span>
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    @@include('../partials/_scripts.html')
+
+</body>
+
+</html>

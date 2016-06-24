@@ -66,7 +66,10 @@ toggleInit = function(triggerSelector) {
                   $(this).css('display', 'none');
               });
           } else {
-              $(target).removeAttr('style');
+              $(target).css({
+                  'top' : '',
+                  'left' : ''
+              });
           }
 
           $(target).removeClass('active');
@@ -94,6 +97,10 @@ dropdownXpos = function(trigger, target) {
 
    // Give the target the same top positioning as its trigger
    $(target).css('top', triggerPos.top + $(trigger).outerHeight());
+
+   if ($(target).find('.dropdown-menu-body').length) {
+       $(target).find('.dropdown-menu-body').css('max-height', ($(window).height() * 0.5));
+   }
 }
 
 // Initialize each toggle pair

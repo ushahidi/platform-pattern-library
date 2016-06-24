@@ -239,6 +239,17 @@ $LAYOUT
     @include equal-radius(100%);
     background-color: $color-light-beta;
     box-shadow: 0 0 0 rgba(0,0,0,.16) inset;
+    @include transition(0.3s);
+
+    svg.iconic {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        vertical-align: middle;
+        fill: $white;
+        stroke: rgba(0,0,0,.24);
+        stroke-width: 0.24;
+    }
 
     &.green {
         background-color: $green;
@@ -246,10 +257,45 @@ $LAYOUT
             0 0 8px $green;
     }
 
+    &.yellow {
+        background-color: $yellow;
+        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
+            0 0 8px $yellow;
+    }
+
     &.red {
         background-color: $red;
         box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
             0 0 8px $red;
+    }
+
+    &.empty {
+        background-color: transparent;
+
+        svg.iconic {
+            fill: $color-light-beta;
+            stroke-width: 0;
+        }
+
+        &:hover {
+            background-color: $color-light-gamma;
+
+            svg.iconic {
+                fill: $color-light-alpha;
+            }
+        }
+    }
+
+    &:hover {
+        @include no-shadow;
+    }
+
+    &.tooltip {
+
+        .bug {
+            top: -$tiny-spacing;
+            left: 100%;
+        }
     }
 }
 

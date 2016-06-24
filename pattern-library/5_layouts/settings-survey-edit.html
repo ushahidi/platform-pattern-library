@@ -70,19 +70,34 @@
                 <fieldset class="custom-fieldset">
                     <legend><span class="custom-fieldset-value">Who</span> can add to this survey</legend>
 
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special1" value="you" />
-                        <label for="special1">Only you</label>
+                    <div class="form-field radio icon-input">
+                        <label for="special1">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                            </svg>
+                            <input type="radio" name="special" id="special1" value="you" />
+                            Only you
+                        </label>
                     </div>
 
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special2" value="everyone" checked />
-                        <label for="special2">Everyone</label>
+                    <div class="form-field radio icon-input">
+                        <label for="special2">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                            </svg>
+                            <input type="radio" name="special" id="special2" value="everyone" checked />
+                            <span class="label">Everyone</span>
+                        </label>
                     </div>
 
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
-                        <label for="special3">Specific roles...</label>
+                    <div class="form-field radio icon-input">
+                        <label for="special3">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#people"></use>
+                            </svg>
+                            <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
+                            Specific roles...
+                        </label>
 
                         <div class="form-fieldgroup" data-fieldgroup-target="roles">
                             <div class="form-field checkbox">
@@ -108,10 +123,98 @@
                     </div>
                 </fieldset>
 
+                <div class="form-field switch">
+                   <label>Require posts be reviewed before they're published</label>
+                   <div class="toggle-switch">
+                      <input class="tgl" id="switch1" type="checkbox" data-fieldgroup-toggle="post-review">
+                      <label class="tgl-btn" for="switch1"></label>
+                   </div>
+
+                   <fieldset data-fieldgroup-target="post-review">
+                       <legend>Additional requirements</legend>
+
+                       <div class="form-field checkbox">
+                           <input type="checkbox" id="post-review1" data-fieldgroup-toggle="post-verification-role" />
+                           <label for="post-review1">Verification<span data-fieldgroup-target="post-verification-role">, <em>assigned to...</em></span></label>
+
+                           <fieldset data-fieldgroup-target="post-verification-role">
+                               <legend class="hidden">Roles</legend>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-verification-role1">
+                                       <input type="checkbox" id="post-verification-role1" />
+                                       Members
+                                   </label>
+                               </div>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-verification-role2">
+                                       <input type="checkbox" id="post-verification-role2" />
+                                       Editors
+                                   </label>
+                               </div>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-verification-role3">
+                                       <input type="checkbox" id="post-verification-role3" />
+                                       Operators
+                                   </label>
+                               </div>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-verification-role4">
+                                       <input type="checkbox" id="post-verification-role4" />
+                                       Administrators
+                                   </label>
+                               </div>
+                           </fieldset>
+                       </div>
+
+                       <div class="form-field checkbox">
+                           <input type="checkbox" id="post-review1" data-fieldgroup-toggle="post-translation-role" />
+                           <label for="post-review1">Translation<span data-fieldgroup-target="post-translation-role">, <em>assigned to...</em></span></label>
+
+                           <fieldset data-fieldgroup-target="post-translation-role">
+                               <legend class="hidden">Roles</legend>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-translation-role1">
+                                       <input type="checkbox" id="post-translation-role1" />
+                                       Members
+                                   </label>
+                               </div>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-translation-role2">
+                                       <input type="checkbox" id="post-translation-role2" />
+                                       Editors
+                                   </label>
+                               </div>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-translation-role3">
+                                       <input type="checkbox" id="post-translation-role3" />
+                                       Operators
+                                   </label>
+                               </div>
+
+                               <div class="form-field checkbox">
+                                   <label for="post-translation-role4">
+                                       <input type="checkbox" id="post-translation-role4" />
+                                       Administrators
+                                   </label>
+                               </div>
+                           </fieldset>
+                       </div>
+                   </fieldset>
+
+
+                </div>
+
             </div>
 
             <div class="listing card">
-                <h3 class="listing-heading">Fields</h3>
+                <h3 class="listing-heading">Tasks</h3>
 
                 <nav class="tabs-menu" data-tabs="tasks-tabs">
                     <ul>
@@ -220,33 +323,6 @@
                 <div id="tasks-verify" class="tasks-tabs">
 
                     <div class="listing-item">
-                        <div class="listing-item-secondary">
-                            <button type="button" class="button-beta button-flat listing-item-toggle">
-                                <svg class="iconic">
-                                  <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                </svg>
-                                <span class="button-label">Configure</span>
-                            </button>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="">Verified</a> <em>toggle switch</em></h2>
-                        </div>
-
-                        <div class="listing-item-body">
-                            <form>
-                                <div class="form-field switch">
-                                   <label>Require the post be verified before it can be visible to the public</label>
-                                   <div class="toggle-switch">
-                                      <input class="tgl" id="switch1" type="checkbox">
-                                      <label class="tgl-btn" for="switch1"></label>
-                                   </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
                         <div class="listing-item-primary">
                             <h2 class="listing-item-title"><a href="">Notes</a> <em>long text</em></h2>
                         </div>
@@ -257,29 +333,8 @@
                 <div id="tasks-translate" class="tasks-tabs">
 
                     <div class="listing-item">
-                        <div class="listing-item-secondary">
-                            <button type="button" class="button-beta button-flat listing-item-toggle">
-                                <svg class="iconic">
-                                  <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                </svg>
-                                <span class="button-label">Configure</span>
-                            </button>
-                        </div>
-
                         <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="">Translation completed</a> <em>toggle switch</em></h2>
-                        </div>
-
-                        <div class="listing-item-body">
-                            <form>
-                                <div class="form-field switch">
-                                   <label>Require this be completed before the post can be visible to the public</label>
-                                   <div class="toggle-switch">
-                                      <input class="tgl" id="switch1" type="checkbox">
-                                      <label class="tgl-btn" for="switch1"></label>
-                                   </div>
-                                </div>
-                            </form>
+                            <h2 class="listing-item-title">This task will duplicate your deployment's <strong>Post</strong> fields so you can complete them with the approprate language translation.</h2>
                         </div>
                     </div>
 

@@ -66,6 +66,10 @@ fieldset {
       margin: $tiny-spacing 0;
    }
 
+   .metadata {
+       margin: $tiny-spacing 0;
+   }
+
    .post-band {
 
        + label {
@@ -73,6 +77,25 @@ fieldset {
 
            + input {
                margin-left: $sm-spacing;
+           }
+       }
+   }
+
+   fieldset {
+       border-left: 2px solid $color-light-beta;
+       padding-left: $sm-spacing;
+       margin-top: $sm-spacing;
+
+       legend {
+           left: $sm-spacing;
+       }
+
+       fieldset {
+           border-left: none;
+           padding-left: 0;
+
+           legend {
+               left: 0;
            }
        }
    }
@@ -158,7 +181,11 @@ fieldset {
          @include typeBase;
          text-transform: none;
          letter-spacing: 0;
-      }
+
+         &:hover {
+             cursor: pointer;
+         }
+     }
 
       input[type="checkbox"],
       input[type="radio"] {
@@ -167,6 +194,52 @@ fieldset {
           @include left(0);
       }
 
+      svg.iconic {
+          fill: $color-light-alpha;
+          margin-right: 4px;
+      }
+
+      &.icon-input {
+//          @include padding-left(0);
+
+          > label {
+
+              &:before {
+                  position: absolute;
+                  top: -2px;
+                  left: 0;
+                  width: $sm-spacing;
+                  height: $sm-spacing;
+                  color: $color-primary;
+                  font-weight: bold;
+                  font-size: 13px;
+                  line-height: 13px;
+                  @include equal-radius(100%);
+                  background-color: $color-secondary;
+                  padding: 2px;
+              }
+          }
+
+          input[type="radio"] {
+              display: none;
+          }
+      }
+   }
+
+   &.radio {
+
+       &.icon-input {
+
+           &.checked {
+
+               > label {
+
+                   &:before {
+                       content: '\2713';
+                   }
+               }
+           }
+       }
    }
 
    // TITLE
@@ -376,7 +449,7 @@ fieldset {
       }
 
       > label {
-          display: inline-block;
+          display: block;
           color: $text-color;
           @include typeBase;
           text-transform: none;
@@ -424,7 +497,6 @@ fieldset {
 .form-field {
 
     .form-fieldgroup {
-        border-top: none;
         padding-top: 0;
         margin-top: $sm-spacing;
     }
@@ -443,7 +515,6 @@ fieldset,
     }
 
     .form-fieldgroup {
-        border-top: 1px solid $color-light-beta;
         padding-top: $tiny-spacing;
         margin-top: $tiny-spacing;
     }
@@ -622,4 +693,25 @@ fieldset,
         clear: both;
     }
 
+}
+
+[data-fieldgroup-target] {
+
+    &.init {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+}
+
+span[data-fieldgroup-target] {
+
+    &.init {
+
+        &.active {
+            display: inline;
+        }
+    }
 }

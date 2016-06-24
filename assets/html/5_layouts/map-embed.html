@@ -254,7 +254,7 @@
     <div class="survey-filter-checkbox">
         <div class="survey-filter-label">
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" checked />
                 Unknown
             </label>
         </div>
@@ -467,31 +467,32 @@
     </div>
 
     <div class="dropdown-menu" data-toggle-target="search-filters" data-toggle-animate>
+        <h4 class="dropdown-menu-title">Filter by...</h4>
         <div class="dropdown-menu-body">
             <fieldset>
-                <legend>Surveys</legend>
+                <legend>Survey</legend>
 
                 <div class="form-field checkbox">
                     <label for="traffic">
-                        <input type="checkbox" name="getting-around" checked>
+                        <input type="checkbox" name="getting-around">
                         Getting around
                     </label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="police-encounters">
-                        <input type="checkbox" name="police-encounters" checked>
+                        <input type="checkbox" name="police-encounters">
                         Police encounters
                     </label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="protester-photos">
-                        <input type="checkbox" name="protester-photos" checked>
+                        <input type="checkbox" name="protester-photos">
                         Protester photos
                     </label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="police-encounters">
-                        <input type="checkbox" name="official-events" checked>
+                        <input type="checkbox" name="official-events">
                         Official events
                     </label>
                 </div>
@@ -510,16 +511,33 @@
             </fieldset>
 
             <fieldset>
-                <legend>Categories</legend>
+                <legend>Status</legend>
 
-                <div class="form-field checkbox">
-                    <label for="speakers">
-                        <input type="checkbox" name="speakers" value="Speakers" id="speakers"> Speakers
+                <div class="form-field checkbox icon-input">
+                    <label for="published">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <input type="checkbox" name="status" id="published" />
+                        Published
+                    </label>
+                </div>
+                <div class="form-field checkbox icon-input">
+                    <label for="underreview">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <input type="checkbox" name="status" id="underreview" />
+                        Under review
                     </label>
                 </div>
                 <div class="form-field checkbox">
-                    <label for="opposition">
-                        <input type="checkbox" name="opposition" value="Opposition" id="opposition"> Opposition
+                    <label for="archive">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                        </svg>
+                        <input type="checkbox" name="archive" id="archive" />
+                        Archive
                     </label>
                 </div>
                 <span class="form-field-toggle">
@@ -531,24 +549,51 @@
             </fieldset>
 
             <fieldset>
-                <legend>Who it's visible to</legend>
+                <legend>Category</legend>
 
-                <div class="form-field radio">
-                    <label for="everyone">
-                        <input type="radio" name="visibility" value="Everyone" checked>
-                        Everyone
+                <div class="form-field checkbox">
+                    <label for="speakers">
+                        <input type="checkbox" id="speakers" /> Speakers
                     </label>
                 </div>
-                <div class="form-field radio">
-                    <label for="members">
-                        <input type="radio" name="visibility" value="Members">
-                        Members
+                <div class="form-field checkbox">
+                    <label for="opposition">
+                        <input type="checkbox" id="opposition" /> Opposition
                     </label>
                 </div>
-                <div class="form-field radio">
-                    <label for="administrators">
-                        <input type="radio" name="visibility" value="Administrators">
-                        Administrators
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Data Source</legend>
+
+                <div class="form-field checkbox">
+                    <label for="web">
+                        <input type="checkbox" id="web" />
+                        Web
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="sms">
+                        <input type="checkbox" id="sms" />
+                        SMS
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="email">
+                        <input type="checkbox" id="email" />
+                        Email
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="twitter">
+                        <input type="checkbox" id="twitter" />
+                        Twitter
                     </label>
                 </div>
                 <span class="form-field-toggle">
@@ -605,6 +650,53 @@
 </div>
 
         <div class="toolbox">
+
+    <div class="tool">
+        <h6 class="tool-heading">Status</h6>
+
+        <span data-toggle="toggle-content">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show/hide</span>
+        </span>
+
+        <div class="toggle-content active">
+            <fieldset>
+                <legend class="hidden">Status</legend>
+
+                <div class="form-field checkbox icon-input">
+                    <label for="published">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <input checked type="checkbox" id="published">
+                        Published
+                    </label>
+                </div>
+
+                <div class="form-field checkbox icon-input">
+                    <label for="review">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <input checked type="checkbox" id="review" />
+                        Under review
+                    </label>
+                </div>
+
+                <div class="form-field checkbox icon-input">
+                    <label for="archive">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                        </svg>
+                        <input checked type="checkbox" id="archive" />
+                        Archive
+                    </label>
+                </div>
+            </fieldset>
+        </div>
+    </div>
 
     <div class="tool">
         <h6 class="tool-heading">Layers</h6>

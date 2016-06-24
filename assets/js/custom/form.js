@@ -41,6 +41,45 @@ $('.form-field-toggle').each(function(){
 		}
 });
 
+// Initialize radio and checkbox inputs for 'checked' class
+function checkedStatus(checkedButton) {
+    var formField = checkedButton.closest('.form-field');
+
+    if (checkedButton.is(':checked')) {
+        formField.addClass('checked');
+    } else {
+        formField.removeClass('checked');
+    }
+
+    if (checkedButton[0].hasAttribute('data-fieldgroup-toggle')) {
+        var target = $('[data-fieldgroup-target="'+checkedButton.attr('data-fieldgroup-toggle')+'"]');
+
+        // Add 'init' class to target and trigger
+        checkedButton.addClass('init');
+        target.addClass('init');
+
+        if (checkedButton.is(':checked')) {
+            target.addClass('active');
+        } else {
+            target.removeClass('active');
+        }
+    }
+}
+
+$('input[type="radio"], input[type="checkbox"]').each(function(){
+    checkedStatus($(this));
+});
+
+$('input[type="radio"], input[type="checkbox"]').on('change', function(){
+    checkedStatus($(this));
+
+    if ($(this).is('[type="radio"]')) {
+        $('input[type="radio"][name="'+$(this).attr('name')+'"]').each(function(){
+            checkedStatus($(this));
+        });
+    }
+});
+
 // Initialize date fields with 'PickaDate.js'
 $('input[type="date"]').pickadate({
     format: 'mmmm d, yyyy',
