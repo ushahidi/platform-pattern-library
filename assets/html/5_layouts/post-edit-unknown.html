@@ -281,211 +281,229 @@
             </div>
         </div>
 
-       <div class="main-col">
+        <div class="main-col">
 
             <div class="form-sheet">
+                <div class="post-band" style="background-color: #E69327;"></div>
+
                 <div class="form-field form-field-adapt title">
-                    <div class="post-band" style="background-color: #E69327;"></div>
                     <label>Title</label>
                     <input type="text" value="SMS post No. 1234">
                 </div>
 
-                <!--// IF: User has permission to change the author & post timestamp //
-                <div class="metadata">
-                    <strong>Created</strong> at 4:34 p.m. March 26, 2016, via SMS. <br />
-                    <strong>Last updated</strong> at 11:01 a.m. April 5, 2016
+                <div class="toolbox">
+                    <!-- IF: User has permission to manage post status -->
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Status</span></legend>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-published">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-published" />
+                                Published
+                            </label>
+                        </div>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-review">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-review" checked />
+                                Under review
+                            </label>
+                        </div>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-archive">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-archive" />
+                                Archived
+                            </label>
+                        </div>
+                    </fieldset>
+                    <!-- END: IF -->
+
+                    <!--// IF: User has permission to change the author & post timestamp //-->
+                    <div class="tool">
+                        <h6 class="tool-heading">Author</h6>
+
+                        <span data-toggle="toggle-content">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="label hidden">Show/hide</span>
+                        </span>
+
+                        <div class="toggle-content">
+                            <div class="listing-item">
+                                <div class="listing-item-primary">
+                                    <h2 class="listing-item-title">+1-234-567-8901</h2>
+                                    <p class="listing-item-secondary">SMS</p>
+                                </div>
+                            </div>
+                            <button type="button" class="button-gamma button-flat" data-modal="edit-author">Change author</button>
+                        </div>
+                    </div>
+
+                    <div class="tool">
+                        <h6 class="tool-heading">Post date</h6>
+
+                        <span data-toggle="toggle-content">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="label hidden">Show/hide</span>
+                        </span>
+
+                        <div class="toggle-content active">
+                            <fieldset>
+                                <legend class="hidden">Post date</legend>
+                                <div class="form-field date">
+                                    <label class="hidden">Date</label>
+                                    <div class="input-with-icon">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        <input type="date" value="2016-06-22" placeholder="Date" />
+                                    </div>
+                                </div>
+
+                                <div class="form-field date">
+                                    <label class="hidden">Time</label>
+                                    <div class="input-with-icon">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                                        </svg>
+                                        <input type="time" value="11:39:57" placeholder="Time" />
+                                    </div>
+                                </div>
+
+                                <div class="metadata">
+                                    <ul>
+                                        <li><strong>Created</strong> at 4:34 p.m. March 26, 2016 via SMS</li>
+                                        <li><strong>Last updated</strong> at 11:01 a.m. April 5, 2016</li>
+                                    </ul>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!-- END: IF -->
+                </div>
+
+                <div class="form-field form-field-adapt">
+                    <label>
+                        Description
+                    </label>
+                    <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
                 </div>
 
                 <div class="form-field">
-                    <label>Author</label>
-                    <div class="custom-select">
-                        <select>
-                            <option>Will Doran</option>
-                            <option>Robbie MacKay</option>
-                            <option selected>Jess Shorland</option>
-                        </select>
+                    <label>Photo</label>
+                    <input type="file" />
+                </div>
+
+                <fieldset id="categories">
+                    <legend>Categories</legend>
+
+                    <div class="form-field checkbox">
+                        <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-field">
+                    <label>Time &amp; date of encounter</label>
+                    <input type="datetime" />
+                </div>
+
+                <div class="form-field location">
+                    <label>Location</label>
+                    <div id="map" class="map"></div>
+
+                    <div class="form-field">
+                        <input type="text" placeholder="lat,lng" />
+                        <button>Search</button>
+                    </div>
+
+                    <button class="button-flat">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                        </svg>
+                        <span class="button-label">Use your current location</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Tasks</h3>
+                </div>
+
+                <!-- IF: User has permission to see other 'Tasks' -->
+                <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
+                    <ul>
+                        <li>
+                            <a href="#tasks-verify">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
+                                </svg>
+                                Verify
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tasks-translate">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#transfer"></use>
+                                </svg>
+                                Translate
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!--// END IF -->
+
+                <div id="tasks-verify" class="tabs-tasks">
+                    <div class="form-field switch">
+                        <label>Task completed</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="verified" type="checkbox">
+                            <label class="tgl-btn" for="verified"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-field form-field-adapt">
+                        <label>
+                            Notes
+                        </label>
+                        <textarea name="description" data-min-rows='1' rows='1'></textarea>
                     </div>
                 </div>
 
-                <fieldset>
-                    <legend>Post date</legend>
-                    <div class="form-field date">
-                        <label class="hidden">Date</label>
-                        <div class="input-with-icon">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                            </svg>
-                            <input type="date" value="2016-06-22" placeholder="Date" />
+                <div id="tasks-translate" class="tabs-tasks">
+                    <div class="form-field switch">
+                        <label>Task completed</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="translate" type="checkbox">
+                            <label class="tgl-btn" for="translate"></label>
                         </div>
                     </div>
-                    <div class="form-field date">
-                        <label class="hidden">Time</label>
-                        <div class="input-with-icon">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                            </svg>
-                            <input type="time" value="11:39:57" placeholder="Time" />
-                        </div>
+
+                    <div class="form-field form-field-adapt title">
+                        <label>Title</label>
+                        <input type="text" />
                     </div>
-                </fieldset>
-                // ELSE //-->
-                <div class="metadata">
-                    <span class="metadata-author">+ 1 234 567 8901</span>, 45 mins, via SMS
                 </div>
-                <!-- //END: IF -->
-
-                <!-- IF: User has permission to manage who it's visible to -->
-                <fieldset class="custom-fieldset">
-                    <legend><span class="custom-fieldset-value">Who</span> can see this</legend>
-
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special1" value="you" />
-                        <label for="special1">Only you</label>
-                    </div>
-
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special2" value="everyone" />
-                        <label for="special2">Everyone</label>
-                    </div>
-
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" checked />
-                        <label for="special3">Specific roles...</label>
-
-                        <div class="form-fieldgroup" data-fieldgroup-target="roles">
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection1" />
-                                <label for="collection1">Members</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection2" checked />
-                                <label for="collection2">Editors</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection3" />
-                                <label for="collection3">Operators</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection4" />
-                                <label for="collection4">Administrators</label>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                <!-- END: IF -->
-
-               <!-- IF: User has permission to see other 'Tasks' -->
-               <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
-                   <ul>
-                       <li>
-                           <a href="#tasks-post">
-                               <svg class="iconic">
-                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#file"></use>
-                               </svg>
-                               Post
-                           </a>
-                       </li>
-                       <li>
-                           <a href="#tasks-verify">
-                               <svg class="iconic">
-                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
-                               </svg>
-                               Verify
-                           </a>
-                       </li>
-                       <li>
-                           <a href="#tasks-translate">
-                               <svg class="iconic">
-                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#transfer"></use>
-                               </svg>
-                               Translate
-                           </a>
-                       </li>
-                   </ul>
-               </nav>
-               <!--// END IF -->
-
-               <div id="tasks-post" class="tabs-tasks">
-                   <div class="form-field form-field-adapt">
-                       <label>
-                           Description
-                       </label>
-                       <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
-                   </div>
-
-                   <div class="form-field">
-                       <label>Photo</label>
-                       <input type="file" />
-                   </div>
-
-                   <fieldset id="categories">
-                       <legend>Categories</legend>
-
-                       <div class="form-field checkbox">
-                           <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
-                       </div>
-                       <div class="form-field checkbox">
-                           <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                       </div>
-                       <div class="form-field checkbox">
-                           <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                       </div>
-                   </fieldset>
-
-                   <div class="form-field">
-                       <label>Time &amp; date of encounter</label>
-                       <input type="datetime" />
-                   </div>
-
-                   <div class="form-field location">
-                       <label>Location</label>
-                       <div id="map" class="map"></div>
-
-                       <div class="form-field">
-                           <input type="text" placeholder="lat,lng" />
-                           <button>Search</button>
-                       </div>
-
-                       <button class="button-flat">
-                           <svg class="iconic">
-                               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                           </svg>
-                           <span class="button-label">Use your current location</span>
-                       </button>
-                   </div>
-               </div>
-
-               <div id="tasks-verify" class="tabs-tasks">
-                   <div class="form-field switch">
-                       <label>Verified</label>
-                       <div class="toggle-switch">
-                           <input class="tgl" id="switch1" type="checkbox">
-                           <label class="tgl-btn" for="switch1"></label>
-                       </div>
-                   </div>
-
-                   <div class="form-field form-field-adapt">
-                       <label>
-                           Notes
-                       </label>
-                       <textarea name="description" data-min-rows='1' rows='1'></textarea>
-                   </div>
-               </div>
-
-               <div id="tasks-translate" class="tabs-tasks">
-                   <div class="form-field switch">
-                       <label>Translation completed</label>
-                       <div class="toggle-switch">
-                           <input class="tgl" id="switchT" type="checkbox">
-                           <label class="tgl-btn" for="switchT"></label>
-                       </div>
-                   </div>
-               </div>
-
-           </div>
+            </div>
 
             <div class="form-sheet">
                 <div class="form-sheet-summary">

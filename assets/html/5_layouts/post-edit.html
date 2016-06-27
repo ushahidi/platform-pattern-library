@@ -284,8 +284,8 @@
         <div class="main-col">
 
             <div class="form-sheet">
+                <div class="post-band" style="background-color: #E69327;"></div>
                 <div class="form-field form-field-adapt title">
-                    <div class="post-band" style="background-color: #E69327;"></div>
                     <label>Title</label>
                     <input type="text" value="Overcrowding between 5th St. &amp; Salem Ave.">
                 </div>
@@ -397,18 +397,68 @@
                     <!-- END: IF -->
                 </div>
 
+                <div class="form-field form-field-adapt">
+                    <label>
+                        Description
+                    </label>
+                    <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
+                </div>
+
+                <div class="form-field">
+                    <label>Photo</label>
+                    <figure>
+                        <img src="http://lorempixel.com/400/300/" class="postcard-image" />
+                        <button class="button-flat">Delete photo</button>
+                    </figure>
+                    <input type="file" />
+                </div>
+
+                <fieldset id="categories" class="error">
+                    <legend>Categories</legend>
+
+                    <div class="form-field checkbox">
+                        <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                    </div>
+                </fieldset>
+
+                <div class="form-field">
+                    <label>Time &amp; date of encounter</label>
+                    <input type="datetime" />
+                </div>
+
+                <div class="form-field location">
+                    <label>Location</label>
+                    <div id="map" class="map"></div>
+
+                    <div class="form-field">
+                        <input type="text" placeholder="lat,lng" />
+                        <button>Search</button>
+                    </div>
+
+                    <button class="button-flat">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                        </svg>
+                        <span class="button-label">Use your current location</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Tasks</h3>
+                </div>
+
                 <!-- IF: User has permission to see other 'Tasks' -->
                 <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
                     <ul>
-                        <li>
-                            <a href="#tasks-post">
-                                <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#file"></use>
-                                </svg>
-                                Post
-                            </a>
-                        </li>
-                        <li>
+                        <li class="active">
                             <a href="#tasks-verify">
                                 <svg class="iconic">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
@@ -421,73 +471,19 @@
                                 <svg class="iconic">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#transfer"></use>
                                 </svg>
-                                Translate
+                                Translate to Spanish
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <!--// END IF -->
 
-                <div id="tasks-post" class="tabs-tasks">
-                    <div class="form-field form-field-adapt">
-                        <label>
-                            Description
-                        </label>
-                        <textarea name="description" data-min-rows='1' rows='1'>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</textarea>
-                    </div>
-
-                    <div class="form-field">
-                        <label>Photo</label>
-                        <figure>
-                            <img src="http://lorempixel.com/400/300/" class="postcard-image" />
-                            <button class="button-flat">Delete photo</button>
-                        </figure>
-                        <input type="file" />
-                    </div>
-
-                    <fieldset id="categories" class="error">
-                        <legend>Categories</legend>
-
-                        <div class="form-field checkbox">
-                            <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
-                        </div>
-                        <div class="form-field checkbox">
-                            <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                        </div>
-                        <div class="form-field checkbox">
-                            <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                        </div>
-                    </fieldset>
-
-                    <div class="form-field">
-                        <label>Time &amp; date of encounter</label>
-                        <input type="datetime" />
-                    </div>
-
-                    <div class="form-field location">
-                        <label>Location</label>
-                        <div id="map" class="map"></div>
-
-                        <div class="form-field">
-                            <input type="text" placeholder="lat,lng" />
-                            <button>Search</button>
-                        </div>
-
-                        <button class="button-flat">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                            </svg>
-                            <span class="button-label">Use your current location</span>
-                        </button>
-                    </div>
-                </div>
-
                 <div id="tasks-verify" class="tabs-tasks">
                     <div class="form-field switch">
-                        <label>Verified</label>
+                        <label for="verified">Task completed</label>
                         <div class="toggle-switch">
-                            <input class="tgl" id="switch1" type="checkbox" checked>
-                            <label class="tgl-btn" for="switch1"></label>
+                            <input class="tgl" id="verified" type="checkbox" checked>
+                            <label class="tgl-btn" for="verified"></label>
                         </div>
                     </div>
 
@@ -501,14 +497,18 @@
 
                 <div id="tasks-translate" class="tabs-tasks">
                     <div class="form-field switch">
-                        <label>Translation completed</label>
+                        <label for="translated">Task completed</label>
                         <div class="toggle-switch">
-                            <input class="tgl" id="switchT" type="checkbox">
-                            <label class="tgl-btn" for="switchT"></label>
+                            <input class="tgl" id="translated" type="checkbox">
+                            <label class="tgl-btn" for="translated"></label>
                         </div>
                     </div>
-                </div>
 
+                    <div class="form-field form-field-adapt title">
+                        <label>Title</label>
+                        <input type="text" value="El hacinamiento entre los días 5 y St. Salem Ave.">
+                    </div>
+                </div>
             </div>
 
             <div class="form-sheet">

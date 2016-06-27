@@ -39,7 +39,13 @@
         <div class="toolbar">
             <div class="button-group">
                 <button type="button" class="button-flat">Cancel</button>
-                <button type="button" class="button-alpha" onclick="messageToggle($('#required'))">Submit</button>
+                <button type="button" class="button-alpha" onclick="messageToggle($('#required'))">
+                    <!--// IF: User survey requires review and user doesn't have permissino to review //-->
+                    Submit
+                    <!--// ELSE //
+                    Save
+                    <!--// END IF //-->
+                </button>
             </div>
         </div>
 
@@ -52,118 +58,109 @@
                     <input type="text" value="">
                 </div>
 
-                <!--// IF: User has permission to change the author & post timestamp //
-                <div class="form-field">
-                    <label>Author</label>
-                    <div class="custom-select">
-                        <select>
-                            <option>Will Doran</option>
-                            <option>Robbie MacKay</option>
-                            <option selected>Jess Shorland</option>
-                        </select>
+                <!-- IF: User has permission to manage post status //
+                <div class="toolbox">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Status</span></legend>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-published">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-published" />
+                                Published
+                            </label>
+                        </div>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-review">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-review" checked />
+                                Under review
+                            </label>
+                        </div>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-archive">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-archive" />
+                                Archived
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <div class="tool">
+                        <h6 class="tool-heading">Author</h6>
+
+                        <span data-toggle="toggle-content">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="label hidden">Show/hide</span>
+                        </span>
+
+                        <div class="toggle-content">
+                            <div class="listing-item">
+                                <div class="listing-item-primary">
+                                    <div class="listing-item-image">
+                                        <img class="avatar" src="http://placehold.it/100x100" alt="">
+                                    </div>
+                                    <h2 class="listing-item-title">Jess Shorland</h2>
+                                    <p class="listing-item-secondary">Editor</p>
+                                </div>
+                            </div>
+                            <button type="button" class="button-gamma button-flat" data-modal="edit-author">Change author</button>
+                        </div>
+                    </div>
+
+                    <div class="tool">
+                        <h6 class="tool-heading">Post date</h6>
+
+                        <span data-toggle="toggle-content">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="label hidden">Show/hide</span>
+                        </span>
+
+                        <div class="toggle-content active">
+                            <fieldset>
+                                <legend class="hidden">Post date</legend>
+                                <div class="form-field date">
+                                    <label class="hidden">Date</label>
+                                    <div class="input-with-icon">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        <input type="date" value="2016-06-22" placeholder="Date" />
+                                    </div>
+                                </div>
+
+                                <div class="form-field date">
+                                    <label class="hidden">Time</label>
+                                    <div class="input-with-icon">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                                        </svg>
+                                        <input type="time" value="11:39:57" placeholder="Time" />
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
                     </div>
                 </div>
-
-                <fieldset>
-                    <legend>Post date</legend>
-                    <div class="form-field date">
-                        <label class="hidden">Date</label>
-                        <div class="input-with-icon">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                            </svg>
-                            <input type="date" value="2016-06-22" placeholder="Date" />
-                        </div>
+                <!--// ELSE: IF: User survey requires review and user doesn't have permissino to review //-->
+                <div class="toolbox">
+                    <div class="tool">
+                        <strong>This post will need to be reviewed</strong> before it's published.
                     </div>
-                    <div class="form-field date">
-                        <label class="hidden">Time</label>
-                        <div class="input-with-icon">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                            </svg>
-                            <input type="time" value="11:39:57" placeholder="Time" />
-                        </div>
-                    </div>
-                </fieldset>
-                END IF //-->
-
-                <!--// IF: Adding a new post w/o permission to manage who it's visible to -->
-                <div class="form-field">
-                    <strong>This post will need to be moderated</strong> before it's visible to the public.
                 </div>
-                <!-- ELSE IF: User has permission to manage who it's visible to
-                <fieldset class="custom-fieldset">
-                    <legend><span class="custom-fieldset-value">Who</span> can see this</legend>
-
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special1" value="you" checked />
-                        <label for="special1">Only you</label>
-                    </div>
-
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special2" value="everyone" />
-                        <label for="special2">Everyone</label>
-                    </div>
-
-                    <div class="form-field radio">
-                        <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
-                        <label for="special3">Specific roles...</label>
-
-                        <div class="form-fieldgroup" data-fieldgroup-target="roles">
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection1" />
-                                <label for="collection1">Members</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection2" />
-                                <label for="collection2">Editors</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection3" />
-                                <label for="collection3">Operators</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection4" />
-                                <label for="collection4">Administrators</label>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-                END: IF -->
-
-               <!-- IF: User has permission to see other 'Tasks' //
-               <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
-                   <ul>
-                       <li>
-                           <a href="#tasks-post">
-                               <svg class="iconic">
-                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#file"></use>
-                               </svg>
-                               Post
-                           </a>
-                       </li>
-                       <li>
-                           <a href="#tasks-verify">
-                               <svg class="iconic">
-                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
-                               </svg>
-                               Verify
-                           </a>
-                       </li>
-                       <li>
-                           <a href="#tasks-translate">
-                               <svg class="iconic">
-                                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#transfer"></use>
-                               </svg>
-                               Translate
-                           </a>
-                       </li>
-                   </ul>
-               </nav>
-               // END IF -->
+                <!--// END: IF //-->
 
                <div id="tasks-post" class="tabs-tasks">
                    <div class="form-field form-field-adapt">

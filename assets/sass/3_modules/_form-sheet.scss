@@ -129,6 +129,29 @@
         }
     }
 
+    .listing {
+
+        .listing-heading {
+            @extend .caps;
+            border-bottom: 1px solid $color-light-gamma;
+            padding: $sm-spacing;
+
+            @include media($medium) {
+                padding-right: $base-spacing;
+                padding-left: $base-spacing;
+            }
+
+            + .listing-item {
+                margin-top: 0;
+            }
+        }
+
+        .listing-body {
+            background-color: $white;
+            box-shadow: 0 1px 4px rgba(0,0,0,.24) inset;
+        }
+    }
+
     .custom-fieldset {
         max-width: none;
     }
@@ -165,6 +188,15 @@
         fieldset {
             margin-right: 0;
             margin-bottom: $sm-spacing;
+            margin-left: 0;
+        }
+
+        > .form-field {
+            margin: $sm-spacing 0;
+        }
+
+        .form-field {
+            margin-right: 0;
             margin-left: 0;
         }
     }

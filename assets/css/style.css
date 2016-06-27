@@ -1680,7 +1680,7 @@ strong {
 /* line 28, /Users/Brandon/Sites/platform-design.dev/assets/sass/1_basics/_typography.scss */
 .caps, .pl-sub-pattern .pl-h4, label,
 .form-label, fieldset legend, .tool .tool-heading, .form-field.date .date-joiner,
-fieldset.date .date-joiner, .form-field-adapt.init.focus label, .form-field-adapt.init.value label, .listing-item .listing-item-body .listing .listing-heading, .listing .listing-heading-section {
+fieldset.date .date-joiner, .form-field-adapt.init.focus label, .form-field-adapt.init.value label, .listing-item .listing-item-body .listing .listing-heading, .listing .listing-heading-section, .form-sheet .listing .listing-heading {
   color: #888888;
   font-weight: 900;
   font-size: 10px;
@@ -2751,15 +2751,16 @@ dt.list-item {
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
 .tool {
-  position: relative; }
-  /* line 4, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+  position: relative;
+  line-height: 1.3; }
+  /* line 5, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
   .tool .tool-heading {
     color: #C7CCD4; }
-    /* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+    /* line 9, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
     .tool .tool-heading svg.iconic {
       fill: #C7CCD4;
       margin-right: 4px; }
-  /* line 14, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+  /* line 15, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
   .tool [data-toggle] {
     position: absolute;
     top: -8px;
@@ -2767,44 +2768,44 @@ dt.list-item {
     padding: 8px;
     -webkit-transition: 0.3s;
     transition: 0.3s; }
-    /* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+    /* line 22, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
     .tool [data-toggle] svg.iconic {
       width: .571428571em;
       height: .571428571em;
       fill: #C7CCD4; }
-    /* line 27, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+    /* line 28, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
     .tool [data-toggle]:hover {
       cursor: pointer; }
-      /* line 30, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+      /* line 31, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
       .tool [data-toggle]:hover svg.iconic {
         fill: #EEEEEE; }
-    /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+    /* line 36, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
     .tool [data-toggle].active {
       -webkit-transform: rotate(180deg);
       transform: rotate(180deg); }
-  /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+  /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
   .tool .toggle-content {
     display: none; }
-    /* line 43, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+    /* line 44, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
     .tool .toggle-content.active {
       display: block; }
-  /* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+  /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
   .tool .listing-item .listing-item-primary {
     padding: 16px 0; }
-    /* line 53, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+    /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
     .tool .listing-item .listing-item-primary .listing-item-image {
       top: 16px; }
 
-/* line 60, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+/* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
 .tooltip {
   position: relative; }
-  /* line 63, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+  /* line 64, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
   .tooltip:hover {
     cursor: pointer; }
-    /* line 66, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+    /* line 67, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
     .tooltip:hover .bug {
       display: inline-block; }
-  /* line 71, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
+  /* line 72, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_tool.scss */
   .tooltip .bug {
     display: none;
     position: absolute;
@@ -5053,37 +5054,9 @@ span[data-fieldgroup-target].init.active {
       .toolbox .tool [data-toggle] svg.iconic {
         fill: #888888; }
     /* line 33, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_toolbox.scss */
-    .toolbox .tool .form-field {
-      /*
-            input[type="text"],
-            input[type="email"],
-            input[type="url"],
-            input[type="password"],
-            input[type="search"],
-            input[type="date"],
-            input[type="datetime"] {
-                font-size: 12px;
-                font-size: .857142857rem;
-            }
-
-            &.checkbox,
-            &.radio {
-
-                label {
-                    font-size: 12px;
-                    font-size: .857142857rem;
-                }
-            }
-
-            .input-with-icon {
-
-                svg.iconic {
-                    top: 11px;
-                    @include left(13px);
-                }
-            }
-*/ }
-    /* line 66, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_toolbox.scss */
+    .toolbox .tool > .form-field {
+      margin: 16px 0; }
+    /* line 37, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_toolbox.scss */
     .toolbox .tool fieldset {
       margin-top: 16px; }
 
@@ -5409,10 +5382,26 @@ span[data-fieldgroup-target].init.active {
       vertical-align: middle;
       line-height: normal;
       margin: 0 8px 0 0; }
-  /* line 132, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 134, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  .form-sheet .listing .listing-heading {
+    border-bottom: 1px solid #EEEEEE;
+    padding: 16px; }
+    @media screen and (min-width: 64em) {
+      /* line 134, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      .form-sheet .listing .listing-heading {
+        padding-right: 24px;
+        padding-left: 24px; } }
+    /* line 144, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    .form-sheet .listing .listing-heading + .listing-item {
+      margin-top: 0; }
+  /* line 149, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  .form-sheet .listing .listing-body {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24) inset; }
+  /* line 155, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .custom-fieldset {
     max-width: none; }
-  /* line 136, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 159, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .metadata {
     margin: 24px 16px; }
     /* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/utils/mixins/_clearfix.scss */
@@ -5427,15 +5416,15 @@ span[data-fieldgroup-target].init.active {
     .lt-ie8 .form-sheet .metadata {
       zoom: 1; }
     @media screen and (min-width: 64em) {
-      /* line 136, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 159, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .metadata {
         margin: 32.0px 24px; } }
-    /* line 144, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 167, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .metadata + .form-field {
       margin-top: -8px;
       margin-bottom: 16px; }
   @media screen and (max-width: 767px) {
-    /* line 150, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 173, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .toolbox {
       width: auto;
       background-color: transparent;
@@ -5443,18 +5432,25 @@ span[data-fieldgroup-target].init.active {
       padding-top: 0;
       padding-bottom: 0;
       margin: 16px 0; } }
-  /* line 161, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 184, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .toolbox > fieldset {
     margin: 0 0 24px; }
-  /* line 165, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 188, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .toolbox fieldset {
     margin-right: 0;
     margin-bottom: 16px;
     margin-left: 0; }
-  /* line 172, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 194, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  .form-sheet .toolbox > .form-field {
+    margin: 16px 0; }
+  /* line 198, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  .form-sheet .toolbox .form-field {
+    margin-right: 0;
+    margin-left: 0; }
+  /* line 204, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet [data-toggle-target] {
     display: none; }
-    /* line 175, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 207, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet [data-toggle-target].active {
       display: block; }
 
@@ -5652,28 +5648,23 @@ span[data-fieldgroup-target].init.active {
       .postcard[role="article"] .listing-item-select .status-indicator {
         width: 20px;
         height: 20px;
-        padding: 1.5px; }
-        /* line 246, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+        padding: 1.5px;
+        margin-left: -2px; }
+        /* line 247, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
         .postcard[role="article"] .listing-item-select .status-indicator svg.iconic {
           width: 14px;
           height: 14px; } }
-  /* line 253, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
-  .postcard[role="article"] .listing-item-select + .postcard-body {
-    padding-left: 24px; }
-    /* line 256, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
-    .postcard[role="article"] .listing-item-select + .postcard-body .postcard-header {
-      padding-left: 20px; }
-  /* line 264, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  /* line 257, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
   .postcard[role="article"] .postcard-field .form-label {
     border-top: 1px solid #EEEEEE; }
-  /* line 270, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  /* line 263, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
   .postcard[role="article"] .postcard-field:first-child .form-label {
     border-top: none; }
-  /* line 276, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+  /* line 269, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
   .postcard[role="article"] .postcard-actions {
     margin-top: 0; }
   @media screen and (min-width: 64em) {
-    /* line 280, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
+    /* line 273, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_postcard.scss */
     .postcard[role="article"] .tabs-menu {
       margin-right: -24px;
       margin-left: -24px; } }

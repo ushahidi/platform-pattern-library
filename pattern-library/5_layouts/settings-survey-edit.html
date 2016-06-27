@@ -10,7 +10,7 @@
 <body class="layout-a">
 
     @@include('../partials/_mode-bar.html', {
-      "context": "settings"
+        "context": "settings"
     })
 
     <div class="mode-context">
@@ -43,7 +43,7 @@
             </div>
         </div>
 
-       <div class="main-col">
+        <div class="main-col">
 
             <div class="form-sheet">
                 <div class="form-field title">
@@ -53,11 +53,12 @@
 
                 <div class="form-field form-field-adapt">
                     <label>
-                        Description
+                        Survey description
                     </label>
                     <textarea name="description" data-min-rows='1' rows='1'>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
                 </div>
 
+                <!--// Color //-->
                 <fieldset class="custom-fieldset" data-fieldset-type="color">
                     <legend>Color</legend>
 
@@ -67,150 +68,235 @@
                     </div>
                 </fieldset>
 
-                <fieldset class="custom-fieldset">
-                    <legend><span class="custom-fieldset-value">Who</span> can add to this survey</legend>
+                <div class="toolbox">
+                    <!--// Who can add //-->
+                    <div class="tool">
+                        <h6 class="tool-heading">Who can add to this survey</h6>
 
-                    <div class="form-field radio icon-input">
-                        <label for="special1">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                            </svg>
-                            <input type="radio" name="special" id="special1" value="you" />
-                            Only you
-                        </label>
+                        <fieldset>
+                            <legend class="hidden">Who can add to this survey</legend>
+
+                            <div class="form-field radio icon-input">
+                                <label for="special1">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                    </svg>
+                                    <input type="radio" name="special" id="special1" value="you" />
+                                    Only you
+                                </label>
+                            </div>
+
+                            <div class="form-field radio icon-input">
+                                <label for="special2">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                    </svg>
+                                    <input type="radio" name="special" id="special2" value="everyone" checked />
+                                    <span class="label">Everyone</span>
+                                </label>
+                            </div>
+
+                            <div class="form-field radio icon-input">
+                                <label for="special3">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#people"></use>
+                                    </svg>
+                                    <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
+                                    Specific roles...
+                                </label>
+
+                                <div class="form-fieldgroup" data-fieldgroup-target="roles">
+                                    <div class="form-field checkbox">
+                                        <input type="checkbox" id="collection1" />
+                                        <label for="collection1">Members</label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <input type="checkbox" id="collection2" />
+                                        <label for="collection2">Editors</label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <input type="checkbox" id="collection3" />
+                                        <label for="collection3">Operators</label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <input type="checkbox" id="collection4" />
+                                        <label for="collection4">Administrators</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
                     </div>
 
-                    <div class="form-field radio icon-input">
-                        <label for="special2">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                            </svg>
-                            <input type="radio" name="special" id="special2" value="everyone" checked />
-                            <span class="label">Everyone</span>
-                        </label>
-                    </div>
-
-                    <div class="form-field radio icon-input">
-                        <label for="special3">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#people"></use>
-                            </svg>
-                            <input type="radio" name="special" id="special3" value="roles" data-fieldgroup-toggle="roles" />
-                            Specific roles...
-                        </label>
-
-                        <div class="form-fieldgroup" data-fieldgroup-target="roles">
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection1" />
-                                <label for="collection1">Members</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection2" />
-                                <label for="collection2">Editors</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection3" />
-                                <label for="collection3">Operators</label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <input type="checkbox" id="collection4" />
-                                <label for="collection4">Administrators</label>
-                            </div>
+                    <!--// Require review //-->
+                    <div class="form-field switch">
+                        <label>Require posts be reviewed before they're published</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="switch1" type="checkbox" data-fieldgroup-toggle="post-review">
+                            <label class="tgl-btn" for="switch1"></label>
                         </div>
+
+                        <!--// Consider removing //
+                        <fieldset data-fieldgroup-target="post-review">
+                            <legend>Also require...</legend>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="post-review1" data-fieldgroup-toggle="post-verification-role" />
+                                <label for="post-review1">Verification<span data-fieldgroup-target="post-verification-role">, <em>assigned to...</em></span></label>
+
+                                <fieldset data-fieldgroup-target="post-verification-role">
+                                    <legend class="hidden">Roles</legend>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-verification-role1">
+                                            <input type="checkbox" id="post-verification-role1" />
+                                            Members
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-verification-role2">
+                                            <input type="checkbox" id="post-verification-role2" />
+                                            Editors
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-verification-role3">
+                                            <input type="checkbox" id="post-verification-role3" />
+                                            Operators
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-verification-role4">
+                                            <input type="checkbox" id="post-verification-role4" />
+                                            Administrators
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="post-review1" data-fieldgroup-toggle="post-translation-role" />
+                                <label for="post-review1">Translation<span data-fieldgroup-target="post-translation-role">, <em>assigned to...</em></span></label>
+
+                                <fieldset data-fieldgroup-target="post-translation-role">
+                                    <legend class="hidden">Roles</legend>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-translation-role1">
+                                            <input type="checkbox" id="post-translation-role1" />
+                                            Members
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-translation-role2">
+                                            <input type="checkbox" id="post-translation-role2" />
+                                            Editors
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-translation-role3">
+                                            <input type="checkbox" id="post-translation-role3" />
+                                            Operators
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <label for="post-translation-role4">
+                                            <input type="checkbox" id="post-translation-role4" />
+                                            Administrators
+                                        </label>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </fieldset>
+                        //-->
                     </div>
-                </fieldset>
-
-                <div class="form-field switch">
-                   <label>Require posts be reviewed before they're published</label>
-                   <div class="toggle-switch">
-                      <input class="tgl" id="switch1" type="checkbox" data-fieldgroup-toggle="post-review">
-                      <label class="tgl-btn" for="switch1"></label>
-                   </div>
-
-                   <fieldset data-fieldgroup-target="post-review">
-                       <legend>Additional requirements</legend>
-
-                       <div class="form-field checkbox">
-                           <input type="checkbox" id="post-review1" data-fieldgroup-toggle="post-verification-role" />
-                           <label for="post-review1">Verification<span data-fieldgroup-target="post-verification-role">, <em>assigned to...</em></span></label>
-
-                           <fieldset data-fieldgroup-target="post-verification-role">
-                               <legend class="hidden">Roles</legend>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-verification-role1">
-                                       <input type="checkbox" id="post-verification-role1" />
-                                       Members
-                                   </label>
-                               </div>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-verification-role2">
-                                       <input type="checkbox" id="post-verification-role2" />
-                                       Editors
-                                   </label>
-                               </div>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-verification-role3">
-                                       <input type="checkbox" id="post-verification-role3" />
-                                       Operators
-                                   </label>
-                               </div>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-verification-role4">
-                                       <input type="checkbox" id="post-verification-role4" />
-                                       Administrators
-                                   </label>
-                               </div>
-                           </fieldset>
-                       </div>
-
-                       <div class="form-field checkbox">
-                           <input type="checkbox" id="post-review1" data-fieldgroup-toggle="post-translation-role" />
-                           <label for="post-review1">Translation<span data-fieldgroup-target="post-translation-role">, <em>assigned to...</em></span></label>
-
-                           <fieldset data-fieldgroup-target="post-translation-role">
-                               <legend class="hidden">Roles</legend>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-translation-role1">
-                                       <input type="checkbox" id="post-translation-role1" />
-                                       Members
-                                   </label>
-                               </div>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-translation-role2">
-                                       <input type="checkbox" id="post-translation-role2" />
-                                       Editors
-                                   </label>
-                               </div>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-translation-role3">
-                                       <input type="checkbox" id="post-translation-role3" />
-                                       Operators
-                                   </label>
-                               </div>
-
-                               <div class="form-field checkbox">
-                                   <label for="post-translation-role4">
-                                       <input type="checkbox" id="post-translation-role4" />
-                                       Administrators
-                                   </label>
-                               </div>
-                           </fieldset>
-                       </div>
-                   </fieldset>
-
 
                 </div>
 
+                <section class="listing">
+                    <h3 class="listing-heading">Post fields</h3>
+
+                    <div class="listing-body">
+                        <div class="listing-item">
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title"><a href="">Title</a></h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item">
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title"><a href="">Description</a></h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item">
+                            <div class="listing-item-select">
+                                <div class="buttons-updown">
+                                    <button type="button" class="button-beta" disabled>
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                        </svg>
+                                        <span class="label hidden">Move up</span>
+                                    </button>
+                                    <button type="button" class="button-beta">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                        </svg>
+                                        <span class="label hidden">Move down</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title"><a href="">Location</a></h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item">
+                            <div class="listing-item-select">
+                                <div class="buttons-updown">
+                                    <button type="button" class="button-beta">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                        </svg>
+                                        <span class="label hidden">Move up</span>
+                                    </button>
+                                    <button type="button" class="button-beta" disabled>
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                        </svg>
+                                        <span class="label hidden">Move down</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title"><a href="" data-modal="edit-field">Witness</a> <em>text field</em></h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item">
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title">
+                                    <a href="" class="button button-flat" data-modal="add-field">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                        </svg>
+                                        Add field
+                                    </a>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
 
             <div class="listing card">
@@ -218,14 +304,6 @@
 
                 <nav class="tabs-menu" data-tabs="tasks-tabs">
                     <ul>
-                        <li class="active">
-                            <a href="#tasks-post">
-                                <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#file"></use>
-                                </svg>
-                                Post
-                            </a>
-                        </li>
                         <li>
                             <a href="#tasks-verify">
                                 <svg class="iconic">
@@ -239,86 +317,11 @@
                                 <svg class="iconic">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#transfer"></use>
                                 </svg>
-                                Translate
+                                Translate to Spanish
                             </a>
                         </li>
                     </ul>
                 </nav>
-
-                <div id="tasks-post" class="tasks-tabs">
-
-                     <div class="listing-item">
-                         <div class="listing-item-primary">
-                             <h2 class="listing-item-title"><a href="">Title</a></h2>
-                         </div>
-                     </div>
-
-                     <div class="listing-item">
-                         <div class="listing-item-primary">
-                             <h2 class="listing-item-title"><a href="">Description</a></h2>
-                         </div>
-                     </div>
-
-                     <div class="listing-item">
-                         <div class="listing-item-select">
-                             <div class="buttons-updown">
-                                <button type="button" class="button-beta" disabled>
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                         </div>
-
-                         <div class="listing-item-primary">
-                             <h2 class="listing-item-title"><a href="">Location</a></h2>
-                         </div>
-                     </div>
-
-                     <div class="listing-item">
-                         <div class="listing-item-select">
-                             <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta" disabled>
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                         </div>
-
-                         <div class="listing-item-primary">
-                             <h2 class="listing-item-title"><a href="" data-modal="edit-field">Witness</a> <em>text field</em></h2>
-                         </div>
-                     </div>
-
-                     <div class="listing-item">
-                         <div class="listing-item-primary">
-                             <h2 class="listing-item-title">
-                                 <a href="" class="button button-flat" data-modal="add-field">
-                                     <svg class="iconic">
-                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                                     </svg>
-                                    Add field
-                                 </a>
-                             </h2>
-                         </div>
-                     </div>
-
-                </div>
 
                 <div id="tasks-verify" class="tasks-tabs">
 
@@ -328,13 +331,26 @@
                         </div>
                     </div>
 
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title">
+                                <a href="" class="button button-flat" data-modal="add-field">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                    </svg>
+                                    Add field
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div id="tasks-translate" class="tasks-tabs">
 
                     <div class="listing-item">
                         <div class="listing-item-primary">
-                            <h2 class="listing-item-title">This task will duplicate your deployment's <strong>Post</strong> fields so you can complete them with the approprate language translation.</h2>
+                            <h2 class="listing-item-title">This task will duplicate this Survey's <strong>form fields</strong> so you can complete them with the approprate language translation.</h2>
                         </div>
                     </div>
 
@@ -369,110 +385,99 @@
                 <svg class="iconic">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
                 </svg>
-               <span class="hidden">Close</span>
+                <span class="hidden">Close</span>
             </button>
 
-           <h3 class="modal-title">Add field</h3>
+            <h3 class="modal-title">Add field</h3>
 
-           <dl class="modal-body">
-              <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
-              <dd>A sentence or less</dd>
+            <dl class="modal-body">
+                <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
+                <dd>A sentence or less</dd>
 
-              <dt class="list-item"><a href="">Long text</a></dt>
-              <dd>Multiple sentences or paragraphs</dd>
+                <dt class="list-item"><a href="">Long text</a></dt>
+                <dd>Multiple sentences or paragraphs</dd>
 
-              <dt class="list-item"><a href="">Number</a></dt>
-              <dd></dd>
+                <dt class="list-item"><a href="">Number</a></dt>
+                <dd></dd>
 
-              <dt class="list-item"><a href="">Location</a></dt>
-              <dd></dd>
+                <dt class="list-item"><a href="">Location</a></dt>
+                <dd></dd>
 
-              <dt class="list-item"><a href="">Date</a></dt>
-              <dd></dd>
+                <dt class="list-item"><a href="">Date</a></dt>
+                <dd></dd>
 
-              <dt class="list-item"><a href="">Time</a></dt>
-              <dd></dd>
+                <dt class="list-item"><a href="">Time</a></dt>
+                <dd></dd>
 
-              <dt class="list-item"><a href="">Radio Button(s)</a></dt>
-              <dd>Allows the user to choose only one of a predefined set of options.</dd>
+                <dt class="list-item"><a href="">Radio Button(s)</a></dt>
+                <dd>Allows the user to choose only one of a predefined set of options.</dd>
 
-              <dt class="list-item"><a href="">Checkbox(es)</a></dt>
-              <dd>Allows the user to choose one or more of a predefined set of options.</dd>
+                <dt class="list-item"><a href="">Checkbox(es)</a></dt>
+                <dd>Allows the user to choose one or more of a predefined set of options.</dd>
 
-              <dt class="list-item"><a href="">Related Post Type</a></dt>
-              <dd></dd>
-           </dl>
+                <dt class="list-item"><a href="">Related Survey</a></dt>
+                <dd></dd>
+            </dl>
         </div>
 
         <div class="modal-overlay"></div>
-     </div>
+    </div>
 
-     <div id="edit-field" class="modal">
+    <div id="edit-field" class="modal">
         <div class="modal-window">
             <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
                 <svg class="iconic">
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
                 </svg>
-               <span class="hidden">Close</span>
+                <span class="hidden">Close</span>
             </button>
 
-           <h3 class="modal-title">Edit field <em>short text</em></h3>
+            <h3 class="modal-title">Edit field <em>short text</em></h3>
 
-           <div class="form-field">
-              <label>Name</label>
-              <input type="text" value="Witness" />
-           </div>
+            <div class="form-field">
+                <label>Name</label>
+                <input type="text" value="Witness" />
+            </div>
 
-           <div class="form-field">
-              <label>Key</label>
-              <input type="text" value="witness" />
-           </div>
+            <div class="form-field">
+                <label>Key</label>
+                <input type="text" value="witness" />
+            </div>
 
-           <div class="form-field">
-              <label>Default value</label>
-              <input type="text" />
-           </div>
+            <div class="form-field">
+                <label>Default value</label>
+                <input type="text" />
+            </div>
 
-           <div class="form-field switch">
-              <label>Require this field be completed</label>
-              <div class="toggle-switch">
-                 <input class="tgl" id="switch1" type="checkbox">
-                 <label class="tgl-btn" for="switch1"></label>
-              </div>
-           </div>
+            <div class="form-field switch">
+                <label>Require this field be completed</label>
+                <div class="toggle-switch">
+                    <input class="tgl" id="switch1" type="checkbox">
+                    <label class="tgl-btn" for="switch1"></label>
+                </div>
+            </div>
 
-           <div class="form-field switch">
-              <label>Include this field in filters</label>
-              <div class="toggle-switch">
-                 <input class="tgl" id="switch2" type="checkbox">
-                 <label class="tgl-btn" for="switch2"></label>
-              </div>
-           </div>
+            <div class="form-field switch">
+                <label>Include this field in filters</label>
+                <div class="toggle-switch">
+                    <input class="tgl" id="switch2" type="checkbox">
+                    <label class="tgl-btn" for="switch2"></label>
+                </div>
+            </div>
 
-           <div class="form-sheet">
-               <div class="form-sheet-summary">
-                   <h3 class="form-sheet-title">Delete this field</h3>
-               </div>
-
-               <div class="form-field">
-                   <p><strong>If you delete this field</strong>, all of the data that was collected within it will also be deleted. Proceed with caution.</p>
-
-                   <button class="button-destructive">
-                       <svg class="iconic">
-                           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                       </svg>
-                       <span class="button-label">Delete field</span>
-                   </button>
-               </div>
-           </div>
-
-           <div class="form-field">
-              <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
-           </div>
+            <div class="form-field">
+                <button class="button-destructive button-flat">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                    </svg>
+                    <span class="button-label">Delete field</span>
+                </button>
+                <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+            </div>
         </div>
 
         <div class="modal-overlay"></div>
-     </div>
+    </div>
 
     @@include('../partials/_scripts.html')
 
