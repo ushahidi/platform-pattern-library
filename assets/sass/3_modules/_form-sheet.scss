@@ -146,4 +146,34 @@
             margin-bottom: $sm-spacing;
         }
     }
+
+    .toolbox {
+
+        @include media($small-down) {
+            width: auto;
+            background-color: transparent;
+            @include no-shadow;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin: $sm-spacing 0;
+        }
+
+        > fieldset {
+            margin: 0 0 $base-spacing;
+        }
+
+        fieldset {
+            margin-right: 0;
+            margin-bottom: $sm-spacing;
+            margin-left: 0;
+        }
+    }
+
+    [data-toggle-target] {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
 }

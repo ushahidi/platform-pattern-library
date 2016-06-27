@@ -2,6 +2,10 @@
 .secondary-col {
     padding-bottom: 45px;
 
+    @include media($small) {
+        padding: $sm-spacing;
+    }
+
     @include media($medium) {
         padding: $base-spacing;
     }
@@ -131,6 +135,24 @@
         @include media($medium) {
             padding-top: 68px;
             padding-left: 288px;
+        }
+
+        .main-col {
+
+            @include media($small) {
+                margin-right: 222px;
+            }
+
+            @include media($medium) {
+                margin-right: 230px;
+            }
+
+            @include media($small-down) {
+
+                .toolbox {
+                    display: block;
+                }
+            }
         }
 
         .toolbar {
@@ -276,6 +298,14 @@
         .postcard[role="article"] {
             margin-bottom: $base-spacing;
 
+/*
+            @include media($small-down) {
+
+                .toolbox {
+                    display: block;
+                }
+            }
+
             @include media($medium) {
                 margin-right: 230px;
 
@@ -287,6 +317,7 @@
                     }
                 }
             }
+*/
         }
 
         .postcard[role="article"] {
@@ -307,17 +338,22 @@
 
         .toolbox {
             display: none;
-            /*
-            position: absolute;
-            */
-            position: fixed;
-            @include right(24px);
-            z-index: $toolbox;
-            width: 206px;
 
+            &.active {
+                display: block;
+            }
+
+            @include media($small) {
+                display: block;
+                position: fixed;
+                @include right(16px);
+                z-index: $toolbox;
+                width: 206px;
+
+            }
 
             @include media($medium) {
-                display: block;
+                @include right(24px);
             }
         }
 
