@@ -31,10 +31,10 @@ $('.listing').each(function(){
 
            if ($(select_checkboxes_checked).length) {
                $(context).addClass('toolbar-active');
-               $('.button-fab').prop('disabled', true);
+               $('.button-fab').prop('disabled', true).addClass('disabled');
            } else {
                $(context).removeClass('toolbar-active');
-               $('.button-fab').prop('disabled', false);
+               $('.button-fab').prop('disabled', false).removeClass('disabled');
            }
 
            $(toolbar).find('.listing-toolbar-summary .total').text($(select_checkboxes_checked).length);
