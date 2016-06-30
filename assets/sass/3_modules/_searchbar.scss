@@ -3,9 +3,50 @@
     position: relative;
 
     .searchbar-input {
+        position: relative;
+        z-index: 1;
 
         .form-field {
             margin: 0;
+
+            .input-with-ghost {
+
+                input[type="search"] {
+                    position: relative;
+                    z-index: 1;
+                    background-color: transparent !important;
+                }
+
+                .input-ghost {
+                    position: absolute;
+                    z-index: 0;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    overflow: hidden;
+                    color: transparent;
+                    @include equal-radius;
+                    background-color: $white;
+                    padding: 5px 4px 0;
+
+                    .modifier {
+                        display: inline-block;
+                        @include equal-radius;
+                        box-shadow: 0 0 1px rgba(0,0,0,.24);
+                        background-color: $color-tertiary;
+                        padding: 2px 4px;
+                        margin: 4px;
+                    }
+                }
+
+                &.input-with-icon {
+
+                    .input-ghost {
+                        padding-left: $lg-spacing;
+                    }
+                }
+            }
         }
 
         input[type="search"] {
@@ -24,6 +65,7 @@
 
         + .searchbar-options {
             position: absolute;
+            z-index: 2;
             top: 0;
             right: 0;
             bottom: 0;
