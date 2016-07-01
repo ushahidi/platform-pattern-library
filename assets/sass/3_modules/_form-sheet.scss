@@ -14,22 +14,6 @@
         @include typeBeta;
     }
 
-    .form-sheet-summary {
-        position: relative;
-
-        &:not(:first-of-type) {
-            border-top: $base-border;
-            padding-top: $lg-spacing;
-        }
-
-        .post-band {
-            margin-left: -$sm-spacing;
-
-            @include media($medium) {
-                margin-left: -$base-spacing;
-            }
-        }
-    }
 
     .form-sheet-summary,
     .form-field,
@@ -107,6 +91,29 @@
 
         .form-field {
             margin: 0 0 $tiny-spacing 0;
+        }
+    }
+
+    .form-sheet-summary {
+        position: relative;
+        max-width: none;
+
+        &:not(:first-of-type) {
+            border-top: $base-border;
+            padding-top: $lg-spacing;
+        }
+
+        .post-band {
+            margin-left: -$sm-spacing;
+
+            @include media($medium) {
+                margin-left: -$base-spacing;
+            }
+        }
+
+        img.icon {
+            max-width: $huge-spacing;
+            margin: 0 auto;
         }
     }
 

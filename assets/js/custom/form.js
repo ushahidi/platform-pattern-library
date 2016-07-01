@@ -100,14 +100,43 @@ $('.searchbar-input').each(function(){
         dropdownMenu = $(this).find('.dropdown-menu'),
         ghost = $(this).find('.input-ghost');
 
+    function inputGhostUpdate(str) {
+        if (str.includes(':')) {
+            var ghostVal = "";
+
+            $.each(str.split(' '), function(key, value){
+                if (key != 0) {
+                    ghostVal += " ";
+                }
+
+                if (value.includes(':')) {
+                    ghostVal += '<mark class="modifier">' + value + '</mark>';
+                } else {
+                    ghostVal += value;
+                }
+            });
+            ghost.html(ghostVal).addClass('active');
+            input.addClass('active');
+        } else {
+            ghost.html('').removeClass('active');
+            input.removeClass('active');
+        }
+    }
+
+    inputGhostUpdate(input.val());
+
     input.on('keyup', function(){
         if (input.val()) {
             dropdownMenu.addClass('active');
-            ghost.html(input.val());
         }
+        //inputGhostUpdate(input.val());
     });
 
     input.on('focusout', function(){
         dropdownMenu.removeClass('active');
+    });
+
+    input.on('change', function(){
+        // inputGhostUpdate(input.val());
     });
 });

@@ -278,8 +278,19 @@
        <div class="main-col">
 
             <div class="form-sheet">
+                <!--// IF: Email account is successfully configured //
+                <div class="form-field switch">
+                   <label>Automatically import email</label>
+                   <div class="toggle-switch">
+                      <input checked class="tgl" id="email-status" type="checkbox">
+                      <label class="tgl-btn" for="email-status"></label>
+                   </div>
+                   <p><em>When turned on, Ushahidi will import all the messages currently in the configured email account's inbox, as well as any new messages sent to that address.</em></p>
+                </div>
+                // END IF //-->
+
                 <fieldset>
-                    <legend>Do you want imported email messages to be assigned to a survey?</legend>
+                    <legend>Do you want imported email messages to be added to a survey?</legend>
 
                     <div class="form-field radio">
                         <label>
@@ -291,11 +302,14 @@
                     <div class="form-field radio">
                         <label>
                             <input type="radio" name="survey-assignment" id="survey-assign-yes" data-fieldgroup-toggle="survey-assignment" />
-                            <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, assign it to...</span>
+                            <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, add them to...</span>
                         </label>
                         <div class="custom-select" data-fieldgroup-target="survey-assignment">
                             <select>
                                 <option>Getting around</option>
+                                <option>Police encounters</option>
+                                <option>Protester photos</option>
+                                <option>Official events</option>
                             </select>
                         </div>
                     </div>
@@ -499,6 +513,15 @@
 
                 </div>
 
+                <div class="form-field">
+                    <button type="button" disabled>
+                        <!--// IF submitting a no-yet validated account configuration //-->
+                        Connect account
+                        <!--// ELSE //
+                        Update account
+                        // END IF //-->
+                    </button>
+                </div>
             </div>
 
         </div>

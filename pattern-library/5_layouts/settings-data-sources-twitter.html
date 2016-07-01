@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('../partials/_pl-head.html')
+
+<body class="layout-a">
+
+    @@include('../partials/_mode-bar.html', {
+      "context": "settings"
+    })
+
+    <div class="mode-context">
+
+        <header class="mode-context-header">
+            <ol class="breadcrumbs">
+                <li><a href="map.html">March on City Hall</a></li>
+                <li><a href="settings.html">Settings</a></li>
+                <li><a href="settings-data-sources.html">Data sources</a></li>
+            </ol>
+
+            <h1 class="mode-context-title">Twitter</h1>
+        </header>
+
+        <span class="mode-context-trigger">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+            <span class="label hidden">Show more/less</span>
+        </span>
+    </div>
+
+
+    <main role="main">
+
+        <div class="toolbar">
+            <div class="button-group">
+                <button type="button" class="button-flat">Cancel</button>
+                <button type="button" class="button-alpha">Done</button>
+            </div>
+        </div>
+
+       <div class="main-col">
+
+            <div class="form-sheet">            
+                <!--// IF: Email account is successfully configured //-->
+                <div class="form-field switch">
+                   <label>Automatically import tweets</label>
+                   <div class="toggle-switch">
+                      <input checked class="tgl" id="email-status" type="checkbox">
+                      <label class="tgl-btn" for="email-status"></label>
+                   </div>
+                   <p><em>When turned on, Ushahidi will import tweets that include the keywords defined below.</em></p>
+                </div>
+                <!--// END IF //-->
+
+                <div class="form-field">
+                    <label>
+                        Keywords
+                        <input type="text" placeholder="ushahidi" value="ushahidi" />
+                    </label>
+                    <p>Separate each search term with commas.</p>
+                </div>
+
+                <fieldset>
+                    <legend>Do you want imported tweets to be added to a survey?</legend>
+
+                    <div class="form-field radio">
+                        <label>
+                            <input type="radio" name="survey-assignment" id="survey-assign-no" />
+                            <strong>No</strong>, keep their survey "unknown" until someone determines which survey it belongs to.
+                        </label>
+                    </div>
+
+                    <div class="form-field radio">
+                        <label>
+                            <input type="radio" name="survey-assignment" id="survey-assign-yes" data-fieldgroup-toggle="survey-assignment" checked />
+                            <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, add them to...</span>
+                        </label>
+                        <div class="custom-select" data-fieldgroup-target="survey-assignment">
+                            <select>
+                                <option>Getting around</option>
+                                <option selected>Police encounters</option>
+                                <option>Protester photos</option>
+                                <option>Official events</option>
+                            </select>
+                        </div>
+                    </div>
+                </fieldset>
+
+            </div>
+
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Configure Twitter account</h3>
+                    <p>To connect Twitter to your deployment, you need to:</p>
+                    <ol>
+                        <li><a href="https://apps.twitter.com/app/new" target="_blank">Create a "Twitter Application."</a></li>
+                        <li>Select "Keys and Access Tokens."</li>
+                        <li>Select "Generate Consumer Key and Secret."</li>
+                        <li>Copy and paste the necessary keys, tokens, and secrets into the fields below.</li>
+                    </ol>
+                </div>
+
+                <div class="form-field required">
+                    <label>Consumer key</label>
+                    <input type="text" value="pIxWSXW12mqw3PUz6sNQvCdrd" />
+                </div>
+
+                <div class="form-field required">
+                    <label>Consumer secret</label>
+                    <input type="text" value="dSVIVFC6lbuQLKrFHWltPDuHjM7QoniQUN4tsuDU80469vf3Px" />
+                </div>
+
+                <div class="form-field">
+                    <button type="button" disabled>
+                        <!--// IF submitting a no-yet validated account configuration //-->
+                        Connect to Twitter
+                        <!--// ELSE //
+                        Update connection
+                        // END IF //-->
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <div id="add-field" class="modal">
+        <div class="modal-window">
+            <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                </svg>
+               <span class="hidden">Close</span>
+            </button>
+
+           <h3 class="modal-title">Add field</h3>
+
+           <dl class="modal-body">
+              <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
+              <dd>A sentence or less</dd>
+
+              <dt class="list-item"><a href="">Long text</a></dt>
+              <dd>Multiple sentences or paragraphs</dd>
+
+              <dt class="list-item"><a href="">Number</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Location</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Date</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Time</a></dt>
+              <dd></dd>
+
+              <dt class="list-item"><a href="">Radio Button(s)</a></dt>
+              <dd>Allows the user to choose only one of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Checkbox(es)</a></dt>
+              <dd>Allows the user to choose one or more of a predefined set of options.</dd>
+
+              <dt class="list-item"><a href="">Related Post Type</a></dt>
+              <dd></dd>
+           </dl>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
+     <div id="edit-field" class="modal">
+        <div class="modal-window">
+            <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                </svg>
+               <span class="hidden">Close</span>
+            </button>
+
+           <h3 class="modal-title">Edit field <em>short text</em></h3>
+
+           <div class="form-field">
+              <label>Name</label>
+              <input type="text" value="Witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Key</label>
+              <input type="text" value="witness" />
+           </div>
+
+           <div class="form-field">
+              <label>Default value</label>
+              <input type="text" />
+           </div>
+
+           <div class="form-field switch">
+              <label>Require this field be completed</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch1" type="checkbox">
+                 <label class="tgl-btn" for="switch1"></label>
+              </div>
+           </div>
+
+           <div class="form-field switch">
+              <label>Include this field in filters</label>
+              <div class="toggle-switch">
+                 <input class="tgl" id="switch2" type="checkbox">
+                 <label class="tgl-btn" for="switch2"></label>
+              </div>
+           </div>
+
+           <div class="form-sheet">
+               <div class="form-sheet-summary">
+                   <h3 class="form-sheet-title">Delete this field</h3>
+               </div>
+
+               <div class="form-field">
+                   <p><strong>If you delete this field</strong>, all of the data that was collected within it will also be deleted. Proceed with caution.</p>
+
+                   <button class="button-destructive">
+                       <svg class="iconic">
+                           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                       </svg>
+                       <span class="button-label">Delete field</span>
+                   </button>
+               </div>
+           </div>
+
+           <div class="form-field">
+              <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+           </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+     </div>
+
+    @@include('../partials/_scripts.html')
+
+</body>
+
+</html>
