@@ -81,25 +81,6 @@ fieldset {
        }
    }
 
-   fieldset {
-       border-left: 2px solid $color-light-beta;
-       padding-left: $sm-spacing;
-       margin-top: $sm-spacing;
-
-       legend {
-           left: $sm-spacing;
-       }
-
-       fieldset {
-           border-left: none;
-           padding-left: 0;
-
-           legend {
-               left: 0;
-           }
-       }
-   }
-
    + .form-sheet {
        margin-bottom: $base-spacing;
    }
@@ -460,6 +441,13 @@ fieldset {
           letter-spacing: 0;
           padding-right: 72px;
       }
+
+      .form-field {
+          border-left: 2px solid $color-light-beta;
+          padding-left: $sm-spacing;
+          margin-top: $sm-spacing;
+          margin-bottom: $sm-spacing;
+      }
    }
 }
 
@@ -539,6 +527,26 @@ fieldset,
             fill: $color-primary;
             margin-right: $tiny-spacing;
             @include transition(0.3s);
+        }
+    }
+
+    .form-field &,
+    fieldset & {
+        border-left: 2px solid $color-light-beta;
+        padding-left: $sm-spacing;
+        margin-top: $sm-spacing;
+
+        legend {
+            left: $sm-spacing;
+        }
+
+        fieldset {
+            border-left: none;
+            padding-left: 0;
+
+            legend {
+                left: 0;
+            }
         }
     }
 

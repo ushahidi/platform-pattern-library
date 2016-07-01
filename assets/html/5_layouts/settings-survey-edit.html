@@ -535,8 +535,10 @@
                 </section>
             </div>
 
-            <div class="listing card">
-                <h3 class="listing-heading">Tasks</h3>
+            <div class="form-sheet">
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Tasks</h3>
+                </div>
 
                 <nav class="tabs-menu" data-tabs="tasks-tabs">
                     <ul>
@@ -556,40 +558,152 @@
                                 Translate to Spanish
                             </a>
                         </li>
+                        <li>
+                            <a href="#tasks-custom" data-modal="add-task">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                </svg>
+                                Add task
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
                 <div id="tasks-verify" class="tasks-tabs">
+                    <div class="form-field switch">
+                        <label>Require this task be completed before a post can be published</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="verify-require" type="checkbox" data-fieldgroup-toggle="verify-assignment">
+                            <label class="tgl-btn" for="verify-require"></label>
+                        </div>
 
-                    <div class="listing-item">
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="">Notes</a> <em>long text</em></h2>
+                        <div class="form-field" data-fieldgroup-target="verify-assignment">
+                            <label>Assign this task to...</label>
+
+                            <div class="custom-select">
+                                <select>
+                                    <option selected>Nobody</option>
+                                    <option>Members</option>
+                                    <option>Editors</option>
+                                    <option>Operators</option>
+                                    <option>Administrators</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="listing-item">
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title">
-                                <a href="" class="button button-flat" data-modal="add-field">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                                    </svg>
-                                    Add field
-                                </a>
-                            </h2>
+                    <div class="listing">
+                        <h3 class="listing-heading">Task fields</h3>
+
+                        <div class="listing-body">
+                            <div class="listing-item">
+                                <div class="listing-item-primary">
+                                    <h2 class="listing-item-title"><a href="">Notes</a> <em>long text</em></h2>
+                                </div>
+                            </div>
+
+                            <div class="listing-item">
+                                <div class="listing-item-primary">
+                                    <h2 class="listing-item-title">
+                                        <a href="" class="button button-flat" data-modal="add-field">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                            </svg>
+                                            Add field
+                                        </a>
+                                    </h2>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                 </div>
 
-                <div id="tasks-translate" class="tasks-tabs">
+                <div id="tasks-translate" class="listing tasks-tabs">
+                    <div class="form-field switch">
+                        <label>Require this task be completed before a post can be published</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="translate-require" type="checkbox" data-fieldgroup-toggle="translate-assignment">
+                            <label class="tgl-btn" for="translate-require"></label>
+                        </div>
 
-                    <div class="listing-item">
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title">This task will duplicate this Survey's <strong>form fields</strong> so you can complete them with the approprate language translation.</h2>
+                        <div class="form-field" data-fieldgroup-target="translate-assignment">
+                            <label>Assign this task to...</label>
+
+                            <div class="custom-select">
+                                <select>
+                                    <option selected>Nobody</option>
+                                    <option>Members</option>
+                                    <option>Editors</option>
+                                    <option>Operators</option>
+                                    <option>Administrators</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="form-field">
+                        <label>Language</label>
+                        <input type="text" placeholder="Translate to..." value="Spanish" />
+                    </div>
+
+                    <div class="form-field">
+                        <p>This task will duplicate this survey's <strong>post fields</strong> so you can complete them with the approprate language translation.</p>
+                    </div>
+                </div>
+
+                <div id="tasks-custom" class="tasks-tabs">
+                    <div class="form-field">
+                        <label>Task name</label>
+                        <input type="text" placeholder="Name this task..." value="Call police" />
+                    </div>
+
+                    <div class="form-field">
+                        <label>
+                            Task description
+                        </label>
+                        <textarea name="description" data-min-rows='1' rows='1'>Report the incident to police via phone to +1-234-567-8901.</textarea>
+                    </div>
+
+                    <div class="form-field switch">
+                        <label>Require this task be completed before a post can be published</label>
+                        <div class="toggle-switch">
+                            <input checked class="tgl" id="custom-require" type="checkbox" data-fieldgroup-toggle="custom-assignment">
+                            <label class="tgl-btn" for="custom-require"></label>
+                        </div>
+
+                        <div class="form-field" data-fieldgroup-target="custom-assignment">
+                            <label>Assign this task to...</label>
+
+                            <div class="custom-select">
+                                <select>
+                                    <option selected>Nobody</option>
+                                    <option>Members</option>
+                                    <option>Editors</option>
+                                    <option selected>Operators</option>
+                                    <option>Administrators</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="listing">
+                        <h3 class="listing-heading">Task fields</h3>
+
+                        <div class="listing-body">
+                            <div class="listing-item">
+                                <div class="listing-item-primary">
+                                    <h2 class="listing-item-title">
+                                        <a href="" class="button button-flat" data-modal="add-field">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                            </svg>
+                                            Add field
+                                        </a>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
@@ -709,6 +823,117 @@
                     <span class="button-label">Delete field</span>
                 </button>
                 <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+            </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+    </div>
+
+    <div id="add-task" class="modal">
+        <div class="modal-window">
+            <h3 class="modal-title">Add task</h3>
+            <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                </svg>
+                <span class="hidden">Close</span>
+            </button>
+
+            <p>Choose a pre-built task, or create one from scratch.</p>
+            <div class="listing">
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
+                            </svg>
+                        </div>
+                        <h2 class="listing-item-title">
+                            <a href="">
+                                Verify
+                            </a>
+                         </h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#transfer"></use>
+                            </svg>
+                        </div>
+                        <h2 class="listing-item-title">
+                            <a href="">
+                                Translate
+                            </a>
+                         </h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            <a href="" data-modal="add-task-custom">
+                                Custom
+                            </a>
+                         </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+    </div>
+
+    <div id="add-task-custom" class="modal">
+        <div class="modal-window">
+            <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                </svg>
+                <span class="hidden">Close</span>
+            </button>
+
+            <h3 class="modal-title">Add task <em>custom</em></h3>
+
+            <div class="form-field title">
+                <label class="hidden">Task name</label>
+                <input type="text" placeholder="Task name" value="" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Task description
+                </label>
+                <textarea name="description" data-min-rows='1' rows='1'></textarea>
+            </div>
+
+            <div class="form-field switch">
+                <label>Require this task be completed before a post can be published</label>
+                <div class="toggle-switch">
+                    <input class="tgl" id="custom-require" type="checkbox" data-fieldgroup-toggle="custom-assignment">
+                    <label class="tgl-btn" for="custom-require"></label>
+                </div>
+
+                <div class="form-field" data-fieldgroup-target="custom-assignment">
+                    <label>Assign this task to...</label>
+
+                    <div class="custom-select">
+                        <select>
+                            <option selected>Nobody</option>
+                            <option>Members</option>
+                            <option>Editors</option>
+                            <option>Operators</option>
+                            <option>Administrators</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <button class="button-beta button-flat">Cancel</button>
+                <button type="button" class="button-alpha modal-trigger">Save &amp; continue</button>
             </div>
         </div>
 
