@@ -403,54 +403,77 @@
                 </div>
                 <!--// END: IF //-->
 
-               <div class="form-field form-field-adapt">
-                   <label>
-                       Description
-                   </label>
-                   <textarea name="description" data-min-rows='1' rows='1'></textarea>
-               </div>
+                <div class="form-field form-field-adapt">
+                    <label>
+                        Description
+                    </label>
+                    <textarea name="description" data-min-rows='1' rows='1'></textarea>
+                </div>
 
-               <div class="form-field">
-                   <label>Photo</label>
-                   <input type="file" />
-               </div>
+                <div class="form-field">
+                    <label>Photo</label>
+                    <input type="file" />
+                </div>
 
-               <div id="time-date-encounter" class="form-field required">
-                   <label>Time &amp; date of encounter</label>
-                   <input type="datetime" required />
-               </div>
+                <div id="time-date-encounter" class="form-field required">
+                    <label>Time &amp; date of encounter</label>
+                    <input type="datetime" required />
+                </div>
 
-               <div class="form-field location">
-                   <label>Location</label>
-                   <div id="map" class="map"></div>
+                <div class="form-field location">
+                    <label>Location</label>
+                    <div id="map" class="map"></div>
 
-                   <div class="form-field">
-                       <input type="text" placeholder="lat,lng" />
-                       <button>Search</button>
-                   </div>
+                    <form role="search" class="searchbar" data-message="search">
+                        <div class="searchbar-input">
+                            <div class="form-field">
+                                <input type="search" maxlength="250" placeholder="Find a location" value="" />
+                            </div>
+                            <div class="searchbar-results dropdown-menu">
+                                <div class="form-field">
+                                    <button class="button-plain">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                                        </svg>
+                                        <span class="button-label">Search for "<em>123 Main St</em>"</span>
+                                    </button>
 
-                   <button class="button-flat">
-                       <svg class="iconic">
-                           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                       </svg>
-                       <span class="button-label">Use your current location</span>
-                   </button>
-               </div>
+                                    <button class="button-beta button-plain">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                                        </svg>
+                                        <span class="button-label">Use your current location</span>
+                                    </button>
+                                </div>
 
-               <fieldset>
-                   <legend>Categories</legend>
+                                <div class="tool">
+                                    <h6 class="tool-heading">Suggested places</h6>
+                                    <dl class="dropdown-menu-body">
+                                        <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
+                                        <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
 
-                   <div class="form-field checkbox">
-                       <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
-                   </div>
-                   <div class="form-field checkbox">
-                       <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                   </div>
-                   <div class="form-field checkbox">
-                       <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                   </div>
-               </fieldset>
-           </div>
+                    <p><em>You can search or click the area of map where you want to place the marker.</em></p>
+                </div>
+
+                <fieldset>
+                    <legend>Categories</legend>
+
+                    <div class="form-field checkbox">
+                        <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                    </div>
+                </fieldset>
+            </div>
         </div> <!-- END main column -->
 
     </main> <!-- END main container -->

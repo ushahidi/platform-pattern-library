@@ -180,17 +180,40 @@
                     <label>Location</label>
                     <div id="map" class="map"></div>
 
-                    <div class="form-field">
-                        <input type="text" placeholder="lat,lng" />
-                        <button>Search</button>
-                    </div>
+                    <form role="search" class="searchbar" data-message="search">
+                        <div class="searchbar-input">
+                            <div class="form-field">
+                                <input type="search" maxlength="250" placeholder="Find a location" value="1234 Main St. Austin, TX USA" />
+                            </div>
+                            <div class="searchbar-results dropdown-menu">
+                                <div class="form-field">
+                                    <button class="button-plain">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                                        </svg>
+                                        <span class="button-label">Search for "<em>123 Main St</em>"</span>
+                                    </button>
 
-                    <button class="button-flat">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                        </svg>
-                        <span class="button-label">Use your current location</span>
-                    </button>
+                                    <button class="button-beta button-plain">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                                        </svg>
+                                        <span class="button-label">Use your current location</span>
+                                    </button>
+                                </div>
+
+                                <div class="tool">
+                                    <h6 class="tool-heading">Suggested places</h6>
+                                    <dl class="dropdown-menu-body">
+                                        <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
+                                        <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <p><em>You can search or click the area of map where you want to place the marker.</em></p>
                 </div>
 
                 <fieldset id="categories">
