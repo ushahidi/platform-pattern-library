@@ -14,13 +14,14 @@ updateFieldsetLegend = function(fieldset) {
         }
     });
 
+/*
     textInputs.each(function(){
         // Push the values to the legend
         fieldsetValues.push($(this).val());
         fieldsetValuesContainer.text(fieldsetValues.join(' - '));
         console.log('text!');
     });
-
+*/
     // $('[data-fieldgroup-target]').removeClass('active');
 
     // If the selected input is attached to another fieldgroup...
