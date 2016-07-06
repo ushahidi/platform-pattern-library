@@ -1,465 +1,493 @@
 .form-field,
 fieldset {
-   @include clearfix;
-   position: relative;
-   margin-bottom: $base-spacing;
-
-   &:last-child,
-   .form-field {
-      margin-bottom: 0;
-   }
-
-   label {
-      display: block;
-      margin-bottom: $tiny-spacing;
-
-      + p {
-         font-style: italic;
-         margin: $tiny-spacing 0;
-      }
-
-      input[type="text"],
-      input[type="email"],
-      input[type="tel"],
-      textarea,
-      .custom-select,
-      select {
-          margin-top: $tiny-spacing;
-      }
-
-      .tooltip {
-          display: inline-block;
-          color: $white;
-          width: 1.142857143em;
-          height: 1.142857143em;
-          font-weight: $bold;
-          font-size: .857142857em;
-          text-align: center;
-          @include equal-radius(100%);
-          background-color: $color-primary;
-          padding: 2px;
-          margin: 0 4px;
-
-          svg.iconic {
-              width: 10px;
-              height: 10px;
-              fill: $white;
-          }
-      }
-   }
-
-   button,
-   .button {
-       margin-right: $tiny-spacing;
-       margin-bottom: $tiny-spacing;
-   }
-
-   figure {
-
-       button,
-       .button {
-           margin-top: $tiny-spacing;
-       }
-   }
-
-   .alert {
-      margin: $tiny-spacing 0;
-   }
-
-   .metadata {
-       margin: $tiny-spacing 0;
-   }
-
-   .post-band {
-
-       + label {
-           margin-left: $sm-spacing;
-
-           + input {
-               margin-left: $sm-spacing;
-           }
-       }
-   }
-
-   + .form-sheet {
-       margin-bottom: $base-spacing;
-   }
-
-   // REQUIRED FIELD
-   &.required {
-
-      label {
-
-         &:after {
-             content: '\2217';
-             color: $red;
-             font-weight: normal;
-             font-size: 1.75em;
-             @include margin-left($tiny-spacing);
-         }
-      }
-   }
-
-   // INVALID FORM FIELD/FIELDSET VALUE
-   &.error {
-
-      label,
-      legend,
-      p {
-         color: $error-color;
-      }
-
-      input,
-      input[type="text"],
-      input[type="email"],
-      input[type="password"],
-      input[type="search"],
-      textarea,
-      select {
-         border-color: $error-color;
-         box-shadow: 0 0 $tiny-spacing $error-color;
-
-         &:focus {
-            border-color: $error-color;
-         }
-      }
-
-      .form-field {
-
-          label {
-              color: $error-color;
-          }
-      }
-
-   }
-
-   // VALID FORM FIELD VALUE
-   &.success {
-
-      input,
-      input[type="text"],
-      input[type="email"],
-      input[type="password"],
-      input[type="search"],
-      textarea,
-      select {
-         border-color: $confirmation-color;
-
-         &:focus {
-            border-color: $confirmation-color;
-         }
-      }
-   }
-
-   // CHECKBOX OR RADIO BUTTON
-   &.checkbox,
-   &.radio {
-       position: relative;
-       @include padding-left(14px + $tiny-spacing);
-
-      label {
-         color: $text-color;
-         @include typeBase;
-         text-transform: none;
-         letter-spacing: 0;
-
-         &:hover {
-             cursor: pointer;
-         }
-     }
-
-      input[type="checkbox"],
-      input[type="radio"] {
-          position: absolute;
-          top: 0;
-          @include left(0);
-      }
-
-      svg.iconic {
-          fill: $color-light-alpha;
-          margin-right: 4px;
-      }
-
-      .custom-select {
-          margin-top: 4px;
-      }
-
-      &.icon-input {
-//          @include padding-left(0);
-
-          > label {
-
-              &:before {
-                  position: absolute;
-                  top: -2px;
-                  left: 0;
-                  width: $sm-spacing;
-                  height: $sm-spacing;
-                  color: $color-primary;
-                  font-weight: bold;
-                  font-size: 13px;
-                  line-height: 13px;
-                  @include equal-radius(100%);
-                  background-color: $color-secondary;
-                  padding: 2px;
-              }
-          }
-
-          input[type="radio"] {
-              display: none;
-          }
-      }
-   }
-
-   &.radio {
-
-       &.icon-input {
-
-           &.checked {
-
-               > label {
-
-                   &:before {
-                       content: '\2713';
-                   }
-               }
-           }
-       }
-   }
-
-   // TITLE
-   &.title {
-
-       label {
-           display: none;
-       }
-
-      input[type="text"] {
-         max-width: none;
-         @include typeBeta;
-         padding: $sm-spacing;
-      }
-   }
-
-   &.location {
-
-       input[type="text"] {
-
-           + button,
-           + .button {
-               margin-top: $tiny-spacing;
-           }
-       }
-
-       .map {
-           height: 400px;
-           border: 1px solid $color-light-beta;
-           margin-bottom: $tiny-spacing;
-
-           + .form-field {
-               position: absolute;
-               z-index: $body;
-               top: $base-spacing;
-               right: $tiny-spacing;
-               left: $tiny-spacing;
-               margin: 0;
-
-               input[type="text"] {
-                   display: inline-block;
-                   width: 60%;
-
-                   + button,
-                   + .button {
-                       margin-left: 4px;
-                   }
-               }
-
-           }
-
-           + .searchbar {
-               position: absolute;
-               z-index: $toolbox;
-               top: $base-spacing;
-               right: $tiny-spacing;
-               left: $tiny-spacing;
-               margin: 0;
-               @include containerCard;
-           }
-       }
-   }
-
-   &.select {
-
-      label {
-         display: inline-block;
-         color: $text-color;
-         @include typeBase;
-         text-transform: none;
-         letter-spacing: 0;
-
-         .custom-select {
-            margin-right: $tiny-spacing;
-         }
-
-         + .custom-select {
-             margin-left: $tiny-spacing;
-         }
-      }
-
-      .custom-select,
-      select {
-          display: inline-block;
-          margin-top: 0;
-      }
-   }
-
-   &.url {
-
-       input[type="text"],
-       input[type="url"] {
-           display: inline-block;
-           width: auto;
-
-           + .domain {
-               margin-left: $tiny-spacing;
-           }
-       }
-   }
-
-   &.date {
-       display: inline-table;
-/*
-       svg.iconic {
-           position: absolute;
-           top: 11px;
-           @include left(16px);
-           fill: $color-primary;
-       }
-*/
-
-       input[type="date"] {
-           padding-right: 4px;
-       }
-
-       .date-joiner {
-           display: inline-block;
-           @extend .caps;
-           text-align: center;
-           @include equal-radius();
-           border: 1px solid $color-light-beta;
-           background-color: $color-light-delta;
-           padding: 4px;
-           margin-top: $tiny-spacing;
-           margin-bottom: $tiny-spacing;
-           margin-left: $tiny-spacing;
-       }
-   }
-
-    &.location-picker {
-        display: inline-block;
-        max-width: 200px;
-
-        input {
-            box-shadow: none;
+    @include clearfix;
+    position: relative;
+    margin-bottom: $base-spacing;
+
+    &:last-child,
+    .form-field {
+        margin-bottom: 0;
+    }
+
+    label {
+        display: block;
+        margin-bottom: $tiny-spacing;
+
+        + p {
+            font-style: italic;
+            margin: $tiny-spacing 0;
         }
 
-        .location-input {
-            position: relative;
-
-            input[type="text"] {
-                font-size: em(14);
-                margin: 0;
-                @include lrswap(padding, 8px 0 7px $sm-spacing);
-            }
-
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        textarea,
+        .custom-select,
+        select {
+            margin-top: $tiny-spacing;
         }
 
-        .location-range {
+        .tooltip {
             display: inline-block;
-            border-right: $base-border;
-            border-bottom: $base-border;
-            @include border-left($base-border);
-            padding: 10px;
-            background-color: $lt-brown;
+            color: $white;
+            width: 1.142857143em;
+            height: 1.142857143em;
+            font-weight: $bold;
+            font-size: .857142857em;
+            text-align: center;
+            @include equal-radius(100%);
+            background-color: $color-primary;
+            padding: 2px;
+            margin: 0 4px;
+
+            svg.iconic {
+                width: 10px;
+                height: 10px;
+                fill: $white;
+            }
+        }
+    }
+
+    button,
+    .button {
+        margin-right: $tiny-spacing;
+        margin-bottom: $tiny-spacing;
+    }
+
+    figure {
+        margin-bottom: $sm-spacing;
+    }
+
+    .alert {
+        margin: $tiny-spacing 0;
+    }
+
+    .metadata {
+        margin: $tiny-spacing 0;
+    }
+
+    .post-band {
+
+        + label {
+            margin-left: $sm-spacing;
+
+            + input {
+                margin-left: $sm-spacing;
+            }
+        }
+    }
+
+    + .form-sheet {
+        margin-bottom: $base-spacing;
+    }
+
+    // REQUIRED FIELD
+    &.required {
+
+        label {
+
+            &:after {
+                content: '\2217';
+                color: $red;
+                font-weight: normal;
+                font-size: 1.75em;
+                @include margin-left($tiny-spacing);
+            }
+        }
+    }
+
+    // INVALID FORM FIELD/FIELDSET VALUE
+    &.error {
+
+        label,
+        legend,
+        p {
+            color: $error-color;
+        }
+
+        input,
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        textarea,
+        select {
+            border-color: $error-color;
+            box-shadow: 0 0 $tiny-spacing $error-color;
+
+            &:focus {
+                border-color: $error-color;
+            }
+        }
+
+        .form-field {
 
             label {
-                margin-top: 10px;
+                color: $error-color;
+            }
+        }
+
+    }
+
+    // VALID FORM FIELD VALUE
+    &.success {
+
+        input,
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        textarea,
+        select {
+            border-color: $confirmation-color;
+
+            &:focus {
+                border-color: $confirmation-color;
+            }
+        }
+    }
+
+    // CHECKBOX OR RADIO BUTTON
+    &.checkbox,
+    &.radio {
+        position: relative;
+        @include padding-left(14px + $tiny-spacing);
+
+        label {
+            color: $text-color;
+            @include typeBase;
+            text-transform: none;
+            letter-spacing: 0;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            position: absolute;
+            top: 0;
+            @include left(0);
+        }
+
+        svg.iconic {
+            fill: $color-light-alpha;
+            margin-right: 4px;
+        }
+
+        .custom-select {
+            margin-top: 4px;
+        }
+
+        &.icon-input {
+            //          @include padding-left(0);
+
+            > label {
+
+                &:before {
+                    position: absolute;
+                    top: -2px;
+                    left: 0;
+                    width: $sm-spacing;
+                    height: $sm-spacing;
+                    color: $color-primary;
+                    font-weight: bold;
+                    font-size: 13px;
+                    line-height: 13px;
+                    @include equal-radius(100%);
+                    background-color: $color-secondary;
+                    padding: 2px;
+                }
             }
 
-            label,
-            input.distance,
-            select {
-                @include float(left);
+            input[type="radio"] {
+                display: none;
+            }
+        }
+    }
+
+    &.radio {
+
+        &.icon-input {
+
+            &.checked {
+
+                > label {
+
+                    &:before {
+                        content: '\2713';
+                    }
+                }
+            }
+        }
+    }
+
+    // TITLE
+    &.title {
+
+        label {
+            display: none;
+        }
+
+        input[type="text"] {
+            max-width: none;
+            @include typeBeta;
+            padding: $sm-spacing;
+        }
+    }
+
+    &.location {
+
+        input[type="text"] {
+
+            + button,
+            + .button {
+                margin-top: $tiny-spacing;
+            }
+        }
+
+        .map {
+            height: 400px;
+            border: 1px solid $color-light-beta;
+            margin-bottom: $tiny-spacing;
+
+            + .form-field {
+                position: absolute;
+                z-index: $body;
+                top: $base-spacing;
+                right: $tiny-spacing;
+                left: $tiny-spacing;
+                margin: 0;
+
+                input[type="text"] {
+                    display: inline-block;
+                    width: 60%;
+
+                    + button,
+                    + .button {
+                        margin-left: 4px;
+                    }
+                }
+
             }
 
-            input.distance {
-                width: auto;
-                max-width: 35px;
-                @include lrswap(margin, 0 10px 0 0);
+            + .searchbar {
+                position: absolute;
+                z-index: $toolbox;
+                top: $base-spacing;
+                right: $tiny-spacing;
+                left: $tiny-spacing;
+                margin: 0;
+                @include containerCard;
             }
+        }
+    }
+
+    &.select {
+
+        label {
+            display: inline-block;
+            color: $text-color;
+            @include typeBase;
+            text-transform: none;
+            letter-spacing: 0;
 
             .custom-select {
-                margin-bottom: 0;
+                margin-right: $tiny-spacing;
             }
 
-            input[type="range"] {
-                margin: 0;
+            + .custom-select {
+                margin-left: $tiny-spacing;
             }
-
         }
 
-    }
-
-    &.input-and-button {
-
-        @include media($medium) {
-
-            input,
-            input[type="text"],
-            input[type="email"],
-            input[type="password"],
-            input[type="search"],
-            input[type="url"] {
-                display: inline-block;
-            }
-
-            button,
-            .button {
-                margin-top: -2px;
-            }
+        .custom-select,
+        select {
+            display: inline-block;
+            margin-top: 0;
         }
     }
 
-   // TOGGLE SWITCH
-   &.switch {
-       position: relative;
+    &.file {
 
-      .toggle-switch {
-          position: absolute;
-          top: 0;
-          right: 0;
+        label {
+            display: inline-block;
 
-         label {
+            * {
+                pointer-events: none;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        input[type="file"] {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+
+            &:focus {
+
+                + label {
+                    outline: 1px dotted #000;
+	                outline: -webkit-focus-ring-color auto 5px;
+                }
+            }
+        }
+    }
+
+    &.url {
+
+        input[type="text"],
+        input[type="url"] {
+            display: inline-block;
+            width: auto;
+
+            + .domain {
+                margin-left: $tiny-spacing;
+            }
+        }
+    }
+
+    &.date {
+        display: inline-table;
+        /*
+        svg.iconic {
+        position: absolute;
+        top: 11px;
+        @include left(16px);
+        fill: $color-primary;
+    }
+    */
+
+    input[type="date"] {
+        padding-right: 4px;
+    }
+
+    .date-joiner {
+        display: inline-block;
+        @extend .caps;
+        text-align: center;
+        @include equal-radius();
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-delta;
+        padding: 4px;
+        margin-top: $tiny-spacing;
+        margin-bottom: $tiny-spacing;
+        margin-left: $tiny-spacing;
+    }
+}
+
+&.location-picker {
+    display: inline-block;
+    max-width: 200px;
+
+    input {
+        box-shadow: none;
+    }
+
+    .location-input {
+        position: relative;
+
+        input[type="text"] {
+            font-size: em(14);
             margin: 0;
-         }
-      }
+            @include lrswap(padding, 8px 0 7px $sm-spacing);
+        }
 
-      > label {
-          display: block;
-          color: $text-color;
-          @include typeBase;
-          text-transform: none;
-          letter-spacing: 0;
-          padding-right: 72px;
-      }
+    }
 
-      .form-field {
-          border-left: 2px solid $color-light-beta;
-          padding-left: $sm-spacing;
-          margin-top: $sm-spacing;
-          margin-bottom: $sm-spacing;
-      }
-   }
+    .location-range {
+        display: inline-block;
+        border-right: $base-border;
+        border-bottom: $base-border;
+        @include border-left($base-border);
+        padding: 10px;
+        background-color: $lt-brown;
+
+        label {
+            margin-top: 10px;
+        }
+
+        label,
+        input.distance,
+        select {
+            @include float(left);
+        }
+
+        input.distance {
+            width: auto;
+            max-width: 35px;
+            @include lrswap(margin, 0 10px 0 0);
+        }
+
+        .custom-select {
+            margin-bottom: 0;
+        }
+
+        input[type="range"] {
+            margin: 0;
+        }
+
+    }
+
+}
+
+&.input-and-button {
+
+    @include media($medium) {
+
+        input,
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        input[type="url"] {
+            display: inline-block;
+        }
+
+        button,
+        .button {
+            margin-top: -2px;
+        }
+    }
+}
+
+// TOGGLE SWITCH
+&.switch {
+    position: relative;
+
+    .toggle-switch {
+        position: absolute;
+        top: 0;
+        right: 0;
+
+        label {
+            margin: 0;
+        }
+    }
+
+    > label {
+        display: block;
+        color: $text-color;
+        @include typeBase;
+        text-transform: none;
+        letter-spacing: 0;
+        padding-right: 72px;
+    }
+
+    .form-field {
+        border-left: 2px solid $color-light-beta;
+        padding-left: $sm-spacing;
+        margin-top: $sm-spacing;
+        margin-bottom: $sm-spacing;
+    }
+}
 }
 
 .input-with-icon {
@@ -479,7 +507,7 @@ fieldset {
     input[type="time"],
     input[type="url"],
     input[type="week"] {
-       @include padding-left($lg-spacing);
+        @include padding-left($lg-spacing);
     }
 
     svg.iconic {
@@ -602,99 +630,99 @@ fieldset,
             @include transition(all .25s);
         }
 
-/*
+        /*
         .textarea-label {
-            top: 45px;
+        top: 45px;
+    }
+    */
+    input[type="text"],
+    textarea {
+        height: auto;
+        overflow:hidden;
+        outline: none;
+        border-top: 0;
+        border-left: 0;
+        border-right: 0;
+        background-color: transparent;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+        box-shadow: none;
+        resize: none;
+    }
+
+    &.focus,
+    &.value {
+
+        label {
+            top: -6px;
+            @extend .caps;
+            font-size: 10px !important;
+            font-size: .714285714rem !important;
         }
-*/
+
         input[type="text"],
         textarea {
             height: auto;
-            overflow:hidden;
-            outline: none;
-            border-top: 0;
-            border-left: 0;
-            border-right: 0;
-            background-color: transparent;
-            padding-right: 0 !important;
-            padding-left: 0 !important;
-            box-shadow: none;
-            resize: none;
         }
 
-        &.focus,
-        &.value {
-
-            label {
-                top: -6px;
-                @extend .caps;
-                font-size: 10px !important;
-                font-size: .714285714rem !important;
-            }
-
-            input[type="text"],
-            textarea {
-                height: auto;
-            }
-
-            textarea {
-                outline: transparent;
-                padding-top: $base-spacing;
-            }
-        }
-
-        &.focus {
-
-            label {
-                color: darken( $color-secondary, 20% );
-            }
-
-            input[type="text"],
-            textarea {
-                border-bottom-color: $color-secondary;
-            }
-        }
-
-        &.title {
-
-            label {
-                display: block;
-                font-size: 20px;
-                font-size: 1.428571429rem;
-            }
-
-            input[type="text"] {
-                padding-top: $base-spacing;
-            }
-        }
-
-        &.error {
-
-            label {
-                color: $error-color !important;
-            }
-
-            input,
-            textarea {
-                border-color: $error-color !important;
-            }
+        textarea {
+            outline: transparent;
+            padding-top: $base-spacing;
         }
     }
 
-    &.required {
+    &.focus {
 
-       label {
+        label {
+            color: darken( $color-secondary, 20% );
+        }
 
-            &:after {
-                content: '\2217';
-                color: $red;
-                font-weight: normal;
-                font-size: 1.4em;
-                line-height: 0;
-                @include margin-left($tiny-spacing);
-            }
+        input[type="text"],
+        textarea {
+            border-bottom-color: $color-secondary;
         }
     }
+
+    &.title {
+
+        label {
+            display: block;
+            font-size: 20px;
+            font-size: 1.428571429rem;
+        }
+
+        input[type="text"] {
+            padding-top: $base-spacing;
+        }
+    }
+
+    &.error {
+
+        label {
+            color: $error-color !important;
+        }
+
+        input,
+        textarea {
+            border-color: $error-color !important;
+        }
+    }
+}
+
+&.required {
+
+    label {
+
+        &:after {
+            content: '\2217';
+            color: $red;
+            font-weight: normal;
+            font-size: 1.4em;
+            line-height: 0;
+            @include margin-left($tiny-spacing);
+        }
+    }
+}
 
 }
 
