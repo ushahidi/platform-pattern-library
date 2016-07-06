@@ -311,18 +311,6 @@ fieldset {
 
     &.file {
 
-        label {
-            display: inline-block;
-
-            * {
-                pointer-events: none;
-            }
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-
         input[type="file"] {
             width: 0.1px;
             height: 0.1px;
@@ -330,6 +318,18 @@ fieldset {
             overflow: hidden;
             position: absolute;
             z-index: -1;
+
+            + label {
+                display: inline-block;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                * {
+                    pointer-events: none;
+                }
+            }
 
             &:focus {
 
