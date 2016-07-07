@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('../partials/_pl-head.html')
+
+    <body class="layout-a">
+
+        @@include('../partials/_mode-bar.html', {
+            "logged_in": true,
+            "context": "tasks"
+        })
+
+        <div class="mode-context">
+            <header class="mode-context-header has-logo">
+                <h1 class="mode-context-title"><a href="">March on City Hall</a></h1>
+
+                <img src="../../img/deployment-logo.png" class="deployment-logo" />
+            </header>
+
+            <span class="mode-context-trigger">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show more/less</span>
+            </span>
+
+            <div class="mode-context-body">
+                <p>Reports and communication about the protest march Wednesday, Aug.19 to City Hall.</p>
+            </div>
+        </div>
+
+        <main role="main">
+            @@include('../partials/_toolbar.html')
+
+
+            <div class="main-col">
+
+                <div class="toolbox">
+
+                    <div class="tool">
+                        <h6 class="tool-heading">Sort by</h6>
+
+                        <span class="tool-trigger" data-toggle="toggle-content">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="label hidden">Show/hide</span>
+                        </span>
+
+                        <div class="toggle-content active">
+                            <fieldset>
+                                <legend class="hidden">Sort by</legend>
+
+                                <div class="form-field radio">
+                                    <label for="sortby-postdate">
+                                        <input checked type="radio" name="sortby" id="sortby-postdate">
+                                        Post date
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="sortby-duedate">
+                                        <input type="radio" name="sortby" id="sortby-duedate">
+                                        Due date
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="sortby-type">
+                                        <input type="radio" name="sortby" id="sortby-type">
+                                        Type of task
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="sortby-proximity">
+                                        <input type="radio" name="sortby" id="sortby-proximity">
+                                        Proximity to your current location
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="tool">
+                        <div class="toggle-content active">
+                            <fieldset class="custom-fieldset">
+                                <legend>Assigned to <span class="custom-fieldset-value"></span></legend>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-you">
+                                        <input checked type="radio" name="assigned" id="assigned-you" />
+                                        You
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-nobody">
+                                        <input type="radio" name="assigned" id="assigned-nobody" />
+                                        Nobody
+                                    </label>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-members">
+                                        <input type="radio" name="assigned" id="assigned-members" />
+                                        Members
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-editors">
+                                        <input type="radio" name="assigned" id="assigned-editors" />
+                                        Editors
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-operators">
+                                        <input type="radio" name="assigned" id="assigned-operators" />
+                                        Operators
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-admins">
+                                        <input type="radio" name="assigned" id="assigned-admins" />
+                                        Administrators
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="listing">
+
+                    <article class="postcard">
+                        <div class="post-band" style="background-color: #A51A1A;"></div>
+                        <div class="listing-item-select">
+                            <input type="checkbox">
+                            <span class="status-indicator empty tooltip">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <span class="bug">This post is published</span>
+                            </span>
+                        </div>
+                        <div class="postcard-body">
+                            <header class="postcard-header">
+                                <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                                <div class="metadata">
+                                    45 mins, via web
+                                </div>
+                            </header>
+                            <ul class="postcard-tasks">
+                                <li class="postcard-task">
+                                    <span class="postcard-task-type">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#transfer"></use>
+                                        </svg>
+                                    </span>
+                                    <a href="">
+                                        <strong>Spanish Translation</strong> needs to be completed.
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="postcard">
+                        <div class="post-band" style="background-color: #A51A1A;"></div>
+                        <div class="listing-item-select">
+                            <input type="checkbox">
+                            <span class="status-indicator yellow tooltip">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <span class="bug">This post is currently under review</span>
+                            </span>
+                        </div>
+                        <div class="postcard-body">
+                            <header class="postcard-header">
+                                <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                                <div class="metadata">
+                                    45 mins, via SMS
+                                </div>
+                            </header>
+                            <ul class="postcard-tasks">
+                                <li>
+                                    <a href="">
+                                        <strong>Review</strong> needs to be completed.
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <strong>Due</strong>: 5 p.m. today
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="postcard">
+                        <div class="post-band" style="background-color: #2274B4;"></div>
+                        <div class="listing-item-select">
+                            <input type="checkbox">
+                            <span class="status-indicator empty tooltip">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <span class="bug">This post is archived</span>
+                            </span>
+                        </div>
+                        <div class="postcard-body">
+                            <header class="postcard-header">
+                                <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                                <div class="metadata">
+                                    45 mins, via SMS
+                                </div>
+                            </header>
+
+                            <ul class="postcard-tasks">
+                                <li>
+                                    <span class="postcard-task-type">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#transfer"></use>
+                                        </svg>
+                                    </span>
+                                    <a href="">
+                                        <strong>Spanish Translation</strong> needs to be completed.
+                                    </a>
+                                    <ul>
+                                        <li>
+                                            <strong>Overdue</strong>: 5 p.m. Monday
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                                            </svg>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="postcard">
+                        <div class="post-band" style="background-color: #E69327;"></div>
+                        <div class="listing-item-select">
+                            <input type="checkbox">
+                            <span class="status-indicator yellow tooltip">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <span class="bug">This post is currently under review</span>
+                            </span>
+                        </div>
+                        <div class="postcard-body">
+                            <header class="postcard-header">
+                                <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                                <div class="metadata">
+                                    45 mins, via SMS
+                                </div>
+                            </header>
+
+                            <ul class="postcard-tasks">
+                                <li>
+                                    <a href="">
+                                        <strong>Review</strong> needs to be completed.
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <button class="button-flat">Load more</button>
+                        </div>
+                    </div>
+
+                    <div class="listing-toolbar">
+                        <div class="listing-toolbar-summary">
+                            <strong><span class="total"></span> selected</strong>
+                            <button class="button-link">Deselect</button>
+                        </div>
+
+                        <div class="listing-toolbar-actions">
+
+                            <button class="button-beta" data-toggle="toggle-content">
+                                <span class="button-label">Mark as</span>
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu toggle-content">
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                        </svg>
+                                        <span class="label">Published</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                        <span class="label">Under Review</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                        </svg>
+                                        <span class="label">Archive</span>
+                                    </a>
+                                </li>
+                                <div class="divider"></div>
+                                <li>
+                                    <a href="">
+                                        Spam
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        Duplicates
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <button type="button" class="button-beta" data-modal="add-to-collection">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
+                                </svg>
+                                <span class="button-label">Add to Collection</span>
+                            </button>
+
+                            <button type="button" class="button-destructive">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="button-label hidden">Delete</span>
+                            </button>
+
+                            <button type="button" class="listing-toolbar-toggle more">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="button-label">Show more</span>
+                            </button>
+
+                            <button type="button" class="listing-toolbar-toggle less">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                                </svg>
+                                <span class="button-label">Show less</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+        </main>
+
+        @@include('../partials/_modals-global.html')
+
+        @@include('../partials/_scripts.html')
+
+    </body>
+
+</html>

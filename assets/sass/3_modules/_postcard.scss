@@ -46,11 +46,22 @@
     }
 
     .postcard-body {
+        @include clearfix;
         padding: $sm-spacing;
 
         .postcard-header {
             float: left;
             width: 75%;
+        }
+
+        .postcard-tasks {
+            clear: both;
+
+            @include media($small) {
+                float: right;
+                clear: none;
+                width: 25%;
+            }
         }
 
         .postcard-actions {
@@ -128,6 +139,80 @@
 
             + .metadata {
                 padding-left: 56px;
+            }
+        }
+    }
+
+    .postcard-tasks {
+        position: relative;
+        @extend .list-reset;
+
+        li {
+            color: $color-dark-gamma;
+            @include typeGamma;
+            margin-bottom: $tiny-spacing;
+
+            .postcard-task-type {
+                display: inline-block;
+                position: absolute;
+                z-index: $body;
+                top: -4px;
+                left: -30px;
+                width: $base-spacing;
+                height: $base-spacing;
+                line-height: $base-spacing;
+                text-align: center;
+                @include containerCard;
+                @include equal-radius(100%);
+
+                svg.iconic {
+                    fill: $color-dark-gamma;
+                    margin-top: 7px;
+                }
+            }
+
+            strong {
+                color: $color-dark-beta;
+            }
+
+            svg.iconic {
+                width: .75em;
+                height: .75em;
+                margin: 0 4px;
+            }
+
+            a {
+                display: inline-block;
+                color: $color-dark-gamma;
+                line-height: 1.2;
+
+                &:hover {
+                    color: $color-primary;
+
+                    svg.iconic {
+                        fill: $color-primary;
+                    }
+                }
+
+                strong {
+                    color: $color-primary;
+                }
+
+                svg.iconic {
+                    fill: $color-primary-epsilon;
+                }
+            }
+
+            ul {
+                margin-top: $tiny-spacing;
+                margin-bottom: $tiny-spacing;
+
+                li {
+                    list-style-type: disc;
+                    font-style: italic;
+                    font-size: .875em;
+                    margin: $tiny-spacing 0;
+                }
             }
         }
     }
