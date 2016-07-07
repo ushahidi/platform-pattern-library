@@ -26,12 +26,206 @@
 
             <div class="mode-context-body">
                 <p>Reports and communication about the protest march Wednesday, Aug.19 to City Hall.</p>
+
+                @@include('../partials/_survey-filter.html')
             </div>
         </div>
 
         <main role="main">
-            @@include('../partials/_toolbar.html')
 
+            <div class="toolbar">
+                <form role="search" class="searchbar" data-message="search">
+                    <div class="searchbar-input">
+                        <div class="form-field">
+                            <label class="hidden">Search</label>
+                            <div class="input-with-icon">
+                                <input type="search" maxlength="250" placeholder="Search" value="" />
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="searchbar-results dropdown-menu">
+                            <div class="form-field">
+                                <button class="button-plain">
+                                    <span class="button-label">Search all tasks for "<em>Polic</em>"</span>
+                                </button>
+                            </div>
+
+                            <div class="tool">
+                                <h6 class="tool-heading">Suggestions</h6>
+                                <dl class="dropdown-menu-body">
+                                    <dt class="list-item"><a href="#"><em>Polic</em>e</a></dt>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="searchbar-options">
+                        <a href="#" class="button searchbar-options-filter" data-toggle="search-filters">
+                            <span class="button-label">Filters</span>
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="dropdown-menu" data-toggle-target="search-filters" data-toggle-animate>
+                        <h4 class="dropdown-menu-title">Filter by...</h4>
+                        <div class="dropdown-menu-body">
+                            <fieldset>
+                                <legend>Assignee</legend>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-you">
+                                        <input checked type="radio" name="assigned" id="assigned-you" />
+                                        You
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-anybody">
+                                        <input type="radio" name="assigned" id="assigned-anybody" />
+                                        Anybody
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-nobody">
+                                        <input type="radio" name="assigned" id="assigned-nobody" />
+                                        Nobody
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-members">
+                                        <input type="radio" name="assigned" id="assigned-members" />
+                                        Members
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-editors">
+                                        <input type="radio" name="assigned" id="assigned-editors" />
+                                        Editors
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-operators">
+                                        <input type="radio" name="assigned" id="assigned-operators" />
+                                        Operators
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-admins">
+                                        <input type="radio" name="assigned" id="assigned-admins" />
+                                        Administrators
+                                    </label>
+                                </div>
+
+                                <span class="form-field-toggle">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    More
+                                </span>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Task status</legend>
+
+                                <div class="form-field checkbox">
+                                    <label for="incomplete">
+                                        <input type="checkbox" id="incomplete">
+                                        Incomplete
+                                    </label>
+                                </div>
+
+                                <div class="form-field checkbox">
+                                    <label for="complete">
+                                        <input type="checkbox" id="complete" />
+                                        Complete
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Status</legend>
+
+                                <div class="form-field checkbox icon-input">
+                                    <label for="published">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                        </svg>
+                                        <input type="checkbox" id="published">
+                                        Published
+                                    </label>
+                                </div>
+
+                                <div class="form-field checkbox icon-input">
+                                    <label for="review">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                        <input type="checkbox" id="review" />
+                                        Under review
+                                    </label>
+                                </div>
+
+                                <div class="form-field checkbox icon-input">
+                                    <label for="archive">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                        </svg>
+                                        <input type="checkbox" id="archive" />
+                                        Archive
+                                    </label>
+                                </div>
+
+                                <span class="form-field-toggle">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    More
+                                </span>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Date range</legend>
+
+                                <div class="form-field date">
+                                    <label class="hidden">Start date</label>
+                                    <div class="input-with-icon">
+                                        <svg class="iconic">
+                                          <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        <input type="date" placeholder="Start date" />
+                                    </div>
+                                    <span class="date-joiner">to</span>
+                                </div>
+
+                                <div class="form-field date">
+                                    <label class="hidden">End date</label>
+                                    <div class="input-with-icon">
+                                        <svg class="iconic">
+                                          <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        <input type="date" placeholder="End date" />
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+
+                        <div class="form-field">
+                            <button type="button" class="button-link" disabled>Cancel</button>
+                            <button type="button" class="button-alpha" disabled>Apply filters</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
             <div class="main-col">
 
@@ -83,14 +277,23 @@
                     </div>
 
                     <div class="tool">
+                        <h6 class="tool-heading">Assigned to</h6>
+
                         <div class="toggle-content active">
                             <fieldset class="custom-fieldset">
-                                <legend>Assigned to <span class="custom-fieldset-value"></span></legend>
+                                <legend><span class="custom-fieldset-value"></span></legend>
 
                                 <div class="form-field radio">
                                     <label for="assigned-you">
                                         <input checked type="radio" name="assigned" id="assigned-you" />
                                         You
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assigned-anybody">
+                                        <input type="radio" name="assigned" id="assigned-anybody" />
+                                        Anybody
                                     </label>
                                 </div>
 
@@ -133,6 +336,85 @@
                             </fieldset>
                         </div>
                     </div>
+
+                    <div class="tool">
+                        <h6 class="tool-heading">Task Status</h6>
+
+                        <span class="tool-trigger" data-toggle="toggle-content">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="label hidden">Show/hide</span>
+                        </span>
+
+                        <div class="toggle-content active">
+                            <fieldset>
+                                <legend class="hidden">Task status</legend>
+
+                                <div class="form-field checkbox">
+                                    <label for="incomplete">
+                                        <input checked type="checkbox" id="incomplete">
+                                        Incomplete
+                                    </label>
+                                </div>
+
+                                <div class="form-field checkbox">
+                                    <label for="complete">
+                                        <input type="checkbox" id="complete" />
+                                        Complete
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
+                    <div class="tool">
+                        <h6 class="tool-heading">Post status</h6>
+
+                        <span class="tool-trigger" data-toggle="toggle-content">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="label hidden">Show/hide</span>
+                        </span>
+
+                        <div class="toggle-content">
+                            <fieldset>
+                                <legend class="hidden">Status</legend>
+
+                                <div class="form-field checkbox icon-input">
+                                    <label for="published">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                        </svg>
+                                        <input checked type="checkbox" id="published">
+                                        Published
+                                    </label>
+                                </div>
+
+                                <div class="form-field checkbox icon-input">
+                                    <label for="review">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                        <input checked type="checkbox" id="review" />
+                                        Under review
+                                    </label>
+                                </div>
+
+                                <div class="form-field checkbox icon-input">
+                                    <label for="archive">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                        </svg>
+                                        <input checked type="checkbox" id="archive" />
+                                        Archive
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="listing">
@@ -277,6 +559,39 @@
                         </div>
                     </article>
 
+                    <article class="postcard">
+                        <div class="post-band" style="background-color: #A51A1A;"></div>
+                        <div class="listing-item-select">
+                            <input type="checkbox">
+                            <span class="status-indicator empty tooltip">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <span class="bug">This post is published</span>
+                            </span>
+                        </div>
+                        <div class="postcard-body">
+                            <header class="postcard-header">
+                                <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                                <div class="metadata">
+                                    45 mins, via web
+                                </div>
+                            </header>
+                            <ul class="postcard-tasks">
+                                <li class="postcard-task">
+                                    <span class="postcard-task-type">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
+                                        </svg>
+                                    </span>
+                                    <a href="">
+                                        <strong>Verification</strong> needs to be completed.
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+
                     <div class="listing-item">
                         <div class="listing-item-primary">
                             <button class="button-flat">Load more</button>
@@ -299,55 +614,60 @@
                             </button>
                             <ul class="dropdown-menu toggle-content">
                                 <li>
-                                    <a href="">
-                                        <svg class="iconic">
-                                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                        </svg>
-                                        <span class="label">Published</span>
-                                    </a>
+                                    <a href="">Complete</a>
                                 </li>
                                 <li>
-                                    <a href="">
-                                        <svg class="iconic">
-                                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                        </svg>
-                                        <span class="label">Under Review</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <svg class="iconic">
-                                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                        </svg>
-                                        <span class="label">Archive</span>
-                                    </a>
-                                </li>
-                                <div class="divider"></div>
-                                <li>
-                                    <a href="">
-                                        Spam
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        Duplicates
-                                    </a>
+                                    <a href="">Incomplete</a>
                                 </li>
                             </ul>
 
-                            <button type="button" class="button-beta" data-modal="add-to-collection">
-                                <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
-                                </svg>
-                                <span class="button-label">Add to Collection</span>
-                            </button>
+                            <fieldset class="custom-fieldset">
+                                <legend>Assign to</legend>
 
-                            <button type="button" class="button-destructive">
-                                <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                                </svg>
-                                <span class="button-label hidden">Delete</span>
-                            </button>
+                                <div class="form-field radio">
+                                    <label for="assign_to-you">
+                                        <input type="radio" name="assign_to" id="assign_to-you" />
+                                        You
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assign_to-nobody">
+                                        <input type="radio" name="assign_to" id="assign_to-nobody" />
+                                        Nobody
+                                    </label>
+                                </div>
+
+                                <div class="divider"></div>
+
+                                <div class="form-field radio">
+                                    <label for="assign_to-members">
+                                        <input type="radio" name="assign_to" id="assign_to-members" />
+                                        Members
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assign_to-editors">
+                                        <input type="radio" name="assign_to" id="assign_to-editors" />
+                                        Editors
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assign_to-operators">
+                                        <input type="radio" name="assign_to" id="assign_to-operators" />
+                                        Operators
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio">
+                                    <label for="assign_to-admins">
+                                        <input type="radio" name="assign_to" id="assign_to-admins" />
+                                        Administrators
+                                    </label>
+                                </div>
+                            </fieldset>
 
                             <button type="button" class="listing-toolbar-toggle more">
                                 <svg class="iconic">

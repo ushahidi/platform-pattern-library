@@ -25,9 +25,12 @@
             margin: $lg-spacing $base-spacing;
         }
 
-        .form-field,
-        fieldset {
+        .form-field {
             margin: $sm-spacing 0;
+        }
+
+        fieldset {
+            margin: 0 0 $sm-spacing;
         }
 
         .post-band {
@@ -149,7 +152,7 @@
         .listing-heading {
             @extend .caps;
             border-bottom: 1px solid $color-light-gamma;
-            padding: $sm-spacing;
+            padding: 0 $sm-spacing $sm-spacing;
 
             @include media($medium) {
                 padding-right: $base-spacing;
@@ -196,6 +199,20 @@
             margin: $sm-spacing 0;
         }
 
+        .tool {
+            margin: $sm-spacing;
+            margin-bottom: $base-spacing;
+        }
+    }
+
+    .tool {
+        max-width: 450px;
+        margin: $base-spacing $sm-spacing;
+
+        @include media($medium) {
+            margin: $lg-spacing $base-spacing;
+        }
+
         .form-field,
         fieldset {
             margin: $sm-spacing 0;
@@ -203,8 +220,16 @@
 
         fieldset {
 
+            &.custom-fieldset.init {
+                margin-top: $tiny-spacing;
+            }
+
             .form-field {
                 margin: 0 0 $tiny-spacing;
+            }
+
+            fieldset {
+                margin-top: 0;
             }
         }
     }

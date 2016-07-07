@@ -45,15 +45,19 @@ updateFieldsetLegend = function(fieldset) {
     }*/
 
 
-    updateFieldsetWidth(fieldset);
+    updateFieldsetDimensions(fieldset);
 }
 
-updateFieldsetWidth = function(fieldset) {
-    var legendWidth = fieldset.find('legend').outerWidth(true);
+updateFieldsetDimensions = function(fieldset) {
+    var legendWidth = fieldset.find('legend').outerWidth(true),
+        legendHeight = fieldset.find('legend').outerHeight(true);
 
     if (legendWidth > 250) {
         fieldset.find('.dropdown-menu').css('min-width',legendWidth);
     }
+
+    // Adjust for height of legend (in case of line wrap)
+    fieldset.find('.dropdown-menu').css('padding-top',legendHeight);
 }
 
 // Initialize each custom fieldset
@@ -90,7 +94,7 @@ $('.custom-fieldset').each(function(){
             e.stopImmediatePropagation();
         }
 
-        updateFieldsetWidth(fieldset);
+        updateFieldsetDimensions(fieldset);
     });
 });
 
