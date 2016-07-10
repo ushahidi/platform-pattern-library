@@ -15,6 +15,7 @@ script:
 - gulp build
 before_deploy:
 - gulp setGithubStatusPending
+- rm -rf node_modules bower_components
 deploy:
   provider: s3
   access_key_id: AKIAJ6HSIUBCI7Y33BPA
