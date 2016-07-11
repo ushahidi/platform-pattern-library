@@ -58,9 +58,14 @@
             clear: both;
 
             @include media($small) {
-                float: right;
+                float: left;
                 clear: none;
-                width: 25%;
+                width: 50%;
+
+                + .postcard-header {
+                    float: right;
+                    width: 50%;
+                }
             }
         }
 
@@ -143,86 +148,22 @@
         }
     }
 
+    .postcard-task-title {
+        color: $color-dark-gamma;
+        @include typeGamma;
+        font-weight: $bold;
+    }
+
     .postcard-tasks {
         position: relative;
-        @extend .list-reset;
 
-        li {
-            color: $color-dark-gamma;
-            @include typeGamma;
-            margin-bottom: $tiny-spacing;
-
-            .postcard-task-type {
-                display: inline-block;
-                position: absolute;
-                z-index: $body;
-                top: -4px;
-                left: -30px;
-                width: $base-spacing;
-                height: $base-spacing;
-                line-height: $base-spacing;
-                text-align: center;
-                @include containerCard;
-                @include equal-radius(100%);
-
-                svg.iconic {
-                    fill: $color-dark-gamma;
-                    margin-top: 7px;
-                }
-            }
-
-            strong {
-                color: $color-dark-beta;
-            }
-
-            svg.iconic {
-                width: .75em;
-                height: .75em;
-                margin: 0 4px;
-            }
-
-            a {
-                display: inline-block;
-                color: $color-dark-gamma;
-                line-height: 1.2;
-
-                &:hover {
-                    color: $color-primary;
-
-                    svg.iconic {
-                        fill: $color-primary;
-                    }
-                }
-
-                strong {
-                    color: $color-primary;
-                }
-
-                svg.iconic {
-                    fill: $color-primary-epsilon;
-                }
-            }
-
-            ul {
-                margin-top: $tiny-spacing;
-                margin-bottom: $tiny-spacing;
-
-                li {
-                    list-style-type: disc;
-                    font-style: italic;
-                    font-size: .875em;
-                    margin: $tiny-spacing 0;
-                }
-            }
+        ul {
+            @extend .list-reset;
         }
     }
 
     .metadata {
         margin-bottom: $sm-spacing;
-
-        a.metadata-author {
-            color: $color-dark-alpha;
-        }
     }
 
     .postcard-title,
@@ -266,11 +207,26 @@
             box-shadow: 0 1px 1px rgba(0,0,0,.1);
         }
 
+        .metadata {
+            margin-top: $tiny-spacing;
+        }
+
         .map {
             width: 100%;
             max-width: 700px;
             height: 300px;
             border: 1px solid $color-light-beta;
+        }
+
+        &.task {
+            @include equal-radius;
+            border: 1px solid $color-light-beta;
+            background-color: $color-light-gamma;
+            padding: $sm-spacing;
+
+            .metadata {
+                margin-bottom: 0;
+            }
         }
     }
 
