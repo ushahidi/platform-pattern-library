@@ -12,8 +12,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
     notify = require('gulp-notify'),
-    html5Lint = require('gulp-html5-lint'),
-    request = require('request');
+    html5Lint = require('gulp-html5-lint');
 
 function errorHandler (err) {
     gutil.beep();
@@ -161,35 +160,6 @@ gulp.task('uglifyCloudJS', function() {
     .pipe(gulp.dest('./assets/js'))
     .pipe(notify('JS minified and concatenated into cloud.js'))
     .pipe(livereload());
-});
-
-function setStatus (state, targetUrl, description, context) {
-    request.post({
-        url:  'https://api.github.com/repos/' + process.env.TRAVIS_REPO_SLUG +
-              '/statuses/' + process.env.TRAVIS_COMMIT,
-        json: true,
-        headers : {
-            'Authorization' : 'token ' + process.env.GITHUB_TOKEN,
-            'User-Agent' : 'Platform-Pattern-Library'
-        },
-        body : {
-            state : state,
-            target_url : targetUrl,
-            description : description,
-            context : context
-        }
-    }, function (error, response, body) {
-        if (error) {
-            return console.error(error);
-        }
-    });
-}
-
-gulp.task('setGithubStatusSuccess', function () {
-    setStatus('success', process.env.DEPLOY_URL, 'Deploying to S3', 'travis-ci/s3');
-});
-gulp.task('setGithubStatusPending', function () {
-    setStatus('pending', process.env.DEPLOY_URL, 'Deploying to S3', 'travis-ci/s3');
 });
 
 /**

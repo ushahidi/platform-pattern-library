@@ -14,7 +14,7 @@ install:
 script:
 - gulp build
 before_deploy:
-- gulp setGithubStatusPending
+- node before_deploy.js
 - rm -rf node_modules bower_components
 deploy:
   provider: s3
@@ -30,4 +30,5 @@ deploy:
     all_branches: true
     node: node
 after_deploy:
-- gulp setGithubStatusSuccess
+- npm install request
+- node after_deploy.js
