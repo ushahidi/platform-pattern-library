@@ -26,30 +26,12 @@
    </div>
    END: Loading the document//-->
 
-    @@include('../partials/_mode-bar.html', {
-      "context": "map"
-    })
+   <!--// HTML markup for this layout is contained in '/assets/templates/layouts.Map.hbs' //-->
 
-    @@include('../partials/_mode-context.html')
-
-    <main role="main">
-        <!--// Loading the main content area //
-        <div class="loading">
-          <div class="line"></div>
-          <div class="line"></div>
-          <div class="line"></div>
-        </div>
-        // END: Loading the main content area //-->
-
-        @@include('../partials/_toolbar.html')
-        @@include('../partials/_toolbox.html')
-
-        <div id="map" class="map full-size"></div>
-    </main>
-
-    @@include('../partials/_modals-global.html')
-
-    @@include('../partials/_scripts.html')
+   @@include('../partials/_scripts.html')
+   <script>
+    hbLoadLayout('Map', 'map');
+   </script>
 
 </body>
 

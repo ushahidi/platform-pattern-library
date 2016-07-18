@@ -1,0 +1,88 @@
+<form class="survey-filter">
+    {{#each deployment.surveys}}
+    <div class="survey-filter-checkbox">
+        <div class="survey-filter-label">
+            <span class="post-band" style="background-color:#{{color}};"></span>
+            <label>
+                <input type="checkbox" checked />
+                {{name}}
+            </label>
+        </div>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            18
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
+        <div class="dropdown-menu">
+            <span class="post-band" style="background-color:#{{color}};"></span>
+            <p><em>{{description}}</em></p>
+            <div class="divider"></div>
+            <ul>
+                <li>
+                    <a href="">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="label">Add to {{name}}</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                    </svg>
+                    <span class="label">Assign someone to add to {{name}}</span>
+                    </a>
+                </li>
+                <div class="divider"></div>
+                <li><a href="">Show only {{name}}</a></li>
+                <li><a href="">Hide {{name}}</a></li>
+                <div class="divider"></div>
+                <li>
+                    <a href="">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                    </svg>
+                    <span class="label">Survey settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{/each}}
+
+    {{#if user.logged_in}}
+    <div class="survey-filter-checkbox">
+        <div class="survey-filter-label">
+            <label>
+                <input type="checkbox" checked />
+                Unknown
+            </label>
+        </div>
+        <span class="survey-filter-total" data-toggle="dropdown-menu">
+            6
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+            </svg>
+        </span>
+        <div class="dropdown-menu">
+            <p><em>"Unknown" posts are submissions that haven't yet been added to a survey.</em></p>
+            <div class="divider"></div>
+            <ul>
+                <li><a href="">Show only Unknown</a></li>
+                <li><a href="">Hide Unknown</a></li>
+                <div class="divider"></div>
+                <li>
+                    <a href="">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                    </svg>
+                    <span class="label">Unknown survey settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {{/if}}
+</form>

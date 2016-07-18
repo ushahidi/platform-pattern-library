@@ -1,20 +1,8 @@
-var popupHTML = function () {
-    var html = null;
-    $.ajax({
-        'async': false,
-        'dataType': 'html',
-        'url': '../partials/_postcard.html',
-        'success': function (data) {
-            html = data;
-        }
-    });
-    return html;
-}();
-
-if ($('#map').length) {
+$('.map').each(function() {
+    var deploymentGeoJSON = $(this)[0].hasAttribute('data-post-index') ? session.deployment.posts[$(this).attr('data-post-index')] : session.deployment.posts;
 
     //## Map configuration
-    var map = L.map('map', {
+    var map = L.map(this, {
         scrollWheelZoom: false
     });
 
@@ -29,67 +17,15 @@ if ($('#map').length) {
         'maxWidth': '300',
         'className': 'pl-popup',
         'offset':  L.Point(0, 0)
-    }).setContent(popupHTML);
-
-    //## Marker configuration
-    var deploymentGeoJSON = [
-        {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [-97.763559, 30.253552]
-            },
-            properties: {
-                color: 'A51A1A'
-            }
-        },
-        {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [-97.674815, 30.316855]
-            },
-            properties: {
-                color: 'A51A1A'
-            }
-        },
-        {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [-97.693820, 30.301458]
-            },
-            properties: {
-                color: '2274B4'
-            }
-        },
-        {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [-97.740388, 30.266052]
-            },
-            properties: {
-                color: 'E69327'
-            }
-        },
-        {
-            type: 'Feature',
-            geometry: {
-                type: 'Point',
-                coordinates: [-97.7471837, 30.3016706]
-            },
-            properties: {
-                color: '5BAA00'
-            }
-        }
-    ];
+    });
 
     //## Icon configuration
     function pointIcon(feature, size, className){
+        var surveyColor = session.deployment.surveys[feature.properties.survey].color;
+
         return L.divIcon({
             className: 'custom-map-marker '+className,
-            html: '<svg class="iconic" style="fill:#'+feature.properties.color+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use></svg><span class="iconic-bg" style="background-color:#'+feature.properties.color+';""></span>',
+            html: '<svg class="iconic" style="fill:#'+surveyColor+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use></svg><span class="iconic-bg" style="background-color:#'+surveyColor+';""></span>',
             iconSize: size,
             iconAnchor: size,
             popupAnchor: [-16, -32]
@@ -109,11 +45,17 @@ if ($('#map').length) {
     function onEachFeature(feature, layer) {
         layer.bindPopup(popup)
             .on('click', function(e){
+                var postcard = e.target.getPopup();
+
+                postcard.setContent(Handlebars.partials["Postcard"](feature)).update();
+                toggleInit($(postcard._container).find('[data-toggle]')); // Initialize toggle for postcard's actions
+/*
                 layer.setIcon(pointIcon(feature, [40, 40], 'selected'));
 
                 map.on('popupclose', function(e) {
                     layer.setIcon(pointIcon(feature, [32, 32]));
                 });
+*/
             });
     }
 
@@ -124,4 +66,4 @@ if ($('#map').length) {
     map.on('popupopen', function (e) {
         toggleInit($(e.popup._contentNode.firstChild).find('[data-toggle]'));
     });
-}
+});

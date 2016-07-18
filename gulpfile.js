@@ -1,18 +1,23 @@
 var gulp = require('gulp'),
-    connect = require('gulp-connect'),
-    sourcemaps = require('gulp-sourcemaps'),
-    sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    insert = require('gulp-insert'),
-    rename = require('gulp-rename'),
-    uglify = require('gulp-uglify'),
     concat = require('gulp-concat'),
+    connect = require('gulp-connect'),
+    declare = require('gulp-declare'),
     fileinclude = require('gulp-file-include'),
-    livereload = require('gulp-livereload'),
-    plumber = require('gulp-plumber'),
     gutil = require('gulp-util'),
+    handlebars = require('gulp-handlebars'),
+    html5Lint = require('gulp-html5-lint'),
+    insert = require('gulp-insert'),
+    livereload = require('gulp-livereload'),
+    merge = require('merge-stream'),
     notify = require('gulp-notify'),
-    html5Lint = require('gulp-html5-lint');
+    path = require('path'),
+    plumber = require('gulp-plumber'),
+    rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    uglify = require('gulp-uglify'),
+    wrap = require('gulp-wrap');
 
 function errorHandler (err) {
     gutil.beep();
@@ -43,7 +48,7 @@ gulp.task('html', function() {
         ])
     .pipe(fileinclude())
     .pipe(gulp.dest('./assets/html/'))
-    .pipe(notify('HTML reloaded'))
+//    .pipe(notify('HTML reloaded'))
     .pipe(livereload());
 });
 
@@ -126,6 +131,39 @@ gulp.task('sassMin', function() {
     return buildSass(false, true);
 });
 
+// Handlebars
+
+gulp.task('templates', function(){
+    // Assume all partials start with an underscore
+    // You could also put them in a folder such as source/templates/partials/*.hbs
+    var partials = gulp.src(['./assets/templates/_*.hbs'])
+        .pipe(handlebars())
+        .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
+            imports: {
+                processPartialName: function(fileName) {
+                    // Strip the extension and the underscore
+                    // Escape the output with JSON.stringify
+                    return JSON.stringify(path.basename(fileName, '.js').substr(1));
+                }
+            }
+        }));
+
+    var templates = gulp.src('./assets/templates/*.hbs')
+        .pipe(handlebars({
+            handlebars: require('handlebars')
+        }))
+        .pipe(wrap('Handlebars.template(<%= contents %>)'))
+        .pipe(declare({
+            namespace: 'Ushahidi.templates',
+            noRedeclare: true // Avoid duplicate declarations
+        }));
+
+    // Output both the partials and the templates as build/js/templates.js
+    return merge(partials, templates)
+        .pipe(concat('handlebars.compiled.js'))
+        .pipe(gulp.dest('./assets/js/handlebars'));
+});
+
 /**
 * Task: `uglify`
 * Minimizes and concatenates js files
@@ -142,6 +180,20 @@ gulp.task('uglifyJS', function() {
     .pipe(notify('JS minified and concatenated into app.js'))
     .pipe(livereload());
 });
+
+gulp.task('uglifyHandlebars', function() {
+    return gulp.src('./assets/js/handlebars/*')
+    .pipe(plumber({
+        errorHandler: errorHandler
+    }))
+    .pipe(uglify())
+    .pipe(concat('handlebars.js'))
+    .pipe(plumber.stop())
+    .pipe(gulp.dest('./assets/js'))
+    .pipe(notify('Handlebars JS minified and concatenated into handlebars.js'))
+    .pipe(livereload());
+});
+
 
 gulp.task('uglifyCloudJS', function() {
     return gulp.src([
@@ -170,21 +222,24 @@ gulp.task('default', ['webserver'], function() {
     // LiveReload
     livereload.listen();
 
+    // Watch Handlebars templates
+    gulp.watch('./assets/templates/*.hbs', ['templates']);
+
     // Watch JS
     gulp.watch(['./assets/js/pattern-library/*', './assets/js/custom/*'], ['uglifyJS']);
+    gulp.watch(['./assets/js/handlebars/*'], ['uglifyHandlebars']);
     gulp.watch(['./assets/js/cloud/*'], ['uglifyCloudJS']);
 
     // Watch Sass
     gulp.watch(['./assets/sass/**/*.scss'], ['sass']);
 
-    // Watch HTML and livereload
+    // Watch HTML
     gulp.watch(['./*.html', './pattern-library/**/*.html'], ['html']);
-
 });
 
 /**
 * Task: `build`
 * Builds sass, fonts and js
 */
-gulp.task('build', ['sass', 'uglifyJS', 'uglifyCloudJS', 'html'], function() {
+gulp.task('build', ['sass', 'templates', 'uglifyJS', 'uglifyHandlebars', 'uglifyCloudJS', 'html'], function() {
 });

@@ -1,0 +1,238 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <!--// Loading the mode context //
+   <div class="loading">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+   </div>
+   // END: Loading the mode context//-->
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        <form role="search" class="searchbar">
+
+            <div class="searchbar-options">
+                <fieldset class="custom-fieldset">
+                    <legend><span class="custom-fieldset-value">Date range</span></legend>
+
+                    <div class="form-field radio">
+                        <label for="alltime">
+                            <input type="radio" name="daterange" id="alltime" checked>
+                            All time
+                        </label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="thisweek">
+                            <input type="radio" name="daterange" id="thisweek">
+                            This week
+                        </label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="thismonth">
+                            <input type="radio" name="daterange" id="thismonth">
+                            This month
+                        </label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="custom">
+                            <input type="radio" name="daterange" id="custom" data-fieldgroup-toggle="daterange">
+                            Custom date range
+                        </label>
+
+                        <div class="form-fieldgroup" data-fieldgroup-target="daterange">
+                            <div class="form-field date">
+                                <label for="startdate" class="hidden">Start date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" name="startdate" placeholder="Start date" />
+                                </div>
+                                <span class="date-joiner">to</span>
+                            </div>
+
+                            <div class="form-field date">
+                                <label for="enddate" class="hidden">End date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" name="enddate" placeholder="End date" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-field">
+                        <button type="button" class="button-link" disabled>Cancel</button>
+                        <button type="button" class="button-alpha" disabled>Apply filter</button>
+                    </div>
+                </fieldset>
+            </div>
+
+        </form>
+    </div>
+
+    <div class="main-col">
+
+        <div class="listing card">
+
+            <div class="listing-item active">
+                <div class="listing-item-secondary">
+                    <button type="button" class="button-beta button-flat">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                        </svg>
+                        <span class="hidden">Share</span>
+                    </button>
+                </div>
+
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title">Activity over time</h2>
+                </div>
+
+                <div class="listing-item-body">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Compare...</span></legend>
+
+                        <div class="form-field radio">
+                            <label for="timeline-nothing"><input type="radio" name="timeline" id="timeline-nothing" checked>Show all posts</label>
+                        </div>
+                        <div class="form-field radio">
+                            <label for="timeline-surveys"><input type="radio" name="timeline" id="timeline-surveys">Compare surveys</label>
+                        </div>
+                        <div class="form-field radio">
+                            <label for="timeline-categories"><input type="radio" name="timeline" id="timeline-categories">Compare categories</label>
+                        </div>
+
+                        <div class="form-fieldgroup">
+                            <div class="form-field checkbox">
+                                <label><input type="checkbox" />Show cumulative totals</label>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <img src="../../img/example-graph1.svg" />
+                </div>
+            </div>
+
+            <div class="listing-item active">
+                <div class="listing-item-secondary">
+                    <button type="button" class="button-beta button-flat">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                        </svg>
+                        <span class="hidden">Share</span>
+                    </button>
+                </div>
+
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title">Activity by volume</h2>
+                </div>
+
+                <div class="listing-item-body">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Compare...</span></legend>
+
+                        <div class="form-field radio">
+                            <label for="barchart-surveys"><input type="radio" name="barchart" id="barchart-surveys" checked>Compare surveys</label>
+                        </div>
+                        <div class="form-field radio">
+                            <label for="barchart-categories"><input type="radio" name="barchart" id="barchart-categories">Compare categories</label>
+                        </div>
+                    </fieldset>
+
+                    <img src="../../img/example-graph3.svg" />
+                </div>
+            </div>
+
+        </div>
+
+        <div class="listing timeline">
+            <h2 class="listing-heading">Timeline of activity</h2>
+            <h3 class="listing-heading-section">Today</h3>
+
+            {{#each-limit deployment.posts 1}}
+                {{#ifCond properties.status 'published'}}
+                {{> Postcard}}
+                {{/ifCond}}
+            {{/each-limit}}
+
+            <article class="postcard">
+                <div class="postcard-body">
+                    <img src="https://avatars.io/instagram/jshorland" class="avatar postcard-image" />
+                    <h1 class="postcard-title"><a href="">Jess Shorland signed up</a></h1>
+                    <span class="metadata">90 mins</span>
+                </div>
+            </article>
+
+            <h3 class="listing-heading-section">Yesterday</h3>
+
+            {{#each-limit deployment.posts 3}}
+                {{#ifCond properties.status 'published'}}
+                {{> Postcard}}
+                {{/ifCond}}
+            {{/each-limit}}
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}
+
+<div id="empty" class="message">
+    <div class="message-image">
+        <svg class="iconic">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#file"></use>
+        </svg>
+    </div>
+
+    <div class="message-body">
+        <p><strong>There are no posts</strong> in this deployment, yet.</p>
+
+        <div class="form-button">
+            <button type="button" class="button-alpha button-dropdown" data-toggle="dropdown-menu">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                </svg>
+                <span class="button-label">Add post</span>
+            </button>
+
+            <ul class="dropdown-menu">
+                <li><a href=""><span class="post-band" style="background-color: #A51A1A;"></span>Getting around</a></li>
+                <li><a href=""><span class="post-band" style="background-color: #E69327;"></span>Police encounters</a></li>
+                <li><a href=""><span class="post-band" style="background-color: #2274B4;"></span>Protester photos</a></li>
+                <li><a href=""><span class="post-band" style="background-color: #5BAA00;"></span>Official events</a></li>
+            </ul>
+        </div>
+
+        <button class="button-flat message-trigger">
+            Dismiss
+        </button>
+    </div>
+</div>

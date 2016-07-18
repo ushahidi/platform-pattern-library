@@ -1171,6 +1171,886 @@ li.pl-icon {
   .pl-dark-background a {
     color: #FFC334; }
 
+/* reset styling (prevent conflicts with bootstrap, materialize.css, etc.) */
+/* line 3, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor input {
+  height: auto;
+  border: inherit; }
+
+/* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor input:focus {
+  border: none !important;
+  box-shadow: none !important; }
+
+/* line 13, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor table {
+  border-collapse: collapse;
+  width: auto; }
+
+/* line 18, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor td,
+div.jsoneditor th {
+  padding: 0;
+  display: table-cell;
+  text-align: left;
+  vertical-align: inherit;
+  border-radius: inherit; }
+
+/* line 28, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-field,
+div.jsoneditor-value,
+div.jsoneditor-readonly {
+  border: 1px solid transparent;
+  min-height: 16px;
+  min-width: 32px;
+  padding: 2px;
+  margin: 1px;
+  word-wrap: break-word;
+  float: left; }
+
+/* adjust margin of p elements inside editable divs, needed for Opera, IE */
+/* line 42, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-field p,
+div.jsoneditor-value p {
+  margin: 0; }
+
+/* line 47, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value {
+  word-break: break-word; }
+
+/* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-readonly {
+  min-width: 16px;
+  color: gray; }
+
+/* line 56, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-empty {
+  border-color: lightgray;
+  border-style: dashed;
+  border-radius: 2px; }
+
+/* line 62, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-field.jsoneditor-empty::after,
+div.jsoneditor-value.jsoneditor-empty::after {
+  pointer-events: none;
+  color: lightgray;
+  font-size: 8pt; }
+
+/* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-field.jsoneditor-empty::after {
+  content: "field"; }
+
+/* line 73, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-empty::after {
+  content: "value"; }
+
+/* line 77, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-url,
+a.jsoneditor-value.jsoneditor-url {
+  color: green;
+  text-decoration: underline; }
+
+/* line 83, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+a.jsoneditor-value.jsoneditor-url {
+  display: inline-block;
+  padding: 2px;
+  margin: 2px; }
+
+/* line 89, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+a.jsoneditor-value.jsoneditor-url:hover,
+a.jsoneditor-value.jsoneditor-url:focus {
+  color: #ee422e; }
+
+/* line 94, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor td.jsoneditor-separator {
+  padding: 3px 0;
+  vertical-align: top;
+  color: gray; }
+
+/* line 100, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-field[contenteditable=true]:focus,
+div.jsoneditor-field[contenteditable=true]:hover,
+div.jsoneditor-value[contenteditable=true]:focus,
+div.jsoneditor-value[contenteditable=true]:hover,
+div.jsoneditor-field.jsoneditor-highlight,
+div.jsoneditor-value.jsoneditor-highlight {
+  background-color: #FFFFAB;
+  border: 1px solid yellow;
+  border-radius: 2px; }
+
+/* line 111, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-field.jsoneditor-highlight-active,
+div.jsoneditor-field.jsoneditor-highlight-active:focus,
+div.jsoneditor-field.jsoneditor-highlight-active:hover,
+div.jsoneditor-value.jsoneditor-highlight-active,
+div.jsoneditor-value.jsoneditor-highlight-active:focus,
+div.jsoneditor-value.jsoneditor-highlight-active:hover {
+  background-color: #ffee00;
+  border: 1px solid #ffc700;
+  border-radius: 2px; }
+
+/* line 122, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-string {
+  color: #008000; }
+
+/* line 126, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-object,
+div.jsoneditor-value.jsoneditor-array {
+  min-width: 16px;
+  color: #808080; }
+
+/* line 132, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-number {
+  color: #ee422e; }
+
+/* line 136, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-boolean {
+  color: #ff8c00; }
+
+/* line 140, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-null {
+  color: #004ED0; }
+
+/* line 144, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-value.jsoneditor-invalid {
+  color: #000000; }
+
+/* line 148, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent url("../img/jsoneditor-icons.svg");
+  -webkit-transition: none;
+  transition: none; }
+
+/* line 159, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-mode-view tr.jsoneditor-expandable td.jsoneditor-tree,
+div.jsoneditor-mode-form tr.jsoneditor-expandable td.jsoneditor-tree {
+  cursor: pointer; }
+
+/* line 164, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button.jsoneditor-collapsed {
+  background-position: 0 -48px; }
+
+/* line 168, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button.jsoneditor-expanded {
+  background-position: 0 -72px; }
+
+/* line 172, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button.jsoneditor-contextmenu {
+  background-position: -48px -72px; }
+
+/* line 176, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button.jsoneditor-contextmenu:hover,
+div.jsoneditor-tree button.jsoneditor-contextmenu:focus,
+div.jsoneditor-tree button.jsoneditor-contextmenu.jsoneditor-selected,
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-contextmenu {
+  background-position: -48px -48px; }
+
+/* line 183, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree *:focus {
+  outline: none; }
+
+/* line 187, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button:focus {
+  /* TODO: nice outline for buttons with focus
+  outline: #97B0F8 solid 2px;
+  box-shadow: 0 0 8px #97B0F8;
+  */
+  background-color: #f5f5f5;
+  outline: #e5e5e5 solid 1px; }
+
+/* line 196, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button.jsoneditor-invisible {
+  visibility: hidden;
+  background: none; }
+
+/* line 201, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor {
+  color: #1A1A1A;
+  border: 1px solid #c8c8c8;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  line-height: 100%; }
+
+/* line 215, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree table.jsoneditor-tree {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0; }
+
+/* line 222, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-outer {
+  width: 100%;
+  height: 100%;
+  margin: -35px 0 0 0;
+  padding: 35px 0 0 0;
+  box-sizing: border-box; }
+
+/* line 232, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+textarea.jsoneditor-text,
+.ace-jsoneditor {
+  min-height: 150px; }
+
+/* line 237, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: auto; }
+
+/* line 244, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+textarea.jsoneditor-text {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  outline-width: 0;
+  border: none;
+  background-color: white;
+  resize: none; }
+
+/* line 257, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+tr.jsoneditor-highlight,
+tr.jsoneditor-selected {
+  background-color: #e6e6e6; }
+
+/* line 262, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+tr.jsoneditor-selected button.jsoneditor-dragarea,
+tr.jsoneditor-selected button.jsoneditor-contextmenu {
+  visibility: hidden; }
+
+/* line 267, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-dragarea,
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-contextmenu {
+  visibility: visible; }
+
+/* line 272, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button.jsoneditor-dragarea {
+  background: url("../img/jsoneditor-icons.svg") -72px -72px;
+  cursor: move; }
+
+/* line 277, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree button.jsoneditor-dragarea:hover,
+div.jsoneditor-tree button.jsoneditor-dragarea:focus,
+tr.jsoneditor-selected.jsoneditor-first button.jsoneditor-dragarea {
+  background-position: -72px -48px; }
+
+/* line 283, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor tr,
+div.jsoneditor th,
+div.jsoneditor td {
+  padding: 0;
+  margin: 0; }
+
+/* line 290, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor td {
+  vertical-align: top; }
+
+/* line 294, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor td.jsoneditor-tree {
+  vertical-align: top; }
+
+/* line 298, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-field,
+div.jsoneditor-value,
+div.jsoneditor td,
+div.jsoneditor th,
+div.jsoneditor textarea,
+.jsoneditor-schema-error {
+  font-family: droid sans mono, consolas, monospace, courier new, courier, sans-serif;
+  font-size: 10pt;
+  color: #1A1A1A; }
+
+/* popover */
+/* line 311, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error {
+  cursor: default;
+  display: inline-block;
+  /*font-family: arial, sans-serif;*/
+  height: 24px;
+  line-height: 24px;
+  position: relative;
+  text-align: center;
+  width: 24px; }
+
+/* line 322, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-tree .jsoneditor-schema-error {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 4px 0 0;
+  background: url("../img/jsoneditor-icons.svg") -168px -48px; }
+
+/* line 330, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover {
+  background-color: #4c4c4c;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  display: none;
+  padding: 7px 10px;
+  position: absolute;
+  width: 200px;
+  z-index: 4; }
+
+/* line 342, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-above {
+  bottom: 32px;
+  left: -98px; }
+
+/* line 347, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-below {
+  top: 32px;
+  left: -98px; }
+
+/* line 352, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-left {
+  top: -7px;
+  right: 32px; }
+
+/* line 357, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-right {
+  top: -7px;
+  left: 32px; }
+
+/* line 362, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover:before {
+  border-right: 7px solid transparent;
+  border-left: 7px solid transparent;
+  content: '';
+  display: block;
+  left: 50%;
+  margin-left: -7px;
+  position: absolute; }
+
+/* line 372, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-above:before {
+  border-top: 7px solid #4c4c4c;
+  bottom: -7px; }
+
+/* line 377, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-below:before {
+  border-bottom: 7px solid #4c4c4c;
+  top: -7px; }
+
+/* line 382, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-left:before {
+  border-left: 7px solid #4c4c4c;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  content: '';
+  top: 19px;
+  right: -14px;
+  left: inherit;
+  margin-left: inherit;
+  margin-top: -7px;
+  position: absolute; }
+
+/* line 395, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error .jsoneditor-popover.jsoneditor-right:before {
+  border-right: 7px solid #4c4c4c;
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  content: '';
+  top: 19px;
+  left: -14px;
+  margin-left: inherit;
+  margin-top: -7px;
+  position: absolute; }
+
+/* line 407, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-schema-error:hover .jsoneditor-popover,
+.jsoneditor-schema-error:focus .jsoneditor-popover {
+  display: block;
+  -webkit-animation: fade-in .3s linear 1, move-up .3s linear 1;
+  -moz-animation: fade-in .3s linear 1, move-up .3s linear 1;
+  -ms-animation: fade-in .3s linear 1, move-up .3s linear 1; }
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/*@-webkit-keyframes move-up {*/
+/*from   { bottom: 24px; }*/
+/*to { bottom: 32px; }*/
+/*}*/
+/*@-moz-keyframes move-up {*/
+/*from   { bottom: 24px; }*/
+/*to { bottom: 32px; }*/
+/*}*/
+/*@-ms-keyframes move-up {*/
+/*from   { bottom: 24px; }*/
+/*to { bottom: 32px; }*/
+/*}*/
+/* JSON schema errors displayed at the bottom of the editor in mode text and code */
+/* line 471, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor .jsoneditor-text-errors {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffef8b;
+  border-top: 1px solid #ffd700; }
+
+/* line 478, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor .jsoneditor-text-errors td {
+  padding: 3px 6px;
+  vertical-align: middle; }
+
+/* line 483, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+.jsoneditor-text-errors .jsoneditor-schema-error {
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 4px 0 0;
+  background: url("../img/jsoneditor-icons.svg") -168px -48px; }
+
+/* ContextMenu - main menu */
+/* line 493, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu-root {
+  position: relative;
+  width: 0;
+  height: 0; }
+
+/* line 499, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu {
+  position: absolute;
+  box-sizing: content-box;
+  z-index: 99999; }
+
+/* line 505, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul,
+div.jsoneditor-contextmenu li {
+  box-sizing: content-box; }
+
+/* line 510, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 124px;
+  background: white;
+  border: 1px solid #d3d3d3;
+  box-shadow: 2px 2px 12px rgba(128, 128, 128, 0.3);
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+/* line 523, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button {
+  padding: 0;
+  margin: 0;
+  width: 124px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+  color: #4d4d4d;
+  background: transparent;
+  font-size: 10pt;
+  font-family: arial, sans-serif;
+  box-sizing: border-box;
+  line-height: 26px;
+  text-align: left; }
+
+/* Fix button padding in firefox */
+/* line 541, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button::-moz-focus-inner {
+  padding: 0;
+  border: 0; }
+
+/* line 546, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button:hover,
+div.jsoneditor-contextmenu ul li button:focus {
+  color: #1a1a1a;
+  background-color: #f5f5f5;
+  outline: none; }
+
+/* line 553, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button.jsoneditor-default {
+  width: 92px; }
+
+/* line 557, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button.jsoneditor-expand {
+  float: right;
+  width: 32px;
+  height: 24px;
+  border-left: 1px solid #e5e5e5; }
+
+/* line 564, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu div.jsoneditor-icon {
+  float: left;
+  width: 24px;
+  height: 24px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  background-image: url("../img/jsoneditor-icons.svg"); }
+
+/* line 574, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button div.jsoneditor-expand {
+  float: right;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin: 0 4px 0 0;
+  background: url("../img/jsoneditor-icons.svg") 0 -72px;
+  opacity: 0.4; }
+
+/* line 584, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button:hover div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li button:focus div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li.jsoneditor-selected div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li button.jsoneditor-expand:hover div.jsoneditor-expand,
+div.jsoneditor-contextmenu ul li button.jsoneditor-expand:focus div.jsoneditor-expand {
+  opacity: 1; }
+
+/* line 592, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu div.jsoneditor-separator {
+  height: 0;
+  border-top: 1px solid #e5e5e5;
+  padding-top: 5px;
+  margin-top: 5px; }
+
+/* line 599, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-remove > div.jsoneditor-icon {
+  background-position: -24px -24px; }
+
+/* line 603, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-remove:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-remove:focus > div.jsoneditor-icon {
+  background-position: -24px 0; }
+
+/* line 608, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-append > div.jsoneditor-icon {
+  background-position: 0 -24px; }
+
+/* line 612, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-append:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-append:focus > div.jsoneditor-icon {
+  background-position: 0 0; }
+
+/* line 617, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-insert > div.jsoneditor-icon {
+  background-position: 0 -24px; }
+
+/* line 621, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-insert:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-insert:focus > div.jsoneditor-icon {
+  background-position: 0 0; }
+
+/* line 626, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-duplicate > div.jsoneditor-icon {
+  background-position: -48px -24px; }
+
+/* line 630, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-duplicate:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-duplicate:focus > div.jsoneditor-icon {
+  background-position: -48px 0; }
+
+/* line 635, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-sort-asc > div.jsoneditor-icon {
+  background-position: -168px -24px; }
+
+/* line 639, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-sort-asc:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-sort-asc:focus > div.jsoneditor-icon {
+  background-position: -168px 0; }
+
+/* line 644, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-sort-desc > div.jsoneditor-icon {
+  background-position: -192px -24px; }
+
+/* line 648, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-sort-desc:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-sort-desc:focus > div.jsoneditor-icon {
+  background-position: -192px 0; }
+
+/* ContextMenu - sub menu */
+/* line 655, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li button.jsoneditor-selected,
+div.jsoneditor-contextmenu ul li button.jsoneditor-selected:hover,
+div.jsoneditor-contextmenu ul li button.jsoneditor-selected:focus {
+  color: white;
+  background-color: #ee422e; }
+
+/* line 662, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li {
+  overflow: hidden; }
+
+/* line 666, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li ul {
+  display: none;
+  position: relative;
+  left: -10px;
+  top: 0;
+  border: none;
+  box-shadow: inset 0 0 10px rgba(128, 128, 128, 0.5);
+  padding: 0 10px;
+  /* TODO: transition is not supported on IE8-9 */
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+
+/* line 683, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li ul li button {
+  padding-left: 24px;
+  -webkit-animation: all ease-in-out 1s;
+          animation: all ease-in-out 1s; }
+
+/* line 688, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu ul li ul li button:hover,
+div.jsoneditor-contextmenu ul li ul li button:focus {
+  background-color: #f5f5f5; }
+
+/* line 693, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-string > div.jsoneditor-icon {
+  background-position: -144px -24px; }
+
+/* line 697, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-string:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-string:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-string.jsoneditor-selected > div.jsoneditor-icon {
+  background-position: -144px 0; }
+
+/* line 703, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-auto > div.jsoneditor-icon {
+  background-position: -120px -24px; }
+
+/* line 707, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-auto:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-auto:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-auto.jsoneditor-selected > div.jsoneditor-icon {
+  background-position: -120px 0; }
+
+/* line 713, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-object > div.jsoneditor-icon {
+  background-position: -72px -24px; }
+
+/* line 717, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-object:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-object:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-object.jsoneditor-selected > div.jsoneditor-icon {
+  background-position: -72px 0; }
+
+/* line 723, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-array > div.jsoneditor-icon {
+  background-position: -96px -24px; }
+
+/* line 727, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-array:hover > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-array:focus > div.jsoneditor-icon,
+div.jsoneditor-contextmenu button.jsoneditor-type-array.jsoneditor-selected > div.jsoneditor-icon {
+  background-position: -96px 0; }
+
+/* line 733, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-contextmenu button.jsoneditor-type-modes > div.jsoneditor-icon {
+  background-image: none;
+  width: 6px; }
+
+/* line 737, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu {
+  width: 100%;
+  height: 35px;
+  padding: 2px;
+  margin: 0;
+  box-sizing: border-box;
+  color: white;
+  background-color: #c8c8c8;
+  border-bottom: 1px solid #c8c8c8; }
+
+/* line 750, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button,
+div.jsoneditor-menu > div.jsoneditor-modes > button {
+  width: 26px;
+  height: 26px;
+  margin: 2px;
+  padding: 0;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  background: transparent url("../img/jsoneditor-icons.svg");
+  color: white;
+  opacity: 0.8;
+  font-family: arial, sans-serif;
+  font-size: 10pt;
+  float: left; }
+
+/* line 766, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button:hover,
+div.jsoneditor-menu > div.jsoneditor-modes > button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4); }
+
+/* line 772, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button:focus,
+div.jsoneditor-menu > button:active,
+div.jsoneditor-menu > div.jsoneditor-modes > button:focus,
+div.jsoneditor-menu > div.jsoneditor-modes > button:active {
+  background-color: rgba(255, 255, 255, 0.3); }
+
+/* line 779, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button:disabled,
+div.jsoneditor-menu > div.jsoneditor-modes > button:disabled {
+  opacity: 0.5; }
+
+/* line 784, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-collapse-all {
+  background-position: 0 -96px; }
+
+/* line 788, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-expand-all {
+  background-position: 0 -120px; }
+
+/* line 792, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-undo {
+  background-position: -24px -96px; }
+
+/* line 796, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-undo:disabled {
+  background-position: -24px -120px; }
+
+/* line 800, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-redo {
+  background-position: -48px -96px; }
+
+/* line 804, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-redo:disabled {
+  background-position: -48px -120px; }
+
+/* line 808, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-compact {
+  background-position: -72px -96px; }
+
+/* line 812, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-format {
+  background-position: -72px -120px; }
+
+/* line 816, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > div.jsoneditor-modes {
+  display: inline-block;
+  float: left; }
+
+/* line 821, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > div.jsoneditor-modes > button {
+  background-image: none;
+  width: auto;
+  padding-left: 6px;
+  padding-right: 6px; }
+
+/* line 828, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu > button.jsoneditor-separator,
+div.jsoneditor-menu > div.jsoneditor-modes > button.jsoneditor-separator {
+  margin-left: 10px; }
+
+/* line 833, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu a {
+  font-family: arial, sans-serif;
+  font-size: 10pt;
+  color: white;
+  opacity: 0.8;
+  vertical-align: middle; }
+
+/* line 841, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu a:hover {
+  opacity: 1; }
+
+/* line 845, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+div.jsoneditor-menu a.jsoneditor-poweredBy {
+  font-size: 8pt;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 10px; }
+
+/* line 852, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search input,
+table.jsoneditor-search div.jsoneditor-results {
+  font-family: arial, sans-serif;
+  font-size: 10pt;
+  color: #1A1A1A;
+  background: transparent;
+  /* For Firefox */ }
+
+/* line 861, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search div.jsoneditor-results {
+  color: white;
+  padding-right: 5px;
+  line-height: 24px; }
+
+/* line 867, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* line 875, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search div.jsoneditor-frame {
+  border: 1px solid transparent;
+  background-color: white;
+  padding: 0 2px;
+  margin: 0; }
+
+/* line 882, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search div.jsoneditor-frame table {
+  border-collapse: collapse; }
+
+/* line 886, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search input {
+  width: 120px;
+  border: none;
+  outline: none;
+  margin: 1px;
+  line-height: 20px; }
+
+/* line 894, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search button {
+  width: 16px;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: url("../img/jsoneditor-icons.svg");
+  vertical-align: top; }
+
+/* line 904, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search button:hover {
+  background-color: transparent; }
+
+/* line 908, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search button.jsoneditor-refresh {
+  width: 18px;
+  background-position: -99px -73px; }
+
+/* line 913, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search button.jsoneditor-next {
+  cursor: pointer;
+  background-position: -124px -73px; }
+
+/* line 918, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search button.jsoneditor-next:hover {
+  background-position: -124px -49px; }
+
+/* line 922, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search button.jsoneditor-previous {
+  cursor: pointer;
+  background-position: -148px -73px;
+  margin-right: 2px; }
+
+/* line 928, /Users/Brandon/Sites/platform-design.dev/assets/sass/0_pattern-library/plugins/_jsoneditor.scss */
+table.jsoneditor-search button.jsoneditor-previous:hover {
+  background-position: -148px -49px; }
+
 /* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript&plugins=autolinker */
 /**
  * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
@@ -7671,7 +8551,7 @@ span[data-fieldgroup-target].init.active {
     top: -200px;
     right: 0;
     left: 0;
-    z-index: 1000;
+    z-index: 2000;
     border-radius: 0;
     background-color: #40444A; }
     @media screen and (min-width: 64em) {
