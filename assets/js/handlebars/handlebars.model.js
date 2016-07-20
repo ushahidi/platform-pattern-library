@@ -4,7 +4,7 @@ var session,
 (function() {
     // If user has NO data stored locally.
     if (localStorage.getItem(localStoreName) === null) {
-        console.log('grabbing json from server...');
+        console.log('JSON from server...');
 
         $.ajax({
             url: '../../js/model.json',
@@ -21,7 +21,7 @@ var session,
         });
     // Else, if user HAS data stored locally
     } else {
-        console.log('loading json from localstorage');
+        console.log('JSON from localstorage');
         session = JSON.parse(localStorage[localStoreName]);
     }
 })();

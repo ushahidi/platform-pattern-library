@@ -20,6 +20,14 @@ Handlebars.registerHelper("debug", function(optionalValue) {
   }
 });
 
+Handlebars.registerHelper("striptags", function( input ){
+    var tags = /<\/?([a-z][a-z0-9]*)\b[^>]*>/gi,
+        commentsAndPhpTags = /<!--[\s\S]*?-->|<\?(?:php)?[\s\S]*?\?>/gi;
+
+    return input.replace(commentsAndPhpTags, "")
+        .replace(tags, "");
+});
+
 /**
  * Each Helper (w/limit).
  *
@@ -48,6 +56,15 @@ Handlebars.registerHelper('postBand', function(survey) {
     );
 });
 
+Handlebars.registerHelper('mapEmbed', function(postIndex, fullsize) {
+    var dataAttr = postIndex == 'all' ? '' : 'data-post-index="'+postIndex+'"',
+        className = fullsize == true ? 'full-size' : '';
+
+    return new Handlebars.SafeString(
+        '<div id="map" ' + dataAttr + ' class="map ' + className + '"></div>'
+    );
+});
+
 hbUserStatus = function() {
     if (session.user.logged_in) {
         session.user.logged_in = false;
@@ -57,35 +74,21 @@ hbUserStatus = function() {
     hbLoadLayout();
 }
 
-hbLoadLayout = function(layout, mode) {
-    // If the 'mode' is defined
+hbLoadLayout = function() {
+    var currentURL = window.location.href.split('/').pop(),
+        currentTemplate = currentURL.slice(0, -5),
+        currentMode = currentTemplate.split(/-(.+)?/)[0];
 
-    if (typeof mode !== 'undefined') {
-        session.mode = mode;
-/*
-        if (typeof Storage !== 'undefined') {
-            saveJSON(session);
-        }
-*/
-    }
+    console.log('template: '+ currentTemplate + '; mode: '+ currentMode);
 
-    // If the 'layout' is defined...
-    if (typeof layout !== 'undefined') {
-        session.layout = layout;
+    // If the page is a "layout"...
+    if (!currentTemplate == '') {
+        session.mode = currentMode;
 
-/*
-        if (typeof Storage !== 'undefined') {
-            saveJSON(session);
-        }
-*/
-
-        $('body').html(Ushahidi.templates.layouts[layout](session));
-    // Else, derive the layout from JSON
-    } else {
-        $('body').html(Ushahidi.templates.layouts[session.layout](session));
+        $('body').html(Ushahidi.templates.layouts[currentTemplate](session));
     }
 
     $.getScript('../../js/app.js', function(data, textStatus ) {
-        console.log( '"' + session.layout +'" layout: ' + textStatus);
+        console.log( '"' + currentTemplate +'" layout: ' + textStatus);
     });
 }

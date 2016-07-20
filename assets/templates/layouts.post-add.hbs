@@ -1,0 +1,262 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">{{deployment.surveys.0.name}}</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        <p>{{deployment.surveys.0.description}}</p>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        <div class="button-group">
+            <button type="button" class="button-flat">Cancel</button>
+            <button type="button" class="button-alpha" onclick="messageToggle($('#required'),true)">
+                {{#if user.logged_in}}
+                <!--// IF: User has permission to manage post status //-->
+                Save
+                {{else}}
+                Submit
+                {{/if}}
+            </button>
+        </div>
+    </div>
+
+    <div class="main-col">
+
+        <div class="form-sheet">
+            {{postBand 0}}
+
+            <div class="form-field form-field-adapt title">
+                <label>Title</label>
+                <input type="text" value="">
+            </div>
+
+            {{#if user.logged_in}}
+            <!--// IF: User has permission to manage post status //-->
+            <div class="toolbox">
+                <div class="tool">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Status</span></legend>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-published">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-published" />
+                                Published
+                            </label>
+                        </div>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-review">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-review" checked />
+                                Under review
+                            </label>
+                        </div>
+
+                        <div class="form-field radio icon-input">
+                            <label for="status-archive">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-archive" />
+                                Archived
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="tool">
+                    <h6 class="tool-heading">Author</h6>
+
+                    <span class="tool-trigger" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+
+                    <div class="toggle-content">
+                        <div class="listing-item">
+                            <div class="listing-item-primary">
+                                <div class="listing-item-image">
+                                    <img class="avatar" src="http://placehold.it/100x100" alt="">
+                                </div>
+                                <h2 class="listing-item-title">Jess Shorland</h2>
+                                <p class="listing-item-secondary">Editor</p>
+                            </div>
+                        </div>
+                        <button type="button" class="button-gamma button-flat" data-modal="edit-author">Change author</button>
+                    </div>
+                </div>
+
+                <div class="tool">
+                    <h6 class="tool-heading">Post date</h6>
+
+                    <span class="tool-trigger" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+
+                    <div class="toggle-content active">
+                        <fieldset>
+                            <legend class="hidden">Post date</legend>
+                            <div class="form-field date">
+                                <label class="hidden">Date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" value="2016-06-22" placeholder="Date" />
+                                </div>
+                            </div>
+
+                            <div class="form-field date">
+                                <label class="hidden">Time</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                                    </svg>
+                                    <input type="time" value="11:39:57" placeholder="Time" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+            {{else}}
+            <!--// ELSE: User survey requires review and user doesn't have permission to review //-->
+            <div class="toolbox">
+                <div class="tool">
+                    <strong>This post will need to be reviewed</strong> before it's published.
+                </div>
+            </div>
+            {{/if}}
+
+            <div class="form-field form-field-adapt">
+                <label>
+                    Description
+                </label>
+                <textarea name="description" data-min-rows='1' rows='1'></textarea>
+            </div>
+
+            <div class="form-field file">
+                <label>
+                    Photo of the encounter
+                </label>
+                <input type="file" id="photo" />
+                <label for="photo" class="button button-gamma">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Add photo</span>
+                </label>
+            </div>
+
+            <div id="time-date-encounter" class="form-field required">
+                <label>Time &amp; date of encounter</label>
+                <input type="datetime" required />
+            </div>
+
+            <div class="form-field location">
+                <label>Location</label>
+                {{mapEmbed 0 false}}
+
+                <form role="search" class="searchbar" data-message="search">
+                    <div class="searchbar-input">
+                        <div class="form-field">
+                            <input type="search" maxlength="250" placeholder="Find a location" value="" />
+                        </div>
+                        <div class="searchbar-results dropdown-menu">
+                            <div class="form-field">
+                                <button class="button-plain">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                                    </svg>
+                                    <span class="button-label">Search for "<em>123 Main St</em>"</span>
+                                </button>
+
+                                <button class="button-beta button-plain">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                                    </svg>
+                                    <span class="button-label">Use your current location</span>
+                                </button>
+                            </div>
+
+                            <div class="tool">
+                                <h6 class="tool-heading">Search results</h6>
+                                <dl class="dropdown-menu-body">
+                                    <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
+                                    <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <p><em>You can search or click the area of map where you want to place the marker.</em></p>
+            </div>
+
+            <fieldset>
+                <legend>Categories</legend>
+
+                <div class="form-field checkbox">
+                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                </div>
+            </fieldset>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}
+
+<div id="required" class="message">
+    <div class="message-image error">
+        <svg class="iconic">
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+        </svg>
+    </div>
+
+    <div class="message-body">
+        <p><strong>Please complete the 'Time &amp; date of encounter' field</strong> before posting to this survey.</p>
+
+        <a href="#time-date-encounter" class="button button-beta button-flat message-trigger">Edit field</a>
+
+        <button class="button-flat message-trigger">
+            Dismiss
+        </button>
+    </div>
+</div>

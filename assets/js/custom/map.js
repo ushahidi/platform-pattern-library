@@ -43,20 +43,23 @@ $('.map').each(function() {
     }).addTo(map);
 
     function onEachFeature(feature, layer) {
-        layer.bindPopup(popup)
-            .on('click', function(e){
-                var postcard = e.target.getPopup();
+        // IF: Map has more than one marker
+        if (Array.isArray(deploymentGeoJSON)) {
+            layer.bindPopup(popup)
+                .on('click', function(e){
+                    var postcard = e.target.getPopup();
 
-                postcard.setContent(Handlebars.partials["Postcard"](feature)).update();
-                toggleInit($(postcard._container).find('[data-toggle]')); // Initialize toggle for postcard's actions
-/*
-                layer.setIcon(pointIcon(feature, [40, 40], 'selected'));
+                    postcard.setContent(Handlebars.partials["Postcard"](feature)).update();
+                    toggleInit($(postcard._container).find('[data-toggle]')); // Initialize toggle for postcard's actions
+    /*
+                    layer.setIcon(pointIcon(feature, [40, 40], 'selected'));
 
-                map.on('popupclose', function(e) {
-                    layer.setIcon(pointIcon(feature, [32, 32]));
+                    map.on('popupclose', function(e) {
+                        layer.setIcon(pointIcon(feature, [32, 32]));
+                    });
+    */
                 });
-*/
-            });
+        }
     }
 
     map.zoomControl.setPosition('bottomleft');
