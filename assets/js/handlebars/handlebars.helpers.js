@@ -50,9 +50,17 @@ Handlebars.registerHelper('each-limit', function(context, limit) {
     return ret;
 });
 
-Handlebars.registerHelper('postBand', function(survey) {
+Handlebars.registerHelper('deployment', function(options) {
+    return options.fn(session.deployment);
+});
+
+Handlebars.registerHelper('postSurvey', function(options) {
+    return options.fn(session.deployment.surveys[this.properties.survey]);
+});
+
+Handlebars.registerHelper('postBand', function() {
     return new Handlebars.SafeString(
-        '<div class="post-band" style="background-color: #' + session.deployment.surveys[survey].color + '"></div>'
+        '<div class="post-band" style="background-color: #' + session.deployment.surveys[this.properties.survey].color + '"></div>'
     );
 });
 

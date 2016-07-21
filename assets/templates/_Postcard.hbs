@@ -1,6 +1,8 @@
 <article class="postcard">
     {{postBand properties.survey}}
     <div class="listing-item-select">
+        <input type="checkbox" />
+
         {{#ifCond properties.status 'published'}}
         <span class="status-indicator empty tooltip">
             <svg class="iconic">
@@ -36,7 +38,7 @@
                 {{else}}
                 <span class="metadata-author">{{properties.author.name}}</span>
                 {{/if}}
-                , <span class="tooltip">{{properties.date.post}} <span class="bug">2016-05-12 4:32pm</span></span>, via {{source}}
+                , <span class="tooltip">{{properties.date.post}} <span class="bug">2016-05-12 4:32pm</span></span>, via {{properties.source}}
             </div>
         </header>
 

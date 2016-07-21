@@ -1,13 +1,18 @@
 {{> ModeBar }}
 
+{{#with (lookup deployment.posts 0)}} <!--// Choose the post index that will be the context for this tenplate //-->
 <div class="mode-context">
 
     <header class="mode-context-header">
+        {{#deployment}}
         <ol class="breadcrumbs">
-            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="map.html">{{name}}</a></li>
         </ol>
+        {{/deployment}}
 
-        <h1 class="mode-context-title">{{deployment.surveys.0.name}}</h1>
+        {{#postSurvey}}
+        <h1 class="mode-context-title">{{name}}</h1>
+        {{/postSurvey}}
     </header>
 
     <span class="mode-context-trigger">
@@ -18,8 +23,11 @@
     </span>
 
     <div class="mode-context-body">
-        <p>{{deployment.surveys.0.description}}</p>
+        {{#postSurvey}}
+        <p>{{description}}</p>
+        {{/postSurvey}}
     </div>
+
 </div>
 
 <main role="main">
@@ -34,14 +42,56 @@
     <div class="main-col">
 
         <div class="form-sheet">
-            {{postBand 0}}
+            {{postBand}}
             <div class="form-field form-field-adapt title">
                 <label>Title</label>
-                <input type="text" value="{{deployment.posts.0.title}}">
+                <input type="text" value="{{title}}">
             </div>
 
             <div class="toolbox">
+                <h2 class="toolbox-heading">Tasks</h2>
+                <div class="task">
+                    <div class="form-field checkbox">
+                        <label for="task-draft">
+                            <input type="checkbox" id="task-draft" checked />
+                            Draft
+                        </label>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="form-field checkbox">
+                        <label for="task-review">
+                            <input type="checkbox" id="task-review" />
+                            Review
+                        </label>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="form-field checkbox">
+                        <label for="task-verify">
+                            <input type="checkbox" id="task-verify" />
+                            Verify
+                        </label>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="form-field checkbox">
+                        <label for="task-verify">
+                            <input type="checkbox" id="task-verify" />
+                            Verify
+                        </label>
+                    </div>
+                </div>
+                <div class="task">
+                    <div class="form-field checkbox">
+                        <label for="task-publish">
+                            <input type="checkbox" id="task-publish" />
+                            Publish
+                        </label>
+                    </div>
+                </div>
                 <!-- IF: User has permission to manage post status -->
+                <!--//
                 <div class="tool">
                     <fieldset class="custom-fieldset">
                         <legend><span class="custom-fieldset-value">Status</span></legend>
@@ -51,7 +101,7 @@
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                                 </svg>
-                                <input type="radio" name="status" id="status-published" {{#ifCond deployment.posts.0.properties.status 'published'}}checked{{/ifCond}} />
+                                <input type="radio" name="status" id="status-published" {{#ifCond properties.status 'published'}}checked{{/ifCond}} />
                                 Published
                             </label>
                         </div>
@@ -61,7 +111,7 @@
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                                 </svg>
-                                <input type="radio" name="status" id="status-review" {{#ifCond deployment.posts.0.properties.status 'review'}}checked{{/ifCond}} />
+                                <input type="radio" name="status" id="status-review" {{#ifCond properties.status 'review'}}checked{{/ifCond}} />
                                 Under review
                             </label>
                         </div>
@@ -71,15 +121,17 @@
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#box"></use>
                                 </svg>
-                                <input type="radio" name="status" id="status-archive" {{#ifCond deployment.posts.0.properties.status 'archived'}}checked{{/ifCond}} />
+                                <input type="radio" name="status" id="status-archive" {{#ifCond properties.status 'archived'}}checked{{/ifCond}} />
                                 Archived
                             </label>
                         </div>
                     </fieldset>
                 </div>
+                //-->
                 <!-- END: IF -->
 
                 <!--// IF: User has permission to change the author & post timestamp //-->
+                <!--//
                 <div class="tool">
                     <h6 class="tool-heading">Author</h6>
 
@@ -93,12 +145,12 @@
                     <div class="toggle-content">
                         <div class="listing-item">
                             <div class="listing-item-primary">
-                                {{#if deployment.posts.0.properties.author.avatar}}
+                                {{#if properties.author.avatar}}
                                 <div class="listing-item-image">
-                                    <img class="avatar" src="{{deployment.posts.0.properties.author.avatar}}" alt="">
+                                    <img class="avatar" src="{{properties.author.avatar}}" alt="">
                                 </div>
                                 {{/if}}
-                                <h2 class="listing-item-title">{{deployment.posts.0.properties.author.name}}</h2>
+                                <h2 class="listing-item-title">{{properties.author.name}}</h2>
                                 <p class="listing-item-secondary">Editor</p>
                             </div>
                         </div>
@@ -148,6 +200,7 @@
                         </fieldset>
                     </div>
                 </div>
+                //-->
                 <!-- END: IF -->
             </div>
 
@@ -155,17 +208,18 @@
                 <label>
                     Description
                 </label>
-                <textarea name="description" data-min-rows='1' rows='1'>{{striptags deployment.posts.0.description}}</textarea>
+                <textarea name="description" data-min-rows='1' rows='1'>{{striptags description}}</textarea>
             </div>
 
             <div class="form-field file">
                 <label>
                     Photo of the encounter
                 </label>
-                {{#if deployment.posts.0.fields.photo}}
+
+                {{#if fields.photo}}
 
                 <figure>
-                    <img src="deployment.posts.0.fields.photo" />
+                    <img src="{{fields.photo}}" />
 
                     <div class="form-field">
                         <button class="button-destructive">
@@ -339,6 +393,7 @@
     </div>
 
 </main>
+{{/with}}
 
 {{> Modals }}
 
