@@ -23,5 +23,8 @@ $('[data-message], .message-trigger').click(function(e) {
         $('html, body').animate({
             scrollTop: $($(this).attr('href')).offset().top - 124
         }, 1000);
+
+        // !!For demonstration purposes only!! Adding an "error" class to a field to demonstrate validation error
+        $($(this).attr('href')).addClass('error');
     }
 });

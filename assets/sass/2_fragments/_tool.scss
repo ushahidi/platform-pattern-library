@@ -1,9 +1,11 @@
 .tool {
     position: relative;
+    line-height: 1.3;
 
     .tool-heading {
         @extend .caps;
-        color: $color-tertiary;
+        line-height: 1.3;
+        margin-right: $lg-spacing;
 
         svg.iconic {
             fill: $color-tertiary;
@@ -11,7 +13,7 @@
         }
     }
 
-    [data-toggle] {
+    .tool-trigger {
         position: absolute;
         top: -$tiny-spacing;
         right: -$tiny-spacing;
@@ -21,14 +23,14 @@
         svg.iconic {
             width: .571428571em;
             height: .571428571em;
-            fill: $color-tertiary;
+            fill: $color-dark-delta;
         }
 
         &:hover {
             cursor: pointer;
 
             svg.iconic {
-                fill: $color-light-gamma;
+                fill: $color-dark-alpha;
             }
         }
 
@@ -42,6 +44,29 @@
 
         &.active {
             display: block;
+        }
+    }
+
+    fieldset {
+        margin: $sm-spacing 0;
+
+        &.custom-fieldset {
+            margin-top: $tiny-spacing;
+        }
+
+        fieldset {
+            margin-top: 0;
+        }
+    }
+
+    .listing-item {
+
+        .listing-item-primary {
+            padding: $sm-spacing 0;
+
+            .listing-item-image {
+                top: $sm-spacing;
+            }
         }
     }
 }

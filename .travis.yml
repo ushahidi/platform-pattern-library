@@ -4,8 +4,31 @@ node_js:
 - 4
 - 5
 - node
+env:
+  global:
+  - DEPLOY_URL=http://preview.ushahidi.com/platform-pattern-library/$TRAVIS_BRANCH/
+  - secure: GjJXyu4VpWsobYx/ztmtuVqm4yvIgcGPUSHEdEPnrqwPi7pYLg+9S9xY03w7YiTSLiVDcSSdVo5wuFHGC5couwH6TmbJGs2OzuZVrsqw3RuEMDonr1Ik/gx7pJDtpc7EpvvButZyRwXbEfzRQ0zyLL8TuBQt6LWAi9Mftcu9y8c=
 install:
 - npm install -g gulp
 - npm install
 script:
 - gulp build
+before_deploy:
+- node before_deploy.js
+- rm -rf node_modules bower_components
+deploy:
+  provider: s3
+  access_key_id: AKIAJ6HSIUBCI7Y33BPA
+  secret_access_key:
+    secure: h4Bx/Dif4+oVT32eLGUMyGWsumcrTijtXv67A/JOgAuI7SLRNmA6UW2VAu47v7E2SzYwsVoLNR7QkcIVCUL3O0V9dvoxDuz5MqMQEryqvdjwS6OMfyjtMkGm/ULM4vujexv8VszIvfUiHn/9V0eONPd23/tRTSmnqhR98w7uHQ0=
+  bucket: preview.ushahidi.com
+  skip_cleanup: true
+  upload-dir: platform-pattern-library/$TRAVIS_BRANCH
+  acl: public_read
+  on:
+    repo: ushahidi/platform-pattern-library
+    all_branches: true
+    node: node
+after_deploy:
+- npm install request
+- node after_deploy.js

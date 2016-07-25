@@ -15,10 +15,10 @@
             <ol class="breadcrumbs">
                 <li><a href="map.html">March on City Hall</a></li>
                 <li><a href="settings.html">Settings</a></li>
-                <li><a href="settings-categories.html">Categories</a></li>
+                <li><a href="settings-data-sources.html">Data sources</a></li>
             </ol>
 
-            <h1 class="mode-context-title">Edit Category</h1>
+            <h1 class="mode-context-title">Twitter</h1>
         </header>
 
         <span class="mode-context-trigger">
@@ -35,63 +35,95 @@
         <div class="toolbar">
             <div class="button-group">
                 <button type="button" class="button-flat">Cancel</button>
-                <button type="button" class="button-alpha">Save</button>
+                <button type="button" class="button-alpha">Done</button>
             </div>
         </div>
 
        <div class="main-col">
 
             <div class="form-sheet">
-                <div class="form-field title">
-                    <label class="hidden">Name</label>
-                    <input type="text" placeholder="Category name" value="Category A">
+                <div class="form-sheet-summary">
+                    <h3 class="form-sheet-title">Import posts from Twitter</h3>
                 </div>
+                <!--// IF: Twitter account is successfully configured //-->
+                <div class="form-field switch">
+                   <label>Automatically import tweets</label>
+                   <div class="toggle-switch">
+                      <input checked class="tgl" id="email-status" type="checkbox">
+                      <label class="tgl-btn" for="email-status"></label>
+                   </div>
+                   <p><em>When turned on, Ushahidi will continuously search for tweets that include the keywords you've defined below. Any matches will be automatically imported into your deployment.</em></p>
+                </div>
+                <!--// END IF //-->
 
-                <div class="form-field form-field-adapt">
+                <div class="form-field">
                     <label>
-                        Description
+                        Keywords
+                        <input type="text" placeholder="ushahidi" value="ushahidi" />
                     </label>
-                    <textarea name="description" data-min-rows='1' rows='1'>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+                    <p>Separate each search term with commas.</p>
                 </div>
 
-                <fieldset class="custom-fieldset" data-fieldset-type="color">
-                    <legend>Color</legend>
+                <fieldset>
+                    <legend>Do you want imported tweets to be added to a survey?</legend>
 
-                    <div class="form-field">
-                        <label>Hex value</label>
-                        <input type="text" data-input-type="color" value="C390D4" />
+                    <div class="form-field radio">
+                        <label>
+                            <input type="radio" name="survey-assignment" id="survey-assign-no" />
+                            <strong>No</strong>, keep their survey "unknown" until someone determines which survey it belongs to.
+                        </label>
+                    </div>
+
+                    <div class="form-field radio">
+                        <label>
+                            <input type="radio" name="survey-assignment" id="survey-assign-yes" data-fieldgroup-toggle="survey-assignment" checked />
+                            <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, add them to...</span>
+                        </label>
+                        <div class="custom-select" data-fieldgroup-target="survey-assignment">
+                            <select>
+                                <option>Getting around</option>
+                                <option selected>Police encounters</option>
+                                <option>Protester photos</option>
+                                <option>Official events</option>
+                            </select>
+                        </div>
                     </div>
                 </fieldset>
 
-                <div class="form-field select">
-                    <label>
-                        <div class="custom-select">
-                            <select>
-                                <option>Everyone</option>
-                                <option>Editors</option>
-                                <option>Administrators</option>
-                            </select>
-                        </div>
-                        <span class="nodisplay">Who</span> can see and add to this category
-                    </label>
-                </div>
             </div>
 
             <div class="form-sheet">
                 <div class="form-sheet-summary">
-                    <h3 class="form-sheet-title">Delete this category</h3>
+                    <h3 class="form-sheet-title">Configure Twitter account</h3>
+                    <p>To connect Twitter to your deployment, you need to:</p>
+                    <ol>
+                        <li><a href="https://apps.twitter.com/app/new" target="_blank">Create a "Twitter Application."</a></li>
+                        <li>Select "Keys and Access Tokens."</li>
+                        <li>Select "Generate Consumer Key and Secret."</li>
+                        <li>Copy and paste the necessary keys, tokens, and secrets into the fields below.</li>
+                    </ol>
+                </div>
+
+                <div class="form-field required">
+                    <label>Consumer key</label>
+                    <input type="text" value="pIxWSXW12mqw3PUz6sNQvCdrd" />
+                </div>
+
+                <div class="form-field required">
+                    <label>Consumer secret</label>
+                    <input type="text" value="dSVIVFC6lbuQLKrFHWltPDuHjM7QoniQUN4tsuDU80469vf3Px" />
                 </div>
 
                 <div class="form-field">
-                    <p><strong>If you delete this category</strong>, it will no longer be asociated with any posts. Proceed with caution.</p>
-
-                    <button class="button-destructive">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                        </svg>
-                        <span class="button-label">Delete category</span>
+                    <button type="button" disabled>
+                        <!--// IF submitting a no-yet validated account configuration //-->
+                        Connect to Twitter
+                        <!--// ELSE //
+                        Update connection
+                        // END IF //-->
                     </button>
                 </div>
+
             </div>
 
         </div>
@@ -182,6 +214,23 @@
                  <input class="tgl" id="switch2" type="checkbox">
                  <label class="tgl-btn" for="switch2"></label>
               </div>
+           </div>
+
+           <div class="form-sheet">
+               <div class="form-sheet-summary">
+                   <h3 class="form-sheet-title">Delete this field</h3>
+               </div>
+
+               <div class="form-field">
+                   <p><strong>If you delete this field</strong>, all of the data that was collected within it will also be deleted. Proceed with caution.</p>
+
+                   <button class="button-destructive">
+                       <svg class="iconic">
+                           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                       </svg>
+                       <span class="button-label">Delete field</span>
+                   </button>
+               </div>
            </div>
 
            <div class="form-field">

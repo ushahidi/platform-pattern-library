@@ -41,6 +41,45 @@ $('.form-field-toggle').each(function(){
 		}
 });
 
+// Initialize radio and checkbox inputs for 'checked' class
+function checkedStatus(checkedButton) {
+    var formField = checkedButton.closest('.form-field');
+
+    if (checkedButton.is(':checked')) {
+        formField.addClass('checked');
+    } else {
+        formField.removeClass('checked');
+    }
+
+    if (checkedButton[0].hasAttribute('data-fieldgroup-toggle')) {
+        var target = $('[data-fieldgroup-target="'+checkedButton.attr('data-fieldgroup-toggle')+'"]');
+
+        // Add 'init' class to target and trigger
+        checkedButton.addClass('init');
+        target.addClass('init');
+
+        if (checkedButton.is(':checked')) {
+            target.addClass('active');
+        } else {
+            target.removeClass('active');
+        }
+    }
+}
+
+$('input[type="radio"], input[type="checkbox"]').each(function(){
+    checkedStatus($(this));
+});
+
+$('input[type="radio"], input[type="checkbox"]').on('change', function(){
+    checkedStatus($(this));
+
+    if ($(this).is('[type="radio"]')) {
+        $('input[type="radio"][name="'+$(this).attr('name')+'"]').each(function(){
+            checkedStatus($(this));
+        });
+    }
+});
+
 // Initialize date fields with 'PickaDate.js'
 $('input[type="date"]').pickadate({
     format: 'mmmm d, yyyy',
@@ -58,15 +97,46 @@ $('input[type="time"]').pickatime({
 // Display search suggestions in dropdown when search input is in focus and has a value
 $('.searchbar-input').each(function(){
     var input = $(this).find('input[type="search"]'),
-        dropdownMenu = $(this).find('.dropdown-menu');
+        dropdownMenu = $(this).find('.dropdown-menu'),
+        ghost = $(this).find('.input-ghost');
+
+    function inputGhostUpdate(str) {
+        if (str.includes(':')) {
+            var ghostVal = "";
+
+            $.each(str.split(' '), function(key, value){
+                if (key != 0) {
+                    ghostVal += " ";
+                }
+
+                if (value.includes(':')) {
+                    ghostVal += '<mark class="modifier">' + value + '</mark>';
+                } else {
+                    ghostVal += value;
+                }
+            });
+            ghost.html(ghostVal).addClass('active');
+            input.addClass('active');
+        } else {
+            ghost.html('').removeClass('active');
+            input.removeClass('active');
+        }
+    }
+
+    inputGhostUpdate(input.val());
 
     input.on('keyup', function(){
         if (input.val()) {
             dropdownMenu.addClass('active');
         }
+        //inputGhostUpdate(input.val());
     });
 
     input.on('focusout', function(){
         dropdownMenu.removeClass('active');
+    });
+
+    input.on('change', function(){
+        // inputGhostUpdate(input.val());
     });
 });

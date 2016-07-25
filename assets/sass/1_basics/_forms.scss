@@ -140,11 +140,6 @@ input[type="radio"] {
    clear: both;
 }
 
-input[type="file"] {
-   padding: 5px 0px;
-   border: 0;
-}
-
 textarea {
    width: 100%;
    max-width: 100%;
@@ -153,6 +148,7 @@ textarea {
 
 select {
     @include direction;
+    color: $text-color;
     font-size: $base-font-size;
     font-family: $base-font-family;
     line-height: 1.4;
@@ -190,13 +186,16 @@ select {
 fieldset {
    position: relative;
    border: none;
-   padding-top: $base-spacing;
+   //padding-top: $base-spacing;
 
    legend {
+/*
       position: absolute;
       top: 0;
       @include left(0);
+*/
       @extend .caps;
+      margin-bottom: $sm-spacing;
 
       &.required {
 
@@ -326,6 +325,10 @@ form, .form {
           &:after {
               background-color: $color-light-beta;
              @include no-shadow;
+          }
+
+          &:hover {
+              cursor: not-allowed;
           }
 
        }

@@ -1,5 +1,5 @@
 .modal-visible {
-   overflow: hidden;
+    overflow: hidden;
 }
 
 .modal-window {
@@ -7,135 +7,182 @@
     @extend .sheet;
     padding: 0 $sm-spacing;
 
-   @include media($mobile) {
-      padding: 0 $base-spacing;
-   }
+    @include media($mobile) {
+        padding: 0 $base-spacing;
+    }
 
-   .modal-title {
-       font-weight: $bold;
-       font-size: 20px;
-       font-size: 1.428571429rem;
-       margin: $base-spacing 0;
+    .modal-title {
+        font-weight: $bold;
+        font-size: 20px;
+        font-size: 1.428571429rem;
+        margin: $base-spacing 0;
 
-       @include media($small) {
-           font-size: 24px;
-           font-size: 1.714285714rem;
-       }
+        @include media($small) {
+            font-size: 24px;
+            font-size: 1.714285714rem;
+        }
 
-      em {
-         @include typeGamma;
-         color: $color-dark-delta;
-         font-style: normal;
-      }
+        em {
+            @include typeGamma;
+            color: $color-dark-delta;
+            font-style: normal;
+        }
 
-      svg.iconic {
-          width: .833333333em;
-          height: .833333333em;
-          fill: $color-dark-delta;
-          margin-right: $tiny-spacing;
-      }
-   }
+        svg.iconic {
+            width: .833333333em;
+            height: .833333333em;
+            fill: $color-dark-delta;
+            margin-right: $tiny-spacing;
+        }
+    }
 
-   .modal-body {
-       overflow-y: auto;
-   }
+    .modal-body {
+        overflow-y: auto;
+        padding-bottom: 80px;
+    }
 
-   .modal-trigger-close {
-      position: absolute;
-      top: $base-spacing;
-      @include right($sm-spacing);
-      margin-top: -$tiny-spacing;
+    .modal-trigger-close {
+        position: absolute;
+        top: $base-spacing;
+        @include right($sm-spacing);
+        margin-top: -$tiny-spacing;
 
-      @include media($mobile) {
-         @include right($base-spacing);
-      }
-   }
+        @include media($mobile) {
+            @include right($base-spacing);
+        }
+    }
 
-   .tabs-menu {
-       margin-right: -$sm-spacing;
-       margin-bottom: $base-spacing;
-       margin-left: -$sm-spacing;
+    .modal-actions {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: $body;
+        overflow: hidden;
+        border-top: 1px solid $color-light-gamma;
+        padding: $sm-spacing;
 
-       @include media($medium) {
-           margin-right: -$base-spacing;
-           margin-left: -$base-spacing;
-       }
-   }
+        @include media($medium) {
+            padding-right: $base-spacing;
+            padding-left: $base-spacing;
+        }
 
-   .form-sheet {
-       background-color: $white;
-   }
+        &:before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: $color-light-gamma;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+            opacity: 0.8;
+        }
 
-   .listing {
-       @include radius;
-       border: 1px solid $color-light-beta;
-       background-color: $color-light-gamma;
-       margin-bottom: $sm-spacing;
+        .form-field {
 
-       @include media($medium) {
-           margin-bottom: $base-spacing;
-       }
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
 
-       .listing-heading {
-           border-bottom: 1px solid $color-light-beta;
-           background-color: $color-light-beta;
-           padding: $sm-spacing;
+    .tabs-menu {
+        margin-right: -$sm-spacing;
+        margin-bottom: $base-spacing;
+        margin-left: -$sm-spacing;
 
-           @include media($medium) {
-               padding: $sm-spacing $base-spacing;
-           }
+        @include media($medium) {
+            margin-right: -$base-spacing;
+            margin-left: -$base-spacing;
+        }
+    }
 
-           + .listing-item {
-               margin-top: 0;
-           }
-       }
+    .form-sheet {
+        background-color: $white;
+    }
 
-       .listing-item {
-           border-bottom-color: $color-light-beta;
-       }
-   }
+    .listing {
+        @include radius;
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-gamma;
+        margin-bottom: $sm-spacing;
 
-   .form-field {
+        @include media($medium) {
+            margin-bottom: $base-spacing;
+        }
 
-       &:last-child {
-           margin-bottom: $sm-spacing;
-       }
-   }
+        .listing-heading {
+            border-bottom: 1px solid $color-light-beta;
+            background-color: $color-light-beta;
+            padding: $sm-spacing;
 
-   .postcard {
-       margin-bottom: $base-spacing;
-   }
+            @include media($medium) {
+                padding: $sm-spacing $base-spacing;
+            }
 
-   [data-toggle] {
-       color: $link-color;
+            + .listing-item {
+                margin-top: 0;
+            }
+        }
 
-       &:hover {
-           color: $link-hover-color;
-       }
+        .listing-item {
+            border-bottom-color: $color-light-beta;
+        }
+    }
 
-       &.active {
-           display: none;
-       }
-   }
+    .form-field {
 
-   .toggle-content {
-       display: none;
+        &:last-child {
+            margin-bottom: $sm-spacing;
+        }
+    }
 
-       &.active {
-           display: block;
-       }
-   }
+    .tool {
+        margin-bottom: $base-spacing;
+    }
+
+    .postcard {
+        margin-bottom: $base-spacing;
+    }
+
+    [data-toggle] {
+        color: $link-color;
+
+        &:hover {
+            color: $link-hover-color;
+        }
+
+/*
+        &.active {
+            display: none;
+        }
+*/
+    }
+
+    .toggle-content {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
 }
 
 .modal-overlay {
-   position: fixed;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   width: auto;
-   height: auto;
-   overflow: hidden;
-   background: rgba(0, 0, 0, 0.75);
-   z-index: $modal; //variable defined in settings.scss
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: $modal; //variable defined in settings.scss
 }

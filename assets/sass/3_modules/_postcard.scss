@@ -10,29 +10,84 @@
         position: absolute;
         top: $sm-spacing;
         left: $sm-spacing;
+        margin-top: 3px;
 
         + .postcard-body {
+            padding-right: $base-spacing;
             padding-left: $huge-spacing;
         }
 
+        .status-indicator {
+            display: block;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            margin: 2px auto;
+            margin-left: -1px;
+
+            svg.iconic {
+                width: 10px;
+                height: 10px;
+            }
+
+            &.empty {
+
+                svg.iconic {
+
+                }
+            }
+        }
+
+        input[type="checkbox"] {
+
+            + .status-indicator {
+                margin-top: 13px;
+            }
+        }
     }
 
     .postcard-body {
+        @include clearfix;
         padding: $sm-spacing;
+
+        .postcard-header {
+            float: left;
+            width: 75%;
+        }
+
+        .postcard-tasks {
+            clear: both;
+
+            @include media($small) {
+                float: left;
+                clear: none;
+                width: 50%;
+
+                + .postcard-header {
+                    float: right;
+                    width: 50%;
+                }
+            }
+        }
+
+        .postcard-actions {
+            float: right;
+            margin-top: -$tiny-spacing;
+            margin-right: -$tiny-spacing;
+        }
     }
 
     .postcard-actions-trigger {
         display: inline-block;
-        position: absolute;
-        top: $sm-spacing;
-        right: $sm-spacing;
-        z-index: $body;
         width: $sm-spacing;
         height: $sm-spacing;
         font-size: 12px;
         text-align: center;
         @include equal-radius(100%);
-        background-color: $color-light-beta;
+        background-color: $color-primary;
+        padding: 0;
+        margin: $tiny-spacing $sm-spacing;
+        margin-right: $tiny-spacing;
 
         &:hover {
             cursor: pointer;
@@ -47,12 +102,16 @@
         &.active {
             z-index: $dropdown+1;
             font-weight: $bold;
-            background-color: $color-dark-beta;
+            background-color: $color-dark-alpha;
 
             svg.iconic {
                 margin-top: 2px;
                 @include transform(rotate(180deg));
             }
+        }
+
+        + .dropdown-menu {
+            top: $lg-spacing !important;
         }
 
     }
@@ -61,14 +120,12 @@
         top: 4px !important;
         right: 4px !important;
         left: auto !important;
-        padding-top: $lg-spacing;
     }
 
     .postcard-title {
         position: relative;
         color: $color-dark-alpha;
         @include typeGamma;
-        margin-right: $lg-spacing;
         margin-bottom: 10px;
 
         .post-band {
@@ -92,12 +149,22 @@
         }
     }
 
+    .postcard-task-title {
+        color: $color-dark-gamma;
+        @include typeGamma;
+        font-weight: $bold;
+    }
+
+    .postcard-tasks {
+        position: relative;
+
+        ul {
+            @extend .list-reset;
+        }
+    }
+
     .metadata {
         margin-bottom: $sm-spacing;
-
-        a.metadata-author {
-            color: $color-dark-alpha;
-        }
     }
 
     .postcard-title,
@@ -114,6 +181,7 @@
     }
 
     .postcard-field {
+        clear: both;
         margin: $sm-spacing 0;
 
         &:last-child {
@@ -140,15 +208,44 @@
             box-shadow: 0 1px 1px rgba(0,0,0,.1);
         }
 
+        .metadata {
+            margin-top: $tiny-spacing;
+        }
+
         .map {
             width: 100%;
             max-width: 700px;
             height: 300px;
             border: 1px solid $color-light-beta;
         }
+
+        &.task {
+            @include equal-radius;
+            border: 1px solid $color-light-beta;
+            background-color: $color-light-gamma;
+            padding: $sm-spacing;
+
+            .metadata {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .postcard-actions {
+        /*
+        position: absolute;
+        top: $tiny-spacing;
+        right: $tiny-spacing;
+        z-index: $body;
+        */
+
+        .button-flat {
+            @include no-shadow;
+        }
     }
 
     .tabs-menu {
+        clear: both;
         margin-right: -$sm-spacing;
         margin-left: -$sm-spacing;
     }
@@ -158,7 +255,6 @@
         .postcard-title {
             font-size: 20px;
             font-size: 1.428571429rem;
-            padding-right: $huge-spacing+$tiny-spacing;
             margin-bottom: $sm-spacing;
 
             @include media($medium) {
@@ -166,18 +262,35 @@
                 font-size: 1.714285714rem;
                 margin-top: $tiny-spacing;
                 margin-bottom: $base-spacing;
-
-                .post-band {
-                    left: -$base-spacing;
-                }
             }
         }
 
-        .postcard-body {
-            padding: $base-spacing $sm-spacing;
+        .listing-item-select {
 
             @include media($medium) {
-                padding: $base-spacing;
+                top: $base-spacing;
+            }
+
+            .status-indicator {
+                width: 18px;
+                height: 18px;
+
+                svg.iconic {
+                    width: 12px;
+                    height: 12px;
+                }
+
+                @include media($small) {
+                    width: 20px;
+                    height: 20px;
+                    padding: 1.5px;
+                    margin-left: -2px;
+
+                    svg.iconic {
+                        width: 14px;
+                        height: 14px;
+                    }
+                }
             }
         }
 
@@ -195,13 +308,8 @@
             }
         }
 
-        .postcard-actions-trigger {
-            background-color: $color-primary;
-
-            @include media($medium) {
-                top: $lg-spacing;
-                right: $base-spacing;
-            }
+        .postcard-actions {
+            margin-top: 0;
         }
 
         .tabs-menu {
@@ -210,10 +318,6 @@
                 margin-right: -$base-spacing;
                 margin-left: -$base-spacing;
             }
-        }
-
-        .dropdown-menu {
-            top: $sm-spacing !important;
         }
     }
 }

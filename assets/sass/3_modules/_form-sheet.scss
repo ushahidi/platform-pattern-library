@@ -14,22 +14,6 @@
         @include typeBeta;
     }
 
-    .form-sheet-summary {
-        position: relative;
-
-        &:not(:first-of-type) {
-            border-top: $base-border;
-            padding-top: $lg-spacing;
-        }
-
-        .post-band {
-            margin-left: -$sm-spacing;
-
-            @include media($medium) {
-                margin-left: -$base-spacing;
-            }
-        }
-    }
 
     .form-sheet-summary,
     .form-field,
@@ -39,6 +23,14 @@
 
         @include media($medium) {
             margin: $lg-spacing $base-spacing;
+        }
+
+        .form-field {
+            margin: $sm-spacing 0;
+        }
+
+        fieldset {
+            margin: 0 0 $sm-spacing;
         }
 
         .post-band {
@@ -55,6 +47,10 @@
                     margin-left: 0;
                 }
             }
+        }
+
+        .metadata {
+            margin: $tiny-spacing 0;
         }
 
         &.title {
@@ -97,8 +93,80 @@
             }
         }
 
+        &.radio,
+        &.checkbox {
+            margin-top: 0;
+            margin-bottom: $tiny-spacing;
+        }
+
         .form-field {
-            margin: 0 0 $tiny-spacing 0;
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+    .form-sheet-summary {
+        position: relative;
+        max-width: none;
+
+        &:not(:first-of-type) {
+            border-top: $base-border;
+            padding-top: $lg-spacing;
+        }
+
+        .post-band {
+            margin-left: -$sm-spacing;
+
+            @include media($medium) {
+                margin-left: -$base-spacing;
+            }
+        }
+
+        img.icon {
+            max-width: $huge-spacing;
+            margin: 0 auto;
+        }
+    }
+
+    .form-sheet-toolbar {
+        padding-right: $sm-spacing;
+        padding-left: $sm-spacing;
+
+        @include media($medium) {
+            padding-right: $base-spacing;
+            padding-left: $base-spacing;
+        }
+
+        fieldset,
+        button,
+        .button {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: normal;
+            margin: 0 $tiny-spacing 0 0;
+        }
+    }
+
+    .listing {
+
+        .listing-heading {
+            @extend .caps;
+            border-bottom: 1px solid $color-light-gamma;
+            padding: 0 $sm-spacing $sm-spacing;
+
+            @include media($medium) {
+                padding-right: $base-spacing;
+                padding-left: $base-spacing;
+            }
+
+            + .listing-item {
+                margin-top: 0;
+            }
+        }
+
+        .listing-body {
+            background-color: $white;
+            box-shadow: 0 1px 4px rgba(0,0,0,.24) inset;
         }
     }
 
@@ -117,6 +185,64 @@
         + .form-field {
             margin-top: -$tiny-spacing;
             margin-bottom: $sm-spacing;
+        }
+    }
+
+    .toolbox {
+
+        @include media($small-down) {
+            width: auto;
+            background-color: transparent;
+            @include no-shadow;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin: $sm-spacing 0;
+        }
+
+        .tool {
+            margin: $sm-spacing;
+            margin-bottom: $base-spacing;
+        }
+    }
+
+    .tool {
+        max-width: 450px;
+        margin: $base-spacing $sm-spacing;
+
+        @include media($medium) {
+            margin: $lg-spacing $base-spacing;
+        }
+
+        .form-field,
+        fieldset {
+            margin: $sm-spacing 0;
+        }
+
+        fieldset {
+
+            &.custom-fieldset.init {
+                margin-top: $tiny-spacing;
+            }
+
+            .form-field {
+                margin: 0 0 $tiny-spacing;
+            }
+
+            fieldset {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .progress {
+        @include no-shadow;
+    }
+
+    [data-toggle-target] {
+        display: none;
+
+        &.active {
+            display: block;
         }
     }
 }

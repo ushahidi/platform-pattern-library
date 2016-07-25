@@ -1,6 +1,10 @@
 .main-col,
-.secondary-col {
+.full-col {
     padding-bottom: 45px;
+
+    @include media($small) {
+        padding: $sm-spacing;
+    }
 
     @include media($medium) {
         padding: $base-spacing;
@@ -133,6 +137,17 @@
             padding-left: 288px;
         }
 
+        .main-col {
+
+            @include media($small) {
+                margin-right: 222px;
+            }
+
+            @include media($medium) {
+                margin-right: 230px;
+            }
+        }
+
         .toolbar {
             position: fixed;
             top: 55px;
@@ -201,6 +216,13 @@
 
                 @include media($medium) {
                     left: 288px;
+
+                    .listing-toolbar-actions {
+
+                        .dropdown-menu {
+                            margin-left: -288px;
+                        }
+                    }
                 }
 
                 &.expanded {
@@ -246,12 +268,37 @@
                     left: 288px;
                 }
             }
+
+            .postcard {
+
+                .postcard-body {
+
+                    .postcard-actions {
+
+                        .hide-until-small {
+                            display: none;
+                        }
+
+                        .hide-when-small {
+                            display: block;
+                        }
+                    }
+                }
+            }
         }
 
         .form-sheet,
         .postcard[role="article"] {
             margin-bottom: $base-spacing;
 
+
+            @include media($small-down) {
+
+                .toolbox {
+                    display: block;
+                }
+            }
+/*
             @include media($medium) {
                 margin-right: 230px;
 
@@ -263,6 +310,7 @@
                     }
                 }
             }
+*/
         }
 
         .postcard[role="article"] {
@@ -275,26 +323,26 @@
 
         .progress {
             margin-bottom: $base-spacing;
-
-            @include media($medium) {
-                margin-right: 230px;
-            }
         }
 
         .toolbox {
             display: none;
-            position: absolute;
-            @include right(24px);
-            z-index: $toolbox;
-            width: 206px;
+
+            &.active {
+                display: block;
+            }
 
             @include media($small) {
-                top: 131px;
+                display: block;
+                position: fixed;
+                @include right(16px);
+                z-index: $toolbox;
+                width: 206px;
+
             }
 
             @include media($medium) {
-                display: block;
-                top: 92px;
+                @include right(24px);
             }
         }
 
@@ -375,7 +423,7 @@
             @include transition(all 0.35s);
 
             @include media($small) {
-               top: $lg-spacing;
+               top: 8%;
                left: 50%;
                width: 600px;
                margin-left: -300px;

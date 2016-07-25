@@ -117,7 +117,7 @@ if ($('#map').length) {
             });
     }
 
-    map.zoomControl.setPosition('bottomright');
+    map.zoomControl.setPosition('bottomleft');
 
     map.fitBounds(markers.getBounds(), [24,24]);
 
