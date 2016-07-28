@@ -10,7 +10,7 @@ updateFieldsetLegend = function(fieldset) {
         fieldsetValuesContainer.text(fieldsetValues.join(', '));
 
         if ($(this).closest('.form-field').hasClass('icon-input')) {
-            fieldsetValuesContainer.prepend($(this).closest('.form-field').find('svg.iconic').clone());
+            fieldsetValuesContainer.prepend($(this).closest('.form-field').find('svg.iconic, img.avatar').clone());
         }
     });
 

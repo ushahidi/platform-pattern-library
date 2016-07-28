@@ -1,0 +1,67 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Import</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="main-col">
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">CSV</h2>
+                <p>Import the data from a CSV spreadsheet into your deployment as posts belonging to a specific survey.</p>
+            </div>
+
+            <ol class="progress">
+                <li class="active">Choose file</li>
+                <li class="disabled">Organize data</li>
+                <li class="disabled">Configure posts</li>
+            </ol>
+
+            <div class="form-field">
+                <label>Choose your CSV file</label>
+                <input type="file" />
+            </div>
+
+            <div class="form-field select">
+                <label>Import to which survey?</label>
+                <div class="custom-select">
+                    <select>
+                        {{#each deployment.surveys}}
+                        <option>{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <button type="submit" class="button-alpha" disabled>Import CSV</button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

@@ -1,0 +1,168 @@
+.task {
+    @include clearfix;
+    position: relative;
+    border-bottom: $base-border;
+    padding-top: $sm-spacing;
+    padding-bottom: $sm-spacing;
+
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .task-title {
+        float: left;
+        width: 50%;
+        color: $color-dark-alpha;
+        font-size: 14px;
+        font-size: 1rem;
+        font-weight: $bold;
+        line-height: 1.2;
+
+        @include media($mobile) {
+            width: 100px;
+        }
+    }
+
+    &.disabled {
+
+        .task-title {
+            color: $color-dark-delta;
+
+            &:hover {
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    &.complete {
+
+        .task-title {
+            color: $color-dark-delta;
+            font-weight: normal;
+            text-decoration: line-through;
+        }
+
+        .task-body {
+            display: none;
+        }
+    }
+
+/*
+    .task-checkbox {
+        padding-right: 60px;
+
+        label {
+            color: $color-primary;
+            font-weight: $bold;
+            margin-bottom: 0;
+        }
+
+        &.checkbox {
+
+            &.checked {
+
+                label {
+                    font-weight: normal;
+                    text-decoration: line-through;
+                }
+
+                + .task-body {
+                    display: none;
+                }
+            }
+
+            + .task-body {
+                padding-left: 22px;
+            }
+        }
+    }
+*/
+    .task-body {
+        clear: both;
+        font-size: .857142857em;
+        padding-top: 1px;
+
+        p {
+            margin: $tiny-spacing 0;
+        }
+
+        fieldset {
+            border-left: none;
+            padding-left: 0;
+        }
+
+        .custom-fieldset {
+
+            &.init {
+
+                legend {
+                    padding-right: 25px;
+
+                    svg.iconic {
+
+                        &.chevron {
+                            right: $tiny-spacing;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .task-actions {
+        float: right;
+        margin-top: -5px;
+/*
+        position: absolute;
+        z-index: $body;
+        top: $sm-spacing;
+        right: 0;
+*/
+
+        .avatar {
+            display: inline-block;
+            vertical-align: middle;
+            width: $base-spacing;
+            height: $base-spacing;
+        }
+
+        .status-indicator {
+            display: block;
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            margin-top: -28px;
+            margin-left: 15px;
+
+            svg.iconic {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        button,
+        .button {
+            display: inline-block;
+            vertical-align: middle;
+            height: $base-spacing;
+            @include no-shadow;
+            padding: 0 $tiny-spacing;
+            margin: 0 4px;
+        }
+
+        .dropdown-menu {
+            z-index: $dropdown;
+            top: 0 !important;
+            right: 0 !important;
+        }
+
+        .tooltip {
+
+            .bug {
+                right: 100%;
+            }
+        }
+    }
+}

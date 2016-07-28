@@ -1,0 +1,95 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="settings-categories.html">Categories</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Edit Category</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        <div class="button-group">
+            <button type="button" class="button-flat">Cancel</button>
+            <button type="button" class="button-alpha">Save</button>
+        </div>
+    </div>
+
+    <div class="main-col">
+
+        <div class="form-sheet">
+            <div class="form-field title">
+                <label class="hidden">Name</label>
+                <input type="text" placeholder="Category name" value="Category A">
+            </div>
+
+            <div class="form-field form-field-adapt">
+                <label>
+                    Description
+                </label>
+                <textarea name="description" data-min-rows='1' rows='1'>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+            </div>
+
+            <fieldset class="custom-fieldset" data-fieldset-type="color">
+                <legend>Color</legend>
+
+                <div class="form-field">
+                    <label>Hex value</label>
+                    <input type="text" data-input-type="color" value="#762d80" />
+                </div>
+            </fieldset>
+
+            <div class="form-field select">
+                <label>
+                    <div class="custom-select">
+                        <select>
+                            <option>Everyone</option>
+                            <option>Editors</option>
+                            <option>Administrators</option>
+                        </select>
+                    </div>
+                    <span class="nodisplay">Who</span> can see and add to this category
+                </label>
+            </div>
+        </div>
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h3 class="form-sheet-title">Delete this category</h3>
+            </div>
+
+            <div class="form-field">
+                <p><strong>If you delete this category</strong>, it will no longer be asociated with any posts. Proceed with caution.</p>
+
+                <button class="button-destructive">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                    </svg>
+                    <span class="button-label">Delete category</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

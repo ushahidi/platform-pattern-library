@@ -1,85 +1,14 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]> <html class="no-js lt-ie10 lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]> <html class="no-js lt-ie10 lt-ie9"> <![endif]-->
-<!--[if IE 9]> <html class="no-js lt-ie10"> <![endif]-->
-<!--[if gt IE 9]><!-->
 <html lang="en">
-<!--<![endif]-->
 
 @@include('../partials/_pl-head.html')
 
-    <body class="layout-a">
+<body class="layout-a">
 
-        @@include('../partials/_mode-bar.html', {
-          "context": "map",
-          "state": "logged_in"
-        })
+   <!--// HTML markup for this layout is contained in '/assets/templates/layouts.map-search.hbs' //-->
 
-        <div class="mode-context">
+   @@include('../partials/_scripts.html')
 
-            <header class="mode-context-header">
-                <ol class="breadcrumbs">
-                    <li><a href="map.html">March on City Hall</a></li>
-                </ol>
-
-                <h1 class="mode-context-title">Search results</h1>
-            </header>
-
-            <span class="mode-context-trigger">
-                <svg class="iconic">
-                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                </svg>
-                <span class="label hidden">Show more/less</span>
-            </span>
-
-            <div class="mode-context-body">
-                @@include('../partials/_survey-filter.html')
-
-                <span class="bug">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
-                    </svg>
-                    <span><em>Location:</em> Austin, Texas</span>
-                </span>
-
-                <span class="bug">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
-                    </svg>
-                    <span><em>Date:</em> June 26, 2016</span>
-                </span>
-
-                <span class="bug">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
-                    </svg>
-                    <span><em>Categories:</em> Speakers, Congestion, Seminars, Traffic</span>
-                </span>
-
-                <div class="form-field">
-                    <button type="button" class="button-alpha">Save search</button>
-                    <button type="button" class="button-link">Clear search</button>
-                </div>
-            </div>
-        </div>
-
-        <main role="main">
-            @@include('../partials/_toolbar.html')
-            @@include('../partials/_toolbox.html')
-
-            <div id="map" class="map full-size"></div>
-        </main>
-
-        @@include('../partials/_modals-global.html')
-
-        @@include('../partials/_scripts.html')
-
-        // DEMO: Adding keyword to search input
-        <script>
-        $('.searchbar-input input[type="search"]').val('keyword category:speakers status:published');
-        </script>
-
-    </body>
+</body>
 
 </html>

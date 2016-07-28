@@ -46,6 +46,8 @@ toggleInit = function(triggerSelector) {
           if ($(target).hasClass('dropdown-menu')) {
             dropdownXpos(trigger, target);
 
+            // $(target).after('<span class="dropdown-overlay" />');
+
             $(target).oneClickOutside({
                 callback:function(){
                     $(trigger).removeClass('active');

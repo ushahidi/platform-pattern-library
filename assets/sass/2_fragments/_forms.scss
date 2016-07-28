@@ -27,6 +27,10 @@ fieldset {
             margin-top: $tiny-spacing;
         }
 
+        svg.iconic {
+            margin-right: 4px;
+        }
+
         .tooltip {
             display: inline-block;
             color: $white;
@@ -79,6 +83,20 @@ fieldset {
 
     + .form-sheet {
         margin-bottom: $base-spacing;
+    }
+
+    .bug {
+        color: $color-dark-alpha;
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-gamma;
+
+        svg.iconic {
+            fill: $color-primary-gamma;
+
+            &:hover {
+                fill: darken($color-primary-gamma, 20%);
+            }
+        }
     }
 
     // REQUIRED FIELD
@@ -176,6 +194,13 @@ fieldset {
             margin-right: 4px;
         }
 
+        img.avatar {
+            display: inline-block;
+            width: $base-spacing;
+            height: $base-spacing;
+            margin-right: 4px;
+        }
+
         .custom-select {
             margin-top: 4px;
         }
@@ -184,10 +209,30 @@ fieldset {
             margin-bottom: $sm-spacing;
         }
 
+        &.checked {
+
+            .modal-title {
+                color: $color-dark-delta;
+                font-weight: normal;
+                text-decoration: line-through;
+            }
+        }
+
+        &.disabled {
+
+            label {
+                color: $color-dark-delta;
+
+                &:hover {
+                    cursor: not-allowed;
+                }
+            }
+        }
+
         &.icon-input {
-            //          @include padding-left(0);
 
             > label {
+                vertical-align: middle;
 
                 &:before {
                     position: absolute;
@@ -202,6 +247,10 @@ fieldset {
                     @include equal-radius(100%);
                     background-color: $color-secondary;
                     padding: 2px;
+                }
+
+                img.avatar {
+                    vertical-align: middle;
                 }
             }
 
@@ -348,6 +397,7 @@ fieldset {
     &.url {
 
         input[type="text"],
+        input[type="number"],
         input[type="url"] {
             display: inline-block;
             width: auto;
@@ -485,6 +535,21 @@ fieldset {
         padding-right: 72px;
     }
 
+    &.disabled {
+
+        > label {
+            color: $color-dark-delta;
+
+            &:hover {
+                cursor: not-allowed;
+            }
+
+            svg.iconic {
+                fill: $color-dark-delta;
+            }
+        }
+    }
+
 /*
     .form-field {
         border-left: 2px solid $color-light-beta;
@@ -618,6 +683,7 @@ fieldset,
 
     &.init {
         position: relative;
+        margin-top: $tiny-spacing;
 
         label {
             position: absolute;
@@ -639,7 +705,11 @@ fieldset,
     }
     */
     input[type="text"],
+    input[type="url"],
+    input[type="email"],
+    input[type="number"],
     textarea {
+        max-width: 450px;
         height: auto;
         overflow:hidden;
         outline: none;

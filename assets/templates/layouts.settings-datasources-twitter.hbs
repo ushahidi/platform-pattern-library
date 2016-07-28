@@ -1,0 +1,127 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="settings-datasources.html">Data sources</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Twitter</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        <div class="button-group">
+            <button type="button" class="button-flat">Cancel</button>
+            <button type="button" class="button-alpha">Save</button>
+        </div>
+    </div>
+
+    <div class="main-col">
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h3 class="form-sheet-title">Import posts from Twitter</h3>
+            </div>
+            <!--// IF: Twitter account is successfully configured //-->
+            <div class="form-field switch">
+               <label>Automatically import tweets</label>
+               <div class="toggle-switch">
+                  <input checked class="tgl" id="email-status" type="checkbox">
+                  <label class="tgl-btn" for="email-status"></label>
+               </div>
+               <p><em>When turned on, Ushahidi will continuously search for tweets that include the keywords you've defined below. Any matches will be automatically imported into your deployment.</em></p>
+            </div>
+            <!--// END IF //-->
+
+            <div class="form-field">
+                <label>
+                    Keywords
+                    <input type="text" placeholder="ushahidi" value="ushahidi" />
+                </label>
+                <p>Separate each search term with commas.</p>
+            </div>
+
+            <fieldset>
+                <legend>Do you want imported tweets to be added to a survey?</legend>
+
+                <div class="form-field radio">
+                    <label>
+                        <input type="radio" name="survey-assignment" id="survey-assign-no" />
+                        <strong>No</strong>, keep their survey "unknown" until someone determines which survey it belongs to.
+                    </label>
+                </div>
+
+                <div class="form-field radio">
+                    <label>
+                        <input type="radio" name="survey-assignment" id="survey-assign-yes" data-fieldgroup-toggle="survey-assignment" checked />
+                        <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, add them to...</span>
+                    </label>
+                    <div class="custom-select" data-fieldgroup-target="survey-assignment">
+                        <select>
+                            <option>Getting around</option>
+                            <option selected>Police encounters</option>
+                            <option>Protester photos</option>
+                            <option>Official events</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+        </div>
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h3 class="form-sheet-title">Configure Twitter account</h3>
+                <p>To connect Twitter to your deployment, you need to:</p>
+                <ol>
+                    <li><a href="https://apps.twitter.com/app/new" target="_blank">Create a "Twitter Application."</a></li>
+                    <li>Select "Keys and Access Tokens."</li>
+                    <li>Select "Generate Consumer Key and Secret."</li>
+                    <li>Copy and paste the necessary keys, tokens, and secrets into the fields below.</li>
+                </ol>
+            </div>
+
+            <div class="form-field required">
+                <label>Consumer key</label>
+                <input type="text" value="pIxWSXW12mqw3PUz6sNQvCdrd" />
+            </div>
+
+            <div class="form-field required">
+                <label>Consumer secret</label>
+                <input type="text" value="dSVIVFC6lbuQLKrFHWltPDuHjM7QoniQUN4tsuDU80469vf3Px" />
+            </div>
+
+            <div class="form-field">
+                <button type="button" disabled>
+                    <!--// IF submitting a no-yet validated account configuration //-->
+                    Connect to Twitter
+                    <!--// ELSE //
+                    Update connection
+                    // END IF //-->
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

@@ -1,0 +1,57 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Export</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="main-col">
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">CSV</h2>
+                <p>Export data from the following surveys to a CSV spreadsheet.</p>
+            </div>
+
+            <fieldset>
+                <legend>Surveys</legend>
+
+                {{#each deployment.surveys}}
+                <div class="form-field checkbox">
+                    <input type="checkbox" id="collection-{{@index}}" />
+                    <label for="collection-{{@index}}">{{name}}</label>
+                </div>
+                {{/each}}
+                
+            </fieldset>
+
+            <div class="form-field">
+                <button type="submit" class="button-alpha" disabled>Export to CSV</button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

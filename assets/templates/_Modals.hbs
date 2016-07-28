@@ -1,15 +1,16 @@
 <div id="json" class="modal">
-    <div class="modal-window">
+    <div class="modal-window" style="min-width: 80%;margin-left: -40%;">
         <h3 class="modal-title">Pattern Library configuration</h3>
 
         <div class="modal-body">
             <div id="jsoneditor"></div>
+            <br />
+            <button id="revert-layout" class="button-beta modal-trigger">Revert to default</button>
         </div>
 
         <div class="modal-actions">
             <div class="form-field">
                 <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button id="revert-layout" class="button-beta modal-trigger">Revert to default</button>
                 <button id="refresh-layout" class="button-alpha modal-trigger" disabled>Save changes</button>
             </div>
         </div>
@@ -530,6 +531,303 @@
                 <dt class="list-item"><a href="https://www.ushahidi.com/features" target="_blank">Features</a></dt>
                 <dd>See what Ushahidi can do and how it works.</dd>
             </dl>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="users" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Choose a user...</h3>
+
+        <div class="modal-body">
+            <div class="form-field input-with-icon">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                </svg>
+                <input type="search" placeholder="Find a user...">
+            </div>
+
+            <div class="listing">
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-hall"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/seth.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Seth Hall</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-lungati"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/angela.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Angela Oduor Lungati</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-mackay"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/robbie.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Robbie MacKay</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-mule"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/jason.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Jason Mule</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-ondigo"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/esther.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Esther Ondigo</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-shorland"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/jess.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Jess Shorland</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <button class="button-gamma button-flat">Load more</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="task-assignment" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Assign this task to...</h3>
+
+        <div class="form-field switch">
+            <label>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                </svg>
+                Only the assignee can complete this task
+            </label>
+            <div class="toggle-switch">
+                <input class="tgl" id="task-verify-locked" type="checkbox">
+                <label class="tgl-btn" for="task-verify-locked"></label>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <div class="form-field input-with-icon">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                </svg>
+                <input type="search" placeholder="Find a user...">
+            </div>
+
+            <div class="listing">
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input checked type="radio" name="assignedto" id="assignedto-nobody"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">Nobody</h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-hall"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/seth.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Seth Hall</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-lungati"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/angela.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Angela Oduor Lungati</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-mackay"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/robbie.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Robbie MacKay</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-mule"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/jason.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Jason Mule</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-ondigo"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/esther.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Esther Ondigo</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <input type="radio" name="assignedto" id="assignedto-shorland"  />
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/jess.png" class="avatar" />
+                        </div>
+
+                        <h2 class="listing-item-title">Jess Shorland</h2>
+                        <p class="listing-item-secondary">Editor</p>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <button class="button-gamma button-flat">Load more</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="task-due" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">This task is due <em>...</em></h3>
+
+        <div class="modal-body">
+
+            <div class="form-field date">
+                <label>Due date</label>
+                <div class="input-with-icon">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <input type="date" value="2016-07-22" placeholder="No due date" />
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
         </div>
     </div>
 

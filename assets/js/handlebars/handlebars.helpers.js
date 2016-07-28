@@ -97,6 +97,6 @@ hbLoadLayout = function() {
     }
 
     $.getScript('../../js/app.js', function(data, textStatus ) {
-        console.log( '"' + currentTemplate +'" layout: ' + textStatus);
+        // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
     });
 }

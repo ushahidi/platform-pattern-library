@@ -1,0 +1,403 @@
+<div class="tour-mask"></div>
+
+<div class="tour-pin">
+    <span class="pulse"></span>
+</div>
+
+<div id="start" class="tour-message tour-modal">
+    <strong class="tour-tagline">Howdy</strong>
+    <h2 class="tour-heading">And welcome to your new Ushahidi deployment.</h2>
+
+    <p>While we polish up your deployment, let's take a few seconds to find a few of its most useful new tools.</p>
+
+    <div class="form-field">
+        <button data-cue="add-post" class="button-alpha">Continue</button>
+    </div>
+    <a data-cue="plans" class="button button-link">Skip</a>
+</div>
+
+<div id="add-post" class="tour-message">
+    <h2 class="tour-heading">Collect Data</h2>
+    <!--img src="http://ushahidi.com/uploads/feature-images/feature-1.svg" class="tour-image" /-->
+    <p>Gather submissions from many sources, starting with your deployment's
+        <em>"Add post"</em>
+        button, or from SMS, email, and Twitter. You can collect multiple data types, as well, using custom
+        <em>Surveys</em>.
+    </p>
+    <div class="form-field">
+        <a data-cue="start" class="button button-beta">&lsaquo; Back</a>
+        <button data-cue="views" class="button-alpha">Continue</button>
+    </div>
+    <a data-cue="plans" class="button button-link">Skip</a>
+</div>
+
+<div id="views" class="tour-message">
+    <h2 class="tour-heading">Data Visualization</h2>
+    <p>Every data set can be viewed in Map or Timeline mode. And you can compare trends using the bar and line charts in Activity mode.</p>
+
+    <div class="form-field">
+        <a data-cue="add-post" class="button button-beta">&lsaquo; Back</a>
+        <button data-cue="search" class="button-alpha">Continue</button>
+    </div>
+    <a data-cue="plans" class="button button-link">Skip</a>
+</div>
+
+<div id="search" class="tour-message">
+    <h2 class="tour-heading">Filter, Search, and Save</h2>
+    <p>Drill into the data you need using power filters. Once you have the data you need, create a
+        <em>Saved Search</em>
+        so you can easily return to or share it. Your Saved Searches are always available from your deployment's main menu.</p>
+
+    <div class="form-field">
+        <a data-cue="views" class="button button-beta">&lsaquo; Back</a>
+        <button data-cue="customize" data-pin="false" class="button-alpha">Continue</button>
+    </div>
+    <a data-cue="plans" data-pin="false" class="button button-link">Skip</a>
+</div>
+
+<div id="customize" class="tour-message">
+    <h2 class="tour-heading">Customize</h2>
+    <p>Add a description, create a new Survey, configure how data flows through your deployment, and more -- all from your deployment's <em>Settings</em>.</p>
+
+    <div class="form-field">
+        <a data-cue="search" class="button button-beta">&lsaquo; Back</a>
+        <button data-cue="plans" data-pin="false" class="button-alpha">Continue</button>
+    </div>
+    <a data-cue="plans" data-pin="false" class="button button-link">Skip</a>
+</div>
+
+<div id="plans" class="tour-message tour-modal">
+    <strong class="tour-tagline">Choose a plan</strong>
+
+    <div class="tiers">
+        <div class="payment">
+            <h3 class="tour-heading">Enter your payment information</h3>
+
+            <form method="POST" action="" id="payment-form" class="tour-form">
+
+                <div class="alert error payment-error" style="display: none;">
+                    <p>There was an error processing your payment info</p>
+                     <p class="payment-message" style="display: none;">
+                    </p>
+                </div>
+
+                <div class="form-field">
+                    <label class="input-label required" for="cc-number">Credit Card Number</label>
+                    <div id="cc-number" class="input"></div>
+                </div>
+
+                <fieldset>
+                    <legend class="required">Expiration</legend>
+                    <div id="cc-exp-month" style="width: 50px;" class="input"></div>
+                    <div id="cc-exp-year" style="width: 65px;" class="input"></div>
+                </fieldset>
+
+                <div class="form-field">
+                    <label class="input-label required" for="cc-cvv">CVV</label>
+                    <div id="cc-cvv" style="width: 80px;" class="input"></div>
+                </div>
+
+                <div class="form-field">
+                    <label class="input-label required" for="cc-zip">Postal Code</label>
+                    <div id="cc-zip" style="width: 100px;" class="input"></div>
+                </div>
+
+                <p><em>* These fields are required</em></p>
+
+                <p><a class="tour-link" data-toggle="coupon-toggle">Redeem a coupon?</a></p>
+                <div class="coupon-toggle form-field input-and-button" data-toggle-target="coupon-toggle">
+                    <input id="coupon" name="coupon" placeholder="Coupon code..." />
+                    <button type="button">Redeem</button>
+                </div>
+
+                <p class="small"><strong>You will be charged $<span class="price-estimate">199</span>/month</strong> plus taxes (if any) on a recurring basis. You can change your plan at any time on your plans page, or cancel your subscription by <a href="https://www.ushahidi.com/contact" class="tour-link" target="_blank">contacting us</a>. By clicking "continue", you are authorizing this recurring charge.</p>
+
+                <div class="form-field">
+                    <button data-payment="cancel" class="button-beta button-flat">Cancel</button>
+                    <button type="submit" class="button-alpha">Continue</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="mapper" class="tier">
+            <div class="tier-header">
+                <h2 class="tier-name">Mapper</h2>
+                <p>Put your cause on the map</p>
+
+                <strong class="tier-price">Free</strong>
+            </div>
+
+            <div class="tier-action">
+                <button data-cue="finished" class="button-alpha">Choose Mapper</button>
+            </div>
+
+            <div class="tier-feature-list">
+                <ul>
+                    <li><strong>Unlimited</strong> posts</li>
+                    <li><strong>1</strong> survey</li>
+                    <li><strong>1</strong> user</li>
+                    <li><strong>Web &amp; email</strong> <br />data collection</li>
+                    <li><strong>Map &amp; timeline</strong> <br />data visualization</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="surveyor" class="tier">
+            <div class="tier-header">
+                <h2 class="tier-name">Surveyor</h2>
+                <p>Collect and monitor data</p>
+
+                <strong class="tier-price">$99
+                    <em>/mo</em>
+                </strong>
+            </div>
+
+            <div class="tier-action">
+                <button data-payment="surveyor" class="button-alpha">Choose Surveyor</button>
+            </div>
+
+            <div class="tier-feature-list">
+                <ul>
+                    <li><strong>Unlimited</strong> posts</li>
+                    <li><strong>Unlimited</strong> surveys</li>
+                    <li><strong>5</strong> users <em>+ $10/mo per additional user</em></li>
+                    <li><strong>Web, email, SMS, &amp; Twitter</strong> <br />data collection</li>
+                    <li><strong>Map, timeline, bar chart, &amp; line chart</strong> <br />data visualization</li>
+                    <li><strong>Import &amp; Export</strong> data</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="responder" class="tier">
+            <div class="tier-header">
+                <h2 class="tier-name">Responder</h2>
+                <p>Respond to real-time incidents as a team</p>
+
+                <strong class="tier-price">$499
+                    <em>/mo</em>
+                </strong>
+            </div>
+
+            <div class="tier-action">
+                <button data-payment="responder" class="button-alpha">Choose Responder</button>
+            </div>
+
+            <div class="tier-feature-list">
+                <ul>
+                    <li><strong>Unlimited</strong> posts</li>
+                    <li><strong>Unlimited</strong> surveys</li>
+                    <li><strong>25</strong> users <em>+ $10/mo per additional user</em></li>
+                    <li><strong>Web, email, SMS, &amp; Twitter</strong> <br />data collection</li>
+                    <li><strong>Map, timeline, bar chart, &amp; line chart</strong> <br />data visualization</li>
+                    <li><strong>Import &amp; Export</strong> data</li>
+                    <li><strong>Custom roles</strong> and permissions</li>
+                    <li><strong>Private</strong> deployments</li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="solutions" class="tier disabled">
+            <div class="tier-header">
+                <h2 class="tier-name">Solutions</h2>
+                <p>Enterprise service from the data crowdsourcing experts</p>
+                <h3 class="tier-feature">Contact us about a custom solution for your project</h3>
+            </div>
+
+            <form id="form7" name="form7" class="wufoo topLabel tier-form" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data" method="post" novalidate action="https://ushah.wufoo.com/forms/pb6wq340260j75/#public">
+
+                <div class="form-field">
+                    <label class="desc" id="title1" for="Field1">Your name <span id="req_1" class="req">*</span></label>
+                    <input placeholder="Your name" id="Field1" name="Field1" type="text" class="field text medium" value="" maxlength="255" tabindex="1" onkeyup="" required>
+                </div>
+
+                <div class="form-field">
+                    <label class="desc nodisplay" id="title2" for="Field2">Your email <span id="req_2" class="req">*</span></label>
+                    <input placeholder="you@organization.com" id="Field2" name="Field2" type="email" spellcheck="false" class="field text medium" value="" maxlength="255" tabindex="2" required>
+                </div>
+
+                <div class="form-field">
+                    <label class="desc nodisplay" id="title3" for="Field3">Your organization</label>
+                    <input placeholder="Your organization" id="Field3" name="Field3" type="text" class="field text medium" value="" maxlength="255" tabindex="3" onkeyup="">
+                </div>
+
+                <div class="form-field">
+                    <button id="saveForm" name="saveForm" class="button btTxt submit" type="submit">Continue</button>
+                </div>
+
+                <div class="nodisplay">
+                    <label for="comment">Do Not Fill This Out</label>
+                    <textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+                    <input type="hidden" id="idstamp" name="idstamp" value="zkhl5vdgevIPMx9QV0j5WIpon8aq8lW5GuXOYyAWb/k=">
+                </div>
+            </form>
+
+            <div class="tier-feature-list">
+                <p><em>Projects include all Responder features, plus:</em></p>
+                <ul>
+                    <li><strong>Unlimited</strong> users</li>
+                    <li><strong>Secure</strong> private server</li>
+                    <li><strong>Setup</strong> and training</li>
+                    <li><strong>Custom feature</strong> development</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tier-view-all">
+            <a href="http://ushahidi.com/plans-detail" class="button" target="_blank">View &amp; compare all plan features</a>
+        </div>
+    </div>
+
+    <div class="listing">
+
+        <div class="listing-item">
+            <div class="listing-item-primary">
+                <h2 class="listing-item-title">Free for charities</h2>
+                <p class="listing-item-secondary">Ushahidi is free for non-profits and efforts that we believe in. If you think your company may fit the bill, apply for a fully-loaded, free Ushahidi deployment.</p>
+                <a href="" target="_blank" class="button button-beta">Apply for Free Ushahidi</a>
+            </div>
+        </div>
+
+        <div class="listing-item">
+            <div class="listing-item-primary">
+                <h2 class="listing-item-title">Self-hosted Ushahidi</h2>
+                <p class="listing-item-secondary">Ushahidi is powered by open-source software, available to anyone to download on GitHub. Customize it, improve it, and host it on your own server for free.</p>
+                <a href="" target="_blank" class="button button-beta">Download Open Source Code</a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div id="finished" class="tour-message tour-modal">
+    <strong class="tour-tagline">You're all set</strong>
+
+    <!--// IF DEPLOYMENT IS READY //-->
+    <h2 class="tour-heading">We hope you enjoy your new deployment.</h2>
+    <p>If you ever need help, you can always find it at Ushahidi's
+        <a href="" class="tour-link" target="_blank">Support</a>
+        page.</p>
+
+    <div class="tour-actions">
+        <a href="map.html" class="button button-alpha">Go to your deployment</a>
+    </div>
+
+    <!--// ELSE //
+<h2 class="tour-heading">We need just a few moments to finish building your deployment.</h2>
+<div class="loading">
+<div class="line"></div>
+<div class="line"></div>
+<div class="line"></div>
+</div>
+//-->
+</div>
+
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <!--// Loading the mode context //
+   <div class="loading">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+   </div>
+   // END: Loading the mode context//-->
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+
+        {{> SurveyFilter }}
+
+        <div class="tool">
+            <p>There are <a href=""><strong>12 posts</strong></a> not shown here because they don't include location information.</p>
+        </div>
+
+        <div class="tool">
+            <h6 class="tool-heading">How to add a post</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+            <div class="toggle-content {{#unless user.logged_in}}active{{/unless}}">
+                <p>Use the <a href="#">web form</a>.</p>
+                <p>Send a text message to </br> <a href="tel:15551234567">+1-555-123-4567</a>.</p>
+                <p>Send an email to <a href="mailto:cityhallmarch@domain.com" title="Subject">cityhallmarch@domain.com</a>.</p>
+                <p>Tweet with the hashtag(s) <a href="https://twitter.com/search?q=%23ushahidi&src=typd">#marchoncityhall</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        {{> Fab }}
+
+        {{> Search }}
+
+        <div class="button-group">
+            <button type="button" data-modal="share">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                </svg>
+                <span class="button-label">Share</span>
+            </button>
+        </div>
+    </div>
+
+    <!--// Module: Toolbox //-->
+    <div class="toolbox">
+
+        {{> toolStatus }}
+
+        <div class="tool">
+            <h6 class="tool-heading">Layers</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+
+            <div class="toggle-content">
+                <fieldset>
+                    <div class="form-field radio">
+                        <label for="streets"><input type="radio" name="layers" id="streets" checked />Streets</label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="satellite"><input type="radio" name="layers" id="satellite" />Satellite</label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="terrain"><input type="radio" name="layers" id="terrain" />Terrain</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+    <!--// END // Module: Toolbox //-->
+
+    {{mapEmbed 'all' true}}
+</main>
+
+{{> Modals }}

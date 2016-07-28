@@ -1,13 +1,18 @@
 {{> ModeBar }}
 
+{{#with (lookup deployment.posts 0)}} <!--// Choose the post index that will be the context for this tenplate //-->
 <div class="mode-context">
 
     <header class="mode-context-header">
+        {{#deployment}}
         <ol class="breadcrumbs">
-            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="map.html">{{name}}</a></li>
         </ol>
+        {{/deployment}}
 
-        <h1 class="mode-context-title">{{deployment.surveys.0.name}}</h1>
+        {{#postSurvey}}
+        <h1 class="mode-context-title">{{name}}</h1>
+        {{/postSurvey}}
     </header>
 
     <span class="mode-context-trigger">
@@ -18,7 +23,9 @@
     </span>
 
     <div class="mode-context-body">
-        <p>{{deployment.surveys.0.description}}</p>
+        {{#postSurvey}}
+        <p>{{description}}</p>
+        {{/postSurvey}}
     </div>
 </div>
 
@@ -40,11 +47,11 @@
     <div class="main-col">
 
         <div class="form-sheet">
-            {{postBand 0}}
+            {{postBand}}
 
             <div class="form-field form-field-adapt title">
                 <label>Title</label>
-                <input type="text" value="">
+                <input type="text" value="" />
             </div>
 
             {{#if user.logged_in}}
@@ -239,6 +246,7 @@
     </div>
 
 </main>
+{{/with}}
 
 {{> Modals }}
 

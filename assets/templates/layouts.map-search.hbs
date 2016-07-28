@@ -1,0 +1,117 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <!--// Loading the mode context //
+   <div class="loading">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+   </div>
+   // END: Loading the mode context//-->
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{> SurveyFilter }}
+
+        <span class="bug">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+            </svg>
+            <span><em>Location:</em> Austin, Texas</span>
+        </span>
+
+        <span class="bug">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+            </svg>
+            <span><em>Date:</em> June 26, 2016</span>
+        </span>
+
+        <span class="bug">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+            </svg>
+            <span><em>Categories:</em> Speakers, Congestion, Seminars, Traffic</span>
+        </span>
+
+        <div class="form-field">
+            <button type="button" class="button-alpha">Save search</button>
+            <button type="button" class="button-link">Clear search</button>
+        </div>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        {{> Fab }}
+
+        {{> Search }}
+
+        <div class="button-group">
+            <button type="button" data-modal="share">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                </svg>
+                <span class="button-label">Share</span>
+            </button>
+        </div>
+    </div>
+
+    <!--// Module: Toolbox //-->
+    <div class="toolbox">
+
+        {{> toolStatus }}
+
+        <div class="tool">
+            <h6 class="tool-heading">Layers</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+
+            <div class="toggle-content">
+                <fieldset>
+                    <div class="form-field radio">
+                        <label for="streets"><input type="radio" name="layers" id="streets" checked />Streets</label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="satellite"><input type="radio" name="layers" id="satellite" />Satellite</label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="terrain"><input type="radio" name="layers" id="terrain" />Terrain</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+    <!--// END // Module: Toolbox //-->
+
+    {{mapEmbed 'all' true}}
+</main>
+
+{{> Modals }}
+
+// DEMO: Adding keyword to search input
+<script>
+$('.searchbar-input input[type="search"]').val('keyword category:speakers status:published');
+</script>
