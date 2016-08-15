@@ -441,31 +441,53 @@
 
 <div id="login" class="modal">
     <div class="modal-window">
-        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
-            <svg class="iconic">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
-            </svg>
-            <span class="hidden">Close</span>
-        </button>
-
         <h3 class="modal-title">
             Log in
         </h3>
 
-        <div class="form-field">
-            <label>Email address</label>
-            <input type="email" placeholder="name@domain.com" />
+        <div class="modal-body">
+            <div class="form-field">
+                <label>Email address</label>
+                <input type="email" placeholder="name@domain.com" />
+            </div>
         </div>
 
-        <div class="form-field">
-            <label>Password</label>
-            <input type="password" />
-            <p><a href="">Forgot your password?</a></p>
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button-link  modal-trigger">Cancel</button>
+                <button type="button" class="button-alpha" disabled
+                    {{#if user.name}}
+                    data-modal="login-password"
+                    {{else}}
+                    data-modal="signup"
+                    {{/if}}
+                >Next</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="login-password" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">
+            Enter your password
+        </h3>
+
+        <div class="modal-body">
+            <div class="form-field">
+                <label>Password</label>
+                <input type="password" />
+                <p><a href="">Forgot your password?</a></p>
+            </div>
         </div>
 
-        <div class="form-field">
-            <button type="button" class="button-link  modal-trigger">Cancel</button>
-            <button type="button" class="button-alpha modal-trigger" disabled onclick="hbUserStatus()">Log in</button>
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button-link  modal-trigger">Cancel</button>
+                <button type="button" class="button-alpha" disabled>Log in</button>
+            </div>
         </div>
     </div>
 
@@ -474,35 +496,32 @@
 
 <div id="signup" class="modal">
     <div class="modal-window">
-        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
-            <svg class="iconic">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
-            </svg>
-            <span class="hidden">Close</span>
-        </button>
-
         <h3 class="modal-title">
             Sign up
         </h3>
 
-        <div class="form-field">
-            <label>Display name</label>
-            <input type="text" placeholder="Jane Doe" />
+        <div class="modal-body">
+            <div class="form-field">
+                <label>Display name</label>
+                <input type="text" placeholder="Jane Doe" />
+            </div>
+
+            <div class="form-field">
+                <label>Email address</label>
+                <input type="email" value="{{#if user.email}}{{user.email}}{{/if}}" />
+            </div>
+
+            <div class="form-field">
+                <label>Password</label>
+                <input type="password" />
+            </div>
         </div>
 
-        <div class="form-field">
-            <label>Email address</label>
-            <input type="email" placeholder="name@domain.com" />
-        </div>
-
-        <div class="form-field">
-            <label>Password</label>
-            <input type="password" />
-        </div>
-
-        <div class="form-field">
-            <button type="button" class="button-link  modal-trigger">Cancel</button>
-            <button type="button" class="button-alpha modal-trigger" disabled>Sign up</button>
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button-link  modal-trigger">Cancel</button>
+                <button type="button" class="button-alpha modal-trigger" disabled>Sign up</button>
+            </div>
         </div>
     </div>
 

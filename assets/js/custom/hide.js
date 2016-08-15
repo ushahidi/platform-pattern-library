@@ -8,10 +8,12 @@ hideInit = function(triggerSelector) {
     $(target).addClass('init');
 
     // IF: The target is already hidden, apply 'active' class to elements
+    /*
     if ($(target).is(':hidden')) {
        $(trigger).addClass('active');
        $(target).addClass('hidden');
     }
+    */
 
     // Add 'click' handler to toggle trigger
     $(trigger).on('click', function(e){

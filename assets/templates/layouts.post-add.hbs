@@ -1,6 +1,6 @@
 {{> ModeBar }}
 
-{{#with (lookup deployment.posts 0)}} <!--// Choose the post index that will be the context for this tenplate //-->
+{{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
 <div class="mode-context">
 
     <header class="mode-context-header">
@@ -10,9 +10,7 @@
         </ol>
         {{/deployment}}
 
-        {{#postSurvey}}
         <h1 class="mode-context-title">{{name}}</h1>
-        {{/postSurvey}}
     </header>
 
     <span class="mode-context-trigger">
@@ -23,9 +21,7 @@
     </span>
 
     <div class="mode-context-body">
-        {{#postSurvey}}
         <p>{{description}}</p>
-        {{/postSurvey}}
     </div>
 </div>
 
@@ -47,11 +43,133 @@
     <div class="main-col">
 
         <div class="form-sheet">
-            {{postBand}}
-
+            <div class="post-band" style="background-color: #{{color}}"></div>
+{{/with}}
             <div class="form-field form-field-adapt title">
                 <label>Title</label>
                 <input type="text" value="" />
+            </div>
+
+            <div class="metadata" data-hide-target="author-metadata">
+                {{#if user.logged_in}}
+                <img src="{{user.avatar}}" class="avatar" />
+                <span class="metadata-author">{{user.name}}</span>
+                , now
+                {{else}}
+                <span class="metadata-author">Anonymous</span>
+                {{/if}}
+                , via web
+
+                <button class="button-beta button-plain" data-toggle="edit-metadata" data-hide="author-metadata">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                    </svg>
+                    <span class="button-label">Change</span>
+                </button>
+            </div>
+
+            <div data-toggle-target="edit-metadata">
+                {{#if user.logged_in}}
+                <fieldset>
+                    <legend>Author</legend>
+
+                    <span class="bug" data-hide-target="author-bug">
+                        <img src="{{user.avatar}}" class="avatar" />
+                        <span class="label">{{user.name}}</span>
+                        <svg class="iconic" data-hide="author-bug" data-toggle="author-fieldset">
+                            <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                        </svg>
+                    </span>
+
+                    <div data-toggle-target="author-fieldset">
+                        <div class="form-field inline input-with-dropdown">
+                            <label class="hidden">Name</label>
+                            <input type="text" placeholder="Name" />
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a>
+                                        <img src="https://www.ushahidi.com/uploads/post-images/_teamImage/angela.png" class="avatar" />
+                                        <span class="label">Angela Kabari</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/angela.png" class="avatar" />
+                                        <span class="label">Angela Oduor Lungati</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/brandon.png" class="avatar" />
+                                        <span class="label">Brandon Rosage</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/celestine.png" class="avatar" />
+                                        <span class="label">Celestine Kakai</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form-field inline">
+                            <label class="hidden">Email</label>
+                            <div class="input-with-icon">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#envelope-closed"></use>
+                                </svg>
+                                <input type="email" placeholder="email@domain.com" />
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Post date</legend>
+                    <div class="form-field date">
+                        <label class="hidden">Date</label>
+                        <div class="input-with-icon">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            </svg>
+                            <input type="date" value="2016-06-22" placeholder="Date" />
+                        </div>
+                    </div>
+
+                    <div class="form-field date">
+                        <label class="hidden">Time</label>
+                        <div class="input-with-icon">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                            </svg>
+                            <input type="time" value="11:39:57" placeholder="Time" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                {{else}}
+
+                <fieldset>
+                    <legend>Author</legend>
+
+                    <div class="form-field inline">
+                        <label class="hidden">Name</label>
+                        <input type="text" placeholder="Name" />
+                    </div>
+
+                    <div class="form-field inline">
+                        <label class="hidden">Email</label>
+                        <div class="input-with-icon">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#envelope-closed"></use>
+                            </svg>
+                            <input type="email" placeholder="email@domain.com" />
+                        </div>
+                    </div>
+                </fieldset>
+
+                {{/if}}
             </div>
 
             {{#if user.logged_in}}
@@ -91,66 +209,6 @@
                             </label>
                         </div>
                     </fieldset>
-                </div>
-
-                <div class="tool">
-                    <h6 class="tool-heading">Author</h6>
-
-                    <span class="tool-trigger" data-toggle="toggle-content">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                        </svg>
-                        <span class="label hidden">Show/hide</span>
-                    </span>
-
-                    <div class="toggle-content">
-                        <div class="listing-item">
-                            <div class="listing-item-primary">
-                                <div class="listing-item-image">
-                                    <img class="avatar" src="http://placehold.it/100x100" alt="">
-                                </div>
-                                <h2 class="listing-item-title">Jess Shorland</h2>
-                                <p class="listing-item-secondary">Editor</p>
-                            </div>
-                        </div>
-                        <button type="button" class="button-gamma button-flat" data-modal="edit-author">Change author</button>
-                    </div>
-                </div>
-
-                <div class="tool">
-                    <h6 class="tool-heading">Post date</h6>
-
-                    <span class="tool-trigger" data-toggle="toggle-content">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                        </svg>
-                        <span class="label hidden">Show/hide</span>
-                    </span>
-
-                    <div class="toggle-content active">
-                        <fieldset>
-                            <legend class="hidden">Post date</legend>
-                            <div class="form-field date">
-                                <label class="hidden">Date</label>
-                                <div class="input-with-icon">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                                    </svg>
-                                    <input type="date" value="2016-06-22" placeholder="Date" />
-                                </div>
-                            </div>
-
-                            <div class="form-field date">
-                                <label class="hidden">Time</label>
-                                <div class="input-with-icon">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                                    </svg>
-                                    <input type="time" value="11:39:57" placeholder="Time" />
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
                 </div>
             </div>
 
@@ -246,7 +304,6 @@
     </div>
 
 </main>
-{{/with}}
 
 {{> Modals }}
 

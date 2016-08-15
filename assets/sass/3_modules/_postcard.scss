@@ -1,6 +1,7 @@
 .postcard {
     position: relative;
     @extend .card;
+    max-width: 575px;
 
     .post-band {
         @include radius(2px, 0, 0, 2px);
@@ -8,7 +9,7 @@
 
     .listing-item-select {
         position: absolute;
-        top: $sm-spacing;
+        top: $sm-spacing + 2;
         left: $sm-spacing;
 
         + .postcard-body {
@@ -238,6 +239,7 @@
     }
 
     &[role="article"] {
+        max-width: none;
 
         .postcard-title {
             font-size: 20px;
@@ -255,7 +257,7 @@
         .listing-item-select {
 
             @include media($medium) {
-                top: $base-spacing;
+                top: $base-spacing + 4;
             }
 
             .status-indicator {

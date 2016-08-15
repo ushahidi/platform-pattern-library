@@ -64,6 +64,14 @@ Handlebars.registerHelper('postBand', function() {
     );
 });
 
+Handlebars.registerHelper('postCheckbox', function() {
+    if (session.user.logged_in) {
+        return new Handlebars.SafeString(
+            '<input type="checkbox">'
+        );
+    }
+});
+
 Handlebars.registerHelper('mapEmbed', function(postIndex, fullsize) {
     var dataAttr = postIndex == 'all' ? '' : 'data-post-index="'+postIndex+'"',
         className = fullsize == true ? 'full-size' : '';

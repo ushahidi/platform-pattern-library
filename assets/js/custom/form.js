@@ -144,7 +144,7 @@ $('.searchbar-input').each(function(){
         if (input.val()) {
             dropdownMenu.addClass('active');
         }
-        //inputGhostUpdate(input.val());
+        inputGhostUpdate(input.val());
     });
 
     input.on('focusout', function(){
@@ -152,6 +152,22 @@ $('.searchbar-input').each(function(){
     });
 
     input.on('change', function(){
-        // inputGhostUpdate(input.val());
+        inputGhostUpdate(input.val());
+    });
+});
+
+// Display dropdown when input is in focus and has a value
+$('.input-with-dropdown').each(function(){
+    var input = $(this).find('input'),
+        dropdownMenu = $(this).find('.dropdown-menu');
+
+    input.on('keyup', function(){
+        if (input.val()) {
+            dropdownMenu.addClass('active');
+        }
+    });
+
+    input.on('focusout', function(){
+        dropdownMenu.removeClass('active');
     });
 });

@@ -21,8 +21,8 @@ toggleInit = function(triggerSelector) {
     $(trigger).on('click', function(e){
 
        // Deactivate (close) other active dropdown triggers and targets
-       $('[data-toggle]').not($(trigger)).removeClass('active');
-       $('[data-toggle-target], .dropdown-menu').not($(target)).removeClass('active').removeAttr('style');
+       $('.dropdown-trigger').not($(trigger)).removeClass('active');
+       $('.dropdown-menu').not($(target)).removeClass('active').removeAttr('style');
 
        // IF: Target is currently hidden
        if ($(target).is(':hidden')) {

@@ -25,6 +25,7 @@
                     Activity
                 </a>
             </li>
+            {{#if user.logged_in}}
             <li {{#ifCond mode 'tasks'}}class="active"{{/ifCond}}>
                 <a href="tasks.html">
                     <svg class="iconic">
@@ -41,6 +42,7 @@
                     Settings
                 </a>
             </li>
+            {{/if}}
             <li class="more-menu-trigger">
                 <a href="#">
                     <svg class="iconic">
@@ -190,15 +192,6 @@
                 </a>
             </li>
             {{else}}
-            <li>
-                <a href="#" data-modal="signup">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                    </svg>
-                    Sign up
-                </a>
-            </li>
-
             <li>
                 <a href="#" data-modal="login">
                     <svg class="iconic">
