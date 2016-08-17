@@ -109,57 +109,6 @@ $('input[type="time"]').pickatime({
     }
 });
 
-// Display search suggestions in dropdown when search input is in focus and has a value
-$('.searchbar-input').each(function(){
-    var input = $(this).find('input[type="search"]'),
-        dropdownMenu = $(this).find('.dropdown-menu'),
-        ghost = $(this).find('.input-ghost');
-
-    function inputGhostUpdate(str) {
-        ghost.scrollLeft(input.scrollLeft());
-        console.log('ghost: ' + ghost.scrollLeft() + '; input: ' + input.scrollLeft());
-
-        if (str.includes(':')) {
-            var ghostVal = "";
-
-            $.each(str.split(' '), function(key, value){
-                if (key != 0) {
-                    ghostVal += " ";
-                }
-
-                if (value.includes(':')) {
-                    ghostVal += '<mark class="modifier">' + value + '</mark>';
-                } else {
-                    ghostVal += value;
-                }
-            });
-            ghost.html(ghostVal).addClass('active');
-            input.addClass('active');
-        } else {
-            ghost.html('').removeClass('active');
-            input.removeClass('active');
-        }
-    }
-
-    inputGhostUpdate(input.val());
-
-    input.on('keyup', function(){
-        if (input.val()) {
-            dropdownMenu.addClass('active');
-        }
-        inputGhostUpdate(input.val());
-    });
-
-    input.on('focusout', function(){
-        dropdownMenu.removeClass('active');
-        inputGhostUpdate(input.val());
-    });
-
-    input.on('change', function(){
-        inputGhostUpdate(input.val());
-    });
-});
-
 // Display dropdown when input is in focus and has a value
 $('.input-with-dropdown').each(function(){
     var input = $(this).find('input'),

@@ -4,6 +4,7 @@
     flex-direction: row;
     align-items: stretch;
     position: relative;
+    @include transition(0.3s);
 
     .searchbar-input {
         flex: 1;
@@ -14,9 +15,6 @@
             .input-with-ghost {
                 position: relative;
                 z-index: 500; // revisit
-/*
-                max-width: 270px;
-*/
                 @include equal-radius;
                 background-color: $white;
 
@@ -24,18 +22,6 @@
                     display: inline-block;
                     position: relative;
                     z-index: 2;
-                    box-sizing: border-box;
-                    width: 100%;
-                    overflow: hidden;
-                    text-rendering: optimizeSpeed;
-                    outline: 0;
-                    direction: ltr;
-                    line-height: normal;
-                    vertical-align: middle;
-                    padding: 0;
-                    -webkit-appearance: none;
-                    -moz-appearance: none;
-                    appearance: none;
 
                     &.active {
                         color: $color-dark-beta;
@@ -59,7 +45,9 @@
                     -webkit-user-select: none;
                     outline: rgb(85, 84, 89) none 0px;
                     padding-right: $huge-spacing;
-                    margin: 1px 6px;
+                    padding-left: 2px;
+                    margin: 1px $sm-spacing;
+                    margin-right: $tiny-spacing;
 
                     &.active {
 
@@ -100,11 +88,11 @@
                 &.input-with-icon {
 
                     .input-ghost {
-                        padding-left: 38px;
+                        margin-left: 37px;
                     }
 
                     svg.iconic {
-                        z-index: 1;
+                        z-index: 3;
                     }
                 }
             }
@@ -177,6 +165,7 @@
 
     .searchbar-options {
 
+        button,
         .button {
             float: left;
             height: 36px;
@@ -362,36 +351,12 @@
                         fill: $color-light-alpha;
                         margin-right: 0;
                     }
-/*
-                    @include iconic(before, chevron-bottom, $color-light-alpha, 8px) {
-                        margin-right: 0;
-                    }*/
                 }
             }
         }
 
         .form-field {
-/*
-            input[type="text"],
-            input[type="email"],
-            input[type="url"],
-            input[type="password"],
-            input[type="search"],
-            input[type="date"],
-            input[type="datetime"] {
-                font-size: 12px;
-                font-size: .857142857rem;
-            }
 
-            &.checkbox,
-            &.radio {
-
-                label {
-                    font-size: 12px;
-                    font-size: .857142857rem;
-                }
-            }
-*/
             &.date {
 
                 .date-joiner {
@@ -417,5 +382,4 @@
             }
         }
     }
-
 }
