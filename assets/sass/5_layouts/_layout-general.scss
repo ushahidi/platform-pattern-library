@@ -189,19 +189,6 @@
                 left: 288px;
                 width: auto;
             }
-
-            .searchbar {
-
-/*
-                .dropdown-menu {
-                    right: -37.5% !important;
-
-                    @include media($mobile) {
-                        right: 0 !important;
-                    }
-                }
-*/
-            }
         }
 
         .listing {
@@ -458,6 +445,29 @@
 
         .modal-overlay {
            opacity: 1;
+        }
+    }
+
+    .modal-sheet {
+        position: fixed;
+        z-index: $dropdown;
+        right: 0;
+        bottom: -1000px;
+        left: 0;
+
+        @include media($medium) {
+            top: -1000px;
+            left: 288px;
+            bottom: auto;
+        }
+
+        &.active {
+            bottom: 45px;
+
+            @include media($medium) {
+                top: 68px;
+                bottom: auto;
+            }
         }
     }
 }
