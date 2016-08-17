@@ -116,6 +116,9 @@ $('.searchbar-input').each(function(){
         ghost = $(this).find('.input-ghost');
 
     function inputGhostUpdate(str) {
+        ghost.scrollLeft(input.scrollLeft());
+        console.log('ghost: ' + ghost.scrollLeft() + '; input: ' + input.scrollLeft());
+
         if (str.includes(':')) {
             var ghostVal = "";
 
@@ -149,6 +152,7 @@ $('.searchbar-input').each(function(){
 
     input.on('focusout', function(){
         dropdownMenu.removeClass('active');
+        inputGhostUpdate(input.val());
     });
 
     input.on('change', function(){
