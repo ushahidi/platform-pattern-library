@@ -239,7 +239,7 @@ Handlebars.registerPartial("Postcard", Handlebars.template({"1":function(depth0,
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.description : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.fields : depth0)) != null ? stack1.photo : stack1),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n</article>\n";
+    + "\n        <div class=\"postcard-overflow\">\n            <a href=\"post-detail.html\" class=\"button button-flat button-plain button-beta\">Show complete post</a>\n        </div>\n    </div>\n</article>\n";
 },"useData":true}));
 this["Ushahidi"]["templates"]["_Postcard"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "        <span class=\"status-indicator empty tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#globe\"></use>\n            </svg>\n            <span class=\"bug\">This post is published</span>\n        </span>\n";
@@ -296,7 +296,7 @@ this["Ushahidi"]["templates"]["_Postcard"] = Handlebars.template({"1":function(d
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.description : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n"
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.fields : depth0)) != null ? stack1.photo : stack1),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n</article>\n";
+    + "\n        <div class=\"postcard-overflow\">\n            <a href=\"post-detail.html\" class=\"button button-flat button-plain button-beta\">Show complete post</a>\n        </div>\n    </div>\n</article>\n";
 },"useData":true});
 Handlebars.registerPartial("Search", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper;
