@@ -4,7 +4,7 @@
 
 .modal-window {
     position: relative;
-    @extend .sheet;
+    @include containerSheet;
     padding: 0 $sm-spacing;
 
     @include media($mobile) {
@@ -291,30 +291,4 @@
     overflow: hidden;
     background: rgba(0, 0, 0, 0.75);
     z-index: $modal; //variable defined in settings.scss
-}
-
-.modal-sheet {
-    display: none;
-    @include containerSheet;
-    @include transition(0.3s);
-
-    .modal-sheet-heading {
-        @include typeBeta;
-        margin: $sm-spacing;
-
-        @include media($medium) {
-            margin-top: $base-spacing;
-        }
-    }
-
-    ul, ol {
-        @extend .list-reset;
-        padding-bottom: $sm-spacing;
-
-        li {
-            position: relative;
-            padding: $tiny-spacing $sm-spacing;
-            margin: 4px 0;
-        }
-    }
 }
