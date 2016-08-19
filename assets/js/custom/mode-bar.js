@@ -6,10 +6,6 @@ $('.mode-bar').each(function(){
    // Add 'init' class to the Mode Bar
    $(context).addClass('init');
 
-   // Add 'persist' class to items that appear in bar at all times (first four deployment menu items)
-   $(context).find('.deployment-menu li').addClass('tuck').slice(0,3).addClass('persist').removeClass('tuck');
-   $(trigger).addClass('persist').removeClass('tuck');
-
    // Add 'click' handler to toggle trigger
    $(trigger).on('click', function(e){
 

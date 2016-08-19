@@ -73,11 +73,15 @@
             }
         }
 
-        &.more-menu-trigger {
+        .more-menu-trigger {
             display: none;
 
             @include media($medium-down) {
                 display: block;
+
+                &.active + ul {
+                    display: block;                    
+                }
             }
         }
     }
@@ -92,19 +96,19 @@
 
         li {
 
-            &.persist {
+            @include media($medium-down) {
+                display: block;
+                position: static;
+                @include float(left);
+                width: 25%;
+                list-style-type: none;
+                text-align: center;
+                background-color: $color-primary;
+            }
 
-                @include media($medium-down) {
-                    display: block;
-                    position: static;
-                    @include float(left);
-                    width: 25%;
-                    list-style-type: none;
-                    text-align: center;
-                    background-color: $color-primary;
-                }
+            &.active {
 
-                &.active {
+                @include media($medium) {
 
                     a {
                         color: $color-secondary;
@@ -116,7 +120,7 @@
                 }
             }
 
-            &.tuck {
+            ul {
 
                 @include media($medium-down) {
                     display: none;
@@ -126,7 +130,20 @@
                     left: 0;
                     z-index: $modebar;
 
-                    a {
+                    li {
+                        float: none;
+                        width: auto;
+                        text-align: left;
+                        background-color: transparent;
+                    }
+                }
+            }
+
+            li {
+
+                a {
+
+                    @include media($medium-down) {
                         color: $link-color;
                         @include typeBase;
                         text-align: left;
@@ -141,20 +158,6 @@
                             height: 1em;
                             margin: 0;
                             margin-right: $tiny-spacing;
-                        }
-                    }
-                }
-            }
-
-            &.active {
-
-                @include media($medium) {
-
-                    a {
-                        color: $color-secondary;
-
-                        svg.iconic {
-                            fill: $color-secondary;
                         }
                     }
                 }
@@ -272,7 +275,7 @@
                 color: $color-light-alpha;
 
                 @include media($medium) {
-                    display: block;                    
+                    display: block;
                 }
             }
         }
