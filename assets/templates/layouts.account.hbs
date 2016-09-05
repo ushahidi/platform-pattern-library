@@ -1,0 +1,1191 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+        </ol>
+
+        <img src="{{user.avatar}}" class="avatar" />
+
+        <h1 class="mode-context-title">{{user.name}}</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        <p>{{user.email}}, {{user.role}}</p>
+
+        <button class="button-gamma">Log out</button>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        <nav class="tabs-menu" data-tabs="main-col">
+            <ul>
+                <li><a href="#user-posts">Posts</a></li>
+                <li><a href="#user-tasks">Tasks</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div id="user-posts" class="main-col">
+
+        <div class="listing">
+
+            {{#if user.logged_in}}
+                {{#each deployment.posts}}
+                    {{> Postcard}}
+                {{/each}}
+            {{else}}
+                {{#each deployment.posts}}
+                    {{#ifCond properties.status 'published'}}
+                    {{> Postcard}}
+                    {{/ifCond}}
+                {{/each}}
+            {{/if}}
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <button class="button-gamma button-flat">Load more</button>
+                </div>
+            </div>
+
+            <div class="listing-toolbar">
+                <div class="listing-toolbar-summary">
+                    <strong><span class="total"></span> selected</strong>
+                    <button class="button-link">Deselect</button>
+                </div>
+
+                <div class="listing-toolbar-actions">
+
+                    <button class="button-beta" data-toggle="toggle-content">
+                        <span class="button-label">Mark as</span>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu toggle-content">
+                        <li>
+                            <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <span class="label">Published</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <span class="label">Under Review</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <span class="label">Archive</span>
+                            </a>
+                        </li>
+                        <div class="divider"></div>
+                        <li>
+                            <a href="">
+                                Spam
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                Duplicates
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="button-beta" data-modal="add-to-collection">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
+                        </svg>
+                        <span class="button-label">Add to Collection</span>
+                    </button>
+
+                    <button type="button" class="button-destructive">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label hidden">Delete</span>
+                    </button>
+
+                    <button type="button" class="listing-toolbar-toggle more">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                        </svg>
+                        <span class="button-label">Show more</span>
+                    </button>
+
+                    <button type="button" class="listing-toolbar-toggle less">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                        </svg>
+                        <span class="button-label">Show less</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="user-tasks" class="main-col">
+
+        <div class="listing">
+
+            <article class="postcard">
+                <div class="post-band" style="background-color: #A51A1A;"></div>
+                <div class="listing-item-select">
+                    <input type="checkbox">
+                    <span class="status-indicator empty tooltip">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <span class="bug">This post is published</span>
+                    </span>
+                </div>
+                <div class="postcard-body">
+                    <header class="postcard-header">
+                        <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                        <div class="metadata">
+                            45 mins, via web
+                        </div>
+                    </header>
+
+                    <div class="postcard-field task">
+                        <h2 class="task-title"><a href="post-edit.html">Review</a></h2>
+                        <div class="task-actions">
+                            <span class="tooltip">
+                                <span class="bug">Assigned to {{user.name}}</span>
+                                <img src="{{user.avatar}}" class="avatar" />
+                                <span class="status-indicator">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                    </svg>
+                                </span>
+                            </span>
+
+                            <button class="button-gamma button-flat" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="nodisplay">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                                        </svg>
+                                        <span class="label">Mark complete</span>
+                                    </a>
+                                </li>
+                                <div class="divider"></div>
+                                <li>
+                                    <a href="" data-modal="task-assignment">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                    </svg>
+                                    <span class="label">Change assignment</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" data-modal="task-due">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <span class="label">Change due date</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="task-body">
+                            <p><strong>Due</strong>: Friday, July 22</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="postcard">
+                <div class="post-band" style="background-color: #A51A1A;"></div>
+                <div class="listing-item-select">
+                    <input type="checkbox">
+                    <span class="status-indicator yellow tooltip">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <span class="bug">This post is currently under review</span>
+                    </span>
+                </div>
+                <div class="postcard-body">
+                    <header class="postcard-header">
+                        <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                        <div class="metadata">
+                            45 mins, via SMS
+                        </div>
+                    </header>
+
+                    <div class="postcard-field task">
+                        <h2 class="task-title"><a href="post-edit.html">Verify</a></h2>
+                        <div class="task-actions">
+                            <span class="tooltip">
+                                <span class="bug">Assigned to {{user.name}}</span>
+                                <img src="{{user.avatar}}" class="avatar" />
+                            </span>
+
+                            <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="nodisplay">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                                    </svg>
+                                    <span class="label">Mark complete</span>
+                                    </a>
+                                </li>
+                                <div class="divider"></div>
+                                <li>
+                                    <a href="" data-modal="task-assignment">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                    </svg>
+                                    <span class="label">Change assignment</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" data-modal="task-due">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <span class="label">Change due date</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="task-body">
+                            <p><strong>Due</strong>: Monday, July 25</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="postcard">
+                <div class="post-band" style="background-color: #2274B4;"></div>
+                <div class="listing-item-select">
+                    <input type="checkbox">
+                    <span class="status-indicator empty tooltip">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                        </svg>
+                        <span class="bug">This post is archived</span>
+                    </span>
+                </div>
+                <div class="postcard-body">
+                    <header class="postcard-header">
+                        <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                        <div class="metadata">
+                            45 mins, via SMS
+                        </div>
+                    </header>
+
+                    <div class="postcard-field task">
+                        <h2 class="task-title"><a href="post-edit.html">Call police</a></h2>
+                        <div class="task-actions">
+                            <span class="tooltip">
+                                <span class="bug">Assigned to {{user.name}}</span>
+                                <img src="{{user.avatar}}" class="avatar" />
+                            </span>
+
+                            <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="nodisplay">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="" data-modal="task-assignment">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                    </svg>
+                                    <span class="label">Change assignment</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" data-modal="task-due">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <span class="label">Set due date</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="postcard">
+                <div class="post-band" style="background-color: #E69327;"></div>
+                <div class="listing-item-select">
+                    <input type="checkbox">
+                    <span class="status-indicator yellow tooltip">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <span class="bug">This post is currently under review</span>
+                    </span>
+                </div>
+                <div class="postcard-body">
+                    <header class="postcard-header">
+                        <h1 class="postcard-title"><a href="">Overcrowding between 5th St. &amp; Salem Ave.</a></h1>
+                        <div class="metadata">
+                            <span class="metadata-author">+1-234-567-8901</span>, 45 mins, via SMS
+                        </div>
+                    </header>
+
+                    <div class="postcard-field task">
+                        <h2 class="task-title"><a href="post-edit.html">Review</a></h2>
+                        <div class="task-actions">
+                            <span class="tooltip">
+                                <span class="bug">Assigned to {{user.name}}</span>
+                                <img src="{{user.avatar}}" class="avatar" />
+                                <span class="status-indicator">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                    </svg>
+                                </span>
+                            </span>
+
+                            <button class="button-gamma button-flat" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="nodisplay">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                                        </svg>
+                                        <span class="label">Mark complete</span>
+                                    </a>
+                                </li>
+                                <div class="divider"></div>
+                                <li>
+                                    <a href="" data-modal="task-assignment">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                    </svg>
+                                    <span class="label">Change assignment</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" data-modal="task-due">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <span class="label">Change due date</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="task-body">
+                            <p><strong>Due</strong>: Friday, July 22</p>
+                        </div>
+                    </div>
+
+                    <div class="postcard-field task">
+                        <h2 class="task-title"><a href="post-edit.html">Publish</a></h2>
+                        <div class="task-actions">
+                            <span class="tooltip">
+                                <span class="bug">Assigned to {{user.name}}</span>
+                                <img src="{{user.avatar}}" class="avatar" />
+                            </span>
+
+                            <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="nodisplay">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="" data-modal="task-assignment">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                    </svg>
+                                    <span class="label">Change assignment</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" data-modal="task-due">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <span class="label">Set due date</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <article class="postcard">
+                <div class="post-band" style="background-color: #A51A1A;"></div>
+                <div class="listing-item-select">
+                    <input type="checkbox">
+                </div>
+                <div class="postcard-body">
+                    <!--header class="postcard-header">
+                        <h1 class="postcard-title">Contribute to <em>Getting around</em></h1>
+                    </header-->
+
+                    <div class="postcard-field task">
+                        <h2 class="task-title"><a href="post-add.html">Add to survey</a></h2>
+                        <div class="task-actions">
+                            <span class="tooltip">
+                                <span class="bug">Assigned to {{user.name}}</span>
+                                <img src="{{user.avatar}}" class="avatar" />
+                            </span>
+
+                            <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="nodisplay">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="" data-modal="task-assignment">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                    </svg>
+                                    <span class="label">Change assignment</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" data-modal="task-due">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <span class="label">Set due date</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <button class="button-gamma button-flat">Load more</button>
+                </div>
+            </div>
+
+            <div class="listing-toolbar">
+                <div class="listing-toolbar-summary">
+                    <strong><span class="total"></span> selected</strong>
+                    <button class="button-link">Deselect</button>
+                </div>
+
+                <div class="listing-toolbar-actions">
+
+                    <button class="button-beta" data-toggle="toggle-content">
+                        <span class="button-label">Mark as</span>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu toggle-content">
+                        <li>
+                            <a href="">Complete</a>
+                        </li>
+                        <li>
+                            <a href="">Incomplete</a>
+                        </li>
+                    </ul>
+
+                    <button class="button-beta" data-toggle="toggle-content">
+                        <span class="button-label">Assign to</span>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu toggle-content">
+                        <li>
+                            <a href="">You</a>
+                        </li>
+                        <li>
+                            <a href="">Nobody</a>
+                        </li>
+                        <div class="divider"></div>
+                        <li>
+                            <a href="" data-modal="users">Specific person...</a>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="listing-toolbar-toggle more">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                        </svg>
+                        <span class="button-label">Show more</span>
+                    </button>
+
+                    <button type="button" class="listing-toolbar-toggle less">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                        </svg>
+                        <span class="button-label">Show less</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+{{> Modals }}
+
+<div id="add-field" class="modal">
+    <div class="modal-window">
+        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+
+        <h3 class="modal-title">Add field</h3>
+
+        <dl class="modal-body">
+            <dt class="list-item"><a href="" data-modal="edit-field">Short text</a></dt>
+            <dd>A sentence or less</dd>
+
+            <dt class="list-item"><a href="">Long text</a></dt>
+            <dd>Multiple sentences or paragraphs</dd>
+
+            <dt class="list-item"><a href="">Number</a></dt>
+            <dd></dd>
+
+            <dt class="list-item"><a href="">Location</a></dt>
+            <dd></dd>
+
+            <dt class="list-item"><a href="">Date</a></dt>
+            <dd></dd>
+
+            <dt class="list-item"><a href="">Time</a></dt>
+            <dd></dd>
+
+            <dt class="list-item"><a href="">Radio Button(s)</a></dt>
+            <dd>Allows the user to choose only one of a predefined set of options.</dd>
+
+            <dt class="list-item"><a href="">Checkbox(es)</a></dt>
+            <dd>Allows the user to choose one or more of a predefined set of options.</dd>
+
+            <dt class="list-item"><a href="">Related Survey</a></dt>
+            <dd></dd>
+        </dl>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="edit-field" class="modal">
+    <div class="modal-window">
+        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+
+        <h3 class="modal-title">Edit field <em>short text</em></h3>
+
+        <div class="form-field">
+            <label>Name</label>
+            <input type="text" value="Witness" />
+        </div>
+
+        <div class="form-field">
+            <label>Key</label>
+            <input type="text" value="witness" />
+        </div>
+
+        <div class="form-field">
+            <label>Default value</label>
+            <input type="text" />
+        </div>
+
+        <div class="form-field switch">
+            <label>Require this field be completed</label>
+            <div class="toggle-switch">
+                <input class="tgl" id="switch1" type="checkbox">
+                <label class="tgl-btn" for="switch1"></label>
+            </div>
+        </div>
+
+        <div class="form-field switch">
+            <label>Include this field in filters</label>
+            <div class="toggle-switch">
+                <input class="tgl" id="switch2" type="checkbox">
+                <label class="tgl-btn" for="switch2"></label>
+            </div>
+        </div>
+
+        <div class="form-field">
+            <button class="button-destructive button-flat">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                </svg>
+                <span class="button-label">Delete field</span>
+            </button>
+            <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="add-task" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Add task</h3>
+        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+
+        <p>Choose a pre-built task, or create one from scratch.</p>
+        <div class="listing">
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title"><a href="">Review</a></h2>
+                    <p class="listing-item-secondary">Make sure the contents of the post are appropriate.</p>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title"><a href="">Publish</a></h2>
+                    <p class="listing-item-secondary">Change the post's status to <em>Published</em>.</p>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title"><a href="" data-modal="add-task-custom">Custom</a></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="add-task-custom" class="modal">
+    <div class="modal-window">
+        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+
+        <h3 class="modal-title">Add task <em>custom</em></h3>
+
+        <div class="modal-body">
+
+            <div class="form-field title">
+                <label>Task name</label>
+                <input type="text" placeholder="Task name" />
+            </div>
+
+            <div class="form-field">
+                <label>Task description</label>
+                <textarea name="description" data-min-rows='1' rows='1'></textarea>
+            </div>
+
+            <div class="form-field">
+                <button class="button-plain" data-modal="task-assignment">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#person"></use>
+                    </svg>
+                    <span class="button-label">Assign this task</span>
+                </button>
+            </div>
+
+            <div class="form-field switch">
+                <label>Set due date</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-custom-due" data-fieldgroup-toggle="task-custom-due-date" />
+                    <label class="tgl-btn" for="task-custom-due"></label>
+                </div>
+
+                <div class="form-field url" data-fieldgroup-target="task-custom-due-date">
+                    <input type="number" value="5" style="width:75px;" />
+                    <span class="domain">days after the post is submitted</span>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Require this task be completed before a post can be published</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-custom-require" />
+                    <label class="tgl-btn" for="task-custom-require"></label>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Make the content of this task visible when it's published</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-custom-visible" />
+                    <label class="tgl-btn" for="task-custom-visible"></label>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <button class="button-plain" data-modal="add-field">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Add field</span>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+            <button class="button-beta button-flat modal-trigger">Cancel</button>
+            <button class="button-alpha modal-trigger">Save &amp; continue</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="task-review" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Edit task</h3>
+
+        <div class="modal-body">
+
+            <div class="form-field title">
+                <label>
+                    Task name
+                </label>
+                <input type="text" value="Review" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Task description
+                </label>
+                <textarea name="description" data-min-rows='1' rows='1'>Make sure the post includes no profanity or personally identifiable information.</textarea>
+            </div>
+
+            <div class="form-field">
+                <label>Assign to</label>
+
+                <span class="bug">
+                    <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/jess.png" class="avatar" />
+                    <span class="label">Jess Shorland</span>
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                    </svg>
+                </span>
+            </div>
+
+            <div class="form-field switch">
+                <label>Set due date</label>
+                <div class="toggle-switch">
+                    <input checked class="tgl" type="checkbox" id="task-review-due" data-fieldgroup-toggle="task-review-due-date" />
+                    <label class="tgl-btn" for="task-review-due"></label>
+                </div>
+
+                <div class="form-field url" data-fieldgroup-target="task-review-due-date">
+                    <input type="number" value="5" style="width:75px;" />
+                    <span class="domain">days after the post is submitted</span>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Require this task be completed before a post can be published</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-review-require" />
+                    <label class="tgl-btn" for="task-review-require"></label>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <button class="button-plain" data-modal="add-field">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Add field</span>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="task-verify" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Edit task</h3>
+
+        <div class="modal-body">
+
+            <div class="form-field title">
+                <label>Task name</label>
+                <input type="text" value="Verify" />
+            </div>
+
+            <div class="form-field">
+                <label>
+                    Task description
+                </label>
+                <textarea name="description" data-min-rows='1' rows='1'></textarea>
+            </div>
+
+            <div class="form-field">
+                <label>Assign to</label>
+
+                <span class="bug">
+                    <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/seth.png" class="avatar" />
+                    <span class="label">Seth Hall</span>
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                    </svg>
+                </span>
+            </div>
+
+            <div class="form-field switch">
+                <label>Set due date</label>
+                <div class="toggle-switch">
+                    <input checked class="tgl" type="checkbox" id="task-verify-due" data-fieldgroup-toggle="task-verify-due-date" />
+                    <label class="tgl-btn" for="task-verify-due"></label>
+                </div>
+
+                <div class="form-field url" data-fieldgroup-target="task-verify-due-date">
+                    <input type="number" value="7" style="width:75px;" />
+                    <span class="domain">days after the post is submitted</span>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Require this task be completed before a post can be published</label>
+                <div class="toggle-switch">
+                    <input checked class="tgl" type="checkbox" id="task-verify-require" />
+                    <label class="tgl-btn" for="task-verify-require"></label>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Make the content of this task visible when it's published</label>
+                <div class="toggle-switch">
+                    <input checked class="tgl" type="checkbox" id="task-verify-visible" />
+                    <label class="tgl-btn" for="task-verify-visible"></label>
+                </div>
+            </div>
+
+            <section class="listing">
+                <h3 class="listing-heading">Task fields</h3>
+
+                <div class="listing-body">
+
+                    <div class="listing-item">
+                        <div class="listing-item-select">
+                            <div class="buttons-updown">
+                                <button type="button" class="button-beta" disabled>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button type="button" class="button-beta" disabled>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title"><a href="">Notes</a> <em>text area</em></h2>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title">
+                                <a href="" class="button button-beta" data-modal="add-field">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                    </svg>
+                                    Add field
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="task-callpolice" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Edit task</h3>
+
+        <div class="modal-body">
+
+            <div class="form-field title">
+                <label>Task name</label>
+                <input type="text" value="Call police" />
+            </div>
+
+            <div class="form-field">
+                <label>Task description</label>
+                <textarea name="description" data-min-rows='1' rows='1'>Report the incident to police at +1-234-567-8901.</textarea>
+            </div>
+
+            <div class="form-field">
+                <label>Assign to</label>
+
+                <span class="bug">
+                    <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/seth.png" class="avatar" />
+                    <span class="label">Seth Hall</span>
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                    </svg>
+                </span>
+            </div>
+
+            <div class="form-field switch">
+                <label>Set due date</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-callpolice-due" data-fieldgroup-toggle="task-callpolice-due-date" />
+                    <label class="tgl-btn" for="task-callpolice-due"></label>
+                </div>
+
+                <div class="form-field url" data-fieldgroup-target="task-callpolice-due-date">
+                    <input type="number" value="" style="width:75px;" />
+                    <span class="domain">days after the post is submitted</span>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Require this task be completed before a post can be published</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-callpolice-require" />
+                    <label class="tgl-btn" for="task-callpolice-require"></label>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Make the content of this task visible when it's published</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-callpolice-visible" />
+                    <label class="tgl-btn" for="task-callpolice-visible"></label>
+                </div>
+            </div>
+
+            <section class="listing">
+                <h3 class="listing-heading">Task fields</h3>
+
+                <div class="listing-body">
+
+                    <div class="listing-item">
+                        <div class="listing-item-select">
+                            <div class="buttons-updown">
+                                <button type="button" class="button-beta" disabled>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button type="button" class="button-beta">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title"><a href="">Police officer</a> <em>text field</em></h2>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-select">
+                            <div class="buttons-updown">
+                                <button type="button" class="button-beta">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button type="button" class="button-beta">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title"><a href="">Case number</a> <em>number field</em></h2>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-select">
+                            <div class="buttons-updown">
+                                <button type="button" class="button-beta">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button type="button" class="button-beta" disabled>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title"><a href="" data-modal="edit-field">Notes</a> <em>text area</em></h2>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title">
+                                <a href="" class="button button-beta" data-modal="add-field">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                    </svg>
+                                    Add field
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="task-publish" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Edit task</h3>
+
+        <div class="modal-body">
+
+            <div class="form-field title">
+                <label>Task name</label>
+                <input type="text" value="Publish" disabled />
+            </div>
+
+            <div class="form-field">
+                <label>Task description</label>
+                <p>Change post's status from <em>Under Review</em> to <em>Published</em>.</p>
+            </div>
+
+            <div class="form-field">
+                <button class="button-plain" data-modal="task-assignment">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#person"></use>
+                    </svg>
+                    <span class="button-label">Assign this task</span>
+                </button>
+            </div>
+
+            <div class="form-field switch">
+                <label>Set due date</label>
+                <div class="toggle-switch">
+                    <input class="tgl" type="checkbox" id="task-publish-due" data-fieldgroup-toggle="task-publish-due-date" />
+                    <label class="tgl-btn" for="task-publish-due"></label>
+                </div>
+
+                <div class="form-field url" data-fieldgroup-target="task-publish-due-date">
+                    <input type="number" value="5" style="width:75px;" />
+                    <span class="domain">days after the post is submitted</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>

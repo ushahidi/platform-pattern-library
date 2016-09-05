@@ -1,0 +1,79 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Import</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="main-col">
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">Your import is nearly complete</h2>
+                <progress max="100" value="60">
+                    <!--// Fallback for browsers that don't support progress element //-->
+                    <div class="progress-bar">
+                        <span style="width: 60%;">Progress: 60%</span>
+                    </div>
+                </progress>
+                <p>The data from your CSV spreadsheet is still being processed. You're welcome to leave this page or wait until the process is complete. Either way, we'll notify you when your data is ready.</p>
+            </div>
+
+            <div class="form-field">
+                <button class="button-gamma button-flat">Import another CSV file</button>
+            </div>
+        </div>
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">Your import is complete</h2>
+                <p>The data from your CSV spreadsheet, <em>filename.csv</em>, was successfully imported into your <a href="">Street Maintenance</a> survey.</p>
+            </div>
+
+            <div class="form-field">
+                <button class="button-alpha">See imported posts</button>
+                <button class="button-gamma button-flat">Import another CSV file</button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<div id="import-complete" class="message">
+    <div class="message-body">
+        <p><strong>Your CSV import</strong> is complete.</p>
+        <p>The data from your CSV spreadsheet, <em>filename.csv</em>, was successfully imported into your <a href="">Street Maintenance</a> survey.</p>
+
+        <button class="button-alpha">See imported posts</button>
+        <button class="button-flat message-trigger">Dismiss</button>
+    </div>
+</div>
+
+<script>
+setTimeout(function() {
+    messageToggle($('#import-complete'), true);
+}, 1000);
+</script>
+
+{{> Modals }}

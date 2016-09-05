@@ -334,3 +334,39 @@ form, .form {
    }
 
 }
+
+progress[value] {
+    display: block;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 250px;
+    height: $tiny-spacing;
+
+    &::-webkit-progress-bar {
+        @include equal-radius(8px);
+        background-color: $color-light-gamma;
+        box-shadow: 0 1px 1px rgba(0,0,0,0.16);
+    }
+
+    &::-webkit-progress-value {
+        @include equal-radius(8px);
+        background-color: $color-secondary;
+    }
+}
+
+.progress-bar {
+    display: block;
+    width: 250px;
+    height: $tiny-spacing;
+    @include equal-radius(8px);
+    background-color: $color-light-gamma;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.16);
+
+    > span {
+        display: block;
+        height: $tiny-spacing;
+        text-indent: -9999px;
+        @include equal-radius(8px);
+        background-color: $color-secondary;
+    }
+}
