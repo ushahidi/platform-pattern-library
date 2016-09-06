@@ -30,17 +30,23 @@
         <div class="form-sheet">
             <div class="form-sheet-summary">
                 <h2 class="form-sheet-title">Your import is nearly complete</h2>
-                <progress max="100" value="60">
-                    <!--// Fallback for browsers that don't support progress element //-->
+                <!--progress max="100" value="60">
                     <div class="progress-bar">
                         <span style="width: 60%;">Progress: 60%</span>
+                    </div>
+                </progress-->
+
+                <progress>
+                    <!--// Fallback for browsers that don't support progress element //-->
+                    <div class="progress-bar">
+                        <span style="width: 100%;"></span>
                     </div>
                 </progress>
                 <p>The data from your CSV spreadsheet is still being processed. You're welcome to leave this page or wait until the process is complete. Either way, we'll notify you when your data is ready.</p>
             </div>
 
             <div class="form-field">
-                <button class="button-gamma button-flat">Import another CSV file</button>
+                <a class="button button-gamma button-flat">Import another CSV file</a>
             </div>
         </div>
 
@@ -51,8 +57,8 @@
             </div>
 
             <div class="form-field">
-                <button class="button-alpha">See imported posts</button>
-                <button class="button-gamma button-flat">Import another CSV file</button>
+                <a class="button button-alpha">See imported posts</a>
+                <a class="button button-gamma button-flat">Import another CSV file</a>
             </div>
         </div>
 
@@ -70,10 +76,10 @@
     </div>
 </div>
 
-<script>
+<!--script>
 setTimeout(function() {
     messageToggle($('#import-complete'), true);
 }, 1000);
-</script>
+</script-->
 
 {{> Modals }}

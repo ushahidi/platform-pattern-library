@@ -1,16 +1,13 @@
 {{> ModeBar }}
 
-{{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
 <div class="mode-context">
 
-    <header class="mode-context-header">
-        {{#deployment}}
-        <ol class="breadcrumbs">
-            <li><a href="map.html">{{name}}</a></li>
-        </ol>
-        {{/deployment}}
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
 
-        <h1 class="mode-context-title">{{name}}</h1>
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
     </header>
 
     <span class="mode-context-trigger">
@@ -21,7 +18,7 @@
     </span>
 
     <div class="mode-context-body">
-        <p>{{description}}</p>
+        {{{deployment.description}}}
     </div>
 </div>
 
@@ -42,31 +39,58 @@
 
     <div class="main-col">
 
-        <div class="form-sheet">
-            <div class="post-band" style="background-color: #{{color}}"></div>
+{{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
+        <div class="survey-cover" style="background-color: #{{color}}">
+            <h1 class="survey-cover-title">{{name}}</h1>
 {{/with}}
-            <div class="form-field form-field-adapt title">
-                <label>Title</label>
-                <input type="text" value="" />
-            </div>
 
-            <div class="metadata" data-hide-target="author-metadata">
-                {{#if user.logged_in}}
-                <img src="{{user.avatar}}" class="avatar" />
-                <span class="metadata-author">{{user.name}}</span>
-                , now
-                {{else}}
-                <span class="metadata-author">Anonymous</span>
-                {{/if}}
-                , via web
+            <div class="form-sheet">
 
-                <button class="button-beta button-plain" data-toggle="edit-metadata" data-hide="author-metadata">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
-                    </svg>
-                    <span class="button-label">Change</span>
-                </button>
-            </div>
+                <div class="form-field form-field-adapt">
+                    <label>Describe your report</label>
+                    <textarea name="description" data-min-rows='1' rows='1'></textarea>
+                </div>
+
+                <div class="metadata">
+                    {{#if user.logged_in}}
+                    <a href="" class="chip">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <span class="label">Published</span>
+                    </a>
+
+                    <span class="metadata-group">
+                        <a href="" class="chip">
+                            <img src="{{user.avatar}}" class="avatar" />
+                            <span class="label">{{user.name}}</span>
+                        </a>
+                        <a href="" class="chip">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            </svg>
+                            <span class="label">Now</span>
+                        </a>
+                    </span>
+                    {{else}}
+
+                    <span class="status-indicator yellow tooltip">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                    </span>
+                    <strong>This post will need to be reviewed</strong> before it's published.
+
+                    <span class="metadata-group">
+                        <a href="" class="chip">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                            </svg>
+                            <span class="label">Anonymous</span>
+                        </a>
+                    </span>
+                    {{/if}}
+                </div>
 
             <div data-toggle-target="edit-metadata">
                 {{#if user.logged_in}}
@@ -172,135 +196,78 @@
                 {{/if}}
             </div>
 
-            {{#if user.logged_in}}
-            <!--// IF: User has permission to manage post status //-->
-            <div class="toolbox">
-                <div class="tool">
-                    <fieldset class="custom-fieldset">
-                        <legend><span class="custom-fieldset-value">Status</span></legend>
-
-                        <div class="form-field radio icon-input">
-                            <label for="status-published">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-published" />
-                                Published
-                            </label>
-                        </div>
-
-                        <div class="form-field radio icon-input">
-                            <label for="status-review">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-review" checked />
-                                Under review
-                            </label>
-                        </div>
-
-                        <div class="form-field radio icon-input">
-                            <label for="status-archive">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-archive" />
-                                Archived
-                            </label>
-                        </div>
-                    </fieldset>
+                <div class="form-field file">
+                    <label>Photo of the problem</label>
+                    <input type="file" id="photo" />
+                    <label for="photo" class="button button-gamma">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                        </svg>
+                        <span class="button-label">Add photo</span>
+                    </label>
                 </div>
-            </div>
 
-            {{else}}
-            <!--// ELSE: User survey requires review and user doesn't have permission to review //-->
-            <div class="toolbox">
-                <div class="tool">
-                    <strong>This post will need to be reviewed</strong> before it's published.
+                <div id="time-date-encounter" class="form-field required">
+                    <label>Time &amp; date of encounter</label>
+                    <input type="datetime" required />
                 </div>
-            </div>
-            {{/if}}
 
-            <div class="form-field form-field-adapt">
-                <label>
-                    Description
-                </label>
-                <textarea name="description" data-min-rows='1' rows='1'></textarea>
-            </div>
+                <div class="form-field location">
+                    <label>Location</label>
+                    {{mapEmbed 0 false}}
 
-            <div class="form-field file">
-                <label>
-                    Photo of the encounter
-                </label>
-                <input type="file" id="photo" />
-                <label for="photo" class="button button-gamma">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                    </svg>
-                    <span class="button-label">Add photo</span>
-                </label>
-            </div>
-
-            <div id="time-date-encounter" class="form-field required">
-                <label>Time &amp; date of encounter</label>
-                <input type="datetime" required />
-            </div>
-
-            <div class="form-field location">
-                <label>Location</label>
-                {{mapEmbed 0 false}}
-
-                <form role="search" class="searchbar" data-message="search">
-                    <div class="searchbar-input">
-                        <div class="form-field">
-                            <input type="search" maxlength="250" placeholder="Find a location" value="" />
-                        </div>
-                        <div class="searchbar-results dropdown-menu">
+                    <form role="search" class="searchbar" data-message="search">
+                        <div class="searchbar-input">
                             <div class="form-field">
-                                <button class="button-plain">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
-                                    </svg>
-                                    <span class="button-label">Search for "<em>123 Main St</em>"</span>
-                                </button>
-
-                                <button class="button-beta button-plain">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                                    </svg>
-                                    <span class="button-label">Use your current location</span>
-                                </button>
+                                <input type="search" maxlength="250" placeholder="Find a location" value="" />
                             </div>
+                            <div class="searchbar-results dropdown-menu">
+                                <div class="form-field">
+                                    <button class="button-plain">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                                        </svg>
+                                        <span class="button-label">Search for "<em>123 Main St</em>"</span>
+                                    </button>
 
-                            <div class="tool">
-                                <h6 class="tool-heading">Search results</h6>
-                                <dl class="dropdown-menu-body">
-                                    <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
-                                    <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
-                                </dl>
+                                    <button class="button-beta button-plain">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                                        </svg>
+                                        <span class="button-label">Use your current location</span>
+                                    </button>
+                                </div>
+
+                                <div class="tool">
+                                    <h6 class="tool-heading">Search results</h6>
+                                    <dl class="dropdown-menu-body">
+                                        <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
+                                        <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
+                                    </dl>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
 
-                <p><em>You can search or click the area of map where you want to place the marker.</em></p>
+                    <p><em>You can search or click the area of map where you want to place the marker.</em></p>
+                </div>
+
+                <fieldset>
+                    <legend>Categories</legend>
+
+                    <div class="form-field checkbox">
+                        <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                    </div>
+                </fieldset>
             </div>
 
-            <fieldset>
-                <legend>Categories</legend>
-
-                <div class="form-field checkbox">
-                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                </div>
-            </fieldset>
         </div>
-
     </div>
 
 </main>

@@ -1,6 +1,6 @@
 .form-sheet {
     position: relative;
-    @extend .card;
+    @include containerCard;
     background-color: $color-light-delta;
 
     &:before,
@@ -18,11 +18,24 @@
     .form-sheet-summary,
     .form-field,
     fieldset {
-        max-width: 450px;
         margin: $base-spacing $sm-spacing;
 
+        @include media($mobile) {
+            margin: $lg-spacing 10%;
+        }
+
         @include media($medium) {
-            margin: $lg-spacing $base-spacing;
+            margin: $huge-spacing $base-spacing;
+        }
+
+        @include media($large) {
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+
+        @include media($xlarge) {
+            margin-right: 20%;
+            margin-left: 20%;
         }
 
         .form-field {
@@ -182,16 +195,31 @@
     }
 
     .metadata {
-        @include clearfix;
-        margin: $base-spacing $sm-spacing;
+        background-color: $color-light-gamma;
+        padding: $tiny-spacing $sm-spacing;
 
-        @include media($medium) {
-            margin: $lg-spacing $base-spacing;
+        @include media($mobile) {
+            padding-right: 10%;
+            padding-left: 10%;
         }
 
-        + .form-field {
-            margin-top: -$tiny-spacing;
-            margin-bottom: $sm-spacing;
+        @include media($medium) {
+            padding-right: $base-spacing;
+            padding-left: $base-spacing;
+        }
+
+        @include media($large) {
+            padding-right: 10%;
+            padding-left: 10%;
+        }
+
+        @include media($xlarge) {
+            padding-right: 20%;
+            padding-left: 20%;
+        }
+
+        .chip {
+            background-color: $color-light-delta;
         }
     }
 
@@ -257,6 +285,69 @@
 
         &.active {
             display: block;
+        }
+    }
+}
+
+.survey-cover {
+    @include containerSheet;
+    padding-top: 4px;
+    padding-left: 4px;
+    margin-top: $tiny-spacing;
+
+    @include media($small) {
+        margin-right: $tiny-spacing;
+    }
+
+    @include media($xlarge) {
+        padding-right: 4px;
+        margin-right: 0;
+    }
+
+    .survey-cover-title {
+        color: $white;
+        @include typeAlpha;
+        font-weight: 600;
+        text-shadow: 0 1px 2px rgba(0,0,0,.24);
+        margin: ($tiny-spacing - 4) $sm-spacing $tiny-spacing;
+
+        @include media($mobile) {
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+
+        @include media($small) {
+            font-size: 24px;
+            font-size: 1.714285714rem;
+        }
+
+        @include media($medium) {
+            margin: ($sm-spacing - 4) $base-spacing $sm-spacing;
+        }
+
+        @include media($large) {
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+
+        @include media($xlarge) {
+            margin-right: 20%;
+            margin-left: 20%;
+        }
+    }
+
+    .form-sheet {
+        @include radius(2px, 0px, 0px, 2px);
+
+        @include media($small) {
+            @include equal-radius;
+            margin-right: -$tiny-spacing;
+            margin-bottom: -$tiny-spacing;
+        }
+
+        @include media($xlarge) {
+            margin-right: 0;
+            margin-bottom: 0;
         }
     }
 }

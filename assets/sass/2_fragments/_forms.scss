@@ -11,7 +11,7 @@ fieldset {
 
     label {
         display: block;
-        margin-bottom: $tiny-spacing;
+        margin-bottom: $sm-spacing;
 
         + p {
             font-style: italic;
@@ -692,97 +692,84 @@ fieldset,
 
         label {
             position: absolute;
-            top: $sm-spacing;
             z-index: $top;
-            color: $color-dark-delta;
-            font-weight: normal;
-            font-size: 14px;
-            font-size: 1rem;
-            letter-spacing: normal;
-            text-transform: none;
+            top: $tiny-spacing;
             pointer-events: none;
             @include transition(all .25s);
         }
 
-        /*
-        .textarea-label {
-        top: 45px;
-    }
-    */
-    input[type="text"],
-    input[type="url"],
-    input[type="email"],
-    input[type="number"],
-    textarea {
-        max-width: 450px;
-        height: auto;
-        overflow:hidden;
-        outline: none;
-        border-top: 0;
-        border-left: 0;
-        border-right: 0;
-        background-color: transparent;
-        padding-right: 0 !important;
-        padding-left: 0 !important;
-        box-shadow: none;
-        resize: none;
-    }
-
-    &.focus,
-    &.value {
-
-        label {
-            top: -6px;
-            @extend .caps;
-            font-size: 10px !important;
-            font-size: .714285714rem !important;
-        }
-
         input[type="text"],
+        input[type="url"],
+        input[type="email"],
+        input[type="number"],
         textarea {
+            max-width: 450px;
             height: auto;
+            overflow:hidden;
+            outline: none;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            background-color: transparent;
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+            box-shadow: none;
+            resize: none;
         }
 
-        textarea {
-            outline: transparent;
-            padding-top: $base-spacing;
-        }
-    }
+        &.focus,
+        &.value {
 
-    &.focus {
+            label {
+                top: -6px;
+            }
 
-        label {
-            color: darken( $color-secondary, 20% );
-        }
+            input[type="text"],
+            textarea {
+                height: auto;
+            }
 
-        input[type="text"],
-        textarea {
-            border-bottom-color: $color-secondary;
-        }
-    }
-
-    &.title {
-
-        label {
-            display: block;
-            font-size: 20px;
-            font-size: 1.428571429rem;
+            textarea {
+                outline: transparent;
+                padding-top: $base-spacing;
+            }
         }
 
-        input[type="text"] {
-            padding-top: $base-spacing;
+        &.focus {
+
+            label {
+                color: darken( $color-secondary, 20% );
+            }
+
+            input[type="text"],
+            textarea {
+                border-bottom-color: $color-secondary;
+            }
         }
-    }
 
-    &.error {
+        &.title {
 
-        label {
-            color: $error-color !important;
+            label {
+                display: block;
+                font-size: 20px;
+                font-size: 1.428571429rem;
+            }
+
+            input[type="text"] {
+                padding-top: $base-spacing;
+            }
         }
 
-        input,
-        textarea {
-            border-color: $error-color !important;
+        &.error {
+
+            label {
+                color: $error-color !important;
+            }
+
+            input,
+            textarea {
+                border-color: $error-color !important;
+            }
         }
     }
 }
@@ -800,8 +787,6 @@ fieldset,
             @include margin-left($tiny-spacing);
         }
     }
-}
-
 }
 
 .location-adapt {

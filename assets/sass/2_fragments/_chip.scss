@@ -1,0 +1,47 @@
+.chip {
+    display: inline-block;
+    position: relative;
+    height: 28px;
+    color: $color-dark-beta;
+    font-weight: $bold;
+    font-size: 12px;
+    font-size: .857142857rem;
+    @include equal-radius(28px);
+    background-color: $color-light-gamma;
+    box-shadow: 0 0 1px rgba(0,0,0,0.12),
+        0 1px 1px rgba(0,0,0,0.16);
+    padding: 4px $sm-spacing;
+    @include transition(all, .3s);
+
+    &:hover {
+        background-color: darken( $color-light-gamma, 4% );
+        box-shadow: 0 0 1px rgba(0,0,0,0.12),
+            0 0 1px rgba(0,0,0,0.16);
+    }
+
+    &:active {
+        box-shadow: 0 -1px 1px rgba(0,0,0,0.16);
+    }
+
+    .label {
+        vertical-align: middle;
+    }
+
+    .avatar {
+        display: inline-block;
+        position: relative;
+        left: -4px;
+        vertical-align: middle;
+        width: 20px;
+        height: 20px;
+    }
+
+    svg.iconic {
+        position: relative;
+        top: 3px;
+        left: -3px;
+        fill: $color-dark-delta;
+        width: 13px;
+        height: 13px;
+    }
+}

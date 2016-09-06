@@ -4,18 +4,7 @@
     font-size: .857142857rem;
     line-height: 1.4;
 
-    .metadata-author {
-        font-weight: $bold;
-    }
-
-    a.metadata-author {
-        border-bottom: 1px dotted $color-primary-gamma;
-
-        &:hover {
-            border-bottom-style: solid;
-        }
-    }
-
+/*
     .avatar {
         display: inline;
         position: relative;
@@ -27,6 +16,37 @@
 
         &:hover {
             border-color: rgba(0,0,0,.24);
+        }
+    }
+*/
+
+    .chip {
+
+        + .chip {
+            margin-left: 4px;
+        }
+    }
+
+    .metadata-group {
+        display: inline-block;
+        border-right: 1px solid $color-light-beta;
+        border-left: 1px solid $color-light-beta;
+        padding-right: $tiny-spacing;
+        padding-left: $tiny-spacing;
+        margin-right: $tiny-spacing;
+        margin-left: $tiny-spacing;
+
+        &:last-child {
+            border-right-width: 0px;
+        }
+    }
+
+    .metadata-status {
+        display: block;
+        margin: $tiny-spacing 0;
+
+        @include media($medium) {
+
         }
     }
 
@@ -89,4 +109,37 @@
             }
         }
     }
+
+/*
+    .status-indicator {
+        width: auto;
+        height: auto;
+        font-weight: $bold;
+        @include equal-radius(0px);
+        background-color: transparent;
+
+        svg.iconic {
+            position: relative;
+            top: -2px;
+            width: 12px;
+            height: 12px;
+            margin-right: 2px;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+
+        &.empty {
+
+            svg.iconic {
+                fill: $color-light-alpha;
+            }
+        }
+    }
+
+    a.status-indicator {
+        color: $color-secondary-alpha;
+    }
+*/
 }
