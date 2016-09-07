@@ -278,6 +278,36 @@
 
     .progress {
         @include no-shadow;
+        margin-right: $sm-spacing;
+        margin-left: $sm-spacing;
+
+        @include media($mobile) {
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+
+        @include media($medium) {
+            margin-right: $base-spacing;
+            margin-left: $base-spacing;
+        }
+
+        @include media($large) {
+            margin-right: 10%;
+            margin-left: 10%;
+        }
+
+        @include media($xlarge) {
+            margin-right: 20%;
+            margin-left: 20%;
+        }
+    }
+
+    > .progress-bar {
+        position: absolute;
+        top: 0;
+        z-index: $toolbar;
+        right: 0;
+        left: 0;
     }
 
     [data-toggle-target] {

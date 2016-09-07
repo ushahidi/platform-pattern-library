@@ -104,6 +104,16 @@
         }
     }
 
+    > .progress-bar {
+        position: fixed;
+        top: 0;
+        z-index: $modal;
+        right: 0;
+        left: 0;
+        -webkit-animation: progress-in 0.5s ease-in-out;
+        animation: progress-in 0.5s ease-in-out;
+    }
+
     // "Loading" the document, as a direct descendant of the body
     > .loading {
         position: absolute;
@@ -191,18 +201,18 @@
                 left: 288px;
                 width: auto;
             }
+        }
 
-            .searchbar {
+        > .progress-bar {
+            position: fixed;
+            top: 107px;
+            z-index: $toolbar;
+            right: 0;
+            left: 0;
 
-/*
-                .dropdown-menu {
-                    right: -37.5% !important;
-
-                    @include media($mobile) {
-                        right: 0 !important;
-                    }
-                }
-*/
+            @include media($medium) {
+                top: 68px;
+                left: 288px;
             }
         }
 
