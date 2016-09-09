@@ -83,6 +83,28 @@
     }
 }
 
-ul.metadata {
+ul.metadata,
+ol.metadata {
     margin: 0;
+}
+
+ol.metadata {
+    margin: 0;
+
+    li {
+
+        &:after {
+            content: '\2192';
+            display: inline-block;
+            color: $color-dark-gamma;
+            margin: 0 2px;
+        }
+
+        &:last-child {
+
+            &:after {
+                content: none;
+            }
+        }
+    }
 }
