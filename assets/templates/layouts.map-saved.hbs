@@ -27,75 +27,76 @@
         <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales.</p>
         <!--// END IF //-->
 
-        <div class="metadata">
-            Created by <a href="" class="metadata-author">Jess Shorland</a>
-            <span class="metadata-visibility public tooltip">
+        <ul class="metadata">
+            <li>
+                <span class="status-indicator tooltip">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                    </svg>
+                    <span class="bug">This saved search is visible to the public</span>
+                </span>
+            </li>
+            <li>Created by <a href="">Jess Shorland</a></li>
+        </ul>
+
+
+        <!--// IF: User has permission to edit the Saved Search //-->
+        <div class="form-field">
+            <button type="button" data-modal="edit-saved-search">
                 <svg class="iconic">
-                  <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
                 </svg>
-                <span class="bug">This Saved Search is visible to the public</span>
-            </span>
+                <span class="button-label">Edit</span>
+            </button>
 
-            <!--// IF: User has permission to edit the Saved Search //-->
-            <div class="form-field">
-                <button type="button" data-modal="edit-saved-search">
+            <button type="button" data-toggle="dropdown-menu">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                </svg>
+                <span class="button-label hidden">More</span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="">
                     <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                        <use xlink:href="../../img/iconic-sprite.svg#bell"></use>
                     </svg>
-                    <span class="button-label">Edit</span>
-                </button>
-
-                <button type="button" data-toggle="dropdown-menu">
+                    <span class="label">Get notifications</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
                     <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                        <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
                     </svg>
-                    <span class="button-label hidden">More</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#bell"></use>
-                        </svg>
-                        <span class="label">Get notifications</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                        </svg>
-                        <span class="label">Delete</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!--// END IF //-->
-
-            <!--// IF: User does not have permission to edit the Saved Search //
-            <div class="form-field">
-                // IF: User is not yet getting notifications about this Saved Search //
-                <button type="button">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#bell"></use>
-                    </svg>
-                    <span class="button-label">Get notifications</span>
-                </button>
-
-                // ELSE //
-
-                <button type="button" class="button-flat">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#bell"></use>
-                    </svg>
-                    <span class="button-label">Turn off notifications</span>
-                </button>
-                // END IF //
-            </div>
-            // END IF //-->
+                    <span class="label">Delete</span>
+                    </a>
+                </li>
+            </ul>
         </div>
+        <!--// END IF //-->
 
-        {{> SurveyFilter }}
+        <!--// IF: User does not have permission to edit the Saved Search //
+        <div class="form-field">
+            // IF: User is not yet getting notifications about this Saved Search //
+            <button type="button">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#bell"></use>
+                </svg>
+                <span class="button-label">Get notifications</span>
+            </button>
+
+            // ELSE //
+
+            <button type="button" class="button-flat">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#bell"></use>
+                </svg>
+                <span class="button-label">Turn off notifications</span>
+            </button>
+            // END IF //
+        </div>
+        // END IF //-->
 
         <span class="bug">
             <svg class="iconic">
@@ -124,6 +125,9 @@
             // END IF //-->
             <button type="button" class="button-link">Clear search</button>
         </div>
+
+        {{> SurveyFilter }}
+
     </div>
 </div>
 
@@ -145,7 +149,7 @@
     </div>
 
     <!--// Module: Toolbox //-->
-    <div class="toolbox">
+    <div class="toolbox hide-until-small">
 
         {{> toolStatus }}
 

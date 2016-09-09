@@ -37,133 +37,73 @@
 
         <div class="toolbox">
 
-            <div class="toolbox-header">
-                <span class="toolbox-trigger" data-toggle="toolbox-content">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                    </svg>
-                </span>
-                <p class="toolbox-heading">Survey settings</p>
+            <!--// Require review //-->
+            <div class="tool">
+                <div class="form-field switch">
+                    <label>Require posts be reviewed before they're published</label>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="post-review" type="checkbox">
+                        <label class="tgl-btn" for="post-review"></label>
+                    </div>
+                </div>
             </div>
 
-            <div class="toolbox-body" data-toggle-target="toolbox-content">
+            <div class="tool">
+                <h6 class="tool-heading">Who can add to this survey</h6>
 
-                <div class="tool">
-                    <h6 class="tool-heading">Survey description</h6>
+                <span class="tool-trigger" data-toggle="toggle-content">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    <span class="label hidden">Show/hide</span>
+                </span>
 
-                    <span class="tool-trigger" data-toggle="toggle-content">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                        </svg>
-                        <span class="label hidden">Show/hide</span>
-                    </span>
+                <!--// Who can add //-->
+                <fieldset class="toggle-content">
+                    <legend class="hidden">Who can add to this survey</legend>
 
-                    <div class="form-field toggle-content active">
-                        <label class="hidden">Survey description</label>
-                        <textarea name="description" data-min-rows='1' rows='1'>{{deployment.surveys.0.description}}</textarea>
+                    <div class="form-field radio icon-input">
+                        <label for="survey-add_everyone">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                            </svg>
+                            <input type="radio" name="survey-add" id="survey-add_everyone" checked />
+                            <span class="label">Everyone</span>
+                        </label>
                     </div>
-                </div>
 
-                <div class="tool">
-                    <h6 class="tool-heading">Survey color</h6>
+                    <div class="form-field radio icon-input">
+                        <label for="survey-add_roles">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#people"></use>
+                            </svg>
+                            <input type="radio" name="survey-add" id="survey-add_roles" data-fieldgroup-toggle="survey-add_roles" />
+                            Specific roles...
+                        </label>
 
-                    <span class="tool-trigger" data-toggle="toggle-content">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                        </svg>
-                        <span class="label hidden">Show/hide</span>
-                    </span>
+                        <div class="form-fieldgroup" data-fieldgroup-target="survey-add_roles">
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="survey-add_roles-members" />
+                                <label for="survey-add_roles-members">Members</label>
+                            </div>
 
-                    <!--// Color //-->
-                    <fieldset class="custom-fieldset toggle-content active" data-fieldset-type="color">
-                        <legend>Color</legend>
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="survey-add_roles-editors" />
+                                <label for="survey-add_roles-editors">Editors</label>
+                            </div>
 
-                        <div class="form-field">
-                            <label class="hidden">Hex value</label>
-                            <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
-                        </div>
-                    </fieldset>
-                </div>
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="survey-add_roles-operators" />
+                                <label for="survey-add_roles-operators">Operators</label>
+                            </div>
 
-                <div class="tool">
-                    <h6 class="tool-heading">Who can add to this survey</h6>
-
-                    <span class="tool-trigger" data-toggle="toggle-content">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                        </svg>
-                        <span class="label hidden">Show/hide</span>
-                    </span>
-
-                    <!--// Who can add //-->
-                    <fieldset class="toggle-content">
-                        <legend class="hidden">Who can add to this survey</legend>
-
-                        <div class="form-field radio icon-input">
-                            <label for="survey-add_everyone">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                </svg>
-                                <input type="radio" name="survey-add" id="survey-add_everyone" checked />
-                                <span class="label">Everyone</span>
-                            </label>
-                        </div>
-
-                        <div class="form-field radio icon-input">
-                            <label for="survey-add_roles">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#people"></use>
-                                </svg>
-                                <input type="radio" name="survey-add" id="survey-add_roles" data-fieldgroup-toggle="survey-add_roles" />
-                                Specific roles...
-                            </label>
-
-                            <div class="form-fieldgroup" data-fieldgroup-target="survey-add_roles">
-                                <div class="form-field checkbox">
-                                    <input type="checkbox" id="survey-add_roles-members" />
-                                    <label for="survey-add_roles-members">Members</label>
-                                </div>
-
-                                <div class="form-field checkbox">
-                                    <input type="checkbox" id="survey-add_roles-editors" />
-                                    <label for="survey-add_roles-editors">Editors</label>
-                                </div>
-
-                                <div class="form-field checkbox">
-                                    <input type="checkbox" id="survey-add_roles-operators" />
-                                    <label for="survey-add_roles-operators">Operators</label>
-                                </div>
-
-                                <div class="form-field checkbox">
-                                    <input type="checkbox" id="survey-add_roles-admins" />
-                                    <label for="survey-add_roles-admins">Administrators</label>
-                                </div>
+                            <div class="form-field checkbox">
+                                <input type="checkbox" id="survey-add_roles-admins" />
+                                <label for="survey-add_roles-admins">Administrators</label>
                             </div>
                         </div>
-                    </fieldset>
-
-                </div>
-
-                <!--// Require review //-->
-                <div class="tool">
-                    <div class="form-field switch">
-                        <label>Require posts be reviewed before they're published</label>
-                        <div class="toggle-switch">
-                            <input class="tgl" id="post-review" type="checkbox">
-                            <label class="tgl-btn" for="post-review"></label>
-                        </div>
                     </div>
-                </div>
-
-                <!--// Tasks //-->
-                <div class="tool">
-                    <a class="button button-beta">
-                        <span class="button-label"><span class="badge">4</span> Tasks</span>
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#arrow-right"></use>
-                        </svg>
-                    </a>
-                </div>
+                </fieldset>
 
             </div>
 
@@ -172,12 +112,28 @@
         <section class="form-sheet card">
             <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
 
-            <div class="form-field title survey-title toggle-content active">
+            <div class="form-field title survey-title">
                 <label class="hidden">Survey name</label>
                 <input type="text" placeholder="Survey name" value="{{deployment.surveys.0.name}}">
             </div>
 
+            <div class="form-field">
+                <label>Description</label>
+                <textarea>{{deployment.surveys.0.description}}</textarea>
+            </div>
+
+            <fieldset class="custom-fieldset" data-fieldset-type="color">
+                <legend>Color</legend>
+
+                <div class="form-field">
+                    <label>Hex value</label>
+                    <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
+                </div>
+            </fieldset>
+
             <div class="listing" style="margin-left: 4px;">
+                <h3 class="listing-heading">Fields</h3>
+
                 <div class="listing-body">
                     <div class="listing-item">
                         <div class="listing-item-primary">

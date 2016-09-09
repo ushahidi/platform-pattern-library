@@ -120,22 +120,11 @@
     .metadata {
         margin-bottom: $sm-spacing;
 
-        a.metadata-author {
+        a {
             color: $color-secondary;
 
             &:hover {
                 color: darken($color-secondary, 20%);
-            }
-        }
-
-        .metadata-visibility {
-
-            &.tooltip {
-
-                .bug {
-                    right: auto;
-                    left: 100%;
-                }
             }
         }
     }
@@ -198,6 +187,7 @@
 
         .form-field {
             margin-top: $sm-spacing;
+            margin-bottom: $sm-spacing;
 
             @include media($medium) {
                 text-align: center;
@@ -205,7 +195,17 @@
 
             button,
             .button {
+                font-size: 12px;
+                font-size: .857142857rem;
+                padding: 4px $tiny-spacing;
                 margin: $tiny-spacing;
+
+                svg.iconic {
+
+                    + .button-label {
+                        margin-left: 4px;
+                    }
+                }
             }
 
             .dropdown-menu {
