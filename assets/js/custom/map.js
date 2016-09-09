@@ -27,8 +27,8 @@ $('.map').each(function() {
             className: 'custom-map-marker '+className,
             html: '<svg class="iconic" style="fill:#'+surveyColor+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use></svg><span class="iconic-bg" style="background-color:#'+surveyColor+';""></span>',
             iconSize: size,
-            iconAnchor: size,
-            popupAnchor: [-16, -32]
+            iconAnchor: [size[0]/2, size[1]],
+            popupAnchor: [0, 0 - size[1]]
         });
     }
 
