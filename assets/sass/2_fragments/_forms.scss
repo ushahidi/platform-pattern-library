@@ -2,11 +2,12 @@
 fieldset {
     @include clearfix;
     position: relative;
-    margin-bottom: $base-spacing;
+    margin-top: $huge-spacing;
+    margin-bottom: $huge-spacing;
 
-    &:last-child,
-    .form-field {
-        margin-bottom: 0;
+    @include media($medium) {
+        margin-top: 64px;
+        margin-bottom: 64px;
     }
 
     label {
@@ -81,10 +82,6 @@ fieldset {
         }
     }
 
-    + .form-sheet {
-        margin-bottom: $base-spacing;
-    }
-
     .bug {
         color: $color-dark-alpha;
         border: 1px solid $color-light-beta;
@@ -97,6 +94,21 @@ fieldset {
                 fill: darken($color-primary-gamma, 20%);
             }
         }
+    }
+
+    .form-field {
+        margin-top: 0;
+        margin-bottom: $tiny-spacing;
+
+        label {
+            font-size: 14px;
+            font-size: 1rem;
+            margin-bottom: $tiny-spacing;
+        }
+    }
+
+    + .form-sheet {
+        margin-bottom: $base-spacing;
     }
 
     // REQUIRED FIELD
@@ -165,11 +177,17 @@ fieldset {
         }
     }
 
+    &.buttons {
+        margin: 0;
+    }
+
     // CHECKBOX OR RADIO BUTTON
     &.checkbox,
     &.radio {
         position: relative;
         @include padding-left(14px + $tiny-spacing);
+        margin-top: 0;
+        margin-bottom: $tiny-spacing;
 
         label {
             color: $text-color;
@@ -207,6 +225,17 @@ fieldset {
 
         + .divider {
             margin-bottom: $sm-spacing;
+        }
+
+        .form-field {
+
+            &.checkbox,
+            &.radio {
+
+                &:first-of-type {
+                    margin-top: $sm-spacing;
+                }
+            }
         }
 
         &.checked {
@@ -279,14 +308,18 @@ fieldset {
     // TITLE
     &.title {
 
-        label {
-            display: none;
-        }
-
         input[type="text"] {
             max-width: none;
             @include typeBeta;
             padding: $sm-spacing;
+        }
+    }
+
+    // SURVEY TITLE
+    &.survey-title {
+
+        input[type="text"] {
+            text-align: center;
         }
     }
 
@@ -328,7 +361,7 @@ fieldset {
             + .searchbar {
                 position: absolute;
                 z-index: $toolbox;
-                top: $base-spacing;
+                top: $huge-spacing;
                 right: $tiny-spacing;
                 left: $tiny-spacing;
                 margin: 0;
@@ -427,7 +460,6 @@ fieldset {
         background-color: $color-light-delta;
         padding: 4px;
         margin-top: $tiny-spacing;
-        margin-bottom: $tiny-spacing;
         margin-left: $tiny-spacing;
     }
 
@@ -543,15 +575,6 @@ fieldset {
                 }
             }
         }
-
-    /*
-        .form-field {
-            border-left: 2px solid $color-light-beta;
-            padding-left: $sm-spacing;
-            margin-top: $sm-spacing;
-            margin-bottom: $sm-spacing;
-        }
-    */
 
     }
 }

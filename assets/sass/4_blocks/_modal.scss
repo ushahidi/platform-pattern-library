@@ -12,31 +12,8 @@
     }
 
     .modal-title {
-        font-weight: $bold;
-        font-size: 20px;
-        font-size: 1.428571429rem;
+        @include typeAlpha;
         margin: $base-spacing 0;
-
-        @include media($small) {
-            font-size: 24px;
-            font-size: 1.714285714rem;
-        }
-
-/*
-        &.form-field {
-            border-bottom: $base-border-dark;
-            padding: $base-spacing 0;
-            margin: 0;
-
-            &.checkbox {
-                padding-left: 0;
-
-                &.checked {
-                    text-decoration: line-through;
-                }
-            }
-        }
-*/
 
         em {
             @include typeGamma;
@@ -116,6 +93,10 @@
             filter: blur(10px);
             opacity: 0.8;
         }
+
+        .form-field {
+            margin: 0;
+        }
     }
 
     .tabs-menu {
@@ -163,9 +144,14 @@
     }
 
     .form-field {
+        margin-top: 0;
+        margin-bottom: $base-spacing;
 
         &.switch {
-            margin-top: 4px;
+
+            > label {
+                margin-bottom: 0;
+            }
         }
     }
 

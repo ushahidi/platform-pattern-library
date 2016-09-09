@@ -9,9 +9,52 @@
         top: 85px;
     }
 
-    .toolbox-heading {
-        @include typeBeta;
-        margin: $sm-spacing;
+    .toolbox-header {
+        position: relative;
+        border-bottom: 1px solid $color-light-gamma;
+        padding: 1px $sm-spacing;
+
+        @include media($small) {
+            display: none;
+        }
+
+        .toolbox-trigger {
+            display: inline-block;
+            position: absolute;
+            z-index: $body;
+            top: $base-spacing;
+            right: $sm-spacing;
+
+            svg.iconic {
+                fill: $color-primary;
+                @include transition(0.3s);
+            }
+
+            &.active {
+
+                svg.iconic {
+                    @include transform(rotate(180deg));
+                }
+            }
+        }
+
+        .badge {
+            margin-right: 2px;
+        }
+    }
+
+    .toolbox-body {
+        display: none;
+        padding-top: 1px;
+        padding-bottom: 1px;
+
+        &.active {
+            display: block;
+        }
+
+        @include media($small) {
+            display: block !important;
+        }
     }
 
     .tool {

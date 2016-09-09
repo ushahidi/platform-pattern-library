@@ -35,40 +35,54 @@
 
     <div class="main-col">
 
-        <div class="form-sheet">
-            <div class="form-field title">
-                <label class="hidden">Name</label>
-                <input type="text" placeholder="Survey name" value="{{deployment.surveys.0.name}}">
+        <div class="toolbox">
+
+            <div class="toolbox-header">
+                <span class="toolbox-trigger" data-toggle="toolbox-content">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                </span>
+                <p class="toolbox-heading">Survey settings</p>
             </div>
 
-            <div class="form-field form-field-adapt">
-                <label>
-                    Survey description
-                </label>
-                <textarea name="description" data-min-rows='1' rows='1'>{{deployment.surveys.0.description}}</textarea>
-            </div>
+            <div class="toolbox-body" data-toggle-target="toolbox-content">
 
-            <!--// Color //-->
-            <fieldset class="custom-fieldset" data-fieldset-type="color">
-                <legend>Color</legend>
-
-                <div class="form-field">
-                    <label class="hidden">Hex value</label>
-                    <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
-                </div>
-            </fieldset>
-
-            <div class="toolbox">
-
-                <!--// Require review //-->
                 <div class="tool">
-                    <div class="form-field switch">
-                        <label>Require posts be reviewed before they're published</label>
-                        <div class="toggle-switch">
-                            <input class="tgl" id="post-review" type="checkbox">
-                            <label class="tgl-btn" for="post-review"></label>
-                        </div>
+                    <h6 class="tool-heading">Survey description</h6>
+
+                    <span class="tool-trigger" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+
+                    <div class="form-field toggle-content active">
+                        <label class="hidden">Survey description</label>
+                        <textarea name="description" data-min-rows='1' rows='1'>{{deployment.surveys.0.description}}</textarea>
                     </div>
+                </div>
+
+                <div class="tool">
+                    <h6 class="tool-heading">Survey color</h6>
+
+                    <span class="tool-trigger" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+
+                    <!--// Color //-->
+                    <fieldset class="custom-fieldset toggle-content active" data-fieldset-type="color">
+                        <legend>Color</legend>
+
+                        <div class="form-field">
+                            <label class="hidden">Hex value</label>
+                            <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
+                        </div>
+                    </fieldset>
                 </div>
 
                 <div class="tool">
@@ -82,7 +96,7 @@
                     </span>
 
                     <!--// Who can add //-->
-                    <fieldset class="toggle-content active">
+                    <fieldset class="toggle-content">
                         <legend class="hidden">Who can add to this survey</legend>
 
                         <div class="form-field radio icon-input">
@@ -130,11 +144,40 @@
 
                 </div>
 
+                <!--// Require review //-->
+                <div class="tool">
+                    <div class="form-field switch">
+                        <label>Require posts be reviewed before they're published</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="post-review" type="checkbox">
+                            <label class="tgl-btn" for="post-review"></label>
+                        </div>
+                    </div>
+                </div>
+
+                <!--// Tasks //-->
+                <div class="tool">
+                    <a class="button button-beta">
+                        <span class="button-label"><span class="badge">4</span> Tasks</span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#arrow-right"></use>
+                        </svg>
+                    </a>
+                </div>
+
             </div>
 
-            <section class="listing">
-                <h3 class="listing-heading">Post fields</h3>
+        </div>
 
+        <section class="form-sheet card">
+            <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
+
+            <div class="form-field title survey-title toggle-content active">
+                <label class="hidden">Survey name</label>
+                <input type="text" placeholder="Survey name" value="{{deployment.surveys.0.name}}">
+            </div>
+
+            <div class="listing" style="margin-left: 4px;">
                 <div class="listing-body">
                     <div class="listing-item">
                         <div class="listing-item-primary">
@@ -207,137 +250,12 @@
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
-
-        <div class="listing card">
-            <h3 class="listing-heading">Tasks</h3>
-            <!--p>The tasks you define below will be automatically attached to every new post that's submitted to this survey.</p-->
-
-            <!--// IF no tasks have been added to the survey, yet //-->
-            <!--//
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <p>You can add additional information to each post, like translations or verification, and assign them to people by adding <strong>Tasks</strong>. You can choose from pre-built tasks or create your own from scratch.</p>
-                    <button class="button-beta">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                        </svg>
-                        <span class="button-label">Add task</span>
-                    </button>
-                </div>
             </div>
-            //-->
-            <!--// ELSE IF at least one task is added to the survey //-->
-
-            <div class="listing-item">
-                <div class="listing-item-select">
-                    <div class="buttons-updown">
-                        <button type="button" class="button-beta" disabled>
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                            </svg>
-                            <span class="label hidden">Move up</span>
-                        </button>
-                        <button type="button" class="button-beta">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                            </svg>
-                            <span class="label hidden">Move down</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="" data-modal="task-review">Review</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-select">
-                    <div class="buttons-updown">
-                        <button type="button" class="button-beta">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                            </svg>
-                            <span class="label hidden">Move up</span>
-                        </button>
-                        <button type="button" class="button-beta">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                            </svg>
-                            <span class="label hidden">Move down</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="" data-modal="task-verify">Verify</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-select">
-                    <div class="buttons-updown">
-                        <button type="button" class="button-beta">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                            </svg>
-                            <span class="label hidden">Move up</span>
-                        </button>
-                        <button type="button" class="button-beta">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                            </svg>
-                            <span class="label hidden">Move down</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="" data-modal="task-callpolice">Call police</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-select">
-                    <div class="buttons-updown">
-                        <button type="button" class="button-beta">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                            </svg>
-                            <span class="label hidden">Move up</span>
-                        </button>
-                        <button type="button" class="button-beta" disabled>
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                            </svg>
-                            <span class="label hidden">Move down</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="" data-modal="task-publish">Publish</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <button class="button-beta" data-modal="add-task">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                        </svg>
-                        <span class="button-label">Add Task</span>
-                    </button>
-                </div>
-            </div>
-
-            <!--// END IF //-->
-        </div>
+        </section>
 
         <div class="form-sheet">
             <div class="form-sheet-summary">
                 <h3 class="form-sheet-title">Delete this survey</h3>
-            </div>
-
-            <div class="form-field">
                 <p><strong>If you delete this survey</strong>, all of its posts will also be deleted. Proceed with caution.</p>
 
                 <button class="button-destructive">

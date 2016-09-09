@@ -12,23 +12,35 @@
 
     .form-sheet-title {
         @include typeBeta;
+        margin-bottom: $sm-spacing;
+
+        &.survey-title {
+            color: $color-dark-delta;
+            font-size: 24px;
+            font-size: 1.714285714rem;
+            text-align: center;
+            text-shadow: 0 1px 0 $white;
+
+            @include media($mobile) {
+                font-size: 28px;
+                font-size: 2rem;
+            }
+
+            @include media($medium) {
+                font-size: 34px;
+                font-size: 2.428571429rem;
+            }
+        }
     }
 
 
     .form-sheet-summary,
     .form-field,
     fieldset {
-        margin: $base-spacing $sm-spacing;
+        margin-right: $sm-spacing;
+        margin-left: $sm-spacing;
 
         @include media($mobile) {
-            margin: $lg-spacing 10%;
-        }
-
-        @include media($medium) {
-            margin: $huge-spacing $base-spacing;
-        }
-
-        @include media($large) {
             margin-right: 10%;
             margin-left: 10%;
         }
@@ -36,15 +48,6 @@
         @include media($xlarge) {
             margin-right: 20%;
             margin-left: 20%;
-        }
-
-        .form-field {
-            margin-top: 0;
-            margin-bottom: $sm-spacing;
-        }
-
-        fieldset {
-            margin: 0 0 $sm-spacing;
         }
 
         .post-band {
@@ -69,20 +72,37 @@
 
         &.title {
             max-width: none;
-            margin-right: 0;
-            margin-left: 0;
+            margin: $base-spacing 0;
+
+            label {
+                position: relative;
+
+                @include media($mobile) {
+                    left: -4px;
+                    margin-right: 10%;
+                    margin-left: 10%;
+                }
+
+                @include media($xlarge) {
+                    margin-right: 20%;
+                    margin-left: 20%;
+                }
+            }
 
             input[type="text"] {
                 width: 100%;
-//                border-top-color: $color-light-beta;
                 border-right-color: transparent;
-//                border-bottom-color: $color-light-beta;
                 border-left-color: transparent;
                 @include equal-radius(0);
 
-                @include media($medium) {
-                    padding-right: $base-spacing;
-                    padding-left: $base-spacing;
+                @include media($mobile) {
+                    padding-right: 10%;
+                    padding-left: 10%;
+                }
+
+                @include media($xlarge) {
+                    padding-right: 20%;
+                    padding-left: 20%;
                 }
 
                 &:focus {
@@ -107,10 +127,8 @@
             }
         }
 
-        &.radio,
-        &.checkbox {
-            margin-top: 0;
-            margin-bottom: $tiny-spacing;
+        &.survey-title {
+            margin-left: 4px;
         }
 
         .form-field {
@@ -122,18 +140,22 @@
     .form-sheet-summary {
         position: relative;
         max-width: none;
+        margin-top: $base-spacing;
+        margin-bottom: $base-spacing;
+
+        @include media($mobile) {
+            margin-top: $lg-spacing;
+            margin-bottom: $lg-spacing;
+        }
+
+        @include media($medium) {
+            margin-top: $huge-spacing;
+            margin-bottom: $huge-spacing;
+        }
 
         &:not(:first-of-type) {
             border-top: $base-border;
             padding-top: $lg-spacing;
-        }
-
-        .post-band {
-            margin-left: -$sm-spacing;
-
-            @include media($medium) {
-                margin-left: -$base-spacing;
-            }
         }
 
         img.icon {
@@ -170,7 +192,7 @@
     .listing {
 
         .listing-heading {
-            @extend .caps;
+            @extend label;
             border-bottom: 1px solid $color-light-gamma;
             padding: 0 $sm-spacing $sm-spacing;
 
@@ -196,7 +218,8 @@
 
     .metadata {
         background-color: $color-light-gamma;
-        padding: $tiny-spacing $sm-spacing;
+        padding-right: $sm-spacing;
+        padding-left: $sm-spacing;
 
         @include media($mobile) {
             padding-right: 10%;
@@ -278,6 +301,11 @@
 
     .progress {
         @include no-shadow;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+    }
+
+    .stepper {
         margin-right: $sm-spacing;
         margin-left: $sm-spacing;
 
@@ -286,19 +314,16 @@
             margin-left: 10%;
         }
 
-        @include media($medium) {
-            margin-right: $base-spacing;
-            margin-left: $base-spacing;
-        }
-
-        @include media($large) {
-            margin-right: 10%;
-            margin-left: 10%;
-        }
-
         @include media($xlarge) {
             margin-right: 20%;
             margin-left: 20%;
+        }
+
+        .form-sheet-summary,
+        .form-field,
+        fieldset {
+            margin-right: 0;
+            margin-left: 0;
         }
     }
 
@@ -315,69 +340,6 @@
 
         &.active {
             display: block;
-        }
-    }
-}
-
-.survey-cover {
-    @include containerSheet;
-    padding-top: 4px;
-    padding-left: 4px;
-    margin-top: $tiny-spacing;
-
-    @include media($small) {
-        margin-right: $tiny-spacing;
-    }
-
-    @include media($xlarge) {
-        padding-right: 4px;
-        margin-right: 0;
-    }
-
-    .survey-cover-title {
-        color: $white;
-        @include typeAlpha;
-        font-weight: 600;
-        text-shadow: 0 1px 2px rgba(0,0,0,.24);
-        margin: ($tiny-spacing - 4) $sm-spacing $tiny-spacing;
-
-        @include media($mobile) {
-            margin-right: 10%;
-            margin-left: 10%;
-        }
-
-        @include media($small) {
-            font-size: 24px;
-            font-size: 1.714285714rem;
-        }
-
-        @include media($medium) {
-            margin: ($sm-spacing - 4) $base-spacing $sm-spacing;
-        }
-
-        @include media($large) {
-            margin-right: 10%;
-            margin-left: 10%;
-        }
-
-        @include media($xlarge) {
-            margin-right: 20%;
-            margin-left: 20%;
-        }
-    }
-
-    .form-sheet {
-        @include radius(2px, 0px, 0px, 2px);
-
-        @include media($small) {
-            @include equal-radius;
-            margin-right: -$tiny-spacing;
-            margin-bottom: -$tiny-spacing;
-        }
-
-        @include media($xlarge) {
-            margin-right: 0;
-            margin-bottom: 0;
         }
     }
 }

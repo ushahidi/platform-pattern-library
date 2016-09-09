@@ -1,0 +1,89 @@
+.stepper {
+
+    .stepper-heading {
+        @include typeBeta;
+        color: $color-dark-gamma;
+        margin-bottom: $base-spacing;
+    }
+
+    .stepper-badge {
+        display: inline-block;
+        position: relative;
+        top: -2px;
+        width: $base-spacing;
+        height: $base-spacing;
+        color: $white;
+        font-size: 16px;
+        text-align: center;
+        @include equal-radius(100%);
+        background-color: $color-light-alpha;
+        padding: 4px 0;
+
+        svg.iconic {
+            fill: $white;
+        }
+    }
+
+    .stepper-item {
+        position: relative;
+        padding-bottom: $tiny-spacing;
+        padding-left: $lg-spacing;
+        margin-bottom: $tiny-spacing;
+
+        @include media($small) {
+            padding-left: $huge-spacing;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: $body;
+            top: $base-spacing + 4;
+            bottom: 0;
+            left: $base-spacing/2;
+            width: 1px;
+            background-color: $color-light-beta;
+        }
+
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: $huge-spacing;
+        }
+
+        .stepper-badge {
+            position: absolute;
+            z-index: $body;
+            top: 0;
+            left: 0;
+        }
+
+        &.active,
+        &.complete {
+
+            .stepper-badge {
+                color: $color-dark-alpha;
+                font-weight: normal;
+                background-color: $color-secondary;
+
+                svg.iconic {
+                    fill: $color-dark-alpha;
+                }
+            }
+        }
+
+        &.active {
+
+            .stepper-heading {
+                color: $color-dark-alpha;
+                font-weight: 800;
+            }
+        }
+
+        &.complete {
+
+            .stepper-heading {
+                color: $color-dark-beta;
+            }
+        }
+    }
+}

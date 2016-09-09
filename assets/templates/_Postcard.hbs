@@ -32,15 +32,20 @@
     <div class="postcard-body">
         <header class="postcard-header">
             <h1 class="postcard-title"><a href="">{{title}}</a></h1>
-            <div class="metadata">
+            <ul class="metadata">
                 {{#if properties.author.avatar}}
-                <a href=""><img src="{{properties.author.avatar}}" class="avatar" /></a>
-                <a href="" class="metadata-author">{{properties.author.name}}</a>
+                <li>
+                    <a href="">
+                        <img src="{{properties.author.avatar}}" class="avatar" />
+                        <strong>{{properties.author.name}}</strong>
+                    </a>
+                </li>
                 {{else}}
-                <span class="metadata-author">{{properties.author.name}}</span>
+                <li>{{properties.author.name}}</li>
                 {{/if}}
-                , <span class="tooltip">{{properties.date.post}} <span class="bug">2016-05-12 4:32pm</span></span>, via {{properties.source}}
-            </div>
+                <li class="tooltip">{{properties.date.post}} <span class="bug">2016-05-12 4:32pm</span></li>
+                <li>via {{properties.source}}</li>
+            </ul>
         </header>
 
         <!--// IF: User has permission to edit the post //-->

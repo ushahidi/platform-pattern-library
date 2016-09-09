@@ -4,40 +4,36 @@
     font-size: .857142857rem;
     line-height: 1.4;
 
-/*
+    .chip {
+        margin: $tiny-spacing 4px;
+
+        .avatar {
+            top: auto;
+            margin-right: 0;
+        }
+    }
+
+    hr {
+        display: inline-block;
+        width: 1px;
+        height: $base-spacing;
+        vertical-align: middle;
+        background: $color-light-beta;
+        border: 0;
+        margin: 4px;
+    }
+
     .avatar {
-        display: inline;
+        display: inline-block;
         position: relative;
-        top: 5px;
+        top: -2px;
         width: 20px;
         height: 20px;
-        margin-top: -6px;
-        margin-right: 4px;
+        vertical-align: middle;
+        margin-right: 2px;
 
         &:hover {
             border-color: rgba(0,0,0,.24);
-        }
-    }
-*/
-
-    .chip {
-
-        + .chip {
-            margin-left: 4px;
-        }
-    }
-
-    .metadata-group {
-        display: inline-block;
-        border-right: 1px solid $color-light-beta;
-        border-left: 1px solid $color-light-beta;
-        padding-right: $tiny-spacing;
-        padding-left: $tiny-spacing;
-        margin-right: $tiny-spacing;
-        margin-left: $tiny-spacing;
-
-        &:last-child {
-            border-right-width: 0px;
         }
     }
 
@@ -50,35 +46,22 @@
         }
     }
 
-    .metadata-visibility {
+    li {
         display: inline-block;
-        width: 16px;
-        height: 16px;
-        text-align: center;
-        @include equal-radius(100%);
-        background-color: $red;
-        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $red;
-        padding: 2px;
-        margin: 0 $tiny-spacing;
+        list-style: none;
+        margin: 0;
 
-        svg.iconic {
-            width: 12px;
-            height: 12px;
-            fill: $color-light-delta;
+        &:after {
+            content: '\00b7';
+            display: inline-block;
+            color: $color-dark-gamma;
+            margin: 0 2px;
         }
 
-        &.public {
-            background-color: $green;
-            box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-                0 0 8px $green;
-        }
+        &:last-child {
 
-        &.tooltip {
-
-            .bug {
-                top: -6px;
-                right: 100%;
+            &:after {
+                content: none;
             }
         }
     }
@@ -110,36 +93,12 @@
         }
     }
 
-/*
     .status-indicator {
-        width: auto;
-        height: auto;
-        font-weight: $bold;
-        @include equal-radius(0px);
-        background-color: transparent;
-
-        svg.iconic {
-            position: relative;
-            top: -2px;
-            width: 12px;
-            height: 12px;
-            margin-right: 2px;
-        }
-
-        &:hover {
-            background-color: transparent;
-        }
-
-        &.empty {
-
-            svg.iconic {
-                fill: $color-light-alpha;
-            }
-        }
+        vertical-align: middle;
+        margin-right: 2px;
     }
+}
 
-    a.status-indicator {
-        color: $color-secondary-alpha;
-    }
-*/
+ul.metadata {
+    margin: 0;
 }

@@ -18,23 +18,7 @@
         }
 
         .status-indicator {
-            display: block;
-            width: 16px;
-            height: 16px;
-            text-align: center;
             margin-left: -1px;
-
-            svg.iconic {
-                width: 10px;
-                height: 10px;
-            }
-
-            &.empty {
-
-                svg.iconic {
-
-                }
-            }
         }
 
         input[type="checkbox"] {
@@ -156,7 +140,7 @@
     }
 
     .metadata {
-        margin-bottom: $sm-spacing;
+        margin-bottom: $tiny-spacing;
     }
 
     .postcard-title,
@@ -174,10 +158,12 @@
 
     .postcard-field {
         clear: both;
-        margin: $sm-spacing 0;
+        margin-top: $huge-spacing;
+        margin-bottom: $huge-spacing;
 
-        &:last-child {
-            margin-bottom: 0;
+        @include media($medium) {
+            margin-top: 64px;
+            margin-bottom: 64px;
         }
 
         .form-label {
@@ -225,12 +211,7 @@
     }
 
     .postcard-actions {
-        /*
-        position: absolute;
-        top: $tiny-spacing;
-        right: $tiny-spacing;
-        z-index: $body;
-        */
+        position: relative;
 
         .button-flat {
             @include no-shadow;
@@ -254,15 +235,24 @@
             @include media($medium) {
                 font-size: 24px;
                 font-size: 1.714285714rem;
-                margin-top: $tiny-spacing;
-                margin-bottom: $base-spacing;
             }
         }
 
         .listing-item-select {
+            top: $base-spacing;
+
+            @include media($mobile) {
+                left: 5%;
+                margin-left: -6px;
+            }
 
             @include media($medium) {
                 top: $base-spacing + 4;
+            }
+
+            @include media($xlarge) {
+                left: 20%;
+                margin-left: -$huge-spacing;
             }
 
             .status-indicator {
@@ -285,6 +275,21 @@
                         height: 14px;
                     }
                 }
+            }
+        }
+
+        .postcard-body {
+            padding-top: $base-spacing;
+            padding-bottom: $base-spacing;
+
+            @include media($mobile) {
+                padding-right: 10%;
+                padding-left: 10%;
+            }
+
+            @include media($xlarge) {
+                padding-right: 20%;
+                padding-left: 20%;
             }
         }
 

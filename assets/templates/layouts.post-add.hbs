@@ -37,149 +37,107 @@
         </div>
     </div>
 
-    <div class="main-col">
+    <div class="full-col">
 
-{{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
-        <div class="survey-cover" style="background-color: #{{color}}">
-            <h1 class="survey-cover-title">{{name}}</h1>
-{{/with}}
+        <div class="form-sheet">
+            {{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
+                <span class="post-band" style="background-color: #{{color}}"></span>
 
-            <div class="form-sheet">
+                <header class="form-sheet-summary">
+                    <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                </header>
+            {{/with}}
 
-                <div class="form-field form-field-adapt">
-                    <label>Describe your report</label>
-                    <textarea name="description" data-min-rows='1' rows='1'></textarea>
-                </div>
+            <div class="form-field">
+                <label class="hidden">Description</label>
+                <textarea placeholder="Describe your report..."></textarea>
+            </div>
 
-                <div class="metadata">
-                    {{#if user.logged_in}}
-                    <a href="" class="chip">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                        </svg>
-                        <span class="label">Published</span>
-                    </a>
-
-                    <span class="metadata-group">
-                        <a href="" class="chip">
-                            <img src="{{user.avatar}}" class="avatar" />
-                            <span class="label">{{user.name}}</span>
-                        </a>
-                        <a href="" class="chip">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                            </svg>
-                            <span class="label">Now</span>
-                        </a>
-                    </span>
-                    {{else}}
-
-                    <span class="status-indicator yellow tooltip">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                        </svg>
-                    </span>
-                    <strong>This post will need to be reviewed</strong> before it's published.
-
-                    <span class="metadata-group">
-                        <a href="" class="chip">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                            </svg>
-                            <span class="label">Anonymous</span>
-                        </a>
-                    </span>
-                    {{/if}}
-                </div>
-
-            <div data-toggle-target="edit-metadata">
+            <div class="metadata">
                 {{#if user.logged_in}}
-                <fieldset>
-                    <legend>Author</legend>
+                <a href="" class="chip">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                    </svg>
+                    <span class="label">Published</span>
+                </a>
 
-                    <span class="bug" data-hide-target="author-bug">
-                        <img src="{{user.avatar}}" class="avatar" />
-                        <span class="label">{{user.name}}</span>
-                        <svg class="iconic" data-hide="author-bug" data-toggle="author-fieldset">
-                            <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
-                        </svg>
-                    </span>
+                <hr />
 
-                    <div data-toggle-target="author-fieldset">
-                        <div class="form-field inline input-with-dropdown">
-                            <label class="hidden">Name</label>
-                            <input type="text" placeholder="Name" />
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a>
-                                        <img src="https://www.ushahidi.com/uploads/post-images/_teamImage/angela.png" class="avatar" />
-                                        <span class="label">Angela Kabari</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/angela.png" class="avatar" />
-                                        <span class="label">Angela Oduor Lungati</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/brandon.png" class="avatar" />
-                                        <span class="label">Brandon Rosage</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a>
-                                        <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/celestine.png" class="avatar" />
-                                        <span class="label">Celestine Kakai</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="form-field inline">
-                            <label class="hidden">Email</label>
-                            <div class="input-with-icon">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#envelope-closed"></use>
-                                </svg>
-                                <input type="email" placeholder="email@domain.com" />
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
-
-                <fieldset>
-                    <legend>Post date</legend>
-                    <div class="form-field date">
-                        <label class="hidden">Date</label>
-                        <div class="input-with-icon">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                            </svg>
-                            <input type="date" value="2016-06-22" placeholder="Date" />
-                        </div>
-                    </div>
-
-                    <div class="form-field date">
-                        <label class="hidden">Time</label>
-                        <div class="input-with-icon">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                            </svg>
-                            <input type="time" value="11:39:57" placeholder="Time" />
-                        </div>
-                    </div>
-                </fieldset>
+                <a href="" class="chip">
+                    <img src="{{user.avatar}}" class="avatar" />
+                    <span class="label">{{user.name}}</span>
+                </a>
+                <a href="" class="chip">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <span class="label">Now</span>
+                </a>
 
                 {{else}}
 
-                <fieldset>
-                    <legend>Author</legend>
+                <span class="status-indicator yellow tooltip">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                    </svg>
+                </span>
+                <strong>This post will need to be reviewed</strong> before it's published.
 
-                    <div class="form-field inline">
+                <hr />
+
+                <a href="" class="chip">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                    </svg>
+                    <span class="label">Anonymous</span>
+                </a>
+                {{/if}}
+            </div>
+
+            <div data-toggle-target="edit-metadata">
+            {{#if user.logged_in}}
+            <fieldset>
+                <legend>Author</legend>
+
+                <span class="bug" data-hide-target="author-bug">
+                    <img src="{{user.avatar}}" class="avatar" />
+                    <span class="label">{{user.name}}</span>
+                    <svg class="iconic" data-hide="author-bug" data-toggle="author-fieldset">
+                        <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                    </svg>
+                </span>
+
+                <div data-toggle-target="author-fieldset">
+                    <div class="form-field inline input-with-dropdown">
                         <label class="hidden">Name</label>
                         <input type="text" placeholder="Name" />
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a>
+                                    <img src="https://www.ushahidi.com/uploads/post-images/_teamImage/angela.png" class="avatar" />
+                                    <span class="label">Angela Kabari</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/angela.png" class="avatar" />
+                                    <span class="label">Angela Oduor Lungati</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/brandon.png" class="avatar" />
+                                    <span class="label">Brandon Rosage</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/celestine.png" class="avatar" />
+                                    <span class="label">Celestine Kakai</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="form-field inline">
@@ -191,83 +149,147 @@
                             <input type="email" placeholder="email@domain.com" />
                         </div>
                     </div>
-                </fieldset>
+                </div>
+            </fieldset>
 
-                {{/if}}
+            <fieldset>
+                <legend>Post date</legend>
+                <div class="form-field date">
+                    <label class="hidden">Date</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                        </svg>
+                        <input type="date" value="2016-06-22" placeholder="Date" />
+                    </div>
+                </div>
+
+                <div class="form-field date">
+                    <label class="hidden">Time</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                        </svg>
+                        <input type="time" value="11:39:57" placeholder="Time" />
+                    </div>
+                </div>
+            </fieldset>
+
+            {{else}}
+
+            <fieldset>
+                <legend>Author</legend>
+
+                <div class="form-field inline">
+                    <label class="hidden">Name</label>
+                    <input type="text" placeholder="Name" />
+                </div>
+
+                <div class="form-field inline">
+                    <label class="hidden">Email</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#envelope-closed"></use>
+                        </svg>
+                        <input type="email" placeholder="email@domain.com" />
+                    </div>
+                </div>
+            </fieldset>
+
+            {{/if}}
+        </div>
+
+            <div class="form-field file">
+                <label>Photo of the problem</label>
+                <input type="file" id="photo" />
+                <label for="photo" class="button button-gamma">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Add photo</span>
+                </label>
             </div>
 
-                <div class="form-field file">
-                    <label>Photo of the problem</label>
-                    <input type="file" id="photo" />
-                    <label for="photo" class="button button-gamma">
+            <fieldset>
+                <legend>Time &amp; date</legend>
+
+                <div class="form-field inline required">
+                    <label class="hidden">Time</label>
+                    <div class="input-with-icon">
                         <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#clock"></use>
                         </svg>
-                        <span class="button-label">Add photo</span>
-                    </label>
+                        <input type="time" required />
+                    </div>
                 </div>
 
-                <div id="time-date-encounter" class="form-field required">
-                    <label>Time &amp; date of encounter</label>
-                    <input type="datetime" required />
+                <div class="form-field inline required">
+                    <label class="hidden">Date</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                        </svg>
+                        <input type="date" required />
+                    </div>
                 </div>
+            </fieldset>
 
-                <div class="form-field location">
-                    <label>Location</label>
-                    {{mapEmbed 0 false}}
+            <div class="form-field location">
+                <label>Location</label>
+                {{mapEmbed 0 false}}
 
-                    <form role="search" class="searchbar" data-message="search">
-                        <div class="searchbar-input">
+                <form role="search" class="searchbar" data-message="search">
+                    <div class="searchbar-input">
+                        <div class="form-field">
+                            <input type="search" maxlength="250" placeholder="Find a location" value="" />
+                        </div>
+                        <div class="searchbar-results dropdown-menu">
                             <div class="form-field">
-                                <input type="search" maxlength="250" placeholder="Find a location" value="" />
+                                <button class="button-plain">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                                    </svg>
+                                    <span class="button-label">Search for "<em>123 Main St</em>"</span>
+                                </button>
+
+                                <button class="button-beta button-plain">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                                    </svg>
+                                    <span class="button-label">Use your current location</span>
+                                </button>
                             </div>
-                            <div class="searchbar-results dropdown-menu">
-                                <div class="form-field">
-                                    <button class="button-plain">
-                                        <svg class="iconic">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
-                                        </svg>
-                                        <span class="button-label">Search for "<em>123 Main St</em>"</span>
-                                    </button>
 
-                                    <button class="button-beta button-plain">
-                                        <svg class="iconic">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                                        </svg>
-                                        <span class="button-label">Use your current location</span>
-                                    </button>
-                                </div>
-
-                                <div class="tool">
-                                    <h6 class="tool-heading">Search results</h6>
-                                    <dl class="dropdown-menu-body">
-                                        <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
-                                        <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
-                                    </dl>
-                                </div>
+                            <div class="tool">
+                                <h6 class="tool-heading">Search results</h6>
+                                <dl class="dropdown-menu-body">
+                                    <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
+                                    <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
+                                </dl>
                             </div>
                         </div>
-                    </form>
-
-                    <p><em>You can search or click the area of map where you want to place the marker.</em></p>
-                </div>
-
-                <fieldset>
-                    <legend>Categories</legend>
-
-                    <div class="form-field checkbox">
-                        <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
                     </div>
-                    <div class="form-field checkbox">
-                        <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                    </div>
-                    <div class="form-field checkbox">
-                        <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                    </div>
-                </fieldset>
+                </form>
+
+                <p><em>You can search or click the area of map where you want to place the marker.</em></p>
             </div>
 
+            <fieldset>
+                <legend>Categories</legend>
+
+                <div class="form-field checkbox">
+                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                </div>
+            </fieldset>
+
         </div>
+
     </div>
 
 </main>

@@ -149,7 +149,6 @@
 
         .main-col {
 
-/*
             @include media($small) {
                 margin-right: 222px;
             }
@@ -158,7 +157,6 @@
                 margin-right: 230px;
                 // margin-right: 32%;
             }
-*/
         }
 
         .toolbar {
@@ -218,6 +216,64 @@
 
         .listing {
             margin-bottom: $base-spacing;
+
+            .listing-heading {
+
+                @include media($mobile) {
+                    padding-right: 10%;
+                    padding-left: 10%;
+                }
+
+                @include media($xlarge) {
+                    padding-right: 20%;
+                    padding-left: 20%;
+                }
+            }
+
+            .listing-item {
+
+                .listing-item-select {
+
+/*
+                    @include media($mobile) {
+                        left: 10%;
+                        margin-left: -$huge-spacing;
+                    }
+
+                    @include media($xlarge) {
+                        left: 20%;
+                    }
+*/
+
+                    + .listing-item-primary {
+
+                        .listing-item-image {
+
+                            @include media($mobile) {
+                                left: 10%;
+                            }
+
+                            @include media($xlarge) {
+                                left: 20%;
+                            }
+                        }
+                    }
+
+                }
+
+                .listing-item-primary {
+
+                    @include media($mobile) {
+                        padding-right: 10%;
+                        padding-left: 10%;
+                    }
+
+                    @include media($xlarge) {
+                        padding-right: 20%;
+                        padding-left: 20%;
+                    }
+                }
+            }
 
             .listing-toolbar {
                 display: block;
@@ -341,14 +397,8 @@
         }
 
         .toolbox {
-            display: none;
-
-            &.active {
-                display: block;
-            }
 
             @include media($small) {
-                display: block;
                 position: fixed;
                 @include right(16px);
                 z-index: $toolbox;

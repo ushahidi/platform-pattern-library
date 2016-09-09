@@ -1,192 +1,69 @@
 .progress {
-    @extend .sheet;
+    @include containerSheet;
     @extend .list-reset;
-    @include clearfix;
-   font-weight: $bold;
-   font-size: .857142857em;
-   text-transform: uppercase;
-   letter-spacing: 1px;
+    @include typeGamma;
 
-   @include media($medium) {
+    @include media($small) {
+        text-align: center;
+    }
 
-   }
+    li {
+        position: relative;
+        padding: $sm-spacing;
 
-   li {
-      position: relative;
-      padding: $sm-spacing;
-
-      @include media($small) {
-          display: inline-block;
-         padding: $sm-spacing $base-spacing;
-      }
-
-      @include media($medium) {
-          float: left;
-          padding-right: $huge-spacing;
-
-          &:before {
-              content: '';
-              position: absolute;
-              top: 50%;
-              right: $tiny-spacing;
-              width: 20px;
-              height: 20px;
-              @include equal-radius(100%);
-              z-index: 0;
-              margin-top: -10px;
-          }
-
-          &:first-child,
-          &:last-child {
-
-              &:before {
-                  content: none;
-              }
-          }
-
-          &:last-child {
-
-              &:after {
-                  content: none;
-              }
-          }
-      }
-
-      &.active {
-         color: $color-dark-alpha;
-         border: 1px solid $border-color;
-         border-left: 4px solid $color-secondary;
-         background-color: $white;
-         padding-right: $base-spacing;
-
-         @include media($medium) {
-             border-left: 1px solid $border-color;
-             border-bottom: 2px solid $color-secondary;
-
-             &:before {
-                 right: 0;
-                 z-index: 1;
-                 border: 1px solid $border-color;
-                 border-left-color: transparent;
-                 background-color: $white;
-                 margin-right: -10px;
-             }
-
-             &:after {
-                 right: 0;
-                 z-index: 1;
-                 border: 1px solid $border-color;
-                 background-color: $color-dark-alpha;
-                 box-shadow: 0 0 2px rgba(0,0,0,0.12),
-                     0 2px 2px rgba(0,0,0,0.24);
-                margin-right: -6px;
-             }
-         }
-      }
-
-      &.disabled {
-         color: $color-light-beta;
-      }
-
-   }
-
-   a {
-      display: block;
-      background: $white;
-      padding: $sm-spacing;
-      position: relative;
-
-      &:hover {
-         background: $progress-hover-color;
-      }
-
-      &.active {
-         color: $black;
-         cursor: default;
-         background: $border-color;
-
-         &:after {
-            border-color:  $border-color;
-         }
-
-         &:before {
-            border-color: $progress-active-color;
-            z-index: $below;
-         }
-
-         &:hover {
-            background: $border-color;
-         }
-
-      }
-
-      &.disabled {
-         color: $dk-gray;
-         cursor: default;
-      }
-
-      @include media($small) {
-         padding: $base-spacing;
-         @include float(left);
-
-         &:hover {
-            background: $white;
-         }
-
-      } //end of small mq
-
-      @include media(1190px) {
-         @include lrswap(padding, 19px 10px 19px 25px);
-         @include float(left);
-         @include margin-right(26px);
-         height: 50px;
-
-         &:before {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            position: absolute;
-            top: 0;
-            @include left(-24px);
-            border: 25px solid transparent;
-            border-color: $white;
-            @include border-left(25px solid transparent);
-         }
-
-         &:after {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            position: absolute;
-            top: 0;
-            @include right(-50px);
-            border: 25px solid transparent;
-            @include border-left(25px solid $white);
-         }
-
-         &:first-of-type {
-            @include padding-right(30px);
-
-            &:before {
-               display: none;
-            }
-
-         }
-
-         &:last-of-type {
-            @include margin-right(0px);
-            @include padding-right(30px);
+        @include media($small) {
+            display: inline-block;
 
             &:after {
-               border: none;
+                content: '\232A';
+                color: $color-light-alpha;
+                font-size: 12px;
+                margin-left: $sm-spacing;
             }
 
-         }
+            &:last-child {
 
-      } //end of medium mq
+                &:after {
+                    content: none;
+                }
+            }
+        }
 
-   }
+        svg.iconic {
+            fill: $color-dark-delta;
+            margin-right: 2px;
+        }
 
+        &.active {
+            color: $color-dark-alpha;
+            border: 1px solid $border-color;
+            border-left: 4px solid $color-secondary;
+            background-color: $white;
+            padding-right: $base-spacing;
+
+            @include media($small) {
+                border-left: 1px solid $border-color;
+                border-bottom: 2px solid $color-secondary;
+            }
+        }
+
+        &.complete {
+
+            svg.iconic {
+                fill: $green;
+            }
+        }
+
+        &.disabled {
+            color: $color-light-beta;
+
+            &:after {
+                color: $color-light-beta;
+            }
+
+            svg.iconic {
+                fill: $color-light-beta;
+            }
+        }
+    }
 }

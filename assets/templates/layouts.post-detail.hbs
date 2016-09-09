@@ -39,7 +39,7 @@
 
 <main role="main">
 
-    <div class="main-col">
+    <div class="full-col">
 
         <article class="postcard" role="article">
             {{postBand}}
@@ -75,15 +75,18 @@
                 <header class="postcard-header">
                     <h1 class="postcard-title">{{title}}</h1>
 
-                    <div class="metadata">
-                        {{#if properties.author.avatar}}
-                        <a href=""><img src="{{properties.author.avatar}}" class="avatar" /></a>
-                        <a href="" class="metadata-author">{{properties.author.name}}</a>
-                        {{else}}
-                        <span class="metadata-author">{{properties.author.name}}</span>
-                        {{/if}}
-                        , <span class="tooltip">{{properties.date.post}} <span class="bug">2016-05-12 4:32pm</span></span>, via {{properties.source}}
-                    </div>
+                    <ul class="metadata">
+                        <li>
+                            <a href="">
+                                {{#if properties.author.avatar}}
+                                    <img src="{{properties.author.avatar}}" class="avatar" />
+                                {{/if}}
+                                <strong>{{properties.author.name}}</strong>
+                            </a>
+                        </li>
+                        <li class="tooltip">{{properties.date.post}} <span class="bug">2016-05-12 4:32pm</span></li>
+                        <li>via {{properties.source}}</li>
+                    </ul>
                 </header>
 
                 <!--// IF: User has permission to edit the post //-->
