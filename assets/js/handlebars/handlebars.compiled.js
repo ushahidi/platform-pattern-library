@@ -798,7 +798,7 @@ this["Ushahidi"]["templates"]["layouts"]["post-edit"] = Handlebars.template({"1"
     + "\" class=\"deployment-logo\" />\n";
 },"5":function(depth0,helpers,partials,data) {
     var stack1, helper, options, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression, buffer = 
-  " <!--// Choose the post index that will be the context for this template //-->\n<main role=\"main\">\n\n    <div class=\"toolbar\">\n        <div class=\"button-group\">\n            <button type=\"button\" class=\"button-flat\">Cancel</button>\n            <button type=\"button\" class=\"button-alpha\">Save</button>\n        </div>\n    </div>\n\n    <div class=\"main-col\">\n\n        <div class=\"form-sheet\">\n            "
+  " <!--// Choose the post index that will be the context for this template //-->\n<main role=\"main\">\n\n    <div class=\"toolbar\">\n        <div class=\"button-group\">\n            <button type=\"button\" class=\"button-flat\">Cancel</button>\n            <button type=\"button\" class=\"button-alpha\">Save</button>\n        </div>\n    </div>\n\n    <div class=\"full-col\">\n\n        <div class=\"form-sheet\">\n            "
     + alias3(((helper = (helper = helpers.postBand || (depth0 != null ? depth0.postBand : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"postBand","hash":{},"data":data}) : helper)))
     + "\n\n            <header class=\"form-sheet-summary\">\n";
   stack1 = ((helper = (helper = helpers.postSurvey || (depth0 != null ? depth0.postSurvey : depth0)) != null ? helper : alias1),(options={"name":"postSurvey","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data}),(typeof helper === alias2 ? helper.call(depth0,options) : helper));
