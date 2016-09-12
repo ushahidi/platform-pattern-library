@@ -541,4 +541,82 @@
            opacity: 1;
         }
     }
+
+    .mainsheet {
+        position: fixed;
+        z-index: $toolbar - 1;
+        top: 107px;
+        right: 0;
+        bottom: 45px;
+        left: 0;
+
+        @include media($medium) {
+            top: 68px;
+            right: 0;
+            bottom: 0;
+            left: 288px;
+        }
+
+        .mainsheet-window {
+            position: fixed;
+            z-index: $dropdown;
+            right: 0;
+            bottom: -999px;
+            left: 0;
+
+            @include media($medium) {
+                top: -999px;
+                left: 288px;
+                bottom: auto;
+            }
+        }
+
+        .mainsheet-overlay {
+            @include transition(all 0.2s);
+            opacity: 0;
+        }
+
+        &.fab-mainsheet {
+
+            .mainsheet-window {
+
+                @include media($small) {
+                    left: auto;
+                    width: 222px;
+                }
+
+                @include media($medium) {
+                    left: 288px;
+                    width: auto;
+                    max-width: 224px;
+                }
+            }
+        }
+
+        &.init {
+            display: none;
+
+            &.active {
+
+                .mainsheet-window {
+                    bottom: 45px;
+
+                    @include media($small) {
+                        margin-right: 24%;
+                        margin-left: 24%;
+                    }
+
+                    @include media($medium) {
+                        top: 68px;
+                        bottom: auto;
+                        margin: 0;
+                    }
+                }
+
+                .mainsheet-overlay {
+                    opacity: 1;
+                }
+            }
+        }
+    }
 }

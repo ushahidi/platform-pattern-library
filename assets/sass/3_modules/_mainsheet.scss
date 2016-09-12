@@ -1,0 +1,40 @@
+.mainsheet {
+
+    .mainsheet-window {
+        @include containerSheet;
+        @include transition(0.3s);
+    }
+
+    .mainsheet-heading {
+        @include typeBeta;
+        margin: $sm-spacing;
+
+        @include media($medium) {
+            margin-top: $base-spacing;
+        }
+    }
+
+    ul, ol {
+        @extend .list-reset;
+        padding-bottom: $sm-spacing;
+
+        li {
+            position: relative;
+            padding: $tiny-spacing $sm-spacing;
+            margin: 4px 0;
+        }
+    }
+}
+
+.mainsheet-overlay {
+    position: fixed;
+    z-index: $dropdown - 1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.75);
+}
