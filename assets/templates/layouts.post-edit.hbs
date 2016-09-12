@@ -50,46 +50,28 @@
             </div>
 
             <div class="metadata">
-                {{#if user.logged_in}}
-                <a href="" class="chip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                    </svg>
-                    <span class="label">Published</span>
-                </a>
-
-                <hr />
-
-                <a href="" class="chip">
-                    <img src="{{user.avatar}}" class="avatar" />
-                    <span class="label">{{user.name}}</span>
-                </a>
-
-                <a href="" class="chip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                    </svg>
-                    <span class="label">Now</span>
-                </a>
-
-                {{else}}
-
-                <span class="status-indicator yellow tooltip">
+                <a class="chip yellow" data-toggle="post-status">
                     <svg class="iconic">
                       <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                     </svg>
-                </span>
-                <strong>This post will need to be reviewed</strong> before it's published.
+                    <span class="label">Under review</span>
+                </a>
 
                 <hr />
 
-                <a href="" class="chip">
+                <a href="" class="chip" data-modal="choose-author">
                     <svg class="iconic">
                       <use xlink:href="../../img/iconic-sprite.svg#person"></use>
                     </svg>
                     <span class="label">Anonymous</span>
                 </a>
-                {{/if}}
+
+                <a href="" class="chip" data-modal="post-date">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <span class="label">2 days</span>
+                </a>
             </div>
 
             <div class="form-field">

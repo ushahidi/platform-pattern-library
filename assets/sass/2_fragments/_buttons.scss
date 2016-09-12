@@ -160,6 +160,120 @@ input[type="button"] {
             }
         }
     }
+
+//*--// DEPRECATED: Should be removed once the FAB's dropdown list is revised in the client //--*//
+    .fab-action-type {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        text-align: center;
+        @include equal-radius(100%);
+        background: $color-dark-beta;
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+            0 8px 18px rgba(0,0,0,0.24);
+        padding-top: 12px;
+        margin-right: $tiny-spacing;
+
+        svg.iconic {
+            fill: $white;
+            margin: 0 auto;
+        }
+    }
+
+    .bug {
+        box-shadow: 0 0 8px rgba(0,0,0,0.12),
+        0 8px 18px rgba(0,0,0,0.24);
+        @include transition(all, .3s);
+    }
+
+    .fab-options {
+        display: none;
+        opacity: 0;
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        @extend .list-reset;
+        margin: $tiny-spacing 6px;
+
+        li {
+            position: relative;
+            top: 48px;
+            margin: 5px 0;
+            @include transition(all, 0.24s);
+
+            @include media($medium) {
+                top: -48px;
+            }
+
+            &:hover {
+                @include scale(1.025);
+
+                .bug {
+                    background-color: $color-primary-alpha;
+                }
+            }
+
+            &:nth-child(2) {
+                transition-delay: 0.025s;
+            }
+
+            &:nth-child(3) {
+                transition-delay: 0.05s;
+            }
+
+            &:nth-child(4) {
+                transition-delay: 0.075s;
+            }
+
+            &:nth-child(5) {
+                transition-delay: 0.1s;
+            }
+
+            &:nth-child(6) {
+                transition-delay: 0.125s;
+            }
+
+            &:nth-child(7) {
+                transition-delay: 0.15s;
+            }
+
+            &:nth-child(8) {
+                transition-delay: 0.175s;
+            }
+
+            &:nth-child(9) {
+                transition-delay: 0.2s;
+            }
+        }
+
+        &.active {
+
+            li {
+                top: 0;
+            }
+        }
+
+        @include media($medium-down) {
+
+            .bug {
+                float: right
+            }
+
+            .fab-action-type {
+                float: right;
+                margin-right: 0;
+                margin-left: $tiny-spacing;
+            }
+        }
+
+        @include media($medium) {
+            top: 100px;
+            bottom: 0;
+            flex-direction: column;
+        }
+    }
+//*--// END: DEPRECATED //--*//
+
 }
 
 .buttons-updown {
