@@ -25,6 +25,13 @@
 
 <main role="main">
 
+    <div class="toolbar">
+       <div class="button-group">
+           <button type="button" class="button-flat">Cancel</button>
+           <button type="button" class="button-alpha">Next</button>
+       </div>
+   </div>
+
     <div class="full-col">
 
         <div class="form-sheet">
@@ -33,200 +40,95 @@
                 <p>Import the data from a CSV spreadsheet into your deployment as posts belonging to a specific survey.</p>
             </div>
 
-            <div class="stepper">
+            <ol class="progress">
+                <li>Choose file</li>
+                <li class="active">Organize data</li>
+                <li class="disabled">Configure posts</li>
+            </ol>
 
-                <div class="stepper-item complete">
-                    <h2 class="stepper-heading">
-                        <span class="stepper-badge">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
-                            </svg>
-                        </span>
-                        Choose CSV file
-                    </h2>
-                </div>
+            <fieldset class="form-field">
+                <legend>Assign CSV columns to survey post fields</legend>
+                <p>Each of the column names from your CSV file are listed below. Choose the <strong>Getting around</strong> post field that you'd like each column to be imported to.</p>
 
-                <div class="stepper-item active">
-                    <h2 class="stepper-heading">
-                        <span class="stepper-badge">2</span>
-                        Configure imported posts
-                    </h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>CSV column name</th>
+                            <th>Survey field</th>
+                        </tr>
+                    </thead>
 
-                    <ol class="metadata">
-                        <li>filename.csv</li>
-                        <li>{{deployment.surveys.0.name}}</li>
-                    </ol>
+                    <tbody>
+                        <tr>
+                            <td>Title</td>
+                            <td>
+                                <div class="custom-select">
+                                    <select>
+                                        <option selected>Don't import</option>
+                                        <option>Title</option>
+                                        <option>Description</option>
+                                        <option>Location</option>
+                                        <option>Date posted</option>
+                                        <option>Author</option>
+                                        <option>Source</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
 
-                    <fieldset>
-                        <legend>Mark all imported posts as...</legend>
+                        <tr>
+                            <td>Date</td>
+                            <td>
+                                <div class="custom-select">
+                                    <select>
+                                        <option selected>Don't import</option>
+                                        <option>Title</option>
+                                        <option>Description</option>
+                                        <option>Location</option>
+                                        <option>Date posted</option>
+                                        <option>Author</option>
+                                        <option>Source</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div class="form-field radio icon-input">
-                            <label for="status-published">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-published" checked />
-                                Published
-                            </label>
-                        </div>
+                        <tr>
+                            <td>Location</td>
+                            <td>
+                                <div class="custom-select">
+                                    <select>
+                                        <option selected>Don't import</option>
+                                        <option>Title</option>
+                                        <option>Description</option>
+                                        <option>Location</option>
+                                        <option>Date posted</option>
+                                        <option>Author</option>
+                                        <option>Source</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
 
-                        <div class="form-field radio icon-input">
-                            <label for="status-review">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-review" />
-                                Under review
-                            </label>
-                        </div>
-
-                        <div class="form-field radio icon-input">
-                            <label for="status-archive">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-archive" />
-                                Archived
-                            </label>
-                        </div>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Choose which CSV column should be assigned to each survey field</legend>
-                        <p>Each of the survey's fields are listed below. Choose the column from your CSV file that you'd like to use to populate each of those fields.</p>
-
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Survey field</th>
-                                    <th>CSV column</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td><span class="required">Description</span></td>
-                                    <td>
-                                        <div class="custom-select">
-                                            <select>
-                                                <option selected>Leave empty</option>
-                                                <option>Column A</option>
-                                                <option>Column B</option>
-                                                <option>Column B</option>
-                                                <option>Column C</option>
-                                            </select>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Name</td>
-                                    <td>
-                                        <div class="custom-select">
-                                            <select>
-                                                <option selected>Leave empty</option>
-                                                <option>Column A</option>
-                                                <option>Column B</option>
-                                                <option>Column B</option>
-                                                <option>Column C</option>
-                                            </select>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>Location</td>
-                                    <td>
-                                        <div class="custom-select">
-                                            <select>
-                                                <option selected>Leave empty</option>
-                                                <option>Column A</option>
-                                                <option>Column B</option>
-                                                <option>Column B</option>
-                                                <option>Column C</option>
-                                            </select>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Categories</legend>
-                        <p>Select the categories you'd like to assign to all imported posts.</p>
-
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Category A
-                            </label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Category B
-                            </label>
-
-                            <div class="form-field checkbox">
-                                <label>
-                                    <input type="checkbox" />
-                                    Category B 1
-                                </label>
-                            </div>
-
-                            <div class="form-field checkbox">
-                                <label>
-                                    <input type="checkbox" />
-                                    Category B 2
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Category C
-                            </label>
-                        </div>
-
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Completed tasks</legend>
-                        <p>Select the tasks below that you'd like to mark complete for all imported posts.</p>
-
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Review
-                            </label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Verify
-                            </label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Call police
-                            </label>
-                        </div>
-
-                    </fieldset>
-
-                    <div class="form-field">
-                        <button class="button-beta button-flat">Cancel</button>
-                        <button type="submit" class="button-alpha" disabled>Finish import</button>
-                    </div>
-                </div>
-
-            </div>
+                        <tr>
+                            <td>Body</td>
+                            <td>
+                                <div class="custom-select">
+                                    <select>
+                                        <option selected>Don't import</option>
+                                        <option>Title</option>
+                                        <option>Description</option>
+                                        <option>Location</option>
+                                        <option>Date posted</option>
+                                        <option>Author</option>
+                                        <option>Source</option>
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset>
         </div>
 
     </div>

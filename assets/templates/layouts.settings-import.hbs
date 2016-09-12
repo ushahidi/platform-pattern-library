@@ -33,45 +33,31 @@
                 <p>Import the data from a CSV spreadsheet into your deployment as posts belonging to a specific survey.</p>
             </div>
 
-            <div class="stepper">
+            <ol class="progress">
+                <li class="active">Choose file</li>
+                <li class="disabled">Organize data</li>
+                <li class="disabled">Configure posts</li>
+            </ol>
 
-                <div class="stepper-item active">
-                    <h2 class="stepper-heading">
-                        <span class="stepper-badge">1</span>
-                        Choose CSV file
-                    </h2>
-
-                    <div class="form-field">
-                        <input id="csv-file" type="file" accept=".csv" />
-                    </div>
-
-                    <fieldset class="custom-fieldset">
-                        <legend>Import to <span class="custom-fieldset-value">which survey?</span></legend>
-
-                        {{#each deployment.surveys}}
-                        <div class="form-field radio">
-                            <label for="import-to-{{@index}}">
-                                <input type="radio" name="import-to" id="import-to-{{@index}}" />
-                                {{name}}
-                            </label>
-                        </div>
-                        {{/each}}
-                    </fieldset>
-
-                    <div class="form-field">
-                        <button type="submit" class="button-alpha" disabled>Continue</button>
-                    </div>
-                </div>
-
-                <div class="stepper-item">
-                    <h2 class="stepper-heading">
-                        <span class="stepper-badge">2</span>
-                        Configure imported posts
-                    </h2>
-                </div>
-
+            <div class="form-field">
+                <label>Choose your CSV file</label>
+                <input type="file" />
             </div>
 
+            <div class="form-field select">
+                <label>Import to which survey?</label>
+                <div class="custom-select">
+                    <select>
+                        {{#each deployment.surveys}}
+                        <option>{{name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <button type="submit" class="button-alpha" disabled>Import CSV</button>
+            </div>
         </div>
 
     </div>
