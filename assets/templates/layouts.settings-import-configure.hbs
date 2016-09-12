@@ -58,36 +58,66 @@
                     </ol>
 
                     <fieldset>
-                        <legend>Mark all imported posts as...</legend>
+                        <legend>Imported posts should have their status...</legend>
 
-                        <div class="form-field radio icon-input">
-                            <label for="status-published">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-published" checked />
-                                Published
+                        <div class="form-field radio">
+                            <label for="status-model">
+                                <input checked type="radio" id="status-model-mark" name="status-model" data-fieldgroup-toggle="status-model-mark" />
+                                Marked as...
                             </label>
+
+                            <fieldset data-fieldgroup-target="status-model-mark">
+                                <legend class="hidden">Post status</legend>
+
+                                <div class="form-field radio icon-input">
+                                    <label for="status-published">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                        </svg>
+                                        <input type="radio" name="status" id="status-published" checked />
+                                        Published
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio icon-input">
+                                    <label for="status-review">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                        <input type="radio" name="status" id="status-review" />
+                                        Under review
+                                    </label>
+                                </div>
+
+                                <div class="form-field radio icon-input">
+                                    <label for="status-archive">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                        </svg>
+                                        <input type="radio" name="status" id="status-archive" />
+                                        Archived
+                                    </label>
+                                </div>
+                            </fieldset>
                         </div>
 
-                        <div class="form-field radio icon-input">
-                            <label for="status-review">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-review" />
-                                Under review
+                        <div class="form-field radio">
+                            <label for="status-model">
+                                <input type="radio" id="status-model-columns" name="status-model" data-fieldgroup-toggle="status-model-columns" />
+                                Defined by a column in your CSV file...
                             </label>
-                        </div>
 
-                        <div class="form-field radio icon-input">
-                            <label for="status-archive">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-archive" />
-                                Archived
-                            </label>
+                            <div class="form-field select" data-fieldgroup-target="status-model-columns">
+                                <div class="custom-select">
+                                    <select>
+                                        <option>Column A</option>
+                                        <option>Column B</option>
+                                        <option>Column C</option>
+                                        <option>Column D</option>
+                                    </select>
+                                </div>
+                                <p><em>Ushahidi recognizes one of three post statuses: Published, Under review, and Archived. So be sure that each entry in the column you select has one of those three values.</em></p>
+                            </div>
                         </div>
                     </fieldset>
 
@@ -153,47 +183,74 @@
                     </fieldset>
 
                     <fieldset>
-                        <legend>Categories</legend>
-                        <p>Select the categories you'd like to assign to all imported posts.</p>
+                        <legend>Imported posts should have their categories...</legend>
 
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Category A
+                        <div class="form-field radio">
+                            <label for="categories-model">
+                                <input checked type="radio" id="categories-model-mark" name="categories-model" data-fieldgroup-toggle="categories-model-mark" />
+                                Marked as...
                             </label>
+
+                            <fieldset data-fieldgroup-target="categories-model-mark">
+                                <legend class="hidden">Post categories</legend>
+
+                                <div class="form-field checkbox">
+                                    <label>
+                                        <input type="checkbox" />
+                                        Category A
+                                    </label>
+                                </div>
+
+                                <div class="form-field checkbox">
+                                    <label>
+                                        <input type="checkbox" />
+                                        Category B
+                                    </label>
+
+                                    <div class="form-field checkbox">
+                                        <label>
+                                            <input type="checkbox" />
+                                            Category B 1
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field checkbox">
+                                        <label>
+                                            <input type="checkbox" />
+                                            Category B 2
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-field checkbox">
+                                    <label>
+                                        <input type="checkbox" />
+                                        Category C
+                                    </label>
+                                </div>
+                            </fieldset>
                         </div>
 
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Category B
+                        <div class="form-field radio">
+                            <label for="status-model">
+                                <input type="radio" id="categories-model-column" name="categories-model" data-fieldgroup-toggle="categories-model-columns" />
+                                Defined by a column in your CSV file...
                             </label>
 
-                            <div class="form-field checkbox">
-                                <label>
-                                    <input type="checkbox" />
-                                    Category B 1
-                                </label>
+                            <div class="form-field select" data-fieldgroup-target="categories-model-columns">
+                                <div class="custom-select">
+                                    <select>
+                                        <option>Column A</option>
+                                        <option>Column B</option>
+                                        <option>Column C</option>
+                                        <option>Column D</option>
+                                    </select>
+                                </div>
                             </div>
-
-                            <div class="form-field checkbox">
-                                <label>
-                                    <input type="checkbox" />
-                                    Category B 2
-                                </label>
-                            </div>
                         </div>
-
-                        <div class="form-field checkbox">
-                            <label>
-                                <input type="checkbox" />
-                                Category C
-                            </label>
-                        </div>
-
                     </fieldset>
 
-                    <fieldset>
+                    <!--fieldset>
                         <legend>Completed tasks</legend>
                         <p>Select the tasks below that you'd like to mark complete for all imported posts.</p>
 
@@ -218,7 +275,7 @@
                             </label>
                         </div>
 
-                    </fieldset>
+                    </fieldset-->
 
                     <div class="form-field">
                         <button class="button-beta button-flat">Cancel</button>
