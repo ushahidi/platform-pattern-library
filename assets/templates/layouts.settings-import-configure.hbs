@@ -74,9 +74,13 @@
                                         <svg class="iconic">
                                             <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                                         </svg>
-                                        <input type="radio" name="status" id="status-published" checked />
+                                        <input type="radio" name="status" id="status-published" checked data-fieldgroup-toggle="status-model-mark-published" />
                                         Published
                                     </label>
+
+                                    <!--// IF the chosen survey has tasks that must be completed before its posts can be published //-->
+                                    <p class="alert" data-fieldgroup-target="status-model-mark-published">Your survey, <strong>{{deployment.surveys.0.name}}</strong>, includes tasks that typically must be completed for each post before they can be marked 'published.' During this import, all of your imported posts will have their tasks marked as 'incomplete', while still allowing their status to be marked as 'published.' If you edit any of these posts after they've been imported, however, you'll be asked to complete those tasks before re-publishing them.</p>
+                                    <!--// END IF //-->
                                 </div>
 
                                 <div class="form-field radio icon-input">
@@ -117,6 +121,10 @@
                                     </select>
                                 </div>
                                 <p><em>Ushahidi recognizes one of three post statuses: Published, Under review, and Archived. So be sure that each entry in the column you select has one of those three values.</em></p>
+
+                                <!--// IF the chosen survey has tasks that must be completed before its posts can be published //-->
+                                <p class="alert" data-fieldgroup-target="status-model-mark-published">Your survey, <strong>{{deployment.surveys.0.name}}</strong>, includes tasks that typically must be completed for each post before they can be marked 'published.' During this import, all of your imported posts will have their tasks marked as 'incomplete', even if their status is marked as 'published.' If you edit any of these posts after they've been imported, however, you'll be asked to complete those tasks before re-publishing them.</p>
+                                <!--// END IF //-->
                             </div>
                         </div>
                     </fieldset>
@@ -135,6 +143,21 @@
 
                             <tbody>
                                 <tr>
+                                    <td><span class="required">Title</span></td>
+                                    <td>
+                                        <div class="custom-select">
+                                            <select>
+                                                <option selected>Leave empty</option>
+                                                <option>Column A</option>
+                                                <option>Column B</option>
+                                                <option>Column C</option>
+                                                <option>Column D</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
                                     <td><span class="required">Description</span></td>
                                     <td>
                                         <div class="custom-select">
@@ -142,8 +165,8 @@
                                                 <option selected>Leave empty</option>
                                                 <option>Column A</option>
                                                 <option>Column B</option>
-                                                <option>Column B</option>
                                                 <option>Column C</option>
+                                                <option>Column D</option>
                                             </select>
                                         </div>
                                     </td>
@@ -157,8 +180,8 @@
                                                 <option selected>Leave empty</option>
                                                 <option>Column A</option>
                                                 <option>Column B</option>
-                                                <option>Column B</option>
                                                 <option>Column C</option>
+                                                <option>Column D</option>
                                             </select>
                                         </div>
                                     </td>
@@ -172,82 +195,29 @@
                                                 <option selected>Leave empty</option>
                                                 <option>Column A</option>
                                                 <option>Column B</option>
+                                                <option>Column C</option>
+                                                <option>Column D</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td>Categories</td>
+                                    <td>
+                                        <div class="custom-select">
+                                            <select>
+                                                <option selected>Leave empty</option>
+                                                <option>Column A</option>
                                                 <option>Column B</option>
                                                 <option>Column C</option>
+                                                <option>Column D</option>
                                             </select>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                    </fieldset>
-
-                    <fieldset>
-                        <legend>Imported posts should have their categories...</legend>
-
-                        <div class="form-field radio">
-                            <label for="categories-model">
-                                <input checked type="radio" id="categories-model-mark" name="categories-model" data-fieldgroup-toggle="categories-model-mark" />
-                                Marked as...
-                            </label>
-
-                            <fieldset data-fieldgroup-target="categories-model-mark">
-                                <legend class="hidden">Post categories</legend>
-
-                                <div class="form-field checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Category A
-                                    </label>
-                                </div>
-
-                                <div class="form-field checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Category B
-                                    </label>
-
-                                    <div class="form-field checkbox">
-                                        <label>
-                                            <input type="checkbox" />
-                                            Category B 1
-                                        </label>
-                                    </div>
-
-                                    <div class="form-field checkbox">
-                                        <label>
-                                            <input type="checkbox" />
-                                            Category B 2
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="form-field checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Category C
-                                    </label>
-                                </div>
-                            </fieldset>
-                        </div>
-
-                        <div class="form-field radio">
-                            <label for="status-model">
-                                <input type="radio" id="categories-model-column" name="categories-model" data-fieldgroup-toggle="categories-model-columns" />
-                                Defined by a column in your CSV file...
-                            </label>
-
-                            <div class="form-field select" data-fieldgroup-target="categories-model-columns">
-                                <div class="custom-select">
-                                    <select>
-                                        <option>Column A</option>
-                                        <option>Column B</option>
-                                        <option>Column C</option>
-                                        <option>Column D</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
                     </fieldset>
 
                     <!--fieldset>
