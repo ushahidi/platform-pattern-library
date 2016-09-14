@@ -23,7 +23,7 @@
 
 </div>
 
-{{#with (lookup deployment.posts 1)}} <!--// Choose the post index that will be the context for this template //-->
+{{#with (lookup deployment.posts 2)}} <!--// Choose the post index that will be the context for this template //-->
 <main role="main">
 
     <div class="toolbar">
@@ -221,7 +221,7 @@
                 <p><em>You can search or click the area of map where you want to place the marker.</em></p>
             </div>
 
-            <fieldset id="categories" class="error">
+            <fieldset id="categories">
                 <legend>Categories</legend>
 
                 <div class="form-field checkbox">
@@ -234,6 +234,64 @@
                     <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
                 </div>
             </fieldset>
+        </div>
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h3 class="form-sheet-title">Tasks</h3>
+            </div>
+
+            <!-- IF: User has permission to see other 'Tasks' -->
+            <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
+                <ul>
+                    <li class="active">
+                        <a href="#tasks-verify">Verify</a>
+                    </li>
+                    <li>
+                        <a href="#tasks-translate">Translate to Spanish</a>
+                    </li>
+                </ul>
+            </nav>
+            <!--// END IF -->
+
+            <div id="tasks-verify" class="tabs-tasks">
+                <div class="form-field switch">
+                    <label for="verified">Task completed</label>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="verified" type="checkbox">
+                        <label class="tgl-btn" for="verified"></label>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>
+                        Notes
+                    </label>
+                    <textarea></textarea>
+                </div>
+            </div>
+
+            <div id="tasks-translate" class="tabs-tasks">
+                <div class="form-field switch">
+                    <label for="translated">Task completed</label>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="translated" type="checkbox">
+                        <label class="tgl-btn" for="translated"></label>
+                    </div>
+                </div>
+
+                <div class="form-field title">
+                    <label>Title</label>
+                    <input type="text" value="El hacinamiento entre los días 5 y St. Salem Ave.">
+                </div>
+
+                <div class="form-field">
+                    <label>
+                        Description
+                    </label>
+                    <textarea></textarea>
+                </div>
+            </div>
         </div>
 
         <div class="form-sheet">
@@ -265,9 +323,9 @@
     </div>
 
     <div class="message-body">
-        <p><strong>Please complete the 'Time &amp; date of encounter' field</strong> before posting to this survey.</p>
+        <p><strong>You'll need to complete the "Verify" task</strong> before you can re-publish this post. You can either complete the necessary task or give your post a different status, like "under review."</p>
 
-        <a href="#time-date-encounter" class="button button-beta button-flat message-trigger">Edit field</a>
+        <a href="#tasks-verify" class="button button-beta button-flat message-trigger">Manage task</a>
 
         <button class="button-flat message-trigger">
             Dismiss
@@ -275,156 +333,8 @@
     </div>
 </div>
 
-<div id="task-review" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title complete">Review</h3>
-
-        <div class="form-field">
-            <p>Make sure the post includes no profanity or personally identifiable information.</p>
-        </div>
-
-        <div class="modal-body">
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task complete
-                </label>
-                <div class="toggle-switch">
-                    <input checked class="tgl" id="task-review-complete" type="checkbox">
-                    <label class="tgl-btn" for="task-review-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="task-verify" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Verify</h3>
-
-        <div class="modal-body">
-            <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task complete
-                </label>
-                <div class="toggle-switch">
-                    <input class="tgl" id="task-verify-complete" type="checkbox">
-                    <label class="tgl-btn" for="task-verify-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="task-callpolice" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Call police</h3>
-
-        <div class="form-field">
-            <p>Report the incident to police at +1-234-567-8901.</p>
-        </div>
-
-        <div class="modal-body">
-            <div class="form-field required">
-                <label>Police officer</label>
-                <input type="text" />
-            </div>
-
-            <div class="form-field required">
-                <label>Case number</label>
-                <input type="number" />
-            </div>
-
-            <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task complete
-                </label>
-                <div class="toggle-switch">
-                    <input class="tgl" id="task-callpolice-complete" type="checkbox" disabled>
-                    <label class="tgl-btn" for="task-callpolice-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="task-publish" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Publish</h3>
-
-        <div class="modal-body">
-            <!--// If 'Under Review' //-->
-            <p>This post is currently <em>under review</em>. Are you ready to <em>publish</em> it and mark this task complete?</p>
-            <!--// ELSE //
-            <p>This post is currently <em>published</em>.</p>
-            <div class="form-field">
-                <button class="button-gamma button-plain">Put this post under review</button>
-            </div>
-            // END IF //-->
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <!--// If 'Under Review' //-->
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-
-                <button class="button-alpha modal-trigger">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                    </svg>
-                    <span class="button-label">Publish this post</span>
-                </button>
-                <!--// ELSE //
-                <button class="button-alpha modal-trigger">Done</button>
-                // END IF //-->
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
+<script>
+setTimeout(function() {
+    messageToggle($('#required'), true);
+}, 1000);
+</script>
