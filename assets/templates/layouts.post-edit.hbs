@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="full-col">
+    <div class="main-col">
 
         <div class="form-sheet">
             {{postBand}}
@@ -49,29 +49,83 @@
                 <input type="text" value="{{title}}">
             </div>
 
-            <div class="metadata">
-                <a class="chip yellow" data-toggle="post-status">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                    </svg>
-                    <span class="label">Under review</span>
-                </a>
+            <div class="toolbox">
+                <div class="tool">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Status</span></legend>
 
-                <hr />
+                        <div class="form-field radio icon-input">
+                            <label for="status-published">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-published" {{#ifCond properties.status 'published'}}checked{{/ifCond}} />
+                                Published
+                            </label>
+                        </div>
 
-                <a href="" class="chip" data-modal="choose-author">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                    </svg>
-                    <span class="label">Anonymous</span>
-                </a>
+                        <div class="form-field radio icon-input">
+                            <label for="status-review">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-review" {{#ifCond properties.status 'review'}}checked{{/ifCond}} />
+                                Under review
+                            </label>
+                        </div>
 
-                <a href="" class="chip" data-modal="post-date">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                    </svg>
-                    <span class="label">2 days</span>
-                </a>
+                        <div class="form-field radio icon-input">
+                            <label for="status-archive">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-archive" {{#ifCond properties.status 'archived'}}checked{{/ifCond}} />
+                                Archived
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="tool">
+                    <h6 class="tool-heading">Post date</h6>
+
+                    <span class="tool-trigger" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+
+                    <div class="toggle-content active">
+                        <fieldset>
+                            <legend class="hidden">Post date</legend>
+                            <div class="form-field date">
+                                <label class="hidden">Date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" value="2016-06-22" placeholder="Date" />
+                                </div>
+                            </div>
+
+                            <div class="form-field date">
+                                <label class="hidden">Time</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                                    </svg>
+                                    <input type="time" value="11:39:57" placeholder="Time" />
+                                </div>
+                            </div>
+
+                            <ul class="metadata">
+                                <li><strong>Created</strong> at 4:34 p.m. March 26, 2016 via web</li>
+                                <li><strong>Last updated</strong> at 11:01 a.m. April 5, 2016</li>
+                            </ul>
+                        </fieldset>
+                    </div>
+                </div>
             </div>
 
             <div class="form-field">
