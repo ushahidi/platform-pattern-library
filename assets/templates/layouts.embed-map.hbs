@@ -1,0 +1,69 @@
+<div class="mode-context">
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Legend</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+
+        {{> SurveyFilter }}
+
+        <div class="tool">
+            <p>There are <a href=""><strong>12 posts</strong></a> not shown here because they don't include location information.</p>
+        </div>
+
+        <div class="tool">
+            <h6 class="tool-heading">How to add a post</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+            <div class="toggle-content {{#unless user.logged_in}}active{{/unless}}">
+                <p>Use the <a href="#">web form</a>.</p>
+                <p>Send a text message to </br> <a href="tel:15551234567">+1-555-123-4567</a>.</p>
+                <p>Send an email to <a href="mailto:cityhallmarch@domain.com" title="Subject">cityhallmarch@domain.com</a>.</p>
+                <p>Tweet with the hashtag(s) <a href="https://twitter.com/search?q=%23ushahidi&src=typd">#marchoncityhall</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        {{> Fab }}
+
+        <div class="button-group hide-until-medium">
+            <button class="button-plain" data-modal="share">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                </svg>
+                <span class="button-label hide-until-small">Share</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="toolbox hide-when-medium">
+        <button class="button-beta button-plain mode-context-trigger">Filter by survey</button>
+    </div>
+
+    {{mapEmbed 'all' true}}
+
+</main>
+
+{{> Modals }}

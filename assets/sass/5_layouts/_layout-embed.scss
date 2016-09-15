@@ -1,11 +1,49 @@
 .layout-embed {
 
+    .mode-context {
+
+        @include media($medium) {
+            left: 0;
+        }
+
+        &.active {
+
+            @include media($medium-down) {
+                bottom: 0;
+            }
+        }
+    }
+
     [role="main"] {
 
         .toolbar {
 
+            @include media($medium) {
+                left: 224px;
+            }
+
             .fab {
                 bottom: $sm-spacing;
+            }
+        }
+
+        .toolbox {
+            top: $sm-spacing + 55;
+
+            @include media($small-down) {
+                position: fixed;
+                @include right(16px);
+                z-index: $toolbox;
+            }
+
+            @include media($small) {
+                width: auto;
+                max-width: 206px;
+            }
+
+            @include media($medium) {
+                top: $base-spacing;
+                @include right($base-spacing);
             }
         }
 
@@ -13,11 +51,43 @@
 
             &.full-size {
                 bottom: 0;
+
+                @include media($medium) {
+                    left: 224px;
+                }
             }
         }
 
         .picker__frame {
             bottom: 0;
+        }
+    }
+
+    .mainsheet {
+
+        @include media($medium) {
+            left: 224px;
+        }
+
+        .mainsheet-window {
+
+            @include media($medium) {
+                left: 224px;
+            }
+        }
+
+        &.init {
+
+            &.active {
+
+                .mainsheet-window {
+                    bottom: -2px;
+
+                    @include media($medium) {
+                        bottom: auto;
+                    }
+                }
+            }
         }
     }
 }
