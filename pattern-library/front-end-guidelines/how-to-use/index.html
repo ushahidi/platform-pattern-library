@@ -44,15 +44,35 @@
                     </div>
 
                     <div class="container">
+                        <h3>Make changes</h3>
                         <p>
-                            After the <a href="../../../../assets/html/front-end-guidelines/installation/">initial installation and setup</ follow these instructions:
+                            After the <a href="../../../../assets/html/front-end-guidelines/installation/">initial installation and setup</a> follow these instructions:
                         </p>
                         <ul>
                             <li>Make sure <code>gulp</code> is running in your Terminal</li>
                             <li>Edit and save the appropriate Sass files for your custom design</li>
                             <li>View <a href="../../../../assets/html/1_basics/">Basics</a>, <a href="../../../../assets/html/2_fragments/">Fragments</a>, <a href="../../../../assets/html/3_modules/">Modules</a>, <a href="../../../../assets/html/4_blocks/">Blocks</a> or <a href="../../../../assets/html/5_layouts/">Layouts</a> to see your styles in action</li>
-                            <li>Drag the automatically compiled <a href="https://github.com/ushahidi/platform-pattern-library/tree/gh-pages/assets/css">css folder</a> into your Ushahidi Platform Installation</li>
+                            <li>Commit your changes</li>
                         </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Test your changes on a local client</h3>
+                        <ul>
+                            <li>From within your platform-client installation run <code>npm install ../platform-pattern-library/</code></li>
+                            <li>Run <code>gulp</code> in your platform-client install</li>
+                            <li>Check the results in the browser</li>
+                        </ul>
+                        <p>Note: Its not 100% clear if this works as expected now we distribute the PL on npm.</p>
+                    </div>
+                    <div class="container">
+                        <h3>Push changes to NPM</h3>
+                        <ul>
+                            <li><em>Assuming you have already committed your changes</em></li>
+                            <li>Bump and tag a new version using <code>npm version prepatch</code> for a test release or <code>npm version patch</code> for a production release</li>
+                            <li>Push the new version to npm using <code>npm publish</code></li>
+                            <li>Finally, push the new tag to git using <code>git push v0.0.0-pre.1</code></li>
+                        </ul>
+                        <p>Note: The pattern library version should stay in sync with the client.</p>
                     </div>
 
                 </section>
