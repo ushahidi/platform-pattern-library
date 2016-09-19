@@ -159,12 +159,41 @@
             }
         }
 
+        .main-col,
+        .full-col {
+
+            .ushahidi-bug {
+                top: auto;
+                right: $sm-spacing;
+                bottom: $sm-spacing;
+                left: auto;
+
+                @include media($small) {
+                    right: $huge-spacing;
+                }
+
+                @include media($medium-down) {
+
+                    svg.ushahidi-logo {
+                        width: $lg-spacing;
+                        height: $lg-spacing;
+                    }
+                }
+            }
+        }
+
         .toolbar {
             position: fixed;
             top: 55px;
             z-index: $toolbar;
             width: 100%;
 
+            @include media($medium) {
+                top: 0;
+                right: 0;
+                left: 288px;
+                width: auto;
+            }
 
             .fab {
 
@@ -191,13 +220,6 @@
                         }
                     }
                 }
-            }
-
-            @include media($medium) {
-                top: 0;
-                right: 0;
-                left: 288px;
-                width: auto;
             }
         }
 
@@ -241,16 +263,6 @@
 
                 .listing-item-select {
 
-/*
-                    @include media($mobile) {
-                        left: 10%;
-                        margin-left: -$huge-spacing;
-                    }
-
-                    @include media($xlarge) {
-                        left: 20%;
-                    }
-*/
 
                     + .listing-item-primary {
 
@@ -388,19 +400,6 @@
                     display: block;
                 }
             }
-/*
-            @include media($medium) {
-                margin-right: 230px;
-
-                + .listing {
-                    margin-right: 230px;
-
-                    + .listing {
-                        margin-right: 230px;
-                    }
-                }
-            }
-*/
         }
 
         .postcard[role="article"] {
@@ -449,6 +448,34 @@
                 position: relative;
                 z-index: $modal+1;
                 @include box-shadow(0, 0, $tiny-spacing, $tiny-spacing/2, rgba(0,0,0,.24), false);
+            }
+        }
+
+        .ushahidi-bug {
+            display: inline-block;
+            position: fixed;
+            top: 71px;
+            left: $sm-spacing;
+            z-index: $modebar;
+
+            @include media($medium) {
+                top: auto;
+                right: $base-spacing;
+                bottom: $base-spacing;
+                left: auto;
+            }
+
+            svg.ushahidi-logo {
+                width: $huge-spacing;
+                height: $huge-spacing;
+                fill: $color-primary;
+                filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+                stroke: white;
+                stroke-width: 1;
+
+                @include media($medium) {
+
+                }
             }
         }
 
