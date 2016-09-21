@@ -3657,49 +3657,101 @@ input[type="button"][data-toggle].active .button-label + svg.iconic {
   font-size: .857142857rem;
   border-radius: 28px;
   background-color: #EEEEEE;
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.12), 0 1px 1px rgba(0, 0, 0, 0.16);
-  padding: 4px 16px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: all, 0.3s;
   transition: all, 0.3s; }
   /* line 16, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
   .chip:hover {
     background-color: #e4e4e4;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.16); }
-  /* line 22, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    /* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip:hover .chip-icon {
+      background-color: #83888d; }
+  /* line 26, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
   .chip:active {
     box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.16); }
-  /* line 26, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+  /* line 30, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
   .chip.green {
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.16) inset, 0 0 8px #4fab2f; }
-  /* line 31, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+  /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
   .chip.yellow {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0.16) inset, 0 0 8px #FFC334; }
-  /* line 36, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    background-color: #FFC334; }
+  /* line 39, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
   .chip.red {
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.16) inset, 0 0 8px #B00F23; }
-  /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+  /* line 44, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+  .chip.active {
+    background-color: #FFFFFF; }
+    /* line 47, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip.active .label,
+    .chip.active svg.iconic {
+      opacity: 0; }
+    /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip.active .chip-icon .label,
+    .chip.active .chip-icon svg.iconic {
+      opacity: 1; }
+  /* line 61, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
   .chip .label {
-    vertical-align: middle; }
-    /* line 44, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    display: inline-block;
+    vertical-align: middle;
+    margin: 8px;
+    -webkit-transition: opacity, 0.3s;
+    transition: opacity, 0.3s; }
+    /* line 67, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
     .chip .label em {
       font-style: normal;
       font-weight: normal; }
-  /* line 50, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+  /* line 73, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+  .chip svg.iconic {
+    width: 13px;
+    height: 13px;
+    vertical-align: middle;
+    fill: #444444;
+    margin-right: 4px;
+    margin-left: 8px;
+    -webkit-transition: opacity, 0.3s;
+    transition: opacity, 0.3s; }
+    /* line 82, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip svg.iconic + .label {
+      margin-left: 0; }
+  /* line 87, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
   .chip .avatar {
     display: inline-block;
     position: relative;
-    left: -4px;
+    top: auto !important;
     vertical-align: middle;
-    width: 20px;
-    height: 20px; }
-  /* line 59, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
-  .chip svg.iconic {
-    position: relative;
-    top: 3px;
-    left: -3px;
-    fill: #888888;
-    width: 13px;
-    height: 13px; }
+    margin-right: 4px !important;
+    margin-left: 8px; }
+    /* line 95, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip .avatar + .label {
+      margin-left: 0; }
+  /* line 100, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+  .chip .chip-icon {
+    display: inline-block;
+    vertical-align: middle;
+    min-width: 28px;
+    height: 28px;
+    color: #FFFFFF;
+    text-align: center;
+    border-radius: 28px;
+    background-color: #8E9297;
+    margin-right: -4px; }
+    /* line 111, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip .chip-icon svg.iconic {
+      fill: #FAFAFA;
+      margin-right: 0; }
+      /* line 115, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+      .chip .chip-icon svg.iconic + .label {
+        margin-left: 4px; }
+    /* line 120, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip .chip-icon .avatar {
+      width: 28px !important;
+      height: 28px !important;
+      border-radius: 28px;
+      margin: 0 !important; }
+    /* line 127, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_chip.scss */
+    .chip .chip-icon .label {
+      font-weight: normal; }
 
 /* line 1, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_images.scss */
 figure {
@@ -5543,12 +5595,8 @@ span[data-fieldgroup-target].init.active {
   line-height: 1.4; }
   /* line 7, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   .metadata .chip {
-    margin: 8px 4px; }
-    /* line 10, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
-    .metadata .chip .avatar {
-      top: auto;
-      margin-right: 0; }
-  /* line 16, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+    margin: 4px; }
+  /* line 11, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   .metadata hr {
     display: inline-block;
     width: 1px;
@@ -5557,7 +5605,7 @@ span[data-fieldgroup-target].init.active {
     background: #D6D5D2;
     border: 0;
     margin: 4px; }
-  /* line 26, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  /* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   .metadata .avatar {
     display: inline-block;
     position: relative;
@@ -5566,56 +5614,64 @@ span[data-fieldgroup-target].init.active {
     height: 20px;
     vertical-align: middle;
     margin-right: 2px; }
-    /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+    /* line 30, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
     .metadata .avatar:hover {
       border-color: rgba(0, 0, 0, 0.24); }
-  /* line 40, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   .metadata .metadata-status {
     display: block;
     margin: 8px 0; }
-  /* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  /* line 44, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   .metadata li {
     display: inline-block;
     list-style: none;
     margin: 0; }
-    /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+    /* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
     .metadata li:after {
       content: '\00b7';
       display: inline-block;
       color: #666666;
       margin: 0 2px; }
-    /* line 63, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+    /* line 58, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
     .metadata li:last-child:after {
       content: none; }
-  /* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  /* line 64, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   .metadata ul {
     margin-top: 0;
     margin-left: 22px;
     margin-bottom: 0; }
-    /* line 74, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+    /* line 69, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
     .metadata ul li {
       margin-top: 8px;
       margin-bottom: 8px; }
+  /* line 75, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  .metadata dt {
+    display: inline-block;
+    color: #666666; }
   /* line 80, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  .metadata dd {
+    display: inline-block;
+    margin-right: 16px; }
+  /* line 85, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   .metadata .status-indicator {
     vertical-align: middle;
     margin-right: 2px; }
 
-/* line 86, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+/* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
 ul.metadata,
 ol.metadata {
   margin: 0; }
 
-/* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+/* line 96, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
 ol.metadata {
   margin: 0; }
-  /* line 96, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  /* line 101, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   ol.metadata li:after {
     content: '\2192';
     display: inline-block;
     color: #666666;
     margin: 0 2px; }
-  /* line 105, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
+  /* line 110, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_metadata.scss */
   ol.metadata li:last-child:after {
     content: none; }
 
@@ -5681,40 +5737,42 @@ ol.metadata {
     width: 10px;
     height: 10px;
     vertical-align: middle;
-    fill: #FFFFFF;
-    stroke: rgba(0, 0, 0, 0.24);
-    stroke-width: 0.24;
+    fill: #444444;
+    /*
+        stroke: rgba(0,0,0,.24);
+        stroke-width: 0.24;
+        */
     margin-top: 2px; }
-  /* line 23, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+  /* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
   .status-indicator.green {
     background-color: #4fab2f;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.16) inset, 0 0 8px #4fab2f; }
-  /* line 29, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+  /* line 31, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
   .status-indicator.yellow {
     background-color: #FFC334;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.16) inset, 0 0 8px #FFC334; }
-  /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+  /* line 37, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
   .status-indicator.red {
     background-color: #B00F23;
     box-shadow: 0 0 0 rgba(0, 0, 0, 0.16) inset, 0 0 8px #B00F23; }
-  /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+  /* line 43, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
   .status-indicator.empty {
     background-color: transparent; }
-    /* line 44, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+    /* line 46, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
     .status-indicator.empty svg.iconic {
       fill: #D6D5D2;
       stroke-width: 0; }
-    /* line 49, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+    /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
     .status-indicator.empty:hover {
       background-color: #EEEEEE; }
-      /* line 52, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+      /* line 54, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
       .status-indicator.empty:hover svg.iconic {
         fill: #959595; }
-  /* line 60, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+  /* line 62, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
   .status-indicator.tooltip .bug {
     top: -8px;
     left: 100%; }
-  /* line 65, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
+  /* line 67, /Users/Brandon/Sites/platform-design.dev/assets/sass/2_fragments/_status-indicator.scss */
   .status-indicator.tooltip:hover {
     box-shadow: none; }
 
@@ -6554,23 +6612,18 @@ ol.metadata {
         .form-sheet fieldset .post-band + label + input, .form-sheet fieldset .listing .post-band + .listing-heading + input, .form-sheet .listing fieldset .post-band + .listing-heading + input {
           margin-left: 0; }
     /* line 68, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
-    .form-sheet .form-sheet-summary .metadata,
-    .form-sheet .form-field .metadata,
-    .form-sheet fieldset .metadata {
-      margin: 8px 0; }
-    /* line 72, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .form-sheet-summary.title,
     .form-sheet .form-field.title,
     .form-sheet fieldset.title {
       max-width: none;
       margin: 24px 0; }
-      /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 72, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .form-sheet-summary.title label, .form-sheet .form-sheet-summary.title .listing .listing-heading, .form-sheet .listing .form-sheet-summary.title .listing-heading,
       .form-sheet .form-field.title label, .form-sheet .form-field.title .listing .listing-heading, .form-sheet .listing .form-field.title .listing-heading,
       .form-sheet fieldset.title label, .form-sheet fieldset.title .listing .listing-heading, .form-sheet .listing fieldset.title .listing-heading {
         position: relative; }
         @media screen and (min-width: 30em) {
-          /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+          /* line 72, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
           .form-sheet .form-sheet-summary.title label, .form-sheet .form-sheet-summary.title .listing .listing-heading, .form-sheet .listing .form-sheet-summary.title .listing-heading,
           .form-sheet .form-field.title label, .form-sheet .form-field.title .listing .listing-heading, .form-sheet .listing .form-field.title .listing-heading,
           .form-sheet fieldset.title label, .form-sheet fieldset.title .listing .listing-heading, .form-sheet .listing fieldset.title .listing-heading {
@@ -6578,13 +6631,13 @@ ol.metadata {
             margin-right: 10%;
             margin-left: 10%; } }
         @media screen and (min-width: 90em) {
-          /* line 76, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+          /* line 72, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
           .form-sheet .form-sheet-summary.title label, .form-sheet .form-sheet-summary.title .listing .listing-heading, .form-sheet .listing .form-sheet-summary.title .listing-heading,
           .form-sheet .form-field.title label, .form-sheet .form-field.title .listing .listing-heading, .form-sheet .listing .form-field.title .listing-heading,
           .form-sheet fieldset.title label, .form-sheet fieldset.title .listing .listing-heading, .form-sheet .listing fieldset.title .listing-heading {
             margin-right: 20%;
             margin-left: 20%; } }
-      /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 87, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .form-sheet-summary.title input[type="text"], .form-sheet .form-sheet-summary.title #payment-form .input, #payment-form .form-sheet .form-sheet-summary.title .input,
       .form-sheet .form-field.title input[type="text"],
       .form-sheet .form-field.title #payment-form .input, #payment-form
@@ -6597,7 +6650,7 @@ ol.metadata {
         border-left-color: transparent;
         border-radius: 0; }
         @media screen and (min-width: 30em) {
-          /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+          /* line 87, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
           .form-sheet .form-sheet-summary.title input[type="text"], .form-sheet .form-sheet-summary.title #payment-form .input, #payment-form .form-sheet .form-sheet-summary.title .input,
           .form-sheet .form-field.title input[type="text"],
           .form-sheet .form-field.title #payment-form .input, #payment-form
@@ -6608,7 +6661,7 @@ ol.metadata {
             padding-right: 10%;
             padding-left: 10%; } }
         @media screen and (min-width: 90em) {
-          /* line 91, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+          /* line 87, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
           .form-sheet .form-sheet-summary.title input[type="text"], .form-sheet .form-sheet-summary.title #payment-form .input, #payment-form .form-sheet .form-sheet-summary.title .input,
           .form-sheet .form-field.title input[type="text"],
           .form-sheet .form-field.title #payment-form .input, #payment-form
@@ -6618,7 +6671,7 @@ ol.metadata {
           .form-sheet fieldset.title .input {
             padding-right: 20%;
             padding-left: 20%; } }
-        /* line 107, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+        /* line 103, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
         .form-sheet .form-sheet-summary.title input[type="text"]:focus, .form-sheet .form-sheet-summary.title #payment-form .input:focus, #payment-form .form-sheet .form-sheet-summary.title .input:focus,
         .form-sheet .form-field.title input[type="text"]:focus,
         .form-sheet .form-field.title #payment-form .input:focus, #payment-form
@@ -6629,74 +6682,74 @@ ol.metadata {
           outline: none;
           border-top-color: #FFC334;
           border-bottom-color: #FFC334; }
-      /* line 114, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 110, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .form-sheet-summary.title.form-field-adapt,
       .form-sheet .form-field.title.form-field-adapt,
       .form-sheet fieldset.title.form-field-adapt {
         margin-right: 16px;
         margin-left: 16px; }
         @media screen and (min-width: 64em) {
-          /* line 114, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+          /* line 110, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
           .form-sheet .form-sheet-summary.title.form-field-adapt,
           .form-sheet .form-field.title.form-field-adapt,
           .form-sheet fieldset.title.form-field-adapt {
             margin-right: 24px;
             margin-left: 24px; } }
-        /* line 123, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+        /* line 119, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
         .form-sheet .form-sheet-summary.title.form-field-adapt label, .form-sheet .form-sheet-summary.title.form-field-adapt .listing .listing-heading, .form-sheet .listing .form-sheet-summary.title.form-field-adapt .listing-heading,
         .form-sheet .form-field.title.form-field-adapt label, .form-sheet .form-field.title.form-field-adapt .listing .listing-heading, .form-sheet .listing .form-field.title.form-field-adapt .listing-heading,
         .form-sheet fieldset.title.form-field-adapt label, .form-sheet fieldset.title.form-field-adapt .listing .listing-heading, .form-sheet .listing fieldset.title.form-field-adapt .listing-heading {
           display: block; }
-    /* line 129, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 125, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .form-sheet-summary.survey-title,
     .form-sheet .form-field.survey-title,
     .form-sheet fieldset.survey-title {
       margin-left: 4px; }
-    /* line 133, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 129, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .form-sheet-summary .form-field,
     .form-sheet .form-field .form-field,
     .form-sheet fieldset .form-field {
       margin-right: 0;
       margin-left: 0; }
-  /* line 139, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 135, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .form-sheet-summary {
     position: relative;
     max-width: none;
     margin-top: 24px;
     margin-bottom: 24px; }
     @media screen and (min-width: 30em) {
-      /* line 139, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 135, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .form-sheet-summary {
         margin-top: 32.0px;
         margin-bottom: 32.0px; } }
     @media screen and (min-width: 64em) {
-      /* line 139, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 135, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .form-sheet-summary {
         margin-top: 40.0px;
         margin-bottom: 40.0px; } }
-    /* line 155, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 151, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .form-sheet-summary:not(:first-of-type) {
       border-top: 1px solid #EEEEEE;
       padding-top: 32.0px; }
-    /* line 160, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 156, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .form-sheet-summary img.icon {
       max-width: 40.0px;
       margin: 0 auto; }
-    /* line 165, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 161, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .form-sheet-summary progress,
     .form-sheet .form-sheet-summary .progress-bar {
       width: 100%;
       margin: 16px auto; }
-  /* line 172, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 168, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .form-sheet-toolbar {
     padding-right: 16px;
     padding-left: 16px; }
     @media screen and (min-width: 64em) {
-      /* line 172, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 168, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .form-sheet-toolbar {
         padding-right: 24px;
         padding-left: 24px; } }
-    /* line 181, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 177, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .form-sheet-toolbar fieldset,
     .form-sheet .form-sheet-toolbar button,
     .form-sheet .form-sheet-toolbar .button {
@@ -6704,45 +6757,46 @@ ol.metadata {
       vertical-align: middle;
       line-height: normal;
       margin: 0 8px 0 0; }
-  /* line 193, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 189, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .listing .listing-heading {
     border-bottom: 1px solid #EEEEEE;
     padding: 0 16px 16px; }
     @media screen and (min-width: 64em) {
-      /* line 193, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 189, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .listing .listing-heading {
         padding-right: 24px;
         padding-left: 24px; } }
-    /* line 203, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 199, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .listing .listing-heading + .listing-item {
       margin-top: 0; }
-  /* line 208, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 204, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .listing .listing-body {
     background-color: #FFFFFF;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24) inset; }
-  /* line 214, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 210, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .custom-fieldset {
     max-width: none; }
-  /* line 218, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 214, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .metadata {
-    background-color: #EEEEEE;
+    text-align: center;
+    /*
+        border-top: 1px solid $color-light-beta;
+        border-bottom: 1px solid $color-light-beta;
+*/
     padding-right: 16px;
     padding-left: 16px; }
     @media screen and (min-width: 30em) {
-      /* line 218, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 214, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .metadata {
         padding-right: 10%;
         padding-left: 10%; } }
     @media screen and (min-width: 90em) {
-      /* line 218, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 214, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .metadata {
         padding-right: 20%;
         padding-left: 20%; } }
-    /* line 233, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
-    .form-sheet .metadata .chip {
-      background-color: #FAFAFA; }
   @media screen and (max-width: 767px) {
-    /* line 238, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 234, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .toolbox {
       width: auto;
       background-color: transparent;
@@ -6750,93 +6804,101 @@ ol.metadata {
       padding-top: 0;
       padding-bottom: 0;
       margin: 16px 0; } }
-  /* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 245, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .toolbox .tool {
     margin-top: 16px;
     margin-right: 16px;
     margin-bottom: 24px;
     margin-left: 16px; }
     @media screen and (min-width: 30em) {
-      /* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 245, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .toolbox .tool {
         margin-right: 10%;
         margin-left: 10%; } }
     @media screen and (min-width: 48em) {
-      /* line 249, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 245, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .toolbox .tool {
         margin-right: 16px;
         margin-left: 16px; } }
-  /* line 267, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 263, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .tool {
     max-width: 450px;
     margin: 24px 16px; }
     @media screen and (min-width: 64em) {
-      /* line 267, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 263, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .tool {
         margin: 32.0px 24px; } }
-    /* line 275, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 271, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .tool .form-field,
     .form-sheet .tool fieldset {
       margin: 16px 0; }
-    /* line 282, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 278, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .tool fieldset.custom-fieldset.init {
       margin-top: 8px; }
-    /* line 286, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 282, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .tool fieldset .form-field {
       margin: 0 0 8px; }
-    /* line 290, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 286, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .tool fieldset fieldset {
       margin-top: 0; }
-    /* line 296, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 292, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .tool fieldset .task .form-field {
       margin-bottom: 0; }
-    /* line 302, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 298, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .tool .metadata {
       background-color: transparent;
       padding-right: 0;
       padding-left: 0; }
-  /* line 309, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 305, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .progress {
     box-shadow: none;
     border-top: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE; }
-  /* line 315, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 311, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet .stepper {
     margin-right: 16px;
     margin-left: 16px; }
     @media screen and (min-width: 30em) {
-      /* line 315, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 311, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .stepper {
         margin-right: 10%;
         margin-left: 10%; } }
     @media screen and (min-width: 90em) {
-      /* line 315, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      /* line 311, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
       .form-sheet .stepper {
         margin-right: 20%;
         margin-left: 20%; } }
-    /* line 329, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 325, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .stepper .form-sheet-summary,
     .form-sheet .stepper .form-field,
     .form-sheet .stepper fieldset {
       margin-right: 0;
       margin-left: 0; }
-    /* line 336, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 332, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet .stepper .metadata {
       font-weight: normal;
       font-size: 14px;
       font-size: 1rem;
       padding: 8px 16px; }
-  /* line 342, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 338, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet > .progress-bar {
     position: absolute;
     top: 0;
     z-index: 2000;
     right: 0;
     left: 0; }
-  /* line 350, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  /* line 346, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+  .form-sheet .dropdown-menu {
+    margin-top: -107px; }
+    @media screen and (min-width: 64em) {
+      /* line 346, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+      .form-sheet .dropdown-menu {
+        margin-top: -84px;
+        margin-left: -312px; } }
+  /* line 355, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
   .form-sheet [data-toggle-target] {
     display: none; }
-    /* line 353, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
+    /* line 358, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_form-sheet.scss */
     .form-sheet [data-toggle-target].active {
       display: block; }
 
@@ -7026,33 +7088,70 @@ ol.metadata {
 
 /* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
 .mainsheet .mainsheet-heading {
-  font-weight: 600;
+  font-weight: 800;
   font-size: 20px;
   font-size: 1.428571429rem;
+  line-height: 1.3em;
   margin: 16px; }
-  @media screen and (min-width: 48em) {
-    /* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
-    .mainsheet .mainsheet-heading {
-      font-size: 24px;
-      font-size: 1.714285714rem; } }
   @media screen and (min-width: 64em) {
     /* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
     .mainsheet .mainsheet-heading {
-      margin-top: 24px; } }
+      font-size: 26px;
+      font-size: 1.857142857rem; } }
+  @media screen and (min-width: 64em) {
+    /* line 8, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+    .mainsheet .mainsheet-heading {
+      margin-top: 24px;
+      margin-right: 24px;
+      margin-left: 24px; } }
 
-/* line 17, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+/* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
 .mainsheet ul, .mainsheet ol {
   padding-bottom: 16px; }
-  /* line 21, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+  /* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
   .mainsheet ul li, .mainsheet ol li {
     position: relative;
     padding: 8px 16px;
     margin: 4px 0; }
-    /* line 26, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+    @media screen and (min-width: 64em) {
+      /* line 25, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+      .mainsheet ul li, .mainsheet ol li {
+        padding-right: 24px;
+        padding-left: 24px; } }
+    /* line 35, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
     .mainsheet ul li svg.iconic, .mainsheet ol li svg.iconic {
       margin-right: 8px; }
 
-/* line 33, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+/* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+.mainsheet fieldset {
+  margin-top: 16px;
+  margin-bottom: 16px; }
+  @media screen and (min-width: 64em) {
+    /* line 41, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+    .mainsheet fieldset {
+      margin-top: 24px; } }
+  /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+  .mainsheet fieldset .form-field.checkbox, .mainsheet fieldset .form-field.radio {
+    padding-right: 16px;
+    padding-left: 16px;
+    margin-top: 8px; }
+    @media screen and (min-width: 64em) {
+      /* line 51, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+      .mainsheet fieldset .form-field.checkbox, .mainsheet fieldset .form-field.radio {
+        padding-right: 24px;
+        padding-left: 24px; } }
+    /* line 64, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+    .mainsheet fieldset .form-field.checkbox label:active, .mainsheet fieldset .form-field.checkbox .form-sheet .listing .listing-heading:active, .form-sheet .listing .mainsheet fieldset .form-field.checkbox .listing-heading:active, .mainsheet fieldset .form-field.radio label:active, .mainsheet fieldset .form-field.radio .form-sheet .listing .listing-heading:active, .form-sheet .listing .mainsheet fieldset .form-field.radio .listing-heading:active {
+      background-color: rgba(0, 0, 0, 0.24); }
+    /* line 73, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+    .mainsheet fieldset .form-field.checkbox.icon-input > label:before, .mainsheet fieldset .form-sheet .listing .form-field.checkbox.icon-input > .listing-heading:before, .form-sheet .listing .mainsheet fieldset .form-field.checkbox.icon-input > .listing-heading:before, .mainsheet fieldset .form-field.radio.icon-input > label:before, .mainsheet fieldset .form-sheet .listing .form-field.radio.icon-input > .listing-heading:before, .form-sheet .listing .mainsheet fieldset .form-field.radio.icon-input > .listing-heading:before {
+      left: 2px; }
+      @media screen and (min-width: 64em) {
+        /* line 73, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
+        .mainsheet fieldset .form-field.checkbox.icon-input > label:before, .mainsheet fieldset .form-sheet .listing .form-field.checkbox.icon-input > .listing-heading:before, .form-sheet .listing .mainsheet fieldset .form-field.checkbox.icon-input > .listing-heading:before, .mainsheet fieldset .form-field.radio.icon-input > label:before, .mainsheet fieldset .form-sheet .listing .form-field.radio.icon-input > .listing-heading:before, .form-sheet .listing .mainsheet fieldset .form-field.radio.icon-input > .listing-heading:before {
+          left: 4px; } }
+
+/* line 87, /Users/Brandon/Sites/platform-design.dev/assets/sass/3_modules/_mainsheet.scss */
 .mainsheet-overlay {
   position: fixed;
   z-index: 1499;
@@ -9756,62 +9855,50 @@ ol.metadata {
 [class*="layout-"] .mainsheet {
   display: none;
   position: fixed;
-  z-index: 1999;
-  top: 107px;
+  z-index: 10000;
+  top: 0;
   right: 0;
-  bottom: 45px;
+  bottom: 0;
   left: 0; }
-  @media screen and (min-width: 64em) {
-    /* line 545, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
-    [class*="layout-"] .mainsheet {
-      top: 68px;
-      right: 0;
-      bottom: 0;
-      left: 288px; } }
-  /* line 561, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  /* line 558, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   [class*="layout-"] .mainsheet .mainsheet-window {
     position: fixed;
     z-index: 1500;
     right: 0;
     bottom: -999px;
     left: 0; }
+    @media screen and (min-width: 30em) {
+      /* line 558, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      [class*="layout-"] .mainsheet .mainsheet-window {
+        margin-right: 24%;
+        margin-left: 24%; } }
     @media screen and (min-width: 64em) {
-      /* line 561, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      /* line 558, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       [class*="layout-"] .mainsheet .mainsheet-window {
         top: -999px;
-        left: 288px;
-        bottom: auto; } }
-  /* line 575, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+        bottom: auto;
+        margin-right: 32%;
+        margin-left: 32%; } }
+  /* line 579, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   [class*="layout-"] .mainsheet .mainsheet-overlay {
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
     opacity: 0; }
-  @media screen and (min-width: 48em) {
-    /* line 582, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
-    [class*="layout-"] .mainsheet.fab-mainsheet .mainsheet-window {
-      left: auto;
-      width: 222px; } }
-  @media screen and (min-width: 64em) {
-    /* line 582, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
-    [class*="layout-"] .mainsheet.fab-mainsheet .mainsheet-window {
-      left: 288px;
-      width: auto;
-      max-width: 224px; } }
-  /* line 601, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+  /* line 588, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   [class*="layout-"] .mainsheet.init.active .mainsheet-window {
-    bottom: 45px; }
-    @media screen and (min-width: 48em) {
-      /* line 601, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
-      [class*="layout-"] .mainsheet.init.active .mainsheet-window {
-        margin-right: 24%;
-        margin-left: 24%; } }
+    bottom: 0; }
     @media screen and (min-width: 64em) {
-      /* line 601, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+      /* line 588, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
       [class*="layout-"] .mainsheet.init.active .mainsheet-window {
-        top: 68px;
+        /*
+                        margin-right: 16%;
+                        margin-left: 16%;
+                        */
+        top: 8%;
         bottom: auto;
-        margin: 0; } }
-  /* line 616, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
+        margin-right: 32%;
+        margin-left: 32%; } }
+  /* line 603, /Users/Brandon/Sites/platform-design.dev/assets/sass/5_layouts/_layout-general.scss */
   [class*="layout-"] .mainsheet.init.active .mainsheet-overlay {
     opacity: 1; }
 

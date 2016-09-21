@@ -23,7 +23,7 @@
 
 </div>
 
-{{#with (lookup deployment.posts 1)}} <!--// Choose the post index that will be the context for this template //-->
+{{#with (lookup deployment.posts 0)}} <!--// Choose the post index that will be the context for this template //-->
 <main role="main">
 
     <div class="toolbar">
@@ -49,30 +49,67 @@
                 <input type="text" value="{{title}}">
             </div>
 
-            <div class="metadata">
-                <a class="chip yellow" data-toggle="post-status">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                    </svg>
-                    <span class="label">Under review</span>
-                </a>
+            <ul class="metadata">
+                <li>
+                    {{#ifCond properties.status 'published'}}
+                    <a class="chip" data-toggle="post-status">
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <span class="label">Published</span>
+                    </a>
+                    {{/ifCond}}
+                    {{#ifCond properties.status 'review'}}
+                    <a class="chip yellow" data-toggle="post-status">
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <span class="label">Under review</span>
+                    </a>
+                    {{/ifCond}}
+                    {{#ifCond properties.status 'archived'}}
+                    <a class="chip" data-toggle="post-status">
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                        </svg>
+                        <span class="label">Archived</span>
+                    </a>
+                    {{/ifCond}}
+                </li>
 
-                <hr />
+                <li>
+                    <a href="" class="chip" data-modal="edit-author">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        {{#if properties.author.avatar}}
+                        <img src="{{properties.author.avatar}}" class="avatar" />
+                        {{/if}}
+                        <span class="label">{{properties.author.name}}</span>
+                    </a>
+                </li>
 
-                <a href="" class="chip" data-modal="choose-author">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                    </svg>
-                    <span class="label">Anonymous</span>
-                </a>
-
-                <a href="" class="chip" data-modal="post-date">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                    </svg>
-                    <span class="label">2 days</span>
-                </a>
-            </div>
+                <li>
+                    <a href="" class="chip" data-modal="post-date">
+                        <span class="chip-icon">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            </svg>
+                            <span class="label">Date</span>
+                        </span>
+                        <span class="label">{{properties.date.post}}</span>
+                    </a>
+                </li>
+            </ul>
 
             <div class="form-field">
                 <label>
