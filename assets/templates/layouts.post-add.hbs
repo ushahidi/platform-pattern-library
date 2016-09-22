@@ -53,48 +53,72 @@
                 <input type="text" placeholder="Title"/>
             </div>
 
-            <div class="metadata">
+            <ul class="metadata">
                 {{#if user.logged_in}}
-                <a class="chip" data-toggle="post-status">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                    </svg>
-                    <span class="label">Published</span>
-                </a>
 
-                <hr />
+                <li>
+                    <a class="chip yellow" data-toggle="post-status">
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <span class="label">Under review</span>
+                    </a>
+                </li>
 
-                <a href="" class="chip" data-modal="choose-author">
-                    <img src="{{user.avatar}}" class="avatar" />
-                    <span class="label">{{user.name}}</span>
-                </a>
+                <!--li>
+                    <a href="" class="chip" data-modal="edit-author">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        <img src="{{user.avatar}}" class="avatar" />
+                        <span class="label">{{user.name}}</span>
+                    </a>
+                </li-->
 
-                <a href="" class="chip" data-modal="post-date">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                    </svg>
-                    <span class="label">Now</span>
-                </a>
+                <li>
+                    By <strong>{{user.name}}</strong>
+                </li>
+
+                <li>
+                    <a href="" class="chip" data-modal="post-date">
+                        <span class="chip-icon">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            </svg>
+                            <span class="label">Date</span>
+                        </span>
+                        <span class="label">Now</span>
+                    </a>
+                </li>
 
                 {{else}}
 
-                <span class="status-indicator yellow tooltip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                    </svg>
-                </span>
-                <strong>This post will need to be reviewed</strong> before it's published.
+                <li>
+                    <span class="status-indicator yellow tooltip">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                    </span>
+                    <strong>This post will need to be reviewed</strong> before it's published.
+                </li>
 
-                <hr />
+                <li>
+                    <a href="" class="chip">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                        </svg>
+                        <span class="label">Anonymous</span>
+                    </a>
+                </li>
 
-                <a href="" class="chip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                    </svg>
-                    <span class="label">Anonymous</span>
-                </a>
                 {{/if}}
-            </div>
+            </ul>
 
             <div class="form-field">
                 <label>Description</label>

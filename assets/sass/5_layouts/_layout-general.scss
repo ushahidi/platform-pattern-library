@@ -574,17 +574,14 @@
     .mainsheet {
         display: none;
         position: fixed;
-        z-index: $toolbar - 1;
-        top: 107px;
+        z-index: $modal;
+        top: 0;
         right: 0;
-        bottom: 45px;
+        bottom: 0;
         left: 0;
 
         @include media($medium) {
-            top: 68px;
-            right: 0;
-            bottom: 0;
-            left: 288px;
+            // left: 288px;
         }
 
         .mainsheet-window {
@@ -594,10 +591,17 @@
             bottom: -999px;
             left: 0;
 
+            @include media($mobile) {
+                margin-right: 24%;
+                margin-left: 24%;
+            }
+
             @include media($medium) {
+                // left: 288px;
                 top: -999px;
-                left: 288px;
                 bottom: auto;
+                margin-right: 32%;
+                margin-left: 32%;
             }
         }
 
@@ -606,39 +610,22 @@
             opacity: 0;
         }
 
-        &.fab-mainsheet {
-
-            .mainsheet-window {
-
-                @include media($small) {
-                    left: auto;
-                    width: 222px;
-                }
-
-                @include media($medium) {
-                    left: 288px;
-                    width: auto;
-                    max-width: 224px;
-                }
-            }
-        }
-
         &.init {
 
             &.active {
 
                 .mainsheet-window {
-                    bottom: 45px;
-
-                    @include media($small) {
-                        margin-right: 24%;
-                        margin-left: 24%;
-                    }
+                    bottom: 0;
 
                     @include media($medium) {
-                        top: 68px;
+                        /*
+                        margin-right: 16%;
+                        margin-left: 16%;
+                        */
+                        top: 8%;
                         bottom: auto;
-                        margin: 0;
+                        margin-right: 32%;
+                        margin-left: 32%;
                     }
                 }
 
