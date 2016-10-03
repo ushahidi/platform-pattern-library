@@ -1,50 +1,70 @@
 .status-indicator {
     display: inline-block;
     position: relative;
-    width: 16px;
-    height: 16px;
+    min-width: 20px;
+    height: 20px;
+    color: $color-dark-gamma;
     text-align: center;
-    @include equal-radius(100%);
-    background-color: $color-light-alpha;
-    box-shadow: 0 0 0 rgba(0,0,0,.16) inset;
+    @include equal-radius($sm-spacing);
+    background-color: $color-light-gamma;
+    box-shadow: 0 0 1px rgba(0,0,0,.16) inset;
     @include transition(0.3s);
 
     svg.iconic {
         display: inline-block;
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
         vertical-align: middle;
-        fill: $color-dark-beta;
+        fill: $color-dark-delta;
         /*
         stroke: rgba(0,0,0,.24);
         stroke-width: 0.24;
         */
-        margin-top: 2px;
+        margin: 4px;
+    }
+
+    .label {
+        margin-right: 10px;
+        margin-left: -2px;
     }
 
     &.green {
         background-color: $green;
         box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $green;
+            0 0 4px $green;
     }
 
     &.yellow {
+        color: $color-primary-beta;
         background-color: $yellow;
-        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $yellow;
+
+        svg.iconic {
+            fill: $color-primary;
+            stroke: rgba(255,255,255,.8);
+            stroke-width: 0.24;
+        }
     }
 
     &.red {
         background-color: $red;
         box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $red;
+            0 0 4px $red;
+    }
+
+    &.dark {
+        color: $color-light-delta;
+        background-color: $color-dark-gamma;
+
+        svg.iconic {
+            fill: $color-primary-zeta;
+        }
     }
 
     &.empty {
         background-color: transparent;
 
         svg.iconic {
-            fill: $color-light-beta;
+            fill: $color-light-alpha;
             stroke-width: 0;
         }
 
@@ -66,6 +86,20 @@
 
         &:hover {
             @include no-shadow;
+        }
+    }
+}
+
+a.status-indicator {
+
+    &:hover {
+        background-color: darken($color-light-gamma, 8%);
+    }
+
+    &.yellow {
+
+        &:hover {
+            background-color: darken($yellow, 10%);
         }
     }
 }

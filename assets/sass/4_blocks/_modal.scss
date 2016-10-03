@@ -49,6 +49,13 @@
         @include media($small) {
             padding-bottom: 96px;
         }
+
+        .form-field {
+
+            &.switch {
+                margin-top: 4px;
+            }
+        }
     }
 
     .modal-trigger-close {
@@ -143,16 +150,35 @@
         }
     }
 
+    label {
+        @include typeGamma;
+    }
+
     .form-field,
     fieldset {
         margin-top: 0;
-        margin-bottom: $base-spacing;
+        margin-bottom: $lg-spacing;
+    }
+
+    .form-field {
+
+        &.radio,
+        &.checkbox {
+            margin-bottom: $tiny-spacing;
+        }
 
         &.switch {
 
             > label {
                 margin-bottom: 0;
             }
+        }
+    }
+
+    fieldset {
+
+        legend {
+            @include typeGamma;
         }
     }
 

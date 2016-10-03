@@ -315,14 +315,6 @@ fieldset {
         }
     }
 
-    // SURVEY TITLE
-    &.survey-title {
-
-        input[type="text"] {
-            text-align: center;
-        }
-    }
-
     &.location {
 
         input[type="text"] {
@@ -361,7 +353,7 @@ fieldset {
             + .searchbar {
                 position: absolute;
                 z-index: $toolbox;
-                top: $huge-spacing;
+                top: $huge-spacing + $tiny-spacing;
                 right: $tiny-spacing;
                 left: $tiny-spacing;
                 margin: 0;
@@ -413,6 +405,8 @@ fieldset {
 
             + label {
                 display: inline-block;
+                font-size: 16px;
+                font-size: 1.142857143rem;
 
                 &:hover {
                     cursor: pointer;
@@ -553,7 +547,7 @@ fieldset {
 
         .toggle-switch {
             position: absolute;
-            top: 0;
+            top: 2px;
             right: 0;
 
             label {
@@ -563,11 +557,11 @@ fieldset {
 
         > label {
             display: block;
-            color: $text-color;
-            @include typeBase;
-            text-transform: none;
-            letter-spacing: 0;
             padding-right: 72px;
+        }
+
+        .form-field {
+            margin-top: $base-spacing;
         }
 
         &.disabled {
@@ -630,7 +624,7 @@ fieldset {
 fieldset {
 
     .custom-select {
-        margin-top: -6px;
+        // margin-top: -6px;
     }
 }
 

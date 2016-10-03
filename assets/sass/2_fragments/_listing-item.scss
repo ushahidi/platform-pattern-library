@@ -100,6 +100,12 @@
             }
         }
 
+        svg.iconic {
+            width: $sm-spacing;
+            height: $sm-spacing;
+            vertical-align: middle;
+        }
+
         + .listing-item-primary {
             padding-right: 72px;
 
@@ -165,14 +171,19 @@
 
     .listing-item-image {
         width: $lg-spacing;
+        font-size: $sm-spacing;
         text-align: center;
+        vertical-align: middle;
 
         svg.iconic {
             width: 1em;
             height: 1em;
+            fill: $color-primary-beta;
+            vertical-align: middle;
         }
 
         img {
+            vertical-align: middle;
 
             + svg.iconic {
                 position: absolute;
@@ -188,6 +199,17 @@
     .listing-item-title {
         @include typeGamma;
 
+        &.required {
+
+            &:after {
+                content: '\2217';
+                position: relative;
+                top: -4px;
+                color: $red;
+                margin-left: 4px;
+            }
+        }
+
         em {
             color: $color-dark-delta;
             font-style: normal;
@@ -202,6 +224,7 @@
 
         .status-indicator {
             width: $tiny-spacing;
+            min-width: initial;
             height: $tiny-spacing;
             margin-right: $tiny-spacing;
             margin-left: $tiny-spacing;

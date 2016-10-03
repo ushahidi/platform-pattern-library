@@ -39,19 +39,15 @@
 
     <div class="full-col">
 
-        <div class="form-sheet">
+        <div class="form-sheet" role="article">
             {{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
                 <span class="post-band" style="background-color: #{{color}}"></span>
 
                 <header class="form-sheet-summary">
                     <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                    <p>{{description}}</p>
                 </header>
             {{/with}}
-
-            <div class="form-field title" style="margin-left:4px;">
-                <label class="hidden">Title</label>
-                <input type="text" placeholder="Title"/>
-            </div>
 
             <ul class="metadata">
                 {{#if user.logged_in}}
@@ -121,47 +117,12 @@
             </ul>
 
             <div class="form-field">
-                <label>Description</label>
+                <label class="required">Describe the problem</label>
                 <textarea></textarea>
             </div>
 
-            <div class="form-field file">
-                <label>Photo of the problem</label>
-                <input type="file" id="photo" />
-                <label for="photo" class="button button-gamma">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                    </svg>
-                    <span class="button-label">Add photo</span>
-                </label>
-            </div>
-
-            <fieldset>
-                <legend>Time &amp; date</legend>
-
-                <div class="form-field inline required">
-                    <label class="hidden">Time</label>
-                    <div class="input-with-icon">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                        </svg>
-                        <input type="time" required />
-                    </div>
-                </div>
-
-                <div class="form-field inline required">
-                    <label class="hidden">Date</label>
-                    <div class="input-with-icon">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                        </svg>
-                        <input type="date" required />
-                    </div>
-                </div>
-            </fieldset>
-
             <div class="form-field location">
-                <label>Location</label>
+                <label class="required">Where is the problem?</label>
                 {{mapEmbed 0 false}}
 
                 <form role="search" class="searchbar" data-message="search">
@@ -238,19 +199,36 @@
                 <p><em>You can search or click the area of map where you want to place the marker.</em></p>
             </div>
 
-            <fieldset>
-                <legend>Categories</legend>
+            <div class="form-field">
+                <label>What time did you last see the problem?</label>
+                <div class="input-with-icon">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                    </svg>
+                    <input type="time" required />
+                </div>
+            </div>
 
-                <div class="form-field checkbox">
-                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+            <div class="form-field">
+                <label>What date did you last see the problem?</label>
+                <div class="input-with-icon">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                    </svg>
+                    <input type="date" required />
                 </div>
-                <div class="form-field checkbox">
-                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                </div>
-            </fieldset>
+            </div>
+
+            <div class="form-field file">
+                <label>Photo of the problem</label>
+                <input type="file" id="photo" />
+                <label for="photo" class="button button-plain button-gamma">
+                    <svg class="iconic block">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#camera-slr"></use>
+                    </svg>
+                    <span class="button-label">Add photo</span>
+                </label>
+            </div>
 
         </div>
 

@@ -58,6 +58,11 @@
             margin-top: $tiny-spacing;
         }
 
+        legend {
+            @include typeBase;
+            font-weight: 600;
+        }
+
         fieldset {
             margin-top: 0;
         }
@@ -99,7 +104,7 @@
     position: relative;
 
     &:hover {
-        cursor: pointer;
+        cursor: help;
 
         .bug {
             display: inline-block;
@@ -117,5 +122,16 @@
         white-space: nowrap;
         box-shadow: 0 0 16px rgba(0,0,0,0.12),
             0 16px 16px rgba(0,0,0,0.24);
+    }
+
+    .map & {
+
+        &:hover {
+            cursor: auto;
+
+            .bug {
+                display: none;
+            }
+        }
     }
 }

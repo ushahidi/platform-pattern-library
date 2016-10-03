@@ -67,7 +67,7 @@ Handlebars.registerHelper('postBand', function() {
 Handlebars.registerHelper('postCheckbox', function() {
     if (session.user.logged_in) {
         return new Handlebars.SafeString(
-            '<input type="checkbox">'
+            '<div class="listing-item-select"><input type="checkbox"></div>'
         );
     }
 });

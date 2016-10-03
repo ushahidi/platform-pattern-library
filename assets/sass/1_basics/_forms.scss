@@ -22,6 +22,11 @@ label,
             margin-left: 4px;
         }
     }
+
+    [role="article"] & {
+        font-size: 20px;
+        font-size: 1.428571429rem;
+    }
 }
 
 input,
@@ -202,10 +207,13 @@ fieldset {
     border: none;
 
     legend {
-        font-weight: 600;
-        font-size: 16px;
-        font-size: 1.142857143rem;
-        margin-bottom: $sm-spacing;
+        @include typeGamma;
+        margin-bottom: $base-spacing;
+
+        [role="article"] & {
+            font-size: 20px;
+            font-size: 1.428571429rem;
+        }
 
         &.required {
 
