@@ -116,11 +116,11 @@
             <h2 class="listing-heading-section">Today</h2>
 
             {{#if user.logged_in}}
-                {{#each deployment.posts}}
+                {{#each deployment.responses}}
                     {{> Postcard checkbox=true}}
                 {{/each}}
             {{else}}
-                {{#each deployment.posts}}
+                {{#each deployment.responses}}
                     {{#ifCond properties.status 'published'}}
                     {{> Postcard}}
                     {{/ifCond}}

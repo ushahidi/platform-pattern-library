@@ -1,11 +1,12 @@
 $('.map').each(function() {
-    var deploymentGeoJSON = $(this)[0].hasAttribute('data-post-index') ? session.deployment.posts[$(this).attr('data-post-index')] : session.deployment.posts;
+    var deploymentGeoJSON = $(this)[0].hasAttribute('data-post-index') ? session.deployment.responses[$(this).attr('data-post-index')] : session.deployment.responses;
 
     //## Map configuration
     var map = L.map(this, {
         scrollWheelZoom: false
     });
 
+    //## Base layer configuration
     L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     	maxZoom: 19,
     	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

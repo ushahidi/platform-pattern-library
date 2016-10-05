@@ -50,6 +50,15 @@ Handlebars.registerHelper('each-limit', function(context, limit) {
     return ret;
 });
 
+Handlebars.registerHelper('mapEmbed', function(postIndex, fullsize) {
+    var dataAttr = postIndex == 'all' ? '' : 'data-post-index="'+postIndex+'"',
+        className = fullsize == true ? 'full-size' : '';
+
+    return new Handlebars.SafeString(
+        '<div id="map" ' + dataAttr + ' class="map ' + className + '"></div>'
+    );
+});
+
 Handlebars.registerHelper('deployment', function(options) {
     return options.fn(session.deployment);
 });
@@ -64,21 +73,36 @@ Handlebars.registerHelper('postBand', function() {
     );
 });
 
+Handlebars.registerHelper('postField', function(surveyIndex, postIndex, fieldIndex, value) {
+    var fieldType = session.deployment.surveys[surveyIndex].fields[fieldIndex].type;
+    // return options.fn(session.deployment.surveys[surveyIndex].fields[fieldIndex].type);
+    if (fieldType == 'photo') {
+        return new Handlebars.SafeString(
+            '<img src="'+value+'" class="postcard-image" />'
+        );
+    } else if (fieldType == 'location') {
+        return Handlebars.helpers.mapEmbed(postIndex, false);
+    } else {
+        return new Handlebars.SafeString(
+            value
+        );
+    }
+});
+
+Handlebars.registerHelper('taskName', function(postIndex, taskIndex) {
+    var surveyIndex = session.deployment.responses[postIndex].properties.survey;
+    console.log('survey: ' + surveyIndex + ', task: ' + taskIndex);
+    return new Handlebars.SafeString(
+        session.deployment.surveys[surveyIndex].tasks[taskIndex].name
+    );
+});
+
 Handlebars.registerHelper('postCheckbox', function() {
     if (session.user.logged_in) {
         return new Handlebars.SafeString(
             '<div class="listing-item-select"><input type="checkbox"></div>'
         );
     }
-});
-
-Handlebars.registerHelper('mapEmbed', function(postIndex, fullsize) {
-    var dataAttr = postIndex == 'all' ? '' : 'data-post-index="'+postIndex+'"',
-        className = fullsize == true ? 'full-size' : '';
-
-    return new Handlebars.SafeString(
-        '<div id="map" ' + dataAttr + ' class="map ' + className + '"></div>'
-    );
 });
 
 hbUserStatus = function() {
