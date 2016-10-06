@@ -42,16 +42,18 @@
                 <h3 class="listing-heading">Fields</h3>
 
                 <div class="listing-body">
+
+                    {{#each deployment.surveys.0.fields}}
                     <div class="listing-item">
                         <div class="listing-item-select">
                             <div class="buttons-updown">
-                                <button type="button" class="button-beta" disabled>
+                                <button type="button" class="button-beta" {{#if @first}}disabled{{/if}}>
                                     <svg class="iconic">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
                                     </svg>
                                     <span class="label hidden">Move up</span>
                                 </button>
-                                <button type="button" class="button-beta">
+                                <button type="button" class="button-beta" {{#if @last}}disabled{{/if}}>
                                     <svg class="iconic">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
                                     </svg>
@@ -61,131 +63,18 @@
                         </div>
 
                         <div class="listing-item-primary">
-                            <h2 class="listing-item-title required"><a href="">Describe the problem</a></h2>
+                            <h2 class="listing-item-title {{#if required}}required{{/if}}"><a href="" data-modal="edit-field-{{type}}">{{label}}</a></h2>
                         </div>
 
+                        {{#if icon}}
                         <div class="listing-item-secondary">
                             <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
+                              <use xlink:href="{{icon}}"></use>
                             </svg>
                         </div>
+                        {{/if}}
                     </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title required"><a href="" data-modal="edit-field-location">Where is the problem?</a></h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="">What time did you last see the problem?</a></h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="">What date did you last see the problem?</a></h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta" disabled>
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="" data-modal="edit-field-image">Photo of the problem</h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_image_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
+                    {{/each}}
 
                     <div class="listing-item">
                         <div class="listing-item-primary">
@@ -226,6 +115,17 @@
                             </svg>
                         </div>
                         <h2 class="listing-item-title"><a href="" data-modal="survey-permissions">Permissions</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                            </svg>
+                        </div>
+                        <h2 class="listing-item-title"><a href="" data-modal="survey-tasks">Tasks</a></h2>
                     </div>
                 </div>
             </div>
@@ -485,7 +385,7 @@
     <div class="modal-overlay"></div>
 </div>
 
-<div id="edit-field-image" class="modal">
+<div id="edit-field-photo" class="modal">
     <div class="modal-window">
         <h3 class="modal-title">
             <svg class="iconic">
@@ -645,6 +545,15 @@
                 </div>
             </div>
 
+            <div class="form-field switch">
+                <label>Hide author information</label>
+                <p data-fieldgroup-target="hide-author-message">Only people with permission to edit responses will be able to see who submitted them; and only when editing them.</p>
+                <div class="toggle-switch">
+                    <input class="tgl" id="hide-author" type="checkbox" data-fieldgroup-toggle="hide-author-message">
+                    <label class="tgl-btn" for="hide-author"></label>
+                </div>
+            </div>
+
             <fieldset>
                 <legend>Who can submit responses to this survey</legend>
 
@@ -690,6 +599,67 @@
                     </div>
                 </div>
             </fieldset>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="survey-tasks" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Edit tasks</h3>
+
+        <div class="modal-body">
+
+            <div class="listing">
+
+                {{#each deployment.surveys.0.tasks}}
+                <div class="listing-item">
+                    <div class="listing-item-select">
+                        <div class="buttons-updown">
+                            <button type="button" class="button-beta" {{#if @first}}disabled{{/if}}>
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                </svg>
+                                <span class="label hidden">Move up</span>
+                            </button>
+                            <button type="button" class="button-beta" {{#if @last}}disabled{{/if}}>
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                </svg>
+                                <span class="label hidden">Move down</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="">{{name}}</a></h2>
+                    </div>
+                </div>
+                {{/each}}
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title">
+                            <a href="" class="button" data-modal="add-task">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                </svg>
+                                Add task
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
 

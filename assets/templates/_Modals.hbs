@@ -24,26 +24,9 @@
         <h3 class="modal-title">Are you sure you want to delete this post?</h3>
 
         <div class="modal-body">
-
-            <article class="postcard">
-                <div class="post-band" style="background-color: #A51A1A;"></div>
-                <div class="listing-item-select">
-                    <span class="status-indicator empty tooltip">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                        </svg>
-                        <span class="bug">This post is published</span>
-                    </span>
-                </div>
-                <div class="postcard-body">
-                    <h1 class="postcard-title">Overcrowding between 5th St. &amp; Salem Ave.</h1>
-
-                    <div class="metadata">
-                        <span class="metadata-author"><img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />Jess Shorland</span>, 45 mins, via SMS
-                    </div>
-
-                </div>
-            </article>
+            {{#with (lookup deployment.responses 0)}}
+                {{> Postcard checkbox=false}}
+            {{/with}}
         </div>
 
         <div class="modal-actions">

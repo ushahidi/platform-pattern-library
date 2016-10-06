@@ -23,7 +23,7 @@
 
 </div>
 
-{{#with (lookup deployment.posts 0)}} <!--// Choose the post index that will be the context for this template //-->
+{{#with (lookup deployment.responses 0)}} <!--// Choose the post index that will be the context for this template //-->
 <main role="main">
 
     <div class="toolbar">
@@ -33,7 +33,7 @@
         </div>
     </div>
 
-    <div class="full-col">
+    <div class="{{#if tasks}}main{{else}}full{{/if}}-col">
 
         <div class="form-sheet" role="article">
             {{postBand}}
@@ -106,100 +106,11 @@
                 </li>
             </ul>
 
-            <div class="form-field">
-                <label>
-                    Describe the problem
-                </label>
-                <textarea name="description">{{striptags description}}</textarea>
-            </div>
+            {{#each answers}}
+                {{formField ../properties.survey 0 @index value}}
+            {{/each}}
 
-            <div class="form-field file">
-                <label>
-                    Photo of the problem
-                </label>
-
-                {{#if fields.photo}}
-
-                <figure>
-                    <img src="{{fields.photo}}" />
-
-                    <div class="form-field">
-                        <button class="button-destructive">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                            </svg>
-                            <span class="hidden">Delete photo</span>
-                        </button>
-
-                        <input type="file" id="photo" />
-                        <label for="photo" class="button button-gamma">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#image"></use>
-                            </svg>
-                            <span class="button-label">Replace image</span>
-                        </label>
-                    </div>
-                </figure>
-
-                <div class="form-field">
-                    <label class="hidden">Caption</label>
-                    <input type="text" placeholder="Add caption..." />
-                </div>
-
-                {{else}}
-
-                <input type="file" id="photo" />
-                <label for="photo" class="button button-gamma">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                    </svg>
-                    <span class="button-label">Add photo</span>
-                </label>
-
-                {{/if}}
-            </div>
-
-            <div class="form-field location">
-                <label>Location</label>
-                {{mapEmbed 0 false}}
-
-                <form role="search" class="searchbar" data-message="search">
-                    <div class="searchbar-input">
-                        <div class="form-field">
-                            <input type="search" maxlength="250" placeholder="Find a location" value="1234 Main St. Austin, TX USA" />
-                        </div>
-                        <div class="searchbar-results dropdown-menu">
-                            <div class="form-field">
-                                <button class="button-plain">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
-                                    </svg>
-                                    <span class="button-label">Search for "<em>123 Main St</em>"</span>
-                                </button>
-
-                                <button class="button-beta button-plain">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                                    </svg>
-                                    <span class="button-label">Use your current location</span>
-                                </button>
-                            </div>
-
-                            <div class="tool">
-                                <h6 class="tool-heading">Search results</h6>
-                                <dl class="dropdown-menu-body">
-                                    <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
-                                    <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
-                                </dl>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                <p><em>You can search or click the area of map where you want to place the marker.</em></p>
-            </div>
-
-            <fieldset id="categories" class="error">
+            <!--fieldset id="categories" class="error">
                 <legend>Categories</legend>
 
                 <div class="form-field checkbox">
@@ -211,10 +122,106 @@
                 <div class="form-field checkbox">
                     <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
                 </div>
-            </fieldset>
+            </fieldset-->
         </div>
 
-        <div class="form-sheet">
+        {{#if tasks}}
+        <div class="toolbox">
+
+            <div class="listing">
+
+                <div class="listing-item">
+                    <div class="listing-item-secondary hide-when-medium">
+                        <button class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div>
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                            </svg>
+                        </div>
+                        <h2 class="listing-item-title">Tasks</h2>
+                    </div>
+
+                    <div class="listing-item-body">
+
+                        <div class="tool">
+
+                            {{#each tasks}}
+                            <div class="task {{#if complete}}complete{{/if}} {{#if disabled}}disabled{{/if}}">
+                                <h5 class="task-title"><a href="#task-{{@index}}" data-modal="task-{{@index}}">{{taskInfo "name" 0 @index}}</a></h5>
+                                <div class="task-actions">
+
+                                    {{#if assignee}}
+                                    <span class="tooltip">
+                                        <span class="bug">Assigned to {{assignee.name}}</span>
+                                        <img src="{{assignee.avatar}}" class="avatar" />
+
+                                        {{#if assignee.locked}}
+                                        <span class="status-indicator">
+                                            <svg class="iconic">
+                                              <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                            </svg>
+                                        </span>
+                                        {{/if}}
+                                    </span>
+                                    {{/if}}
+
+                                    <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                                        <svg class="iconic">
+                                          <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                        </svg>
+                                        <span class="nodisplay">More</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="">Mark {{#if complete}}incomplete{{else}}complete{{/if}}</a>
+                                        </li>
+                                        <div class="divider"></div>
+                                        <li>
+                                            <a href="" data-modal="task-assignment">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                            </svg>
+                                            <span class="label">{{#if assignee}}Change{{else}}Add{{/if}} assignment</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" data-modal="task-due">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                            </svg>
+                                            <span class="label">{{#if due}}Change{{else}}Add{{/if}} due date</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="task-body">
+                                    {{#if due}}
+                                        <p><strong>Due</strong>: {{due}}</p>
+                                    {{/if}}
+                                    {{taskInfo "description" 0 @index}}
+                                </div>
+                            </div>
+                            {{/each}}
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {{/if}}
+
+        <!--div class="form-sheet">
             <div class="form-sheet-summary">
                 <h3 class="form-sheet-title">Delete this post</h3>
                 <p><strong>If you delete this post</strong>, all of its comments and messages will also be deleted. Proceed with caution.</p>
@@ -226,7 +233,7 @@
                     <span class="button-label">Delete post</span>
                 </button>
             </div>
-        </div>
+        </div-->
 
     </div>
 
@@ -253,7 +260,7 @@
     </div>
 </div>
 
-<div id="task-review" class="modal">
+<div id="task-0" class="modal">
     <div class="modal-window">
         <h3 class="modal-title complete">Review</h3>
 
@@ -287,7 +294,7 @@
     <div class="modal-overlay"></div>
 </div>
 
-<div id="task-verify" class="modal">
+<div id="task-1" class="modal">
     <div class="modal-window">
         <h3 class="modal-title">Verify</h3>
 
@@ -322,7 +329,7 @@
     <div class="modal-overlay"></div>
 </div>
 
-<div id="task-callpolice" class="modal">
+<div id="task-2" class="modal">
     <div class="modal-window">
         <h3 class="modal-title">Call police</h3>
 
@@ -371,7 +378,7 @@
     <div class="modal-overlay"></div>
 </div>
 
-<div id="task-publish" class="modal">
+<div id="task-3" class="modal">
     <div class="modal-window">
         <h3 class="modal-title">Publish</h3>
 

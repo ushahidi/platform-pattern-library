@@ -87,16 +87,17 @@
         .button {
             line-height: normal;
             margin-top: -$base-spacing;
-//             padding: $base-spacing 35px;
 
-/*
-            svg.iconic {
-                width: 1.142857143em;
-                height: 1.142857143em;
-            }
-*/
             .button-label {
                 display: none;
+            }
+
+            &.listing-item-toggle {
+
+                svg.iconic {
+                    width: 14px;
+                    height: 14px;
+                }
             }
         }
 
@@ -167,6 +168,16 @@
             margin-top: 0;
             margin-bottom: $sm-spacing;
         }
+
+        .task {
+
+            @include media($medium-down) {
+
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
     }
 
     .listing-item-image {
@@ -236,6 +247,10 @@
         &:hover {
             cursor: pointer;
         }
+    }
+
+    .toolbox-body {
+        margin-top: -$sm-spacing;
     }
 
 }

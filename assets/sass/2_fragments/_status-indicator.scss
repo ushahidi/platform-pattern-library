@@ -21,12 +21,28 @@
         stroke-width: 0.24;
         */
         margin: 4px;
+
+        + .label {
+            margin-top: auto;
+            margin-left: -2px;
+        }
     }
 
     .label {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 12px;
+        font-size: .857142857rem;
+        margin-top: 4px;
         margin-right: 10px;
-        margin-left: -2px;
+        margin-left: 10px;
+
+        strong {
+            color: $color-dark-beta;
+        }
     }
+
+
 
     &.green {
         background-color: $green;
@@ -46,9 +62,35 @@
     }
 
     &.red {
+        color: $white;
         background-color: $red;
-        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 4px $red;
+
+        svg.iconic {
+            fill: $color-light-delta;
+        }
+
+        .label {
+
+            strong {
+                color: $white;
+            }
+        }
+    }
+
+    &.blue {
+        color: $white;
+        background-color: $color-primary;
+
+        svg.iconic {
+            fill: $color-tertiary;
+        }
+
+        .label {
+
+            strong {
+                color: $white;
+            }
+        }
     }
 
     &.dark {
@@ -100,6 +142,13 @@ a.status-indicator {
 
         &:hover {
             background-color: darken($yellow, 10%);
+        }
+    }
+
+    &.blue {
+
+        &:hover {
+            background-color: darken($color-primary, 10%);
         }
     }
 }

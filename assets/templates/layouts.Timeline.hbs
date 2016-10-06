@@ -117,7 +117,7 @@
 
             {{#if user.logged_in}}
                 {{#each deployment.responses}}
-                    {{> Postcard checkbox=true}}
+                    {{> Postcard checkbox=true editable=true}}
                 {{/each}}
             {{else}}
                 {{#each deployment.responses}}
@@ -192,7 +192,7 @@
                         <span class="button-label">Add to Collection</span>
                     </button>
 
-                    <button type="button" class="button-destructive">
+                    <button type="button" class="button-destructive" data-modal="delete-post">
                         <svg class="iconic">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
                         </svg>
