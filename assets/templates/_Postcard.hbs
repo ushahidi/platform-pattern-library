@@ -45,10 +45,8 @@
 
                 {{#if properties.author.avatar}}
                 <li>
-                    <a href="">
-                        <img src="{{properties.author.avatar}}" class="avatar" />
-                        <strong class="label">{{properties.author.name}}</strong>
-                    </a>
+                    <img src="{{properties.author.avatar}}" class="avatar" />
+                    <strong class="label">{{properties.author.name}}</strong>
                 </li>
                 {{else}}
                 <li><strong class="label">{{properties.author.name}}</strong></li>
@@ -69,12 +67,15 @@
                 </button>
                 {{/if}}
 
+                {{#ifCond show_tasks false}}
                 <button class="button-gamma button-flat" data-toggle="dropdown-menu">
                     <svg class="iconic">
                       <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
                     </svg>
                     <span class="hidden">More</span>
                 </button>
+                {{/ifCond}}
+
                 <ul class="dropdown-menu">
                     {{#if editable}}
                     <li class="hide-when-small">

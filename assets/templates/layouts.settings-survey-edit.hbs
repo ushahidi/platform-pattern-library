@@ -62,17 +62,25 @@
                             </div>
                         </div>
 
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title {{#if required}}required{{/if}}"><a href="" data-modal="edit-field-{{type}}">{{label}}</a></h2>
+                        <div class="listing-item-secondary">
+                            <button type="button" class="button-beta button-flat" data-message="delete-field">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="hidden">Delete</span>
+                            </button>
                         </div>
 
-                        {{#if icon}}
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="{{icon}}"></use>
-                            </svg>
+                        <div class="listing-item-primary">
+                            {{#if icon}}
+                            <div class="listing-item-image">
+                                <svg class="iconic">
+                                  <use xlink:href="{{icon}}"></use>
+                                </svg>
+                            </div>
+                            {{/if}}
+                            <h2 class="listing-item-title {{#if required}}required{{/if}}"><a href="" data-modal="edit-field-{{type}}">{{label}}</a></h2>
                         </div>
-                        {{/if}}
                     </div>
                     {{/each}}
 
@@ -352,32 +360,12 @@
                 </div>
             </div>
 
-            <div class="form-field">
-                <hr />
-
-                <button class="button-destructive button-plain" data-message="delete-field-location">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete field</span>
-                </button>
-            </div>
-
         </div>
 
         <div class="modal-actions">
             <div class="form-field">
                 <button class="button-link modal-trigger">Cancel</button>
                 <button class="button-alpha modal-trigger">Save &amp; close</button>
-            </div>
-        </div>
-
-        <div id="delete-field-location" class="message">
-            <div class="message-body">
-                <p><strong>If you delete this field</strong>, all of the data captured within it will also be deleted. Proceed with caution.</p>
-
-                <button class="button-flat message-trigger">Cancel</button>
-                <button class="button-destructive message-trigger">Delete this field</button>
             </div>
         </div>
     </div>
@@ -414,17 +402,6 @@
                 </div>
             </div>
 
-            <div class="form-field">
-                <hr />
-
-                <button class="button-destructive button-plain" data-message="delete-field-image">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete field</span>
-                </button>
-            </div>
-
         </div>
 
         <div class="modal-actions">
@@ -433,18 +410,18 @@
                 <button class="button-alpha modal-trigger">Save &amp; close</button>
             </div>
         </div>
-
-        <div id="delete-field-image" class="message">
-            <div class="message-body">
-                <p><strong>If you delete this field</strong>, all of the data captured within it will also be deleted. Proceed with caution.</p>
-
-                <button class="button-flat message-trigger">Cancel</button>
-                <button class="button-destructive message-trigger">Delete this field</button>
-            </div>
-        </div>
     </div>
 
     <div class="modal-overlay"></div>
+</div>
+
+<div id="delete-field" class="message">
+    <div class="message-body">
+        <p><strong>If you delete this field</strong>, all of the data captured within it will also be deleted. Proceed with caution.</p>
+
+        <button class="button-flat message-trigger">Cancel</button>
+        <button class="button-destructive message-trigger">Delete this field</button>
+    </div>
 </div>
 
 <div id="survey-appearance" class="modal">

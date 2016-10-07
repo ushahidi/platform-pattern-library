@@ -1,0 +1,91 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Tasks</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        <p>Each of your surveys can have unique tasks assigned to each of its responses.</p>
+        <p>Tasks can be used to do things like require each response be reviewed, verified, or forwarded to someone else.</p>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="full-col">
+
+        {{#each deployment.surveys}}
+        <div class="form-sheet">
+            <span class="post-band" style="background-color:#{{color}};"></span>
+
+            <header class="form-sheet-summary">
+                <h2 class="form-sheet-title">{{name}}</h2>
+            </header>
+
+            <div class="listing">
+
+                <div class="listing-body">
+
+                    {{#each tasks}}
+                    <div class="listing-item">
+                        <div class="listing-item-select">
+                            <div class="buttons-updown">
+                                <button type="button" class="button-beta" {{#if @first}}disabled{{/if}}>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button type="button" class="button-beta" {{#if @last}}disabled{{/if}}>
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title"><a href="">{{name}}</a></h2>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h2 class="listing-item-title">
+                                <a href="" class="button" data-modal="add-task">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                    </svg>
+                                    Add task
+                                </a>
+                            </h2>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        {{/each}}
+
+    </div>
+
+</main>
+
+{{> Modals }}
