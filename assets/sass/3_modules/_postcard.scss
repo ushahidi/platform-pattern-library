@@ -53,10 +53,6 @@
         }
     }
 
-    .postcard-overflow {
-        display: none;
-    }
-
     .dropdown-menu {
         display: none;
 
@@ -425,6 +421,11 @@
         }
     }
 
+    .postcard-overflow-bookend {
+        display: none;
+    }
+
+    // DEPRECATE IN FAVOR OF SERVER-SIDE LOGIC FOR RENDERING THIS CONTENT
     .map & {
 
         .listing-item-select {
@@ -434,24 +435,26 @@
             }
         }
 
-        .postcard-body {
-            max-height: 240px;
+        .postcard-overflow {
+            position: relative;
+            max-height: 250px;
             overflow-y: hidden;
 
-            .postcard-overflow {
+            .postcard-overflow-bookend {
                 display: block;
                 position: absolute;
-                z-index: $body;
                 right: 0;
                 bottom: 0;
                 left: 0;
                 text-align: center;
-                padding: $tiny-spacing;
+                @include vert-gradient(rgba(255,255,255,.24), rgba(255,255,255,1));
+                padding: $sm-spacing;
 
+/*
                 &:before {
                     content: '';
                     position: absolute;
-                    z-index: -1;
+                    z-index: 0;
                     top: 0;
                     right: 0;
                     bottom: 0;
@@ -462,15 +465,15 @@
                     -o-filter: blur(10px);
                     -ms-filter: blur(10px);
                     filter: blur(10px);
-                    opacity: 0.85;
+                    opacity: 0.8;
                 }
-
+*/
                 button,
                 .button {
-
-                    &.button-plain {
-                        font-weight: $bold;
-                    }
+                    position: relative;
+                    z-index: 1;
+                    font-weight: 800;
+                    margin: 0 auto;
                 }
             }
         }

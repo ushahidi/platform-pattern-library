@@ -130,15 +130,15 @@
 
             <div class="listing">
 
-                <div class="listing-item">
-                    <div class="listing-item-secondary hide-when-medium">
+                <div class="listing-item active">
+                    <!--div class="listing-item-secondary hide-when-small">
                         <button class="button-beta button-flat listing-item-toggle">
                             <svg class="iconic">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
                             </svg>
                             <span class="button-label">Configure</span>
                         </button>
-                    </div>
+                    </div-->
 
                     <div class="listing-item-primary">
                         <div class="listing-item-image">
@@ -155,7 +155,20 @@
 
                             {{#each tasks}}
                             <div class="task {{#if complete}}complete{{/if}} {{#if disabled}}disabled{{/if}}">
-                                <h5 class="task-title"><a href="#task-{{@index}}" data-modal="task-{{@index}}">{{taskInfo "name" 0 @index}}</a></h5>
+                                <h5 class="task-title">
+                                    {{#unless disabled}}
+                                    <a href="#task-{{@index}}" data-modal="task-{{@index}}">
+                                        {{#unless complete}}
+                                        <span class="status-indicator yellow"></span>
+                                        {{/unless}}
+                                    {{/unless}}
+
+                                        {{taskInfo "name" 0 @index}}
+
+                                    {{#unless disabled}}
+                                    </a>
+                                    {{/unless}}
+                                </h5>
                                 <div class="task-actions">
 
                                     {{#if assignee}}
@@ -180,10 +193,12 @@
                                         <span class="nodisplay">More</span>
                                     </button>
                                     <ul class="dropdown-menu">
+                                        {{#unless disabled}}
                                         <li>
                                             <a href="">Mark {{#if complete}}incomplete{{else}}complete{{/if}}</a>
                                         </li>
                                         <div class="divider"></div>
+                                        {{/unless}}
                                         <li>
                                             <a href="" data-modal="task-assignment">
                                             <svg class="iconic">
@@ -206,7 +221,12 @@
                                     {{#if due}}
                                         <p><strong>Due</strong>: {{due}}</p>
                                     {{/if}}
-                                    {{taskInfo "description" 0 @index}}
+
+                                    {{#if disabled}}
+                                        <p><em>This task can't be completed until "Verify" is completed.</em></p>
+                                    {{else}}
+                                        {{taskInfo "description" 0 @index}}
+                                    {{/if}}
                                 </div>
                             </div>
                             {{/each}}

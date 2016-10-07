@@ -116,115 +116,117 @@
             </div>
         </header>
 
-        {{#with answers.[0]}}
-        <div class="postcard-field">
-            <h1 class="postcard-title"><a href="">{{striptags value}}</a></h1>
-        </div>
-        {{/with}}
+        <div class="postcard-overflow">
 
-        {{#ifCond show_tasks true}}
-
-            <div class="postcard-tasks">
-                <a href="" class="postcard-tasks-title status-indicator yellow">
-                    <span class="label"><strong>{{tasks.length}}</strong> incomplete tasks</span>
-                </a>
-
-            {{#each tasks}}
-
-                {{#ifCond complete false}}
-                    {{#ifCond disabled false}}
-                    <div class="postcard-field task">
-                        <h2 class="task-title"><a href="post-edit.html">{{taskInfo "name" @../index @index}}</a></h2>
-
-                        <div class="task-actions">
-                            {{#if assignee}}
-                            <span class="tooltip">
-                                <span class="bug">Assigned to {{assignee.name}}</span>
-                                <img src="{{assignee.avatar}}" class="avatar" />
-                                {{#if assignee.locked}}
-                                <span class="status-indicator">
-                                    <svg class="iconic">
-                                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                    </svg>
-                                </span>
-                                {{/if}}
-                            </span>
-                            {{/if}}
-
-                            <button class="button-gamma button-flat" data-toggle="dropdown-menu">
-                                <svg class="iconic">
-                                  <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                                </svg>
-                                <span class="nodisplay">More</span>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="">
-                                        <svg class="iconic">
-                                            <use xlink:href="../../img/iconic-sprite.svg#check"></use>
-                                        </svg>
-                                        <span class="label">Mark complete</span>
-                                    </a>
-                                </li>
-                                <div class="divider"></div>
-                                <li>
-                                    <a href="" data-modal="task-assignment">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                                    </svg>
-                                    {{#if assignee}}
-                                    <span class="label">Change assignment</span>
-                                    {{else}}
-                                    <span class="label">Assign to...</span>
-                                    {{/if}}
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="" data-modal="task-due">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                                    </svg>
-                                    {{#if due}}
-                                    <span class="label">Change due date</span>
-                                    {{else}}
-                                    <span class="label">Add due date</span>
-                                    {{/if}}
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="task-body">
-                            {{#if description}}
-                            {{{description}}}
-                            {{/if}}
-
-                            {{#if due}}
-                            <p><strong>Due</strong>: {{due}}</p>
-                            {{/if}}
-                        </div>
-                    </div>
-                    {{/ifCond}}
-                {{/ifCond}}
-
-            {{/each}}
-            </div>
-
-        {{else}}
-
-            {{#with answers.[2]}}
+            {{#with answers.[0]}}
             <div class="postcard-field">
-                {{postcardField ../properties.survey @index 2 value}}
+                <h1 class="postcard-title"><a href="">{{striptags value}}</a></h1>
             </div>
             {{/with}}
 
-            <div class="postcard-field">
-                <p><a href="">3 more fields...</a></p>
-            </div>
+            {{#ifCond show_tasks true}}
 
-            <div class="postcard-overflow">
-                <a href="post-detail.html" class="button button-flat button-plain button-beta">Show complete response</a>
-            </div>
+                <div class="postcard-tasks">
+                    <a href="" class="postcard-tasks-title status-indicator yellow">
+                        <span class="label"><strong>{{tasks.length}}</strong> incomplete tasks</span>
+                    </a>
 
-        {{/ifCond}}
+                {{#each tasks}}
+
+                    {{#ifCond complete false}}
+                        {{#ifCond disabled false}}
+                        <div class="postcard-field task">
+                            <h2 class="task-title"><a href="post-edit.html">{{taskInfo "name" @../index @index}}</a></h2>
+
+                            <div class="task-actions">
+                                {{#if assignee}}
+                                <span class="tooltip">
+                                    <span class="bug">Assigned to {{assignee.name}}</span>
+                                    <img src="{{assignee.avatar}}" class="avatar" />
+                                    {{#if assignee.locked}}
+                                    <span class="status-indicator">
+                                        <svg class="iconic">
+                                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                    </span>
+                                    {{/if}}
+                                </span>
+                                {{/if}}
+
+                                <button class="button-gamma button-flat" data-toggle="dropdown-menu">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                    </svg>
+                                    <span class="nodisplay">More</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                                            </svg>
+                                            <span class="label">Mark complete</span>
+                                        </a>
+                                    </li>
+                                    <div class="divider"></div>
+                                    <li>
+                                        <a href="" data-modal="task-assignment">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                        </svg>
+                                        {{#if assignee}}
+                                        <span class="label">Change assignment</span>
+                                        {{else}}
+                                        <span class="label">Assign to...</span>
+                                        {{/if}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-modal="task-due">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        {{#if due}}
+                                        <span class="label">Change due date</span>
+                                        {{else}}
+                                        <span class="label">Add due date</span>
+                                        {{/if}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="task-body">
+                                {{#if description}}
+                                {{{description}}}
+                                {{/if}}
+
+                                {{#if due}}
+                                <p><strong>Due</strong>: {{due}}</p>
+                                {{/if}}
+                            </div>
+                        </div>
+                        {{/ifCond}}
+                    {{/ifCond}}
+
+                {{/each}}
+                </div>
+
+            {{else}}
+
+                {{#with answers.[2]}}
+                <div class="postcard-field">
+                    {{postcardField ../properties.survey @index 2 value}}
+                </div>
+                {{/with}}
+
+                <div class="postcard-field">
+                    <p><a href="">3 more fields...</a></p>
+                </div>
+
+                <div class="postcard-overflow-bookend">
+                    <a href="post-detail.html" class="button button-beta button-plain">See complete response</a>
+                </div>
+            {{/ifCond}}
+        </div>
     </div>
 </article>
