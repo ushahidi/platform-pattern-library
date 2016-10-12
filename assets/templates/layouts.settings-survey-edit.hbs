@@ -595,8 +595,12 @@
         <h3 class="modal-title">Edit tasks</h3>
 
         <div class="modal-body">
+            <p>Tasks help you build a workflow around every response to this survey.</p>
+            <p>For example, you can add a task for your team to verify information included in each response before publishing they are published.</p>
+            <p>When survey responses have incomplete tasks attached to them, those tasks are listed in your deployment's <a href="tasks.html">"Tasks"</a> view.</p>
 
             <div class="listing">
+                <!--h3 class="listing-heading">Survey tasks</h3-->
 
                 {{#each deployment.surveys.0.tasks}}
                 <div class="listing-item">
@@ -626,7 +630,7 @@
                 <div class="listing-item">
                     <div class="listing-item-primary">
                         <h2 class="listing-item-title">
-                            <a href="" class="button" data-modal="add-task">
+                            <a href="" class="button" data-modal="survey-task-add">
                                 <svg class="iconic">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
                                 </svg>
@@ -636,6 +640,93 @@
                     </div>
                 </div>
 
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="survey-task-add" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Add task</h3>
+
+        <div class="modal-body">
+            <div class="form-field title">
+                <label class="hidden">Name</label>
+                <input type="text" placeholder="Task name..." />
+            </div>
+
+            <div class="form-field">
+                <label>Description</label>
+                <textarea></textarea>
+            </div>
+
+            <div class="form-field switch">
+                <label>Require other tasks be completed before this one can be completed</label>
+                <div class="toggle-switch">
+                    <input class="tgl" id="new_task-require-another-task" type="checkbox" data-fieldgroup-toggle="new_task-require-another-task-select">
+                    <label class="tgl-btn" for="new_task-require-another-task"></label>
+                </div>
+
+                <div class="form-fieldgroup" data-fieldgroup-target="new_task-require-another-task-select">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Choose tasks that</span> must be completed</legend>
+
+                        {{#each deployment.surveys.0.tasks}}
+                        <div class="form-field checkbox">
+                            <label for="new_task-require-{{@index}}">{{name}}</label>
+                            <input id="new_task-require-{{@index}}" type="checkbox" />
+                        </div>
+                        {{/each}}
+
+                    </fieldset>
+                </div>
+            </div>
+
+            <fieldset>
+                <legend>When this task is completed, do the following:</legend>
+
+                <div class="form-field checkbox">
+                    <label for="new_task-trigger-0">Publish the response</label>
+                    <input id="new_task-trigger-0" type="checkbox" />
+                </div>
+            </fieldset>
+
+            <div class="form-field switch">
+                <label>Include custom fields for this task</label>
+                <div class="toggle-switch">
+                    <input class="tgl" id="new_task-task-custom_fields-show" type="checkbox" data-fieldgroup-toggle="new_task-task-custom_fields">
+                    <label class="tgl-btn" for="new_task-task-custom_fields-show"></label>
+                </div>
+
+                <div class="form-field" data-fieldgroup-target="new_task-task-custom_fields">
+
+                    <div class="listing">
+                        <h4 class="listing-heading">Task fields</h4>
+                        <div class="listing-item">
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title">
+                                    <a href="" class="button" data-modal="add-field">
+                                        <svg class="iconic">
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                        </svg>
+                                        Add field
+                                    </a>
+                                </h2>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
 
         </div>

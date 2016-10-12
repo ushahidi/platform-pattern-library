@@ -91,7 +91,8 @@ Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fiel
 
 Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldIndex, value) {
     var fieldType = session.deployment.surveys[surveyIndex].fields[fieldIndex].type,
-        fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label;
+        fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
+        fieldOptions = session.deployment.surveys[surveyIndex].fields[fieldIndex].options;
 
     if (fieldType == 'text') {
         return new Handlebars.SafeString(
@@ -100,6 +101,21 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
     } else if (fieldType == 'textarea') {
         return new Handlebars.SafeString(
             '<div class="form-field"><label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea></div>'
+        );
+    } else if (fieldType == 'dropdown') {
+        var optionElems = '';
+
+        for (var i=0; i < fieldOptions.length; i++) {
+            var attribute = value == i ? 'selected' : '';
+            optionElems += '<option ' + attribute + '>' + fieldOptions[i].name + '</option>';
+        }
+
+        return new Handlebars.SafeString(
+            '<div class="form-field"><label>'+fieldLabel+'</label> \
+                <div class="custom-select"> \
+                    <select>' + optionElems + '</select> \
+                </div> \
+            </div>'
         );
     } else if (fieldType == 'photo') {
         return new Handlebars.SafeString(
@@ -173,7 +189,7 @@ Handlebars.registerHelper('taskInfo', function(key, postIndex, taskIndex) {
     if (keyValue !== undefined) {
         return new Handlebars.SafeString(
             session.deployment.surveys[surveyIndex].tasks[taskIndex][key]
-        );        
+        );
     }
 });
 
