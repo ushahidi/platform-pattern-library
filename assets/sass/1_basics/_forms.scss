@@ -23,6 +23,19 @@ label,
         }
     }
 
+    &[contenteditable="true"] {
+        @include transition(0.3s);
+
+        &:focus {
+            outline-color: $white;
+            @include border-top-radius($global-radius);
+            @include border-bottom-radius($global-radius);
+            padding: $tiny-spacing $sm-spacing;
+            box-shadow: 0 0 4px 1px $color-secondary,
+                inset 0 1px 1px rgba(0,0,0,.3);
+        }
+    }
+
     [role="article"] & {
         font-size: 20px;
         font-size: 1.428571429rem;
@@ -62,7 +75,8 @@ textarea {
     }
 
     + button,
-    + [type="button"] {
+    + [type="button"],
+    + .button {
         margin-top: $tiny-spacing;
 
         @include media($medium) {
@@ -161,7 +175,13 @@ input[type="radio"] {
 textarea {
     width: 100%;
     max-width: 100%;
-    height: 120px;
+//    height: 120px;
+
+    + button,
+    + [type="button"],
+    + .button {
+        margin-top: $tiny-spacing;
+    }
 }
 
 select {

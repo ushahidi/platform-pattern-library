@@ -358,12 +358,6 @@ fieldset {
                 left: $tiny-spacing;
                 margin: 0;
                 @include containerCard;
-
-/*
-                .dropdown-menu-body {
-                    max-height: 245px;
-                }
-*/
             }
         }
     }
@@ -598,7 +592,8 @@ fieldset {
     input[type="tel"],
     input[type="time"],
     input[type="url"],
-    input[type="week"] {
+    input[type="week"],
+    textarea {
         @include padding-left(38px);
     }
 
@@ -633,6 +628,90 @@ fieldset {
     .form-fieldgroup {
         padding-top: 0;
         margin-top: $sm-spacing;
+    }
+
+    .form-field-type {
+        border-left: none;
+        padding-left: 0;
+        margin: 0;
+    }
+
+    &[draggable="true"] {
+        @include transition(0.3s);
+
+        .form-field-config {
+            display: none;
+        }
+
+        .form-field-actions {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: center;
+            border-top: $base-border;
+            padding-top: $sm-spacing;
+            margin-top: $sm-spacing;
+
+            .form-field {
+
+                &.switch {
+
+                    > label {
+                        padding-right: 56px;
+                    }
+                }
+            }
+        }
+
+        .dragger {
+            display: inline-block;
+            opacity: 0;
+            position: absolute;
+            top: -$sm-spacing;
+            left: 50%;
+            margin-left: -12px;
+            @include transition(0.3s);
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: -$base-spacing;
+                right: -$sm-spacing;
+                bottom: -$sm-spacing;
+                left: -$sm-spacing;
+                box-shadow: 0 0 2px rgba(0,0,0,0.12),
+                    0 2px 2px rgba(0,0,0,0.24);
+            }
+
+            .dragger {
+                opacity: 1;
+            }
+        }
+
+        &.focus {
+            padding-top: $base-spacing !important;
+
+            &:before {
+                content: none;
+            }
+
+            .form-field-preview {
+                display: none;
+            }
+
+            .form-field-config {
+                display: block;
+            }
+
+            .dragger {
+                opacity: 1;
+                top: 0;
+            }
+        }
     }
 }
 

@@ -25,10 +25,10 @@
 
     <div class="main-col">
 
-        <section class="form-sheet card">
+        <section class="form-sheet" role="article">
             <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
 
-            <div class="form-field title survey-title">
+            <!--div class="form-field title survey-title">
                 <label class="hidden">Survey name</label>
                 <input type="text" placeholder="Survey name" value="{{deployment.surveys.0.name}}">
             </div>
@@ -36,69 +36,133 @@
             <div class="form-field">
                 <label>Description</label>
                 <textarea>{{deployment.surveys.0.description}}</textarea>
+            </div-->
+
+            <div class="form-field" draggable="true">
+
+                <label contenteditable="true">Describe the problem</label>
+                <div class="input-with-icon form-field-preview">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
+                    </svg>
+                    <textarea rows="3" disabled>Long text</textarea>
+                </div>
+
+                <div class="form-field-config">
+                    <a class="button button-beta button-flat button-plain" data-toggle="field-type">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
+                        </svg>
+                        <span class="button-label">Long text</span>
+                    </a>
+                </div>
+
+                <span class="dragger">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
+                    </svg>
+                </span>
+
+                <div class="form-field-config">
+
+                    <div class="form-field-actions">
+
+                        <div class="form-field switch">
+                            <label>Required</label>
+                            <div class="toggle-switch">
+                                <input class="tgl" id="require-field-1" type="checkbox">
+                                <label class="tgl-btn" for="require-field-1"></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="button-beta button-flat">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="hidden">Delete</span>
+                            </button>
+
+                            <button class="button-beta button-flat" data-toggle="field-config-long_text">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="hidden">More</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-field location" draggable="true">
+
+                <label contenteditable="true">Where is the problem?</label>
+                <div class="form-field-preview">
+                    {{mapEmbed 0 false}}
+
+                    <form role="search" class="searchbar" data-message="search">
+                        <div class="searchbar-input">
+                            <div class="form-field">
+                                <input type="search" maxlength="250" placeholder="Pick a location" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="form-field-config">
+                    <a class="button button-beta button-flat button-plain" data-toggle="field-type">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
+                        </svg>
+                        <span class="button-label">Location</span>
+                    </a>
+                </div>
+
+                <span class="dragger">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
+                    </svg>
+                </span>
+
+                <div class="form-field-config">
+
+                    <div class="form-field-actions">
+
+                        <div class="form-field switch">
+                            <label>Required</label>
+                            <div class="toggle-switch">
+                                <input class="tgl" id="require-field-0" type="checkbox">
+                                <label class="tgl-btn" for="require-field-0"></label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button class="button-beta button-flat">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="hidden">Delete</span>
+                            </button>
+
+                            <button class="button-beta button-flat" data-toggle="field-config-long_text">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="hidden">More</span>
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
 
             <div class="listing" style="margin-left: 4px;">
                 <h3 class="listing-heading">Fields</h3>
 
                 <div class="listing-body">
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta" disabled>
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title required"><a href="">Describe the problem</a></h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title required"><a href="" data-modal="edit-field-location">Where is the problem?</a></h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
 
                     <div class="listing-item">
                         <div class="listing-item-select">
@@ -251,148 +315,6 @@
 </main>
 
 {{> Modals }}
-
-<div class="mainsheet" data-toggle-target="add-field" data-toggle-animate>
-
-    <div class="mainsheet-window">
-        <h3 class="mainsheet-heading">Add field</h3>
-
-        <div class="listing grid">
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_short_text_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Short text</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Long text</a></h2>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="listing grid">
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_image_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Image</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Location</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_looks_one_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Number</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Date</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Time</a></h2>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="listing grid">
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_radio_button_checked_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Multiple choice</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_circle_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Dropdown</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Checkboxes</a></h2>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="mainsheet-overlay"></div>
-</div>
 
 <div id="edit-field-location" class="modal">
     <div class="modal-window">
@@ -702,4 +624,144 @@
     </div>
 
     <div class="modal-overlay"></div>
+</div>
+
+<div class="mainsheet" data-toggle-target="field-type" data-toggle-animate>
+    <div class="mainsheet-window">
+        <h3 class="mainsheet-heading">Choose a field type</h3>
+
+        <div class="listing grid">
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_short_text_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Short text</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Long text</a></h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="listing grid">
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_image_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Image</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Location</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_looks_one_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Number</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Date</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Time</a></h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="listing grid">
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_radio_button_checked_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Multiple choice</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_circle_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Dropdown</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Checkboxes</a></h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mainsheet-overlay"></div>
 </div>
