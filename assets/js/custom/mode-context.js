@@ -1,7 +1,7 @@
 // Initialize mode context
 $('.mode-context').each(function(){
    var context = $(this),
-   trigger = $(context).find('.mode-context-trigger');
+   trigger = $('.mode-context-trigger');
 
    // Add 'init' class to the Mode Bar
    $(context).addClass('init');

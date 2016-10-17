@@ -1,7 +1,8 @@
 toggleInit = function(triggerSelector) {
     var trigger = $(triggerSelector),
-    targetVal = $(trigger).attr('data-toggle'),
-    target = $('[data-toggle-target="'+targetVal+'"]').length ? $('[data-toggle-target="'+targetVal+'"]') : $(trigger).next('.'+targetVal);
+        targetVal = $(trigger).attr('data-toggle'),
+        target = $('[data-toggle-target="'+targetVal+'"]').length ? $('[data-toggle-target="'+targetVal+'"]')
+            : $(trigger).next('.'+targetVal);
 
     // Add 'init' class to target and trigger
     $(trigger).addClass('init');
@@ -27,6 +28,7 @@ toggleInit = function(triggerSelector) {
         // IF: Target is currently hidden
         if ($(target).is(':hidden')) {
             $(trigger).addClass('active');
+            $('[data-toggle="'+targetVal+'"]').addClass('active');
 
             // IF: Target has the 'data-toggle-animate' attribute, animate it
             if ($(target)[0].hasAttribute('data-toggle-animate')) {
@@ -52,7 +54,7 @@ toggleInit = function(triggerSelector) {
                 });
             }
 
-            if ($(target).hasClass('dropdown-menu')) {
+            if (target.hasClass('dropdown-menu')) {
                 dropdownXpos(trigger, target);
 
                 $(target).oneClickOutside({
@@ -66,6 +68,7 @@ toggleInit = function(triggerSelector) {
             // ELSE: Target is currently visible
         } else {
             $(trigger).removeClass('active');
+            $('[data-toggle="'+targetVal+'"]').removeClass('active');
 
             // IF: Target has the 'data-toggle-animate' attribute, animate it
             if ($(target)[0].hasAttribute('data-toggle-animate')) {
@@ -93,7 +96,9 @@ toggleInit = function(triggerSelector) {
             }
         }
 
-        e.preventDefault();
+        if (trigger.is('a')) {
+            e.preventDefault();
+        }
     });
 }
 

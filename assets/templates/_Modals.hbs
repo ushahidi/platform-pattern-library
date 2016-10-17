@@ -679,9 +679,9 @@
     <div class="modal-overlay"></div>
 </div>
 
-<div id="choose-author" class="modal">
+<div id="edit-author" class="modal">
     <div class="modal-window">
-        <h3 class="modal-title">Choose author</h3>
+        <h3 class="modal-title">Edit author</h3>
 
         <div class="modal-body">
 
@@ -1035,7 +1035,7 @@
 
 <div class="mainsheet" data-toggle-target="fab-options" data-toggle-animate>
     <div class="mainsheet-window">
-        <h3 class="mainsheet-heading">Add to</h3>
+        <h3 class="mainsheet-heading">Submit new survey</h3>
         <ul>
             {{#each deployment.surveys}}
             <li>
@@ -1046,6 +1046,48 @@
             </li>
             {{/each}}
         </ul>
+    </div>
+
+    <div class="mainsheet-overlay"></div>
+</div>
+
+<div class="mainsheet" data-toggle-target="post-status" data-toggle-animate>
+    <div class="mainsheet-window">
+
+        <fieldset>
+            <legend class="mainsheet-heading">Post status</legend>
+
+            <div class="form-field radio icon-input">
+                <label for="status-published" data-toggle="post-status">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                    </svg>
+                    <input checked type="radio" name="status" id="status-published" />
+                    Published
+                </label>
+            </div>
+
+            <div class="form-field radio icon-input">
+                <label for="status-review" data-toggle="post-status">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                    </svg>
+                    <input type="radio" name="status" id="status-review" />
+                    Under review
+                </label>
+            </div>
+
+            <div class="form-field radio icon-input">
+                <label for="status-archive" data-toggle="post-status">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                    </svg>
+                    <input type="radio" name="status" id="status-archive" />
+                    Archived
+                </label>
+            </div>
+        </fieldset>
+
     </div>
 
     <div class="mainsheet-overlay"></div>

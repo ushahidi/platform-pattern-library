@@ -159,12 +159,41 @@
             }
         }
 
+        .main-col,
+        .full-col {
+
+            .ushahidi-bug {
+                top: auto;
+                right: $sm-spacing;
+                bottom: $sm-spacing;
+                left: auto;
+
+                @include media($small) {
+                    right: $huge-spacing;
+                }
+
+                @include media($medium-down) {
+
+                    svg.ushahidi-logo {
+                        width: $lg-spacing;
+                        height: $lg-spacing;
+                    }
+                }
+            }
+        }
+
         .toolbar {
             position: fixed;
             top: 55px;
             z-index: $toolbar;
             width: 100%;
 
+            @include media($medium) {
+                top: 0;
+                right: 0;
+                left: 288px;
+                width: auto;
+            }
 
             .fab {
 
@@ -191,13 +220,6 @@
                         }
                     }
                 }
-            }
-
-            @include media($medium) {
-                top: 0;
-                right: 0;
-                left: 288px;
-                width: auto;
             }
         }
 
@@ -241,16 +263,6 @@
 
                 .listing-item-select {
 
-/*
-                    @include media($mobile) {
-                        left: 10%;
-                        margin-left: -$huge-spacing;
-                    }
-
-                    @include media($xlarge) {
-                        left: 20%;
-                    }
-*/
 
                     + .listing-item-primary {
 
@@ -388,19 +400,6 @@
                     display: block;
                 }
             }
-/*
-            @include media($medium) {
-                margin-right: 230px;
-
-                + .listing {
-                    margin-right: 230px;
-
-                    + .listing {
-                        margin-right: 230px;
-                    }
-                }
-            }
-*/
         }
 
         .postcard[role="article"] {
@@ -419,12 +418,14 @@
 
             @include media($small) {
                 position: fixed;
+                top: 146px;
                 @include right(16px);
                 z-index: $toolbox;
                 width: 206px;
             }
 
             @include media($medium) {
+                top: 85px;
                 @include right(24px);
             }
         }
@@ -447,6 +448,34 @@
                 position: relative;
                 z-index: $modal+1;
                 @include box-shadow(0, 0, $tiny-spacing, $tiny-spacing/2, rgba(0,0,0,.24), false);
+            }
+        }
+
+        .ushahidi-bug {
+            display: inline-block;
+            position: fixed;
+            top: 71px;
+            left: $sm-spacing;
+            z-index: $modebar;
+
+            @include media($medium) {
+                top: auto;
+                right: $base-spacing;
+                bottom: $base-spacing;
+                left: auto;
+            }
+
+            svg.ushahidi-logo {
+                width: $huge-spacing;
+                height: $huge-spacing;
+                fill: $color-primary;
+                filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+                stroke: white;
+                stroke-width: 1;
+
+                @include media($medium) {
+
+                }
             }
         }
 
@@ -545,17 +574,14 @@
     .mainsheet {
         display: none;
         position: fixed;
-        z-index: $toolbar - 1;
-        top: 107px;
+        z-index: $modal;
+        top: 0;
         right: 0;
-        bottom: 45px;
+        bottom: 0;
         left: 0;
 
         @include media($medium) {
-            top: 68px;
-            right: 0;
-            bottom: 0;
-            left: 288px;
+            // left: 288px;
         }
 
         .mainsheet-window {
@@ -565,10 +591,17 @@
             bottom: -999px;
             left: 0;
 
+            @include media($mobile) {
+                margin-right: 24%;
+                margin-left: 24%;
+            }
+
             @include media($medium) {
+                // left: 288px;
                 top: -999px;
-                left: 288px;
                 bottom: auto;
+                margin-right: 32%;
+                margin-left: 32%;
             }
         }
 
@@ -577,39 +610,22 @@
             opacity: 0;
         }
 
-        &.fab-mainsheet {
-
-            .mainsheet-window {
-
-                @include media($small) {
-                    left: auto;
-                    width: 222px;
-                }
-
-                @include media($medium) {
-                    left: 288px;
-                    width: auto;
-                    max-width: 224px;
-                }
-            }
-        }
-
         &.init {
 
             &.active {
 
                 .mainsheet-window {
-                    bottom: 45px;
-
-                    @include media($small) {
-                        margin-right: 24%;
-                        margin-left: 24%;
-                    }
+                    bottom: 0;
 
                     @include media($medium) {
-                        top: 68px;
+                        /*
+                        margin-right: 16%;
+                        margin-left: 16%;
+                        */
+                        top: 8%;
                         bottom: auto;
-                        margin: 0;
+                        margin-right: 32%;
+                        margin-left: 32%;
                     }
                 }
 

@@ -6,11 +6,14 @@
     }
 
     .mainsheet-heading {
-        @include typeBeta;
+        @include typeAlpha;
+
         margin: $sm-spacing;
 
         @include media($medium) {
             margin-top: $base-spacing;
+            margin-right: $base-spacing;
+            margin-left: $base-spacing;
         }
     }
 
@@ -23,8 +26,58 @@
             padding: $tiny-spacing $sm-spacing;
             margin: 4px 0;
 
+            @include media($medium) {
+                padding-right: $base-spacing;
+                padding-left: $base-spacing;
+            }
+
             svg.iconic {
                 margin-right: $tiny-spacing;
+            }
+        }
+    }
+
+    fieldset {
+        margin-top: $sm-spacing;
+        margin-bottom: $sm-spacing;
+
+        @include media($medium) {
+            margin-top: $base-spacing;
+        }
+
+        .form-field {
+
+            &.checkbox,
+            &.radio {
+                padding-right: $sm-spacing;
+                padding-left: $sm-spacing;
+                margin-top: $tiny-spacing;
+
+                @include media($medium) {
+                    padding-right: $base-spacing;
+                    padding-left: $base-spacing;
+                }
+
+                label {
+
+                    &:active {
+                        background-color: rgba(0,0,0,.24);
+                    }
+                }
+
+                &.icon-input {
+
+                    > label {
+
+                        &:before {
+                            left: 2px;
+
+                            @include media($medium) {
+                                left: 4px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

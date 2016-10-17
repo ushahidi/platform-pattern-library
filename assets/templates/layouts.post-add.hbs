@@ -53,83 +53,72 @@
                 <input type="text" placeholder="Title"/>
             </div>
 
-            <div class="toolbox">
+            <ul class="metadata">
                 {{#if user.logged_in}}
 
-                <div class="tool">
-                    <fieldset class="custom-fieldset">
-                        <legend><span class="custom-fieldset-value">Status</span></legend>
-                        <div class="form-field radio icon-input">
-                            <label for="status-published">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-published" />
-                                Published
-                            </label>
-                        </div>
-                        <div class="form-field radio icon-input">
-                            <label for="status-review">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-review" checked />
-                                Under review
-                            </label>
-                        </div>
-                        <div class="form-field radio icon-input">
-                            <label for="status-archive">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-archive" />
-                                Archived
-                            </label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="tool">
-                    <h6 class="tool-heading">Post date</h6>
-                    <span class="tool-trigger" data-toggle="toggle-content">
+                <li>
+                    <a class="chip yellow" data-toggle="post-status">
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
                         <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
-                        <span class="label hidden">Show/hide</span>
-                    </span>
-                    <div class="toggle-content active">
-                        <fieldset>
-                            <legend class="hidden">Post date</legend>
-                            <div class="form-field date">
-                                <label class="hidden">Date</label>
-                                <div class="input-with-icon">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                                    </svg>
-                                    <input type="date" value="2016-06-22" placeholder="Date" />
-                                </div>
-                            </div>
-                            <div class="form-field date">
-                                <label class="hidden">Time</label>
-                                <div class="input-with-icon">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                                    </svg>
-                                    <input type="time" value="11:39:57" placeholder="Time" />
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
+                        <span class="label">Under review</span>
+                    </a>
+                </li>
+
+                <!--li>
+                    <a href="" class="chip" data-modal="edit-author">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        <img src="{{user.avatar}}" class="avatar" />
+                        <span class="label">{{user.name}}</span>
+                    </a>
+                </li-->
+
+                <li>
+                    By <strong>{{user.name}}</strong>
+                </li>
+
+                <li>
+                    <a href="" class="chip" data-modal="post-date">
+                        <span class="chip-icon">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            </svg>
+                            <span class="label">Date</span>
+                        </span>
+                        <span class="label">Now</span>
+                    </a>
+                </li>
 
                 {{else}}
 
-                <div class="tool">
+                <li>
+                    <span class="status-indicator yellow tooltip">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                    </span>
                     <strong>This post will need to be reviewed</strong> before it's published.
-                </div>
+                </li>
+
+                <li>
+                    <a href="" class="chip">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                        </svg>
+                        <span class="label">Anonymous</span>
+                    </a>
+                </li>
 
                 {{/if}}
-            </div>
+            </ul>
 
             <div class="form-field">
                 <label>Description</label>
@@ -178,16 +167,16 @@
                 <form role="search" class="searchbar" data-message="search">
                     <div class="searchbar-input">
                         <div class="form-field">
-                            <input type="search" maxlength="250" placeholder="Find a location" value="" />
+                            <input type="search" maxlength="250" placeholder="Pick a location" value="" />
                         </div>
                         <div class="searchbar-results dropdown-menu">
                             <div class="form-field">
-                                <button class="button-plain">
+                                <!--button class="button-plain">
                                     <svg class="iconic">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
                                     </svg>
                                     <span class="button-label">Search for "<em>123 Main St</em>"</span>
-                                </button>
+                                </button-->
 
                                 <button class="button-beta button-plain">
                                     <svg class="iconic">
@@ -200,8 +189,46 @@
                             <div class="tool">
                                 <h6 class="tool-heading">Search results</h6>
                                 <dl class="dropdown-menu-body">
-                                    <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
-                                    <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
+                                    <dt class="list-item">
+                                        <a href="#">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                            </svg>
+                                            <em>30.316855</em> latitude, <em>-97.674815</em> longitude
+                                        </a>
+                                    </dt>
+                                    <dt class="list-item">
+                                        <a href="#">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                            </svg>
+                                            <em>123 Main St</em>reet Austin, TX USA
+                                        </a>
+                                    </dt>
+                                    <dt class="list-item">
+                                        <a href="#">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                            </svg>
+                                            <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
+                                        </a>
+                                    </dt>
+                                    <dt class="list-item">
+                                        <a href="#">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                            </svg>
+                                            <em>123 Main St</em>reet Austin, TX USA
+                                        </a>
+                                    </dt>
+                                    <dt class="list-item">
+                                        <a href="#">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                            </svg>
+                                            <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
+                                        </a>
+                                    </dt>
                                 </dl>
                             </div>
                         </div>
