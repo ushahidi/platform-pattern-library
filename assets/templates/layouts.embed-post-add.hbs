@@ -35,7 +35,7 @@
         </div>
     </div>
 
-    <div class="full-col">
+    <div class="main-col">
 
         <div class="form-sheet">
             {{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
@@ -51,46 +51,81 @@
                 <input type="text" placeholder="Title"/>
             </div>
 
-            <div class="metadata">
+            <div class="toolbox">
                 {{#if user.logged_in}}
-                <a class="chip" data-toggle="post-status">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                    </svg>
-                    <span class="label">Published</span>
-                </a>
 
-                <hr />
+                <div class="tool">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Status</span></legend>
+                        <div class="form-field radio icon-input">
+                            <label for="status-published">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-published" />
+                                Published
+                            </label>
+                        </div>
+                        <div class="form-field radio icon-input">
+                            <label for="status-review">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-review" checked />
+                                Under review
+                            </label>
+                        </div>
+                        <div class="form-field radio icon-input">
+                            <label for="status-archive">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-archive" />
+                                Archived
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
 
-                <a href="" class="chip" data-modal="choose-author">
-                    <img src="{{user.avatar}}" class="avatar" />
-                    <span class="label">{{user.name}}</span>
-                </a>
-
-                <a href="" class="chip" data-modal="post-date">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                    </svg>
-                    <span class="label">Now</span>
-                </a>
+                <div class="tool">
+                    <h6 class="tool-heading">Post date</h6>
+                    <span class="tool-trigger" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+                    <div class="toggle-content active">
+                        <fieldset>
+                            <legend class="hidden">Post date</legend>
+                            <div class="form-field date">
+                                <label class="hidden">Date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" value="2016-06-22" placeholder="Date" />
+                                </div>
+                            </div>
+                            <div class="form-field date">
+                                <label class="hidden">Time</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                                    </svg>
+                                    <input type="time" value="11:39:57" placeholder="Time" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
 
                 {{else}}
 
-                <span class="status-indicator yellow tooltip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                    </svg>
-                </span>
-                <strong>This post will need to be reviewed</strong> before it's published.
+                <div class="tool">
+                    <strong>This post will need to be reviewed</strong> before it's published.
+                </div>
 
-                <hr />
-
-                <a href="" class="chip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                    </svg>
-                    <span class="label">Anonymous</span>
-                </a>
                 {{/if}}
             </div>
 
