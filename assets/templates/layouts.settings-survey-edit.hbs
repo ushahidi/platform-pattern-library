@@ -17,8 +17,6 @@
 <main role="main">
 
     <div class="toolbar">
-        {{> Fab}}
-
         <div class="button-group">
             <button type="button" class="button-flat">Cancel</button>
             <button type="button" class="button-alpha">Done</button>
@@ -148,6 +146,15 @@
                 </div>
             </div>
             {{/each}}
+
+            <div class="form-field center">
+                <button class="button" data-toggle="field-type">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Add field</span>
+                </button>
+            </div>
         </section>
 
         <div class="toolbox">
@@ -442,3 +449,9 @@
 
     <div class="mainsheet-overlay"></div>
 </div>
+
+<script>
+setTimeout(function() {
+    $('.form-field[draggable="true"]:first').addClass('focus');
+}, 1000);
+</script>

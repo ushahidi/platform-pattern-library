@@ -171,17 +171,23 @@
         [contenteditable="true"] {
             position: relative;
 
+            &:before {
+                content: '';
+                position: absolute;
+                top: -$tiny-spacing;
+                right: 0;
+                bottom: -$tiny-spacing;
+                left: 0;
+                @include equal-radius;
+                border-bottom: 1px solid $color-light-beta;
+            }
+
             &:hover {
                 cursor: pointer;
 
                 &:before {
-                    content: '';
-                    position: absolute;
-                    top: -$tiny-spacing;
                     right: -$sm-spacing;
-                    bottom: -$tiny-spacing;
                     left: -$sm-spacing;
-                    @include equal-radius;
                     border: 1px solid $color-light-beta;
                 }
             }
