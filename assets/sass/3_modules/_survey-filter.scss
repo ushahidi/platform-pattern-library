@@ -105,7 +105,7 @@
 
     .survey-filter-children {
         border-top: 1px solid $color-primary-beta;
-        padding: $tiny-spacing $sm-spacing;
+        padding: 4px $sm-spacing;
         margin: 0;
 
         @include media($medium) {
@@ -172,6 +172,57 @@
 
         .survey-filter-children {
             display: none;
+            overflow: hidden;
+
+            .form-field {
+
+                &.checkbox,
+                &.radio {
+                    opacity: 0.5;
+                    padding-left: 0;
+                    @include transition(opacity, 0.3s);
+
+                    label {
+
+                        &:before {
+                            position: absolute;
+                            top: 2px;
+                            left: -18px;
+                            color: $color-tertiary;
+                            font-weight: bold;
+                            font-size: 10px;
+                        }
+                    }
+
+                    input[type="checkbox"],
+                    input[type="radio"] {
+                        left: -$huge-spacing;
+                        @include transition(0.3s);
+                    }
+
+                    &.checked {
+                        opacity: 1;
+
+                        label:before {
+                            content: '\2713';
+                        }
+                    }
+
+                    &:hover {
+                        opacity: 0.8;
+                        padding-left: 18px;
+
+                        label:before {
+                            content: none;
+                        }
+
+                        input[type="checkbox"],
+                        input[type="radio"] {
+                            left: -$tiny-spacing;
+                        }
+                    }
+                }
+            }
         }
     }
 
