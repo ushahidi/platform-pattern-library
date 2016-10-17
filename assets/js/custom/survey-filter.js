@@ -1,7 +1,7 @@
 // Initialize each toggle pair
 $('.survey-filter-checkbox').each(function(){
    var context = $(this),
-   checkbox = $(context).find('input[type="checkbox"]');
+   checkbox = $(context).find('.survey-filter-label input[type="checkbox"]');
 
    // Add 'init' class to the Mode Bar
    $(context).addClass('init');

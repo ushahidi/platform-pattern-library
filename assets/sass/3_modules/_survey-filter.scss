@@ -17,10 +17,11 @@
             background-color: $color-primary-delta;
         }
     }
-}
 
-.survey-filter-title {
-
+    .survey-filter-parent {
+        position: relative;
+        @include clearfix;
+    }
 }
 
 .survey-filter-checkbox {
@@ -68,13 +69,6 @@
         box-shadow: 0 0 $tiny-spacing 2px #292E34;
         margin-top: -10px;
         margin-right: $sm-spacing;
-/*
-        @include iconic($position: after, $iconic-icon: chevron-bottom, $iconic-color: #292E34, $iconic-size: 10px, $styles: true) {
-            position: relative;
-            top: 1px;
-            margin-left: 6px;
-            @include transition(0.3s);
-        };*/
 
         @include media($medium) {
             margin-right: $base-spacing;
@@ -107,6 +101,30 @@
         left: auto !important;
         max-width: 300px;
         margin-left: $sm-spacing;
+    }
+
+    .survey-filter-children {
+        border-top: 1px solid $color-primary-beta;
+        padding: $tiny-spacing $sm-spacing;
+        margin: 0;
+
+        @include media($medium) {
+            padding-left: $base-spacing;
+        }
+
+        .form-field {
+
+            &.checkbox,
+            &.radio {
+                text-align: left;
+                margin-top: $tiny-spacing;
+                margin-bottom: $tiny-spacing;
+
+                label {
+                    margin-bottom: 0;
+                }
+            }
+        }
     }
 
     &.init {
@@ -151,6 +169,10 @@
                 }
             }
         }
+
+        .survey-filter-children {
+            display: none;
+        }
     }
 
     &.checked {
@@ -172,6 +194,10 @@
             &:after {
                 background-color: #3F4349;
             }
+        }
+
+        .survey-filter-children {
+            display: block;
         }
     }
 }
