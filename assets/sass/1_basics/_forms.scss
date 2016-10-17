@@ -23,19 +23,6 @@ label,
         }
     }
 
-    &[contenteditable="true"] {
-        @include transition(0.3s);
-
-        &:focus {
-            outline-color: $white;
-            @include border-top-radius($global-radius);
-            @include border-bottom-radius($global-radius);
-            padding: $tiny-spacing $sm-spacing;
-            box-shadow: 0 0 4px 1px $color-secondary,
-                inset 0 1px 1px rgba(0,0,0,.3);
-        }
-    }
-
     [role="article"] & {
         font-size: 20px;
         font-size: 1.428571429rem;
@@ -124,6 +111,12 @@ input[type="search"] {
 
 input[type="file"] {
     @include no-shadow;
+
+    + button,
+    + [type="button"],
+    + .button {
+        margin-top: 0;
+    }
 }
 
 .input-inline { //for when a button is next to the input
@@ -368,4 +361,17 @@ form, .form {
         }
     }
 
+}
+
+[contenteditable="true"] {
+    @include transition(0.3s);
+
+    &:focus {
+        outline-color: $white;
+        @include border-top-radius($global-radius);
+        @include border-bottom-radius($global-radius);
+        padding: $tiny-spacing $sm-spacing;
+        box-shadow: 0 0 4px 1px $color-secondary,
+            inset 0 1px 1px rgba(0,0,0,.3);
+    }
 }

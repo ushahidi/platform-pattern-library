@@ -1,5 +1,5 @@
 <article class="postcard">
-    {{postBand properties.survey}}
+    {{postBand}}
 
     {{#ifCond checkbox true}}
         {{postCheckbox}}
@@ -14,7 +14,9 @@
                         <svg class="iconic">
                           <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                         </svg>
+                        {{#ifCond show_tasks false}}
                         <span class="label">Published</span>
+                        {{/ifCond}}
                     </a>
                     {{/ifCond}}
 
@@ -23,7 +25,9 @@
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
+                        {{#ifCond show_tasks false}}
                         <span class="label">Under review</span>
+                        {{/ifCond}}
                     </a>
                     {{/ifCond}}
 
@@ -32,17 +36,17 @@
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#box"></use>
                         </svg>
+                        {{#ifCond show_tasks false}}
                         <span class="label">Archived</span>
+                        {{/ifCond}}
                     </a>
                     {{/ifCond}}
                 </li>
 
                 {{#if properties.author.avatar}}
                 <li>
-                    <a href="">
-                        <img src="{{properties.author.avatar}}" class="avatar" />
-                        <strong class="label">{{properties.author.name}}</strong>
-                    </a>
+                    <img src="{{properties.author.avatar}}" class="avatar" />
+                    <strong class="label">{{properties.author.name}}</strong>
                 </li>
                 {{else}}
                 <li><strong class="label">{{properties.author.name}}</strong></li>
@@ -53,22 +57,27 @@
                 </li>
             </ul>
 
-            <!--// IF: User has permission to edit the post //-->
             <div class="postcard-actions">
+                {{#if editable}}
                 <button class="button-gamma button-flat hide-until-small">
                     <svg class="iconic">
                       <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
                     </svg>
                     <span class="hidden">Edit</span>
                 </button>
+                {{/if}}
 
+                {{#ifCond show_tasks false}}
                 <button class="button-gamma button-flat" data-toggle="dropdown-menu">
                     <svg class="iconic">
                       <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
                     </svg>
                     <span class="hidden">More</span>
                 </button>
+                {{/ifCond}}
+
                 <ul class="dropdown-menu">
+                    {{#if editable}}
                     <li class="hide-when-small">
                         <a href="post-edit.html">
                         <svg class="iconic">
@@ -77,6 +86,7 @@
                         <span class="label">Edit</span>
                         </a>
                     </li>
+                    {{/if}}
                     <li>
                         <a href="" data-modal="add-to-collection">
                         <svg class="iconic">
@@ -93,6 +103,7 @@
                         <span class="label">Share</span>
                         </a>
                     </li>
+                    {{#if editable}}
                     <li>
                         <a href="" data-modal="delete-post">
                         <svg class="iconic">
@@ -101,35 +112,123 @@
                         <span class="label">Delete</span>
                         </a>
                     </li>
+                    {{/if}}
                 </ul>
             </div>
-            <!--// END IF: User has permission to edit the post //-->
         </header>
 
-        {{#if title}}
-        <div class="postcard-field">
-            <h1 class="postcard-title"><!--a href="" class="postcard-id"><sup>#</sup>{{@index}}</a--> <a href="">{{title}}</a></h1>
-        </div>
-        {{/if}}
-
-        {{#if description}}
-        <div class="postcard-field">
-            {{{description}}}
-        </div>
-        {{/if}}
-
-        {{#if fields.photo}}
-        <div class="postcard-field">
-            <img src="{{fields.photo}}" class="postcard-image" />
-        </div>
-        {{/if}}
-
-        <div class="postcard-field">
-            <p><a href="">4 more fields...</a></p>
-        </div>
-
         <div class="postcard-overflow">
-            <a href="post-detail.html" class="button button-flat button-plain button-beta">Show complete response</a>
+            {{#each answers}}
+                <div class="postcard-field">
+                    {{#if @first}}
+                    <h1 class="postcard-title">
+                        <a href="">
+                    {{/if}}
+
+                    {{postcardField ../properties.survey @../index @index}}
+
+                    {{#if @first}}
+                        </a>
+                    </h1>
+                    {{/if}}
+                </div>
+            {{/each}}
+
+            {{#ifCond show_tasks true}}
+
+                <div class="postcard-tasks">
+                    <a href="" class="postcard-tasks-title status-indicator yellow">
+                        <span class="label"><strong>{{tasks.length}}</strong> incomplete tasks</span>
+                    </a>
+
+                {{#each tasks}}
+
+                    {{#ifCond complete false}}
+                        {{#ifCond disabled false}}
+                        <div class="postcard-field task">
+                            <h2 class="task-title"><a href="post-edit.html">{{taskInfo "name" @../index @index}}</a></h2>
+
+                            <div class="task-actions">
+                                {{#if assignee}}
+                                <span class="tooltip">
+                                    <span class="bug">Assigned to {{assignee.name}}</span>
+                                    <img src="{{assignee.avatar}}" class="avatar" />
+                                    {{#if assignee.locked}}
+                                    <span class="status-indicator">
+                                        <svg class="iconic">
+                                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                    </span>
+                                    {{/if}}
+                                </span>
+                                {{/if}}
+
+                                <button class="button-gamma button-flat" data-toggle="dropdown-menu">
+                                    <svg class="iconic">
+                                      <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                    </svg>
+                                    <span class="nodisplay">More</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                                            </svg>
+                                            <span class="label">Mark complete</span>
+                                        </a>
+                                    </li>
+                                    <div class="divider"></div>
+                                    <li>
+                                        <a href="" data-modal="task-assignment">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                        </svg>
+                                        {{#if assignee}}
+                                        <span class="label">Change assignment</span>
+                                        {{else}}
+                                        <span class="label">Assign to...</span>
+                                        {{/if}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-modal="task-due">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                        </svg>
+                                        {{#if due}}
+                                        <span class="label">Change due date</span>
+                                        {{else}}
+                                        <span class="label">Add due date</span>
+                                        {{/if}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="task-body">
+                                {{#if description}}
+                                {{{description}}}
+                                {{/if}}
+
+                                {{#if due}}
+                                <p><strong>Due</strong>: {{due}}</p>
+                                {{/if}}
+                            </div>
+                        </div>
+                        {{/ifCond}}
+                    {{/ifCond}}
+
+                {{/each}}
+                </div>
+
+            {{else}}
+
+                {{postcardMoreFields ../properties.survey}}
+
+                <div class="postcard-overflow-bookend">
+                    <a href="post-detail.html" class="button button-beta button-plain">See complete response</a>
+                </div>
+            {{/ifCond}}
         </div>
     </div>
 </article>

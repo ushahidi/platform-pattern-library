@@ -49,22 +49,6 @@
             margin-left: 20%;
         }
 
-        .post-band {
-            left: -$sm-spacing;
-
-            @include media($medium) {
-                left: -$base-spacing;
-            }
-
-            + label {
-                margin-left: 0;
-
-                + input {
-                    margin-left: 0;
-                }
-            }
-        }
-
         &.title {
             max-width: none;
             margin: $base-spacing 0;
@@ -134,8 +118,15 @@
 
     .form-field {
 
+        &[draggable="true"] {
+            display: block;
+        }
+
         &.focus {
             @include containerCard;
+            box-shadow: 0 0 2px rgba(0,0,0,0.12),
+                0 2px 2px rgba(0,0,0,0.24),
+                0 0 16px rgba(255, 195, 52, 0.3);
             padding: $sm-spacing;
 
             @include media($mobile-down) {
@@ -176,6 +167,32 @@
             width: 100%;
             margin: $sm-spacing auto;
         }
+
+        [contenteditable="true"] {
+            position: relative;
+
+            &:hover {
+                cursor: pointer;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -$tiny-spacing;
+                    right: -$sm-spacing;
+                    bottom: -$tiny-spacing;
+                    left: -$sm-spacing;
+                    @include equal-radius;
+                    border: 1px solid $color-light-beta;
+                }
+            }
+
+            &:focus {
+
+                &:before {
+                    content: none;
+                }
+            }
+        }
     }
 
     .form-sheet-toolbar {
@@ -194,6 +211,14 @@
             vertical-align: middle;
             line-height: normal;
             margin: 0 $tiny-spacing 0 0;
+        }
+    }
+
+    a.post-band {
+
+        &:hover {
+            width: $tiny-spacing;
+            z-index: $body;
         }
     }
 
@@ -351,6 +376,7 @@
         left: 0;
     }
 
+/*
     .dropdown-menu {
         margin-top: -107px;
 
@@ -359,6 +385,7 @@
             margin-left: -312px;
         }
     }
+*/
 
     [data-toggle-target] {
         display: none;

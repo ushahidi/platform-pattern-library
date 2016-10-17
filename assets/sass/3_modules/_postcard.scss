@@ -53,10 +53,6 @@
         }
     }
 
-    .postcard-overflow {
-        display: none;
-    }
-
     .dropdown-menu {
         display: none;
 
@@ -132,22 +128,8 @@
         }
     }
 
-    .postcard-task-title {
-        color: $color-dark-gamma;
-        @include typeGamma;
-        font-weight: $bold;
-    }
-
-    .postcard-tasks {
-        position: relative;
-
-        ul {
-            @extend .list-reset;
-        }
-    }
-
     .metadata {
-        margin-bottom: $tiny-spacing;
+        margin-bottom: 4px;
     }
 
     .postcard-title,
@@ -236,18 +218,82 @@
         }
 
         .dropdown-menu {
-            top: 100% !important;
-            left: 40px !important;
+            top: 4px !important;
+            right: 4px !important;
+            left: auto !important;
+        }
+    }
+
+    .postcard-tasks {
+
+        @include media($medium) {
+            padding-left: $base-spacing;
         }
 
-        &.task {
+        .postcard-tasks-title {
+            position: relative;
+            z-index: $body;
+            margin-bottom: $sm-spacing;
+
+            @include media($medium) {
+                margin-left: -$base-spacing;
+            }
+        }
+
+        .task {
             @include equal-radius;
             border: 1px solid $color-light-beta;
             background-color: $color-light-gamma;
             padding: $sm-spacing;
 
-            .metadata {
-                margin-bottom: 0;
+            &:before,
+            &:after {
+                content: '';
+                visibility: visible;
+                position: absolute;
+                z-index: 0;
+                width: 2px;
+                background-color: $color-light-beta;
+            }
+
+            &:before {
+                bottom: 100%;
+                left: $tiny-spacing + 3;
+                height: $sm-spacing + 1;
+
+                @include media($medium) {
+                    position: absolute;
+                    z-index: $body;
+                    top: -$sm-spacing - 1;
+                    bottom: -1px;
+                    left: -$sm-spacing + 3;
+                    width: 1px;
+                    height: auto;
+                }
+            }
+
+            &:after {
+                content: none;
+
+                @include media($medium) {
+                    content: '';
+                    top: $base-spacing;
+                    left: -$sm-spacing + 3;
+                    width: $sm-spacing - 3;
+                    height: 1px;
+                    background-color: $color-light-beta;
+                }
+            }
+
+            &:last-of-type {
+
+                &:before {
+
+                    @include media($medium) {
+                        bottom: auto;
+                        height: 42px;
+                    }
+                }
             }
         }
     }
@@ -375,6 +421,11 @@
         }
     }
 
+    .postcard-overflow-bookend {
+        display: none;
+    }
+
+    // DEPRECATE IN FAVOR OF SERVER-SIDE LOGIC FOR RENDERING THIS CONTENT
     .map & {
 
         .listing-item-select {
@@ -384,24 +435,26 @@
             }
         }
 
-        .postcard-body {
-            max-height: 240px;
+        .postcard-overflow {
+            position: relative;
+            max-height: 250px;
             overflow-y: hidden;
 
-            .postcard-overflow {
+            .postcard-overflow-bookend {
                 display: block;
                 position: absolute;
-                z-index: $body;
                 right: 0;
                 bottom: 0;
                 left: 0;
                 text-align: center;
-                padding: $tiny-spacing;
+                @include vert-gradient(rgba(255,255,255,.24), rgba(255,255,255,1));
+                padding: $sm-spacing;
 
+/*
                 &:before {
                     content: '';
                     position: absolute;
-                    z-index: -1;
+                    z-index: 0;
                     top: 0;
                     right: 0;
                     bottom: 0;
@@ -412,15 +465,15 @@
                     -o-filter: blur(10px);
                     -ms-filter: blur(10px);
                     filter: blur(10px);
-                    opacity: 0.85;
+                    opacity: 0.8;
                 }
-
+*/
                 button,
                 .button {
-
-                    &.button-plain {
-                        font-weight: $bold;
-                    }
+                    position: relative;
+                    z-index: 1;
+                    font-weight: 800;
+                    margin: 0 auto;
                 }
             }
         }

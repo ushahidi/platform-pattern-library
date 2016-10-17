@@ -360,6 +360,13 @@ fieldset {
                 @include containerCard;
             }
         }
+
+        .form-field-preview {
+
+            .map {
+                height: 200px;
+            }
+        }
     }
 
     &.select {
@@ -384,10 +391,15 @@ fieldset {
         select {
             display: inline-block;
             margin-top: 0;
+
+            + label {
+                margin-left: $tiny-spacing;
+            }
         }
     }
 
-    &.file {
+    &.file,
+    &.photo {
 
         input[type="file"] {
             width: 0.1px;
@@ -416,6 +428,15 @@ fieldset {
                 + label {
                     outline: 1px dotted #000;
 	                outline: -webkit-focus-ring-color auto 5px;
+                }
+            }
+
+            &[disabled] {
+
+                + label {
+                    opacity: 0.75;
+                    background-color: $color-light-gamma;
+                    box-shadow: none;
                 }
             }
         }
@@ -554,7 +575,8 @@ fieldset {
             padding-right: 72px;
         }
 
-        .form-field {
+        .form-field,
+        fieldset {
             margin-top: $base-spacing;
         }
 
@@ -644,6 +666,7 @@ fieldset {
         }
 
         .form-field-actions {
+            position: relative;
             display: flex;
             flex-wrap: nowrap;
             justify-content: space-between;
@@ -660,6 +683,12 @@ fieldset {
                         padding-right: 56px;
                     }
                 }
+            }
+
+            .dropdown-menu {
+                top: $sm-spacing !important;
+                right: 0;
+                left: auto !important;
             }
         }
 
@@ -710,6 +739,32 @@ fieldset {
             .dragger {
                 opacity: 1;
                 top: 0;
+            }
+
+            [contenteditable="true"] {
+                position: relative;
+
+                &:hover {
+                    cursor: pointer;
+
+                    &:before {
+                        content: '';
+                        position: absolute;
+                        top: -$tiny-spacing;
+                        right: -$tiny-spacing;
+                        bottom: -$tiny-spacing;
+                        left: -$tiny-spacing;
+                        @include equal-radius;
+                        border: 1px solid $color-light-beta;
+                    }
+                }
+
+                &:focus {
+
+                    &:before {
+                        content: none;
+                    }
+                }
             }
         }
     }
@@ -878,26 +933,6 @@ fieldset,
             }
         }
     }
-}
-
-.location-adapt {
-    max-width: 452px;
-
-    .form-field {
-        margin-bottom: 20px;
-    }
-
-    .custom-select {
-        position: absolute;
-        top: 32px;
-        @include right(0px);
-    }
-
-    button {
-        @include float(left);
-        clear: both;
-    }
-
 }
 
 [data-fieldgroup-target] {

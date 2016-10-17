@@ -28,7 +28,10 @@
     <div class="mode-context-body">
         {{{deployment.description}}}
 
-        {{> SurveyFilter }}
+        <div class="tool">
+            <h6 class="tool-heading">Surveys</h6>
+            {{> SurveyFilter }}
+        </div>
 
         <div class="tool">
             <h6 class="tool-heading">How to add a post</h6>
@@ -52,7 +55,7 @@
 <main role="main">
 
     <div class="toolbar">
-        {{> Fab }}
+        {{> Fab 'submit-new-survey'}}
 
         {{> Search }}
 
@@ -116,11 +119,11 @@
             <h2 class="listing-heading-section">Today</h2>
 
             {{#if user.logged_in}}
-                {{#each deployment.posts}}
-                    {{> Postcard checkbox=true}}
+                {{#each deployment.responses}}
+                    {{> Postcard checkbox=true show_tasks=false editable=true}}
                 {{/each}}
             {{else}}
-                {{#each deployment.posts}}
+                {{#each deployment.responses}}
                     {{#ifCond properties.status 'published'}}
                     {{> Postcard}}
                     {{/ifCond}}
@@ -172,27 +175,23 @@
                                 <span class="label">Archived</span>
                             </a>
                         </li>
-                        <div class="divider"></div>
-                        <li>
-                            <a href="">
-                                Spam
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                Duplicates
-                            </a>
-                        </li>
                     </ul>
 
                     <button type="button" class="button-beta" data-modal="add-to-collection">
                         <svg class="iconic">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
                         </svg>
-                        <span class="button-label">Add to Collection</span>
+                        <span class="button-label hide-until-small">Add to Collection</span>
                     </button>
 
-                    <button type="button" class="button-destructive">
+                    <button type="button" class="button-beta">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Edit</span>
+                    </button>
+
+                    <button type="button" class="button-destructive" data-modal="delete-post">
                         <svg class="iconic">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
                         </svg>

@@ -86,23 +86,24 @@
         button,
         .button {
             line-height: normal;
-            margin-top: -$base-spacing;
-//             padding: $base-spacing 35px;
+            margin-top: -$tiny-spacing;
 
-/*
-            svg.iconic {
-                width: 1.142857143em;
-                height: 1.142857143em;
-            }
-*/
             .button-label {
                 display: none;
+            }
+
+            &.listing-item-toggle {
+
+                svg.iconic {
+                    width: 14px;
+                    height: 14px;
+                }
             }
         }
 
         svg.iconic {
-            width: $sm-spacing;
-            height: $sm-spacing;
+            width: $base-font-size;
+            height: $base-font-size;
             vertical-align: middle;
         }
 
@@ -166,6 +167,13 @@
         .custom-fieldset {
             margin-top: 0;
             margin-bottom: $sm-spacing;
+        }
+
+        .task {
+
+            &:first-child {
+                border-top: none;
+            }
         }
     }
 
@@ -238,6 +246,10 @@
         }
     }
 
+    .toolbox-body {
+        margin-top: -$sm-spacing;
+    }
+
 }
 
 .listing-toolbar {
@@ -298,6 +310,7 @@
 
         .dropdown-menu {
             top: auto !important;
+            left: auto !important;
             margin-top: 4px;
         }
 
@@ -327,6 +340,7 @@
         }
     }
 
+    // DEPRECATE ALL TRUNCATION STUFF
     &.truncated {
 
         .listing-toolbar-actions {

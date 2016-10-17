@@ -17,9 +17,11 @@
 <main role="main">
 
     <div class="toolbar">
+        {{> Fab}}
+
         <div class="button-group">
             <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
+            <button type="button" class="button-alpha">Done</button>
         </div>
     </div>
 
@@ -28,96 +30,26 @@
         <section class="form-sheet" role="article">
             <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
 
-            <!--div class="form-field title survey-title">
-                <label class="hidden">Survey name</label>
-                <input type="text" placeholder="Survey name" value="{{deployment.surveys.0.name}}">
-            </div>
+            <header class="form-sheet-summary">
+                <h1 class="form-sheet-title survey-title" contenteditable="true">Street maintenance</h1>
+                <p contenteditable="true">Reports about streets that need resurfacing, repairs, or the removal of a hazard.</p>
+            </header>
 
-            <div class="form-field">
-                <label>Description</label>
-                <textarea>{{deployment.surveys.0.description}}</textarea>
-            </div-->
+            {{#each deployment.surveys.0.fields}}
+            <div class="form-field {{type.control}}" draggable="true">
 
-            <div class="form-field" draggable="true">
+                <label contenteditable="true">{{label}}</label>
 
-                <label contenteditable="true">Describe the problem</label>
-                <div class="input-with-icon form-field-preview">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
-                    </svg>
-                    <textarea rows="3" disabled>Long text</textarea>
-                </div>
+                <p data-fieldgroup-target="field-description-{{@index}}" contenteditable="true">
+                    {{#if description}}
+                        {{description}}
+                    {{else}}
+                        Field description
+                    {{/if}}
+                </p>
 
-                <div class="form-field-config">
-                    <a class="button button-beta button-flat button-plain" data-toggle="field-type">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
-                        </svg>
-                        <span class="button-label">Long text</span>
-                    </a>
-                </div>
-
-                <span class="dragger">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
-                    </svg>
-                </span>
-
-                <div class="form-field-config">
-
-                    <div class="form-field-actions">
-
-                        <div class="form-field switch">
-                            <label>Required</label>
-                            <div class="toggle-switch">
-                                <input class="tgl" id="require-field-1" type="checkbox">
-                                <label class="tgl-btn" for="require-field-1"></label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <button class="button-beta button-flat">
-                                <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                                </svg>
-                                <span class="hidden">Delete</span>
-                            </button>
-
-                            <button class="button-beta button-flat" data-toggle="field-config-long_text">
-                                <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                                </svg>
-                                <span class="hidden">More</span>
-                            </button>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="form-field location" draggable="true">
-
-                <label contenteditable="true">Where is the problem?</label>
                 <div class="form-field-preview">
-                    {{mapEmbed 0 false}}
-
-                    <form role="search" class="searchbar" data-message="search">
-                        <div class="searchbar-input">
-                            <div class="form-field">
-                                <input type="search" maxlength="250" placeholder="Pick a location" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="form-field-config">
-                    <a class="button button-beta button-flat button-plain" data-toggle="field-type">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
-                        </svg>
-                        <span class="button-label">Location</span>
-                    </a>
+                    {{surveyFieldPreview}}
                 </div>
 
                 <span class="dragger">
@@ -127,145 +59,95 @@
                 </span>
 
                 <div class="form-field-config">
+                    <div class="form-field">
+                        <a class="button button-beta button-flat button-plain" data-toggle="field-type">
+                            <svg class="iconic">
+                                <use xlink:href="{{icon}}"></use>
+                            </svg>
+                            <span class="button-label">{{type.name}}</span>
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+                    {{#ifCond type.control 'location'}}
+                    <div class="form-field switch">
+                        <label>Use this field to map each response</label>
+                        <p data-fieldgroup-target="map-field-location-message">Responses will be geolocated in your deployment's "Map" view using data from this field.</p>
+                        <div class="toggle-switch">
+                            <input checked class="tgl" id="map-field-location-{{@index}}" type="checkbox" data-fieldgroup-toggle="map-field-location-message">
+                            <label class="tgl-btn" for="map-field-location-{{@index}}"></label>
+                        </div>
+                    </div>
+
+                    <div class="form-field switch">
+                        <label>Use default location area</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="area-field-location-{{@index}}" type="checkbox" data-fieldgroup-toggle="area-field-location-picker">
+                            <label class="tgl-btn" for="area-field-location-{{@index}}"></label>
+                        </div>
+
+                        <div class="form-field form-fieldgroup location" data-fieldgroup-target="area-field-location-picker">
+                            {{mapEmbed 0 false}}
+
+                            <form role="search" class="searchbar" data-message="search">
+                                <div class="searchbar-input">
+                                    <div class="form-field">
+                                        <input type="search" maxlength="250" placeholder="Pick a default location area" value="" />
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    {{/ifCond}}
 
                     <div class="form-field-actions">
 
                         <div class="form-field switch">
                             <label>Required</label>
                             <div class="toggle-switch">
-                                <input class="tgl" id="require-field-0" type="checkbox">
-                                <label class="tgl-btn" for="require-field-0"></label>
+                                <input class="tgl" id="require-field-{{@index}}" type="checkbox" {{#if required}}checked{{/if}} />
+                                <label class="tgl-btn" for="require-field-{{@index}}"></label>
                             </div>
                         </div>
 
                         <div>
-                            <button class="button-beta button-flat">
+                            <button class="button-beta button-flat" data-message="delete-field">
                                 <svg class="iconic">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
                                 </svg>
                                 <span class="hidden">Delete</span>
                             </button>
 
-                            <button class="button-beta button-flat" data-toggle="field-config-long_text">
+                            <button class="button-beta button-flat" data-toggle="dropdown-menu">
                                 <svg class="iconic">
                                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
                                 </svg>
                                 <span class="hidden">More</span>
                             </button>
+
+                            <div class="dropdown-menu">
+                                <div class="form-field checkbox">
+                                    <label for="show-field-description-1">
+                                        Show field description
+                                        <input type="checkbox" id="show-field-description-{{@index}}" data-fieldgroup-toggle="field-description-{{@index}}" {{#if description}}checked{{/if}} />
+                                    </label>
+                                </div>
+                                <div class="form-field checkbox">
+                                    <label for="include-in-summary-{{@index}}">
+                                        Include in response summary
+                                        <input type="checkbox" id="include-in-summary-{{@index}}" {{#if in-summary}}checked{{/if}} />
+                                    </label>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
 
                 </div>
             </div>
-
-            <div class="listing" style="margin-left: 4px;">
-                <h3 class="listing-heading">Fields</h3>
-
-                <div class="listing-body">
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="">What time did you last see the problem?</a></h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="">What date did you last see the problem?</a></h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-select">
-                            <div class="buttons-updown">
-                                <button type="button" class="button-beta">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                    </svg>
-                                    <span class="label hidden">Move up</span>
-                                </button>
-                                <button type="button" class="button-beta" disabled>
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                    </svg>
-                                    <span class="label hidden">Move down</span>
-                                </button>
-                            </div>
-                        </div>
-
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title"><a href="" data-modal="edit-field-image">Photo of the problem</h2>
-                        </div>
-
-                        <div class="listing-item-secondary">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_image_24px"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-primary">
-                            <h2 class="listing-item-title">
-                                <a href="" class="button" data-toggle="add-field">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                                    </svg>
-                                    Add field
-                                </a>
-                            </h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            {{/each}}
         </section>
 
         <div class="toolbox">
@@ -281,7 +163,6 @@
                         <h2 class="listing-item-title"><a href="" data-modal="survey-appearance">Appearance</a></h2>
                     </div>
                 </div>
-
                 <div class="listing-item">
                     <div class="listing-item-primary">
                         <div class="listing-item-image">
@@ -296,261 +177,19 @@
 
         </div>
 
-        <div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Delete this survey</h3>
-                <p><strong>If you delete this survey</strong>, all of its posts will also be deleted. Proceed with caution.</p>
-
-                <button class="button-destructive">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete survey</span>
-                </button>
-            </div>
-        </div>
-
     </div>
 
 </main>
 
 {{> Modals }}
 
-<div id="edit-field-location" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">
-            <svg class="iconic">
-              <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
-            </svg>
-            Edit field
-        </h3>
+<div id="delete-field" class="message">
+    <div class="message-body">
+        <p><strong>If you delete this field</strong>, all of the data captured within it will also be deleted. Proceed with caution.</p>
 
-        <div class="modal-body">
-
-            <div class="form-field">
-                <label>Label</label>
-                <input type="text" value="Where is the problem?" />
-            </div>
-
-            <div class="form-field">
-                <label>Key</label>
-                <input type="text" value="where-is-the-problem" />
-            </div>
-
-            <div class="form-field switch">
-                <label>Require this field be completed</label>
-                <div class="toggle-switch">
-                    <input class="tgl" id="require-field-image" type="checkbox">
-                    <label class="tgl-btn" for="require-field-image"></label>
-                </div>
-            </div>
-
-            <div class="form-field switch">
-                <label>Use this location to locate responses</label>
-                <p>When turned on, responses will be geolocated in your deployment's "Map" view using data from this field</p>
-                <div class="toggle-switch">
-                    <input checked class="tgl" id="map-field-location" type="checkbox">
-                    <label class="tgl-btn" for="map-field-location"></label>
-                </div>
-            </div>
-
-            <div class="form-field switch">
-                <label>Use default location area</label>
-                <div class="toggle-switch">
-                    <input class="tgl" id="area-field-location" type="checkbox" data-fieldgroup-toggle="area-field-location-picker">
-                    <label class="tgl-btn" for="area-field-location"></label>
-                </div>
-
-                <div class="form-field form-fieldgroup location" data-fieldgroup-target="area-field-location-picker">
-                    {{mapEmbed 0 false}}
-
-                    <form role="search" class="searchbar" data-message="search">
-                        <div class="searchbar-input">
-                            <div class="form-field">
-                                <input type="search" maxlength="250" placeholder="Pick a location" value="" />
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="form-field">
-                <hr />
-
-                <button class="button-destructive button-plain" data-message="delete-field-location">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete field</span>
-                </button>
-            </div>
-
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-link modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Save &amp; close</button>
-            </div>
-        </div>
-
-        <div id="delete-field-location" class="message">
-            <div class="message-body">
-                <p><strong>If you delete this field</strong>, all of the data captured within it will also be deleted. Proceed with caution.</p>
-
-                <button class="button-flat message-trigger">Cancel</button>
-                <button class="button-destructive message-trigger">Delete this field</button>
-            </div>
-        </div>
+        <button class="button-flat message-trigger">Cancel</button>
+        <button class="button-destructive message-trigger">Delete this field</button>
     </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="edit-field-image" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">
-            <svg class="iconic">
-              <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_image_24px"></use>
-            </svg>
-            Edit field
-        </h3>
-
-        <div class="modal-body">
-
-            <div class="form-field">
-                <label>Label</label>
-                <input type="text" value="Photo of the problem" />
-            </div>
-
-            <div class="form-field">
-                <label>Key</label>
-                <input type="text" value="photo-of-problem" />
-            </div>
-
-            <div class="form-field switch">
-                <label>Require this field be completed</label>
-                <div class="toggle-switch">
-                    <input class="tgl" id="require-field-image" type="checkbox">
-                    <label class="tgl-btn" for="require-field-image"></label>
-                </div>
-            </div>
-
-            <div class="form-field">
-                <hr />
-
-                <button class="button-destructive button-plain" data-message="delete-field-image">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete field</span>
-                </button>
-            </div>
-
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-link modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Save &amp; close</button>
-            </div>
-        </div>
-
-        <div id="delete-field-image" class="message">
-            <div class="message-body">
-                <p><strong>If you delete this field</strong>, all of the data captured within it will also be deleted. Proceed with caution.</p>
-
-                <button class="button-flat message-trigger">Cancel</button>
-                <button class="button-destructive message-trigger">Delete this field</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="survey-appearance" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Edit appearance</h3>
-
-        <div class="modal-body">
-
-            <p>Response summaries offer a quick look at data submitted for each response. You'll see them displayed in your deployment's "Timeline", as well as in popups when you select a map marker.</p>
-            <p>You can customize which fields are used in response summaries by selecting them in the desired position below.</p>
-
-            <div class="postcard">
-                <div class="post-band" style="background-color: #A51A1A"></div>
-
-                <div class="postcard-body">
-                    <header class="postcard-header">
-                        <ul class="metadata">
-                            <li>
-                                <span class="status-indicator">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                    </svg>
-                                </span>
-                            </li>
-                            <li>
-                                <!--img src="../../img/avatar1.png" class="avatar" /-->
-                                <strong class="label">Author name</strong>
-                            </li>
-                            <li>Date</li>
-                        </ul>
-                    </header>
-
-                    <div class="postcard-field">
-                        <span class="postcard-placeholder">
-                            <select>
-                                <option>Field A</option>
-                                <option>Field B</option>
-                                <option>Field C</option>
-                            </select>
-                        </span>
-                    </div>
-
-                    <div class="postcard-field">
-                        <span class="postcard-placeholder">
-                            <select>
-                                <option>Field A</option>
-                                <option selected>Field B</option>
-                                <option>Field C</option>
-                            </select>
-                        </span>
-                    </div>
-
-                    <div class="postcard-field">
-                        <button class="button-gamma button-flat button-plain">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                            </svg>
-                            <span class="hidden">Show responses to another field</span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <fieldset class="custom-fieldset" data-fieldset-type="color">
-                <legend>Color</legend>
-                <p>This color will be used for map markers and the left border of response summaries.</p>
-
-                <div class="form-field">
-                    <label>Hex value</label>
-                    <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
-                </div>
-            </fieldset>
-
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
 </div>
 
 <div id="survey-permissions" class="modal">
@@ -564,6 +203,15 @@
                 <div class="toggle-switch">
                     <input class="tgl" id="post-review" type="checkbox">
                     <label class="tgl-btn" for="post-review"></label>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Hide author information</label>
+                <p data-fieldgroup-target="hide-author-message">Only people with permission to edit responses will be able to see who submitted them; and only when editing them.</p>
+                <div class="toggle-switch">
+                    <input class="tgl" id="hide-author" type="checkbox" data-fieldgroup-toggle="hide-author-message">
+                    <label class="tgl-btn" for="hide-author"></label>
                 </div>
             </div>
 
@@ -626,6 +274,34 @@
     <div class="modal-overlay"></div>
 </div>
 
+<div id="survey-appearance" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Edit appearance</h3>
+
+        <div class="modal-body">
+            <p>Your survey's color will be used for map markers, and the left border of the survey and its responses.</p>
+
+            <fieldset data-fieldset-type="color">
+                <legend>Color</legend>
+
+                <div class="form-field">
+                    <label class="hidden">Hex value</label>
+                    <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
+                </div>
+            </fieldset>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
 <div class="mainsheet" data-toggle-target="field-type" data-toggle-animate>
     <div class="mainsheet-window">
         <h3 class="mainsheet-heading">Choose a field type</h3>
@@ -654,6 +330,7 @@
 
                     <h2 class="listing-item-title"><a href="">Long text</a></h2>
                 </div>
+
             </div>
 
         </div>

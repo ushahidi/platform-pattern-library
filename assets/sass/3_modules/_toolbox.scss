@@ -1,6 +1,12 @@
 .toolbox {
     @include containerSheet;
 
+    .toolbox-heading {
+        @include typeBase;
+        margin-top: $tiny-spacing;
+        margin-bottom: $tiny-spacing;
+    }
+
     .toolbox-header {
         position: relative;
         border-bottom: 1px solid $color-light-gamma;
@@ -8,30 +14,6 @@
 
         @include media($small) {
             display: none;
-        }
-
-        .toolbox-trigger {
-            display: inline-block;
-            position: absolute;
-            z-index: $body;
-            top: $base-spacing;
-            right: $sm-spacing;
-
-            svg.iconic {
-                fill: $color-primary;
-                @include transition(0.3s);
-            }
-
-            &.active {
-
-                svg.iconic {
-                    @include transform(rotate(180deg));
-                }
-            }
-        }
-
-        .badge {
-            margin-right: 2px;
         }
     }
 
@@ -53,7 +35,6 @@
         margin: $sm-spacing;
         margin-bottom: $base-spacing;
 
-
         .tool-heading {
             color: $color-dark-delta;
         }
@@ -69,14 +50,31 @@
         > .form-field {
             margin: $sm-spacing 0;
         }
-
-        .task {
-
-            &:first-child {
-                margin-top: $tiny-spacing;
-            }
-        }
-
     }
 
+    .listing {
+
+        .listing-item {
+
+            .listing-item-body {
+
+
+                @include media($small) {
+                    display: block;
+                    padding-top: $tiny-spacing;
+                    padding-bottom: $tiny-spacing;
+/*
+                    background-color: transparent;
+                    @include no-shadow;
+                    padding: 0;
+*/
+                }
+
+                .tool {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
 }
