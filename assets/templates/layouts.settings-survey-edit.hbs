@@ -17,13 +17,41 @@
 <main role="main">
 
     <div class="toolbar">
+        <!--// SAVED //-->
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">All changes saved</span>
+            <span class="bug">Every change you make is automatically saved</span>
+        </span>
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
         <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Done</button>
+            <a class="button button-flat" data-modal="survey-appearance">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#brush"></use>
+                </svg>
+                <span class="hidden">Appearance</span>
+            </a>
+
+            <a class="button button-flat" data-modal="survey-permissions">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <span class="hidden">Permissions</span>
+            </a>
+
+            <button class="button-beta">Preview</button>
         </div>
     </div>
 
-    <div class="main-col">
+    <div class="full-col">
 
         <section class="form-sheet" role="article">
             <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
@@ -157,7 +185,7 @@
             </div>
         </section>
 
-        <div class="toolbox">
+        <div class="toolbox hidden">
 
             <div class="listing">
                 <div class="listing-item">
@@ -265,6 +293,17 @@
                             <label for="survey-add_roles-admins">Administrators</label>
                         </div>
                     </div>
+                </div>
+
+                <div class="form-field radio icon-input">
+                    <label for="survey-add_nobody">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#ban"></use>
+                        </svg>
+                        <input type="radio" name="survey-add" id="survey-add_nobody" data-fieldgroup-toggle="survey-off-message" />
+                        <span class="label">Nobody</span>
+                    </label>
+                    <p data-fieldgroup-target="survey-off-message">Your survey's existing responses will remain visible, but it will not allow new responses.</p>
                 </div>
             </fieldset>
 
@@ -452,6 +491,6 @@
 
 <script>
 setTimeout(function() {
-    $('.form-field[draggable="true"]:first').addClass('focus');
+    $('.form-field[draggable="true"]:first').click();
 }, 1000);
 </script>

@@ -194,6 +194,7 @@ fieldset {
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
+            margin-bottom: 0;
 
             &:hover {
                 cursor: pointer;
@@ -744,17 +745,23 @@ fieldset {
             [contenteditable="true"] {
                 position: relative;
 
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -$tiny-spacing;
+                    right: 0;
+                    bottom: -$tiny-spacing;
+                    left: 0;
+                    @include equal-radius;
+                    border-bottom: 1px solid $color-light-beta;
+                }
+
                 &:hover {
                     cursor: pointer;
 
                     &:before {
-                        content: '';
-                        position: absolute;
-                        top: -$tiny-spacing;
                         right: -$tiny-spacing;
-                        bottom: -$tiny-spacing;
                         left: -$tiny-spacing;
-                        @include equal-radius;
                         border: 1px solid $color-light-beta;
                     }
                 }

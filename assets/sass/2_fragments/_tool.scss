@@ -66,14 +66,6 @@
         fieldset {
             margin-top: 0;
         }
-
-        .form-field {
-
-            &.checkbox,
-            &.radio {
-                margin-bottom: 0;
-            }
-        }
     }
 
     .listing-item {
@@ -108,6 +100,8 @@
 
         .bug {
             display: inline-block;
+            -webkit-animation: tooltip-bug 0.3s linear;
+            animation: tooltip-bug 0.3s linear;
         }
     }
 
@@ -133,5 +127,41 @@
                 display: none;
             }
         }
+    }
+}
+
+@-webkit-keyframes tooltip-bug {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    24% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes tooltip-bug {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    24% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
     }
 }

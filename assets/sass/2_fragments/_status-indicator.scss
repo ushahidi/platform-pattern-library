@@ -11,6 +11,7 @@
     @include transition(0.3s);
 
     svg.iconic {
+        position: relative;
         display: inline-block;
         width: 12px;
         height: 12px;
@@ -105,6 +106,15 @@
         }
     }
 
+    &.success {
+
+        svg.iconic {
+            fill: $color-secondary;
+            -webkit-animation: status-indicator-change 0.3s linear;
+            animation: status-indicator-change 0.3s linear;
+        }
+    }
+
     &.empty {
         background-color: transparent;
 
@@ -127,10 +137,6 @@
         .bug {
             top: -$tiny-spacing;
             left: 100%;
-        }
-
-        &:hover {
-            @include no-shadow;
         }
     }
 }
@@ -160,5 +166,37 @@ a.status-indicator {
         &:hover {
             background-color: darken($color-dark-gamma, 10%);
         }
+    }
+}
+
+@-webkit-keyframes status-indicator-change {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        left: 0;
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes status-indicator-change {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        left: 0;
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.0);
     }
 }
