@@ -28,7 +28,7 @@ toggleInit = function(triggerSelector) {
         // IF: Target is currently hidden
         if ($(target).is(':hidden')) {
             $(trigger).addClass('active');
-            $('[data-toggle="'+targetVal+'"]').addClass('active');
+            // $('[data-toggle="'+targetVal+'"]').addClass('active');
 
             // IF: Target has the 'data-toggle-animate' attribute, animate it
             if ($(target)[0].hasAttribute('data-toggle-animate')) {
@@ -68,7 +68,7 @@ toggleInit = function(triggerSelector) {
             // ELSE: Target is currently visible
         } else {
             $(trigger).removeClass('active');
-            $('[data-toggle="'+targetVal+'"]').removeClass('active');
+            // $('[data-toggle="'+targetVal+'"]').removeClass('active');
 
             // IF: Target has the 'data-toggle-animate' attribute, animate it
             if ($(target)[0].hasAttribute('data-toggle-animate')) {

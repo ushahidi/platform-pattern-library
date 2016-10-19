@@ -58,16 +58,13 @@
             margin-top: $tiny-spacing;
         }
 
-        fieldset {
-            margin-top: 0;
+        legend {
+            @include typeBase;
+            font-weight: 600;
         }
 
-        .form-field {
-
-            &.checkbox,
-            &.radio {
-                margin-bottom: 0;
-            }
+        fieldset {
+            margin-top: 0;
         }
     }
 
@@ -99,10 +96,12 @@
     position: relative;
 
     &:hover {
-        cursor: pointer;
+        cursor: help;
 
         .bug {
             display: inline-block;
+            -webkit-animation: tooltip-bug 0.3s linear;
+            animation: tooltip-bug 0.3s linear;
         }
     }
 
@@ -117,5 +116,52 @@
         white-space: nowrap;
         box-shadow: 0 0 16px rgba(0,0,0,0.12),
             0 16px 16px rgba(0,0,0,0.24);
+    }
+
+    .map & {
+
+        &:hover {
+            cursor: auto;
+
+            .bug {
+                display: none;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes tooltip-bug {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    24% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes tooltip-bug {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    24% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1.0);
     }
 }
