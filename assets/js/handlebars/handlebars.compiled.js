@@ -186,63 +186,6 @@ this["Ushahidi"]["templates"]["_ModeContext"] = Handlebars.template({"1":functio
     + ((stack1 = alias1(((stack1 = (depth0 != null ? depth0.deployment : depth0)) != null ? stack1.description : stack1), depth0)) != null ? stack1 : "")
     + "\n\n        @@include('../partials/_survey-filter.html')\n\n        <div class=\"tool\">\n            <h6 class=\"tool-heading\">How to add a post</h6>\n\n            <span class=\"tool-trigger\" data-toggle=\"toggle-content\">\n                <svg class=\"iconic\">\n                    <use xlink:href=\"../../img/iconic-sprite.svg#chevron-bottom\"></use>\n                </svg>\n                <span class=\"label hidden\">Show/hide</span>\n            </span>\n            <div class=\"toggle-content active\">\n                <p>Use the <a href=\"#\">web form</a>.</p>\n                <p>Send a text message to </br> <a href=\"tel:15551234567\">+1-555-123-4567</a>.</p>\n                <p>Send an email to <a href=\"mailto:cityhallmarch@domain.com\" title=\"Subject\">cityhallmarch@domain.com</a>.</p>\n                <p>Tweet with the hashtag(s) <a href=\"https://twitter.com/search?q=%23ushahidi&src=typd\">#marchoncityhall</a>.</p>\n            </div>\n        </div>\n    </div>\n</div>\n";
 },"useData":true});
-this["Ushahidi"]["templates"]["_Postcard"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "        <span class=\"status-indicator empty tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#globe\"></use>\n            </svg>\n            <span class=\"bug\">This post is published</span>\n        </span>\n";
-},"3":function(depth0,helpers,partials,data) {
-    return "        <span class=\"status-indicator yellow tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#lock-locked\"></use>\n            </svg>\n            <span class=\"bug\">This post is under review</span>\n        </span>\n";
-},"5":function(depth0,helpers,partials,data) {
-    return "        <span class=\"status-indicator empty tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#box\"></use>\n            </svg>\n            <span class=\"bug\">This post is archived</span>\n        </span>\n";
-},"7":function(depth0,helpers,partials,data) {
-    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
-
-  return "                <li>\n                    <a href=\"\">\n                        <img src=\""
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.avatar : stack1), depth0))
-    + "\" class=\"avatar\" />\n                        <strong>"
-    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.name : stack1), depth0))
-    + "</strong>\n                    </a>\n                </li>\n";
-},"9":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "                <li>"
-    + this.escapeExpression(this.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.name : stack1), depth0))
-    + "</li>\n";
-},"11":function(depth0,helpers,partials,data) {
-    var stack1, helper;
-
-  return "        <div class=\"postcard-field\">\n            "
-    + ((stack1 = ((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "\n        </div>\n";
-},"13":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "        <div class=\"postcard-field\">\n            <img src=\""
-    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.fields : depth0)) != null ? stack1.photo : stack1), depth0))
-    + "\" class=\"postcard-image\" />\n        </div>\n";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function", alias4=this.lambda;
-
-  return "<article class=\"postcard\">\n    "
-    + alias2((helpers.postBand || (depth0 && depth0.postBand) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.survey : stack1),{"name":"postBand","hash":{},"data":data}))
-    + "\n\n    <div class=\"listing-item-select\">\n        "
-    + alias2(((helper = (helper = helpers.postCheckbox || (depth0 != null ? depth0.postCheckbox : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"postCheckbox","hash":{},"data":data}) : helper)))
-    + "\n\n"
-    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.status : stack1),"published",{"name":"ifCond","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.status : stack1),"review",{"name":"ifCond","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.status : stack1),"archived",{"name":"ifCond","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "    </div>\n    <div class=\"postcard-body\">\n        <header class=\"postcard-header\">\n            <h1 class=\"postcard-title\"><a href=\"\">"
-    + alias2(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
-    + "</a></h1>\n            <ul class=\"metadata\">\n"
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.avatar : stack1),{"name":"if","hash":{},"fn":this.program(7, data, 0),"inverse":this.program(9, data, 0),"data":data})) != null ? stack1 : "")
-    + "                <li class=\"tooltip\">"
-    + alias2(alias4(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.date : stack1)) != null ? stack1.post : stack1), depth0))
-    + " <span class=\"bug\">2016-05-12 4:32pm</span></li>\n                <li>via "
-    + alias2(alias4(((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.source : stack1), depth0))
-    + "</li>\n            </ul>\n        </header>\n\n        <!--// IF: User has permission to edit the post //-->\n        <div class=\"postcard-actions\">\n            <button class=\"button-gamma button-flat hide-until-small\">\n                <svg class=\"iconic\">\n                  <use xlink:href=\"../../img/iconic-sprite.svg#pencil\"></use>\n                </svg>\n                <span class=\"hidden\">Edit</span>\n            </button>\n\n            <button class=\"button-gamma button-flat\" data-toggle=\"dropdown-menu\">\n                <svg class=\"iconic\">\n                  <use xlink:href=\"../../img/iconic-sprite.svg#ellipses\"></use>\n                </svg>\n                <span class=\"hidden\">More</span>\n            </button>\n            <ul class=\"dropdown-menu\">\n                <li class=\"hide-when-small\">\n                    <a href=\"post-edit.html\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#pencil\"></use>\n                    </svg>\n                    <span class=\"label\">Edit</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\" data-modal=\"add-to-collection\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#grid-three-up\"></use>\n                    </svg>\n                    <span class=\"label\">Add to Collection</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\" data-modal=\"share\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#share\"></use>\n                    </svg>\n                    <span class=\"label\">Share</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\" data-modal=\"delete-post\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#trash\"></use>\n                    </svg>\n                    <span class=\"label\">Delete</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n        <!--// END IF: User has permission to edit the post //-->\n\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.description : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n"
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.fields : depth0)) != null ? stack1.photo : stack1),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n        <div class=\"postcard-overflow\">\n            <a href=\"post-detail.html\" class=\"button button-flat button-plain button-beta\">Show complete post</a>\n        </div>\n    </div>\n</article>\n";
-},"useData":true});
 Handlebars.registerPartial("Postcard", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "        <span class=\"status-indicator empty tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#globe\"></use>\n            </svg>\n            <span class=\"bug\">This post is published</span>\n        </span>\n";
 },"3":function(depth0,helpers,partials,data) {
@@ -300,6 +243,63 @@ Handlebars.registerPartial("Postcard", Handlebars.template({"1":function(depth0,
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.fields : depth0)) != null ? stack1.photo : stack1),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "\n        <div class=\"postcard-overflow\">\n            <a href=\"post-detail.html\" class=\"button button-flat button-plain button-beta\">Show complete post</a>\n        </div>\n    </div>\n</article>\n";
 },"useData":true}));
+this["Ushahidi"]["templates"]["_Postcard"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "        <span class=\"status-indicator empty tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#globe\"></use>\n            </svg>\n            <span class=\"bug\">This post is published</span>\n        </span>\n";
+},"3":function(depth0,helpers,partials,data) {
+    return "        <span class=\"status-indicator yellow tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#lock-locked\"></use>\n            </svg>\n            <span class=\"bug\">This post is under review</span>\n        </span>\n";
+},"5":function(depth0,helpers,partials,data) {
+    return "        <span class=\"status-indicator empty tooltip\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#box\"></use>\n            </svg>\n            <span class=\"bug\">This post is archived</span>\n        </span>\n";
+},"7":function(depth0,helpers,partials,data) {
+    var stack1, alias1=this.lambda, alias2=this.escapeExpression;
+
+  return "                <li>\n                    <a href=\"\">\n                        <img src=\""
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.avatar : stack1), depth0))
+    + "\" class=\"avatar\" />\n                        <strong>"
+    + alias2(alias1(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.name : stack1), depth0))
+    + "</strong>\n                    </a>\n                </li>\n";
+},"9":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "                <li>"
+    + this.escapeExpression(this.lambda(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.name : stack1), depth0))
+    + "</li>\n";
+},"11":function(depth0,helpers,partials,data) {
+    var stack1, helper;
+
+  return "        <div class=\"postcard-field\">\n            "
+    + ((stack1 = ((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper))) != null ? stack1 : "")
+    + "\n        </div>\n";
+},"13":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "        <div class=\"postcard-field\">\n            <img src=\""
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.fields : depth0)) != null ? stack1.photo : stack1), depth0))
+    + "\" class=\"postcard-image\" />\n        </div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2=this.escapeExpression, alias3="function", alias4=this.lambda;
+
+  return "<article class=\"postcard\">\n    "
+    + alias2((helpers.postBand || (depth0 && depth0.postBand) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.survey : stack1),{"name":"postBand","hash":{},"data":data}))
+    + "\n\n    <div class=\"listing-item-select\">\n        "
+    + alias2(((helper = (helper = helpers.postCheckbox || (depth0 != null ? depth0.postCheckbox : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"postCheckbox","hash":{},"data":data}) : helper)))
+    + "\n\n"
+    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.status : stack1),"published",{"name":"ifCond","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.status : stack1),"review",{"name":"ifCond","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + ((stack1 = (helpers.ifCond || (depth0 && depth0.ifCond) || alias1).call(depth0,((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.status : stack1),"archived",{"name":"ifCond","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "    </div>\n    <div class=\"postcard-body\">\n        <header class=\"postcard-header\">\n            <h1 class=\"postcard-title\"><a href=\"\">"
+    + alias2(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : alias1),(typeof helper === alias3 ? helper.call(depth0,{"name":"title","hash":{},"data":data}) : helper)))
+    + "</a></h1>\n            <ul class=\"metadata\">\n"
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.author : stack1)) != null ? stack1.avatar : stack1),{"name":"if","hash":{},"fn":this.program(7, data, 0),"inverse":this.program(9, data, 0),"data":data})) != null ? stack1 : "")
+    + "                <li class=\"tooltip\">"
+    + alias2(alias4(((stack1 = ((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.date : stack1)) != null ? stack1.post : stack1), depth0))
+    + " <span class=\"bug\">2016-05-12 4:32pm</span></li>\n                <li>via "
+    + alias2(alias4(((stack1 = (depth0 != null ? depth0.properties : depth0)) != null ? stack1.source : stack1), depth0))
+    + "</li>\n            </ul>\n        </header>\n\n        <!--// IF: User has permission to edit the post //-->\n        <div class=\"postcard-actions\">\n            <button class=\"button-gamma button-flat hide-until-small\">\n                <svg class=\"iconic\">\n                  <use xlink:href=\"../../img/iconic-sprite.svg#pencil\"></use>\n                </svg>\n                <span class=\"hidden\">Edit</span>\n            </button>\n\n            <button class=\"button-gamma button-flat\" data-toggle=\"dropdown-menu\">\n                <svg class=\"iconic\">\n                  <use xlink:href=\"../../img/iconic-sprite.svg#ellipses\"></use>\n                </svg>\n                <span class=\"hidden\">More</span>\n            </button>\n            <ul class=\"dropdown-menu\">\n                <li class=\"hide-when-small\">\n                    <a href=\"post-edit.html\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#pencil\"></use>\n                    </svg>\n                    <span class=\"label\">Edit</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\" data-modal=\"add-to-collection\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#grid-three-up\"></use>\n                    </svg>\n                    <span class=\"label\">Add to Collection</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\" data-modal=\"share\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#share\"></use>\n                    </svg>\n                    <span class=\"label\">Share</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\" data-modal=\"delete-post\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#trash\"></use>\n                    </svg>\n                    <span class=\"label\">Delete</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n        <!--// END IF: User has permission to edit the post //-->\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.description : depth0),{"name":"if","hash":{},"fn":this.program(11, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n"
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.fields : depth0)) != null ? stack1.photo : stack1),{"name":"if","hash":{},"fn":this.program(13, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n        <div class=\"postcard-overflow\">\n            <a href=\"post-detail.html\" class=\"button button-flat button-plain button-beta\">Show complete post</a>\n        </div>\n    </div>\n</article>\n";
+},"useData":true});
 Handlebars.registerPartial("Search", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var helper;
 
