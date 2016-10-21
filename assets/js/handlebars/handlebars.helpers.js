@@ -167,7 +167,7 @@ Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fiel
                 <svg class="iconic" style="margin-right:4px;"> \
                     <use xlink:href="../../img/iconic-sprite.svg#check"></use> \
                 </svg>'
-                + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].name +
+                + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].label +
             '</div>'
         );
     } else {
@@ -227,7 +227,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
 
         for (var i=0; i < fieldOptions.length; i++) {
             var attribute = value == i ? 'selected' : '';
-            optionElems += '<option ' + attribute + '>' + fieldOptions[i].name + '</option>';
+            optionElems += '<option ' + attribute + '>' + fieldOptions[i].label + '</option>';
         }
 
         return new Handlebars.SafeString(
@@ -358,12 +358,16 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
             </div>'
         );
     } else if (fieldControl == 'select') {
+        var optionElems = '';
+
+        for (var i=0; i < fieldOptions.length; i++) {
+            optionElems += '<li>' + fieldOptions[i].label + '</li>';
+        }
+
         return new Handlebars.SafeString(
-            '<div class="custom-select"> \
-                <select disabled> \
-                    <option>Dropdown</option> \
-                </select> \
-            </div>'
+            '<ol>'
+                + optionElems +
+            '</ol>'
         );
     } else if (fieldControl == 'checkboxes') {
         var optionElems = '';

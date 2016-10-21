@@ -41,18 +41,18 @@
         //-->
 
         <div class="button-group">
-            <a class="button button-flat" data-modal="survey-appearance">
+            <a class="button button-flat button-plain" data-modal="survey-appearance">
                 <svg class="iconic">
                     <use xlink:href="../../img/iconic-sprite.svg#brush"></use>
                 </svg>
-                <span class="hidden">Appearance</span>
+                <span class="button-label hide-until-medium">Appearance</span>
             </a>
 
-            <a class="button button-flat" data-modal="survey-permissions">
+            <a class="button button-flat button-plain" data-modal="survey-permissions">
                 <svg class="iconic">
                     <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
                 </svg>
-                <span class="hidden">Permissions</span>
+                <span class="button-label hide-until-medium">Permissions</span>
             </a>
 
             <a href="post-add.html#{{indexFromHash}}" class="button button-beta" target="_blank">Preview</a>
@@ -64,8 +64,8 @@
         <section class="form-sheet" role="article">
             <span class="post-band" style="background-color: #{{color}}"></span>
 
-            <header class="form-sheet-summary">
-                <h1 class="form-sheet-title survey-title" contenteditable="true">{{name}}</h1>
+            <header class="form-sheet-summary contenteditable">
+                <h1 class="form-sheet-title survey-title" contenteditable="true" placeholder="Untitled survey">{{name}}</h1>
                 <p contenteditable="true">{{description}}</p>
             </header>
 
@@ -105,6 +105,86 @@
                         </a>
                     </div>
 
+                    {{#ifCond type.control 'checkboxes'}}
+                    <div class="listing">
+                        {{#each options}}
+                        <div class="listing-item" draggable="true">
+                            <div class="listing-item-select">
+                                <span class="dragger">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="listing-item-secondary">
+                                <button class="button-beta button-link">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/material/svg-sprite-content-symbol.svg#ic_remove_circle_24px"></use>
+                                    </svg>
+                                    <span class="hidden">Remove</span>
+                                </button>
+                            </div>
+                            <div class="listing-item-primary">
+                                <h4 class="listing-item-title" contenteditable="true">{{label}}</h4>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                        <div class="listing-item" draggable="true">
+                            <div class="listing-item-primary">
+                                <h4 class="listing-item-title">
+                                    <button class="button-plain">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                        </svg>
+                                        <span class="button-label">Add checkbox</span>
+                                    </button>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    {{/ifCond}}
+
+                    {{#ifCond type.control 'select'}}
+                    <div class="listing">
+                        {{#each options}}
+                        <div class="listing-item" draggable="true">
+                            <div class="listing-item-select">
+                                <span class="dragger">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="listing-item-secondary">
+                                <button class="button-beta button-link">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/material/svg-sprite-content-symbol.svg#ic_remove_circle_24px"></use>
+                                    </svg>
+                                    <span class="hidden">Remove</span>
+                                </button>
+                            </div>
+                            <div class="listing-item-primary">
+                                <h4 class="listing-item-title" contenteditable="true">{{label}}</h4>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                        <div class="listing-item" draggable="true">
+                            <div class="listing-item-primary">
+                                <h4 class="listing-item-title">
+                                    <button class="button-plain">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                        </svg>
+                                        <span class="button-label">Add option</span>
+                                    </button>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    {{/ifCond}}
+
                     {{#ifCond type.control 'location'}}
                     <div class="form-field switch">
                         <label>Use this field to map each response</label>
@@ -116,22 +196,24 @@
                     </div>
 
                     <div class="form-field switch">
-                        <label>Use default location area</label>
+                        <label>Show a specific region on this field's map</label>
                         <div class="toggle-switch">
                             <input class="tgl" id="area-field-location-{{@index}}" type="checkbox" data-fieldgroup-toggle="area-field-location-picker">
                             <label class="tgl-btn" for="area-field-location-{{@index}}"></label>
                         </div>
 
                         <div class="form-field form-fieldgroup location" data-fieldgroup-target="area-field-location-picker">
-                            {{mapEmbed 0 false}}
+                            <div class="location-wrapper">
+                                {{mapEmbed 0 false}}
 
-                            <form role="search" class="searchbar" data-message="search">
-                                <div class="searchbar-input">
-                                    <div class="form-field">
-                                        <input type="search" maxlength="250" placeholder="Pick a default location area" value="" />
+                                <form role="search" class="searchbar" data-message="search">
+                                    <div class="searchbar-input">
+                                        <div class="form-field">
+                                            <input type="search" maxlength="250" placeholder="Pick a region" value="" />
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     {{/ifCond}}
@@ -149,30 +231,31 @@
                         <div>
                             <button class="button-beta button-flat" data-message="delete-field">
                                 <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                    <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
                                 </svg>
                                 <span class="hidden">Delete</span>
                             </button>
 
                             <button class="button-beta button-flat" data-toggle="dropdown-menu">
                                 <svg class="iconic">
-                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                    <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
                                 </svg>
                                 <span class="hidden">More</span>
                             </button>
 
                             <div class="dropdown-menu">
                                 <div class="form-field checkbox">
-                                    <label for="show-field-description-1">
+                                    <label for="show-field-description-{{@index}}">
                                         Show field description
                                         <input type="checkbox" id="show-field-description-{{@index}}" data-fieldgroup-toggle="field-description-{{@index}}" {{#if description}}checked{{/if}} />
                                     </label>
                                 </div>
                                 <div class="form-field checkbox">
                                     <label for="include-in-summary-{{@index}}">
-                                        Include in response summary
-                                        <input type="checkbox" id="include-in-summary-{{@index}}" {{#if in-summary}}checked{{/if}} />
+                                        Include in response preview
+                                        <input type="checkbox" id="include-in-summary-{{@index}}" data-fieldgroup-toggle="response-preview-description-{{@index}}" {{#if postcard}}checked{{/if}} />
                                     </label>
+                                    <p data-fieldgroup-target="response-preview-description-{{@index}}">When someone completes this field, their answer will appear in the short preview of their response that appears in Map and Timeline views.</p>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-$('.form-field[draggable]').on('click', function(){
+$('.form-field[draggable], .contenteditable, [contenteditable="true"]').on('click', function(){
     var formField = $(this);
 
     formField.addClass('focus');
