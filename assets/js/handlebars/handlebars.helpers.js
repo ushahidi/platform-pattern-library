@@ -237,6 +237,24 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                 </div> \
             </div>'
         );
+    } else if (fieldType == 'checkboxes') {
+        var optionElems = '';
+
+        for (var i=0; i < fieldOptions.length; i++) {
+            var attribute = value == i ? 'checked' : '';
+            optionElems += '<div class="form-field checkbox"> \
+                                <label>' + fieldOptions[i].label + '\
+                                    <input type="checkbox" ' + attribute + ' /> \
+                                </label> \
+                            </div>';
+        }
+
+        return new Handlebars.SafeString(
+            '<fieldset> \
+                <legend>' + fieldLabel + '</legend>'
+                + optionElems +
+            '</fieldset>'
+        );
     } else if (fieldType == 'time' || fieldType == 'date') {
         return new Handlebars.SafeString(
             '<div class="form-field ' + fieldType + '"> \
@@ -319,7 +337,8 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
 Handlebars.registerHelper('surveyFieldPreview', function() {
     var fieldName = this.type.name,
         fieldControl = this.type.control,
-        fieldLabel = this.label;
+        fieldLabel = this.label,
+        fieldOptions = this.options;
 
     if (fieldControl == 'text') {
         return new Handlebars.SafeString(
@@ -338,18 +357,27 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
                 <input type="' + fieldControl + '" placeholder="' + fieldName + '" disabled /> \
             </div>'
         );
-    } else if (fieldControl == 'dropdown') {
+    } else if (fieldControl == 'select') {
+        return new Handlebars.SafeString(
+            '<div class="custom-select"> \
+                <select disabled> \
+                    <option>Dropdown</option> \
+                </select> \
+            </div>'
+        );
+    } else if (fieldControl == 'checkboxes') {
         var optionElems = '';
 
         for (var i=0; i < fieldOptions.length; i++) {
-            var attribute = value == i ? 'selected' : '';
-            optionElems += '<option ' + attribute + '>' + fieldOptions[i].name + '</option>';
+            optionElems += '<div class="form-field checkbox"> \
+                                <label>' + fieldOptions[i].label + '\
+                                    <input type="checkbox" disabled /> \
+                                </label> \
+                            </div>';
         }
 
         return new Handlebars.SafeString(
-            '<div class="custom-select"> \
-                <select>' + optionElems + '</select> \
-            </div>'
+            optionElems
         );
     } else if (fieldControl == 'file') {
         return new Handlebars.SafeString(
@@ -363,11 +391,13 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
         );
     } else if (fieldControl == 'location') {
         return new Handlebars.SafeString(
-            '<div id="map" data-post-index="0" class="map"></div> \
-            <div class="searchbar"> \
-                <div class="searchbar-input"> \
-                    <div class="form-field"> \
-                        <input type="search" maxlength="250" placeholder="' + fieldName + '" disabled /> \
+            '<div class="location-wrapper"> \
+                <div id="map" data-post-index="0" class="map"></div> \
+                <div class="searchbar"> \
+                    <div class="searchbar-input"> \
+                        <div class="form-field"> \
+                            <input type="search" maxlength="250" placeholder="' + fieldName + '" disabled /> \
+                        </div> \
                     </div> \
                 </div> \
             </div>'

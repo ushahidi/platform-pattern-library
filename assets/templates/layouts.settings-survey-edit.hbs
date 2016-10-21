@@ -21,6 +21,7 @@
 
 </div>
 
+{{#surveyFromHash}}
 <main role="main">
 
     <div class="toolbar">
@@ -54,24 +55,24 @@
                 <span class="hidden">Permissions</span>
             </a>
 
-            <button class="button-beta">Preview</button>
+            <a href="post-add.html#{{indexFromHash}}" class="button button-beta" target="_blank">Preview</a>
         </div>
     </div>
 
     <div class="full-col">
 
         <section class="form-sheet" role="article">
-            <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
+            <span class="post-band" style="background-color: #{{color}}"></span>
 
             <header class="form-sheet-summary">
-                <h1 class="form-sheet-title survey-title" contenteditable="true">Street maintenance</h1>
-                <p contenteditable="true">Reports about streets that need resurfacing, repairs, or the removal of a hazard.</p>
+                <h1 class="form-sheet-title survey-title" contenteditable="true">{{name}}</h1>
+                <p contenteditable="true">{{description}}</p>
             </header>
 
-            {{#each deployment.surveys.0.fields}}
+            {{#each fields}}
             <div class="form-field {{type.control}}" draggable="true">
 
-                <label contenteditable="true">{{label}}</label>
+                <label contenteditable="true" {{#if required}}class="required"{{/if}}>{{label}}</label>
 
                 <p data-fieldgroup-target="field-description-{{@index}}" contenteditable="true">
                     {{#if description}}
@@ -192,36 +193,10 @@
             </div>
         </section>
 
-        <div class="toolbox hidden">
-
-            <div class="listing">
-                <div class="listing-item">
-                    <div class="listing-item-primary">
-                        <div class="listing-item-image">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#brush"></use>
-                            </svg>
-                        </div>
-                        <h2 class="listing-item-title"><a href="" data-modal="survey-appearance">Appearance</a></h2>
-                    </div>
-                </div>
-                <div class="listing-item">
-                    <div class="listing-item-primary">
-                        <div class="listing-item-image">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
-                            </svg>
-                        </div>
-                        <h2 class="listing-item-title"><a href="" data-modal="survey-permissions">Permissions</a></h2>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
     </div>
 
 </main>
+{{/surveyFromHash}}
 
 {{> Modals }}
 
