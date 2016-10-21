@@ -1,3 +1,26 @@
+.form-sheet-title {
+    @include typeBeta;
+    margin-bottom: $sm-spacing;
+
+    &.survey-title {
+        color: $color-dark-delta;
+        font-size: 24px;
+        font-size: 1.714285714rem;
+        // text-align: center;
+        text-shadow: 0 1px 0 $white;
+
+        @include media($mobile) {
+            font-size: 28px;
+            font-size: 2rem;
+        }
+
+        @include media($medium) {
+            font-size: 34px;
+            font-size: 2.428571429rem;
+        }
+    }
+}
+
 .form-sheet {
     position: relative;
     @include containerCard;
@@ -8,29 +31,6 @@
         content: '\00a0';
         display: block;
         height: 1px;
-    }
-
-    .form-sheet-title {
-        @include typeBeta;
-        margin-bottom: $sm-spacing;
-
-        &.survey-title {
-            color: $color-dark-delta;
-            font-size: 24px;
-            font-size: 1.714285714rem;
-            // text-align: center;
-            text-shadow: 0 1px 0 $white;
-
-            @include media($mobile) {
-                font-size: 28px;
-                font-size: 2rem;
-            }
-
-            @include media($medium) {
-                font-size: 34px;
-                font-size: 2.428571429rem;
-            }
-        }
     }
 
     .form-sheet-summary,
@@ -133,6 +133,28 @@
                 margin-right: 0;
                 margin-left: 4px;
             }
+        }
+    }
+
+    .form-sheet-actions {
+        position: relative;
+//        text-align: right;
+        border-top: 1px solid rgba(0,0,0,0.04);
+        background-color: rgba(0,0,0,0.04);
+        padding: $sm-spacing;
+
+        @include media($small) {
+            padding-right: 10%;
+            padding-left: 10%;
+        }
+
+        @include media($large) {
+            padding-right: 20%;
+            padding-left: 20%;
+        }
+
+        .form-field {
+            margin: 0;
         }
     }
 

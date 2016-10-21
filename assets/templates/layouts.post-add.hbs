@@ -22,38 +22,25 @@
     </div>
 </div>
 
+<!--// Uses numeric hash to determine which survey to render by its index; falls back to index 0 //-->
+{{#surveyFromHash}}
 <main role="main">
-
-    <div class="toolbar">
-        <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha" onclick="messageToggle($('#required'),true)">
-                {{#if user.logged_in}} <!--// IF: User has permission to manage post status //-->
-                Save
-                {{else}}
-                Submit
-                {{/if}}
-            </button>
-        </div>
-    </div>
 
     <div class="full-col">
 
         <div class="form-sheet" role="article">
-            {{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
-                <span class="post-band" style="background-color: #{{color}}"></span>
+            <span class="post-band" style="background-color: #{{color}}"></span>
 
-                <header class="form-sheet-summary">
-                    <h1 class="form-sheet-title survey-title">{{name}}</h1>
-                    <p>{{description}}</p>
-                </header>
-            {{/with}}
+            <header class="form-sheet-summary">
+                <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                <p>{{description}}</p>
+            </header>
 
             <ul class="metadata">
-                {{#if user.logged_in}}
+                {{#if ../user.logged_in}}
 
                 <li>
-                    <a class="chip yellow" data-toggle="post-status">
+                    <a class="chip yellow" data-toggle="post-status" {{#if tasks}}disabled{{/if}}>
                         <span class="chip-icon">
                             <span class="label">Status</span>
                         </span>
@@ -64,19 +51,24 @@
                     </a>
                 </li>
 
-                <!--li>
-                    <a href="" class="chip" data-modal="edit-author">
+                <li>
+                    <a class="chip" data-modal="edit-author">
                         <span class="chip-icon">
                             <span class="label">Author</span>
                         </span>
-                        <img src="{{user.avatar}}" class="avatar" />
-                        <span class="label">{{user.name}}</span>
+                        {{#if ../../user.avatar}}
+                            <img src="{{../../../user.avatar}}" class="avatar">
+                        {{/if}}
+                        <span class="label">{{../../user.name}}</span>
                     </a>
-                </li-->
-
-                <li>
-                    By <strong>{{user.name}}</strong>
                 </li>
+
+                <!--li>
+                    {{#if ../../user.avatar}}
+                        <img src="{{../../../user.avatar}}" class="avatar">
+                    {{/if}}
+                    <strong>{{../../user.name}}</strong>
+                </li-->
 
                 <li>
                     <a href="" class="chip" data-modal="post-date">
@@ -102,7 +94,7 @@
                 </li>
 
                 <li>
-                    <a href="" class="chip">
+                    <a class="chip" data-modal="edit-author">
                         <span class="chip-icon">
                             <span class="label">Author</span>
                         </span>
@@ -116,118 +108,152 @@
                 {{/if}}
             </ul>
 
-            <div class="form-field">
-                <label class="required">Describe the problem</label>
-                <textarea></textarea>
-            </div>
+            {{#each fields}}
+                {{#ifCond type.control 'text'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <input type="text" {{#if required}}required{{/if}} />
+                </div>
+                {{/ifCond}}
 
-            <div class="form-field location">
-                <label class="required">Where is the problem?</label>
-                {{mapEmbed 0 false}}
+                {{#ifCond type.control 'textarea'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <textarea {{#if required}}required{{/if}}></textarea>
+                </div>
+                {{/ifCond}}
 
-                <form role="search" class="searchbar" data-message="search">
-                    <div class="searchbar-input">
-                        <div class="form-field">
-                            <input type="search" maxlength="250" placeholder="Pick a location" value="" />
-                        </div>
-                        <div class="searchbar-results dropdown-menu">
-                            <div class="form-field">
-                                <!--button class="button-plain">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
-                                    </svg>
-                                    <span class="button-label">Search for "<em>123 Main St</em>"</span>
-                                </button-->
-
-                                <button class="button-beta button-plain">
-                                    <svg class="iconic">
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                                    </svg>
-                                    <span class="button-label">Use your current location</span>
-                                </button>
-                            </div>
-
-                            <div class="tool">
-                                <h6 class="tool-heading">Search results</h6>
-                                <dl class="dropdown-menu-body">
-                                    <dt class="list-item">
-                                        <a href="#">
-                                            <svg class="iconic">
-                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                            </svg>
-                                            <em>30.316855</em> latitude, <em>-97.674815</em> longitude
-                                        </a>
-                                    </dt>
-                                    <dt class="list-item">
-                                        <a href="#">
-                                            <svg class="iconic">
-                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                            </svg>
-                                            <em>123 Main St</em>reet Austin, TX USA
-                                        </a>
-                                    </dt>
-                                    <dt class="list-item">
-                                        <a href="#">
-                                            <svg class="iconic">
-                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                            </svg>
-                                            <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
-                                        </a>
-                                    </dt>
-                                    <dt class="list-item">
-                                        <a href="#">
-                                            <svg class="iconic">
-                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                            </svg>
-                                            <em>123 Main St</em>reet Austin, TX USA
-                                        </a>
-                                    </dt>
-                                    <dt class="list-item">
-                                        <a href="#">
-                                            <svg class="iconic">
-                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                            </svg>
-                                            <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
-                                        </a>
-                                    </dt>
-                                </dl>
-                            </div>
-                        </div>
+                {{#ifCond type.control 'select'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <div class="custom-select">
+                        <select {{#if required}}required{{/if}}>
+                            {{#each options}}
+                            <option>{{name}}</option>
+                            {{/each}}
+                        </select>
                     </div>
-                </form>
-
-                <p><em>You can search or click the area of map where you want to place the marker.</em></p>
-            </div>
-
-            <div class="form-field">
-                <label>What time did you last see the problem?</label>
-                <div class="input-with-icon">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                    </svg>
-                    <input type="time" required />
                 </div>
-            </div>
+                {{/ifCond}}
 
-            <div class="form-field">
-                <label>What date did you last see the problem?</label>
-                <div class="input-with-icon">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                    </svg>
-                    <input type="date" required />
+                {{#ifCond type.control 'time'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                            <use xlink:href="{{../icon}}"></use>
+                        </svg>
+                        <input type="{{type.control}}" {{#if required}}required{{/if}} />
+                    </div>
                 </div>
-            </div>
+                {{/ifCond}}
 
-            <div class="form-field file">
-                <label>Photo of the problem</label>
-                <input type="file" id="photo" />
-                <label for="photo" class="button button-plain button-gamma">
-                    <svg class="iconic block">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#camera-slr"></use>
-                    </svg>
-                    <span class="button-label">Add photo</span>
-                </label>
+                {{#ifCond type.control 'date'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                            <use xlink:href="{{../icon}}"></use>
+                        </svg>
+                        <input type="{{type.control}}" {{#if required}}required{{/if}} />
+                    </div>
+                </div>
+                {{/ifCond}}
+
+                {{#ifCond type.control 'file'}}
+                <div class="form-field file">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <input type="file" id="photo" {{#if required}}required{{/if}} />
+                    <label for="photo" class="button button-plain button-gamma">
+                        <svg class="iconic block">
+                            <use xlink:href="../../img/iconic-sprite.svg#camera-slr"></use>
+                        </svg>
+                        <span class="button-label">Add photo</span>
+                    </label>
+                </div>
+                {{/ifCond}}
+
+                {{#ifCond type.control 'location'}}
+                <div class="form-field location">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <div class="location-wrapper">
+                        {{mapEmbed 0 false}}
+
+                        <form role="search" class="searchbar" data-message="search">
+                            <div class="searchbar-input">
+                                <div class="form-field">
+                                    <input type="search" maxlength="250" placeholder="Pick a location" value="" {{#if required}}required{{/if}} />
+                                </div>
+                                <div class="searchbar-results dropdown-menu">
+                                    <div class="form-field">
+                                        <button class="button-beta button-plain">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                                            </svg>
+                                            <span class="button-label">Use your current location</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="tool">
+                                        <h6 class="tool-heading">Search results</h6>
+                                        <dl class="dropdown-menu-body">
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>30.316855</em> latitude, <em>-97.674815</em> longitude
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123 Main St</em>reet Austin, TX USA
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123 Main St</em>reet Austin, TX USA
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
+                                                </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <p><em>You can search or click the area of map where you want to place the marker.</em></p>
+                    </div>
+                </div>
+                {{/ifCond}}
+            {{/each}}
+
+            <div class="form-sheet-actions">
+                <div class="form-field">
+                    <button class="button-alpha" onclick="messageToggle($('#required'),true)">Submit</button>
+                    <button class="button-gamma button-flat">Submit &amp; create another</button>
+                </div>
             </div>
 
         </div>
@@ -235,6 +261,8 @@
     </div>
 
 </main>
+
+{{/surveyFromHash}}
 
 {{> Modals }}
 

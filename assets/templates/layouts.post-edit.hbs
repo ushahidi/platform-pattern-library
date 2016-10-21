@@ -2,12 +2,12 @@
 
 <div class="mode-context">
 
-    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
-        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+        </ol>
 
-        {{#if deployment.logo}}
-            <img src="{{deployment.logo}}" class="deployment-logo" />
-        {{/if}}
+        <h1 class="mode-context-title">Edit Response</h1>
     </header>
 
     <span class="mode-context-trigger">
@@ -18,22 +18,37 @@
     </span>
 
     <div class="mode-context-body">
-        {{{deployment.description}}}
+
     </div>
 
 </div>
 
-{{#with (lookup deployment.responses 1)}} <!--// Choose the post index that will be the context for this template //-->
+<!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
+{{#postFromHash}}
 <main role="main">
 
     <div class="toolbar">
+        <!--// SAVED //-->
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">All changes saved</span>
+            <span class="bug">Every change you make is automatically saved</span>
+        </span>
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
         <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
+            <button type="button" class="button-alpha">Done</button>
         </div>
     </div>
 
-    <div class="{{#if tasks}}main{{else}}full{{/if}}-col">
+    <div class="{{#if tasks}}main{{else}}{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}{{/if}}-col">
 
         <div class="form-sheet" role="article">
             {{postBand}}
@@ -41,6 +56,7 @@
             <header class="form-sheet-summary">
                 {{#postSurvey}}
                 <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                <p>{{description}}</p>
                 {{/postSurvey}}
             </header>
 
@@ -241,6 +257,32 @@
         </div>
         {{/if}}
 
+        {{#ifPostIsDataSource}}
+        <div class="toolbox">
+            <div class="tool">
+                <fieldset>
+                    <legend>Convert this into a survey response to...</legend>
+
+                    {{#global}}
+                        {{#each deployment.surveys}}
+                            {{#unless datasource}}
+                            <div class="form-field radio">
+                                <input type="radio" name="add-to-survey" id="survey-{{@index}}" />
+                                <label for="survey-{{@index}}">{{name}}</label>
+                            </div>
+                            {{/unless}}
+                        {{/each}}
+                    {{/global}}
+
+                </fieldset>
+
+                <div class="form-field">
+                    <button class="button-flat" disabled>Convert &amp; edit</button>
+                </div>
+            </div>
+        </div>
+        {{/ifPostIsDataSource}}
+
         <!--div class="form-sheet">
             <div class="form-sheet-summary">
                 <h3 class="form-sheet-title">Delete this post</h3>
@@ -258,7 +300,72 @@
     </div>
 
 </main>
-{{/with}}
+
+{{#each tasks}}
+<div id="task-{{@index}}" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title {{#if complete}}complete{{/if}}">{{taskInfo "name" 0 @index}}</h3>
+
+        <div class="form-field">
+            {{#if disabled}}
+                <p><em>This task can't be completed until "Verify" is completed.</em></p>
+            {{else}}
+                {{taskInfo "description" 0 @index}}
+            {{/if}}
+        </div>
+
+        <div class="modal-body">
+            <div class="form-field">
+                <label>Notes</label>
+                <textarea></textarea>
+            </div>
+
+
+            <div class="form-field required">
+                <label>Police officer</label>
+                <input type="text" />
+            </div>
+
+            <div class="form-field required">
+                <label>Case number</label>
+                <input type="number" />
+            </div>
+
+            <div class="form-field">
+                <label>Notes</label>
+                <textarea></textarea>
+            </div>
+
+
+
+
+            <div class="form-field switch">
+                <label>
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
+                    </svg>
+                    Mark this task {{#unless complete}}in{{/unless}}complete
+                </label>
+                <div class="toggle-switch">
+                    <input {{#if complete}}checked{{/if}} class="tgl" id="task-{{@index}}-complete" type="checkbox">
+                    <label class="tgl-btn" for="task-{{@index}}-complete"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+{{/each}}
+
+{{/postFromHash}}
 
 {{> Modals }}
 
@@ -278,158 +385,4 @@
             Dismiss
         </button>
     </div>
-</div>
-
-<div id="task-0" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title complete">Review</h3>
-
-        <div class="form-field">
-            <p>Make sure the post includes no profanity or personally identifiable information.</p>
-        </div>
-
-        <div class="modal-body">
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task complete
-                </label>
-                <div class="toggle-switch">
-                    <input checked class="tgl" id="task-review-complete" type="checkbox">
-                    <label class="tgl-btn" for="task-review-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="task-1" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Verify</h3>
-
-        <div class="modal-body">
-            <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task complete
-                </label>
-                <div class="toggle-switch">
-                    <input class="tgl" id="task-verify-complete" type="checkbox">
-                    <label class="tgl-btn" for="task-verify-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="task-2" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Call police</h3>
-
-        <div class="form-field">
-            <p>Report the incident to police at +1-234-567-8901.</p>
-        </div>
-
-        <div class="modal-body">
-            <div class="form-field required">
-                <label>Police officer</label>
-                <input type="text" />
-            </div>
-
-            <div class="form-field required">
-                <label>Case number</label>
-                <input type="number" />
-            </div>
-
-            <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task complete
-                </label>
-                <div class="toggle-switch">
-                    <input class="tgl" id="task-callpolice-complete" type="checkbox" disabled>
-                    <label class="tgl-btn" for="task-callpolice-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="task-3" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Publish</h3>
-
-        <div class="modal-body">
-            <!--// If 'Under Review' //-->
-            <p>This post is currently <em>under review</em>. Are you ready to <em>publish</em> it and mark this task complete?</p>
-            <!--// ELSE //
-            <p>This post is currently <em>published</em>.</p>
-            <div class="form-field">
-                <button class="button-gamma button-plain">Put this post under review</button>
-            </div>
-            // END IF //-->
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <!--// If 'Under Review' //-->
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-
-                <button class="button-alpha modal-trigger">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                    </svg>
-                    <span class="button-label">Publish this post</span>
-                </button>
-                <!--// ELSE //
-                <button class="button-alpha modal-trigger">Done</button>
-                // END IF //-->
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
 </div>

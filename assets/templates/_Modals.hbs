@@ -886,15 +886,17 @@
 
 <div class="mainsheet" data-toggle-target="submit-new-survey" data-toggle-animate>
     <div class="mainsheet-window">
-        <h3 class="mainsheet-heading">Submit new survey</h3>
+        <h3 class="mainsheet-heading">Respond to a survey</h3>
         <ul>
             {{#each deployment.surveys}}
-            <li>
-                <a href="">
-                    <span class="post-band" style="background-color: #{{color}};"></span>
-                    {{name}}
-                </a>
-            </li>
+                {{#unless datasource}}
+                <li>
+                    <a href="post-add.html#{{@index}}">
+                        <span class="post-band" style="background-color: #{{color}};"></span>
+                        {{name}}
+                    </a>
+                </li>
+                {{/unless}}
             {{/each}}
         </ul>
     </div>

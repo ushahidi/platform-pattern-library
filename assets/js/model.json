@@ -79,7 +79,8 @@
                     },
                     {
                         "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>"
+                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
+                        "requires" : 1
                     }
                 ]
             },
@@ -100,11 +101,19 @@
                     },
                     {
                         "type" : {
-                            "name" : "Checkbox",
-                            "control" : "checkbox"
+                            "name" : "Checkboxes",
+                            "control" : "checkboxes"
                         },
                         "label" : "Does the problem involve a pipe?",
                         "required" : true,
+                        "options" : [
+                            {
+                                "label" : "Yes"
+                            },
+                            {
+                                "label" : "No"
+                            }
+                        ],
                         "postcard" : true
                     },
                     {
@@ -142,7 +151,8 @@
                     },
                     {
                         "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>"
+                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
+                        "requires" : 1
                     }
                 ]
             },
@@ -202,6 +212,7 @@
                             "control" : "date"
                         },
                         "label" : "What date did you last see the damage?",
+                        "icon" : "../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px",
                         "required" : true
                     },
                     {
@@ -210,6 +221,7 @@
                             "control" : "time"
                         },
                         "label" : "What time did you last see the damage?",
+                        "icon" : "../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px",
                         "required" : true
                     }
                 ],
@@ -219,11 +231,7 @@
                     },
                     {
                         "name" : "Graffiti"
-                    },
-                    {
-                        "name" : "Toppled structure"
                     }
-
                 ],
                 "tasks" : [
                     {
@@ -239,7 +247,8 @@
                     },
                     {
                         "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>"
+                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
+                        "requires" : 1
                     }
                 ]
             },
@@ -278,6 +287,7 @@
                             "name" : "Date",
                             "control" : "date"
                         },
+                        "icon" : "../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px",
                         "label" : "What date did you last experience the problem?",
                         "required" : true
                     }
@@ -296,7 +306,41 @@
                     },
                     {
                         "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>"
+                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
+                        "requires" : 1
+                    }
+                ]
+            },
+            {
+                "name" : "Twitter",
+                "description" : "Tweets imported by this deployment.",
+                "color" : "00aced",
+                "image" : "../../img/twitter.png",
+                "datasource" : true,
+                "fields" : [
+                    {
+                        "type" : {
+                            "name" : "Long text",
+                            "control" : "textarea"
+                        },
+                        "label" : "Tweet",
+                        "required" : true,
+                        "postcard" : true
+                    },
+                    {
+                        "type" : {
+                            "name" : "Photo",
+                            "control" : "file"
+                        },
+                        "label" : "Photo",
+                        "postcard" : true
+                    },
+                    {
+                        "type" : {
+                            "name" : "Location",
+                            "control" : "location"
+                        },
+                        "label" : "Location"
                     }
                 ]
             }
@@ -476,14 +520,15 @@
                         "value" : "<p>The storm drain on Berkman Drive that allows water to flow into the creek inside Bartholomew District Park is clogged with branches and construction materials. The last few rain storms have created a three-inches-deep backup of water on the roadway at this site.</p>"
                     },
                     {
-                        "value" : true
+                        "value" : 0
                     },
                     {
                         "type" : "Feature",
                         "geometry" : {
                             "type" : "Point",
                             "coordinates" : [-97.698612, 30.300846]
-                        }
+                        },
+                        "value" : [-97.698612, 30.300846]
                     },
                     {
                         "value" : "Oct. 3, 2016"
@@ -541,13 +586,14 @@
                         "geometry" : {
                             "type" : "Point",
                             "coordinates" : [-97.752420, 30.241690]
-                        }
+                        },
+                        "value" : [-97.752420, 30.241690]
                     },
                     {
-                        "value" : "8:34 p.m."
+                        "value" : "08:34:00"
                     },
                     {
-                        "value" : "Oct. 3, 2016"
+                        "value" : "2016-10-03"
                     },
                     {
                         "value" : "http://ap.rdcpix.com/1223036244/249f68691a49558f95985ea36e7837a4l-m0xd-w640_h480_q80.jpg"
@@ -655,6 +701,41 @@
                     {
                         "complete" : false,
                         "disabled" : true
+                    }
+                ]
+            },
+            {
+                "properties" : {
+                    "survey" : 4,
+                    "status" : "review",
+                    "author" : {
+                        "name" : "@austintexasgov",
+                        "avatar" : "https://pbs.twimg.com/profile_images/481878662145261569/wb28aHGD_400x400.jpeg"
+                    },
+                    "date" : {
+                        "post" : "3 weeks"
+                    },
+                    "source" : "Twitter"
+                },
+                "type" : "Feature",
+                "geometry" : {
+                    "type" : "Point",
+                    "coordinates" : [-97.747196, 30.264896]
+                },
+                "answers" : [
+                    {
+                        "value" : "Join us at City Hall Plaza Thurs. to take a photo with the @ATX_311 display at the “Discover Austin” Outreach Event! http://ow.ly/srpa305ji0T"
+                    },
+                    {
+                        "value" : "https://pbs.twimg.com/media/CvFEkPQXEAEcg3E.jpg"
+                    },
+                    {
+                        "type" : "Feature",
+                        "geometry" : {
+                            "type" : "Point",
+                            "coordinates" : [-97.747196, 30.264896]
+                        },
+                        "value" : [-97.747196, 30.264896]
                     }
                 ]
             }

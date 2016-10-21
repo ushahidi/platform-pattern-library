@@ -62,6 +62,10 @@ Handlebars.registerHelper ('truncate', function (str, len) {
     return str;
 });
 
+Handlebars.registerHelper('global', function(options) {
+    return options.fn(session);
+});
+
 Handlebars.registerHelper('mapEmbed', function(postIndex, fullsize) {
     var dataAttr = postIndex == 'all' ? '' : 'data-post-index="'+postIndex+'"',
         className = fullsize == true ? 'full-size' : '';
@@ -79,55 +83,105 @@ Handlebars.registerHelper('postSurvey', function(options) {
     return options.fn(session.deployment.surveys[this.properties.survey]);
 });
 
+Handlebars.registerHelper('surveyFromHash', function(options) {
+    var contextHash = window.location.hash ? window.location.hash.substr(1) : 0;
+
+    return options.fn(session.deployment.surveys[contextHash]);
+});
+
+Handlebars.registerHelper('postFromHash', function(options) {
+    var contextHash = window.location.hash ? window.location.hash.substr(1) : 0;
+
+    return options.fn(session.deployment.responses[contextHash]);
+});
+
+Handlebars.registerHelper('indexFromHash', function(options) {
+    return window.location.hash ? window.location.hash.substr(1) : 0;
+});
+
+Handlebars.registerHelper('ifPostIsDataSource', function(options) {
+    if (session.deployment.surveys[this.properties.survey].datasource) {
+        return options.fn(this);
+    } else {
+        return options.inverse(this);
+    }
+
+    /*
+    return new Handlebars.SafeString(
+        options.fn(session.deployment.surveys[this.properties.survey].datasource)
+    );
+    */
+//    return options.fn(session.deployment.surveys[this.properties.survey].datasource);
+});
+
 Handlebars.registerHelper('postBand', function() {
     return new Handlebars.SafeString(
         '<div class="post-band" style="background-color: #' + session.deployment.surveys[this.properties.survey].color + '"></div>'
     );
 });
 
-Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fieldIndex) {
+Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fieldIndex, summary) {
     var fieldControl = session.deployment.surveys[surveyIndex].fields[fieldIndex].type.control,
-        fieldValue = this.value;
+        fieldValue = this.value,
+        fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label;
+
 /*
     console.log({
         "survey" : surveyIndex,
         "post" : postIndex,
         "field" : fieldIndex,
-        "control" : fieldControl,
         "value" : fieldValue
     });
 */
-    if (session.deployment.surveys[surveyIndex].fields[fieldIndex].postcard) {
-        if (fieldControl == 'file') {
-            return new Handlebars.SafeString(
-                '<img src="'+fieldValue+'" class="postcard-image" />'
-            );
-        } else if (fieldControl == 'location') {
-            return Handlebars.helpers.mapEmbed(postIndex, false);
-        } else if (fieldControl == 'checkbox') {
-            if (fieldValue == true) {
-                return new Handlebars.SafeString(
-                    '<svg class="iconic" style="margin-right:4px;"> \
-                        <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px"></use> \
-                    </svg>'
-                    + session.deployment.surveys[surveyIndex].fields[fieldIndex].label
-                );
-            }
-        } else if (fieldControl == 'select') {
-            return new Handlebars.SafeString(
-                '<svg class="iconic" style="margin-right:4px;"> \
-                    <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_label_24px"></use> \
+
+    if (summary == true && !session.deployment.surveys[surveyIndex].fields[fieldIndex].postcard) {
+
+    } else if (fieldControl == 'file') {
+        return new Handlebars.SafeString(
+            '<div class="postcard-field"> \
+                <h2 class="form-label">' + fieldLabel + '</h2> \
+                <img src="'+fieldValue+'" class="postcard-image" /> \
+            </div>'
+        );
+    } else if (fieldControl == 'location') {
+        return new Handlebars.SafeString(
+            '<div class="postcard-field"> \
+                <h2 class="form-label">' + fieldLabel + '</h2>'
+                + Handlebars.helpers.mapEmbed(postIndex, false) +
+            '</div>'
+        );
+    } else if (fieldControl == 'checkboxes') {
+        return new Handlebars.SafeString(
+            '<div class="postcard-field checkboxes"> \
+                <h2 class="form-label">' + fieldLabel + '</h2> \
+                <svg class="iconic checkbox" style="margin-right:4px;"> \
+                    <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px"></use> \
                 </svg>'
-                + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].name
-            );
-        } else {
-            return Handlebars.helpers.truncate(Handlebars.helpers.striptags(fieldValue), 160);
-        }
+                + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].label +
+            '</div>'
+        );
+    } else if (fieldControl == 'select') {
+        return new Handlebars.SafeString(
+            '<div class="postcard-field select"> \
+                <h2 class="form-label">' + fieldLabel + '</h2> \
+                <svg class="iconic" style="margin-right:4px;"> \
+                    <use xlink:href="../../img/iconic-sprite.svg#check"></use> \
+                </svg>'
+                + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].name +
+            '</div>'
+        );
+    } else {
+        return new Handlebars.SafeString(
+            '<div class="postcard-field"> \
+                <h2 class="form-label">' + fieldLabel + '</h2>'
+                + Handlebars.helpers.truncate(Handlebars.helpers.striptags(fieldValue), 160) +
+            '</div>'
+        );
     }
 
 });
 
-Handlebars.registerHelper('postcardMoreFields', function(surveyIndex) {
+Handlebars.registerHelper('postcardMoreFields', function(surveyIndex, postIndex) {
     var fieldsArray = session.deployment.surveys[surveyIndex].fields,
         count = 0;
 
@@ -139,16 +193,26 @@ Handlebars.registerHelper('postcardMoreFields', function(surveyIndex) {
     if (count > 0) {
         return new Handlebars.SafeString(
             '<div class="postcard-field"> \
-                <p><a href="">' + count + ' more fields...</a></p> \
+                <p><a href="post-detail.html#' + postIndex + '">' + count + ' more fields...</a></p> \
             </div>'
         );
     }
 });
 
-Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldIndex, value, wysiwyg) {
-    var fieldType = session.deployment.surveys[surveyIndex].fields[fieldIndex].type,
+Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldIndex, value) {
+    var fieldType = session.deployment.surveys[surveyIndex].fields[fieldIndex].type.control,
         fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
+        fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon,
         fieldOptions = session.deployment.surveys[surveyIndex].fields[fieldIndex].options;
+
+/*
+    console.log({
+        "survey" : surveyIndex,
+        "post" : postIndex,
+        "field" : fieldIndex,
+        "value" : value
+    });
+*/
 
     if (fieldType == 'text') {
         return new Handlebars.SafeString(
@@ -158,7 +222,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         return new Handlebars.SafeString(
             '<div class="form-field"><label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea></div>'
         );
-    } else if (fieldType == 'dropdown') {
+    } else if (fieldType == 'select') {
         var optionElems = '';
 
         for (var i=0; i < fieldOptions.length; i++) {
@@ -173,7 +237,19 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                 </div> \
             </div>'
         );
-    } else if (fieldType == 'photo') {
+    } else if (fieldType == 'time' || fieldType == 'date') {
+        return new Handlebars.SafeString(
+            '<div class="form-field ' + fieldType + '"> \
+                <label>'+fieldLabel+'</label> \
+                <div class="input-with-icon"> \
+                    <svg class="iconic" style="margin-right:4px;"> \
+                        <use xlink:href="' + fieldIcon + '"></use> \
+                    </svg> \
+                    <input type="' + fieldType + '" value="'+value+'" /> \
+                </div> \
+            </div>'
+        );
+    } else if (fieldType == 'file') {
         return new Handlebars.SafeString(
             '<div class="form-field file"> \
                 <label>' + fieldLabel + '</label> \
@@ -201,38 +277,40 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         return new Handlebars.SafeString(
             '<div class="form-field location"> \
                 <label>' + fieldLabel + '</label> \
-                <div id="map" data-post-index="' + postIndex + '" class="map"></div> \
-                <form role="search" class="searchbar" data-message="search"> \
-                    <div class="searchbar-input"> \
-                        <div class="form-field"> \
-                            <input type="search" maxlength="250" placeholder="Find a location" value="' + value + '" /> \
-                        </div> \
-                        <div class="searchbar-results dropdown-menu"> \
+                <div class="location-wrapper"> \
+                    <div id="map" data-post-index="' + postIndex + '" class="map"></div> \
+                    <form role="search" class="searchbar" data-message="search"> \
+                        <div class="searchbar-input"> \
                             <div class="form-field"> \
-                                <button class="button-plain"> \
-                                    <svg class="iconic"> \
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use> \
-                                    </svg> \
-                                    <span class="button-label">Search for "<em>123 Main St</em>"</span> \
-                                </button> \
-                                <button class="button-beta button-plain"> \
-                                    <svg class="iconic"> \
-                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use> \
-                                    </svg> \
-                                    <span class="button-label">Use your current location</span> \
-                                </button> \
+                                <input type="search" maxlength="250" placeholder="Find a location" value="' + value + '" /> \
                             </div> \
-                            <div class="tool"> \
-                                <h6 class="tool-heading">Search results</h6> \
-                                <dl class="dropdown-menu-body"> \
-                                    <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt> \
-                                    <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt> \
-                                </dl> \
+                            <div class="searchbar-results dropdown-menu"> \
+                                <div class="form-field"> \
+                                    <button class="button-plain"> \
+                                        <svg class="iconic"> \
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use> \
+                                        </svg> \
+                                        <span class="button-label">Search for "<em>123 Main St</em>"</span> \
+                                    </button> \
+                                    <button class="button-beta button-plain"> \
+                                        <svg class="iconic"> \
+                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use> \
+                                        </svg> \
+                                        <span class="button-label">Use your current location</span> \
+                                    </button> \
+                                </div> \
+                                <div class="tool"> \
+                                    <h6 class="tool-heading">Search results</h6> \
+                                    <dl class="dropdown-menu-body"> \
+                                        <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt> \
+                                        <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt> \
+                                    </dl> \
+                                </div> \
                             </div> \
                         </div> \
-                    </div> \
-                </form> \
-                <p><em>You can search or click the area of map where you want to place the marker.</em></p> \
+                    </form> \
+                    <p><em>You can search or click the area of map where you want to place the marker.</em></p> \
+                </div> \
             </div>'
         );
     }
@@ -327,7 +405,8 @@ hbUserStatus = function() {
 
 hbLoadLayout = function() {
     var currentURL = window.location.href.split('/').pop(),
-        currentTemplate = currentURL.slice(0, -5),
+        currentHash = window.location.hash.substr(1),
+        currentTemplate = currentURL.split('#')[0].slice(0, -5),
         currentMode = currentTemplate.split(/-(.+)?/)[0];
 
     console.log('template: '+ currentTemplate + '; mode: '+ currentMode);

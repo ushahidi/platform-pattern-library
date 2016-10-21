@@ -1,18 +1,13 @@
 {{> ModeBar }}
 
-{{#with (lookup deployment.posts 1)}} <!--// Choose the post index that will be the context for this tenplate //-->
 <div class="mode-context">
 
-    <header class="mode-context-header">
-        {{#deployment}}
-        <ol class="breadcrumbs">
-            <li><a href="map.html">{{name}}</a></li>
-        </ol>
-        {{/deployment}}
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
 
-        {{#postSurvey}}
-        <h1 class="mode-context-title">{{name}}</h1>
-        {{/postSurvey}}
+        {{#if deployment.logo}}
+        <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
     </header>
 
     <span class="mode-context-trigger">
@@ -23,221 +18,384 @@
     </span>
 
     <div class="mode-context-body">
-        {{#postSurvey}}
-        <p>{{description}}</p>
-        {{/postSurvey}}
-
-        <button class="button-plain">
-            <svg class="iconic">
-                <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
-            </svg>
-            <span class="button-label">Add to this survey</span>
-        </button>
+        {{{deployment.description}}}
     </div>
 
 </div>
 
 <main role="main">
 
-    <div class="full-col">
+    <!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
+    {{#postFromHash}}
+    <div class="{{#if tasks}}main{{else}}{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}{{/if}}-col">
 
         <article class="postcard" role="article">
             {{postBand}}
 
-            <div class="listing-item-select">
-                {{#ifCond properties.status 'published'}}
-                <span class="status-indicator empty tooltip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                    </svg>
-                    <span class="bug">This post is published</span>
-                </span>
-                {{/ifCond}}
-                {{#ifCond properties.status 'review'}}
-                <span class="status-indicator yellow tooltip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                    </svg>
-                    <span class="bug">This post is under review</span>
-                </span>
-                {{/ifCond}}
-                {{#ifCond properties.status 'archived'}}
-                <span class="status-indicator empty tooltip">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                    </svg>
-                    <span class="bug">This post is archived</span>
-                </span>
-                {{/ifCond}}
-            </div>
-
             <div class="postcard-body">
-                <header class="postcard-header">
-                    <h1 class="postcard-title">{{title}}</h1>
+                {{#postSurvey}}
+                <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                <p>{{description}}</p>
+                {{/postSurvey}}
 
+                <div class="postcard-header">
                     <ul class="metadata">
                         <li>
-                            <a href="">
-                                {{#if properties.author.avatar}}
-                                    <img src="{{properties.author.avatar}}" class="avatar" />
-                                {{/if}}
-                                <strong>{{properties.author.name}}</strong>
-                            </a>
-                        </li>
-                        <li class="tooltip">{{properties.date.post}} <span class="bug">2016-05-12 4:32pm</span></li>
-                        <li>via {{properties.source}}</li>
-                    </ul>
-                </header>
-
-                <!--// IF: User has permission to edit the post //-->
-                <div class="postcard-actions">
-                    <button class="button-gamma button-flat hide-until-small">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
-                        </svg>
-                        <span class="hidden">Edit</span>
-                    </button>
-
-                    <button class="button-gamma button-flat" data-toggle="dropdown-menu">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                        </svg>
-                        <span class="hidden">More</span>
-                    </button>
-                    <div class="dropdown-menu">
-                        <ul>
-                            <li class="hide-when-small">
-                                <a href="post-edit.html">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
-                                    </svg>
-                                    <span class="label">Edit</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" data-modal="add-to-collection">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
-                                    </svg>
-                                    <span class="label">Add to Collection</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" data-modal="share">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#share"></use>
-                                    </svg>
-                                    <span class="label">Share</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="divider"></div>
-                        <ul>
                             {{#ifCond properties.status 'published'}}
-                            <li>
-                                <a href="">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                    </svg>
-                                    <span class="label">Put under review</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                    </svg>
-                                    <span class="label">Archive</span>
-                                </a>
-                            </li>
+                            <span class="status-indicator">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <span class="label">Published</span>
+                            </span
                             {{/ifCond}}
+
                             {{#ifCond properties.status 'review'}}
-                            <li>
-                                <a href="">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                    </svg>
-                                    <span class="label">Publish</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                    </svg>
-                                    <span class="label">Archive</span>
-                                </a>
-                            </li>
+                            <span class="status-indicator yellow">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <span class="label">Under review</span>
+                            </span>
                             {{/ifCond}}
+
                             {{#ifCond properties.status 'archived'}}
-                            <li>
-                                <a href="">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                    </svg>
-                                    <span class="label">Publish</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                    </svg>
-                                    <span class="label">Put under review</span>
-                                </a>
-                            </li>
+                            <span class="status-indicator dark">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <span class="label">Archived</span>
+                            </span>
                             {{/ifCond}}
-                            <li>
-                                <a href="" data-modal="delete-post">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                                    </svg>
-                                    <span class="label">Delete</span>
-                                </a>
-                            </li>
-                        </ul>
+                        </li>
+
+                        {{#if properties.author.avatar}}
+                        <li>
+                            <img src="{{properties.author.avatar}}" class="avatar" />
+                            <strong class="label">{{properties.author.name}}</strong>
+                        </li>
+                        {{else}}
+                        <li><strong class="label">{{properties.author.name}}</strong></li>
+                        {{/if}}
+                        <li class="tooltip">
+                            <span class="label">{{properties.date.post}}</span>
+                            <span class="bug">2016-05-12 4:32pm</span>
+                        </li>
+                    </ul>
+
+                    <div class="postcard-actions">
+                        <a href="post-edit.html#{{indexFromHash}}" class="button button-gamma button-flat hide-until-small">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                            </svg>
+                            <span class="hidden">Edit</span>
+                        </a>
+
+                        <button class="button-gamma button-flat" data-toggle="dropdown-menu">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                            </svg>
+                            <span class="hidden">More</span>
+                        </button>
+
+                        <div class="dropdown-menu">
+                            <ul>
+                                <li class="hide-when-small">
+                                    <a href="post-edit.html#{{indexFromHash}}">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                                        </svg>
+                                        <span class="label">Edit</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" data-modal="add-to-collection">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
+                                        </svg>
+                                        <span class="label">Add to Collection</span>
+                                    </a>
+                                </li>
+                                {{#ifCond properties.status 'published'}}
+                                <li>
+                                    <a href="" data-modal="share">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                                        </svg>
+                                        <span class="label">Share</span>
+                                    </a>
+                                </li>
+                                {{/ifCond}}
+                            </ul>
+                            <div class="divider"></div>
+                            <ul>
+                                {{#ifCond properties.status 'published'}}
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                        <span class="label">Put under review</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                        </svg>
+                                        <span class="label">Archive</span>
+                                    </a>
+                                </li>
+                                {{/ifCond}}
+                                {{#ifCond properties.status 'review'}}
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                        </svg>
+                                        <span class="label">Publish</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                        </svg>
+                                        <span class="label">Archive</span>
+                                    </a>
+                                </li>
+                                {{/ifCond}}
+                                {{#ifCond properties.status 'archived'}}
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                        </svg>
+                                        <span class="label">Publish</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                        </svg>
+                                        <span class="label">Put under review</span>
+                                    </a>
+                                </li>
+                                {{/ifCond}}
+                                <li>
+                                    <a href="" data-modal="delete-post">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                        </svg>
+                                        <span class="label">Delete</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <!--// END IF: User has permission to edit the post //-->
 
-                {{#if description}}
-                <div class="postcard-field">
-                    {{{description}}}
-                </div>
-                {{/if}}
-
-                {{#if fields.photo}}
-                <div class="postcard-field">
-                    <h2 class="form-label">Photo</h2>
-                    <img src="{{fields.photo}}" class="postcard-image" />
-                </div>
-                {{/if}}
-
-                <div class="postcard-field">
-                    <h2 class="form-label">Category</h2>
-                    <p>Harrassment</p>
-                </div>
-
-                <div class="postcard-field">
-                    <h2 class="form-label">Time &amp; date of encounter</h2>
-                    <p>2016-03-04 12:04:00</p>
-                </div>
-
-                <div class="postcard-field">
-                    <h2 class="form-label">Location</h2>
-                    <p>1234 Main St. Austin, TX USA</p>
-                    {{mapEmbed 1 false}}
-                </div>
+                {{#each answers}}
+                    {{postcardField ../properties.survey 0 @index false}}
+                {{/each}}
             </div>
 
         </article>
+
+        {{#if tasks}}
+        <div class="toolbox">
+
+            <div class="listing">
+
+                <div class="listing-item active">
+                    <!--div class="listing-item-secondary hide-when-small">
+                        <button class="button-beta button-flat listing-item-toggle">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            </svg>
+                            <span class="button-label">Configure</span>
+                        </button>
+                    </div-->
+
+                    <div class="listing-item-primary">
+                        <div class="listing-item-image">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                            </svg>
+                        </div>
+                        <h2 class="listing-item-title">Tasks</h2>
+                    </div>
+
+                    <div class="listing-item-body">
+
+                        <div class="tool">
+
+                            {{#each tasks}}
+                            <div class="task {{#if complete}}complete{{/if}} {{#if disabled}}disabled{{/if}}">
+                                <h5 class="task-title">
+                                    {{#unless disabled}}
+                                    <a href="#task-{{@index}}" data-modal="task-{{@index}}">
+                                        {{#unless complete}}
+                                        <span class="status-indicator yellow"></span>
+                                        {{/unless}}
+                                    {{/unless}}
+
+                                        {{taskInfo "name" 0 @index}}
+
+                                    {{#unless disabled}}
+                                    </a>
+                                    {{/unless}}
+                                </h5>
+                                <div class="task-actions">
+
+                                    {{#if assignee}}
+                                    <span class="tooltip">
+                                        <span class="bug">Assigned to {{assignee.name}}</span>
+                                        <img src="{{assignee.avatar}}" class="avatar" />
+
+                                        {{#if assignee.locked}}
+                                        <span class="status-indicator">
+                                            <svg class="iconic">
+                                              <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                            </svg>
+                                        </span>
+                                        {{/if}}
+                                    </span>
+                                    {{/if}}
+
+                                    <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                                        <svg class="iconic">
+                                          <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                        </svg>
+                                        <span class="nodisplay">More</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        {{#unless disabled}}
+                                        <li>
+                                            <a href="">Mark {{#if complete}}incomplete{{else}}complete{{/if}}</a>
+                                        </li>
+                                        <div class="divider"></div>
+                                        {{/unless}}
+                                        <li>
+                                            <a href="" data-modal="task-assignment">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                            </svg>
+                                            <span class="label">{{#if assignee}}Change{{else}}Add{{/if}} assignment</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="" data-modal="task-due">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                            </svg>
+                                            <span class="label">{{#if due}}Change{{else}}Add{{/if}} due date</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="task-body">
+                                    {{#if due}}
+                                        <p><strong>Due</strong>: {{due}}</p>
+                                    {{/if}}
+
+                                    {{#if disabled}}
+                                        <p><em>This task can't be completed until "Verify" is completed.</em></p>
+                                    {{else}}
+                                        {{taskInfo "description" 0 @index}}
+                                    {{/if}}
+                                </div>
+                            </div>
+                            {{/each}}
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        {{/if}}
+
+        {{#ifPostIsDataSource}}
+        <div class="toolbox">
+
+            <div class="tool">
+                <fieldset>
+                    <legend>Convert this into a survey response to...</legend>
+
+                    {{#global}}
+                        {{#each deployment.surveys}}
+                            {{#unless datasource}}
+                            <div class="form-field radio">
+                                <input type="radio" name="add-to-survey" id="survey-{{@index}}" />
+                                <label for="survey-{{@index}}">{{name}}</label>
+                            </div>
+                            {{/unless}}
+                        {{/each}}
+                    {{/global}}
+
+                </fieldset>
+
+                <div class="form-field">
+                    <button class="button-flat" disabled>Convert &amp; edit</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="listing card">
+            <h3 class="listing-heading">Conversation with author</h3>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title">012 123456</h2>
+                    <p class="listing-item-secondary">Yesterday, via SMS</p>
+
+                    <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</p>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <img src="https://api.adorable.io/avatars/40/abott@adorable.io.png" class="avatar" />
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#arrow-thick-left"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Robbie MacKay</a></h2>
+                    <p class="listing-item-secondary">8 hrs</p>
+
+                    <p>Phasellus a ultricies lorem. Ut gravida, nibh a tincidunt auctor, turpis odio tincidunt nisl, laoreet aliquet dui erat ut lorem. Donec eleifend eleifend nisl, vel maximus ipsum vestibulum in?</p>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title">
+                        <a href="" class="button button-flat">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                            </svg>
+                            Send new message
+                        </a>
+                    </h2>
+                </div>
+            </div>
+
+        </div>
+
+        {{else}}
 
         <div class="listing card">
             <h3 class="listing-heading">Verify</h3>
 
             <div class="listing-item">
                 <div class="listing-item-primary">
-                    <h2 class="form-label">Notes</h2>
+                    <h2 class="listing-item-title">Notes</h2>
                     <p>Vestibulum pretium massa et bibendum eleifend. Vestibulum congue fringilla erat eget sodales. In rhoncus, leo ut pretium molestie, felis leo feugiat urna, et interdum libero eros id nisi. Sed lacus neque, rhoncus eu est id, pellentesque elementum mauris.</p>
                     <p>Nam eget urna in nulla tincidunt laoreet. Nulla facilisi. Mauris consequat sem augue, venenatis faucibus erat placerat et. </p>
                 </div>
@@ -296,107 +454,59 @@
 
         </div>
 
-        <div class="listing card">
-            <h3 class="listing-heading">Conversation with author</h3>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="">Jess Shorland</a></h2>
-                    <p class="listing-item-secondary">Yesterday, via SMS (012 123456)</p>
-
-                    <p>Cras tempus sodales molestie. Ut a ante mollis, dictum nulla quis, accumsan arcu. Donec et lacus libero. Phasellus a ultricies lorem. Ut gravida, nibh a tincidunt auctor, turpis odio tincidunt nisl, laoreet aliquet dui erat ut lorem. Donec eleifend eleifend nisl, vel maximus ipsum vestibulum in.</p>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <img class="avatar" src="http://placehold.it/100x100" alt="">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#arrow-thick-left"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Robbie MacKay</a></h2>
-                    <p class="listing-item-secondary">8 hrs</p>
-
-                    <p>Phasellus a ultricies lorem. Ut gravida, nibh a tincidunt auctor, turpis odio tincidunt nisl, laoreet aliquet dui erat ut lorem. Donec eleifend eleifend nisl, vel maximus ipsum vestibulum in?</p>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title">
-                        <a href="" class="button button-beta button-flat">Load more messages</a>
-                    </h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title">
-                        <a href="" class="button button-flat">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                            </svg>
-                            Send new message
-                        </a>
-                    </h2>
-                </div>
-            </div>
-
-        </div>
+        {{/ifPostIsDataSource}}
 
     </div>
+    {{/postFromHash}}
 
 </main>
-{{/with}}
 
-{{> Modals }}
 
-<div id="add-comment" class="modal">
-    <div class="modal-window">
-        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
-            <svg class="iconic">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
-            </svg>
-            <span class="hidden">Close</span>
-        </button>
+    {{> Modals }}
 
-        <h3 class="modal-title">Add comment</h3>
+    <div id="add-comment" class="modal">
+        <div class="modal-window">
+            <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                </svg>
+                <span class="hidden">Close</span>
+            </button>
 
-        <div class="form-field">
-            <label class="hidden">Comment</label>
-            <textarea placeholder="Write something..."></textarea>
+            <h3 class="modal-title">Add comment</h3>
+
+            <div class="form-field">
+                <label class="hidden">Comment</label>
+                <textarea placeholder="Write something..."></textarea>
+            </div>
+
+            <div class="form-field">
+                <button type="button" class="button-alpha modal-trigger">Save</button>
+            </div>
         </div>
 
-        <div class="form-field">
-            <button type="button" class="button-alpha modal-trigger">Save</button>
+        <div class="modal-overlay"></div>
+    </div>
+
+    <div id="submitted" class="message">
+        <div class="message-image confirmation">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
+            </svg>
+        </div>
+
+        <div class="message-body">
+            <p><strong>Your Police encounters post was submitted successfully</strong> and will be reviewed before it's published.</p>
+
+            <button class="button-beta button-flat">
+                <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                </svg>
+                <span class="button-label">Edit post</span>
+            </button>
+
+            <button class="button-flat message-trigger">
+                Dismiss
+            </button>
         </div>
     </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="submitted" class="message">
-    <div class="message-image confirmation">
-        <svg class="iconic">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
-        </svg>
-    </div>
-
-    <div class="message-body">
-        <p><strong>Your Police encounters post was submitted successfully</strong> and will be reviewed before it's published.</p>
-
-        <button class="button-beta button-flat">
-            <svg class="iconic">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
-            </svg>
-            <span class="button-label">Edit post</span>
-        </button>
-
-        <button class="button-flat message-trigger">
-            Dismiss
-        </button>
-    </div>
-</div>

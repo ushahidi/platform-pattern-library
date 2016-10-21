@@ -30,8 +30,38 @@
 
         <div class="tool">
             <h6 class="tool-heading">Surveys</h6>
-            {{> SurveyFilter }}
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#unless datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/unless}}
+                {{/each}}
+
+                <div class="form-field">
+                    <a href="settings-survey-add.html" class="button button-link">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                        </svg>
+                        <span class="button-label">Create new survey</span>
+                    </a>
+                </div>
+            </form>
         </div>
+
+        {{#if user.logged_in}}
+        <div class="tool">
+            <h6 class="tool-heading">Data sources</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#if datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/if}}
+                {{/each}}
+            </form>
+        </div>
+        {{/if}}
 
         <div class="tool">
             <h6 class="tool-heading">How to add a post</h6>
@@ -55,7 +85,7 @@
 <main role="main">
 
     <div class="toolbar">
-        {{> Fab 'submit-new-survey'}}
+        {{> Fab target='submit-new-survey'}}
 
         {{> Search }}
 

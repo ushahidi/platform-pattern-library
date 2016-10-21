@@ -136,3 +136,5 @@ $('.input-with-dropdown').each(function(){
         dropdownMenu.removeClass('active');
     });
 });
+
+autosize($('textarea'));

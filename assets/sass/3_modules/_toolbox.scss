@@ -1,6 +1,13 @@
 .toolbox {
     @include containerSheet;
 
+    &:before,
+    &:after {
+        content: '\00a0';
+        display: block;
+        height: 1px;
+    }
+
     .toolbox-heading {
         @include typeBase;
         margin-top: $tiny-spacing;

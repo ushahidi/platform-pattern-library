@@ -112,6 +112,43 @@
             padding-left: $base-spacing;
         }
 
+        legend {
+            display: inline-block;
+            font-style: italic;
+            margin-bottom: 0;
+
+            &.init {
+                position: relative;
+                color: $color-light-beta;
+                padding-right: $base-spacing;
+                @include transition(0.3s);
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    width: 6px;
+                    height: 6px;
+                    background: transparent;
+                    border-top: 2.5px solid $color-light-alpha;
+                    border-right: 2.5px solid $color-light-alpha;
+                    margin-top: -4px;
+                    @include transition(0.3s);
+                    @include transform(rotate(135deg));
+                }
+
+                &.active {
+                    color: $color-primary-epsilon;
+
+                    &:after {
+                        margin-top: -2px;
+                        @include transform(rotate(-45deg));
+                    }
+                }
+            }
+        }
+
         .form-field {
 
             &.checkbox,
@@ -122,6 +159,20 @@
 
                 label {
                     margin-bottom: 0;
+                }
+            }
+        }
+
+        .form-fieldgroup {
+            border-left: none;
+            padding: 0;
+            margin: 0;
+
+            &.init {
+                display: none;
+
+                &.active {
+                    display: block;
                 }
             }
         }
@@ -239,6 +290,7 @@
 
         .survey-filter-total {
             color: $white;
+            text-shadow: 0 1px 1px rgba(0,0,0,1);
             box-shadow: 0 0 $tiny-spacing 2px #3F4349;
             background-color: $color-primary-epsilon;
 
@@ -258,7 +310,6 @@
     color: $color-primary-epsilon;
     @include equal-radius(20px);
     font-size: 12px;
-    text-shadow: 0 1px 1px rgba(0,0,0,1);
     background-color: $color-primary;
     padding: 4px $tiny-spacing;
     @include transition(0.3s);
