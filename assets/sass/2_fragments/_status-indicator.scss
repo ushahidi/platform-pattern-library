@@ -25,7 +25,6 @@
 
         + .label {
             margin-top: auto;
-            margin-right: 0;
             margin-left: -2px;
         }
     }
@@ -116,6 +115,15 @@
         }
     }
 
+    &.error {
+
+        svg.iconic {
+            fill: $red;
+            -webkit-animation: status-indicator-alert 0.3s linear;
+            animation: status-indicator-alert 0.3s linear;
+        }
+    }
+
     &.empty {
         background-color: transparent;
 
@@ -196,6 +204,74 @@ a.status-indicator {
         left: 0;
         opacity: 1;
         transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@-webkit-keyframes status-indicator-alert {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    15% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        left: 0;
+        opacity: 1;
+        transform: scale(2.5) rotate(0deg);
+    }
+    65% {
+        transform: rotate(45deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+    85% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes status-indicator-alert {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    15% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        left: 0;
+        opacity: 1;
+        transform: scale(2) rotate(0deg);
+    }
+    65% {
+        transform: rotate(45deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+    85% {
+        transform: rotate(-45deg);
     }
     100% {
         transform: scale(1.0);

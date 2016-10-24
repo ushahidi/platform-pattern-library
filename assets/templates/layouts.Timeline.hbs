@@ -155,7 +155,7 @@
             {{else}}
                 {{#each deployment.responses}}
                     {{#ifCond properties.status 'published'}}
-                    {{> Postcard}}
+                    {{> Postcard checkbox=false show_tasks=false editable=false}}
                     {{/ifCond}}
                 {{/each}}
             {{/if}}
@@ -182,7 +182,7 @@
                     </button>
                     <ul class="dropdown-menu toggle-content">
                         <li>
-                            <a href="">
+                            <a href="" data-message="publish-success">
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                                 </svg>
@@ -190,7 +190,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="" data-message="under_review-success">
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                                 </svg>
@@ -198,7 +198,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="" data-message="archive-success">
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#box"></use>
                                 </svg>

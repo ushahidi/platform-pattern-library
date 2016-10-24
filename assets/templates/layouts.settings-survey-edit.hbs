@@ -33,10 +33,20 @@
             <span class="label">All changes saved</span>
             <span class="bug">Every change you make is automatically saved</span>
         </span>
+        <!--//-->
 
         <!--// SAVING //
         <span class="status-indicator">
             <span class="label">Saving...</span>
+        </span>
+        //-->
+
+        <!--// SAVING //
+        <span class="status-indicator error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
         </span>
         //-->
 
@@ -55,7 +65,12 @@
                 <span class="button-label hide-until-medium">Permissions</span>
             </a>
 
-            <a href="post-add.html#{{indexFromHash}}" class="button button-beta" target="_blank">Preview</a>
+            <a href="post-add.html#{{indexFromHash}}" class="button button-beta" target="_blank">
+                <svg class="iconic hide-when-medium">
+                    <use xlink:href="../../img/iconic-sprite.svg#eye"></use>
+                </svg>
+                <span class="button-label hide-until-medium">Preview</span>
+            </a>
         </div>
     </div>
 
@@ -72,13 +87,11 @@
             {{#each fields}}
             <div class="form-field {{type.control}}" draggable="true">
 
-                <label contenteditable="true" {{#if required}}class="required"{{/if}}>{{label}}</label>
+                <label contenteditable="true" {{#if required}}class="required"{{/if}} placeholder="Untitled field">{{label}}</label>
 
-                <p data-fieldgroup-target="field-description-{{@index}}" contenteditable="true">
+                <p data-fieldgroup-target="field-description-{{@index}}" contenteditable="true" placeholder="Field description">
                     {{#if description}}
                         {{description}}
-                    {{else}}
-                        Field description
                     {{/if}}
                 </p>
 
@@ -229,7 +242,7 @@
                         </div>
 
                         <div>
-                            <button class="button-beta button-flat" data-message="delete-field">
+                            <button class="button-beta button-flat" data-modal="delete-field" data-message-sustain>
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
                                 </svg>
@@ -283,13 +296,37 @@
 
 {{> Modals }}
 
-<div id="delete-field" class="message">
-    <div class="message-body">
-        <p><strong>If you delete this field</strong>, all of the data captured within it will also be deleted. Proceed with caution.</p>
-
-        <button class="button-flat message-trigger">Cancel</button>
-        <button class="button-destructive message-trigger">Delete this field</button>
+<div id="unsaved-changes" class="message">
+    <div class="message-image error">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+        </svg>
     </div>
+    <div class="message-body">
+        <p><strong>We can't save your changes right now.</strong> Here's our explanation regarding why that is.</p>
+
+        <button class="button-flat message-trigger">Dismiss</button>
+        <button class="button-alpha message-trigger">Call to action</button>
+    </div>
+</div>
+
+<div id="delete-field" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Delete this field?</h3>
+
+        <div class="modal-body">
+            <p>All of the data captured within <strong>"Field label"</strong> will also be deleted.</p>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-destructive modal-trigger" data-message="deleted">Delete this field</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
 </div>
 
 <div id="survey-permissions" class="modal">
@@ -557,5 +594,6 @@
 <script>
 setTimeout(function() {
     $('.form-field[draggable="true"]:first').click();
+    // messageToggle($('#unsaved-changes'), true);
 }, 1000);
 </script>

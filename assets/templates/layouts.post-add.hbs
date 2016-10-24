@@ -129,11 +129,41 @@
                     <div class="custom-select">
                         <select {{#if required}}required{{/if}}>
                             {{#each options}}
-                            <option>{{name}}</option>
+                            <option>{{label}}</option>
                             {{/each}}
                         </select>
                     </div>
                 </div>
+                {{/ifCond}}
+
+                {{#ifCond type.control 'checkboxes'}}
+                <fieldset>
+                    <legend>{{../label}}</legend>
+
+                    {{#each options}}
+                    <div class="form-field checkbox">
+                        <label for="form-field-checkbox-{{@index}}">
+                            {{label}}
+                            <input type="checkbox" id="form-field-checkbox-{{@index}}" />
+                        </label>
+                    </div>
+                    {{/each}}
+                </fieldset>
+                {{/ifCond}}
+
+                {{#ifCond type.control 'radio'}}
+                <fieldset>
+                    <legend>{{../label}}</legend>
+
+                    {{#each options}}
+                    <div class="form-field radio">
+                        <label for="form-field-radio-{{@../index}}-{{@index}}">
+                            {{label}}
+                            <input type="radio" id="form-field-radio-{{@../index}}-{{@index}}" name="form-field-radio-{{@../index}}" />
+                        </label>
+                    </div>
+                    {{/each}}
+                </fieldset>
                 {{/ifCond}}
 
                 {{#ifCond type.control 'time'}}
@@ -250,8 +280,8 @@
 
             <div class="form-sheet-actions">
                 <div class="form-field">
-                    <button class="button-alpha" onclick="messageToggle($('#required'),true)">Submit</button>
-                    <button class="button-gamma button-flat">Submit &amp; create another</button>
+                    <a href="{{#if ../user.logged_in}}post-detail.html#new_response{{else}}timeline.html#new_response{{/if}}" class="button button-alpha">Submit</a>
+                    <a href="post-add.html#new_response" class="button button-gamma button-flat">Submit &amp; create another</a>
                 </div>
             </div>
 
@@ -268,7 +298,7 @@
 <div id="required" class="message">
     <div class="message-image error">
         <svg class="iconic">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
         </svg>
     </div>
 

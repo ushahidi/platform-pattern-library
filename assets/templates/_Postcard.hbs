@@ -14,9 +14,8 @@
                         <svg class="iconic">
                           <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                         </svg>
-                        {{#ifCond show_tasks false}}
-                        <span class="label">Published</span>
-                        {{/ifCond}}
+
+                        <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Published</span>
                     </a>
                     {{/ifCond}}
 
@@ -25,9 +24,7 @@
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
-                        {{#ifCond show_tasks false}}
-                        <span class="label">Under review</span>
-                        {{/ifCond}}
+                        <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Under review</span>
                     </a>
                     {{/ifCond}}
 
@@ -36,9 +33,7 @@
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#box"></use>
                         </svg>
-                        {{#ifCond show_tasks false}}
-                        <span class="label">Archived</span>
-                        {{/ifCond}}
+                        <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Archived</span>
                     </a>
                     {{/ifCond}}
                 </li>

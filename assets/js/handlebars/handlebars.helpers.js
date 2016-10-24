@@ -84,15 +84,19 @@ Handlebars.registerHelper('postSurvey', function(options) {
 });
 
 Handlebars.registerHelper('surveyFromHash', function(options) {
-    var contextHash = window.location.hash ? window.location.hash.substr(1) : 0;
-
-    return options.fn(session.deployment.surveys[contextHash]);
+    if (window.location.hash && isNaN(window.location.hash)) {
+        return options.fn(session.deployment.surveys[window.location.hash.substr(1)]);
+    } else {
+        return options.fn(session.deployment.surveys[0]);
+    }
 });
 
 Handlebars.registerHelper('postFromHash', function(options) {
-    var contextHash = window.location.hash ? window.location.hash.substr(1) : 0;
-
-    return options.fn(session.deployment.responses[contextHash]);
+    if (window.location.hash && isNaN(window.location.hash)) {
+        return options.fn(session.deployment.responses[window.location.hash.substr(1)]);
+    } else {
+        return options.fn(session.deployment.responses[0]);
+    }
 });
 
 Handlebars.registerHelper('indexFromHash', function(options) {
@@ -123,7 +127,8 @@ Handlebars.registerHelper('postBand', function() {
 Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fieldIndex, summary) {
     var fieldControl = session.deployment.surveys[surveyIndex].fields[fieldIndex].type.control,
         fieldValue = this.value,
-        fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label;
+        fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
+        fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon;
 
 /*
     console.log({
@@ -150,12 +155,12 @@ Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fiel
                 + Handlebars.helpers.mapEmbed(postIndex, false) +
             '</div>'
         );
-    } else if (fieldControl == 'checkboxes') {
+    } else if (fieldControl == 'checkboxes' || fieldControl == 'radio') {
         return new Handlebars.SafeString(
-            '<div class="postcard-field checkboxes"> \
+            '<div class="postcard-field ' + fieldControl + '"> \
                 <h2 class="form-label">' + fieldLabel + '</h2> \
-                <svg class="iconic checkbox" style="margin-right:4px;"> \
-                    <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px"></use> \
+                <svg class="iconic ' + fieldControl + '" style="margin-right:4px;"> \
+                    <use xlink:href="' + fieldIcon + '"></use> \
                 </svg>'
                 + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].label +
             '</div>'
@@ -237,14 +242,17 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                 </div> \
             </div>'
         );
-    } else if (fieldType == 'checkboxes') {
-        var optionElems = '';
+    } else if (fieldType == 'checkboxes' || fieldType == 'radio') {
+        var optionElems = '',
+            fieldsetID = Math.floor(Math.random() * 20);
 
         for (var i=0; i < fieldOptions.length; i++) {
-            var attribute = value == i ? 'checked' : '';
-            optionElems += '<div class="form-field checkbox"> \
-                                <label>' + fieldOptions[i].label + '\
-                                    <input type="checkbox" ' + attribute + ' /> \
+            var attribute = value == i ? 'checked' : '',
+                nameAttr = fieldType == 'radio' ? 'name="form-field-radio-' + fieldsetID + '"' : '';
+
+                optionElems += '<div class="form-field ' + fieldType + '"> \
+                                <label for="form-field-' + fieldType + '-' + i + '">' + fieldOptions[i].label + '\
+                                    <input type="' + fieldType + '" id="form-field-' + fieldType + '-' + fieldsetID + '-' + i + '" ' + nameAttr + ' ' + attribute + ' /> \
                                 </label> \
                             </div>';
         }
@@ -454,5 +462,10 @@ hbLoadLayout = function() {
 
     $.getScript('../../js/app.js', function(data, textStatus ) {
         // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
+        setTimeout(function() {
+            if (window.location.hash.substr(1) == 'new_response') {
+                messageToggle($('#new_response-success'));
+            }
+        }, 1000);
     });
 }

@@ -85,7 +85,7 @@
 
     .message {
         position: fixed;
-        top: -200px;
+        top: -400px;
         right: 0;
         left: 0;
         z-index: $toolbar;
@@ -95,8 +95,24 @@
             left: 288px;
         }
 
+        &.transient {
+            top: auto;
+            bottom: -400px;
+            box-shadow: 0 0 16px rgba(0,0,0,0.12),
+                0 -8px 16px rgba(0,0,0,0.24);
+        }
+
         &.active {
             top: 55px;
+
+            &.transient {
+                top: auto;
+                bottom: 45px;
+
+                @include media($medium) {
+                    bottom: 0;
+                }
+            }
 
             @include media($medium) {
                 top: 0;
@@ -215,8 +231,13 @@
 
                     .button-fab {
 
-                        &:disabled {
+                        &:disabled,
+                        &.slide-up:disabled {
                             bottom: -400px;
+                        }
+
+                        &.slide-up {
+                            bottom: 50px;
                         }
                     }
                 }
