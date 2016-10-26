@@ -18,10 +18,6 @@
 
     .mode-context-back {
 
-        @include media($medium) {
-            display: none;
-        }
-
         svg.iconic {
             width: 24px;
             height: 24px;
@@ -56,12 +52,17 @@
             position: absolute;
             top: -$tiny-spacing;
             left: 0;
+            z-index: $body;
+
+            @include media($medium) {
+                top: 14px;
+            }
 
             + .mode-context-title {
                 padding-left: 56px;
 
                 @include media($medium) {
-                    padding-left: 0;
+                    padding-left: $lg-spacing;
                 }
             }
         }
@@ -160,6 +161,10 @@
 
         svg.iconic {
             fill: $white;
+        }
+
+        &:hover {
+            opacity: .64;
         }
     }
 
