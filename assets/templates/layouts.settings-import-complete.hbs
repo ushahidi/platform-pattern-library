@@ -25,7 +25,7 @@
 
 <main role="main">
 
-    <div class="main-col">
+    <div class="full-col">
 
         <div class="form-sheet">
             <div class="form-sheet-summary">
@@ -59,6 +59,44 @@
             <div class="form-field">
                 <a class="button button-alpha">See imported posts</a>
                 <a class="button button-gamma button-flat">Import another CSV file</a>
+            </div>
+        </div>
+
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">Your import had some problems</h2>
+                <p><strong>88 records</strong> from your CSV spreadsheet, <em>filename.csv</em>, were sucessfully imported. But the rest couldn't be imported because <em>reasons</em>.</p>
+                <ul>
+                    <li>Reason 1</li>
+                    <li>Reason 2</li>
+                    <li>Reason 3</li>
+                </ul>
+                <p>We'd suggest fixing these issues in your CSV file and trying to import the file again.<p>
+            </div>
+
+            <fieldset>
+                <legend>What do you want to do with the 88 records that were successfully imported?</legend>
+
+                <div class="form-field radio">
+                    <label for="keep_records-false">
+                        Remove them. I'll re-import them when I revise my CSV file.
+                        <input type="radio" checked id="keep_records-false" name="keep_records" />
+                    </label>
+                </div>
+
+                <div class="form-field radio">
+                    <label for="keep_records-true">
+                        Keep them. I won't include them in my revised CVS file.
+                        <input type="radio" id="keep_records-true" name="keep_records" data-fieldgroup-toggle="view-records" />
+                    </label>
+                </div>
+            </fieldset>
+
+            <div class="form-field">
+                <a class="button">Import revised CSV file</a>
+                <span data-fieldgroup-target="view-records">
+                    <a class="button button-gamma button-flat">View 88 imported records</a>
+                </span>
             </div>
         </div>
 
