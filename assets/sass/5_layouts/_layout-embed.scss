@@ -31,6 +31,26 @@
             }
         }
 
+        .toolbox {
+            top: $sm-spacing + 55;
+
+            @include media($small-down) {
+                position: fixed;
+                @include right(16px);
+                z-index: $toolbox;
+            }
+
+            @include media($small) {
+                width: auto;
+                max-width: 206px;
+            }
+
+            @include media($medium) {
+                top: $base-spacing;
+                @include right($base-spacing);
+            }
+        }
+
         .map {
 
             &.full-size {
@@ -38,26 +58,6 @@
 
                 @include media($medium) {
                     left: 224px;
-                }
-
-                + .toolbox {
-                    top: $sm-spacing + 55;
-
-                    @include media($small-down) {
-                        position: fixed;
-                        @include right(16px);
-                        z-index: $toolbox;
-                    }
-
-                    @include media($small) {
-                        width: auto;
-                        max-width: 206px;
-                    }
-
-                    @include media($medium) {
-                        top: $base-spacing;
-                        @include right($base-spacing);
-                    }
                 }
             }
         }
