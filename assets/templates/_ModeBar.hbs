@@ -34,7 +34,7 @@
                 </a>
                 <ul>
                     {{#if user.logged_in}}
-                    <li {{#ifCond mode 'settings'}}class="active"{{/ifCond}} data-message="customize">
+                    <li class="hide-until-medium {{#ifCond mode 'settings'}}active{{/ifCond}}">
                         <a href="settings.html">
                             <svg class="iconic">
                                 <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
@@ -49,25 +49,39 @@
 
         <ul class="account-menu">
             <li>
-                <a href="https://www.ushahidi.com/support" data-modal="json">
-                    {{> Logomark }}
-                    <span class="label">Ushahidi Support</span>
+                <a href="#" data-modal="collections">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
+                    </svg>
+                    <span class="label">Collections</span>
                 </a>
             </li>
 
             {{#if user.logged_in}}
+            <li class="hide-when-medium {{#ifCond mode 'settings'}}active{{/ifCond}}">
+                <a href="settings.html">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                    </svg>
+                    Settings
+                </a>
+            </li>
+            {{/if}}
+
+            {{#if user.logged_in}}
+            <li>
+                <a href="#" data-modal="account">
+                    <img src="{{user.avatar}}" class="avatar" />
+                    <span class="label">Account settings <span class="subtext">for {{user.name}}</span></span>
+                </a>
+            </li>
+
             <li>
                 <a href="#" onclick="hbUserStatus()">
                     <svg class="iconic">
                         <use xlink:href="../../img/iconic-sprite.svg#account-logout"></use>
                     </svg>
                     <span class="label">Log out</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" data-modal="account">
-                    <img src="{{user.avatar}}" class="avatar" />
-                    <span class="label">Account settings <span class="subtext">for {{user.name}}</span></span>
                 </a>
             </li>
             {{else}}
@@ -82,11 +96,9 @@
             {{/if}}
 
             <li>
-                <a href="#" data-modal="collections">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
-                    </svg>
-                    <span class="label">Collections</span>
+                <a href="https://www.ushahidi.com/support" data-modal="json">
+                    {{> Logomark }}
+                    <span class="label">Ushahidi Support</span>
                 </a>
             </li>
             <!-- FUTURE FEATURE
