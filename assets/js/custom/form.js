@@ -127,14 +127,18 @@ $('.input-with-dropdown').each(function(){
 
 $('.form-field.video_embed').each(function(){
     var input = $(this).find('input[type="url"]'),
-        videoURL = input.val,
         preview = $(this).find('.form-field-preview');
 
-    input.on('keyup', function(){
-        
-    });
+    input.on('keyup focusout', function(){
+        var currentVal = $(this).val(),
+            videoObj = parseVideo(currentVal);;
 
-    input.on('focusout', function(){
-
+        if (videoObj.type == undefined) {
+            console.log(videoObj.type);
+            preview.empty();
+        } else {
+            console.log(videoObj.type);
+            preview.html(createVideo(currentVal)).wrapInner('<div class="video_embed-fluid" />');
+        }
     });
 });

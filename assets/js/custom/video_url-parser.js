@@ -27,12 +27,15 @@ function createVideo (url, width, height) {
     // Returns an iframe of the video with the specified URL.
     var videoObj = parseVideo(url);
     var $iframe = $('<iframe>', { width: width, height: height });
+
     $iframe.attr('frameborder', 0);
+
     if (videoObj.type == 'youtube') {
         $iframe.attr('src', '//www.youtube.com/embed/' + videoObj.id);
     } else if (videoObj.type == 'vimeo') {
         $iframe.attr('src', '//player.vimeo.com/video/' + videoObj.id);
     }
+
     return $iframe;
 }
 
