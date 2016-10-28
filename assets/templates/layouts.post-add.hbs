@@ -26,13 +26,11 @@
 
     <div class="toolbar">
         <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha" onclick="messageToggle($('#required'),true)">
-                {{#if user.logged_in}} <!--// IF: User has permission to manage post status //-->
-                Save
-                {{else}}
-                Submit
-                {{/if}}
+            <button type="button" data-modal="share">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                </svg>
+                <span class="button-label">Share</span>
             </button>
         </div>
     </div>
@@ -145,6 +143,14 @@
                     </svg>
                     <span class="button-label">Add photo</span>
                 </label>
+            </div>
+
+            <div class="form-field video_embed">
+                <label>Video of the problem</label>
+                <p>Enter a <span id="wordmark-youtube" class="wordmark-replace" style="background-image: url(../../img/youtube.png);">YouTube</span> or <span id="wordmark-vimeo" class="wordmark-replace" style="background-image: url(../../img/vimeo.png);">Vimeo</span> video URL</p>
+                <input type="url" placeholder="https://youtu.be/123456" />
+
+                <div class="form-field-preview"></div>
             </div>
 
             <fieldset>
@@ -262,6 +268,13 @@
                     <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
                 </div>
             </fieldset>
+
+            <div class="form-sheet-actions">
+                <div class="form-field">
+                    <a href="{{#if ../user.logged_in}}post-detail.html{{else}}timeline.html{{/if}}" class="button button-alpha">Submit</a>
+                    <a href="post-add.html" class="button button-gamma button-flat">Submit &amp; add another</a>
+                </div>
+            </div>
 
         </div>
 

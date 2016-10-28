@@ -124,3 +124,16 @@ $('.input-with-dropdown').each(function(){
         dropdownMenu.removeClass('active');
     });
 });
+
+$('.form-field.video_embed').each(function(){
+    var input = $(this).find('input[type="url"]'),
+        videoURL = input.val,
+        preview = $(this).find('.form-field-preview');
+
+    input.on('keyup', function(){
+    });
+
+    input.on('focusout', function(){
+
+    });
+});
