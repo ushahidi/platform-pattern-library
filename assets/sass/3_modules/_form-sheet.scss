@@ -1,3 +1,26 @@
+.form-sheet-title {
+    @include typeBeta;
+    margin-bottom: $sm-spacing;
+
+    &.survey-title {
+        color: $color-dark-delta;
+        font-size: 24px;
+        font-size: 1.714285714rem;
+        // text-align: center;
+        text-shadow: 0 1px 0 $white;
+
+        @include media($mobile) {
+            font-size: 28px;
+            font-size: 2rem;
+        }
+
+        @include media($medium) {
+            font-size: 34px;
+            font-size: 2.428571429rem;
+        }
+    }
+}
+
 .form-sheet {
     position: relative;
     @include containerCard;
@@ -8,29 +31,6 @@
         content: '\00a0';
         display: block;
         height: 1px;
-    }
-
-    .form-sheet-title {
-        @include typeBeta;
-        margin-bottom: $sm-spacing;
-
-        &.survey-title {
-            color: $color-dark-delta;
-            font-size: 24px;
-            font-size: 1.714285714rem;
-            text-align: center;
-            text-shadow: 0 1px 0 $white;
-
-            @include media($mobile) {
-                font-size: 28px;
-                font-size: 2rem;
-            }
-
-            @include media($medium) {
-                font-size: 34px;
-                font-size: 2.428571429rem;
-            }
-        }
     }
 
     .form-sheet-summary,
@@ -47,22 +47,6 @@
         @include media($xlarge) {
             margin-right: 20%;
             margin-left: 20%;
-        }
-
-        .post-band {
-            left: -$sm-spacing;
-
-            @include media($medium) {
-                left: -$base-spacing;
-            }
-
-            + label {
-                margin-left: 0;
-
-                + input {
-                    margin-left: 0;
-                }
-            }
         }
 
         &.title {
@@ -132,6 +116,76 @@
         }
     }
 
+    .form-field {
+
+        label {
+
+            + p {
+                margin-bottom: $sm-spacing;
+            }
+        }
+
+        &[draggable="true"] {
+            display: block;
+        }
+
+        &.focus {
+            @include containerCard;
+            box-shadow: 0 0 2px rgba(0,0,0,0.12),
+                0 2px 2px rgba(0,0,0,0.24),
+                0 0 16px rgba(255, 195, 52, 0.3);
+            padding: $sm-spacing;
+
+            @include media($mobile-down) {
+                margin-right: 0;
+                margin-left: 4px;
+            }
+        }
+    }
+
+    &[role="article"] {
+
+        .form-field {
+
+            &.select {
+
+                label {
+                    font-size: 20px;
+                    font-size: 1.428571429rem;
+                }
+
+                .form-field {
+
+                    label {
+                        @include typeBase;
+                    }
+                }
+            }
+        }
+    }
+
+    .form-sheet-actions {
+        position: relative;
+//        text-align: right;
+        border-top: 1px solid rgba(0,0,0,0.04);
+        background-color: rgba(0,0,0,0.04);
+        padding: $sm-spacing;
+
+        @include media($mobile) {
+            padding-right: 10%;
+            padding-left: 10%;
+        }
+
+        @include media($xlarge) {
+            padding-right: 20%;
+            padding-left: 20%;
+        }
+
+        .form-field {
+            margin: 0;
+        }
+    }
+
     .form-sheet-summary {
         position: relative;
         max-width: none;
@@ -163,6 +217,51 @@
             width: 100%;
             margin: $sm-spacing auto;
         }
+
+        &.contenteditable {
+
+            &:hover {
+                cursor: pointer;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: -$sm-spacing;
+                    right: -$sm-spacing;
+                    bottom: -$sm-spacing;
+                    left: -$sm-spacing;
+                    box-shadow: 0 0 2px rgba(0,0,0,0.12),
+                        0 2px 2px rgba(0,0,0,0.24);
+                }
+            }
+
+            &.focus {
+                @include containerCard;
+                box-shadow: 0 0 2px rgba(0,0,0,0.12),
+                    0 2px 2px rgba(0,0,0,0.24),
+                    0 0 16px rgba(255, 195, 52, 0.3);
+                padding: $sm-spacing;
+
+                @include media($mobile-down) {
+                    margin-right: 0;
+                    margin-left: 4px;
+                }
+
+                &:before {
+                    content: none;
+                }
+
+                [contenteditable="true"] {
+                    position: relative;
+                    outline-color: $white;
+                    @include border-top-radius($global-radius);
+                    @include border-bottom-radius($global-radius);
+                    border: $base-border-dark;
+                    padding: $tiny-spacing $sm-spacing;
+                    @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.1), $inset: true);
+                }
+            }
+        }
     }
 
     .form-sheet-toolbar {
@@ -181,6 +280,14 @@
             vertical-align: middle;
             line-height: normal;
             margin: 0 $tiny-spacing 0 0;
+        }
+    }
+
+    a.post-band {
+
+        &:hover {
+            width: $tiny-spacing;
+            z-index: $body;
         }
     }
 
@@ -212,11 +319,6 @@
     }
 
     .metadata {
-        text-align: center;
-/*
-        border-top: 1px solid $color-light-beta;
-        border-bottom: 1px solid $color-light-beta;
-*/
         padding-right: $sm-spacing;
         padding-left: $sm-spacing;
 
@@ -343,16 +445,6 @@
         left: 0;
     }
 
-/*
-    .dropdown-menu {
-        margin-top: -107px;
-
-        @include media($medium) {
-            margin-top: -84px;
-            margin-left: -312px;
-        }
-    }
-*/
     [data-toggle-target] {
         display: none;
 

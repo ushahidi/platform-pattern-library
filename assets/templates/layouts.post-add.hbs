@@ -26,13 +26,11 @@
 
     <div class="toolbar">
         <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha" onclick="messageToggle($('#required'),true)">
-                {{#if user.logged_in}} <!--// IF: User has permission to manage post status //-->
-                Save
-                {{else}}
-                Submit
-                {{/if}}
+            <button type="button" data-modal="share">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                </svg>
+                <span class="button-label">Share</span>
             </button>
         </div>
     </div>
@@ -262,6 +260,13 @@
                     <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
                 </div>
             </fieldset>
+
+            <div class="form-sheet-actions">
+                <div class="form-field">
+                    <a href="{{#if ../user.logged_in}}post-detail.html{{else}}timeline.html{{/if}}" class="button button-alpha">Submit</a>
+                    <a href="post-add.html" class="button button-gamma button-flat">Submit &amp; add another</a>
+                </div>
+            </div>
 
         </div>
 
