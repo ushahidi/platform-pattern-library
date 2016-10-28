@@ -131,6 +131,7 @@ $('.form-field.video_embed').each(function(){
         preview = $(this).find('.form-field-preview');
 
     input.on('keyup', function(){
+        
     });
 
     input.on('focusout', function(){
