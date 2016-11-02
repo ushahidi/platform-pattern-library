@@ -109,7 +109,7 @@ $('input[type="radio"], input[type="checkbox"]').on('change', function(){
 
 // Initialize date fields with 'PickaDate.js'
 $('input[type="date"]').pickadate({
-    format: 'mmmm d, yyyy',
+    format: 'mmm d, yyyy',
     today: 'Choose today'
 });
 

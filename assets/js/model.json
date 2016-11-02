@@ -1,12 +1,11 @@
 {
     "deployment" : {
-        "name" : "City of Austin service requests",
-        "logo" : "http://www.austintexas.gov/sites/all/themes/branded_site/images/coa_seal_trans.png",
-        "description" : "<p>Reports and requests regarding public services provided by the City of Austin.</p>",
+        "name" : "Acme Construction reports",
+        "logo" : "../../img/deployment-logo.png",
         "surveys" : [
             {
-                "name" : "Street maintenance",
-                "description" : "Reports about streets that need resurfacing, repairs, or the removal of a hazard.",
+                "name" : "Equipment problems",
+                "description" : "Reports about construction equipment that needs to be repaired or replaced.",
                 "color": "A51A1A",
                 "fields" : [
                     {
@@ -16,8 +15,30 @@
                         },
                         "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px",
                         "label" : "Describe the problem",
-                        "required" : true,
                         "postcard" : true
+                    },
+                    {
+                        "type" : {
+                            "name" : "Checkboxes",
+                            "control" : "checkbox"
+                        },
+                        "label" : "What type of equipment?",
+                        "icon" : "../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px",
+                        "options" : [
+                            {
+                                "label" : "Earth-moving equipment"
+                            },
+                            {
+                                "label" : "Construction vehicle"
+                            },
+                            {
+                                "label" : "Material-handling equipment"
+                            },
+                            {
+                                "label" : "Construction equipment"
+                            }
+                        ],
+                        "required" : true
                     },
                     {
                         "type" : {
@@ -30,331 +51,40 @@
                     },
                     {
                         "type" : {
-                            "name" : "Time",
-                            "control" : "time"
-                        },
-                        "icon" : "../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px",
-                        "label" : "What time did you last see the problem?"
-                    },
-                    {
-                        "type" : {
-                            "name" : "Date",
-                            "control" : "date"
-                        },
-                        "icon" : "../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px",
-                        "label" : "What date did you last see the problem?"
-                    },
-                    {
-                        "type" : {
                             "name" : "Photo",
                             "control" : "file"
                         },
                         "icon" : "../../img/material/svg-sprite-image-symbol.svg#ic_image_24px",
-                        "label" : "Photo of the problem",
+                        "label" : "Photo of the equipment",
                         "postcard" : true
                     }
                 ],
                 "categories" : [
                     {
-                        "name" : "Surface issues"
+                        "name" : "Earth-moving equipment"
                     },
                     {
-                        "name" : "Signage"
+                        "name" : "Construction vehicle"
                     },
                     {
-                        "name" : "Obstructions"
+                        "name" : "Material-handling equipment"
+                    },
+                    {
+                        "name" : "Construction equipment"
                     }
                 ],
                 "tasks" : [
                     {
-                        "name" : "Review",
-                        "description" : "<p>Make sure the post includes no profanity or personally identifiable information.</p>"
-                    },
-                    {
                         "name" : "Verify"
                     },
                     {
-                        "name" : "Call police",
-                        "description" : "<p>If necessary, report the incident to police at +1-234-567-8901.</p>"
+                        "name" : "Contact support",
+                        "description" : "<p>Call the necessary response staff to fix the problem.</p>"
                     },
                     {
                         "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
+                        "description" : "<p>Change this response's status to <em>Published</em>.</p>",
                         "requires" : 1
-                    }
-                ]
-            },
-            {
-                "name" : "Creeks/drainage problems",
-                "description" : "Reports about obstructions to flowing water, or overflowing water.",
-                "color": "E69327",
-                "fields" : [
-                    {
-                        "type" : {
-                            "name" : "Long text",
-                            "control" : "textarea"
-                        },
-                        "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px",
-                        "label" : "Describe the problem",
-                        "required" : true,
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Multiple choice",
-                            "control" : "radio"
-                        },
-                        "label" : "Does the problem involve a pipe?",
-                        "icon" : "../../img/material/svg-sprite-toggle-symbol.svg#ic_radio_button_checked_24px",
-                        "required" : true,
-                        "options" : [
-                            {
-                                "label" : "Yes"
-                            },
-                            {
-                                "label" : "No"
-                            }
-                        ],
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Location",
-                            "control" : "location"
-                        },
-                        "label" : "Where is the problem?",
-                        "icon" : "../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px",
-                        "required" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Date",
-                            "control" : "date"
-                        },
-                        "label" : "What date did you last see the problem?",
-                        "icon" : "../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px",
-                        "required" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Photo",
-                            "control" : "file"
-                        },
-                        "label" : "Photo of the problem",
-                        "icon" : "../../img/material/svg-sprite-image-symbol.svg#ic_image_24px",
-                        "postcard" : true
-                    }
-                ],
-                "tasks" : [
-                    {
-                        "name" : "Review",
-                        "description" : "<p>Make sure the post includes no profanity or personally identifiable information.</p>"
-                    },
-                    {
-                        "name" : "Verify"
-                    },
-                    {
-                        "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
-                        "requires" : 1
-                    }
-                ]
-            },
-            {
-                "name" : "Property damage",
-                "description" : "Reports of vandalism, including graffiti, perpetrated by another person.",
-                "color": "2274B4",
-                "fields" : [
-                    {
-                        "type" : {
-                            "name" : "Long text",
-                            "control" : "textarea"
-                        },
-                        "label" : "Describe the damage",
-                        "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px",
-                        "required" : true,
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Dropdown",
-                            "control" : "select"
-                        },
-                        "label" : "What type of damage?",
-                        "icon" : "../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_circle_24px",
-                        "options" : [
-                            {
-                                "label" : "Broken window"
-                            },
-                            {
-                                "label" : "Graffiti"
-                            },
-                            {
-                                "label" : "Other"
-                            }
-                        ],
-                        "required" : true,
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Location",
-                            "control" : "location"
-                        },
-                        "label" : "Where is the damage?",
-                        "icon" : "../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px",
-                        "required" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Photo",
-                            "control" : "file"
-                        },
-                        "label" : "Photo of the damage",
-                        "icon" : "../../img/material/svg-sprite-image-symbol.svg#ic_image_24px",
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Date",
-                            "control" : "date"
-                        },
-                        "label" : "What date did you last see the damage?",
-                        "icon" : "../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px",
-                        "required" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Time",
-                            "control" : "time"
-                        },
-                        "label" : "What time did you last see the damage?",
-                        "icon" : "../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px",
-                        "required" : true
-                    }
-                ],
-                "categories" : [
-                    {
-                        "name" : "Broken window"
-                    },
-                    {
-                        "name" : "Graffiti"
-                    }
-                ],
-                "tasks" : [
-                    {
-                        "name" : "Review",
-                        "description" : "<p>Make sure the post includes no profanity or personally identifiable information.</p>"
-                    },
-                    {
-                        "name" : "Verify"
-                    },
-                    {
-                        "name" : "Call police",
-                        "description" : "<p>If necessary, report the incident to police at +1-234-567-8901.</p>"
-                    },
-                    {
-                        "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
-                        "requires" : 1
-                    }
-                ]
-            },
-            {
-                "name" : "Parking",
-                "description" : "Reports about parking meters and signs that are malfunctioning or damaged.",
-                "color": "5BAA00",
-                "fields" : [
-                    {
-                        "type" : {
-                            "name" : "Photo",
-                            "control" : "file"
-                        },
-                        "label" : "Photo of the problem",
-                        "icon" : "../../img/material/svg-sprite-image-symbol.svg#ic_image_24px",
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Long text",
-                            "control" : "textarea"
-                        },
-                        "label" : "Describe the problem",
-                        "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px",
-                        "required" : true,
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Location",
-                            "control" : "location"
-                        },
-                        "label" : "Where is the problem?",
-                        "icon" : "../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px",
-                        "required" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Date",
-                            "control" : "date"
-                        },
-                        "icon" : "../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px",
-                        "label" : "What date did you last experience the problem?",
-                        "required" : true
-                    }
-                ],
-                "tasks" : [
-                    {
-                        "name" : "Review",
-                        "description" : "<p>Make sure the post includes no profanity or personally identifiable information.</p>"
-                    },
-                    {
-                        "name" : "Verify"
-                    },
-                    {
-                        "name" : "Call police",
-                        "description" : "<p>If necessary, report the incident to police at +1-234-567-8901.</p>"
-                    },
-                    {
-                        "name" : "Publish",
-                        "description" : "<p>Change this post's status to <em>Published</em>.</p>",
-                        "requires" : 1
-                    }
-                ]
-            },
-            {
-                "name" : "Twitter",
-                "description" : "Tweets imported by this deployment.",
-                "color" : "00aced",
-                "image" : "../../img/twitter.png",
-                "datasource" : true,
-                "fields" : [
-                    {
-                        "type" : {
-                            "name" : "Long text",
-                            "control" : "textarea"
-                        },
-                        "label" : "Tweet",
-                        "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px",
-                        "required" : true,
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Photo",
-                            "control" : "file"
-                        },
-                        "label" : "Photo",
-                        "icon" : "../../img/material/svg-sprite-image-symbol.svg#ic_image_24px",
-                        "postcard" : true
-                    },
-                    {
-                        "type" : {
-                            "name" : "Location",
-                            "control" : "location"
-                        },
-                        "label" : "Location",
-                        "icon" : "../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"
                     }
                 ]
             }
@@ -369,7 +99,7 @@
                         "avatar" : "https://www.ushahidi.com/uploads/team-members/_teamImage/robbie.png"
                     },
                     "date" : {
-                        "post" : "1 hr"
+                        "post" : "Nov. 1, 2016"
                     },
                     "source" : "web"
                 },
@@ -380,7 +110,10 @@
                 },
                 "answers" : [
                     {
-                        "value" : "<p>Cracks in the road at N. Lamar Blvd. near 45th Street are causing vehicles to absorb the shock of hitting a four-inch difference in height in the pavement.</p>"
+                        "value" : "<p>Our excavator on the N. Lamar and 45th St. site won't start. We need an engine mechanic on site immediately.</p>"
+                    },
+                    {
+                        "value" : 0
                     },
                     {
                         "type" : "Feature",
@@ -391,13 +124,7 @@
                         "value" : [-97.737250, 30.313400]
                     },
                     {
-                        "value" : "4:04 p.m."
-                    },
-                    {
-                        "value" : "Oct. 3, 2016"
-                    },
-                    {
-                        "value" : "http://media.nola.com/politics/photo/elysian-fields-cracked-pavementjpg-1a41d27c73d39535.jpg"
+                        "value" : "https://cdn.shopify.com/s/files/1/1261/4433/products/crawler-excavator-construction-equipment-rental-cat-316-el-2.JPG?v=1469472127"
                     }
                 ],
                 "tasks" : [
@@ -406,22 +133,11 @@
                         "disabled" : false,
                         "assignee" : {
                             "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png",
-                            "locked" : true
-                        },
-                        "due" : "Monday, July 25"
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
                             "avatar" : "/assets/img/avatar1.png"
-                        },
-                        "due" : "Monday, July 25"
+                        }
                     },
                     {
-                        "complete" : false,
+                        "complete" : true,
                         "disabled" : false,
                         "assignee" : {
                             "name" : "Brandon Rosage",
@@ -429,32 +145,31 @@
                         }
                     },
                     {
-                        "complete" : false,
-                        "disabled" : true
+                        "complete" : true
                     }
                 ]
             },
             {
                 "properties" : {
-                    "survey" : 2,
+                    "survey" : 0,
                     "status" : "review",
                     "author" : {
-                        "name" : "Angela Oduor Lungati",
-                        "avatar" : "https://www.ushahidi.com/uploads/team-members/_teamImage/angela.png"
+                        "name" : "Jess Shorland",
+                        "avatar" : "https://www.ushahidi.com/uploads/team-members/_teamImage/jess.png"
                     },
                     "date" : {
-                        "post" : "2 days"
+                        "post" : "Oct. 31, 2016"
                     },
-                    "source" : "SMS"
+                    "source" : "web"
                 },
                 "type" : "Feature",
                 "geometry" : {
                     "type" : "Point",
-                    "coordinates" : [-97.741406, 30.268928]
+                    "coordinates" : [-97.707322, 30.298139]
                 },
                 "answers" : [
                     {
-                        "value" : "<p>Someone wrote in permanent marker on the street-facing windows to Slake Cafe. There also appears to be two new cracks in the same window, caused by blunt impact.</p><p>This is the third time this year that graffiti has been drawn on the cafe's 7th Street storefront. We'd appreciate any help removing the graffiti or deterring the vandalism.</p>"
+                        "value" : "<p>Our team can't unlock trailer No. 689 at our Mueller development site. We either need the correct key or a locksmith today.</p>"
                     },
                     {
                         "value" : 1
@@ -463,18 +178,9 @@
                         "type" : "Feature",
                         "geometry" : {
                             "type" : "Point",
-                            "coordinates" : [-97.741406, 30.268928]
+                            "coordinates" : [-97.707322, 30.298139]
                         },
-                        "value" : [-97.741406, 30.268928]
-                    },
-                    {
-                        "value" : "https://img.zmtcdn.com/data/pictures/8/16917468/67bf15262fe1402470546723b900abc8.jpg"
-                    },
-                    {
-                        "value" : "4:04 p.m."
-                    },
-                    {
-                        "value" : "Oct. 3, 2016"
+                        "value" : [-97.707322, 30.298139]
                     }
                 ],
                 "tasks" : [
@@ -482,20 +188,9 @@
                         "complete" : true,
                         "disabled" : false,
                         "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png",
-                            "locked" : true
-                        },
-                        "due" : "Monday, July 25"
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png"
-                        },
-                        "due" : "Monday, July 25"
+                            "name" : "Jess Shorland",
+                            "avatar" : "https://www.ushahidi.com/uploads/team-members/_teamImage/jess.png"
+                        }
                     },
                     {
                         "complete" : false,
@@ -504,69 +199,6 @@
                             "name" : "Brandon Rosage",
                             "avatar" : "/assets/img/avatar1.png"
                         }
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : true
-                    }
-                ]
-            },
-            {
-                "properties" : {
-                    "survey" : 1,
-                    "status" : "published",
-                    "author" : {
-                        "name" : "William Doran",
-                        "avatar" : "https://www.ushahidi.com/uploads/team-members/_teamImage/will.png"
-                    },
-                    "date" : {
-                        "post" : "1 week"
-                    },
-                    "source" : "web"
-                },
-                "type" : "Feature",
-                "geometry" : {
-                    "type" : "Point",
-                    "coordinates" : [-97.698612, 30.300846]
-                },
-                "answers" : [
-                    {
-                        "value" : "<p>The storm drain on Berkman Drive that allows water to flow into the creek inside Bartholomew District Park is clogged with branches and construction materials. The last few rain storms have created a three-inches-deep backup of water on the roadway at this site.</p>"
-                    },
-                    {
-                        "value" : 0
-                    },
-                    {
-                        "type" : "Feature",
-                        "geometry" : {
-                            "type" : "Point",
-                            "coordinates" : [-97.698612, 30.300846]
-                        },
-                        "value" : [-97.698612, 30.300846]
-                    },
-                    {
-                        "value" : "Oct. 3, 2016"
-                    }
-                ],
-                "tasks" : [
-                    {
-                        "complete" : true,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png",
-                            "locked" : true
-                        },
-                        "due" : "Monday, July 25"
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png"
-                        },
-                        "due" : "Monday, July 25"
                     },
                     {
                         "complete" : false,
@@ -579,177 +211,50 @@
                     "survey" : 0,
                     "status" : "published",
                     "author" : {
-                        "name" : "+1-512-987-6543"
+                        "name" : "Brandon Rosage",
+                        "avatar" : "../../img/avatar1.png"
                     },
                     "date" : {
-                        "post" : "1 week"
+                        "post" : "Oct. 26, 2016"
                     },
                     "source" : "web"
                 },
                 "type" : "Feature",
                 "geometry" : {
                     "type" : "Point",
-                    "coordinates" : [-97.752420, 30.241690]
+                    "coordinates" : [-97.734504, 30.248298]
                 },
                 "answers" : [
                     {
-                        "value" : "<p>The oak trees at the intersection of S. Congress Ave. and Live Oak St. have grown such that northbound traffic often can't see the street lights until they're 15 yards away -- far too late to adjust their speed.</p><p>These trees need to be trimmed so northbound traffic can see the street light from further away.</p>"
+                        "value" : "<p>The chain on our Riverside Drive crane is malfunctioning. It won't travel through the winch.</p>"
+                    },
+                    {
+                        "value" : 2
                     },
                     {
                         "type" : "Feature",
                         "geometry" : {
                             "type" : "Point",
-                            "coordinates" : [-97.752420, 30.241690]
+                            "coordinates" : [-97.734504, 30.248298]
                         },
-                        "value" : [-97.752420, 30.241690]
+                        "value" : [-97.734504, 30.248298]
                     },
                     {
-                        "value" : "08:34:00"
-                    },
-                    {
-                        "value" : "2016-10-03"
-                    },
-                    {
-                        "value" : "http://ap.rdcpix.com/1223036244/249f68691a49558f95985ea36e7837a4l-m0xd-w640_h480_q80.jpg"
+                        "value" : "http://media.gettyimages.com/videos/getting-closer-to-crane-large-red-construction-crane-over-austin-video-id521933926?s=640x640"
                     }
                 ],
                 "tasks" : [
                     {
                         "complete" : true,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png",
-                            "locked" : true
-                        },
-                        "due" : "Monday, July 25"
+                        "disabled" : false
                     },
-                    {
-                        "complete" : false,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png"
-                        },
-                        "due" : "Monday, July 25"
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png"
-                        }
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : true
-                    }
-                ]
-            },
-            {
-                "properties" : {
-                    "survey" : 3,
-                    "status" : "archived",
-                    "author" : {
-                        "name" : "Gregory Omondi",
-                        "avatar" : "https://www.ushahidi.com/uploads/team-members/_teamImage/greg.png"
-                    },
-                    "date" : {
-                        "post" : "2 weeks"
-                    },
-                    "source" : "SMS"
-                },
-                "type" : "Feature",
-                "geometry" : {
-                    "type" : "Point",
-                    "coordinates" : [-97.727847, 30.260337]
-                },
-                "answers" : [
-                    {
-                        "value" : "http://pbs.twimg.com/media/CVOyBzmUEAAbkns.jpg:medium"
-                    },
-                    {
-                        "value" : "<p>An abandoned green Mitsubishi SUV has been parked on Comal and 3rd Street, in front of the Comal Pocket Park, for four months. Its front two tires are now flat.</p><p>Please tow this vehicle away.</p>"
-                    },
-                    {
-                        "type" : "Feature",
-                        "geometry" : {
-                            "type" : "Point",
-                            "coordinates" : [-97.727847, 30.260337]
-                        },
-                        "value" : [-97.727847, 30.260337]
-                    },
-                    {
-                        "value" : "Oct. 3, 2016"
-                    }
-                ],
-                "tasks" : [
                     {
                         "complete" : true,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png",
-                            "locked" : true
-                        },
-                        "due" : "Monday, July 25"
+                        "disabled" : false
                     },
                     {
-                        "complete" : false,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png"
-                        },
-                        "due" : "Monday, July 25"
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : false,
-                        "assignee" : {
-                            "name" : "Brandon Rosage",
-                            "avatar" : "/assets/img/avatar1.png"
-                        }
-                    },
-                    {
-                        "complete" : false,
-                        "disabled" : true
-                    }
-                ]
-            },
-            {
-                "properties" : {
-                    "survey" : 4,
-                    "status" : "review",
-                    "author" : {
-                        "name" : "@austintexasgov",
-                        "avatar" : "https://pbs.twimg.com/profile_images/481878662145261569/wb28aHGD_400x400.jpeg"
-                    },
-                    "date" : {
-                        "post" : "3 weeks"
-                    },
-                    "source" : "Twitter"
-                },
-                "type" : "Feature",
-                "geometry" : {
-                    "type" : "Point",
-                    "coordinates" : [-97.747196, 30.264896]
-                },
-                "answers" : [
-                    {
-                        "value" : "Join us at City Hall Plaza Thurs. to take a photo with the @ATX_311 display at the “Discover Austin” Outreach Event! http://ow.ly/srpa305ji0T"
-                    },
-                    {
-                        "value" : "https://pbs.twimg.com/media/CvFEkPQXEAEcg3E.jpg"
-                    },
-                    {
-                        "type" : "Feature",
-                        "geometry" : {
-                            "type" : "Point",
-                            "coordinates" : [-97.747196, 30.264896]
-                        },
-                        "value" : [-97.747196, 30.264896]
+                        "complete" : true,
+                        "disabled" : false
                     }
                 ]
             }

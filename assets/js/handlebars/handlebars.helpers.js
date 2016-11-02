@@ -155,7 +155,7 @@ Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fiel
                 + Handlebars.helpers.mapEmbed(postIndex, false) +
             '</div>'
         );
-    } else if (fieldControl == 'checkboxes' || fieldControl == 'radio') {
+    } else if (fieldControl == 'checkbox' || fieldControl == 'radio') {
         return new Handlebars.SafeString(
             '<div class="postcard-field ' + fieldControl + '"> \
                 <h2 class="form-label">' + fieldLabel + '</h2> \
@@ -242,7 +242,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                 </div> \
             </div>'
         );
-    } else if (fieldType == 'checkboxes' || fieldType == 'radio') {
+    } else if (fieldType == 'checkbox' || fieldType == 'radio') {
         var optionElems = '',
             fieldsetID = Math.floor(Math.random() * 20);
 
@@ -377,7 +377,7 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
                 + optionElems +
             '</ol>'
         );
-    } else if (fieldControl == 'checkboxes') {
+    } else if (fieldControl == 'checkbox') {
         var optionElems = '';
 
         for (var i=0; i < fieldOptions.length; i++) {
