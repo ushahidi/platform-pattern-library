@@ -124,3 +124,21 @@ $('.input-with-dropdown').each(function(){
         dropdownMenu.removeClass('active');
     });
 });
+
+$('.form-field.video_embed').each(function(){
+    var input = $(this).find('input[type="url"]'),
+        preview = $(this).find('.form-field-preview');
+
+    input.on('keyup focusout', function(){
+        var currentVal = $(this).val(),
+            videoObj = parseVideo(currentVal);;
+
+        if (videoObj.type == undefined) {
+            console.log(videoObj.type);
+            preview.empty();
+        } else {
+            console.log(videoObj.type);
+            preview.html(createVideo(currentVal)).wrapInner('<div class="video_embed-fluid" />');
+        }
+    });
+});
