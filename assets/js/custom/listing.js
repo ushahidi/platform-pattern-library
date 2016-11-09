@@ -38,6 +38,12 @@ $('.listing').each(function(){
             }
 
             $(toolbar).find('.listing-toolbar-summary .total').text($(select_checkboxes_checked).length);
+
+            if ($(select_checkboxes_checked).length > 1) {
+                $('#edit-selected-posts').attr('href','post-edit-bulk.html');
+            } else {
+                $('#edit-selected-posts').attr('href','post-edit.html');
+            }
         });
     }
 
