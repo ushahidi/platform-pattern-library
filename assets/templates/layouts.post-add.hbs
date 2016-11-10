@@ -1,25 +1,12 @@
-{{> ModeBar }}
-
 <div class="mode-context">
-
-    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
-        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
-
-        {{#if deployment.logo}}
-            <img src="{{deployment.logo}}" class="deployment-logo" />
-        {{/if}}
+    <header class="mode-context-header">
+        <a href="" class="mode-context-back button button-plain button-link">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="button-label">{{deployment.name}}</span>
+        </a>
     </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-        {{{deployment.description}}}
-    </div>
 </div>
 
 <!--// Uses numeric hash to determine which survey to render by its index; falls back to index 0 //-->

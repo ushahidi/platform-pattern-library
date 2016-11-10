@@ -21,6 +21,22 @@
                     },
                     {
                         "type" : {
+                            "name" : "Categories",
+                            "control" : "categories"
+                        },
+                        "icon" : "../../img/material/svg-sprite-action-symbol.svg#ic_label_24px",
+                        "label" : "What kind of problem?",
+                        "options" : [
+                            {
+                                "index" : 0
+                            },
+                            {
+                                "index" : 2
+                            }
+                        ]
+                    },
+                    {
+                        "type" : {
                             "name" : "Location",
                             "control" : "location"
                         },
@@ -54,17 +70,6 @@
                         "postcard" : true
                     }
                 ],
-                "categories" : [
-                    {
-                        "name" : "Surface issues"
-                    },
-                    {
-                        "name" : "Signage"
-                    },
-                    {
-                        "name" : "Obstructions"
-                    }
-                ],
                 "tasks" : [
                     {
                         "name" : "Review",
@@ -75,7 +80,35 @@
                     },
                     {
                         "name" : "Call police",
-                        "description" : "<p>If necessary, report the incident to police at +1-234-567-8901.</p>"
+                        "description" : "If necessary, report the incident to police at +1-234-567-8901.",
+                        "fields" : [
+                            {
+                                "type" : {
+                                    "name" : "Short text",
+                                    "control" : "text"
+                                },
+                                "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_short_text_24px",
+                                "label" : "Police officer",
+                                "required" : true
+                            },
+                            {
+                                "type" : {
+                                    "name" : "Short text",
+                                    "control" : "text"
+                                },
+                                "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_short_text_24px",
+                                "label" : "Case number",
+                                "required" : true
+                            },
+                            {
+                                "type" : {
+                                    "name" : "Long text",
+                                    "control" : "textarea"
+                                },
+                                "icon" : "../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px",
+                                "label" : "Notes"
+                            }
+                        ]
                     },
                     {
                         "name" : "Publish",
@@ -752,6 +785,17 @@
                         "value" : [-97.747196, 30.264896]
                     }
                 ]
+            }
+        ],
+        "categories" : [
+            {
+                "name" : "Surface issues"
+            },
+            {
+                "name" : "Signage"
+            },
+            {
+                "name" : "Obstructions"
             }
         ]
     },

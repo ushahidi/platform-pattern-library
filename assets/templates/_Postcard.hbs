@@ -10,31 +10,31 @@
             <ul class="metadata">
                 <li>
                     {{#ifCond properties.status 'published'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator">
+                    <span class="status-indicator">
                         <svg class="iconic">
                           <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                         </svg>
 
                         <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Published</span>
-                    </a>
+                    </span>
                     {{/ifCond}}
 
                     {{#ifCond properties.status 'review'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator yellow">
+                    <span class="status-indicator yellow">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
                         <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Under review</span>
-                    </a>
+                    </span>
                     {{/ifCond}}
 
                     {{#ifCond properties.status 'archived'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator dark">
+                    <span class="status-indicator dark">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#box"></use>
                         </svg>
                         <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Archived</span>
-                    </a>
+                    </span>
                     {{/ifCond}}
                 </li>
 
@@ -47,7 +47,7 @@
                 <li><strong class="label">{{properties.author.name}}</strong></li>
                 {{/if}}
                 <li class="tooltip">
-                    <span class="label">{{properties.date.post}}</span>
+                    <a href="post-detail.html#{{@index}}" class="label">{{properties.date.post}}</a>
                     <span class="bug">2016-05-12 4:32pm</span>
                 </li>
             </ul>

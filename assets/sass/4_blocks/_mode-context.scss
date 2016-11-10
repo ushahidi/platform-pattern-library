@@ -21,6 +21,11 @@
         svg.iconic {
             width: 24px;
             height: 24px;
+
+            + .button-label {
+                position: relative;
+                top: -6px;
+            }
         }
     }
 
@@ -69,14 +74,61 @@
 
         .mode-context-title {
             position: relative;
-            margin: $sm-spacing 0;
+            margin: 0.7em 0;
 
             .post-band {
                 left: -$sm-spacing;
             }
 
+            &[contenteditable="true"] {
+                position: relative;
+                outline: none;
+                @include no-shadow;
+                padding: 0;
+                margin-right: $huge-spacing;
+                margin-left: 56px;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 50%;
+                    bottom: 0;
+                    left: 50%;
+                    height: 0px;
+                    // background-color: $color-secondary;
+                    box-shadow: 0 1px 1px $color-secondary;
+                    @include transition(0.3s);
+                }
+
+
+                &:focus:after {
+                    right: 0;
+                    left: 0;
+                    height: 1px;
+                }
+            }
+
             @include media($medium) {
                 padding: 0;
+                margin: $sm-spacing 0;
+            }
+        }
+
+        .status-indicator {
+            color: $color-light-delta;
+            background-color: transparent;
+            margin: $sm-spacing auto;
+
+            @include media($medium) {
+                margin: $base-spacing auto;
+            }
+
+            &.error {
+
+                svg.iconic {
+                    stroke: rgba(255,255,255,0.8);
+                    stroke-width: 0.5;
+                }
             }
         }
 
@@ -131,6 +183,29 @@
 
             @include media($medium) {
                 display: block;
+            }
+        }
+    }
+
+    .button-group {
+        position: absolute;
+        top: 50%;
+        right: $sm-spacing;
+        background-color: $color-dark-alpha;
+        box-shadow: 0 0 16px $color-dark-alpha;
+        margin-top: -18px;
+
+        button,
+        .button {
+            height: 36px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-left: $tiny-spacing;
+
+            &.button-link {
+                color: $white;
+                padding-right: $tiny-spacing;
+                padding-left: $tiny-spacing;
             }
         }
     }
@@ -303,42 +378,11 @@
 
         @include media($medium) {
             padding: 0 $base-spacing $base-spacing;
-
-/*
-            button,
-            .button,
-            input[type="button"] {
-                position: relative;
-                text-align: left;
-
-                svg.iconic {
-                    position: absolute;
-                    top: 50%;
-                    left: $sm-spacing;
-                    margin-top: -6px;
-
-                    + .button-label {
-                        display: inline-block;
-                        padding-left: $base-spacing;
-                        margin-left: 0;
-                    }
-                }
-
-                .button-label {
-
-                    + svg.iconic {
-                        position: static;
-                        margin-top: 0;
-                        margin-left: 4px;
-                    }
-                }
-            }
-*/
         }
     }
 
     &.init {
-        max-height: 55px;
+        height: 55px;
         overflow-y: hidden;
 
         .mode-context-header {
@@ -348,6 +392,10 @@
                 overflow-x: hidden;
                 white-space: nowrap;
                 padding-right: $huge-spacing;
+
+                &[contenteditable="true"] {
+                    padding: 0;
+                }
 
                 @include media($medium) {
                     overflow: visible;
@@ -388,7 +436,7 @@
         }
 
         @include media($medium) {
-            max-height: none;
+            height: auto;
             overflow-y: auto;
 
             .mode-context-header {

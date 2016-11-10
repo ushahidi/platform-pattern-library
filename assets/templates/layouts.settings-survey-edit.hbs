@@ -1,26 +1,18 @@
-{{> ModeBar }}
-
+{{#surveyFromHash}}
 <div class="mode-context">
 
     <header class="mode-context-header">
-        <a href="" class="mode-context-back button button-link">
+        <a href="settings-surveys.html" class="mode-context-back button button-link">
             <svg class="iconic">
                 <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
             </svg>
             <span class="hidden">Back</span>
         </a>
 
-        <h1 class="mode-context-title">Edit Survey</h1>
-    </header>
+        <h1 class="mode-context-title" contenteditable="true">{{name}}</h1>
 
-</div>
-
-{{#surveyFromHash}}
-<main role="main">
-
-    <div class="toolbar">
         <!--// SAVED //-->
-        <span class="status-indicator tooltip success">
+        <span class="status-indicator hide-until-small tooltip success">
             <svg class="iconic">
                 <use xlink:href="../../img/iconic-sprite.svg#check"></use>
             </svg>
@@ -43,30 +35,41 @@
             <span class="label">Unsaved changes</span>
         </span>
         //-->
+    </header>
 
-        <div class="button-group">
-            <a class="button button-flat button-plain" data-modal="survey-appearance">
-                <svg class="iconic">
-                    <use xlink:href="../../img/iconic-sprite.svg#brush"></use>
-                </svg>
-                <span class="button-label hide-until-medium">Appearance</span>
-            </a>
+    <div class="button-group">
+        <a class="button button-flat button-plain" data-modal="survey-appearance">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#brush"></use>
+            </svg>
+            <span class="button-label hide-until-medium">Appearance</span>
+        </a>
 
-            <a class="button button-flat button-plain" data-modal="survey-permissions">
-                <svg class="iconic">
-                    <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
-                </svg>
-                <span class="button-label hide-until-medium">Permissions</span>
-            </a>
+        <a class="button button-flat button-plain" data-modal="survey-permissions">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+            </svg>
+            <span class="button-label hide-until-medium">Permissions</span>
+        </a>
 
-            <a href="post-add.html#{{indexFromHash}}" class="button button-beta" target="_blank">
-                <svg class="iconic hide-when-medium">
-                    <use xlink:href="../../img/iconic-sprite.svg#eye"></use>
-                </svg>
-                <span class="button-label hide-until-medium">Preview</span>
-            </a>
-        </div>
+        <a href="settings-survey-edit-tasks.html" class="button button-flat button-plain">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+            </svg>
+            <span class="button-label hide-until-medium">Tasks</span>
+        </a>
+
+        <a href="post-add.html#{{indexFromHash}}" class="button button-beta hide-until-small" target="_blank">
+            <svg class="iconic hide-when-medium">
+                <use xlink:href="../../img/iconic-sprite.svg#eye"></use>
+            </svg>
+            <span class="button-label hide-until-medium">Preview</span>
+        </a>
     </div>
+
+</div>
+
+<main role="main">
 
     <div class="full-col">
 
@@ -112,7 +115,7 @@
                         </a>
                     </div>
 
-                    {{#ifCond type.control 'checkboxes'}}
+                    {{#ifCond type.control 'checkbox'}}
                     <div class="listing">
                         {{#each options}}
                         <div class="listing-item" draggable="true">
@@ -145,6 +148,46 @@
                                             <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                                         </svg>
                                         <span class="button-label">Add checkbox</span>
+                                    </button>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    {{/ifCond}}
+
+                    {{#ifCond type.control 'radio'}}
+                    <div class="listing">
+                        {{#each options}}
+                        <div class="listing-item" draggable="true">
+                            <div class="listing-item-select">
+                                <span class="dragger">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="listing-item-secondary">
+                                <button class="button-beta button-link">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/material/svg-sprite-content-symbol.svg#ic_remove_circle_24px"></use>
+                                    </svg>
+                                    <span class="hidden">Remove</span>
+                                </button>
+                            </div>
+                            <div class="listing-item-primary">
+                                <h4 class="listing-item-title" contenteditable="true">{{label}}</h4>
+                            </div>
+                        </div>
+                        {{/each}}
+
+                        <div class="listing-item" draggable="true">
+                            <div class="listing-item-primary">
+                                <h4 class="listing-item-title">
+                                    <button class="button-plain">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                        </svg>
+                                        <span class="button-label">Add choice</span>
                                     </button>
                                 </h4>
                             </div>
@@ -190,6 +233,24 @@
                             </div>
                         </div>
                     </div>
+                    {{/ifCond}}
+
+                    {{#ifCond type.control 'categories'}}
+                    <fieldset>
+                        <legend>Select the categories you want to make available...</legend>
+
+                        {{#deployment}}
+                            {{#each categories}}
+                            <div class="form-field checkbox">
+                                <label for="categories_used-{{@index}}">
+                                    {{name}}
+                                    <input type="checkbox" id="categories_used-{{@index}}" />
+                                </label>
+                            </div>
+                            {{/each}}
+                        {{/deployment}}
+
+                    </fieldset>
                     {{/ifCond}}
 
                     {{#ifCond type.control 'location'}}
@@ -325,7 +386,7 @@
 
 <div id="survey-permissions" class="modal">
     <div class="modal-window">
-        <h3 class="modal-title">Edit permissions</h3>
+        <h3 class="modal-title">Permissions</h3>
 
         <div class="modal-body">
 
@@ -418,7 +479,7 @@
 
 <div id="survey-appearance" class="modal">
     <div class="modal-window">
-        <h3 class="modal-title">Edit appearance</h3>
+        <h3 class="modal-title">Appearance</h3>
 
         <div class="modal-body">
             <p>Your survey's color will be used for map markers, and the left border of the survey and its responses.</p>
@@ -469,8 +530,18 @@
                             <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
                         </svg>
                     </div>
-
                     <h2 class="listing-item-title"><a href="">Long text</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_label_24px"></use>
+                        </svg>
+                    </div>
+                    <h2 class="listing-item-title"><a href="">Categories</a></h2>
                 </div>
 
             </div>

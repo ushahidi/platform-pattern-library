@@ -99,6 +99,14 @@ Handlebars.registerHelper('postFromHash', function(options) {
     }
 });
 
+Handlebars.registerHelper('categoryFromHash', function(options) {
+    if (window.location.hash && isNaN(window.location.hash)) {
+        return options.fn(session.deployment.categories[window.location.hash.substr(1)]);
+    } else {
+        return options.fn(session.deployment.categories[0]);
+    }
+});
+
 Handlebars.registerHelper('indexFromHash', function(options) {
     return window.location.hash ? window.location.hash.substr(1) : 0;
 });
@@ -117,6 +125,7 @@ Handlebars.registerHelper('ifPostIsDataSource', function(options) {
     */
 //    return options.fn(session.deployment.surveys[this.properties.survey].datasource);
 });
+
 
 Handlebars.registerHelper('postBand', function() {
     return new Handlebars.SafeString(
@@ -377,12 +386,26 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
                 + optionElems +
             '</ol>'
         );
-    } else if (fieldControl == 'checkboxes') {
+    } else if (fieldControl == 'checkbox' || fieldControl == 'radio') {
+        var optionElems = '';
+
+        for (var i=0; i < fieldOptions.length; i++) {
+            optionElems += '<div class="form-field ' + fieldControl + '"> \
+                                <label>' + fieldOptions[i].label + '\
+                                    <input type="' + fieldControl + '" disabled /> \
+                                </label> \
+                            </div>';
+        }
+
+        return new Handlebars.SafeString(
+            optionElems
+        );
+    } else if (fieldControl == 'categories') {
         var optionElems = '';
 
         for (var i=0; i < fieldOptions.length; i++) {
             optionElems += '<div class="form-field checkbox"> \
-                                <label>' + fieldOptions[i].label + '\
+                                <label>' + session.deployment.categories[fieldOptions[i].index].name + '\
                                     <input type="checkbox" disabled /> \
                                 </label> \
                             </div>';

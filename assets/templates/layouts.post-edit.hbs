@@ -1,36 +1,14 @@
-{{> ModeBar }}
-
 <div class="mode-context">
-
     <header class="mode-context-header">
-        <a href="" class="mode-context-back button button-link">
+        <a href="timeline.html" class="mode-context-back button button-link">
             <svg class="iconic">
                 <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
             </svg>
             <span class="hidden">Back</span>
         </a>
 
-        <h1 class="mode-context-title">Edit Response</h1>
-    </header>
+        <h1 class="mode-context-title">Edit response</h1>
 
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-
-    </div>
-
-</div>
-
-<!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
-{{#postFromHash}}
-<main role="main">
-
-    <div class="toolbar">
         <!--// SAVED //-->
         <span class="status-indicator tooltip success">
             <svg class="iconic">
@@ -45,32 +23,32 @@
             <span class="label">Saving...</span>
         </span>
         //-->
+    </header>
 
-        <!--// EDIT MULTIPLE //
-        <div class="button-group">
-            <button class="button-beta">
-                <svg class="iconic">
-                    <use xlink:href="../../img/iconic-sprite.svg#chevron-left"></use>
-                </svg>
-                <span class="button-label hidden">Previous</span>
-            </button>
+    <!--// EDIT MULTIPLE //
+    <div class="button-group">
+        <button class="button-beta">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#chevron-left"></use>
+            </svg>
+            <span class="button-label hidden">Previous</span>
+        </button>
 
-            <span class="button button-plain button-link">1 of 4</span>
+        <span class="button button-plain button-link">1 of 4</span>
 
-            <button class="button-beta">
-                <svg class="iconic">
-                    <use xlink:href="../../img/iconic-sprite.svg#chevron-right"></use>
-                </svg>
-                <span class="button-label hidden">Next</span>
-            </button>
-        </div>
-        //-->
-
-        <!--// EDIT SINGLE RESPONSE //-->
-        <div class="button-group">
-            <button class="button-alpha">Done</button>
-        </div>
+        <button class="button-beta">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#chevron-right"></use>
+            </svg>
+            <span class="button-label hidden">Next</span>
+        </button>
     </div>
+    //-->
+</div>
+
+<!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
+{{#postFromHash}}
+<main role="main">
 
     <div class="{{#if tasks}}main{{else}}{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}{{/if}}-col">
 
@@ -367,7 +345,7 @@
                     <svg class="iconic">
                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
                     </svg>
-                    Mark this task {{#unless complete}}in{{/unless}}complete
+                    Mark this task complete
                 </label>
                 <div class="toggle-switch">
                     <input {{#if complete}}checked{{/if}} class="tgl" id="task-{{@index}}-complete" type="checkbox">

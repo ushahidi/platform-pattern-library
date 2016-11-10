@@ -110,7 +110,8 @@
             margin-left: 4px;
         }
 
-        .form-field {
+        .form-field,
+        fieldset {
             margin-right: 0;
             margin-left: 0;
         }
@@ -127,6 +128,7 @@
 
         &[draggable="true"] {
             display: block;
+            padding-left: 0;
         }
 
         &.focus {
@@ -147,11 +149,15 @@
 
         .form-field {
 
-            &.select {
+            &.select,
+            &.radio,
+            &.checkbox,
+            &.categories {
 
                 label {
                     font-size: 20px;
                     font-size: 1.428571429rem;
+                    margin-bottom: $sm-spacing;
                 }
 
                 .form-field {
@@ -159,7 +165,30 @@
                     label {
                         @include typeBase;
                     }
+
+                    &.radio,
+                    &.checkbox {
+
+                        label {
+                            margin-bottom: 0;
+                        }
+                    }
                 }
+
+                fieldset {
+
+                    legend {
+                        font-size: 16px;
+                        font-size: 1.142857143rem;
+                    }
+                }
+            }
+        }
+
+        .toolbox {
+
+            label {
+                @include typeBase;
             }
         }
     }

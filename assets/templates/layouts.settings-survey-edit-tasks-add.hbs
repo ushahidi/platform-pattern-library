@@ -1,14 +1,14 @@
 <div class="mode-context">
 
     <header class="mode-context-header">
-        <a href="" class="mode-context-back button button-link">
+        <a href="settings-survey-edit-tasks.html" class="mode-context-back button button-link">
             <svg class="iconic">
                 <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
             </svg>
             <span class="hidden">Back</span>
         </a>
 
-        <h1 class="mode-context-title" contenteditable="true">Untitled survey</h1>
+        <h1 class="mode-context-title" contenteditable="true">Untitled task</h1>
 
         <!--// SAVED //-->
         <span class="status-indicator tooltip success">
@@ -25,32 +25,16 @@
             <span class="label">Saving...</span>
         </span>
         //-->
+
+        <!--// SAVING //
+        <span class="status-indicator error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
+        </span>
+        //-->
     </header>
-
-    <div class="button-group">
-        <a class="button button-flat button-plain" data-modal="survey-appearance">
-            <svg class="iconic">
-                <use xlink:href="../../img/iconic-sprite.svg#brush"></use>
-            </svg>
-            <span class="button-label hide-until-medium">Appearance</span>
-        </a>
-
-        <a class="button button-flat button-plain" data-modal="survey-permissions">
-            <svg class="iconic">
-                <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
-            </svg>
-            <span class="button-label hide-until-medium">Permissions</span>
-        </a>
-
-        <a href="settings-survey-edit-tasks.html" class="button button-flat button-plain">
-            <svg class="iconic">
-                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
-            </svg>
-            <span class="button-label hide-until-medium">Tasks</span>
-        </a>
-
-        <button class="button-beta">Preview</button>
-    </div>
 
 </div>
 
@@ -59,88 +43,11 @@
     <div class="full-col">
 
         <section class="form-sheet" role="article">
-            <span class="post-band" style="background-color: inherit"></span>
 
             <header class="form-sheet-summary contenteditable">
-                <h1 class="form-sheet-title survey-title" contenteditable="true" placeholder="Untitled survey"></h1>
-                <p contenteditable="true" placeholder="Survey description"></p>
+                <h1 class="form-sheet-title survey-title" contenteditable="true" placeholder="Untitled survey">Untitled task</h1>
+                <p contenteditable="true" placeholder="Task description"></p>
             </header>
-
-            <div class="form-field" draggable="true">
-
-                <label contenteditable="true" placeholder="Untitled field"></label>
-
-                <p data-fieldgroup-target="field-description-0" contenteditable="true" placeholder="Field description"></p>
-
-                <div class="form-field-preview">
-                    <textarea rows="3" disabled>Long text</textarea>
-                </div>
-
-                <span class="dragger">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
-                    </svg>
-                </span>
-
-                <div class="form-field-config">
-                    <div class="form-field">
-                        <a class="button button-beta button-flat button-plain" data-toggle="field-type">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
-                            </svg>
-                            <span class="button-label">Long text</span>
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                            </svg>
-                        </a>
-                    </div>
-
-                    <div class="form-field-actions">
-
-                        <div class="form-field switch">
-                            <label>Required</label>
-                            <div class="toggle-switch">
-                                <input class="tgl" id="require-field-0" type="checkbox" {{#if required}}checked{{/if}} />
-                                <label class="tgl-btn" for="require-field-0"></label>
-                            </div>
-                        </div>
-
-                        <div>
-                            <button class="button-beta button-flat" data-message="delete-field">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                                </svg>
-                                <span class="hidden">Delete</span>
-                            </button>
-
-                            <button class="button-beta button-flat" data-toggle="dropdown-menu">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                                </svg>
-                                <span class="hidden">More</span>
-                            </button>
-
-                            <div class="dropdown-menu">
-                                <div class="form-field checkbox">
-                                    <label for="show-field-description-0">
-                                        Show field description
-                                        <input type="checkbox" id="show-field-description-0" data-fieldgroup-toggle="field-description-0" />
-                                    </label>
-                                </div>
-                                <div class="form-field checkbox">
-                                    <label for="include-in-summary-0">
-                                        Include in response summary
-                                        <input type="checkbox" id="include-in-summary-0" data-fieldgroup-toggle="response-preview-description-0" checked />
-                                    </label>
-                                    <p data-fieldgroup-target="response-preview-description-0">When someone completes this field, their answer will appear in the short preview of their response, which appears in Map and Timeline views.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                </div>
-            </div>
 
             <div class="form-field center">
                 <button class="button" data-toggle="field-type">
@@ -158,13 +65,37 @@
 
 {{> Modals }}
 
-<div id="delete-field" class="message">
-    <div class="message-body">
-        <p><strong>If you delete this field</strong>, all of the data already captured using it will also be deleted. Proceed with caution.</p>
-
-        <button class="button-flat message-trigger">Cancel</button>
-        <button class="button-destructive message-trigger">Delete this field</button>
+<div id="unsaved-changes" class="message">
+    <div class="message-image error">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+        </svg>
     </div>
+    <div class="message-body">
+        <p><strong>We can't save your changes right now.</strong> Here's our explanation regarding why that is.</p>
+
+        <button class="button-flat message-trigger">Dismiss</button>
+        <button class="button-alpha message-trigger">Call to action</button>
+    </div>
+</div>
+
+<div id="delete-field" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Delete this field?</h3>
+
+        <div class="modal-body">
+            <p>All of the data captured within <strong>"Field label"</strong> will also be deleted.</p>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-destructive modal-trigger" data-message="deleted">Delete this field</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
 </div>
 
 <div id="survey-permissions" class="modal">
@@ -240,9 +171,10 @@
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#ban"></use>
                         </svg>
-                        <input type="radio" name="survey-add" id="survey-add_nobody" />
+                        <input type="radio" name="survey-add" id="survey-add_nobody" data-fieldgroup-toggle="survey-off-message" />
                         <span class="label">Nobody</span>
                     </label>
+                    <p data-fieldgroup-target="survey-off-message">Your survey's existing responses will remain visible, but it will not allow new responses.</p>
                 </div>
             </fieldset>
 
@@ -271,7 +203,7 @@
 
                 <div class="form-field">
                     <label class="hidden">Hex value</label>
-                    <input type="text" data-input-type="color" value="" />
+                    <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
                 </div>
             </fieldset>
         </div>
@@ -305,7 +237,7 @@
                 </div>
             </div>
 
-            <div class="listing-item selected">
+            <div class="listing-item">
                 <div class="listing-item-primary">
                     <div class="listing-item-image">
                         <svg class="iconic">
@@ -431,5 +363,6 @@
 <script>
 setTimeout(function() {
     $('.form-field[draggable="true"]:first').click();
+    // messageToggle($('#unsaved-changes'), true);
 }, 1000);
 </script>

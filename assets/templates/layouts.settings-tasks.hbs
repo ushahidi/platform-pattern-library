@@ -1,0 +1,92 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Tasks</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="full-col">
+
+        {{#each deployment.surveys}}
+            {{#unless datasource}}
+            <div class="listing card">
+
+                <h2 class="listing-heading">
+                    <span class="post-band" style="background-color:#{{color}};"></span>
+                    <a href="settings-survey-edit.html#{{@index}}">{{name}}</a>
+                </h2>
+
+                {{#each tasks}}
+                <article class="listing-item" draggable="true">
+                    <div class="listing-item-select dragger">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px"></use>
+                        </svg>
+                    </div>
+
+                    <header class="listing-item-summary">
+                        <div class="listing-item-secondary">
+                            <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                                </svg>
+                                <span class="hidden">More</span>
+                            </button>
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a>
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/material/svg-sprite-content-symbol.svg#ic_content_copy_24px"></use>
+                                        </svg>
+                                        <span class="label">Duplicate</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a>
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                        </svg>
+                                        <span class="label">Delete</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="listing-item-primary">
+                            <h1 class="listing-item-title"><a href="settings-survey-edit-tasks-edit.html#{{@index}}">{{name}}</a></h1>
+                            <div class="listing-item-secondary">{{{description}}}</div>
+                        </div>
+                    </header>
+                </article>
+                {{/each}}
+
+            </div>
+            {{/unless}}
+        {{/each}}
+
+    </div>
+
+</main>
+
+{{> Modals }}

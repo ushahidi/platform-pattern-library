@@ -16,8 +16,17 @@
 
         .buttons-updown {
             position: relative;
-            top: 10px;
+            top: $base-spacing;
             left: -3px;
+        }
+
+        &.dragger {
+            top: 50%;
+            margin-top: -12px;
+        }
+
+        + .listing-item-summary {
+            padding-left: 46px;
         }
 
         + .listing-item-primary {
@@ -107,6 +116,14 @@
             vertical-align: middle;
         }
 
+        p {
+            margin-bottom: 0;
+
+            + p {
+                margin-top: $sm-spacing;
+            }
+        }
+
         + .listing-item-primary {
             padding-right: 72px;
 
@@ -118,6 +135,7 @@
         .dropdown-menu {
             top: 0 !important;
             right: 0 !important;
+            left: auto !important;
             @include typeBase;
             text-align: left;
         }
