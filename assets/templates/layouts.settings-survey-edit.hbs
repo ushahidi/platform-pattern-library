@@ -52,7 +52,7 @@
             <span class="button-label hide-until-medium">Permissions</span>
         </a>
 
-        <a href="settings-survey-edit-tasks.html" class="button button-flat button-plain">
+        <a href="settings-survey-edit-tasks.html#{{indexFromHash}}" class="button button-flat button-plain">
             <svg class="iconic">
                 <use xlink:href="../../img/iconic-sprite.svg#task"></use>
             </svg>
@@ -82,7 +82,7 @@
             </header>
 
             {{#each fields}}
-            <div class="form-field {{type.control}}" draggable="true">
+            <div class="form-field {{control}}" draggable="true">
 
                 <label contenteditable="true" {{#if required}}class="required"{{/if}} placeholder="Untitled field">{{label}}</label>
 
@@ -108,14 +108,14 @@
                             <svg class="iconic">
                                 <use xlink:href="{{icon}}"></use>
                             </svg>
-                            <span class="button-label">{{type.name}}</span>
+                            <span class="button-label">{{name}}</span>
                             <svg class="iconic">
                                 <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
                             </svg>
                         </a>
                     </div>
 
-                    {{#ifCond type.control 'checkbox'}}
+                    {{#ifCond control 'checkbox'}}
                     <div class="listing">
                         {{#each options}}
                         <div class="listing-item" draggable="true">
@@ -155,7 +155,7 @@
                     </div>
                     {{/ifCond}}
 
-                    {{#ifCond type.control 'radio'}}
+                    {{#ifCond control 'radio'}}
                     <div class="listing">
                         {{#each options}}
                         <div class="listing-item" draggable="true">
@@ -195,7 +195,7 @@
                     </div>
                     {{/ifCond}}
 
-                    {{#ifCond type.control 'select'}}
+                    {{#ifCond control 'select'}}
                     <div class="listing">
                         {{#each options}}
                         <div class="listing-item" draggable="true">
@@ -235,7 +235,7 @@
                     </div>
                     {{/ifCond}}
 
-                    {{#ifCond type.control 'categories'}}
+                    {{#ifCond control 'categories'}}
                     <fieldset>
                         <legend>Select the categories you want to make available...</legend>
 
@@ -253,7 +253,7 @@
                     </fieldset>
                     {{/ifCond}}
 
-                    {{#ifCond type.control 'location'}}
+                    {{#ifCond control 'location'}}
                     <div class="form-field switch">
                         <label>Use this field to map each response</label>
                         <p data-fieldgroup-target="map-field-location-message">Responses will be geolocated in your deployment's "Map" view using data from this field.</p>
@@ -347,42 +347,6 @@
     </div>
 
 </main>
-{{/surveyFromHash}}
-
-{{> Modals }}
-
-<div id="unsaved-changes" class="message">
-    <div class="message-image error">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
-        </svg>
-    </div>
-    <div class="message-body">
-        <p><strong>We can't save your changes right now.</strong> Here's our explanation regarding why that is.</p>
-
-        <button class="button-flat message-trigger">Dismiss</button>
-        <button class="button-alpha message-trigger">Call to action</button>
-    </div>
-</div>
-
-<div id="delete-field" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Delete this field?</h3>
-
-        <div class="modal-body">
-            <p>All of the data captured within <strong>"Field label"</strong> will also be deleted.</p>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-destructive modal-trigger" data-message="deleted">Delete this field</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
 
 <div id="survey-permissions" class="modal">
     <div class="modal-window">
@@ -489,7 +453,7 @@
 
                 <div class="form-field">
                     <label class="hidden">Hex value</label>
-                    <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
+                    <input type="text" data-input-type="color" value="#{{color}}" />
                 </div>
             </fieldset>
         </div>
@@ -498,6 +462,42 @@
             <div class="form-field">
                 <button class="button-beta button-flat modal-trigger">Cancel</button>
                 <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+{{/surveyFromHash}}
+
+{{> Modals }}
+
+<div id="unsaved-changes" class="message">
+    <div class="message-image error">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+        </svg>
+    </div>
+    <div class="message-body">
+        <p><strong>We can't save your changes right now.</strong> Here's our explanation regarding why that is.</p>
+
+        <button class="button-flat message-trigger">Dismiss</button>
+        <button class="button-alpha message-trigger">Call to action</button>
+    </div>
+</div>
+
+<div id="delete-field" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Delete this field?</h3>
+
+        <div class="modal-body">
+            <p>All of the data captured within <strong>"Field label"</strong> will also be deleted.</p>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-destructive modal-trigger" data-message="deleted">Delete this field</button>
             </div>
         </div>
     </div>

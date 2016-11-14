@@ -100,7 +100,6 @@
     <div class="main-col">
 
         <div class="listing card">
-
             <div class="listing-item active">
                 <div class="listing-item-secondary">
                     <button type="button" class="button-beta button-flat">
@@ -139,7 +138,9 @@
                     <img src="../../img/example-graph1.svg" />
                 </div>
             </div>
+        </div>
 
+        <div class="listing card">
             <div class="listing-item active">
                 <div class="listing-item-secondary">
                     <button type="button" class="button-beta button-flat">
@@ -169,14 +170,13 @@
                     <img src="../../img/example-graph3.svg" />
                 </div>
             </div>
-
         </div>
 
         <div class="listing timeline">
             <h2 class="listing-heading">Timeline of activity</h2>
             <h3 class="listing-heading-section">Today</h3>
 
-            {{#each-limit deployment.posts 1}}
+            {{#each-limit deployment.responses 1}}
                 {{#ifCond properties.status 'published'}}
                 {{> Postcard}}
                 {{/ifCond}}
@@ -184,15 +184,25 @@
 
             <article class="postcard">
                 <div class="postcard-body">
-                    <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/greg.png" class="avatar postcard-image" />
-                    <h1 class="postcard-title"><a href="">Gregory Omondi signed up</a></h1>
-                    <span class="metadata">90 mins</span>
+                    <header class="postcard-header">
+                        <ul class="metadata">
+                            <li class="tooltip">
+                                <a href="post-detail.html#{{@index}}" class="label">90 mins</a>
+                                <span class="bug">2016-05-12 4:32pm</span>
+                            </li>
+                        </ul>
+                    </header>
+
+                    <div class="postcard-title">
+                        <a href=""><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/greg.png" class="avatar" /></a>
+                        <a href="">Gregory Omondi signed up</a>
+                    </div>
                 </div>
             </article>
 
             <h3 class="listing-heading-section">Yesterday</h3>
 
-            {{#each-limit deployment.posts 3}}
+            {{#each-limit deployment.responses 3}}
                 {{#ifCond properties.status 'published'}}
                 {{> Postcard}}
                 {{/ifCond}}

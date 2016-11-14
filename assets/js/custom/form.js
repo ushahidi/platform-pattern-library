@@ -78,12 +78,6 @@ function checkedStatus(checkedButton) {
         checkedButton.addClass('init');
         target.addClass('init');
 
-/*
-        if (target.closest('.modal-body').length) {
-            modalBody(target);
-        }
-*/
-
         // If any input with the same 'data-fieldgroup-toggle' value is checked...
         if ($('input[type="radio"], input[type="checkbox"]').is('[data-fieldgroup-toggle="'+ toggleId +'"]:checked')) {
             target.addClass('active');

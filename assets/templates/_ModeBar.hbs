@@ -17,12 +17,12 @@
                     Timeline
                 </a>
             </li>
-            <li {{#ifCond mode 'activity'}}class="active"{{/ifCond}}>
-                <a href="activity.html">
+            <li {{#ifCond mode 'tasks'}}class="active"{{/ifCond}}>
+                <a href="tasks.html">
                     <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#pulse"></use>
+                        <use xlink:href="../../img/iconic-sprite.svg#task"></use>
                     </svg>
-                    Activity
+                    Tasks
                 </a>
             </li>
             <li>
@@ -33,6 +33,14 @@
                     More
                 </a>
                 <ul>
+                    <li {{#ifCond mode 'activity'}}class="active"{{/ifCond}}>
+                        <a href="activity.html">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#pulse"></use>
+                            </svg>
+                            Activity
+                        </a>
+                    </li>
                     {{#if user.logged_in}}
                     <li {{#ifCond mode 'settings'}}class="active"{{/ifCond}}>
                         <a href="settings.html">

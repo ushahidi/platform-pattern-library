@@ -127,20 +127,6 @@
             {{#each answers}}
                 {{formField ../properties.survey 0 @index value}}
             {{/each}}
-
-            <!--fieldset id="categories" class="error">
-                <legend>Categories</legend>
-
-                <div class="form-field checkbox">
-                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                </div>
-            </fieldset-->
         </div>
 
         {{#if tasks}}
@@ -172,81 +158,7 @@
                         <div class="tool">
 
                             {{#each tasks}}
-                            <div class="task {{#if complete}}complete{{/if}} {{#if disabled}}disabled{{/if}}">
-                                <h5 class="task-title">
-                                    {{#unless disabled}}
-                                    <a href="#task-{{@index}}" data-modal="task-{{@index}}">
-                                        {{#unless complete}}
-                                        <span class="status-indicator yellow"></span>
-                                        {{/unless}}
-                                    {{/unless}}
-
-                                        {{taskInfo "name" 0 @index}}
-
-                                    {{#unless disabled}}
-                                    </a>
-                                    {{/unless}}
-                                </h5>
-                                <div class="task-actions">
-
-                                    {{#if assignee}}
-                                    <span class="tooltip">
-                                        <span class="bug">Assigned to {{assignee.name}}</span>
-                                        <img src="{{assignee.avatar}}" class="avatar" />
-
-                                        {{#if assignee.locked}}
-                                        <span class="status-indicator">
-                                            <svg class="iconic">
-                                              <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                            </svg>
-                                        </span>
-                                        {{/if}}
-                                    </span>
-                                    {{/if}}
-
-                                    <button class="button-beta button-flat" data-toggle="dropdown-menu">
-                                        <svg class="iconic">
-                                          <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                                        </svg>
-                                        <span class="nodisplay">More</span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        {{#unless disabled}}
-                                        <li>
-                                            <a href="">Mark {{#if complete}}incomplete{{else}}complete{{/if}}</a>
-                                        </li>
-                                        <div class="divider"></div>
-                                        {{/unless}}
-                                        <li>
-                                            <a href="" data-modal="task-assignment">
-                                            <svg class="iconic">
-                                                <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                                            </svg>
-                                            <span class="label">{{#if assignee}}Change{{else}}Add{{/if}} assignment</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" data-modal="task-due">
-                                            <svg class="iconic">
-                                                <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                                            </svg>
-                                            <span class="label">{{#if due}}Change{{else}}Add{{/if}} due date</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="task-body">
-                                    {{#if due}}
-                                        <p><strong>Due</strong>: {{due}}</p>
-                                    {{/if}}
-
-                                    {{#if disabled}}
-                                        <p><em>This task can't be completed until "Verify" is completed.</em></p>
-                                    {{else}}
-                                        {{taskInfo "description" 0 @index}}
-                                    {{/if}}
-                                </div>
-                            </div>
+                                {{> TaskSummary}}
                             {{/each}}
 
                         </div>
@@ -284,87 +196,13 @@
         </div>
         {{/ifPostIsDataSource}}
 
-        <!--div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Delete this post</h3>
-                <p><strong>If you delete this post</strong>, all of its comments and messages will also be deleted. Proceed with caution.</p>
-
-                <button class="button-destructive">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete post</span>
-                </button>
-            </div>
-        </div-->
-
     </div>
 
 </main>
 
-{{#each tasks}}
-<div id="task-{{@index}}" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title {{#if complete}}complete{{/if}}">{{taskInfo "name" 0 @index}}</h3>
-
-        <div class="form-field">
-            {{#if disabled}}
-                <p><em>This task can't be completed until "Verify" is completed.</em></p>
-            {{else}}
-                {{taskInfo "description" 0 @index}}
-            {{/if}}
-        </div>
-
-        <div class="modal-body">
-            <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-
-            <div class="form-field required">
-                <label>Police officer</label>
-                <input type="text" />
-            </div>
-
-            <div class="form-field required">
-                <label>Case number</label>
-                <input type="number" />
-            </div>
-
-            <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-
-
-
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task complete
-                </label>
-                <div class="toggle-switch">
-                    <input {{#if complete}}checked{{/if}} class="tgl" id="task-{{@index}}-complete" type="checkbox">
-                    <label class="tgl-btn" for="task-{{@index}}-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-{{/each}}
+    {{#each tasks}}
+        {{> TaskModal}}
+    {{/each}}
 
 {{/postFromHash}}
 
@@ -373,7 +211,7 @@
 <div id="required" class="message">
     <div class="message-image error">
         <svg class="iconic">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
         </svg>
     </div>
 

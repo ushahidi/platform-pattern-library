@@ -153,6 +153,21 @@
                 </fieldset>
                 {{/ifCond}}
 
+                {{#ifCond type.control 'categories'}}
+                <fieldset>
+                    <legend>{{../label}}</legend>
+
+                    {{#each options}}
+                    <div class="form-field checkbox">
+                        <label for="form-field-checkbox-{{@index}}">
+                            {{label}}
+                            <input type="checkbox" id="form-field-checkbox-{{@index}}" />
+                        </label>
+                    </div>
+                    {{/each}}
+                </fieldset>
+                {{/ifCond}}
+
                 {{#ifCond type.control 'time'}}
                 <div class="form-field">
                     <label {{#if required}}class="required"{{/if}}>{{../label}}</label>

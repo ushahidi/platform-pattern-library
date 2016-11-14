@@ -113,25 +113,22 @@
         </header>
 
         <div class="postcard-overflow">
-            {{#each answers}}
-                {{#if @first}}
-                <div class="postcard-title">
-                    <a href="post-detail.html#{{@../index}}">
-                {{/if}}
-
-                    {{postcardField ../properties.survey @../index @index true}}
-
-                {{#if @first}}
-                    </a>
-                </div>
-                {{/if}}
-            {{/each}}
 
             {{#ifCond show_tasks true}}
 
+                {{#each-limit answers 1}}
+                    <div class="postcard-title">
+                        <a href="post-detail.html#{{@../index}}">
+
+                        {{postcardField true}}
+
+                        </a>
+                    </div>
+                {{/each-limit}}
+
                 <div class="postcard-tasks">
                     <a href="" class="postcard-tasks-title status-indicator yellow">
-                        <span class="label"><strong>{{tasks.length}}</strong> incomplete tasks</span>
+                        <span class="label">{{taskIncompleteCount}}</span>
                     </a>
 
                 {{#each tasks}}
@@ -139,7 +136,12 @@
                     {{#ifCond complete false}}
                         {{#ifCond disabled false}}
                         <div class="postcard-field task">
-                            <h2 class="task-title"><a href="post-edit.html">{{taskInfo "name" @../index @index}}</a></h2>
+                            <h2 class="task-title">
+                                <a href="post-edit.html">
+                                    <span class="status-indicator yellow"></span>
+                                    {{name}}
+                                </a>
+                            </h2>
 
                             <div class="task-actions">
                                 {{#if assignee}}
@@ -200,7 +202,7 @@
                             </div>
                             <div class="task-body">
                                 {{#if description}}
-                                {{{description}}}
+                                <p>{{description}}</p>
                                 {{/if}}
 
                                 {{#if due}}
@@ -215,6 +217,20 @@
                 </div>
 
             {{else}}
+
+                {{#each answers}}
+                    {{#if @first}}
+                    <div class="postcard-title">
+                        <a href="post-detail.html#{{@../index}}">
+                    {{/if}}
+
+                        {{postcardField true}}
+
+                    {{#if @first}}
+                        </a>
+                    </div>
+                    {{/if}}
+                {{/each}}
 
                 {{postcardMoreFields ../properties.survey @index}}
 

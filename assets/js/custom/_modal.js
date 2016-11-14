@@ -29,8 +29,8 @@ var modalYpos = function(modalContext) {
 
     setTimeout(function() {
         modalBody.css({
-            'max-height' : maxHeight,
-            'height' : modalBody.innerHeight()
+            'max-height' : maxHeight
+            // 'height' : modalBody.innerHeight()
         });
     }, 400);
 

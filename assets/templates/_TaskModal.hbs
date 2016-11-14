@@ -1,0 +1,42 @@
+<div id="task-{{@index}}" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title {{#if complete}}complete{{/if}}">{{name}}</h3>
+
+        <div class="form-field">
+            {{#if disabled}}
+                <p><em>This task can't be completed until "Verify" is completed.</em></p>
+            {{else}}
+                {{description}}
+            {{/if}}
+        </div>
+
+        <div class="modal-body">
+
+            {{#each fields}}
+                {{formField}}
+            {{/each}}
+
+            <div class="form-field switch">
+                <label>
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                    </svg>
+                    Mark this task complete
+                </label>
+                <div class="toggle-switch">
+                    <input {{#if complete}}checked{{/if}} class="tgl" id="task-{{@index}}-complete" type="checkbox">
+                    <label class="tgl-btn" for="task-{{@index}}-complete"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>

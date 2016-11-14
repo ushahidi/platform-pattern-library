@@ -65,7 +65,7 @@
             {{#if fields}}
 
                 {{#each fields}}
-                <div class="form-field {{type.control}}" draggable="true">
+                <div class="form-field {{control}}" draggable="true">
 
                     <label contenteditable="true" {{#if required}}class="required"{{/if}} placeholder="Untitled field">{{label}}</label>
 
@@ -87,14 +87,14 @@
                                 <svg class="iconic">
                                     <use xlink:href="{{icon}}"></use>
                                 </svg>
-                                <span class="button-label">{{type.name}}</span>
+                                <span class="button-label">{{name}}</span>
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
                                 </svg>
                             </a>
                         </div>
 
-                        {{#ifCond type.control 'checkboxes'}}
+                        {{#ifCond control 'checkboxes'}}
                         <div class="listing">
                             {{#each options}}
                             <div class="listing-item" draggable="true">
@@ -134,7 +134,7 @@
                         </div>
                         {{/ifCond}}
 
-                        {{#ifCond type.control 'select'}}
+                        {{#ifCond control 'select'}}
                         <div class="listing">
                             {{#each options}}
                             <div class="listing-item" draggable="true">
@@ -174,7 +174,7 @@
                         </div>
                         {{/ifCond}}
 
-                        {{#ifCond type.control 'location'}}
+                        {{#ifCond control 'location'}}
                         <div class="form-field switch">
                             <label>Use this field to map each response</label>
                             <p data-fieldgroup-target="map-field-location-message">Responses will be geolocated in your deployment's "Map" view using data from this field.</p>

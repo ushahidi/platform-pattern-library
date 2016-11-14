@@ -117,13 +117,6 @@ Handlebars.registerHelper('ifPostIsDataSource', function(options) {
     } else {
         return options.inverse(this);
     }
-
-    /*
-    return new Handlebars.SafeString(
-        options.fn(session.deployment.surveys[this.properties.survey].datasource)
-    );
-    */
-//    return options.fn(session.deployment.surveys[this.properties.survey].datasource);
 });
 
 
@@ -133,22 +126,13 @@ Handlebars.registerHelper('postBand', function() {
     );
 });
 
-Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fieldIndex, summary) {
-    var fieldControl = session.deployment.surveys[surveyIndex].fields[fieldIndex].type.control,
+Handlebars.registerHelper('postcardField', function(summary) {
+    var fieldControl = this.type,
         fieldValue = this.value,
-        fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
-        fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon;
+        fieldLabel = this.label,
+        fieldIcon = this.icon;
 
-/*
-    console.log({
-        "survey" : surveyIndex,
-        "post" : postIndex,
-        "field" : fieldIndex,
-        "value" : fieldValue
-    });
-*/
-
-    if (summary == true && !session.deployment.surveys[surveyIndex].fields[fieldIndex].postcard) {
+    if (summary == true && !this.postcard) {
 
     } else if (fieldControl == 'file') {
         return new Handlebars.SafeString(
@@ -161,18 +145,39 @@ Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fiel
         return new Handlebars.SafeString(
             '<div class="postcard-field"> \
                 <h2 class="form-label">' + fieldLabel + '</h2>'
-                + Handlebars.helpers.mapEmbed(postIndex, false) +
+                + Handlebars.helpers.mapEmbed(0, false) +
             '</div>'
         );
     } else if (fieldControl == 'checkboxes' || fieldControl == 'radio') {
+        var selectedItems = '';
+
+        for (var i=0; i < fieldValue.length; i++) {
+            selectedItems +=    '<div> \
+                                    <svg class="iconic ' + fieldControl + '" style="margin-right:4px;"> \
+                                        <use xlink:href="' + fieldIcon + '"></use> \
+                                    </svg>'
+                                    + this.options[fieldValue].label +
+                                '</div>';
+        }
+
+        return new Handlebars.SafeString(
+            '<div class="postcard-field ' + fieldControl + '"> \
+                <h2 class="form-label">' + fieldLabel + '</h2>'
+                + selectedItems +
+            '</div>'
+        );
+    } else if (fieldControl == 'categories') {
+        var categoryItems = '';
+
+        for (var i=0; i < fieldValue.length; i++) {
+            categoryItems += '<li>' + session.deployment.categories[fieldValue[i]].name + '</li>';
+        }
+
         return new Handlebars.SafeString(
             '<div class="postcard-field ' + fieldControl + '"> \
                 <h2 class="form-label">' + fieldLabel + '</h2> \
-                <svg class="iconic ' + fieldControl + '" style="margin-right:4px;"> \
-                    <use xlink:href="' + fieldIcon + '"></use> \
-                </svg>'
-                + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].label +
-            '</div>'
+                <ul>' + categoryItems + '</ul> \
+            </div>'
         );
     } else if (fieldControl == 'select') {
         return new Handlebars.SafeString(
@@ -181,16 +186,26 @@ Handlebars.registerHelper('postcardField', function(surveyIndex, postIndex, fiel
                 <svg class="iconic" style="margin-right:4px;"> \
                     <use xlink:href="../../img/iconic-sprite.svg#check"></use> \
                 </svg>'
-                + session.deployment.surveys[surveyIndex].fields[fieldIndex].options[fieldValue].label +
+                + this.options[fieldValue].label +
             '</div>'
         );
     } else {
-        return new Handlebars.SafeString(
-            '<div class="postcard-field"> \
-                <h2 class="form-label">' + fieldLabel + '</h2>'
-                + Handlebars.helpers.truncate(Handlebars.helpers.striptags(fieldValue), 160) +
-            '</div>'
-        );
+
+        if (summary == true) {
+            return new Handlebars.SafeString(
+                '<div class="postcard-field"> \
+                    <h2 class="form-label">' + fieldLabel + '</h2>'
+                    + Handlebars.helpers.truncate(Handlebars.helpers.striptags(fieldValue), 160) +
+                '</div>'
+            );
+        } else {
+            return new Handlebars.SafeString(
+                '<div class="postcard-field"> \
+                    <h2 class="form-label">' + fieldLabel + '</h2>'
+                    + fieldValue +
+                '</div>'
+            );
+        }
     }
 
 });
@@ -213,39 +228,52 @@ Handlebars.registerHelper('postcardMoreFields', function(surveyIndex, postIndex)
     }
 });
 
-Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldIndex, value) {
-    var fieldType = session.deployment.surveys[surveyIndex].fields[fieldIndex].type.control,
-        fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
-        fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon,
-        fieldOptions = session.deployment.surveys[surveyIndex].fields[fieldIndex].options;
+Handlebars.registerHelper('taskIncompleteCount', function(options) {
+    var tasksArray = this.tasks,
+        count = 0;
 
-/*
-    console.log({
-        "survey" : surveyIndex,
-        "post" : postIndex,
-        "field" : fieldIndex,
-        "value" : value
-    });
-*/
+    for (var i=0; i < tasksArray.length; i++) {
+        if (!tasksArray[i].complete && !tasksArray[i].disabled)
+        count++;
+    }
+
+    if (count == 1) {
+        return new Handlebars.SafeString(
+            '<strong>' + count + '</strong> incomplete task'
+        );
+    } else {
+        return new Handlebars.SafeString(
+            '<strong>' + count + '</strong> incomplete tasks'
+        );
+    }
+});
+
+Handlebars.registerHelper('formField', function(options) {
+    var fieldType = this.type,
+        fieldLabel = this.label,
+        fieldIcon = this.icon,
+        fieldValue = this.value !== undefined ? this.value : '',
+        fieldOptions = this.options,
+        fieldRequired = this.required ? 'class="required"' : '';
 
     if (fieldType == 'text') {
         return new Handlebars.SafeString(
-            '<div class="form-field"><label>'+fieldLabel+'</label><input type="text" value="'+value+'" /></div>'
+            '<div class="form-field"><label ' + fieldRequired + '>'+fieldLabel+'</label><input type="text" value="'+fieldValue+'" /></div>'
         );
     } else if (fieldType == 'textarea') {
         return new Handlebars.SafeString(
-            '<div class="form-field"><label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea></div>'
+            '<div class="form-field"><label ' + fieldRequired + '>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(fieldValue)+'</textarea></div>'
         );
     } else if (fieldType == 'select') {
         var optionElems = '';
 
         for (var i=0; i < fieldOptions.length; i++) {
-            var attribute = value == i ? 'selected' : '';
+            var attribute = fieldValue == i ? 'selected' : '';
             optionElems += '<option ' + attribute + '>' + fieldOptions[i].label + '</option>';
         }
 
         return new Handlebars.SafeString(
-            '<div class="form-field"><label>'+fieldLabel+'</label> \
+            '<div class="form-field"><label ' + fieldRequired + '>'+fieldLabel+'</label> \
                 <div class="custom-select"> \
                     <select>' + optionElems + '</select> \
                 </div> \
@@ -256,11 +284,11 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
             fieldsetID = Math.floor(Math.random() * 20);
 
         for (var i=0; i < fieldOptions.length; i++) {
-            var attribute = value == i ? 'checked' : '',
+            var attribute = fieldValue == i ? 'checked' : '',
                 nameAttr = fieldType == 'radio' ? 'name="form-field-radio-' + fieldsetID + '"' : '';
 
                 optionElems += '<div class="form-field ' + fieldType + '"> \
-                                <label for="form-field-' + fieldType + '-' + i + '">' + fieldOptions[i].label + '\
+                                <label for="form-field-' + fieldType + '-' + i + '" ' + fieldRequired + '>' + fieldOptions[i].label + '\
                                     <input type="' + fieldType + '" id="form-field-' + fieldType + '-' + fieldsetID + '-' + i + '" ' + nameAttr + ' ' + attribute + ' /> \
                                 </label> \
                             </div>';
@@ -272,25 +300,72 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                 + optionElems +
             '</fieldset>'
         );
+    } else if (fieldType == 'categories') {
+        var optionElems = '',
+            fieldsetID = Math.floor(Math.random() * 20);
+
+        for (var i=0; i < fieldOptions.length; i++) {
+            var arrayContains = function(needle) {
+                // Per spec, the way to identify NaN is that it is not equal to itself
+                var findNaN = needle !== needle;
+                var indexOf;
+
+                if(!findNaN && typeof Array.prototype.indexOf === 'function') {
+                    indexOf = Array.prototype.indexOf;
+                } else {
+                    indexOf = function(needle) {
+                        var i = -1, index = -1;
+
+                        for(i = 0; i < this.length; i++) {
+                            var item = this[i];
+
+                            if((findNaN && item !== item) || item === needle) {
+                                index = i;
+                                break;
+                            }
+                        }
+
+                        return index;
+                    };
+                }
+
+                return indexOf.call(this, needle) > -1;
+            };
+
+            var attribute = arrayContains.call(fieldValue, i) ? 'checked' : '';
+
+                optionElems += '<div class="form-field checkbox"> \
+                                    <label for="form-field-category-' + i + '">' + session.deployment.categories[fieldOptions[i]].name + '\
+                                        <input type="checkbox" id="form-field-category-' + i + '" ' + attribute + ' /> \
+                                    </label> \
+                                </div>';
+        }
+
+        return new Handlebars.SafeString(
+            '<fieldset> \
+                <legend>' + fieldLabel + '</legend>'
+                + optionElems +
+            '</fieldset>'
+        );
     } else if (fieldType == 'time' || fieldType == 'date') {
         return new Handlebars.SafeString(
             '<div class="form-field ' + fieldType + '"> \
-                <label>'+fieldLabel+'</label> \
+                <label ' + fieldRequired + '>'+fieldLabel+'</label> \
                 <div class="input-with-icon"> \
                     <svg class="iconic" style="margin-right:4px;"> \
                         <use xlink:href="' + fieldIcon + '"></use> \
                     </svg> \
-                    <input type="' + fieldType + '" value="'+value+'" /> \
+                    <input type="' + fieldType + '" value="'+fieldValue+'" /> \
                 </div> \
             </div>'
         );
     } else if (fieldType == 'file') {
         return new Handlebars.SafeString(
             '<div class="form-field file"> \
-                <label>' + fieldLabel + '</label> \
+                <label ' + fieldRequired + '>' + fieldLabel + '</label> \
                 <figure> \
-                    <img src="' + value + '" /> \
-                    <div class="form-field"> \
+                    <img src="' + fieldValue + '" /> \
+                    <div class="form-field file"> \
                         <button class="button-destructive"> \
                             <svg class="iconic"> \
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use> \
@@ -311,13 +386,13 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
     } else if (fieldType == 'location') {
         return new Handlebars.SafeString(
             '<div class="form-field location"> \
-                <label>' + fieldLabel + '</label> \
+                <label ' + fieldRequired + '>' + fieldLabel + '</label> \
                 <div class="location-wrapper"> \
-                    <div id="map" data-post-index="' + postIndex + '" class="map"></div> \
+                    <div id="map" data-post-index="' + 0 + '" class="map"></div> \
                     <form role="search" class="searchbar" data-message="search"> \
                         <div class="searchbar-input"> \
                             <div class="form-field"> \
-                                <input type="search" maxlength="250" placeholder="Find a location" value="' + value + '" /> \
+                                <input type="search" maxlength="250" placeholder="Find a location" value="' + fieldValue + '" /> \
                             </div> \
                             <div class="searchbar-results dropdown-menu"> \
                                 <div class="form-field"> \
@@ -352,8 +427,8 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
 });
 
 Handlebars.registerHelper('surveyFieldPreview', function() {
-    var fieldName = this.type.name,
-        fieldControl = this.type.control,
+    var fieldName = this.name,
+        fieldControl = this.control,
         fieldLabel = this.label,
         fieldOptions = this.options;
 
@@ -405,7 +480,7 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
 
         for (var i=0; i < fieldOptions.length; i++) {
             optionElems += '<div class="form-field checkbox"> \
-                                <label>' + session.deployment.categories[fieldOptions[i].index].name + '\
+                                <label>' + session.deployment.categories[fieldOptions[i]].name + '\
                                     <input type="checkbox" disabled /> \
                                 </label> \
                             </div>';
@@ -440,17 +515,6 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
     }
 });
 
-Handlebars.registerHelper('taskInfo', function(key, postIndex, taskIndex) {
-    var surveyIndex = session.deployment.responses[postIndex].properties.survey,
-        keyValue = session.deployment.surveys[surveyIndex].tasks[taskIndex][key];
-
-    if (keyValue !== undefined) {
-        return new Handlebars.SafeString(
-            session.deployment.surveys[surveyIndex].tasks[taskIndex][key]
-        );
-    }
-});
-
 Handlebars.registerHelper('postCheckbox', function() {
     if (session.user.logged_in) {
         return new Handlebars.SafeString(
@@ -468,7 +532,7 @@ hbUserStatus = function() {
     hbLoadLayout();
 }
 
-hbLoadLayout = function() {
+hbLoadLayout = function(callback) {
     var currentURL = window.location.href.split('/').pop(),
         currentHash = window.location.hash.substr(1),
         currentTemplate = currentURL.split('#')[0].slice(0, -5),
@@ -483,12 +547,5 @@ hbLoadLayout = function() {
         $('body').html(Ushahidi.templates.layouts[currentTemplate](session));
     }
 
-    $.getScript('../../js/app.js', function(data, textStatus ) {
-        // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
-        setTimeout(function() {
-            if (window.location.hash.substr(1) == 'new_response') {
-                messageToggle($('#new_response-success'));
-            }
-        }, 1000);
-    });
+    callback();
 }
