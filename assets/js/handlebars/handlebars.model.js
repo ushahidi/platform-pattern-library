@@ -63,48 +63,44 @@ var session,
                 }
 
                 // Loop over each task field
-                for (var m = 0; m < surveyItem.tasks.length; m++) {
-                    var taskItem = surveyItem.tasks[m];
+                if (surveyItem.tasks !== undefined) {
+                    for (var m = 0; m < surveyItem.tasks.length; m++) {
+                        var taskItem = surveyItem.tasks[m];
 
-                    if (taskItem.fields !== undefined) {
+                        if (taskItem.fields !== undefined) {
 
-                        for (var j = 0; j < taskItem.fields.length; j++) {
-                            var taskFieldItem = taskItem.fields[j];
+                            for (var j = 0; j < taskItem.fields.length; j++) {
+                                var taskFieldItem = taskItem.fields[j];
 
-                            $.extend(taskFieldItem, data.fields[find_in_array(data.fields, 'control', taskFieldItem.type)]);
+                                $.extend(taskFieldItem, data.fields[find_in_array(data.fields, 'control', taskFieldItem.type)]);
+                            }
                         }
                     }
                 }
             }
 
-            // COPY SURVEY FIELD DATA INTO THEIR RESPONSES' ANSWERS
             for (var k = 0; k < data.deployment.responses.length; k++) {
                 var responseItem = data.deployment.responses[k];
 
+                // COPY SURVEY FIELD DATA INTO THEIR RESPONSES' ANSWERS
                 for (var j = 0; j < responseItem.answers.length; j++) {
                     var answerItem = responseItem.answers[j];
 
                     $.extend(answerItem, data.deployment.surveys[responseItem.properties.survey].fields[j]);
                 }
-            }
 
-            // COPY SURVEY TASK DATA INTO RESPONSES' TASKS
-            // Loop over each response and its tasks, and append its survey's tasks data to its own tasks' data
-            for (var i = 0; i < data.deployment.responses.length; i++) {
-                var responseItem = data.deployment.responses[i];
+                // COPY SURVEY TASK DATA INTO RESPONSES' TASKS
+                // Loop over each response and its tasks, and append its survey's tasks data to its own tasks' data
+                if (responseItem.tasks !== undefined) {
+                    for (var j = 0; j < responseItem.tasks.length; j++) {
+                        var taskItem = responseItem.tasks[j];
 
-                for (var j = 0; j < responseItem.tasks.length; j++) {
-                    var taskItem = responseItem.tasks[j];
-
-                    $.extend(taskItem, data.deployment.surveys[responseItem.properties.survey].tasks[j]);
+                        $.extend(taskItem, data.deployment.surveys[responseItem.properties.survey].tasks[j]);
+                    }
                 }
-            }
 
-            // COPY RESPONSES' LOCATION FIELD DATA INTO THEIR ROOT (for Leaflet)
-            // Loop over each response's location field and append the geojson data to the root
-            for (var k = 0; k < data.deployment.responses.length; k++) {
-                var responseItem = data.deployment.responses[k];
-
+                // COPY RESPONSES' LOCATION FIELD DATA INTO THEIR ROOT (for Leaflet)
+                // Loop over each response's location field and append the geojson data to the root
                 $.extend(responseItem, responseItem.answers[find_in_array(responseItem.answers, 'type', 'location')]);
                 responseItem.type = 'Feature';
             }

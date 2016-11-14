@@ -245,7 +245,9 @@
 
             {{#if user.logged_in}}
                 {{#each deployment.responses}}
-                    {{> Postcard checkbox=true show_tasks=true editable=true}}
+                    {{#if tasks}}
+                        {{> Postcard checkbox=true show_tasks=true editable=true}}
+                    {{/if}}
                 {{/each}}
             {{/if}}
 

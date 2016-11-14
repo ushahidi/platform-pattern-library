@@ -1,5 +1,5 @@
+{{#surveyFromHash}}
 <div class="mode-context">
-
     <header class="mode-context-header">
         <a href="settings-survey-edit.html" class="mode-context-back button button-link">
             <svg class="iconic">
@@ -8,32 +8,21 @@
             <span class="hidden">Back</span>
         </a>
 
-        <h1 class="mode-context-title">Tasks</h1>
+        <h1 class="mode-context-title">Tasks <em>for {{name}}</em></h1>
     </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-
-    </div>
 </div>
 
-{{#surveyFromHash}}
+
 <main role="main">
 
     <div class="full-col">
 
-        <div class="listing card">
+        {{#if tasks}}
 
-            {{#if tasks}}
+            <div class="listing card">
 
                 {{#each tasks}}
-                <article class="listing-item" draggable="true">
+                    <article class="listing-item" draggable="true">
 
                     <div class="listing-item-select dragger">
 
@@ -93,13 +82,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
 
-            {{else}}
+        {{else}}
 
+            <div class="explain">
+                <img src="../../img/illustration-tasks.png" class="explain-illustration" />
+                <h2 class="explain-title">Build a workflow.</h2>
+                <p>Tasks help your team define the work that needs to be completed on each survey response.</p>
+                <p>As new responses come in, tasks automatically generate a to-do list for you and your teammates with the work that's waiting to be done. This helps you quickly see, for example, when you need to verify a report, call a stakeholder, or publish a response that needs your attention.</p>
+                <p><a href="settings-survey-edit-tasks-add.html" class="button button-alpha">Create your first task</a></p>
+            </div>
 
-            {{/if}}
-
-        </div>
+        {{/if}}
 
     </div>
 

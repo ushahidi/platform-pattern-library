@@ -232,9 +232,11 @@ Handlebars.registerHelper('taskIncompleteCount', function(options) {
     var tasksArray = this.tasks,
         count = 0;
 
-    for (var i=0; i < tasksArray.length; i++) {
-        if (!tasksArray[i].complete && !tasksArray[i].disabled)
-        count++;
+    if (tasksArray !== undefined) {
+        for (var i=0; i < tasksArray.length; i++) {
+            if (!tasksArray[i].complete && !tasksArray[i].disabled)
+            count++;
+        }
     }
 
     if (count == 1) {

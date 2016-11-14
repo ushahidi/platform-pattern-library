@@ -34,6 +34,17 @@
             <span class="label">Unsaved changes</span>
         </span>
         //-->
+
+        <div class="button-group">
+
+            <a class="button button-flat button-plain" data-modal="task-settings">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <span class="button-label hide-until-medium">Settings</span>
+            </a>
+
+        </div>
     </header>
 
 </div>
@@ -65,118 +76,30 @@
 
 {{> Modals }}
 
-<div id="unsaved-changes" class="message">
-    <div class="message-image error">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
-        </svg>
-    </div>
-    <div class="message-body">
-        <p><strong>We can't save your changes right now.</strong> Here's our explanation regarding why that is.</p>
-
-        <button class="button-flat message-trigger">Dismiss</button>
-        <button class="button-alpha message-trigger">Call to action</button>
-    </div>
-</div>
-
-<div id="delete-field" class="modal">
+<div id="task-settings" class="modal">
     <div class="modal-window">
-        <h3 class="modal-title">Delete this field?</h3>
-
-        <div class="modal-body">
-            <p>All of the data captured within <strong>"Field label"</strong> will also be deleted.</p>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-destructive modal-trigger" data-message="deleted">Delete this field</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div id="survey-permissions" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Edit permissions</h3>
+        <h3 class="modal-title">Settings</h3>
 
         <div class="modal-body">
 
             <div class="form-field switch">
-                <label>Require responses be reviewed before they're published</label>
+                <label>Require another task be completed first</label>
                 <div class="toggle-switch">
-                    <input class="tgl" id="post-review" type="checkbox">
-                    <label class="tgl-btn" for="post-review"></label>
+                    <input class="tgl" id="require_another_task" type="checkbox" data-fieldgroup-toggle="require_another_task-yes">
+                    <label class="tgl-btn" for="require_another_task"></label>
                 </div>
-            </div>
+                <div class="form-field form-fieldgroup" data-fieldgroup-target="require_another_task-yes">
+                    <label>Which task must be completed before this one?</label>
 
-            <div class="form-field switch">
-                <label>Hide author information</label>
-                <p data-fieldgroup-target="hide-author-message">Only people with permission to edit responses will be able to see who submitted them; and only when editing them.</p>
-                <div class="toggle-switch">
-                    <input class="tgl" id="hide-author" type="checkbox" data-fieldgroup-toggle="hide-author-message">
-                    <label class="tgl-btn" for="hide-author"></label>
-                </div>
-            </div>
-
-            <fieldset>
-                <legend>Who can submit responses to this survey</legend>
-
-                <div class="form-field radio icon-input">
-                    <label for="survey-add_everyone">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                        </svg>
-                        <input type="radio" name="survey-add" id="survey-add_everyone" checked />
-                        <span class="label">Everyone</span>
-                    </label>
-                </div>
-
-                <div class="form-field radio icon-input">
-                    <label for="survey-add_roles">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#people"></use>
-                        </svg>
-                        <input type="radio" name="survey-add" id="survey-add_roles" data-fieldgroup-toggle="survey-add_roles" />
-                        Specific roles...
-                    </label>
-
-                    <div class="form-fieldgroup" data-fieldgroup-target="survey-add_roles">
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="survey-add_roles-members" />
-                            <label for="survey-add_roles-members">Members</label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="survey-add_roles-editors" />
-                            <label for="survey-add_roles-editors">Editors</label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="survey-add_roles-operators" />
-                            <label for="survey-add_roles-operators">Operators</label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="survey-add_roles-admins" />
-                            <label for="survey-add_roles-admins">Administrators</label>
-                        </div>
+                    <div class="custom-select">
+                        <select>
+                            {{#each deployment.surveys.0.tasks}}
+                            <option>{{name}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                 </div>
-
-                <div class="form-field radio icon-input">
-                    <label for="survey-add_nobody">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#ban"></use>
-                        </svg>
-                        <input type="radio" name="survey-add" id="survey-add_nobody" data-fieldgroup-toggle="survey-off-message" />
-                        <span class="label">Nobody</span>
-                    </label>
-                    <p data-fieldgroup-target="survey-off-message">Your survey's existing responses will remain visible, but it will not allow new responses.</p>
-                </div>
-            </fieldset>
+            </div>
 
         </div>
 
@@ -189,175 +112,6 @@
     </div>
 
     <div class="modal-overlay"></div>
-</div>
-
-<div id="survey-appearance" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Edit appearance</h3>
-
-        <div class="modal-body">
-            <p>Your survey's color will be used for map markers, and the left border of the survey and its responses.</p>
-
-            <fieldset data-fieldset-type="color">
-                <legend>Survey color</legend>
-
-                <div class="form-field">
-                    <label class="hidden">Hex value</label>
-                    <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
-
-<div class="mainsheet" data-toggle-target="field-type" data-toggle-animate>
-    <div class="mainsheet-window">
-        <h3 class="mainsheet-heading">Choose a field type</h3>
-
-        <div class="listing grid">
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_short_text_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Short text</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Long text</a></h2>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="listing grid">
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_image_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Image</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Location</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_looks_one_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Number</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Date</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Time</a></h2>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="listing grid">
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_radio_button_checked_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Multiple choice</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_circle_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Dropdown</a></h2>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <div class="listing-item-image">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px"></use>
-                        </svg>
-                    </div>
-
-                    <h2 class="listing-item-title"><a href="">Checkboxes</a></h2>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="mainsheet-overlay"></div>
 </div>
 
 <script>
