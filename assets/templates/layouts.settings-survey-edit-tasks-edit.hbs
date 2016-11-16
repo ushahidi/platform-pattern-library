@@ -264,9 +264,7 @@
     </div>
 
 </main>
-{{/with}}
 
-{{> Modals }}
 
 <div id="task-settings" class="modal">
     <div class="modal-window">
@@ -285,10 +283,55 @@
 
                     <div class="custom-select">
                         <select>
-                            {{#each deployment.surveys.0.tasks}}
-                            <option>{{name}}</option>
-                            {{/each}}
+                            {{#deployment}}
+                                {{#each surveys.0.tasks}}
+                                <option>{{name}}</option>
+                                {{/each}}
+                            {{/deployment}}
                         </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Show the content of this task to everyone</label>
+                <p data-fieldgroup-target="publish_task-yes">When this task is complete, its contents will be displayed alongside the other fields in the survey response.</p>
+                <div class="toggle-switch">
+                    <input class="tgl" id="publish_task" type="checkbox" data-fieldgroup-toggle="publish_task-yes">
+                    <label class="tgl-btn" for="publish_task"></label>
+                </div>
+            </div>
+
+            <div class="form-field switch">
+                <label>Automatically assign this task</label>
+                <div class="toggle-switch">
+                    <input class="tgl" id="assign_task" type="checkbox" data-fieldgroup-toggle="assign_task-yes">
+                    <label class="tgl-btn" for="assign_task"></label>
+                </div>
+                <div class="form-fieldgroup" data-fieldgroup-target="assign_task-yes">
+                    <div class="form-field">
+                        {{#if assignee}}
+                        <a class="chip" data-modal="task-assignment">
+                            {{#if assignee.avatar}}
+                                <img src="{{assignee.avatar}}" class="avatar" />
+                            {{/if}}
+                            <span class="label">{{assignee.name}}</span>
+                        </a>
+                        {{else}}
+                            <button class="button-plain">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                </svg>
+                                <span class"button-label">Add assignee</span>
+                            </button>
+                        {{/if}}
+                    </div>
+
+                    <div class="form-field checkbox">
+                        <label for="assign_lock_task">
+                            Prevent others from completing this task
+                            <input id="assign_lock_task" type="checkbox">
+                        </label>
                     </div>
                 </div>
             </div>
@@ -305,6 +348,9 @@
 
     <div class="modal-overlay"></div>
 </div>
+{{/with}}
+
+{{> Modals }}
 
 <script>
 setTimeout(function() {
