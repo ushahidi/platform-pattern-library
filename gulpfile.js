@@ -173,9 +173,14 @@ gulp.task('uglifyJS', function() {
     .pipe(plumber({
         errorHandler: errorHandler
     }))
-    .pipe(uglify())
-    .pipe(concat('app.js'))
+    .pipe(sourcemaps.init())
+    .pipe(uglify({
+        compress: false
+    }))
+    .pipe(concat('app.js', {newLine: ';'}))
+    .pipe(wrap('function initApp() { <%= contents %>; };'))
     .pipe(plumber.stop())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./assets/js'))
     .pipe(notify('JS minified and concatenated into app.js'))
     .pipe(livereload());
@@ -186,9 +191,13 @@ gulp.task('uglifyHandlebars', function() {
     .pipe(plumber({
         errorHandler: errorHandler
     }))
-    .pipe(uglify())
+    .pipe(sourcemaps.init())
+    .pipe(uglify({
+        compress: false
+    }))
     .pipe(concat('handlebars.js'))
     .pipe(plumber.stop())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./assets/js'))
     .pipe(notify('Handlebars JS minified and concatenated into handlebars.js'))
     .pipe(livereload());
@@ -206,9 +215,13 @@ gulp.task('uglifyCloudJS', function() {
     .pipe(plumber({
         errorHandler: errorHandler
     }))
-    .pipe(uglify())
+    .pipe(sourcemaps.init())
+    .pipe(uglify({
+        compress: false
+    }))
     .pipe(concat('cloud.js'))
     .pipe(plumber.stop())
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest('./assets/js'))
     .pipe(notify('JS minified and concatenated into cloud.js'))
     .pipe(livereload());

@@ -104,7 +104,12 @@ hbLoadLayout = function() {
         $('body').html(Ushahidi.templates.layouts[currentTemplate](session));
     }
 
-    $.getScript('../../js/app.js', function(data, textStatus ) {
-        // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
-    });
+    initApp();
+    //$("body").append("<script src='../../js/app.js' ></script>");
+    // $.getScript('../../js/app.js', function(data, textStatus, jqxhr) {
+    //     console.log('loaded app.js');
+    //     // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
+    // }).done(function () {
+    //     console.log('loaded app.js!');
+    // });
 }
