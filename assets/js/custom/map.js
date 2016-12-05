@@ -20,15 +20,9 @@ $('.map').each(function() {
     });
 
     //## Icon configuration
-    function pointIcon(feature, size, className){
-        var surveyColor = session.deployment.surveys[feature.properties.survey].color;
-
-        return L.divIcon({
-            className: 'custom-map-marker '+className,
-            html: '<svg class="iconic" style="fill:#'+surveyColor+';"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use></svg><span class="iconic-bg" style="background-color:#'+surveyColor+';""></span>',
-            iconSize: size,
-            iconAnchor: [size[0]/2, size[1]],
-            popupAnchor: [0, 0 - size[1]]
+    function pointIcon(feature){
+        return L.ushMapIcon({
+            color: session.deployment.surveys[feature.properties.survey].color,
         });
     }
 
@@ -36,7 +30,7 @@ $('.map').each(function() {
         pointToLayer: function (feature, latlng) {
 
             return L.marker(latlng, {
-                icon: pointIcon(feature, [32, 32])
+                icon: pointIcon(feature)
             });
         },
         onEachFeature: onEachFeature
