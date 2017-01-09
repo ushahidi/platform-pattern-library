@@ -194,7 +194,6 @@ fieldset {
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
-            margin-bottom: 0;
 
             &:hover {
                 cursor: pointer;
@@ -316,6 +315,14 @@ fieldset {
         }
     }
 
+    // SURVEY TITLE
+    &.survey-title {
+
+        input[type="text"] {
+            text-align: center;
+        }
+    }
+
     &.location {
 
         input[type="text"] {
@@ -334,7 +341,7 @@ fieldset {
                 border: 1px solid $color-light-beta;
                 margin-bottom: $tiny-spacing;
 
-                .form-field {
+                + .form-field {
                     position: absolute;
                     z-index: $body;
                     top: $base-spacing;
@@ -367,23 +374,8 @@ fieldset {
 
             }
 
-            + .searchbar {
-                position: absolute;
-                z-index: $toolbox;
-                top: $huge-spacing + $tiny-spacing;
-                right: $tiny-spacing;
-                left: $tiny-spacing;
-                margin: 0;
-                @include containerCard;
-            }
         }
 
-        .form-field-preview {
-
-            .map {
-                height: 200px;
-            }
-        }
     }
 
     &.select {
@@ -408,15 +400,10 @@ fieldset {
         select {
             display: inline-block;
             margin-top: 0;
-
-            + label {
-                margin-left: $tiny-spacing;
-            }
         }
     }
 
-    &.file,
-    &.photo {
+    &.file {
 
         input[type="file"] {
             width: 0.1px;
@@ -428,8 +415,6 @@ fieldset {
 
             + label {
                 display: inline-block;
-                font-size: 16px;
-                font-size: 1.142857143rem;
 
                 &:hover {
                     cursor: pointer;
@@ -447,15 +432,6 @@ fieldset {
 	                outline: -webkit-focus-ring-color auto 5px;
                 }
             }
-
-            &[disabled] {
-
-                + label {
-                    opacity: 0.75;
-                    background-color: $color-light-gamma;
-                    box-shadow: none;
-                }
-            }
         }
     }
 
@@ -469,16 +445,6 @@ fieldset {
 
             + .domain {
                 margin-left: $tiny-spacing;
-            }
-        }
-    }
-
-    &.video_embed {
-
-        input[type="url"] {
-
-            + .form-field-preview {
-                margin-top: $sm-spacing;
             }
         }
     }
@@ -589,7 +555,7 @@ fieldset {
 
         .toggle-switch {
             position: absolute;
-            top: 2px;
+            top: 0;
             right: 0;
 
             label {
@@ -599,12 +565,11 @@ fieldset {
 
         > label {
             display: block;
+            color: $text-color;
+            @include typeBase;
+            text-transform: none;
+            letter-spacing: 0;
             padding-right: 72px;
-        }
-
-        .form-field,
-        fieldset {
-            margin-top: $base-spacing;
         }
 
         &.disabled {
@@ -641,8 +606,7 @@ fieldset {
     input[type="tel"],
     input[type="time"],
     input[type="url"],
-    input[type="week"],
-    textarea {
+    input[type="week"] {
         @include padding-left(38px);
     }
 
@@ -668,7 +632,7 @@ fieldset {
 fieldset {
 
     .custom-select {
-        // margin-top: -6px;
+        margin-top: -6px;
     }
 }
 
@@ -677,129 +641,6 @@ fieldset {
     .form-fieldgroup {
         padding-top: 0;
         margin-top: $sm-spacing;
-    }
-
-    .form-field-type {
-        border-left: none;
-        padding-left: 0;
-        margin: 0;
-    }
-
-    &[draggable="true"] {
-        @include transition(0.3s);
-
-        .form-field-config {
-            display: none;
-        }
-
-        .form-field-actions {
-            position: relative;
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-            border-top: $base-border;
-            padding-top: $sm-spacing;
-            margin-top: $sm-spacing;
-
-            .form-field {
-
-                &.switch {
-
-                    > label {
-                        padding-right: 56px;
-                    }
-                }
-            }
-
-            .dropdown-menu {
-                top: $sm-spacing !important;
-                right: 0;
-                left: auto !important;
-            }
-        }
-
-        .dragger {
-            display: inline-block;
-            opacity: 0;
-            position: absolute;
-            top: -$sm-spacing;
-            left: 50%;
-            margin-left: -12px;
-            @include transition(0.3s);
-        }
-
-        &:hover {
-            cursor: pointer;
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: -$base-spacing;
-                right: -$sm-spacing;
-                bottom: -$sm-spacing;
-                left: -$sm-spacing;
-                box-shadow: 0 0 2px rgba(0,0,0,0.12),
-                    0 2px 2px rgba(0,0,0,0.24);
-            }
-
-            .dragger {
-                opacity: 1;
-            }
-        }
-
-        &.focus {
-            padding-top: $base-spacing !important;
-
-            &:before {
-                content: none;
-            }
-
-            .form-field-preview {
-                display: none;
-            }
-
-            .form-field-config {
-                display: block;
-            }
-
-            .dragger {
-                opacity: 1;
-                top: 0;
-            }
-
-            [contenteditable="true"] {
-                position: relative;
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: -$tiny-spacing;
-                    right: 0;
-                    bottom: -$tiny-spacing;
-                    left: 0;
-                    @include equal-radius;
-                    border-bottom: 1px solid $color-light-beta;
-                }
-
-                &:hover {
-                    cursor: pointer;
-
-                    &:before {
-                        right: -$tiny-spacing;
-                        left: -$tiny-spacing;
-                        border: 1px solid $color-light-beta;
-                    }
-                }
-
-                &:focus {
-
-                    &:before {
-                        content: none;
-                    }
-                }
-            }
-        }
     }
 }
 
@@ -966,6 +807,26 @@ fieldset,
             }
         }
     }
+}
+
+.location-adapt {
+    max-width: 452px;
+
+    .form-field {
+        margin-bottom: 20px;
+    }
+
+    .custom-select {
+        position: absolute;
+        top: 32px;
+        @include right(0px);
+    }
+
+    button {
+        @include float(left);
+        clear: both;
+    }
+
 }
 
 [data-fieldgroup-target] {
