@@ -28,6 +28,13 @@
             display: none;
         }
 
+        &.selected {
+
+            .listing-item-primary {
+                background-color: $white;
+            }
+        }
+
         &.active {
 
             .listing-item-body {
@@ -38,6 +45,40 @@
 
                 svg.iconic {
                     @include transform(rotate(180deg));
+                }
+            }
+        }
+    }
+
+    &.grid {
+
+        @include media($small-down) {
+            display: flex;
+            flex-direction: left;
+            flex-wrap: wrap;
+            // justify-content: center;
+
+            .listing-item {
+                width: 33%;
+                text-align: center;
+                border-bottom: none;
+
+                .listing-item-primary {
+
+                    .listing-item-image {
+                        position: static;
+                        font-size: 20px;
+                        margin: 0 auto $tiny-spacing;
+
+                        + .listing-item-title {
+                            padding-left: 0;
+                        }
+                    }
+                }
+
+                .listing-item-title {
+                    font-size: 14px;
+                    font-size: 1rem;
                 }
             }
         }

@@ -49,6 +49,13 @@
         @include media($small) {
             padding-bottom: 96px;
         }
+
+        .form-field {
+
+            &.switch {
+                margin-top: 4px;
+            }
+        }
     }
 
     .modal-trigger-close {
@@ -125,13 +132,10 @@
         }
 
         .listing-heading {
+            @include typeGamma;
             border-bottom: 1px solid $color-light-beta;
             background-color: $color-light-beta;
             padding: $sm-spacing;
-
-            @include media($medium) {
-                padding: $sm-spacing $base-spacing;
-            }
 
             + .listing-item {
                 margin-top: 0;
@@ -143,16 +147,39 @@
         }
     }
 
+    label {
+        @include typeGamma;
+    }
+
     .form-field,
     fieldset {
         margin-top: 0;
-        margin-bottom: $base-spacing;
+        margin-bottom: $lg-spacing;
+
+        .form-field {
+            margin-bottom: $tiny-spacing;
+        }
+    }
+
+    .form-field {
+
+        &.radio,
+        &.checkbox {
+            margin-bottom: $sm-spacing;
+        }
 
         &.switch {
 
             > label {
                 margin-bottom: 0;
             }
+        }
+    }
+
+    fieldset {
+
+        legend {
+            @include typeGamma;
         }
     }
 

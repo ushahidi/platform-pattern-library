@@ -52,6 +52,9 @@ toggleInit = function(triggerSelector) {
                         $(target).removeClass('active').removeAttr('style');
                     }, calledFromClickInsideHandler: true
                 });
+
+                // DEMO: Hide other mainsheets
+                $('.mainsheet').not(target).fadeOut('fast');
             }
 
             if (target.hasClass('dropdown-menu')) {
