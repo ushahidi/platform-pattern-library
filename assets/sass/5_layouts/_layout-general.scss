@@ -22,7 +22,7 @@
         @include media($medium) {
             top: 0;
             box-shadow: -2px 0 6px rgba(0,0,0,0.12) inset,
-                -2px 0 6px rgba(0,0,0,0.24) inset;
+            -2px 0 6px rgba(0,0,0,0.24) inset;
 
             .account-menu {
                 position: fixed;
@@ -535,39 +535,40 @@
             @include transition(all 0.35s);
 
             @include media($small) {
-               top: 8%;
-               left: 50%;
-               width: 480px;
-               margin-left: -240px;
+                top: 8%;
+                left: 50%;
+                width: 480px;
+                margin-left: -240px;
             }
 
-           .message {
-               position: absolute;
-               top: -1000px;
-               right: 0;
-               left: 0;
+            .message {
+                position: absolute;
+                top: -1000px;
+                right: 0;
+                left: 0;
 
-               &.active {
-                   top: 0;
-               }
-           }
+                &.active {
+                    top: 0;
+                }
+            }
         }
 
         .modal-overlay {
-           @include transition(all 0.2s);
-           opacity: 0;
+            display: block;
+            @include transition(all 0.2s);
+            opacity: 0;
         }
     }
 
     &.modal-visible {
 
         .modal-window {
-           opacity: 1;
-           margin-top: 0;
+            opacity: 1;
+            margin-top: 0;
         }
 
         .modal-overlay {
-           opacity: 1;
+            opacity: 1;
         }
     }
 
@@ -606,6 +607,7 @@
         }
 
         .mainsheet-overlay {
+            display: block;
             @include transition(all 0.2s);
             opacity: 0;
         }

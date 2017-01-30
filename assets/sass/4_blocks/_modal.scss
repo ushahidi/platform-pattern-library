@@ -6,9 +6,11 @@
     position: relative;
     @include containerSheet;
     padding: 0 $sm-spacing;
+    padding-top: 1px;
 
     @include media($mobile) {
-        padding: 0 $base-spacing;
+        padding-right: $base-spacing;
+        padding-left: $base-spacing;
     }
 
     .modal-title {
@@ -268,11 +270,13 @@
 }
 
 .modal-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    opacity: 0;
     width: auto;
     height: auto;
     overflow: hidden;
