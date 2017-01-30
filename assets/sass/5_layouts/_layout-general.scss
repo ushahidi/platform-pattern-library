@@ -85,7 +85,7 @@
 
     .message {
         position: fixed;
-        top: -200px;
+        bottom: -200px;
         right: 0;
         left: 0;
         z-index: $toolbar;
@@ -96,10 +96,24 @@
         }
 
         &.active {
-            top: 55px;
+            bottom: 45px;
 
             @include media($medium) {
-                top: 0;
+                bottom: 0;
+            }
+        }
+
+        &.modal {
+            display: block;
+            top: -200px;
+            bottom: auto;
+
+            &.active {
+                top: 55px;
+
+                @include media($medium) {
+                    top: 0;
+                }
             }
         }
     }
@@ -543,12 +557,21 @@
 
             .message {
                 position: absolute;
-                top: -1000px;
+                bottom: -1000px;
                 right: 0;
                 left: 0;
 
                 &.active {
-                    top: 0;
+                    bottom: 0;
+                }
+
+                &.modal {
+                    top: -1000px;
+                    bottom: auto;
+
+                    &.active {
+                        top: 0;
+                    }
                 }
             }
         }
