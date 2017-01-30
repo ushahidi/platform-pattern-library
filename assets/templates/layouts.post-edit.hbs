@@ -44,75 +44,13 @@
                 {{/postSurvey}}
             </header>
 
-            <div class="form-field title" style="margin-left:4px;">
-                <label class="hidden">Title</label>
+            <div class="form-field">
+                <label>Title</label>
                 <input type="text" value="{{title}}">
             </div>
 
-            <ul class="metadata">
-                <li>
-                    {{#ifCond properties.status 'published'}}
-                    <a class="chip" data-toggle="post-status">
-                        <span class="chip-icon">
-                            <span class="label">Status</span>
-                        </span>
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                        </svg>
-                        <span class="label">Published</span>
-                    </a>
-                    {{/ifCond}}
-                    {{#ifCond properties.status 'review'}}
-                    <a class="chip yellow" data-toggle="post-status">
-                        <span class="chip-icon">
-                            <span class="label">Status</span>
-                        </span>
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                        </svg>
-                        <span class="label">Under review</span>
-                    </a>
-                    {{/ifCond}}
-                    {{#ifCond properties.status 'archived'}}
-                    <a class="chip" data-toggle="post-status">
-                        <span class="chip-icon">
-                            <span class="label">Status</span>
-                        </span>
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                        </svg>
-                        <span class="label">Archived</span>
-                    </a>
-                    {{/ifCond}}
-                </li>
-
-                <li>
-                    <a href="" class="chip" data-modal="edit-author">
-                        <span class="chip-icon">
-                            <span class="label">Author</span>
-                        </span>
-                        {{#if properties.author.avatar}}
-                        <img src="{{properties.author.avatar}}" class="avatar" />
-                        {{/if}}
-                        <span class="label">{{properties.author.name}}</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="" class="chip" data-modal="post-date">
-                        <span class="chip-icon">
-                            <svg class="iconic">
-                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                            </svg>
-                            <span class="label">Date</span>
-                        </span>
-                        <span class="label">{{properties.date.post}}</span>
-                    </a>
-                </li>
-            </ul>
-
             <div class="form-field">
-                <label>
+                <label for="description">
                     Description
                 </label>
                 <textarea name="description" data-min-rows='1' rows='1'>{{striptags description}}</textarea>
@@ -217,6 +155,75 @@
                     <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
                 </div>
             </fieldset>
+
+            <div class="toolbox">
+                <div class="tool">
+                    <h6 class="tool-heading hide-when-small">Status</h6>
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value">Status</span></legend>
+                        <div class="form-field radio icon-input">
+                            <label for="status-published">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-published" />
+                                Published
+                            </label>
+                        </div>
+                        <div class="form-field radio icon-input">
+                            <label for="status-review">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-review" checked />
+                                Under review
+                            </label>
+                        </div>
+                        <div class="form-field radio icon-input">
+                            <label for="status-archive">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <input type="radio" name="status" id="status-archive" />
+                                Archived
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="tool">
+                    <h6 class="tool-heading">Response date</h6>
+                    <span class="tool-trigger hide-until-small" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+                    <div class="toggle-content active">
+                        <fieldset>
+                            <legend class="hidden">Post date</legend>
+                            <div class="form-field date">
+                                <label class="hidden">Date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" value="2016-06-22" placeholder="Date" />
+                                </div>
+                            </div>
+                            <div class="form-field date">
+                                <label class="hidden">Time</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
+                                    </svg>
+                                    <input type="time" value="11:39:57" placeholder="Time" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="form-sheet">
@@ -274,20 +281,6 @@
                     </label>
                     <textarea></textarea>
                 </div>
-            </div>
-        </div>
-
-        <div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Delete this post</h3>
-                <p><strong>If you delete this post</strong>, all of its comments and messages will also be deleted. Proceed with caution.</p>
-
-                <button class="button-destructive">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete post</span>
-                </button>
             </div>
         </div>
 
