@@ -1,0 +1,66 @@
+// Color themes
+$themes: (
+    default: $color-primary,
+    red: $red,
+    green: #376b24,
+    blue: $blue,
+);
+
+// Helper theme mixin
+// @param $name: name of the theme (HTML class)
+// @param $color: color of the theme
+@mixin theme($name, $color) {
+
+    .#{$name} {
+
+        .mode-bar,
+        .toolbar {
+            background-color: $color;
+        }
+
+        .mode-context {
+            background-color: darken( saturate( adjust-hue( $color, 6deg ), 4 ), 11 );
+        }
+
+        .toolbar .searchbar .searchbar-input .form-field input[type="search"] {
+            background-color: lighten( desaturate( adjust-hue( $color, 10deg ), 7 ), 15 );
+
+            &:focus {
+                box-shadow: 0 0 4px 1px $color, inset 0 1px 1px rgba(0, 0, 0, 0.3);
+            }
+
+        }
+
+        button:not([data-theme]):not(.button-fab),
+        .button, input[type="button"] {
+            background-color: lighten( desaturate( adjust-hue( $color, 1deg ), 5 ), 5 );
+
+            &:hover {
+                background-color: darken( saturate( $color, 3 ), 6 );
+            }
+
+        }
+
+  }
+
+    [data-theme='#{$name}'] {
+        background: $color;
+        color: $white;
+
+        &:hover {
+            background: darken($color, 10%) !important;
+        }
+
+        &[disabled] {
+            background: desaturate($color, 30%);
+        }
+
+  }
+
+}
+
+// Including themes
+// By looping through the $themes map
+@each $key, $value in $themes {
+  @include theme($key, $value);
+}

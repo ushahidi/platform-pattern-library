@@ -63,9 +63,9 @@ body.rtl {
 \*------------------------------------*/
 
 // color scheme foundation
-$color-primary: #373E46; // faded blue
-$color-secondary: #FFC334; // gold
-$color-tertiary: #C7CCD4; // pale grey
+$color-primary: #373E46;
+$color-secondary: #FFC334;
+$color-tertiary: #C7CCD4;
 
 // blacks and dark greys
 $color-dark-alpha: #222222;
@@ -79,16 +79,16 @@ $color-light-beta: #D6D5D2;
 $color-light-gamma: #EEEEEE;
 $color-light-delta: #FAFAFA;
 
-// primary color spectrum, based on primary color (faded blue)
-$color-primary-alpha: #1E232A;
-$color-primary-beta: #2B323A;
-$color-primary-gamma: #40444A;
-$color-primary-delta: #60646B;
-$color-primary-epsilon: #8E9297;
-$color-primary-zeta: #F1F1F4;
+// primary color spectrum, based on primary color
+$color-primary-alpha: darken( saturate( adjust-hue( $color-primary, 3deg ), 5 ), 11 );
+$color-primary-beta: darken( saturate( $color-primary, 3 ), 5 );
+$color-primary-gamma: lighten( desaturate( adjust-hue( $color-primary, 4deg ), 5 ), 2 );
+$color-primary-delta: lighten( desaturate( adjust-hue( $color-primary, 6deg ), 7 ), 15 );
+$color-primary-epsilon: lighten( desaturate( adjust-hue( $color-primary, 1deg ), 8 ), 32 );
+$color-primary-zeta: lighten( adjust-hue( $color-primary, 28deg ), 70 );
 
-// secondary color spectrum, based on secondary color (gold)
-$color-secondary-alpha: #b98200;
+// secondary color spectrum, based on secondary color
+$color-secondary-alpha: darken( $color-secondary, 24 );
 
 $black: $color-dark-alpha;
 $mid-black: lighten( $color-dark-alpha, 8% );
