@@ -1,0 +1,189 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <!--// Loading the mode context //
+   <div class="loading">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+   </div>
+   // END: Loading the mode context//-->
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+
+        {{> SurveyFilter }}
+
+        <div class="tool">
+            <p>There are <a href=""><strong>12 posts</strong></a> not shown here because they don't include location information.</p>
+        </div>
+
+        <div class="tool">
+            <h6 class="tool-heading">How to add a post</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+            <div class="toggle-content {{#unless user.logged_in}}active{{/unless}}">
+                <p>Use the <a href="#">web form</a>.</p>
+                <p>Send a text message to </br> <a href="tel:15551234567">+1-555-123-4567</a>.</p>
+                <p>Send an email to <a href="mailto:cityhallmarch@domain.com" title="Subject">cityhallmarch@domain.com</a>.</p>
+                <p>Tweet with the hashtag(s) <a href="https://twitter.com/search?q=%23ushahidi&src=typd">#marchoncityhall</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="main-col">
+        <div class="form-sheet">
+
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">Let's get started</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            </div>
+
+            <div class="stepper" data-accordion-items="stepper-item">
+
+                <div class="stepper-item complete">
+                    <h2 class="stepper-heading" data-accordion-trigger>
+                        <span class="stepper-badge">1</span>
+                        Tell your story
+                    </h2>
+
+                    <h1>Lookin' Good</h1>
+                    <p>Before you start designing your deployment and collecting data, let's make sure your visitors know your story. Take a moment to describe the purpose of your deployment and include a photo or organization logo, if you like.</p>
+
+                    <section class="form-sheet">
+                        <div class="post-band" style="background-color: #A51A1A;"></div>
+
+                        <div class="form-field title survey-title">
+                            <label class="hidden">Deployment description</label>
+                            <textarea placeholder="Describe your deployment..."></textarea>
+                        </div>
+
+                        <div class="form-field file">
+                            <input type="file" id="photo">
+                            <label for="photo" class="button button-beta init">
+                                <svg class="iconic">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#image"></use>
+                                </svg>
+                                <span class="button-label">Add your logo</span>
+                            </label>
+                        </div>
+
+                    </section>
+
+                    <div class="stepper-actions">
+                        <button type="button">Continue</button>
+                        <a href="#">I'll do this later</a>
+                    </div>
+
+                </div>
+
+                <div class="stepper-item">
+                    <h2 class="stepper-heading" data-accordion-trigger>
+                        <span class="stepper-badge">2</span>
+                        Design your data
+                    </h2>
+
+                    <p>Your deployment organizes data into surveys, which allow you structure your data and customize the fields you want to use to collect that data. Let's build your first survey:</p>
+
+                    <section class="form-sheet">
+                        <div class="post-band" style="background-color: #A51A1A;"></div>
+
+                            <div class="form-field title survey-title">
+                                <label class="hidden">Survey name</label>
+                                <input type="text" placeholder="Survey name" value="Name your survey ...">
+
+                                <label class="hidden">Survey description</label>
+                                <textarea placeholder="Describe your survey..."></textarea>
+                            </div>
+
+                            <nav class="tabs-menu" data-tabs="tabs-tasks">
+                                <ul>
+                                    <li class="active">
+                                        <a href="#tasks-build">
+                                            Build
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tasks-configure">
+                                            Configure
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tasks-share">
+                                            Share
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div id="tasks-build" class="tabs-tasks tabs-target active">
+
+                                <a href="" class="button button-beta init" data-toggle="field-type">
+                                    <svg class="iconic">
+                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                    </svg>
+                                    <span class="button-label">Add field</span>
+                                </a>
+                            </div>
+
+                            <div id="tasks-configure" class="tabs-tasks tabs-target">
+                                Task Configure
+                            </div>
+
+                            <div id="tasks-share" class="tabs-tasks tabs-target">
+                                Task Share
+                            </div>
+                    </section>
+
+                    <div class="stepper-actions">
+                        <button type="button">Continue</button>
+                        <a href="#">I'll do this later</a>
+                    </div>
+                    
+                </div>
+
+                <div class="stepper-item disabled">
+                    <h2 class="stepper-heading" data-accordion-trigger>
+                        <span class="stepper-badge">3</span>
+                        Collect data
+                    </h2>
+                </div>
+
+                <div class="stepper-item disabled">
+                    <h2 class="stepper-heading" data-accordion-trigger>
+                        <span class="stepper-badge">4</span>
+                        Assemble your team
+                    </h2>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
