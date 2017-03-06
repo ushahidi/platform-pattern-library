@@ -107,6 +107,7 @@
                         Design your data
                     </h2>
 
+                    <h1>What do you want to collect?</h1>
                     <p>Your deployment organizes data into surveys, which allow you structure your data and customize the fields you want to use to collect that data. Let's build your first survey:</p>
 
                     <section class="form-sheet">
@@ -122,21 +123,9 @@
 
                             <nav class="tabs-menu" data-tabs="tabs-tasks">
                                 <ul>
-                                    <li class="active">
-                                        <a href="#tasks-build">
-                                            Build
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#tasks-configure">
-                                            Configure
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#tasks-share">
-                                            Share
-                                        </a>
-                                    </li>
+                                    <li class="active"><a href="#tasks-build">Build</a></li>
+                                    <li><a href="#tasks-configure">Configure</a></li>
+                                    <li><a href="#tasks-share">Share</a></li>
                                 </ul>
                             </nav>
 
@@ -151,11 +140,152 @@
                             </div>
 
                             <div id="tasks-configure" class="tabs-tasks tabs-target">
-                                Task Configure
+                                <div class="form-field switch">
+                                    <label>Require responses be reviewed before they're published</label>
+                                    <p data-fieldgroup-target="require-review-message">New responses to this survey will be put "under review," and therefore not immediately visible to the public. Users with permission to review the response can review and "publish" them, which would then make them visible to everyone.</p>
+                                    <div class="toggle-switch">
+                                        <input class="tgl" id="require-review" type="checkbox" data-fieldgroup-toggle="require-review-message">
+                                        <label class="tgl-btn" for="require-review"></label>
+                                    </div>
+                                </div>
+
+                                <div class="form-field switch">
+                                    <label>Hide author information</label>
+                                    <p data-fieldgroup-target="hide-author-message">Only people with permission to edit responses will be able to see who submitted them; and only when editing them.</p>
+                                    <div class="toggle-switch">
+                                        <input class="tgl" id="hide-author" type="checkbox" data-fieldgroup-toggle="hide-author-message">
+                                        <label class="tgl-btn" for="hide-author"></label>
+                                    </div>
+                                </div>
+
+                                <fieldset>
+                                    <legend>Who can submit responses to this survey</legend>
+
+                                    <div class="form-field radio icon-input">
+                                        <label for="survey-add_everyone">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                            </svg>
+                                            <input type="radio" name="survey-add" id="survey-add_everyone" checked />
+                                            <span class="label">Everyone</span>
+                                        </label>
+                                    </div>
+
+                                    <div class="form-field radio icon-input">
+                                        <label for="survey-add_roles">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#people"></use>
+                                            </svg>
+                                            <input type="radio" name="survey-add" id="survey-add_roles" data-fieldgroup-toggle="survey-add_roles" />
+                                            Specific roles...
+                                        </label>
+
+                                        <div class="form-fieldgroup" data-fieldgroup-target="survey-add_roles">
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="survey-add_roles-members" />
+                                                <label for="survey-add_roles-members">Members</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="survey-add_roles-editors" />
+                                                <label for="survey-add_roles-editors">Editors</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="survey-add_roles-operators" />
+                                                <label for="survey-add_roles-operators">Operators</label>
+                                            </div>
+
+                                            <div class="form-field checkbox">
+                                                <input type="checkbox" id="survey-add_roles-admins" />
+                                                <label for="survey-add_roles-admins">Administrators</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-field radio icon-input">
+                                        <label for="survey-add_nobody">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#ban"></use>
+                                            </svg>
+                                            <input type="radio" name="survey-add" id="survey-add_nobody" data-fieldgroup-toggle="survey-off-message" />
+                                            <span class="label">Nobody</span>
+                                        </label>
+                                        <p data-fieldgroup-target="survey-off-message">Your survey's existing responses will remain visible, but it will not allow new responses.</p>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset data-fieldset-type="color">
+                                    <legend>Survey color</legend>
+                                    <p>Your survey's color will be used for map markers, and the left border of the survey and its responses.</p>
+
+                                    <div class="form-field">
+                                        <label class="hidden">Hex value</label>
+                                        <input type="text" data-input-type="color" value="#{{deployment.surveys.0.color}}" />
+                                    </div>
+                                </fieldset>
                             </div>
 
                             <div id="tasks-share" class="tabs-tasks tabs-target">
-                                Task Share
+                                <div class="form-field">
+                                    <label>Your survey's web address</label>
+                                    <input type="url" value="https://deployment.ushahidi.io/posts/create/1" readonly />
+                                </div>
+
+                                <div class="listing" style="margin-left: 4px;">
+                                    <div class="listing-item">
+                                        <div class="listing-item-secondary">
+                                            <button class="button-beta button-flat listing-item-toggle">
+                                                <svg class="iconic">
+                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                                </svg>
+                                                <span class="button-label">Configure</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="listing-item-primary">
+                                            <div class="listing-item-image">
+                                                <svg class="iconic">
+                                                    <use xlink:href="../../img/iconic-sprite.svg#code"></use>
+                                                </svg>
+                                            </div>
+                                            <h2 class="listing-item-title listing-item-toggle">Embed</h2>
+                                        </div>
+
+                                        <div class="listing-item-body">
+                                            <textarea readonly><iframe width="560" height="315" src="https://deployment.ushahidi.io/posts/create/1" frameborder="0" allowfullscreen></iframe></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="listing-item">
+                                        <div class="listing-item-primary">
+                                            <div class="listing-item-image">
+                                                <img class="icon" src="../../img/facebook.png" alt="">
+                                            </div>
+                                            <h2 class="listing-item-title"><a href="https://www.facebook.com/sharer/sharer.php?u=THISURL">Facebook</a></h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="listing-item">
+                                        <div class="listing-item-primary">
+                                            <div class="listing-item-image">
+                                                <img class="icon" src="../../img/twitter.png" alt="">
+                                            </div>
+                                            <h2 class="listing-item-title"><a href="https://twitter.com/home?status=THISURL">Twitter</a></h2>
+                                        </div>
+                                    </div>
+
+                                    <div class="listing-item">
+                                        <div class="listing-item-primary">
+                                            <div class="listing-item-image">
+                                                <svg class="iconic">
+                                                    <use xlink:href="../../img/iconic-sprite.svg#spreadsheet"></use>
+                                                </svg>
+                                            </div>
+                                            <h2 class="listing-item-title"><a href="">Export to CSV</a></h2>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                     </section>
 
@@ -163,7 +293,7 @@
                         <button type="button">Continue</button>
                         <a href="#">I'll do this later</a>
                     </div>
-                    
+
                 </div>
 
                 <div class="stepper-item disabled">
@@ -171,6 +301,68 @@
                         <span class="stepper-badge">3</span>
                         Collect data
                     </h2>
+
+                    <h1>Where do you want to collect data from?</h1>
+                    <p>Ushahidi helps you collect data into your deployment many different ways.</p>
+                    <p>For starters, you can ask people to contribut data by completing your survey via the web or the Ushahidi iOS and Android apps. You can also ask people to contribute data via email, SMS, Twitter, and <a href="https://www.ushahidi.com/support/data-sources">more third-party data sources</a>. And you can import data from a CSV file. </p>
+
+                    <div class="listing card init">
+                        <div class="listing-item">
+                            <div class="listing-item-select">
+                                <input type="checkbox" checked>
+                            </div>
+
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title">Survey form (via web, iOS, and Android)</h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item email" data-modal="configure-email">
+                            <div class="listing-item-select">
+                                <input name="email" type="checkbox" data-modal="configure-email">
+                            </div>
+
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title">Email</h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item">
+                            <div class="listing-item-select">
+                                <input type="checkbox">
+                            </div>
+
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title">SMS</h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item">
+                            <div class="listing-item-select">
+                                <input type="checkbox">
+                            </div>
+
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title">Twitter</h2>
+                            </div>
+                        </div>
+
+                        <div class="listing-item">
+                            <div class="listing-item-select">
+                                <input type="checkbox">
+                            </div>
+
+                            <div class="listing-item-primary">
+                                <h2 class="listing-item-title">Import CSV</h2>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stepper-actions">
+                        <button type="button">Continue</button>
+                        <a href="#">I'll do this later</a>
+                    </div>
+
                 </div>
 
                 <div class="stepper-item disabled">
@@ -178,6 +370,23 @@
                         <span class="stepper-badge">4</span>
                         Assemble your team
                     </h2>
+
+                    <h1>Who else is working with you?</h1>
+                    <p>Ushahidi can help you manage a team of people to review and contribute data to your deployment. Take a minute to invite some of them.</p>
+
+                    <div class="button-wrapper">
+                        <a href="" class="button button-beta init" data-modal="add-person">
+                            <svg class="iconic">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                            </svg>
+                            <span class="button-label">Add person</span>
+                        </a>
+                    </div>
+
+                    <div class="stepper-actions">
+                        <button type="button">Continue</button>
+                        <a href="#">I'll do this later</a>
+                    </div>
                 </div>
 
             </div>
@@ -187,3 +396,222 @@
     </div>
 
 </main>
+
+{{> Modals }}
+
+<div class="mainsheet" data-toggle-target="field-type" data-toggle-animate>
+    <div class="mainsheet-window">
+        <h3 class="mainsheet-heading">Choose a field type</h3>
+
+        <div class="listing grid">
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_short_text_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="" data-modal="add-field">Short text</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Long text</a></h2>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="listing grid">
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_image_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Image</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-communication-symbol.svg#ic_location_on_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Location</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-image-symbol.svg#ic_looks_one_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Number</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_date_range_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Date</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-device-symbol.svg#ic_access_time_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Time</a></h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="listing grid">
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_radio_button_checked_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Multiple choice</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_drop_down_circle_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Dropdown</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/material/svg-sprite-toggle-symbol.svg#ic_check_box_24px"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Checkboxes</a></h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mainsheet-overlay"></div>
+</div>
+
+<div id="configure-email" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#envelope-open"></use>
+            </svg>
+            <span class="label">Configure email</span>
+        </h3>
+
+        <div class="modal-body">
+
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button modal-trigger">Test</button>
+
+                <a href="#">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="add-person" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#people"></use>
+            </svg>
+            <span class="label">Add person</span>
+        </h3>
+
+        <div class="modal-body">
+            <div class="form-field">
+                <label>Display Name</label>
+                <input type="text">
+            </div>
+
+            <div class="form-field">
+                <label>Email</label>
+                <input type="email">
+            </div>
+
+            <div class="form-field">
+                <label>Password</label>
+                <input type="password">
+            </div>
+
+            <div class="form-field">
+                <label>Role</label>
+                <div class="custom-select">
+                    <div class="custom-select">
+                        <select>
+                            <option selected>Member</option>
+                            <option>Administrator</option>
+                            <option>+ Create new</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button modal-trigger">Save & Close</button>
+
+                <a href="#">Cancel</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>

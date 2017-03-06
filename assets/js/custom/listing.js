@@ -50,3 +50,27 @@ $('.listing').each(function(){
        });
    }
 });
+
+// click div to activate checkbox
+$('.listing-item.email').click(function () {
+
+    if ($(this).find('input:checkbox[name=email]').is(":checked")) {
+        $(this).find('input:checkbox[name=email]').attr("checked", false);
+    }
+    else {
+        $(this).find('input:checkbox[name=email]').prop("checked", true);
+    }
+
+});
+
+$('input[type=checkbox]').click(function (e) {
+    e.stopPropagation();
+});
+
+// $("input[type='checkbox']").on('change', function(){
+//     $(this).closest('div').toggleClass('highlight');
+// });
+//
+// $("#check_all").on('click', function(){
+//     $("input[type='checkbox']").prop('checked', true).change();
+// });
