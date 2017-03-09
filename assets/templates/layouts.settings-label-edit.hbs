@@ -6,10 +6,10 @@
         <ol class="breadcrumbs">
             <li><a href="map.html">{{deployment.name}}</a></li>
             <li><a href="settings.html">Settings</a></li>
-            <li><a href="settings-categories.html">Categories</a></li>
+            <li><a href="settings-labels.html">Labels</a></li>
         </ol>
 
-        <h1 class="mode-context-title">Edit Category</h1>
+        <h1 class="mode-context-title">Edit label</h1>
     </header>
 
     <span class="mode-context-trigger">
@@ -33,12 +33,12 @@
         </div>
     </div>
 
-    <div class="main-col">
+    <div class="full-col">
 
         <div class="form-sheet">
             <div class="form-field title">
                 <label class="hidden">Name</label>
-                <input type="text" placeholder="Category name" value="Category A">
+                <input type="text" placeholder="Category name" value="Surface issues" />
             </div>
 
             <div class="form-field">
@@ -46,17 +46,33 @@
                 <textarea>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
             </div>
 
-            <fieldset class="custom-fieldset" data-fieldset-type="color">
-                <legend>Color</legend>
+            <fieldset class="custom-fieldset">
+                <legend>This label is a child to <span class="custom-fieldset-value">nothing</span></legend>
 
-                <div class="form-field">
-                    <label>Hex value</label>
-                    <input type="text" data-input-type="color" value="#762d80" />
+                <div class="form-field radio">
+                    <label for="parent_label-nothing">
+                        <input type="radio" name="parent_label" id="parent_label-nothing" checked />
+                        Nothing
+                    </label>
+                </div>
+
+                <div class="form-field radio">
+                    <label for="parent_label-signage">
+                        <input type="radio" name="parent_label" id="parent_label-signage" />
+                        Signage
+                    </label>
+                </div>
+
+                <div class="form-field radio">
+                    <label for="parent_label-obstructions">
+                        <input type="radio" name="parent_label" id="parent_label-obstructions" />
+                        Obstructions
+                    </label>
                 </div>
             </fieldset>
 
             <fieldset>
-                <legend>Who can see and add to this category</legend>
+                <legend>Who can see this label?</legend>
 
                 <div class="form-field radio icon-input">
                     <label for="survey-add_everyone">
@@ -100,20 +116,19 @@
                     </div>
                 </div>
             </fieldset>
-        </div>
 
-        <div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Delete this category</h3>
-                <p><strong>If you delete this category</strong>, it will no longer be asociated with any posts. Proceed with caution.</p>
+            <fieldset>
+                <legend>Which surveys use this label?</legend>
 
-                <button class="button-destructive">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete category</span>
-                </button>
-            </div>
+                {{#each deployment.surveys}}
+                <div class="form-field radio">
+                    <label for="accessible-to-{{@index}}">
+                        <input type="checkbox" id="accessible-to-{{@index}}" />
+                        {{name}}
+                    </label>
+                </div>
+                {{/each}}
+            </fieldset>
         </div>
 
     </div>

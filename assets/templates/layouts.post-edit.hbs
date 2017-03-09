@@ -150,19 +150,41 @@
                 {{formField ../properties.survey 0 @index value}}
             {{/each}}
 
-            <!--fieldset id="categories" class="error">
-                <legend>Categories</legend>
+            <fieldset>
+                <legend>Labels</legend>
 
                 <div class="form-field checkbox">
-                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                    <label for="cat1"><input type="checkbox" id="cat1">Surface issues</label>
                 </div>
                 <div class="form-field checkbox">
-                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                    <label for="cat2"><input type="checkbox" id="cat2">Signage</label>
                 </div>
                 <div class="form-field checkbox">
-                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                    <label for="cat3"><input type="checkbox" id="cat3">Obstructions</label>
                 </div>
-            </fieldset-->
+                <!--div class="form-field checkbox" data-toggle-target="new-label">
+                    <label for="cat4"><input type="checkbox" id="cat4" checked>Emergency</label>
+                </div-->
+                <div class="form-field inline" data-toggle-target="add-label">
+                    <label class="hidden">Label name</label>
+                    <input type="text" placeholder="Label name..." style="width: 240px;" />
+                    <button class="button-alpha button-flat" disabled>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                        </svg>
+                        <span class="hidden">Add</span>
+                    </button>
+                    <button class="button-beta button-flat">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="hidden">Delete</span>
+                    </button>
+                </div>
+                <div class="form-field">
+                    <a data-toggle="add-label">+ Add new label</a>
+                </div>
+            </fieldset>
         </div>
 
         {{#if tasks}}
