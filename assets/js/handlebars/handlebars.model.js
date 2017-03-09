@@ -2,26 +2,30 @@ var session,
     localStoreName = 'localStore';
 
 (function() {
-    // If user has NO data stored locally.
-    if (localStorage.getItem(localStoreName) === null) {
-        console.log('JSON from server...');
+    $.ajax({
+        url: '../../js/model.json',
+        dataType: 'json',
+        success: function( data ) {
+            console.log( "SUCCESS: JSON from server" );
+            session = data;
 
-        $.ajax({
-            url: '../../js/model.json',
-            dataType: 'json',
-            success: function( data ) {
-                console.log( "SUCCESS:  " + data );
-                localStorage.setItem(localStoreName, JSON.stringify(data));
-                session = data;
-            },
-            error: function( data ) {
-                console.log( "ERROR:  " + data );
-                session = data;
-            }
-        });
-    // Else, if user HAS data stored locally
-    } else {
-        console.log('JSON from localstorage');
-        session = JSON.parse(localStorage[localStoreName]);
-    }
+            // !! ** --- ** !! //
+            // LOAD THE LAYOUT, already
+            // !! ** --- ** !! //
+            hbLoadLayout(function(){
+                $.getScript('../../js/app.js', function(data, textStatus ) {
+                    // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
+                    setTimeout(function() {
+                        if (window.location.hash.substr(1) == 'new_response') {
+                            messageToggle($('#new_response-success'));
+                        }
+                    }, 1000);
+                });
+            });
+        },
+        error: function( data ) {
+            console.log( "ERROR:  " + data );
+            session = data;
+        }
+    });
 })();

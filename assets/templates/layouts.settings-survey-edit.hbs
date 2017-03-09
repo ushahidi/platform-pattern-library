@@ -122,6 +122,43 @@
                     <div class="listing-item">
                         <div class="listing-item-select">
                             <div class="buttons-updown">
+                                <button class="button-gamma">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                                    </svg>
+                                    <span class="label hidden">Move up</span>
+                                </button>
+                                <button class="button-gamma">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Move down</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="listing-item-secondary">
+                            <button class="button-beta button-flat">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="hidden">Delete</span>
+                            </button>
+                        </div>
+
+                        <div class="listing-item-primary">
+                            <div class="listing-item-image">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#tags"></use>
+                                </svg>
+                            </div>
+                            <h2 class="listing-item-title"><a href="" data-modal="edit-field-labels">Labels</a></h2>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-select">
+                            <div class="buttons-updown">
                                 <button type="button" class="button-beta">
                                     <svg class="iconic">
                                         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
@@ -153,7 +190,7 @@
                                 </svg>
                             </div>
                             <h2 class="listing-item-title">
-                                <a href="" data-modal="edit-field">Witness</a>
+                                <a href="" data-modal="edit-field-text">Witness</a>
                                 <span class="listing-item-image tooltip">
                                     <svg class="iconic">
                                         <use xlink:href="../../img/iconic-sprite.svg#people"></use>
@@ -580,15 +617,8 @@
 
 {{> Modals }}
 
-<div id="edit-field" class="modal">
+<div id="edit-field-text" class="modal">
     <div class="modal-window">
-        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
-            <svg class="iconic">
-                <use xlink:href="../../img/iconic-sprite.svg#x"></use>
-            </svg>
-            <span class="hidden">Close</span>
-        </button>
-
         <h3 class="modal-title">
             <svg class="iconic">
                 <use xlink:href="../../img/material/svg-sprite-editor-symbol.svg#ic_short_text_24px"></use>
@@ -687,7 +717,119 @@
 
         <div class="modal-actions">
             <div class="form-field">
-                <button type="button" class="button-alpha modal-trigger">Save &amp; close</button>
+                <button  class="button-alpha modal-trigger">Save &amp; close</button>
+                <button class="button-link modal-trigger">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="edit-field-labels" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#tags"></use>
+            </svg>
+            Edit field
+        </h3>
+
+        <div class="modal-body">
+            <div class="form-field title">
+                <label class="hidden">Label</label>
+                <input type="text" placeholder="Question or label..." value="Labels" />
+            </div>
+
+            <!--// Description //-->
+            <div class="form-field switch">
+                <label>Show field description</label>
+                <div class="toggle-switch">
+                    <input class="tgl" id="show-field-description-3" type="checkbox" data-fieldgroup-toggle="field-description-3" />
+                    <label class="tgl-btn" for="show-field-description-3"></label>
+                </div>
+
+                <div class="form-field" data-fieldgroup-target="field-description-3">
+                    <input type="text" placeholder="Explain this field..." />
+                </div>
+            </div>
+
+            <!--// Which labels? //-->
+            <fieldset>
+                <legend>Which labels should be available?</legend>
+
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox" checked />
+                        Surface issues
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox" checked />
+                        Signage
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox" checked />
+                        Obstructions
+                    </label>
+                </div>
+            </fieldset>
+
+            <!--// Who can see this field //-->
+            <!--fieldset>
+                <legend>Who can see the response to this field</legend>
+
+                <div class="form-field radio icon-input">
+                    <label for="field-visibility-3-everyone">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <input type="radio" name="field-visibility-3" id="field-visibility-3-everyone" checked />
+                        <span class="label">Everyone</span>
+                    </label>
+                </div>
+
+                <div class="form-field radio icon-input">
+                    <label for="field-visibility-3-roles">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#people"></use>
+                        </svg>
+                        <input type="radio" name="field-visibility-3" id="field-visibility-3-roles" data-fieldgroup-toggle="field-visibility-3-roles_def" />
+                        Specific roles...
+                    </label>
+
+                    <div class="form-fieldgroup" data-fieldgroup-target="field-visibility-3-roles_def">
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="field-visibility-3-roles_def-members" />
+                            <label for="survey-add_roles-members">Members</label>
+                        </div>
+
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="field-visibility-3-roles_def-editors" />
+                            <label for="survey-add_roles-editors">Editors</label>
+                        </div>
+
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="field-visibility-3-roles_def-operators" />
+                            <label for="survey-add_roles-operators">Operators</label>
+                        </div>
+
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="field-visibility-3-roles_def-admins" />
+                            <label for="survey-add_roles-admins">Administrators</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset-->
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button  class="button-alpha modal-trigger">Save &amp; close</button>
+                <button class="button-link modal-trigger">Cancel</button>
             </div>
         </div>
     </div>
@@ -979,6 +1121,18 @@
                     </div>
 
                     <h2 class="listing-item-title"><a href="">Checkboxes</a></h2>
+                </div>
+            </div>
+
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <div class="listing-item-image">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#tags"></use>
+                        </svg>
+                    </div>
+
+                    <h2 class="listing-item-title"><a href="">Labels</a></h2>
                 </div>
             </div>
 
