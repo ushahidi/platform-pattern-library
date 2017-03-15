@@ -2,15 +2,12 @@
 
 <div class="mode-context">
 
-    <header class="mode-context-header">
-        <a href="" class="mode-context-back button button-link">
-            <svg class="iconic">
-                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
-            </svg>
-            <span class="hidden">Back</span>
-        </a>
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
 
-        <h1 class="mode-context-title">Edit Response</h1>
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
     </header>
 
     <span class="mode-context-trigger">
@@ -21,9 +18,8 @@
     </span>
 
     <div class="mode-context-body">
-
+        {{{deployment.description}}}
     </div>
-
 </div>
 
 <!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
@@ -31,7 +27,7 @@
 <main role="main">
 
     <div class="toolbar">
-        <!--// SAVED //-->
+        <!--// SAVED //
         <span class="status-indicator tooltip success">
             <svg class="iconic">
                 <use xlink:href="../../img/iconic-sprite.svg#check"></use>
@@ -39,6 +35,7 @@
             <span class="label">All changes saved</span>
             <span class="bug">Every change you make is automatically saved</span>
         </span>
+        //-->
 
         <!--// SAVING //
         <span class="status-indicator">
@@ -68,11 +65,12 @@
 
         <!--// EDIT SINGLE RESPONSE //-->
         <div class="button-group">
-            <button class="button-alpha">Done</button>
+            <button class="button-flat">Cancel</button>
+            <button class="button-alpha">Save</button>
         </div>
     </div>
 
-    <div class="{{#if tasks}}main{{else}}{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}{{/if}}-col">
+    <div class="{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}-col">
 
         <div class="form-sheet" role="article">
             {{postBand}}
@@ -187,122 +185,6 @@
             </fieldset>
         </div>
 
-        {{#if tasks}}
-        <div class="toolbox">
-
-            <div class="listing">
-
-                <div class="listing-item active">
-                    <!--div class="listing-item-secondary hide-when-small">
-                        <button class="button-beta button-flat listing-item-toggle">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                            </svg>
-                            <span class="button-label">Configure</span>
-                        </button>
-                    </div-->
-
-                    <div class="listing-item-primary">
-                        <div class="listing-item-image">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
-                            </svg>
-                        </div>
-                        <h2 class="listing-item-title">Tasks</h2>
-                    </div>
-
-                    <div class="listing-item-body">
-
-                        <div class="tool">
-
-                            {{#each tasks}}
-                            <div class="task {{#if complete}}complete{{/if}} {{#if disabled}}disabled{{/if}}">
-                                <h5 class="task-title">
-                                    {{#unless disabled}}
-                                    <a href="#task-{{@index}}" data-modal="task-{{@index}}">
-                                        {{#unless complete}}
-                                        <span class="status-indicator yellow"></span>
-                                        {{/unless}}
-                                    {{/unless}}
-
-                                        {{taskInfo "name" 0 @index}}
-
-                                    {{#unless disabled}}
-                                    </a>
-                                    {{/unless}}
-                                </h5>
-                                <div class="task-actions">
-
-                                    {{#if assignee}}
-                                    <span class="tooltip">
-                                        <span class="bug">Assigned to {{assignee.name}}</span>
-                                        <img src="{{assignee.avatar}}" class="avatar" />
-
-                                        {{#if assignee.locked}}
-                                        <span class="status-indicator">
-                                            <svg class="iconic">
-                                              <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                            </svg>
-                                        </span>
-                                        {{/if}}
-                                    </span>
-                                    {{/if}}
-
-                                    <button class="button-beta button-flat" data-toggle="dropdown-menu">
-                                        <svg class="iconic">
-                                          <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                                        </svg>
-                                        <span class="nodisplay">More</span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        {{#unless disabled}}
-                                        <li>
-                                            <a href="">Mark {{#if complete}}incomplete{{else}}complete{{/if}}</a>
-                                        </li>
-                                        <div class="divider"></div>
-                                        {{/unless}}
-                                        <li>
-                                            <a href="" data-modal="task-assignment">
-                                            <svg class="iconic">
-                                                <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                                            </svg>
-                                            <span class="label">{{#if assignee}}Change{{else}}Add{{/if}} assignment</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="" data-modal="task-due">
-                                            <svg class="iconic">
-                                                <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                                            </svg>
-                                            <span class="label">{{#if due}}Change{{else}}Add{{/if}} due date</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="task-body">
-                                    {{#if due}}
-                                        <p><strong>Due</strong>: {{due}}</p>
-                                    {{/if}}
-
-                                    {{#if disabled}}
-                                        <p><em>This task can't be completed until "Verify" is completed.</em></p>
-                                    {{else}}
-                                        {{taskInfo "description" 0 @index}}
-                                    {{/if}}
-                                </div>
-                            </div>
-                            {{/each}}
-
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-        {{/if}}
-
         {{#ifPostIsDataSource}}
         <div class="toolbox">
             <div class="tool">
@@ -327,64 +209,6 @@
             </div>
         </div>
         {{/ifPostIsDataSource}}
-
-        <!--div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Tasks</h3>
-            </div>
-
-            <!-- IF: User has permission to see other 'Tasks' -->
-            <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
-                <ul>
-                    <li class="active">
-                        <a href="#tasks-verify">Verify</a>
-                    </li>
-                    <li>
-                        <a href="#tasks-translate">Translate to Spanish</a>
-                    </li>
-                </ul>
-            </nav>
-            <!--// END IF -->
-
-            <div id="tasks-verify" class="tabs-tasks">
-                <div class="form-field switch">
-                    <label for="verified">Task completed</label>
-                    <div class="toggle-switch">
-                        <input class="tgl" id="verified" type="checkbox">
-                        <label class="tgl-btn" for="verified"></label>
-                    </div>
-                </div>
-
-                <div class="form-field">
-                    <label>
-                        Notes
-                    </label>
-                    <textarea></textarea>
-                </div>
-            </div>
-
-            <div id="tasks-translate" class="tabs-tasks">
-                <div class="form-field switch">
-                    <label for="translated">Task completed</label>
-                    <div class="toggle-switch">
-                        <input class="tgl" id="translated" type="checkbox">
-                        <label class="tgl-btn" for="translated"></label>
-                    </div>
-                </div>
-
-                <div class="form-field title">
-                    <label>Title</label>
-                    <input type="text" value="El hacinamiento entre los días 5 y St. Salem Ave.">
-                </div>
-
-                <div class="form-field">
-                    <label>
-                        Description
-                    </label>
-                    <textarea></textarea>
-                </div>
-            </div>
-        </div-->
 
     </div>
 
