@@ -10,6 +10,8 @@ var modalToggle = function(element) {
     } else { // If modal isn't yet visible...
         $('.modal').not($(target)).fadeOut('fast'); // Fade out other modals (when navigating between modals) [FOR DEMO]
 
+        $('.mainsheet').fadeOut('fast'); // Fade out other mainsheets (when navigating between modals) [FOR DEMO]
+
         modalYpos(target);
         $(target).fadeIn('fast', function(){
             $('body').addClass('modal-visible');
