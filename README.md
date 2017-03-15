@@ -39,3 +39,15 @@ http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and
 * minifies and concatenates js
 * live reloads appropriate files (sass, js or html)
 * sends a success notification
+
+### Publish to NPM
+
+`Pre-Release`
+* npm version prerelease
+
+`Release`
+* npm version release
+
+`NPM Publish`
+* npm publish
+* git push <new_version_tag>
