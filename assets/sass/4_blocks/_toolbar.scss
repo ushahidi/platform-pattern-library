@@ -132,6 +132,24 @@
         }
     }
 
+    .status-indicator {
+        color: $color-light-delta;
+        background-color: transparent;
+        margin: $sm-spacing auto;
+
+        @include media($medium) {
+            margin: $base-spacing auto;
+        }
+
+        &.error {
+
+            svg.iconic {
+                stroke: rgba(255,255,255,0.8);
+                stroke-width: 0.5;
+            }
+        }
+    }
+
     .button-group {
         float: right;
 
@@ -141,7 +159,17 @@
             padding-top: 10px;
             padding-bottom: 10px;
             margin-left: $tiny-spacing;
+
+            &.button-link {
+                color: $white;
+                padding-right: $tiny-spacing;
+                padding-left: $tiny-spacing;
+            }
         }
+    }
+
+    .button-link {
+        color: $color-secondary;
     }
 
     .searchbar,

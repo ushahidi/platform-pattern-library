@@ -1,50 +1,134 @@
 .status-indicator {
     display: inline-block;
     position: relative;
-    width: 16px;
-    height: 16px;
+    min-width: 20px;
+    height: 20px;
+    color: $color-dark-gamma;
     text-align: center;
-    @include equal-radius(100%);
-    background-color: $color-light-alpha;
-    box-shadow: 0 0 0 rgba(0,0,0,.16) inset;
+    @include equal-radius($sm-spacing);
+    background-color: $color-light-gamma;
+    box-shadow: 0 0 1px rgba(0,0,0,.16) inset;
     @include transition(0.3s);
 
     svg.iconic {
+        position: relative;
         display: inline-block;
-        width: 10px;
-        height: 10px;
+        width: 12px;
+        height: 12px;
         vertical-align: middle;
-        fill: $color-dark-beta;
+        fill: $color-dark-delta;
         /*
         stroke: rgba(0,0,0,.24);
         stroke-width: 0.24;
         */
-        margin-top: 2px;
+        margin: 4px;
+
+        + .label {
+            margin-top: auto;
+            margin-left: -2px;
+        }
     }
 
+    .label {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 12px;
+        font-size: .857142857rem;
+        margin-top: 4px;
+        margin-right: 10px;
+        margin-left: 10px;
+
+        strong {
+            color: $color-dark-beta;
+        }
+    }
+
+
+
     &.green {
+        color: $white;
         background-color: $green;
-        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $green;
+
+        svg.iconic {
+            fill: $white;
+        }
     }
 
     &.yellow {
+        color: $color-primary-beta;
         background-color: $yellow;
-        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $yellow;
+
+        svg.iconic {
+            fill: $color-primary;
+            stroke: rgba(255,255,255,.8);
+            stroke-width: 0.24;
+        }
     }
 
     &.red {
+        color: $white;
         background-color: $red;
-        box-shadow: 0 0 0 rgba(0,0,0,.16) inset,
-            0 0 8px $red;
+
+        svg.iconic {
+            fill: $color-light-delta;
+        }
+
+        .label {
+
+            strong {
+                color: $white;
+            }
+        }
+    }
+
+    &.blue {
+        color: $white;
+        background-color: $color-primary;
+
+        svg.iconic {
+            fill: $color-tertiary;
+        }
+
+        .label {
+
+            strong {
+                color: $white;
+            }
+        }
+    }
+
+    &.dark {
+        color: $color-light-delta;
+        background-color: $color-dark-gamma;
+
+        svg.iconic {
+            fill: $color-primary-zeta;
+        }
+    }
+
+    &.success {
+
+        svg.iconic {
+            fill: $color-secondary;
+            -webkit-animation: status-indicator-change 0.3s linear;
+            animation: status-indicator-change 0.3s linear;
+        }
+    }
+
+    &.error {
+
+        svg.iconic {
+            fill: $red;
+            -webkit-animation: status-indicator-alert 0.3s linear;
+            animation: status-indicator-alert 0.3s linear;
+        }
     }
 
     &.empty {
         background-color: transparent;
 
         svg.iconic {
-            fill: $color-light-beta;
+            fill: $color-light-alpha;
             stroke-width: 0;
         }
 
@@ -63,9 +147,133 @@
             top: -$tiny-spacing;
             left: 100%;
         }
+    }
+}
+
+a.status-indicator {
+
+    &:hover {
+        background-color: darken($color-light-gamma, 8%);
+    }
+
+    &.yellow {
 
         &:hover {
-            @include no-shadow;
+            background-color: darken($yellow, 10%);
         }
+    }
+
+    &.blue {
+
+        &:hover {
+            background-color: darken($color-primary, 10%);
+        }
+    }
+
+    &.dark {
+
+        &:hover {
+            background-color: darken($color-dark-gamma, 10%);
+        }
+    }
+}
+
+@-webkit-keyframes status-indicator-change {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        left: 0;
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes status-indicator-change {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    75% {
+        left: 0;
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@-webkit-keyframes status-indicator-alert {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    15% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        left: 0;
+        opacity: 1;
+        transform: scale(2.5) rotate(0deg);
+    }
+    65% {
+        transform: rotate(45deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+    85% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: scale(1.0);
+    }
+}
+
+@keyframes status-indicator-alert {
+    0% {
+        left: -$sm-spacing;
+        opacity: 0;
+        transform: scale(0);
+    }
+    15% {
+        transform: rotate(45deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    35% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        left: 0;
+        opacity: 1;
+        transform: scale(2) rotate(0deg);
+    }
+    65% {
+        transform: rotate(45deg);
+    }
+    75% {
+        transform: rotate(0deg);
+    }
+    85% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: scale(1.0);
     }
 }

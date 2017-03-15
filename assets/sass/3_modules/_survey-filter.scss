@@ -1,7 +1,26 @@
 .survey-filter {
+    position: relative;
 
     .survey-filter-checkbox {
         margin: 5px auto;
+    }
+
+    .survey-filter-title {
+
+        &:after {
+            content: '';
+            position: absolute;
+            top: $sm-spacing;
+            bottom: 0;
+            left: 22px;
+            width: 2px;
+            background-color: $color-primary-delta;
+        }
+    }
+
+    .survey-filter-parent {
+        position: relative;
+        @include clearfix;
     }
 }
 
@@ -50,13 +69,6 @@
         box-shadow: 0 0 $tiny-spacing 2px #292E34;
         margin-top: -10px;
         margin-right: $sm-spacing;
-/*
-        @include iconic($position: after, $iconic-icon: chevron-bottom, $iconic-color: #292E34, $iconic-size: 10px, $styles: true) {
-            position: relative;
-            top: 1px;
-            margin-left: 6px;
-            @include transition(0.3s);
-        };*/
 
         @include media($medium) {
             margin-right: $base-spacing;
@@ -89,6 +101,82 @@
         left: auto !important;
         max-width: 300px;
         margin-left: $sm-spacing;
+    }
+
+    .survey-filter-children {
+        border-top: 1px solid $color-primary-beta;
+        padding: $base-spacing $sm-spacing 4px;
+        margin: 0;
+
+        @include media($medium) {
+            padding-left: $base-spacing;
+        }
+
+        legend {
+            display: inline-block;
+            font-style: italic;
+            margin-bottom: 0;
+
+            &.init {
+                position: absolute;
+                top: 4px;
+                color: $color-light-beta;
+                padding-right: $base-spacing;
+                @include transition(0.3s);
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    right: 10px;
+                    width: 6px;
+                    height: 6px;
+                    background: transparent;
+                    border-top: 2.5px solid $color-light-alpha;
+                    border-right: 2.5px solid $color-light-alpha;
+                    margin-top: -4px;
+                    @include transition(0.3s);
+                    @include transform(rotate(135deg));
+                }
+
+                &.active {
+                    color: $color-primary-epsilon;
+
+                    &:after {
+                        margin-top: -2px;
+                        @include transform(rotate(-45deg));
+                    }
+                }
+            }
+        }
+
+        .form-field {
+
+            &.checkbox,
+            &.radio {
+                text-align: left;
+                margin-top: $tiny-spacing;
+                margin-bottom: $tiny-spacing;
+
+                label {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .form-fieldgroup {
+            border-left: none;
+            padding: 0;
+            margin: 0;
+
+            &.init {
+                display: none;
+
+                &.active {
+                    display: block;
+                }
+            }
+        }
     }
 
     &.init {
@@ -133,6 +221,61 @@
                 }
             }
         }
+
+        .survey-filter-children {
+            display: none;
+            overflow: hidden;
+
+            .form-field {
+
+                &.checkbox,
+                &.radio {
+                    opacity: 0.5;
+                    padding-left: 0;
+                    @include transition(opacity, 0.3s);
+
+                    label {
+
+                        &:before {
+                            position: absolute;
+                            top: 2px;
+                            left: -18px;
+                            color: $color-tertiary;
+                            font-weight: bold;
+                            font-size: 10px;
+                        }
+                    }
+
+                    input[type="checkbox"],
+                    input[type="radio"] {
+                        left: -$huge-spacing;
+                        @include transition(0.3s);
+                    }
+
+                    &.checked {
+                        opacity: 1;
+
+                        label:before {
+                            content: '\2713';
+                        }
+                    }
+
+                    &:hover {
+                        opacity: 0.8;
+                        padding-left: 18px;
+
+                        label:before {
+                            content: none;
+                        }
+
+                        input[type="checkbox"],
+                        input[type="radio"] {
+                            left: -$tiny-spacing;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     &.checked {
@@ -148,12 +291,17 @@
 
         .survey-filter-total {
             color: $white;
+            text-shadow: 0 1px 1px rgba(0,0,0,1);
             box-shadow: 0 0 $tiny-spacing 2px #3F4349;
             background-color: $color-primary-epsilon;
 
             &:after {
                 background-color: #3F4349;
             }
+        }
+
+        .survey-filter-children {
+            display: block;
         }
     }
 }
@@ -163,7 +311,6 @@
     color: $color-primary-epsilon;
     @include equal-radius(20px);
     font-size: 12px;
-    text-shadow: 0 1px 1px rgba(0,0,0,1);
     background-color: $color-primary;
     padding: 4px $tiny-spacing;
     @include transition(0.3s);

@@ -1,6 +1,6 @@
 .postcard {
     position: relative;
-    @extend .card;
+    @include containerCard;
     max-width: 575px;
 
     .post-band {
@@ -11,7 +11,6 @@
         position: absolute;
         top: $sm-spacing + 2;
         left: $sm-spacing;
-        margin-top: 3px;
 
         + .postcard-body {
             padding-right: $base-spacing;
@@ -31,14 +30,25 @@
     .postcard-body {
         @include clearfix;
         padding: $sm-spacing;
+        padding-bottom: 0;
 
         .postcard-header {
-            float: left;
-            width: 75%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .metadata {
+                flex-shrink: 1;
+            }
+
+            .postcard-actions {
+                flex-shrink: 0;
+            }
         }
 
         .postcard-actions {
-            float: right;
             margin-top: -$tiny-spacing;
             margin-right: -$tiny-spacing;
         }
@@ -49,62 +59,76 @@
                 margin-top: 0;
             }
         }
-    }
 
-    .postcard-overflow {
-        display: none;
-    }
+        .form-sheet-title {
 
-    .postcard-actions-trigger {
-        display: inline-block;
-        width: $sm-spacing;
-        height: $sm-spacing;
-        font-size: 12px;
-        text-align: center;
-        @include equal-radius(100%);
-        background-color: $color-primary;
-        padding: 0;
-        margin: $tiny-spacing $sm-spacing;
-        margin-right: $tiny-spacing;
+            @include media($small) {
+                margin-top: $sm-spacing;
+            }
 
-        &:hover {
-            cursor: pointer;
-        }
-
-        svg.iconic {
-            fill: $white;
-            margin-top: 4px;
-            @include transition(0.3s);
-        }
-
-        &.active {
-            z-index: $dropdown+1;
-            font-weight: $bold;
-            background-color: $color-dark-alpha;
-
-            svg.iconic {
-                margin-top: 2px;
-                @include transform(rotate(180deg));
+            @include media($medium) {
+                margin-top: $base-spacing;
             }
         }
-
-        + .dropdown-menu {
-            top: $lg-spacing !important;
-        }
-
     }
 
     .dropdown-menu {
-        top: 4px !important;
-        right: 4px !important;
-        left: auto !important;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    .postcard-id {
+        display: inline-block;
+        position: relative;
+        @include equal-radius($sm-spacing);
+        // background-color: $color-primary-zeta;
+        box-shadow: 0 0 0 1px $color-primary-zeta;
+        @include transition(0.3s);
+
+        &:hover {
+            background-color: $color-light-gamma;
+        }
+
+        .status-indicator {
+            position: absolute;
+            z-index: $body;
+            top: 0;
+            right: auto;
+            left: 0;
+            vertical-align: middle;
+            margin: 2px;
+            @include transition(0.3s);
+
+            + .label {
+                margin-left: $base-spacing;
+            }
+        }
+
+        .label {
+            vertical-align: middle;
+            margin: 4px $tiny-spacing;
+        }
     }
 
     .postcard-title {
-        position: relative;
+        clear: both;
         color: $color-dark-alpha;
-        @include typeGamma;
-        margin-bottom: 10px;
+        font-weight: 600;
+        font-size: 20px;
+        font-size: 1.428571429rem;
+        line-height: 1.125;
+
+        .postcard-field {
+            line-height: 1.125;
+        }
+
+        .postcard-id {
+            margin-top: -3px;
+            margin-right: 4px;
+        }
 
         .post-band {
             left: -$sm-spacing;
@@ -127,22 +151,8 @@
         }
     }
 
-    .postcard-task-title {
-        color: $color-dark-gamma;
-        @include typeGamma;
-        font-weight: $bold;
-    }
-
-    .postcard-tasks {
-        position: relative;
-
-        ul {
-            @extend .list-reset;
-        }
-    }
-
     .metadata {
-        margin-bottom: $tiny-spacing;
+        margin-bottom: 4px;
     }
 
     .postcard-title,
@@ -159,10 +169,13 @@
     }
 
     .postcard-field {
+        position: relative;
         clear: both;
-        margin-top: $sm-spacing;
+        line-height: 1.357142857;
+        margin-bottom: $sm-spacing;
 
         .form-label {
+            display: none;
             padding-top: $base-spacing;
             margin-bottom: $sm-spacing;
         }
@@ -194,14 +207,118 @@
             border: 1px solid $color-light-beta;
         }
 
-        &.task {
+        .postcard-placeholder {
+            display: block;
+            border: 1px solid $color-light-gamma;
+            @include equal-radius;
+            padding: $tiny-spacing;
+
+            select {
+                display: block;
+                width: 100%;
+            }
+        }
+
+        .dropdown-trigger {
+            padding: 0;
+            padding-right: $sm-spacing + 4;
+
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 4px;
+                width: 7px;
+                height: 7px;
+                background: transparent;
+                border-top: 2.5px solid $color-light-alpha;
+                border-right: 2.5px solid $color-light-alpha;
+                margin-top: -6px;
+                @include transform(rotate(135deg));
+            }
+
+            &:hover {
+                color: $color-primary-beta;
+            }
+        }
+
+        .dropdown-menu {
+            top: 4px !important;
+            right: 4px !important;
+            left: auto !important;
+        }
+    }
+
+    .postcard-tasks {
+
+        @include media($medium) {
+            padding-left: $base-spacing;
+        }
+
+        .postcard-tasks-title {
+            position: relative;
+            z-index: $body;
+            margin-bottom: $sm-spacing;
+
+            @include media($medium) {
+                margin-left: -$base-spacing;
+            }
+        }
+
+        .task {
             @include equal-radius;
             border: 1px solid $color-light-beta;
             background-color: $color-light-gamma;
             padding: $sm-spacing;
 
-            .metadata {
-                margin-bottom: 0;
+            &:before,
+            &:after {
+                content: '';
+                visibility: visible;
+                position: absolute;
+                z-index: 0;
+                width: 2px;
+                background-color: $color-light-beta;
+            }
+
+            &:before {
+                bottom: 100%;
+                left: $tiny-spacing + 3;
+                height: $sm-spacing + 1;
+
+                @include media($medium) {
+                    position: absolute;
+                    z-index: $body;
+                    top: -$sm-spacing - 1;
+                    bottom: -1px;
+                    left: -$sm-spacing + 3;
+                    width: 1px;
+                    height: auto;
+                }
+            }
+
+            &:after {
+                content: none;
+
+                @include media($medium) {
+                    content: '';
+                    top: $base-spacing;
+                    left: -$sm-spacing + 3;
+                    width: $sm-spacing - 3;
+                    height: 1px;
+                    background-color: $color-light-beta;
+                }
+            }
+
+            &:last-of-type {
+
+                &:before {
+
+                    @include media($medium) {
+                        bottom: auto;
+                        height: 42px;
+                    }
+                }
             }
         }
     }
@@ -211,6 +328,12 @@
 
         .button-flat {
             @include no-shadow;
+        }
+
+        .dropdown-menu {
+            top: 4px !important;
+            right: 4px !important;
+            left: auto !important;
         }
     }
 
@@ -274,6 +397,13 @@
             }
         }
 
+        .postcard-header {
+
+            + .postcard-field {
+                margin-top: $tiny-spacing;
+            }
+        }
+
         .postcard-body {
             padding-top: $base-spacing;
             padding-bottom: $base-spacing;
@@ -299,19 +429,9 @@
             }
 
             .form-label {
+                display: block;
                 border-top: $base-border;
             }
-
-            &:first-child {
-
-                .form-label {
-                    border-top: none;
-                }
-            }
-        }
-
-        .postcard-actions {
-            margin-top: 0;
         }
 
         .tabs-menu {
@@ -323,6 +443,28 @@
         }
     }
 
+    .postcard-overflow {
+
+        .postcard-field {
+
+            &.checkboxes,
+            &.radio,
+            &.select {
+
+                .form-label {
+                    display: block;
+                    padding-top: 0;
+                    margin-bottom: $tiny-spacing;
+                }
+            }
+        }
+    }
+
+    .postcard-overflow-bookend {
+        display: none;
+    }
+
+    // DEPRECATE IN FAVOR OF SERVER-SIDE LOGIC FOR RENDERING THIS CONTENT
     .map & {
 
         .listing-item-select {
@@ -332,44 +474,29 @@
             }
         }
 
-        .postcard-body {
-/*
-            max-height: 240px;
-            overflow-y: hidden;
-*/
-            .postcard-overflow {
+        .postcard-overflow {
+            position: relative;
+            max-height: 250px;
+            // overflow-y: hidden;
+            overflow-y: scroll;
+
+            + .postcard-overflow-bookend {
                 display: block;
                 position: absolute;
-                z-index: $body;
                 right: 0;
                 bottom: 0;
                 left: 0;
                 text-align: center;
+                @include vert-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
                 padding: $tiny-spacing;
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    z-index: -1;
-                    top: 0;
-                    right: 0;
-                    bottom: 0;
-                    left: 0;
-                    background-color: $white;
-                    -webkit-filter: blur(10px);
-                    -moz-filter: blur(10px);
-                    -o-filter: blur(10px);
-                    -ms-filter: blur(10px);
-                    filter: blur(10px);
-                    opacity: 0.85;
-                }
 
                 button,
                 .button {
-
-                    &.button-plain {
-                        font-weight: $bold;
-                    }
+                    display: none;
+                    position: relative;
+                    z-index: 1;
+                    font-weight: 800;
+                    margin: 0 auto;
                 }
             }
         }

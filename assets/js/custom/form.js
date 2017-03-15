@@ -1,3 +1,15 @@
+$('.form-field[draggable], .contenteditable, [contenteditable="true"]').on('click', function(){
+    var formField = $(this);
+
+    formField.addClass('focus');
+
+    formField.oneClickOutside({
+        callback:function(){
+            formField.removeClass('focus');
+        }, calledFromClickInsideHandler: true
+    });
+});
+
 // "Adapt" fields
 $('.form-field-adapt').each(function(){
     var field = $(this),
@@ -142,3 +154,5 @@ $('.form-field.video_embed').each(function(){
         }
     });
 });
+
+autosize($('textarea'));

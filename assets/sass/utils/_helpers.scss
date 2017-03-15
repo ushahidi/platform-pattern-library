@@ -15,8 +15,7 @@ $LAYOUT
     @include outer-container;
 }
 
-.container-centered {
-    @extend .container;
+.center {
     text-align: center;
 }
 
@@ -64,9 +63,8 @@ $LAYOUT
 .hide-until-small {
 
     @include media($small-down) {
-        display: none;
+        display: none !important;
     }
-
 }
 
 .hide-when-small {
@@ -236,12 +234,13 @@ $LAYOUT
     width: 4px;
     // border-radius: 2px 0 0 2px;
     background-color: #EEEEEE;
+    @include transition(0.3s);
 }
 
 .swatch {
     display: inline-block;
-    width: 14px;
-    height: 14px;
+    width: $sm-spacing;
+    height: $sm-spacing;
     background-color: $color-light-gamma;
     box-shadow: 0 0 1px rgba(0,0,0,.24) inset;
     margin-right: $tiny-spacing;

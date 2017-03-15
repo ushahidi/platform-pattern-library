@@ -22,6 +22,11 @@ label,
             margin-left: 4px;
         }
     }
+
+    [role="article"] & {
+        font-size: 20px;
+        font-size: 1.428571429rem;
+    }
 }
 
 input,
@@ -57,7 +62,8 @@ textarea {
     }
 
     + button,
-    + [type="button"] {
+    + [type="button"],
+    + .button {
         margin-top: $tiny-spacing;
 
         @include media($medium) {
@@ -106,6 +112,12 @@ input[type="search"] {
 
 input[type="file"] {
     @include no-shadow;
+
+    + button,
+    + [type="button"],
+    + .button {
+        margin-top: 0;
+    }
 }
 
 .input-inline { //for when a button is next to the input
@@ -157,7 +169,13 @@ input[type="radio"] {
 textarea {
     width: 100%;
     max-width: 100%;
-    height: 120px;
+//    height: 120px;
+
+    + button,
+    + [type="button"],
+    + .button {
+        margin-top: $tiny-spacing;
+    }
 }
 
 select {
@@ -203,10 +221,13 @@ fieldset {
     border: none;
 
     legend {
-        font-weight: 600;
-        font-size: 16px;
-        font-size: 1.142857143rem;
-        margin-bottom: $sm-spacing;
+        @include typeGamma;
+        margin-bottom: $base-spacing;
+
+        [role="article"] & {
+            font-size: 20px;
+            font-size: 1.428571429rem;
+        }
 
         &.required {
 
@@ -341,4 +362,42 @@ form, .form {
         }
     }
 
+}
+
+.form-field-preview {
+
+    .form-field {
+
+        &.checkbox,
+        &.radio {
+
+            &.disabled {
+
+                label {
+
+                    &:hover {
+                        cursor: default;
+                    }
+                }
+            }
+        }
+    }
+}
+
+[contenteditable="true"] {
+    @include transition(0.3s);
+
+    &:focus {
+        outline-color: $white;
+        @include border-top-radius($global-radius);
+        @include border-bottom-radius($global-radius);
+        padding: $tiny-spacing $sm-spacing;
+        box-shadow: 0 0 4px 1px $color-secondary,
+            inset 0 1px 1px rgba(0,0,0,.3);
+    }
+
+    &:empty:before {
+        content: attr(placeholder);
+        display: inline-block; /* For Firefox */
+    }
 }

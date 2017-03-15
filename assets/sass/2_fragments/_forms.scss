@@ -326,35 +326,39 @@ fieldset {
             }
         }
 
-        .map {
-            height: 400px;
-            border: 1px solid $color-light-beta;
-            margin-bottom: $tiny-spacing;
+        .location-wrapper {
+            position: relative;
 
-            + .form-field {
-                position: absolute;
-                z-index: $body;
-                top: $base-spacing;
-                right: $tiny-spacing;
-                left: $tiny-spacing;
-                margin: 0;
+            .map {
+                height: 400px;
+                border: 1px solid $color-light-beta;
+                margin-bottom: $tiny-spacing;
 
-                input[type="text"] {
-                    display: inline-block;
-                    width: 60%;
+                + .form-field {
+                    position: absolute;
+                    z-index: $body;
+                    top: $base-spacing;
+                    right: $tiny-spacing;
+                    left: $tiny-spacing;
+                    margin: 0;
 
-                    + button,
-                    + .button {
-                        margin-left: 4px;
+                    input[type="text"] {
+                        display: inline-block;
+                        width: 60%;
+
+                        + button,
+                        + .button {
+                            margin-left: 4px;
+                        }
                     }
-                }
 
+                }
             }
 
-            + .searchbar {
+            .searchbar {
                 position: absolute;
                 z-index: $toolbox;
-                top: $huge-spacing + $tiny-spacing;
+                top: $tiny-spacing;
                 right: $tiny-spacing;
                 left: $tiny-spacing;
                 margin: 0;
@@ -470,6 +474,10 @@ fieldset {
     &.inline,
     &.date {
         display: inline-table;
+
+        input[type="text"] {
+            display: inline-block;
+        }
     }
 
 
@@ -589,6 +597,8 @@ fieldset {
         .form-field,
         fieldset {
             margin-top: $base-spacing;
+            margin-right: 0;
+            margin-left: 0;
         }
 
         &.disabled {
@@ -605,7 +615,6 @@ fieldset {
                 }
             }
         }
-
     }
 }
 
@@ -674,6 +683,44 @@ fieldset {
 
         .form-field-config {
             display: none;
+
+            ol,
+            ul {
+                margin-left: $base-spacing;
+            }
+
+            .listing {
+
+                .listing-item-primary {
+                    padding-top: $sm-spacing;
+                    padding-bottom: $sm-spacing;
+                }
+
+                .listing-item-secondary {
+                    top: $sm-spacing;
+                    right: 0 !important;
+
+                    button,
+                    .button {
+                        margin-top: 0;
+                    }
+                }
+
+                .listing-item-select {
+                    top: $sm-spacing;
+                    left: 0;
+
+                    .dragger {
+                        opacity: 0.5;
+                        top: 5px;
+                        margin-left: 0;
+
+                        &:hover {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
         }
 
         .form-field-actions {
@@ -698,8 +745,9 @@ fieldset {
 
             .dropdown-menu {
                 top: $sm-spacing !important;
-                right: 0;
+                right: 0 !important;
                 left: auto !important;
+                max-width: 300px;
             }
         }
 
@@ -728,6 +776,7 @@ fieldset {
             }
 
             .dragger {
+                cursor: move;
                 opacity: 1;
             }
         }
@@ -752,36 +801,49 @@ fieldset {
                 top: 0;
             }
 
-            [contenteditable="true"] {
+            [contenteditable] {
                 position: relative;
+                outline-color: $white;
+                @include border-top-radius($global-radius);
+                @include border-bottom-radius($global-radius);
+                border: $base-border-dark;
+                padding: $tiny-spacing $sm-spacing;
+                @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.1), $inset: true);
 
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: -$tiny-spacing;
-                    right: 0;
-                    bottom: -$tiny-spacing;
-                    left: 0;
-                    @include equal-radius;
-                    border-bottom: 1px solid $color-light-beta;
-                }
-
-                &:hover {
-                    cursor: pointer;
-
-                    &:before {
-                        right: -$tiny-spacing;
-                        left: -$tiny-spacing;
-                        border: 1px solid $color-light-beta;
-                    }
+                &:after {
+                    content: none;
                 }
 
                 &:focus {
+                    box-shadow: 0 0 4px 1px $color-secondary,
+                        inset 0 1px 1px rgba(0,0,0,.3);
+                }
 
-                    &:before {
-                        content: none;
+                &.list-item {
+
+                    .dragger {
+                        opacity: 0.5;
+                        left: 0;
+                        margin-top: 4px;
+                        margin-left: -28px;
+                    }
+
+                    &.focus {
+
+                        .dragger {
+                            opacity: 1;
+                        }
                     }
                 }
+            }
+
+            [contenteditable="false"] {
+                border: none;
+                @include no-shadow;
+            }
+
+            label[contenteditable] {
+                display: block;
             }
         }
     }
@@ -949,6 +1011,17 @@ fieldset,
                 border-color: $error-color !important;
             }
         }
+    }
+}
+
+svg.iconic {
+
+    &.checkbox,
+    &.radio {
+        width: 1.142857143em;
+        height: 1.142857143em;
+        vertical-align: sub;
+        fill: $color-primary;
     }
 }
 

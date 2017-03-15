@@ -28,11 +28,44 @@
     <div class="mode-context-body">
         {{{deployment.description}}}
 
-        {{> SurveyFilter }}
+        <div class="tool">
+            <p>There are <a href=""><strong>12 posts</strong></a> not shown on the map because they don't include location information.</p>
+        </div>
 
         <div class="tool">
-            <p>There are <a href=""><strong>12 posts</strong></a> not shown here because they don't include location information.</p>
+            <h6 class="tool-heading">Surveys</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#unless datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/unless}}
+                {{/each}}
+
+                <div class="form-field">
+                    <a href="settings-survey-add.html" class="button button-link">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                        </svg>
+                        <span class="button-label">Create new survey</span>
+                    </a>
+                </div>
+            </form>
         </div>
+
+        {{#if user.logged_in}}
+        <div class="tool">
+            <h6 class="tool-heading">Data sources</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#if datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/if}}
+                {{/each}}
+            </form>
+        </div>
+        {{/if}}
 
         <div class="tool">
             <h6 class="tool-heading">How to add a post</h6>
@@ -56,7 +89,7 @@
 <main role="main">
 
     <div class="toolbar">
-        {{> Fab }}
+        {{> Fab target='submit-new-survey'}}
 
         {{> Search }}
 

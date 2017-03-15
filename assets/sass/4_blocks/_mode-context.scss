@@ -16,6 +16,14 @@
         }
     }
 
+    .mode-context-back {
+
+        svg.iconic {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
     .mode-context-title {
         color: $white;
         @include typeAlpha;
@@ -38,6 +46,25 @@
 
         a {
             color: $white;
+        }
+
+        .mode-context-back {
+            position: absolute;
+            top: -$tiny-spacing;
+            left: 0;
+            z-index: $body;
+
+            @include media($medium) {
+                top: 14px;
+            }
+
+            + .mode-context-title {
+                padding-left: 56px;
+
+                @include media($medium) {
+                    padding-left: $lg-spacing;
+                }
+            }
         }
 
         .mode-context-title {
@@ -70,11 +97,24 @@
                 height: 100px;
                 width: 100px;
                 @include no-shadow;
-                margin: auto;
+                margin: $sm-spacing auto;
             }
         }
 
         &.has-logo {
+
+            .mode-context-back {
+
+                + .mode-context-title {
+
+                    + .deployment-logo {
+
+                        @include media($medium-down) {
+                            display: none;
+                        }
+                    }
+                }
+            }
 
             .mode-context-title {
                 @include padding-left(48px);
@@ -117,6 +157,17 @@
         }
     }
 
+    .button-link {
+
+        svg.iconic {
+            fill: $white;
+        }
+
+        &:hover {
+            opacity: .64;
+        }
+    }
+
     .metadata {
         margin-bottom: $sm-spacing;
 
@@ -125,6 +176,21 @@
 
             &:hover {
                 color: darken($color-secondary, 20%);
+            }
+        }
+    }
+
+    .tooltip {
+
+        .bug {
+            width: 176px;
+            white-space: normal;
+        }
+
+        &:hover {
+
+            .bug {
+                display: block;
             }
         }
     }
@@ -177,8 +243,12 @@
             }
         }
 
-        a {
-            color: $color-secondary;
+        p {
+            margin-top: $sm-spacing;
+
+            a {
+                color: $color-secondary;
+            }
         }
     }
 
@@ -356,6 +426,10 @@
             a:hover {
                 border-bottom-color: $color-secondary;
             }
+        }
+
+        .survey-filter {
+            margin-top: $tiny-spacing;
         }
     }
 }

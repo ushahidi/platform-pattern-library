@@ -1,14 +1,15 @@
 .task {
-    @include clearfix;
     position: relative;
-    border-bottom: $base-border;
+    @include clearfix;
+    border-top: $base-border;
     padding-top: $sm-spacing;
     padding-bottom: $sm-spacing;
 
-
+/*
     &:last-child {
         border-bottom: none;
     }
+*/
 
     .task-title {
         float: left;
@@ -21,6 +22,14 @@
 
         @include media($mobile) {
             width: 100px;
+        }
+
+        .status-indicator {
+            top: -1px;
+            width: $tiny-spacing;
+            min-width: initial;
+            height: $tiny-spacing;
+            margin-right: $tiny-spacing;
         }
     }
 
