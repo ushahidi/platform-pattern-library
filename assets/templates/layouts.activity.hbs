@@ -176,14 +176,14 @@
             <h2 class="listing-heading">Timeline of activity</h2>
             <h3 class="listing-heading-section">Today</h3>
 
-            {{#each-limit deployment.posts 1}}
+            {{#each-limit deployment.responses 1}}
                 {{#ifCond properties.status 'published'}}
                 {{> Postcard}}
                 {{/ifCond}}
             {{/each-limit}}
 
             <article class="postcard">
-                <div class="postcard-body">
+                <div class="postcard-body" style="padding-bottom: 16px;">
                     <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/greg.png" class="avatar postcard-image" />
                     <h1 class="postcard-title"><a href="">Gregory Omondi signed up</a></h1>
                     <span class="metadata">90 mins</span>
@@ -192,7 +192,7 @@
 
             <h3 class="listing-heading-section">Yesterday</h3>
 
-            {{#each-limit deployment.posts 3}}
+            {{#each-limit deployment.responses 3}}
                 {{#ifCond properties.status 'published'}}
                 {{> Postcard}}
                 {{/ifCond}}
