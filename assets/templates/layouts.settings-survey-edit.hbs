@@ -193,9 +193,9 @@
                                 <a href="" data-modal="edit-field-text">Witness</a>
                                 <span class="listing-item-image tooltip">
                                     <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#people"></use>
+                                        <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                                     </svg>
-                                    <span class="bug">Only select people can see responses to this field</span>
+                                    <span class="bug">Only people with permission to edit responses can see responses to this field</span>
                                 </span>
                             </h2>
                         </div>
@@ -653,6 +653,21 @@
                 </div>
             </div>
 
+            <!--// Private field //-->
+            <div class="form-field switch">
+                <label>Make responses private</label>
+                <p data-fieldgroup-target="field-private-message-3">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                    </svg>
+                    Only people with permission to edit responses will be able to see responses to this field.
+                </p>
+                <div class="toggle-switch">
+                    <input class="tgl" id="field-private-3" type="checkbox" data-fieldgroup-toggle="field-private-message-3" checked />
+                    <label class="tgl-btn" for="field-private-3"></label>
+                </div>
+            </div>
+
             <!--// Default value //-->
             <div class="form-field switch">
                 <label>Include default value</label>
@@ -665,53 +680,6 @@
                     <input type="text" placeholder="Default value..." />
                 </div>
             </div>
-
-            <!--// Who can see this field //-->
-            <fieldset>
-                <legend>Who can see the response to this field</legend>
-
-                <div class="form-field radio icon-input">
-                    <label for="field-visibility-3-everyone">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                        </svg>
-                        <input type="radio" name="field-visibility-3" id="field-visibility-3-everyone" />
-                        <span class="label">Everyone</span>
-                    </label>
-                </div>
-
-                <div class="form-field radio icon-input">
-                    <label for="field-visibility-3-roles">
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#people"></use>
-                        </svg>
-                        <input type="radio" name="field-visibility-3" id="field-visibility-3-roles" checked data-fieldgroup-toggle="field-visibility-3-roles_def" />
-                        Specific roles...
-                    </label>
-
-                    <div class="form-fieldgroup" data-fieldgroup-target="field-visibility-3-roles_def">
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="field-visibility-3-roles_def-members" />
-                            <label for="survey-add_roles-members">Members</label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="field-visibility-3-roles_def-editors" checked />
-                            <label for="survey-add_roles-editors">Editors</label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="field-visibility-3-roles_def-operators" />
-                            <label for="survey-add_roles-operators">Operators</label>
-                        </div>
-
-                        <div class="form-field checkbox">
-                            <input type="checkbox" id="field-visibility-3-roles_def-admins" />
-                            <label for="survey-add_roles-admins">Administrators</label>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
         </div>
 
         <div class="modal-actions">
