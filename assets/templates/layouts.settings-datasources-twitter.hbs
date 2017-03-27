@@ -1,37 +1,41 @@
-{{> ModeBar }}
-
 <div class="mode-context">
-
     <header class="mode-context-header">
-        <ol class="breadcrumbs">
-            <li><a href="map.html">{{deployment.name}}</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="settings-datasources.html">Data sources</a></li>
-        </ol>
+        <a href="settings-datasources.html" class="mode-context-back button button-link">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="hidden">Back</span>
+        </a>
 
         <h1 class="mode-context-title">Twitter</h1>
+
+        <!--// SAVED //-->
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">Changes saved</span>
+            <span class="bug">Every change you make is automatically saved. Last saved 2 minutes ago.</span>
+        </span>
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
+        <!--// UNSAVED //
+        <span class="status-indicator error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
+        </span>
+        //-->
     </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-
-    </div>
 </div>
 
 <main role="main">
-
-    <div class="toolbar">
-        <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
-        </div>
-    </div>
 
     <div class="main-col">
 
@@ -86,6 +90,7 @@
 
         </div>
 
+        <!--// IF Twitter account is not configure //
         <div class="form-sheet">
             <div class="form-sheet-summary">
                 <h3 class="form-sheet-title">Configure Twitter account</h3>
@@ -110,15 +115,12 @@
 
             <div class="form-field">
                 <button type="button" disabled>
-                    <!--// IF submitting a no-yet validated account configuration //-->
                     Connect to Twitter
-                    <!--// ELSE //
-                    Update connection
-                    // END IF //-->
                 </button>
             </div>
 
         </div>
+        //-->
 
     </div>
 

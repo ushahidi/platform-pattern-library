@@ -1,83 +1,139 @@
 .layout-d {
 
-    [role="main"] {
-        padding-top: 107px;
+    .mode-context {
+        height: 55px;
 
         @include media($medium) {
-            padding-top: 68px;
-        }
-    }
-
-    .main-col {
-
-        @include media($medium) {
-            padding-right: 234px;
-        }
-    }
-
-    .secondary-col {
-
-        @include media($medium) {
-            position: fixed;
-            top: 68px;
             right: 0;
-            bottom: 0;
-            z-index: $body;
-            width: 234px;
-            overflow-y: auto;
+            bottom: auto;
+            left: 0;
+            width: auto;
+            height: 66px;
         }
 
-        .listing {
+        &.init {
+            overflow-y: initial;
+        }
 
-            &.timeline {
-                padding-left: 0;
+        &.active {
 
-                .listing-heading,
-                .listing-heading-section {
-                    text-align: center;
+            @include media($medium-down) {
+                bottom: 0;
+            }
+        }
+
+        .mode-context-header {
+
+            .mode-context-title {
+                display: inline-block;
+                width: auto;
+                overflow: inherit;
+
+                @include media($medium) {
+                    padding-right: $huge-spacing;
                 }
+            }
 
-                .listing-heading {
-                    margin: $sm-spacing;
+            .mode-context-back {
+                top: $tiny-spacing;
 
-                    @include media($medium) {
-                        text-align: left;
-                        margin: $tiny-spacing 0;
-                    }
-                }
+                @include media($medium) {
+                    top: 12px;
 
-                .postcard,
-                .listing-heading-section {
+                    + .mode-context-title {
+                        padding-left: 56px;
 
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        z-index: -1;
-                        top: 100%;
-                        left: 50%;
-                        width: 4px;
-                        height: $sm-spacing;
-                        background-color: $color-light-beta;
-                        margin-left: -2px;
-                    }
-                }
-
-                .postcard {
-
-                    &:last-of-type {
-
-                        &:after {
-                            content: none;
+                        &[contenteditable="true"] {
+                            padding-left: 0;
                         }
                     }
                 }
+            }
+        }
+    }
 
-                .listing-heading-section {
+    [role="main"] {
+        padding-top: 55px;
+
+        @include media($medium) {
+            padding-top: 134px;
+            padding-top: 66px;
+            padding-left: 0;
+        }
+
+        .toolbar {
+
+            @include media($medium) {
+                top: 66px;
+                left: 0;
+            }
+
+            .fab {
+                bottom: $sm-spacing;
+            }
+        }
+
+        .toolbox {
+
+            @include media($small) {
+                top: 72px;
+            }
+
+            @include media($medium) {
+                top: 90px;
+            }
+        }
+
+        .main-col {
+
+            @include media($medium) {
+                padding-left: 20%;
+            }
+        }
+
+        .full-col {
+
+            @include media($medium) {
+                padding-right: 20%;
+                padding-left: 20%;
+            }
+        }
+
+        .map {
+
+            &.full-size {
+                bottom: 0;
+
+                @include media($medium) {
+                    left: 224px;
+                }
+            }
+        }
+
+        .picker__frame {
+            bottom: 0;
+        }
+    }
+
+    .message {
+        left: 0;
+
+        &.active {
+            bottom: 0;
+        }
+    }
+
+    .mainsheet {
+
+        &.init {
+
+            &.active {
+
+                .mainsheet-window {
+                    bottom: -2px;
 
                     @include media($medium) {
-                        display: block;
-                        color: $color-dark-delta;
-                        background-color: transparent;
+                        bottom: auto;
                     }
                 }
             }

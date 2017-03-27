@@ -1,44 +1,48 @@
-{{> ModeBar }}
-
 <div class="mode-context">
-
     <header class="mode-context-header">
-        <ol class="breadcrumbs">
-            <li><a href="map.html">{{deployment.name}}</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="settings-datasources.html">Data sources</a></li>
-        </ol>
+        <a href="settings-datasources.html" class="mode-context-back button button-link">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="hidden">Back</span>
+        </a>
 
         <h1 class="mode-context-title">Email</h1>
+
+        <!--// SAVED //-->
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">Changes saved</span>
+            <span class="bug">Every change you make is automatically saved. Last saved 2 minutes ago.</span>
+        </span>
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
+        <!--// UNSAVED //
+        <span class="status-indicator error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
+        </span>
+        //-->
     </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-
-    </div>
 </div>
 
 <main role="main">
-
-    <div class="toolbar">
-        <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
-        </div>
-    </div>
 
     <div class="main-col">
 
         <!--// IF: Email account is successfully configured //
         <div class="form-sheet">
             <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Import posts from email</h3>
+                <h3 class="form-sheet-title">Import email</h3>
             </div>
 
             <div class="form-field switch">
@@ -51,26 +55,26 @@
             </div>
 
             <fieldset>
-                <legend>Do you want imported email messages to be added to a survey?</legend>
+                <legend>Do you want to import email messages as survey responses?</legend>
 
                 <div class="form-field radio">
                     <label>
                         <input type="radio" name="survey-assignment" id="survey-assign-no" checked />
-                        <strong>No</strong>, keep their survey "unknown" until someone determines which survey it belongs to.
+                        <strong>No</strong>, import them separate from survey responses.
                     </label>
                 </div>
 
                 <div class="form-field radio">
                     <label>
                         <input type="radio" name="survey-assignment" id="survey-assign-yes" data-fieldgroup-toggle="survey-assignment" />
-                        <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, add them to...</span>
+                        <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, import them to...</span>
                     </label>
                     <div class="custom-select" data-fieldgroup-target="survey-assignment">
                         <select>
-                            <option>Getting around</option>
-                            <option>Police encounters</option>
-                            <option>Protester photos</option>
-                            <option>Official events</option>
+                            <option>Street maintenance</option>
+                            <option>Creeks/drainage problems</option>
+                            <option>Property damage</option>
+                            <option>Parking</option>
                         </select>
                     </div>
                 </div>
@@ -87,7 +91,7 @@
                 <ul>
                     <li><a href="#email-address">Address</a></li>
                     <li><a href="#email-incoming">Incoming server</a></li>
-                    <li><a href="#email-outgoing">Incoming server</a></li>
+                    <li><a href="#email-outgoing">Outgoing server</a></li>
                 </ul>
             </nav>
 
@@ -275,14 +279,16 @@
 
             </div>
 
-            <div class="form-field">
-                <button type="button" disabled>
-                    <!--// IF submitting a no-yet validated account configuration //-->
-                    Connect account
-                    <!--// ELSE //
-                    Update account
-                    // END IF //-->
-                </button>
+            <div class="form-sheet-actions">
+                <div class="form-field">
+                    <button class="button-alpha" disabled>
+                        <!--// IF submitting a no-yet validated account configuration //-->
+                        Connect account
+                        <!--// ELSE //
+                        Update account
+                        // END IF //-->
+                    </button>
+                </div>
             </div>
         </div>
 
