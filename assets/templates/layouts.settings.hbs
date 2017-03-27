@@ -90,3 +90,33 @@
 </main>
 
 {{> Modals }}
+
+<div id="import-finished" class="message transient">
+    <div class="message-image confirmation">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
+        </svg>
+    </div>
+    <div class="message-body">
+        <p><em>filename.csv</em> was successfully imported</p>
+        <button class="button-gamma">See imported data</button>
+    </div>
+</div>
+
+<div id="import-problems" class="message">
+    <div class="message-image error">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+        </svg>
+    </div>
+    <div class="message-body">
+        <p>We ran into some problems importing <em>filename.csv</em></p>
+        <button class="button-gamma">Review the problems</button>
+    </div>
+</div>
+
+<script>
+setTimeout(function() {
+    messageToggle($('#import-problems'), true);
+}, 1000);
+</script>

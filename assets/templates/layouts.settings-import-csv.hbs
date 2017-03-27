@@ -1,0 +1,40 @@
+<div class="mode-context">
+    <header class="mode-context-header">
+        <a href="setings-import.html" class="mode-context-back button button-link" data-modal="abandon-import">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="hidden">Back</span>
+        </a>
+
+        <h1 class="mode-context-title">Import CSV</h1>
+    </header>
+</div>
+
+
+<main role="main">
+
+    <div class="full-col">
+
+        {{> CSVimport }}
+
+    </div>
+
+</main>
+
+{{> Modals }}
+
+<div id="abandon-import" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Do you want to abandon this import?</h3>
+
+        <p>If you abandon this import, any records imported thus far will be removed.</p>
+
+        <div class="form-field">
+            <button class="button-beta button-flat modal-trigger">Finish import</button>
+            <button class="button-destructive modal-trigger">Abandon import</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>

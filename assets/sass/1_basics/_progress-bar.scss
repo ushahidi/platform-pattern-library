@@ -20,6 +20,21 @@
 
 progress {
     display: block;
+
+    &[value] {
+        -webkit-appearance: none;
+        height: $tiny-spacing;
+    }
+
+    &[value]::-webkit-progress-bar {
+        @include equal-radius($base-spacing);
+        background-color: $color-light-beta;
+    }
+
+    &[value]::-webkit-progress-value {
+        @include equal-radius($base-spacing);
+        background-color: $color-secondary;
+    }
 }
 
 @-webkit-keyframes progress-in {

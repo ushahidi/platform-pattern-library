@@ -27,10 +27,37 @@
 
     <div class="full-col">
 
-        {{> CSVimport }}
+        <div class="listing card">
+            <div class="listing-item">
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title"><a href="settings-import-csv.html">CSV</a></h2>
+                    <p class="listing-item-secondary">Upload a spreadsheet that uses the CSV file format to convert its data into survey responses.</p>
+                </div>
+            </div>
+        </div>
 
     </div>
 
 </main>
 
 {{> Modals }}
+
+<div id="import-progress" class="message">
+    <div class="message-body">
+        <p><em>filename.csv</em> is being imported</p>
+
+        <progress max="100" value="60">
+            <div class="progress-bar">
+                <span style="width: 60%;">Progress: 60%</span>
+            </div>
+        </progress>
+
+        <button>See progress</button>
+    </div>
+</div>
+
+<script>
+setTimeout(function() {
+    messageToggle($('#import-progress'), true);
+}, 1000);
+</script>
