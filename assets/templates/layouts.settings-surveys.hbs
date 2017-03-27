@@ -62,6 +62,31 @@
             {{/unless}}
             {{/each}}
 
+            <article class="listing-item">
+                <span class="post-band" style="background-color:#{{color}};"></span>
+
+                <div class="listing-item-secondary">
+                    <button class="button-beta button-flat">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="hidden">Delete</span>
+                    </button>
+                </div>
+
+                <div class="listing-item-primary">
+                    <h2 class="listing-item-title">
+                        <a href="settings-survey-edit.html">Licensing</a>
+                        <span class="listing-item-image tooltip">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                            </svg>
+                            <span class="bug">This survey is only visible to people who have permission to edit your deployment's settings</span>
+                        </span>
+                    </h2>
+                </div>
+            </article>
+
         </div>
 
     </div>
@@ -69,3 +94,20 @@
 </main>
 
 {{> Modals }}
+
+<div id="survey-saved" class="message transient">
+    <div class="message-image confirmation">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
+        </svg>
+    </div>
+    <div class="message-body">
+        <p>Your new survey was saved.</p>
+    </div>
+</div>
+
+<script>
+setTimeout(function() {
+    messageToggle($('#survey-saved'), true);
+}, 1000);
+</script>

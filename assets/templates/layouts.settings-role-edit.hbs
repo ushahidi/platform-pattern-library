@@ -1,44 +1,48 @@
-{{> ModeBar }}
-
 <div class="mode-context">
-
     <header class="mode-context-header">
-        <ol class="breadcrumbs">
-            <li><a href="map.html">{{deployment.name}}</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="settings-roles.html">Roles</a></li>
-        </ol>
+        <a href="timeline.html" class="mode-context-back button button-link">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="hidden">Back</span>
+        </a>
 
-        <h1 class="mode-context-title">Edit Role</h1>
+        <h1 class="mode-context-title">Edit role</h1>
+
+        <!--// SAVED //-->
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">Changes saved</span>
+            <span class="bug">Every change you make is automatically saved. Last saved 2 minutes ago.</span>
+        </span>
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
+        <!--// UNSAVED //
+        <span class="status-indicator error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
+        </span>
+        //-->
     </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-
-    </div>
 </div>
 
 <main role="main">
-
-    <div class="toolbar">
-        <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
-        </div>
-    </div>
 
     <div class="main-col">
 
         <div class="form-sheet">
             <div class="form-field title">
                 <label class="hidden">Name</label>
-                <input type="text" placeholder="Role name" value="Editor">
+                <input type="text" placeholder="Untitled role" value="Editor">
             </div>
 
             <div class="form-field">
@@ -86,20 +90,6 @@
                     </label>
                 </div>
             </fieldset>
-        </div>
-
-        <div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Delete this role</h3>
-                <p><strong>If you delete this role</strong>, all of the users assigned to it will be assigned default permissions. Proceed with caution.</p>
-
-                <button class="button-destructive">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete role</span>
-                </button>
-            </div>
         </div>
 
     </div>

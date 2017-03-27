@@ -1,37 +1,41 @@
-{{> ModeBar }}
-
 <div class="mode-context">
-
     <header class="mode-context-header">
-        <ol class="breadcrumbs">
-            <li><a href="map.html">{{deployment.name}}</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="">Surveys</a></li>
-        </ol>
+        <a href="settings-surveys.html" class="mode-context-back button button-link" data-modal="draft">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="hidden">Back</span>
+        </a>
 
-        <h1 class="mode-context-title">Edit Survey</h1>
+        <h1 class="mode-context-title">Edit survey</h1>
+
+        <!--// SAVED //-->
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">Changes saved</span>
+            <span class="bug">Every change you make is automatically saved. Last saved 2 minutes ago.</span>
+        </span>
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
+        <!--// UNSAVED //
+        <span class="status-indicator error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
+        </span>
+        //-->
     </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-
-    </div>
 </div>
 
 <main role="main">
-
-    <div class="toolbar">
-        <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
-        </div>
-    </div>
 
     <div class="full-col">
 
@@ -700,6 +704,21 @@
 </main>
 
 {{> Modals }}
+
+<div id="draft" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title">Do you want to save this draft?</h3>
+
+        <p>We can save your progress in a draft survey, or we can discard it.</p>
+
+        <div class="form-field">
+            <button class="button-beta button-flat modal-trigger">Discard</button>
+            <button class="button-alpha modal-trigger">Save draft</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
 
 <div id="edit-field-text" class="modal">
     <div class="modal-window">

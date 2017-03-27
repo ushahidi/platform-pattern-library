@@ -169,7 +169,7 @@ gulp.task('templates', function(){
 * Minimizes and concatenates js files
 */
 gulp.task('uglifyJS', function() {
-    return gulp.src(['./assets/js/pattern-library/*','./assets/js/custom/*'])
+    return gulp.src(['./assets/js/pattern-library/*','./assets/js/custom/*.js'])
     .pipe(plumber({
         errorHandler: errorHandler
     }))

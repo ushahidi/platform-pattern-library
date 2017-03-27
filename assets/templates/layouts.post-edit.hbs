@@ -1,41 +1,22 @@
-{{> ModeBar }}
-
 <div class="mode-context">
+    <header class="mode-context-header">
+        <a href="timeline.html" class="mode-context-back button button-link">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="hidden">Back</span>
+        </a>
 
-    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
-        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+        <h1 class="mode-context-title">Edit response</h1>
 
-        {{#if deployment.logo}}
-            <img src="{{deployment.logo}}" class="deployment-logo" />
-        {{/if}}
-    </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-        {{{deployment.description}}}
-    </div>
-</div>
-
-<!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
-{{#postFromHash}}
-<main role="main">
-
-    <div class="toolbar">
-        <!--// SAVED //
+        <!--// SAVED //-->
         <span class="status-indicator tooltip success">
             <svg class="iconic">
                 <use xlink:href="../../img/iconic-sprite.svg#check"></use>
             </svg>
-            <span class="label">All changes saved</span>
-            <span class="bug">Every change you make is automatically saved</span>
+            <span class="label">Changes saved</span>
+            <span class="bug">Every change you make is automatically saved. Last saved 2 minutes ago. <button class="button-link">Save now</button></span>
         </span>
-        //-->
 
         <!--// SAVING //
         <span class="status-indicator">
@@ -43,32 +24,21 @@
         </span>
         //-->
 
-        <!--// EDIT MULTIPLE //
-        <div class="button-group">
-            <button class="button-beta">
-                <svg class="iconic">
-                    <use xlink:href="../../img/iconic-sprite.svg#chevron-left"></use>
-                </svg>
-                <span class="button-label hidden">Previous</span>
-            </button>
-
-            <span class="button button-plain button-link">1 of 4</span>
-
-            <button class="button-beta">
-                <svg class="iconic">
-                    <use xlink:href="../../img/iconic-sprite.svg#chevron-right"></use>
-                </svg>
-                <span class="button-label hidden">Next</span>
-            </button>
-        </div>
+        <!--// UNSAVED //
+        <span class="status-indicator tooltip error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
+            <span class="bug">We can't auto-save your changes right now. Last saved 2 minutes ago. <button class="button-link">Try again</button></span>
+        </span>
         //-->
+    </header>
+</div>
 
-        <!--// EDIT SINGLE RESPONSE //-->
-        <div class="button-group">
-            <button class="button-flat">Cancel</button>
-            <button class="button-alpha">Save</button>
-        </div>
-    </div>
+<!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
+{{#postFromHash}}
+<main role="main">
 
     <div class="{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}-col">
 

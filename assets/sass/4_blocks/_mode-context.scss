@@ -80,6 +80,37 @@
             }
         }
 
+        .status-indicator {
+            color: $color-light-delta;
+            background-color: transparent;
+            margin: $sm-spacing auto;
+
+            @include media($medium) {
+                margin: $base-spacing auto;
+            }
+
+            &.error {
+
+                svg.iconic {
+                    stroke: rgba(255,255,255,0.8);
+                    stroke-width: 0.5;
+                }
+            }
+
+            &.tooltip {
+
+                .bug {
+                    right: 0;
+                    left: auto;
+
+                    @include media($small) {
+                        right: auto;
+                        left: 100%;
+                    }
+                }
+            }
+        }
+
         .deployment-logo {
             position: absolute;
             top: 0;

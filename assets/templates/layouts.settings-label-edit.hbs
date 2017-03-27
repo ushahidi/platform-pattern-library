@@ -1,49 +1,53 @@
-{{> ModeBar }}
-
 <div class="mode-context">
-
     <header class="mode-context-header">
-        <ol class="breadcrumbs">
-            <li><a href="map.html">{{deployment.name}}</a></li>
-            <li><a href="settings.html">Settings</a></li>
-            <li><a href="settings-labels.html">Labels</a></li>
-        </ol>
+        <a href="timeline.html" class="mode-context-back button button-link">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_arrow_back_24px"></use>
+            </svg>
+            <span class="hidden">Back</span>
+        </a>
 
         <h1 class="mode-context-title">Edit label</h1>
+
+        <!--// SAVED //-->
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">Changes saved</span>
+            <span class="bug">Every change you make is automatically saved. Last saved 2 minutes ago.</span>
+        </span>
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
+        <!--// UNSAVED //
+        <span class="status-indicator error" data-message="failed-save">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            </svg>
+            <span class="label">Unsaved changes</span>
+        </span>
+        //-->
     </header>
-
-    <span class="mode-context-trigger">
-        <svg class="iconic">
-            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-        </svg>
-        <span class="label hidden">Show more/less</span>
-    </span>
-
-    <div class="mode-context-body">
-
-    </div>
 </div>
 
 <main role="main">
-
-    <div class="toolbar">
-        <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
-        </div>
-    </div>
 
     <div class="full-col">
 
         <div class="form-sheet">
             <div class="form-field title">
                 <label class="hidden">Name</label>
-                <input type="text" placeholder="Category name" value="Surface issues" />
+                <input type="text" placeholder="Untitled label" value="Surface issues" />
             </div>
 
             <div class="form-field">
                 <label>Description</label>
-                <textarea>Vestibulum faucibus efficitur erat. Mauris varius mollis consectetur. Ut et sem ut lacus rutrum dignissim.</textarea>
+                <textarea>Vestibulum faucibus efficitur erat.</textarea>
             </div>
 
             <fieldset class="custom-fieldset">
@@ -72,7 +76,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>Who can see this label?</legend>
+                <legend>Who can see this label</legend>
 
                 <div class="form-field radio icon-input">
                     <label for="survey-add_everyone">
@@ -115,15 +119,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="form-field radio icon-input">
+                    <label for="survey-add_nobody">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#ban"></use>
+                        </svg>
+                        <input type="radio" name="survey-add" id="survey-add_nobody" />
+                        <span class="label">Nobody</span>
+                    </label>
+                </div>
             </fieldset>
 
             <fieldset>
-                <legend>Which surveys use this label?</legend>
+                <legend>Which surveys use this label</legend>
 
                 {{#each deployment.surveys}}
                 <div class="form-field radio">
                     <label for="accessible-to-{{@index}}">
-                        <input type="checkbox" id="accessible-to-{{@index}}" />
+                        <input type="checkbox" id="accessible-to-{{@index}}" checked />
                         {{name}}
                     </label>
                 </div>

@@ -160,4 +160,27 @@
     {{mapEmbed 'all' true}}
 </main>
 
+<!--div id="drafts" class="message">
+    <div class="message-body">
+        <p>You have <strong><a href="">2 draft</a></strong> survey responses.</p>
+    </div>
+</div-->
+
 {{> Modals }}
+
+<div id="draft-success" class="message transient">
+    <div class="message-image confirmation">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#thumb-up"></use>
+        </svg>
+    </div>
+    <div class="message-body">
+        <p>Your draft was saved to your <em><a href="">Drafts</a></em> collection.</p>
+    </div>
+</div>
+
+<script>
+setTimeout(function() {
+    messageToggle($('#draft-success'), true);
+}, 1000);
+</script>
