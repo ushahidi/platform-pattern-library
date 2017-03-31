@@ -259,7 +259,7 @@
                 <div class="listing-item-secondary">
                     <button class="button-beta button-flat listing-item-toggle">
                         <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
                         </svg>
                         <span class="button-label">Configure</span>
                     </button>
@@ -298,35 +298,121 @@
                         <p>Separate each search term with commas.</p>
                     </div>
 
-                    <fieldset>
-                        <legend>Do you want imported tweets to be added to a survey?</legend>
-
-                        <div class="form-field radio">
-                            <label>
-                                <input type="radio" name="survey-assignment" id="survey-assign-no" />
-                                <strong>No</strong>, keep their survey "unknown" until someone determines which survey it belongs to.
-                            </label>
+                    <div class="form-field switch">
+                        <label>Import to survey</label>
+                        <div class="toggle-switch">
+                            <input class="tgl" id="import_to_survey" type="checkbox" data-fieldgroup-toggle="import_to_survey-survey" />
+                            <label class="tgl-btn" for="import_to_survey"></label>
                         </div>
 
-                        <div class="form-field radio">
-                            <label>
-                                <input type="radio" name="survey-assignment" id="survey-assign-yes" data-fieldgroup-toggle="survey-assignment" checked />
-                                <strong>Yes</strong><span data-fieldgroup-target="survey-assignment">, add them to...</span>
-                            </label>
-                            <div class="custom-select" data-fieldgroup-target="survey-assignment">
-                                <select>
-                                    <option>Getting around</option>
-                                    <option selected>Police encounters</option>
-                                    <option>Protester photos</option>
-                                    <option>Official events</option>
-                                </select>
-                            </div>
+                        <div data-fieldgroup-target="import_to_survey-survey">
+                            <p><em>All incoming tweets will be used to create responses to the survey you choose.</em></p>
+
+                            <fieldset class="custom-fieldset">
+                                <legend>Import to <span class="custom-fieldset-value">which survey?</span></legend>
+
+                                {{#each deployment.surveys}}
+                                <div class="form-field radio">
+                                    <input type="radio" id="import_to_survey-{{@index}}" name="import_to_survey-survey" data-fieldgroup-toggle="import_to_survey-fields" />
+                                    <label for="import_to_survey-{{@index}}">{{name}}</label>
+                                </div>
+                                {{/each}}
+                            </fieldset>
+
+                            <fieldset data-fieldgroup-target="import_to_survey-fields">
+                                <legend>Choose what should be assigned to each survey field</legend>
+                                <p>Each of the survey's fields are listed below. Choose the data from your tweets that you'd like to use to populate each of those fields.</p>
+
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Survey field</th>
+                                            <th>Tweet data</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="required">Title</span></td>
+                                            <td>
+                                                <div class="custom-select">
+                                                    <select>
+                                                        <option selected>Leave empty</option>
+                                                        <option>Date</option>
+                                                        <option>Location</option>
+                                                        <option>Author</option>
+                                                        <option>Body</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td><span class="required">Description</span></td>
+                                            <td>
+                                                <div class="custom-select">
+                                                    <select>
+                                                        <option selected>Leave empty</option>
+                                                        <option>Date</option>
+                                                        <option>Location</option>
+                                                        <option>Author</option>
+                                                        <option>Body</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>
+                                                <div class="custom-select">
+                                                    <select>
+                                                        <option selected>Leave empty</option>
+                                                        <option>Date</option>
+                                                        <option>Location</option>
+                                                        <option>Author</option>
+                                                        <option>Body</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Location</td>
+                                            <td>
+                                                <div class="custom-select">
+                                                    <select>
+                                                        <option selected>Leave empty</option>
+                                                        <option>Date</option>
+                                                        <option>Location</option>
+                                                        <option>Author</option>
+                                                        <option>Body</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Categories</td>
+                                            <td>
+                                                <div class="custom-select">
+                                                    <select>
+                                                        <option selected>Leave empty</option>
+                                                        <option>Date</option>
+                                                        <option>Location</option>
+                                                        <option>Author</option>
+                                                        <option>Body</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </fieldset>
                         </div>
-                    </fieldset>
+                    </div>
 
-                    <div class="divider"></div>
-
-                    <h3>Twitter configuration</h3>
+                    <h3 class="form-sheet-title section-title">Twitter configuration</h3>
                     <p>To connect Twitter to your deployment, you need to:</p>
                     <ol>
                         <li><a href="https://apps.twitter.com/app/new" target="_blank">Create a "Twitter Application."</a></li>
