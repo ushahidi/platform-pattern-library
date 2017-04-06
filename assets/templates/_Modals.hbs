@@ -104,6 +104,275 @@
     <div class="modal-overlay"></div>
 </div>
 
+<div id="filter_by" class="modal">
+    <div class="modal-window">
+        <button class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+
+        <h3 class="modal-title">
+            <svg class="iconic">
+                <use xlink:href="../../img/material/svg-sprite-content-symbol.svg#ic_filter_list_24px"></use>
+            </svg>
+            <span class="label">Filter by...</span>
+        </h3>
+
+        <div class="modal-body">
+            <fieldset>
+                <legend>Survey</legend>
+
+                {{#each deployment.surveys}}
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox">
+                        {{name}}
+                    </label>
+                </div>
+                {{/each}}
+
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Data Sources</legend>
+
+                <div class="form-field checkbox">
+                    <label for="sms">
+                        <input type="checkbox" id="sms" />
+                        SMS
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="email">
+                        <input type="checkbox" id="email" />
+                        Email
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="twitter">
+                        <input type="checkbox" id="twitter" />
+                        Twitter
+                    </label>
+                </div>
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Status</legend>
+
+                <div class="form-field checkbox icon-input">
+                    <label for="published">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <input type="checkbox" name="status" id="published" />
+                        Published
+                    </label>
+                </div>
+
+                {{#if user.logged_in}}
+                <div class="form-field checkbox icon-input">
+                    <label for="underreview">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <input type="checkbox" name="status" id="underreview" />
+                        Under review
+                    </label>
+                </div>
+                {{/if}}
+
+                <div class="form-field checkbox">
+                    <label for="archive">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                        </svg>
+                        <input type="checkbox" name="archive" id="archive" />
+                        Archive
+                    </label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Categories</legend>
+
+                <div class="form-field checkbox">
+                    <label for="speakers">
+                        <input type="checkbox" id="speakers" /> Surface issues
+                    </label>
+
+                    <div class="form-field checkbox">
+                        <label for="child_cat">
+                            <input type="checkbox" id="child_cat" /> Child category
+                        </label>
+                    </div>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="opposition">
+                        <input type="checkbox" id="opposition" /> Signage
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="obstructions">
+                        <input type="checkbox" id="obstructions" /> Obstructions
+                    </label>
+                </div>
+                <span class="form-field-toggle">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    More
+                </span>
+            </fieldset>
+
+            <fieldset>
+                <legend>Date range</legend>
+
+                <div class="form-field date">
+                    <label class="hidden">Start date</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                        </svg>
+                        <input type="date" placeholder="Start date" />
+                    </div>
+                </div>
+
+                <span class="date-joiner">to</span>
+
+                <div class="form-field date">
+                    <label class="hidden">End date</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                        </svg>
+                        <input type="date" placeholder="End date" />
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Location</legend>
+
+                <div class="form-field inline" style="max-width:66%;">
+                    <label class="hidden">Address</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#location"></use>
+                        </svg>
+                        <input type="text" placeholder="123 Main Street" />
+                    </div>
+                </div>
+
+                <div class="form-field inline">
+                    <label class="hidden">Range</label>
+                    <div class="custom-select">
+                        <select>
+                            <option>within 1 km</option>
+                            <option>within 10 km</option>
+                            <option>within 50 km</option>
+                        </select>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-link" disabled>Clear filters</button>
+                <button class="button-alpha" disabled>Apply filters</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="saved_searches" class="modal">
+    <div class="modal-window">
+        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+
+        <h3 class="modal-title">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#star"></use>
+            </svg>
+            <span class="label">Saved Searches</span>
+        </h3>
+
+        <div class="form-field">
+            <label class="hidden">Find a saved search</label>
+            <div class="input-with-icon">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                </svg>
+                <input type="search" placeholder="Find a saved search...">
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <div class="listing">
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="map-saved.html">Actions on Congress Avenue</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="map-saved.html">Photos</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="map-saved.html">Assigned to me</a></h2>
+                    </div>
+                </div>
+
+                <div class="listing-item">
+                    <div class="listing-item-primary">
+                        <h2 class="listing-item-title"><a href="map-saved.html">Attachments</a></h2>
+                        <p class="listing-item-secondary">by <a href="">Robbie MacKay</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button-beta">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Create new</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
 <div id="share" class="modal">
     <div class="modal-window">
         <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
@@ -189,16 +458,17 @@
             <span class="label">Collections</span>
         </h3>
 
-        <div class="modal-body">
-            <div class="form-field">
-                <label class="hidden">Find a Collection</label>
-                <div class="input-with-icon">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
-                    </svg>
-                    <input type="search" placeholder="Find a Collection...">
-                </div>
+        <div class="form-field">
+            <label class="hidden">Find a Collection</label>
+            <div class="input-with-icon">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
+                </svg>
+                <input type="search" placeholder="Find a Collection...">
             </div>
+        </div>
+
+        <div class="modal-body">
 
             <div class="listing">
 

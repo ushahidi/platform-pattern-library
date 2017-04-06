@@ -161,6 +161,39 @@
                 label {
                     margin-bottom: 0;
                 }
+
+                .form-field {
+
+                    &.checkbox,
+                    &.radio {
+                        margin-left: $sm-spacing;
+
+                        input[type="checkbox"],
+                        input[type="radio"] {
+                            left: -56px;
+                        }
+                    }
+                }
+
+                &:hover {
+
+                    .form-field {
+
+                        &.checkbox,
+                        &.radio {
+                            margin-left: $base-spacing;
+
+                            input[type="checkbox"],
+                            input[type="radio"] {
+                                left: -$base-spacing;
+                            }
+                        }
+
+                        &:hover {
+                            padding-left: 0;
+                        }
+                    }
+                }
             }
         }
 
@@ -272,6 +305,14 @@
                         input[type="radio"] {
                             left: -$tiny-spacing;
                         }
+                    }
+                }
+
+                .form-fieldgroup {
+                    display: none;
+
+                    &.active {
+                        display: block;
                     }
                 }
             }
