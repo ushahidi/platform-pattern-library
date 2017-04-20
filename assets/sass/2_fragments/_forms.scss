@@ -59,6 +59,44 @@ fieldset {
         margin-bottom: $tiny-spacing;
     }
 
+    .form-field-label_button {
+        float: right;
+        color: $color-primary-delta;
+        margin: -2px 0 0 $tiny-spacing;
+
+        @include media($small) {
+
+        }
+    }
+
+    .task {
+        float: left;
+        width: 30px;
+        height: 30px;
+        padding: 4px;
+        margin-top: -2px;
+        margin-right: $tiny-spacing;
+
+        .task-checkbox {
+            position: static;
+            border: none;
+            background-color: transparent;
+            padding: 0;
+
+            label {
+                width: 20px;
+                height: 20px;
+                margin-bottom: 0;
+
+                &:after {
+                    width: 10px;
+                	height: 6px;
+                    border-width: 2px;
+                }
+            }
+        }
+    }
+
     figure {
         margin-bottom: $sm-spacing;
     }
@@ -474,6 +512,7 @@ fieldset {
     &.inline,
     &.date {
         display: inline-table;
+        vertical-align: middle;
 
         input[type="text"] {
             display: inline-block;

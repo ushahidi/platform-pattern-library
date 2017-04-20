@@ -190,24 +190,6 @@
             }
         }
 
-/*
-        &.section-title {
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: -$sm-spacing;
-                right: 0;
-                left: $sm-spacing;
-                height: 1px;
-                background-color: $color-light-beta;
-
-                @include media($small) {
-                    left: 10%;
-                }
-            }
-        }
-*/
         .form-field {
             margin-right: 0;
             margin-left: 0;
@@ -223,7 +205,9 @@
             }
         }
 
-        &[draggable="true"] {
+        &[draggable="true"],
+        &.date,
+        &.time {
             display: block;
         }
 
@@ -264,7 +248,6 @@
 
     .form-sheet-actions {
         position: relative;
-//        text-align: right;
         border-top: 1px solid rgba(0,0,0,0.04);
         background-color: rgba(0,0,0,0.04);
         padding: $sm-spacing;
@@ -316,6 +299,11 @@
             margin: $sm-spacing auto;
         }
 
+        .task {
+            margin-top: -$sm-spacing;
+            margin-bottom: $base-spacing;
+        }
+
         &.contenteditable {
 
             &:hover {
@@ -363,6 +351,10 @@
     }
 
     .form-sheet-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        /*
         padding-right: $sm-spacing;
         padding-left: $sm-spacing;
 
@@ -370,14 +362,42 @@
             padding-right: $base-spacing;
             padding-left: $base-spacing;
         }
+        */
 
-        fieldset,
-        button,
-        .button {
+        .button-flat {
+            background-color: transparent;
+            @include no-shadow;
+        }
+
+        .dropdown-menu {
+            top: 0 !important;
+            left: auto !important;
+            margin-top: $tiny-spacing;
+            margin-left: -34px;
+
+            @include media($small) {
+                left: 100% !important;
+            }
+        }
+    }
+
+    .form-sheet-mark {
+        display: inline-block;
+        color: $color-dark-beta;
+        @include equal-radius;
+        background-color: $color-light-beta;
+        padding: $tiny-spacing $sm-spacing;
+        margin-top: -1px;
+
+        h1, h2, h3, p {
             display: inline-block;
-            vertical-align: middle;
-            line-height: normal;
-            margin: 0 $tiny-spacing 0 0;
+            font-weight: normal;
+            font-size: $base-font-size;
+        }
+
+        svg.iconic {
+            fill: $color-dark-alpha;
+            margin-left: $tiny-spacing;
         }
     }
 
@@ -428,6 +448,13 @@
         @include media($xlarge) {
             padding-right: 20%;
             padding-left: 20%;
+        }
+    }
+
+    .task {
+
+        .metadata {
+            padding: 0;
         }
     }
 

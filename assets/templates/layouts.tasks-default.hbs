@@ -1,0 +1,171 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        {{> Search }}
+
+        <div class="button-group">
+            <button>
+                <svg class="iconic">
+                    <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_view_column_24px"></use>
+                </svg>
+                <span class="button-label hide-until-medium">Edit columns</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-col">
+
+        <div class="toolbox hide-until-small">
+            <div class="tool">
+                <h6 class="tool-heading">Assigned to</h6>
+
+                <div class="toggle-content active">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value"></span></legend>
+
+                        <div class="form-field radio">
+                            <label for="assigned-you">
+                                <input type="radio" name="assigned" id="assigned-you" />
+                                You
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="assigned-anybody">
+                                <input checked type="radio" name="assigned" id="assigned-anybody" />
+                                Anybody
+                            </label>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="form-field">
+                            <a href="" data-modal="users">Specific person...</a>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="tool">
+                <h6 class="tool-heading">Sort by</h6>
+
+                <span class="tool-trigger" data-toggle="toggle-content">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    <span class="label hidden">Show/hide</span>
+                </span>
+
+                <div class="toggle-content active">
+                    <fieldset>
+                        <legend class="hidden">Sort by</legend>
+
+                        <div class="form-field radio">
+                            <label for="sortby-responsedate">
+                                <input checked type="radio" name="sortby" id="sortby-responsedate">
+                                Response date
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="sortby-duedate">
+                                <input type="radio" name="sortby" id="sortby-duedate">
+                                Due date
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="sortby-proximity">
+                                <input type="radio" name="sortby" id="sortby-proximity">
+                                Proximity to your current location
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            <div class="tool">
+                <h6 class="tool-heading">Task status</h6>
+
+                <span class="tool-trigger" data-toggle="toggle-content">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    <span class="label hidden">Show/hide</span>
+                </span>
+
+                <div class="toggle-content">
+                    <fieldset>
+                        <legend class="hidden">Task status</legend>
+
+                        <div class="form-field checkbox">
+                            <label for="incomplete">
+                                <input checked type="checkbox" id="incomplete">
+                                Incomplete
+                            </label>
+                        </div>
+
+                        <div class="form-field checkbox">
+                            <label for="complete">
+                                <input type="checkbox" id="complete" />
+                                Complete
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+            {{> toolStatus}}
+        </div>
+
+        <div class="lanes">
+
+            <div class="lane">
+                <h2 class="lane-heading">To-do</h2>
+
+                <div class="lane-body listing tasks">
+                    {{#each deployment.responses}}
+                        {{> Postcard checkbox=false show_tasks=true editable=true}}
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="lane-holder">
+                <button class="button-beta button-flat button-plain" data-toggle="dropdown-menu">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Add column</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

@@ -25,10 +25,11 @@ var modalYpos = function(modalContext) {
         modalWindow = $(modalContext).find('.modal-window'),
         modalBody = $(modalContext).find('.modal-body');
 
+/*
     if (windowYpos > 0) {
         modalWindow.css('top', windowYpos + 40);
     }
-
+*/
     setTimeout(function() {
         modalBody.css({
             'max-height' : maxHeight,

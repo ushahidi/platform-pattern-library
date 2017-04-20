@@ -208,7 +208,9 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
     var fieldType = session.deployment.surveys[surveyIndex].fields[fieldIndex].type.control,
         fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
         fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon,
-        fieldOptions = session.deployment.surveys[surveyIndex].fields[fieldIndex].options;
+        fieldOptions = session.deployment.surveys[surveyIndex].fields[fieldIndex].options,
+        fieldActions = '<button class="button-link button-plain form-field-label_button" data-modal="task-add"><svg class="iconic"><use xlink:href="../../img/iconic-sprite.svg#task"></use></svg><span class="hide-until-medium button-label">Add task</span></button>',
+        fieldTask = '<div class="task-checkbox"><input type="checkbox" id="task-'+fieldIndex+'-done" /><label for="task-'+fieldIndex+'-done">Mark task complete</label></div>';
 
 /*
     console.log({
@@ -221,11 +223,23 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
 
     if (fieldType == 'text') {
         return new Handlebars.SafeString(
-            '<div class="form-field"><label>'+fieldLabel+'</label><input type="text" value="'+value+'" /></div>'
+            '<div class="form-field">' + fieldActions + '<label>'+fieldLabel+'</label><input type="text" value="'+value+'" /></div>'
         );
     } else if (fieldType == 'textarea') {
         return new Handlebars.SafeString(
-            '<div class="form-field"><label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea></div>'
+            '<div class="form-field task">' + fieldTask + '<label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea> \
+            <p class="metadata">Assigned to \
+            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/daudi.png" class="avatar" /> \
+            <strong class="label">Daudi Were</strong></p> \
+            <div class="task-actions"> \
+                <button class="button-gamma button-plain" data-toggle="dropdown-menu"> \
+                    <svg class="iconic"> \
+                      <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use> \
+                    </svg> \
+                    <span class="hidden">More</span> \
+                </button> \
+            </div> \
+            </div>'
         );
     } else if (fieldType == 'select') {
         var optionElems = '';
@@ -236,7 +250,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         }
 
         return new Handlebars.SafeString(
-            '<div class="form-field"><label>'+fieldLabel+'</label> \
+            '<div class="form-field">' + fieldActions + '<label>'+fieldLabel+'</label> \
                 <div class="custom-select"> \
                     <select>' + optionElems + '</select> \
                 </div> \
@@ -258,14 +272,14 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         }
 
         return new Handlebars.SafeString(
-            '<fieldset> \
+            '<fieldset>' + fieldActions + ' \
                 <legend>' + fieldLabel + '</legend>'
                 + optionElems +
             '</fieldset>'
         );
     } else if (fieldType == 'time' || fieldType == 'date') {
         return new Handlebars.SafeString(
-            '<div class="form-field ' + fieldType + '"> \
+            '<div class="form-field ' + fieldType + '">' + fieldActions + ' \
                 <label>'+fieldLabel+'</label> \
                 <div class="input-with-icon"> \
                     <svg class="iconic" style="margin-right:4px;"> \
@@ -277,7 +291,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         );
     } else if (fieldType == 'file') {
         return new Handlebars.SafeString(
-            '<div class="form-field file"> \
+            '<div class="form-field file">' + fieldActions + ' \
                 <label>' + fieldLabel + '</label> \
                 <figure> \
                     <img src="' + value + '" /> \
@@ -301,7 +315,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         );
     } else if (fieldType == 'location') {
         return new Handlebars.SafeString(
-            '<div class="form-field location"> \
+            '<div class="form-field location">' + fieldActions + ' \
                 <label>' + fieldLabel + '</label> \
                 <div class="location-wrapper"> \
                     <div id="map" data-post-index="' + postIndex + '" class="map"></div> \

@@ -182,18 +182,52 @@
 
         <div class="form-sheet">
             <header class="form-sheet-summary">
-                <h1 class="form-sheet-title section-title">Verify</h1>
+                <h1 class="form-sheet-title section-title">Review</h1>
             </header>
-
-            <div class="form-field">
-                <label>Source</label>
-                <input type="text" value="Jane Doe" />
-            </div>
 
             <div class="form-field">
                 <label>Notes</label>
                 <textarea>Confirmed damage on April 1, 2017.</textarea>
             </div>
+
+            <div class="form-field task">
+                <div class="task-checkbox">
+                    <input type="checkbox" id="task-10-done" />
+                    <label for="task-10-done">Complete Section 1</label>
+                </div>
+
+                <label for="task-10-done">Complete <em>Review</em></label>
+
+                <p class="metadata">Assigned to <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/daudi.png" class="avatar" /> <strong class="label">Daudi Were</strong></p>
+
+                <div class="task-actions">
+                    <button class="button-gamma button-plain" data-toggle="dropdown-menu">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                        </svg>
+                        <span class="hidden">More</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                </svg>
+                                <span class="label">Change assignee</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                                </svg>
+                                <span class="label">Remove task</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -286,8 +320,21 @@
     </div>
 </div>
 
-<!--script>
-setTimeout(function() {
-    messageToggle($('#required'), true);
-}, 1000);
-</script-->
+<div class="mainsheet" data-toggle-target="field-actions" data-toggle-animate>
+    <div class="mainsheet-window">
+        <h3 class="mainsheet-heading">Describe the problem</h3>
+
+        <ul>
+            <li>
+                <a href="" data-modal="task-add">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                    </svg>
+                    <span class="label">Add task</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="mainsheet-overlay"></div>
+</div>

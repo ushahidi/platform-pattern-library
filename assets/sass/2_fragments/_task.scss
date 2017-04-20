@@ -1,70 +1,137 @@
 .task {
     position: relative;
-    @include clearfix;
-    border-top: $base-border;
-    padding-top: $sm-spacing;
-    padding-bottom: $sm-spacing;
+    @include equal-radius;
+    border: 1px solid $color-light-beta;
+    background-color: $color-light-gamma;
+    padding: 1px;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 4px;
+        background: repeating-linear-gradient(
+            45deg,
+            $color-secondary,
+            $color-secondary 10px,
+            #ffe9b4 10px,
+            #ffe9b4 20px
+        );
+    }
 
 /*
-    &:last-child {
-        border-bottom: none;
+    .task-label {
+        display: block;
+        font-size: 16px;
+        font-size: 1.142857143rem;
+        padding-left: 76px;
+        margin-top: $sm-spacing;
+        margin-bottom: $sm-spacing;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 56px;
+            width: 1px;
+            background-color: $color-light-beta;
+        }
+
+        + .metadata {
+            margin-top: -$tiny-spacing;
+        }
     }
 */
 
-    .task-title {
-        float: left;
-        width: 50%;
-        color: $color-dark-alpha;
-        font-size: 14px;
-        font-size: 1rem;
-        font-weight: $bold;
-        line-height: 1.2;
+    .task-definition {
+        color: $color-dark-gamma;
+        font-size: 16px;
+        font-size: 1.142857143rem;
+        padding-left: 76px;
+        margin-top: $sm-spacing;
+        margin-bottom: $sm-spacing;
 
-        @include media($mobile) {
-            width: 100px;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 56px;
+            width: 1px;
+            background-color: $color-light-beta;
         }
 
-        .status-indicator {
-            top: -1px;
-            width: $tiny-spacing;
-            min-width: initial;
-            height: $tiny-spacing;
-            margin-right: $tiny-spacing;
+        strong {
+            color: $color-dark-alpha;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        select {
+            height: $base-spacing;
+            line-height: 1;
+            padding-top: 4px;
+            padding-bottom: 4px;
         }
     }
 
-    &.disabled {
+    .task-checkbox {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        padding: $sm-spacing;
 
-        .task-title {
-            color: $color-dark-delta;
+        input[type="checkbox"] {
+            display: none;
 
-            &:hover {
-                cursor: not-allowed;
+            &:checked + label {
+                border-color: $color-primary-beta;
+                background-color: $color-primary-gamma;
+
+                &:after {
+                    opacity: 1;
+                    content: '';
+                }
+            }
+
+            &:disabled + label {
+                cursor: auto;
+                background-color: transparent;
+                @include no-shadow;
             }
         }
-    }
-
-    &.complete {
-
-        .task-title {
-            color: $color-dark-delta;
-            font-weight: normal;
-            text-decoration: line-through;
-        }
-
-        .task-body {
-            display: none;
-        }
-    }
-
-/*
-    .task-checkbox {
-        padding-right: 60px;
 
         label {
-            color: $color-primary;
-            font-weight: $bold;
-            margin-bottom: 0;
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+            width: $base-spacing;
+            height: $base-spacing;
+            overflow: hidden;
+            text-indent: -9999px;
+            @include equal-radius;
+            border: 1px solid $color-light-beta;
+            background-color: $color-light-delta;
+            @include box-shadow(0px, 0px, 3px, 0, rgba(0,0,0,.16), true);
+
+            &:after {
+                opacity: 0.2;
+            	content: none;
+            	position: absolute;
+            	width: 14px;
+            	height: 8px;
+            	background: transparent;
+            	top: 5px;
+            	left: 4px;
+            	border: 3px solid $color-secondary;
+            	border-top: none;
+            	border-right: none;
+            	transform: rotate(-45deg);
+            }
         }
 
         &.checkbox {
@@ -86,91 +153,98 @@
             }
         }
     }
-*/
-    .task-body {
-        clear: both;
-        font-size: .857142857em;
-        padding-top: 1px;
 
-        p {
-            margin: $tiny-spacing 0;
+    .task-actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: $body;
+
+        button,
+        .button {
+            background-color: transparent;
+            padding: 4px $tiny-spacing;
+            margin-right: 0;
+            @include no-shadow;
         }
 
-        fieldset {
-            border-left: none;
-            padding-left: 0;
+        .dropdown-menu {
+            top: 4px !important;
+            right: 4px;
+            left: auto !important;
+        }
+    }
+
+    .metadata {
+        font-style: normal;
+        margin-left: 76px;
+        margin-bottom: $sm-spacing;
+
+        li {
+            margin-bottom: 0;
         }
 
-        .custom-fieldset {
+        .chip {
+            vertical-align: baseline;
+            background-color: $color-light-delta;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+    }
 
-            &.init {
+    &.checked {
+        background-color: transparent;
 
-                legend {
-                    padding-right: 25px;
+        &:before {
+            content: none;
+        }
 
-                    svg.iconic {
+        label,
+        .task-definition,
+        .task-definition * {
+            text-decoration: line-through;
+        }
 
-                        &.chevron {
-                            right: $tiny-spacing;
-                        }
-                    }
-                }
+        label {
+
+            &:before {
+                background-color: $color-light-gamma;
             }
         }
     }
 
-    .task-actions {
-        float: right;
-        margin-top: -5px;
-/*
-        position: absolute;
-        z-index: $body;
-        top: $sm-spacing;
-        right: 0;
-*/
+    &.form-field,
+    &.postcard-field {
+        padding-top: $sm-spacing;
+        padding-right: $lg-spacing;
+        padding-bottom: $sm-spacing;
+        padding-left: 76px;
 
-        .avatar {
-            display: inline-block;
-            vertical-align: middle;
-            width: $base-spacing;
-            height: $base-spacing;
-        }
+        .task-checkbox {
 
-        .status-indicator {
-            display: block;
-            position: absolute;
-            width: 16px;
-            height: 16px;
-            text-align: center;
-            margin-top: -28px;
-            margin-left: 15px;
-
-            svg.iconic {
-                width: 10px;
-                height: 10px;
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 56px;
+                width: 1px;
+                background-color: $color-light-beta;
             }
         }
 
-        button,
-        .button {
-            display: inline-block;
-            vertical-align: middle;
-            height: $base-spacing;
-            @include no-shadow;
-            padding: 0 $tiny-spacing;
-            margin: 0 4px;
+        .metadata {
+            margin: 0;
+            margin-top: $tiny-spacing;
         }
+    }
 
-        .dropdown-menu {
-            z-index: $dropdown;
-            top: 0 !important;
-            right: 0 !important;
-        }
+    &.form-field {
 
-        .tooltip {
+        label {
 
-            .bug {
-                right: 100%;
+            + .metadata {
+                margin-top: -$tiny-spacing;
             }
         }
     }

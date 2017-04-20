@@ -187,6 +187,17 @@
                 margin-right: 230px;
                 // margin-right: 32%;
             }
+
+            .lanes {
+
+                @include media($small) {
+                    right: 238px;
+                }
+
+                @include media($medium) {
+                    right: 246px;
+                }
+            }
         }
 
         .main-col,
@@ -209,6 +220,23 @@
                         height: $lg-spacing;
                     }
                 }
+            }
+        }
+
+        .lanes {
+
+            @include media($small) {
+                position: fixed;
+                right: 0;
+                bottom: 45px;
+                left: 0;
+                overflow: hidden;
+                overflow-x: scroll;
+            }
+
+            @include media($medium) {
+                bottom: 0;
+                left: 288px;
             }
         }
 
@@ -593,18 +621,23 @@
         display: none;
 
         .modal-window {
-            position: absolute;
+            position: fixed;
             z-index: $modal + 1;
             opacity: 0;
-            width: 90%;
-            left: 5%;
-            top: $base-spacing;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
             margin-top: -999px;
-            margin-bottom: $base-spacing;
             @include transition(all 0.35s);
 
-            @include media($small) {
+            @include media($mobile-down) {
+                @include equal-radius(0px);
+            }
+
+            @include media($mobile) {
                 top: 8%;
+                bottom: auto;
                 left: 50%;
                 width: 480px;
                 margin-left: -240px;

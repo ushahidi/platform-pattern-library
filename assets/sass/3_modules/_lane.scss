@@ -1,0 +1,265 @@
+.lane {
+
+    .postcard {
+
+        .postcard-field {
+
+            &.task {
+                padding-left: 56px;
+
+                .task-checkbox {
+
+                    &:before {
+                        left: 45px;
+                    }
+
+                    label {
+                        width: 16px;
+                        height: 16px;
+
+                        &:after {
+                            top: 3px;
+                            left: 2px;
+                            width: 10px;
+                            height: 6px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .form-field,
+    fieldset {
+        margin: $base-spacing $sm-spacing;
+
+        @include media($medium) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+    .form-field {
+
+        &.title {
+
+            input[type="text"] {
+                font-size: 20px;
+                padding: $tiny-spacing $sm-spacing;
+            }
+        }
+    }
+
+    .buttons-leftright {
+        display: flex;
+        justify-content: space-between;
+        margin: $sm-spacing;
+
+        @include media($small) {
+            margin-bottom: 0;
+        }
+
+        @include media($medium) {
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+}
+
+.lane-heading {
+    display: block;
+    color: $color-dark-alpha;
+    font-weight: 600;
+    font-size: 20px;
+    font-size: 1.428571429rem;
+}
+
+.lanes {
+
+    @include media($small) {
+        display: flex;
+    }
+
+    .lane {
+
+        @include media($small-down) {
+            border-bottom: 4px solid $color-tertiary;
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+
+        @include media($small) {
+            position: relative;
+            flex-grow: 2;
+            min-width: 280px;
+            max-width: 575px;
+            border-right: 4px solid $color-tertiary;
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+
+        .lane-heading,
+        .lane-footer {
+
+            @include media($small) {
+                position: absolute;
+                right: 0;
+                left: 0;
+                z-index: $map;
+                padding: $sm-spacing;
+                margin: 0;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-color: $color-light-gamma;
+                    -webkit-filter: blur(10px);
+                    -moz-filter: blur(10px);
+                    -o-filter: blur(10px);
+                    -ms-filter: blur(10px);
+                    filter: blur(10px);
+                    opacity: 0.9;
+                }
+            }
+
+            @include media($medium) {
+                padding: $base-spacing;
+            }
+        }
+
+        .lane-heading {
+            margin: $base-spacing $sm-spacing;
+
+            @include media($small) {
+                top: 0;
+                max-height: 52px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                margin: 0;
+            }
+
+            @include media($medium) {
+                max-height: 68px;
+            }
+
+            + .lane-body {
+
+                @include media($small) {
+                    padding-top: 36px;
+                }
+
+                @include media($medium) {
+                    padding-top: 52px;
+                }
+            }
+        }
+
+        .lane-footer {
+
+            @include media($small) {
+                display: block;
+                bottom: 0;
+                text-align: center;
+            }
+        }
+
+        .lane-body {
+
+            @include media($small) {
+                overflow-y: auto;
+            }
+
+            @include media($medium) {
+                padding-right: $base-spacing;
+                padding-left: $base-spacing;
+            }
+        }
+
+        &.collapsed {
+
+            @include media($small) {
+                flex-grow: 1;
+                min-width: inherit;
+                max-width: 56px;
+                width: 56px;
+
+                &:last-child {
+                    border-right: 4px solid $color-tertiary;
+                }
+            }
+
+            .lane-heading {
+
+                a {
+                    color: $color-primary-epsilon;
+                }
+
+                @include media($small) {
+                    max-height: none;
+                    color: $color-dark-delta;
+                    font-weight: normal;
+                    padding: $sm-spacing 13px;
+                    transform: rotate(180deg);
+                    writing-mode: vertical-lr;
+                    -webkit-writing-mode: vertical-lr;
+                    -moz-writing-mode: vertical-lr;
+                    -ms-writing-mode: tb-lr;
+                }
+
+                @include media($medium) {
+                    padding-top: $base-spacing;
+                    padding-bottom: $base-spacing;
+                }
+            }
+
+            .lane-body {
+                display: none;
+            }
+        }
+    }
+
+    .lane-holder {
+        text-align: center;
+        padding: $sm-spacing;
+
+        @include media($small) {
+            flex-grow: 1;
+            min-width: 160px;
+        }
+
+        @include media($medium) {
+            padding: $base-spacing;
+        }
+
+        button,
+        .button {
+
+            svg.iconic {
+                display: block;
+                margin: 4px auto;
+
+                + .button-label {
+                    margin: 0 auto;
+                }
+            }
+
+            &.button-link {
+                color: $color-primary-delta;
+
+                svg.iconic {
+                    fill: $color-primary-delta;
+                }
+            }
+        }
+    }
+}
