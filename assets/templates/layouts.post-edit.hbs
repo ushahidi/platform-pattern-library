@@ -40,9 +40,34 @@
 {{#postFromHash}}
 <main role="main">
 
-    <div class="{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}-col">
+    <div class="main-col">
 
-        <div class="form-sheet" role="article">
+        <div class="toolbox">
+            <div class="tool">
+                <div class="listing">
+                    <h3 class="listing-heading">
+                        <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                            </svg>
+                        Tasks
+                    </h3>
+
+                    <div class="listing-item checked">
+                        <div class="listing-item-primary">
+                            <h4 class="listing-item-title"><a href="#field-0">Categories</a></h4>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h4 class="listing-item-title"><a href="#section-0">Report to department</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="form-sheet" role="article">
             {{postBand}}
 
             <header class="form-sheet-summary">
@@ -118,11 +143,11 @@
                 {{formField ../properties.survey 0 @index value}}
             {{/each}}
 
-            <fieldset>
-                <legend>Labels</legend>
+            <fieldset draggable="auto">
+                <legend>Categories</legend>
 
                 <div class="form-field checkbox">
-                    <label for="cat1"><input type="checkbox" id="cat1">Surface issues</label>
+                    <label for="cat1"><input type="checkbox" id="cat1" checked>Surface issues</label>
                 </div>
                 <div class="form-field checkbox">
                     <label for="cat2"><input type="checkbox" id="cat2">Signage</label>
@@ -150,10 +175,47 @@
                     </button>
                 </div>
                 <div class="form-field">
-                    <a data-toggle="add-label">+ Add new label</a>
+                    <a data-toggle="add-label">+ Add new category</a>
+                </div>
+
+                <div class="toolbox">
+                    <div class="tool">
+                        <div class="tool-actions">
+                            <button class="button-link" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_more_vert_24px"></use>
+                                </svg>
+                                <span class="hidden">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                        </svg>
+                                        <span class="label">Change assignee</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                                        </svg>
+                                        <span class="label">Remove task</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form-field checkbox task">
+                            <label for="task-field-x"><strong>Complete this field</strong></label>
+                            <input type="checkbox" checked id="task-field-x" />
+                            <p class="metadata">Completed by <br/ ><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/hazel.jpg" class="avatar" /> <strong class="label">Hazel Mugo</strong></p>
+                        </div>
+                    </div>
                 </div>
             </fieldset>
-        </div>
+        </section>
 
         {{#ifPostIsDataSource}}
         <div class="toolbox">
@@ -180,124 +242,74 @@
         </div>
         {{/ifPostIsDataSource}}
 
-        <div class="form-sheet">
+        <section class="form-sheet" draggable="auto">
+            {{postBand}}
+
             <header class="form-sheet-summary">
-                <h1 class="form-sheet-title section-title">Review</h1>
+                <h1 class="form-sheet-title section-title">Report to department</h1>
+
+                <div class="toolbox">
+                    <div class="tool">
+                        <div class="tool-actions">
+                            <button class="button-link" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_more_vert_24px"></use>
+                                </svg>
+                                <span class="hidden">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                        </svg>
+                                        <span class="label">Change assignee</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                                        </svg>
+                                        <span class="label">Remove task</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form-field checkbox task">
+                            <label for="task-section-x"><strong>Complete this section</strong></label>
+                            <input type="checkbox" id="task-section-x" />
+                            <p class="metadata">Assigned to <br/ ><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/david-m.png" class="avatar" /> <strong class="label">David McNamara</strong></p>
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <div class="form-field">
-                <label>Notes</label>
-                <textarea>Confirmed damage on April 1, 2017.</textarea>
-            </div>
-
-            <div class="form-field task">
-                <div class="task-checkbox">
-                    <input type="checkbox" id="task-10-done" />
-                    <label for="task-10-done">Complete Section 1</label>
-                </div>
-
-                <label for="task-10-done">Complete <em>Review</em></label>
-
-                <p class="metadata">Assigned to <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/daudi.png" class="avatar" /> <strong class="label">Daudi Were</strong></p>
-
-                <div class="task-actions">
-                    <button class="button-gamma button-plain" data-toggle="dropdown-menu">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                        </svg>
-                        <span class="hidden">More</span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <a href="">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                                </svg>
-                                <span class="label">Change assignee</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
-                                </svg>
-                                <span class="label">Remove task</span>
-                            </a>
-                        </li>
-                    </ul>
+                <label>Department</label>
+                <div class="custom-select">
+                    <select>
+                        <option>City Council</option>
+                        <option>Austin Department of Transportation</option>
+                        <option>Austin Parks and Recreation</option>
+                    </select>
                 </div>
             </div>
 
-        </div>
-
-    </div>
-
-</main>
-
-{{#each tasks}}
-<div id="task-{{@index}}" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title {{#if complete}}complete{{/if}}">{{taskInfo "name" 0 @index}}</h3>
-
-        <div class="form-field">
-            {{#if disabled}}
-                <p><em>This task can't be completed until "Verify" is completed.</em></p>
-            {{else}}
-                {{taskInfo "description" 0 @index}}
-            {{/if}}
-        </div>
-
-        <div class="modal-body">
             <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-
-            <div class="form-field required">
-                <label>Police officer</label>
+                <label>Representative</label>
                 <input type="text" />
             </div>
 
-            <div class="form-field required">
+            <div class="form-field">
                 <label>Case number</label>
                 <input type="number" />
             </div>
-
-            <div class="form-field">
-                <label>Notes</label>
-                <textarea></textarea>
-            </div>
-
-
-
-
-            <div class="form-field switch">
-                <label>
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
-                    </svg>
-                    Mark this task {{#unless complete}}in{{/unless}}complete
-                </label>
-                <div class="toggle-switch">
-                    <input {{#if complete}}checked{{/if}} class="tgl" id="task-{{@index}}-complete" type="checkbox">
-                    <label class="tgl-btn" for="task-{{@index}}-complete"></label>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal-actions">
-            <div class="form-field">
-                <button class="button-beta button-flat modal-trigger">Cancel</button>
-                <button class="button-alpha modal-trigger">Done</button>
-            </div>
-        </div>
+        </section>
     </div>
 
-    <div class="modal-overlay"></div>
-</div>
-{{/each}}
-
+</main>
 {{/postFromHash}}
 
 {{> Modals }}
@@ -318,23 +330,4 @@
             Dismiss
         </button>
     </div>
-</div>
-
-<div class="mainsheet" data-toggle-target="field-actions" data-toggle-animate>
-    <div class="mainsheet-window">
-        <h3 class="mainsheet-heading">Describe the problem</h3>
-
-        <ul>
-            <li>
-                <a href="" data-modal="task-add">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#task"></use>
-                    </svg>
-                    <span class="label">Add task</span>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-    <div class="mainsheet-overlay"></div>
 </div>

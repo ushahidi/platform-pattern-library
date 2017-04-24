@@ -2,7 +2,32 @@
 
     .postcard {
 
+        .postcard-title {
+            color: $color-dark-gamma;
+            font-size: 14px;
+            font-size: 1rem;
+        }
+
         .postcard-field {
+
+            .metadata {
+
+                .status-indicator {
+
+                    .label {
+                        display: none;
+                    }
+                }
+            }
+
+            &.select {
+
+                .form-label {
+                    color: $color-dark-gamma;
+                    font-size: 14px;
+                    font-size: 1rem;
+                }
+            }
 
             &.task {
                 padding-left: 56px;
@@ -72,6 +97,16 @@
     font-weight: 600;
     font-size: 20px;
     font-size: 1.428571429rem;
+
+    .status-indicator {
+        background-color: $color-light-beta;
+        margin-right: $tiny-spacing;
+        margin-left: $tiny-spacing;
+
+        .label {
+            margin-top: -4px;
+        }
+    }
 }
 
 .lanes {
@@ -93,7 +128,7 @@
         @include media($small) {
             position: relative;
             flex-grow: 2;
-            min-width: 280px;
+            min-width: 360px;
             max-width: 575px;
             border-right: 4px solid $color-tertiary;
 
@@ -235,6 +270,7 @@
         @include media($small) {
             flex-grow: 1;
             min-width: 160px;
+            max-width: 160px;
         }
 
         @include media($medium) {

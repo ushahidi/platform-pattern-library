@@ -209,9 +209,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
         fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon,
         fieldOptions = session.deployment.surveys[surveyIndex].fields[fieldIndex].options,
-        fieldActions = '<button class="button-link button-plain form-field-label_button" data-modal="task-add"><svg class="iconic"><use xlink:href="../../img/iconic-sprite.svg#task"></use></svg><span class="hide-until-medium button-label">Add task</span></button>',
-        fieldTask = '<div class="task-checkbox"><input type="checkbox" id="task-'+fieldIndex+'-done" /><label for="task-'+fieldIndex+'-done">Mark task complete</label></div>';
-
+        fieldActions = '<button class="button-link button-plain form-field-label_button" data-modal="task-add"><svg class="iconic"><use xlink:href="../../img/iconic-sprite.svg#task"></use></svg><span class="hide-until-medium button-label">Add task</span></button>';
 /*
     console.log({
         "survey" : surveyIndex,
@@ -227,18 +225,8 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         );
     } else if (fieldType == 'textarea') {
         return new Handlebars.SafeString(
-            '<div class="form-field task">' + fieldTask + '<label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea> \
-            <p class="metadata">Assigned to \
-            <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/daudi.png" class="avatar" /> \
-            <strong class="label">Daudi Were</strong></p> \
-            <div class="task-actions"> \
-                <button class="button-gamma button-plain" data-toggle="dropdown-menu"> \
-                    <svg class="iconic"> \
-                      <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use> \
-                    </svg> \
-                    <span class="hidden">More</span> \
-                </button> \
-            </div> \
+            '<div class="form-field"> \
+            <label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea> \
             </div>'
         );
     } else if (fieldType == 'select') {

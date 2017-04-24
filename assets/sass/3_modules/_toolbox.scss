@@ -1,5 +1,6 @@
 .toolbox {
     @include containerSheet;
+    @include transition(0.3s);
 
     &:before,
     &:after {
@@ -9,7 +10,7 @@
     }
 
     .toolbox-heading {
-        @include typeBase;
+        @include typeGamma;
         margin-top: $tiny-spacing;
         margin-bottom: $tiny-spacing;
     }
@@ -40,7 +41,6 @@
 
     .tool {
         margin: $sm-spacing;
-        margin-bottom: $base-spacing;
 
         .tool-heading {
             color: $color-dark-delta;
@@ -57,9 +57,27 @@
         > .form-field {
             margin: $sm-spacing 0;
         }
+
+        .task {
+
+            &:before {
+                top: -$sm-spacing;
+                bottom: -$sm-spacing;
+                left: -$sm-spacing;
+            }
+        }
     }
 
     .listing {
+
+        .listing-heading {
+            font-size: 20px;
+            font-size: 1.428571429rem;
+
+            + .listing-item {
+                margin-top: $sm-spacing;
+            }
+        }
 
         .listing-item {
 

@@ -1,0 +1,98 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        {{> Search }}
+
+        <div class="button-group">
+            <button>
+                <svg class="iconic">
+                    <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_view_column_24px"></use>
+                </svg>
+                <span class="button-label hide-until-medium">Edit columns</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="full-col">
+
+        <div class="lanes">
+
+            <div class="lane">
+                <h2 class="lane-heading"><a href="">Review</a> <span class="status-indicator"><span class="label">16</span></span></h2>
+
+                <div class="lane-body listing">
+                    {{#each deployment.responses}}
+                        {{> Postcard checkbox=false show_tasks=false editable=false draggable=true}}
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="lane">
+                <h2 class="lane-heading"><a href="workflow-column.html">Investigate</a> <span class="status-indicator"><span class="label">9</span></span></h2>
+
+                <div class="lane-body listing">
+                    {{#each deployment.responses}}
+                        {{> Postcard checkbox=false show_tasks=false editable=false draggable=true}}
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="lane">
+                <h2 class="lane-heading"><a href="">Contact department</a> <span class="status-indicator"><span class="label">5</span></span></h2>
+
+                <div class="lane-body listing">
+                    {{#each deployment.responses}}
+                        {{> Postcard checkbox=false show_tasks=false editable=false draggable=true}}
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="lane">
+                <h2 class="lane-heading"><a href="">Resolved</a> <span class="status-indicator"><span class="label">45</span></span></h2>
+
+                <div class="lane-body listing">
+                    {{#each deployment.responses}}
+                        {{> Postcard checkbox=false show_tasks=false editable=false draggable=true}}
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="lane-holder">
+                <button class="button-beta button-flat button-plain" data-toggle="dropdown-menu">
+                    <svg class="iconic">
+                      <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                    </svg>
+                    <span class="button-label">Add column</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

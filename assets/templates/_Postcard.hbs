@@ -1,4 +1,4 @@
-<article class="postcard">
+<article class="postcard" {{#ifCond draggable true}}draggable="true"{{/ifCond}}>
     {{postBand}}
 
     {{#ifCond checkbox true}}
@@ -10,10 +10,10 @@
         <div class="postcard-field task">
             <div class="task-checkbox">
                 <input type="checkbox" id="task-{{@index}}-done" disabled />
-                <label for="task-{{@index}}-done">Complete <em>Review</em></label>
+                <label for="task-{{@index}}-done">Report to department</label>
             </div>
 
-            <label for="task-{{@index}}-done"><a href="post-edit.html#0">Complete <em>Review</em></a></label>
+            <label for="task-{{@index}}-done"><a href="post-edit.html#0">Report to department</a></label>
 
             <p class="metadata"><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/daudi.png" class="avatar" /> <strong class="label">Daudi Were</strong></p>
 
@@ -158,9 +158,7 @@
             {{#ifCond show_tasks true}}
 
                 {{#each-limit answers 1}}
-                    <div class="postcard-title">
-                        {{postcardField ../properties.survey @../index 0 true}}
-                    </div>
+                    {{postcardField ../properties.survey @../index 0 true}}
                 {{/each-limit}}
 
             {{else}}

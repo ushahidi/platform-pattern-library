@@ -461,19 +461,63 @@
         .postcard[role="article"] {
             margin-bottom: $base-spacing;
 
-            @include media($small-down) {
+            .toolbox {
 
-                .toolbox {
-                    display: block;
+                @include media($small) {
+                    position: relative;
+                    top: 0;
+                    right: 0;
+                }
+
+                @include media($medium) {
+                    position: absolute;
+                    top: -12px;
+                    right: 100%;
+                    z-index: $body;
+                    width: 30px;
+                    height: 50px;
+                    overflow: hidden;
+                    border: none;
+                    margin-right: $base-spacing;
+                    @include no-shadow;
+
+                    .tool-actions,
+                    label,
+                    p {
+                        opacity: 0;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: clip;
+                        @include transition(0.3s);
+                    }
                 }
             }
 
-            + .toolbox {
+            &.focus,
+            .focus {
 
-                @include media($small-down) {
-                    box-shadow: 0 0 2px rgba(0,0,0,0.12),
-                        0 2px 2px rgba(0,0,0,0.24);
-                    margin-bottom: $base-spacing;
+                .toolbox {
+
+                    @include media($medium) {
+                        width: 206px;
+                        height: auto;
+                        overflow: visible;
+                        box-shadow: 0 0 16px rgba(0,0,0,0.12),
+                            0 16px 16px rgba(0,0,0,0.24);
+
+                        .tool-actions,
+                        label,
+                        p {
+                            opacity: 1;
+                            white-space: normal;
+                            overflow: visible;
+                            text-overflow: inherit;
+                        }
+                    }
+
+                    @include media($medium) {
+                        margin-right: $base-spacing;
+                    }
                 }
             }
         }
@@ -507,6 +551,11 @@
 
             .listing {
                 margin-bottom: 0;
+
+                .listing-heading {
+                    padding-right: $sm-spacing;
+                    padding-left: $sm-spacing;
+                }
 
                 .listing-item {
 

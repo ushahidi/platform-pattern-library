@@ -37,48 +37,115 @@
         </div>
     </div>
 
-    <div class="full-col">
+    <div class="main-col">
 
-        <div class="lanes">
+        <div class="listing">
+            {{#each deployment.responses}}
+                {{> Postcard checkbox=true show_tasks=true editable=true}}
+            {{/each}}
+        </div>
 
-            <div class="lane">
-                <h2 class="lane-heading"><a href="">Review</a></h2>
+        <div class="toolbox hide-until-small">
+            <div class="tool">
+                <h6 class="tool-heading">Assigned to</h6>
 
-                <div class="lane-body listing tasks">
-                    {{#each deployment.responses}}
-                        {{> Postcard checkbox=false show_tasks=true editable=true}}
-                    {{/each}}
+                <div class="toggle-content active">
+                    <fieldset class="custom-fieldset">
+                        <legend><span class="custom-fieldset-value"></span></legend>
+
+                        <div class="form-field radio">
+                            <label for="assigned-you">
+                                <input type="radio" name="assigned" id="assigned-you" />
+                                You
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="assigned-anybody">
+                                <input checked type="radio" name="assigned" id="assigned-anybody" />
+                                Anybody
+                            </label>
+                        </div>
+
+                        <div class="divider"></div>
+
+                        <div class="form-field">
+                            <a href="" data-modal="users">Specific person...</a>
+                        </div>
+                    </fieldset>
                 </div>
             </div>
 
-            <div class="lane">
-                <h2 class="lane-heading"><a href="tasks-column.html">Investigate</a></h2>
+            <!--div class="tool">
+                <h6 class="tool-heading">Sort by</h6>
 
-                <div class="lane-body listing tasks">
-                    {{#each deployment.responses}}
-                        {{> Postcard checkbox=false show_tasks=true editable=true}}
-                    {{/each}}
-                </div>
-            </div>
-
-            <div class="lane">
-                <h2 class="lane-heading"><a href="">Contact department</a></h2>
-
-                <div class="lane-body listing tasks">
-                    {{#each deployment.responses}}
-                        {{> Postcard checkbox=false show_tasks=true editable=true}}
-                    {{/each}}
-                </div>
-            </div>
-
-            <div class="lane-holder">
-                <button class="button-beta button-flat button-plain" data-toggle="dropdown-menu">
+                <span class="tool-trigger" data-toggle="toggle-content">
                     <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
                     </svg>
-                    <span class="button-label">Add column</span>
-                </button>
+                    <span class="label hidden">Show/hide</span>
+                </span>
+
+                <div class="toggle-content active">
+                    <fieldset>
+                        <legend class="hidden">Sort by</legend>
+
+                        <div class="form-field radio">
+                            <label for="sortby-responsedate">
+                                <input checked type="radio" name="sortby" id="sortby-responsedate">
+                                Response date
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="sortby-duedate">
+                                <input type="radio" name="sortby" id="sortby-duedate">
+                                Due date
+                            </label>
+                        </div>
+
+                        <div class="form-field radio">
+                            <label for="sortby-proximity">
+                                <input type="radio" name="sortby" id="sortby-proximity">
+                                Proximity to your current location
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+            </div-->
+
+            <div class="tool">
+                <h6 class="tool-heading">Task status</h6>
+
+                <span class="tool-trigger" data-toggle="toggle-content">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                    <span class="label hidden">Show/hide</span>
+                </span>
+
+                <div class="toggle-content active">
+                    <fieldset>
+                        <legend class="hidden">Task status</legend>
+
+                        <div class="form-field checkbox">
+                            <label for="incomplete">
+                                <input checked type="checkbox" id="incomplete">
+                                Incomplete
+                            </label>
+                        </div>
+
+                        <div class="form-field checkbox">
+                            <label for="complete">
+                                <input type="checkbox" id="complete" />
+                                Complete
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
             </div>
+
+            {{> toolStatus}}
         </div>
 
     </div>
