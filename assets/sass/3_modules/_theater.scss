@@ -1,0 +1,27 @@
+.theater {
+
+    .theater-screen {
+        border-bottom: 4px solid $color-tertiary;
+        padding-bottom: $base-spacing;
+        margin-bottom: $sm-spacing;
+
+        @include media($small) {
+            margin-bottom: $base-spacing;
+        }
+
+        .postcard {
+            width: 100%;
+            max-width: none;
+            overflow: hidden;
+            @include containerSheet($white);
+        }
+    }
+
+    .postcard {
+
+        &.active {
+            opacity: .5;
+            @include no-shadow;
+        }
+    }
+}

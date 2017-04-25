@@ -1,0 +1,30 @@
+.grid {
+    display: flex;
+    flex-direction: left;
+    flex-wrap: wrap;
+    margin: -1.142857143em 0 1.142857143em -1.142857143em;
+
+    @include media($small) {
+        margin: -1.714285714em 0 1.714285714em -1.714285714em;
+    }
+
+    .grid-item {
+        display: flex;
+        align-items: stretch;
+        width: 50%;
+        padding: 1.142857143em 0 0 1.142857143em;
+
+        @include media($small) {
+            width: 33.333%;
+            padding: 1.714285714em 0 0 1.714285714em;
+        }
+
+        @include media($xlarge-min-width) {
+            width: 25%;
+        }
+
+        .postcard {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,169 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <!--// Loading the mode context //
+   <div class="loading">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+   </div>
+   // END: Loading the mode context//-->
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+
+        <div class="tool">
+            <h6 class="tool-heading">Surveys</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#unless datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/unless}}
+                {{/each}}
+
+                <div class="form-field">
+                    <a href="settings-survey-add.html" class="button button-link">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                        </svg>
+                        <span class="button-label">Create new survey</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        {{#if user.logged_in}}
+        <div class="tool">
+            <h6 class="tool-heading">Data sources</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#if datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/if}}
+                {{/each}}
+            </form>
+        </div>
+        {{/if}}
+
+        <div class="tool">
+            <h6 class="tool-heading">How to add a post</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+            <div class="toggle-content {{#unless user.logged_in}}active{{/unless}}">
+                <p>Use the <a href="#">web form</a>.</p>
+                <p>Send a text message to </br> <a href="tel:15551234567">+1-555-123-4567</a>.</p>
+                <p>Send an email to <a href="mailto:cityhallmarch@domain.com" title="Subject">cityhallmarch@domain.com</a>.</p>
+                <p>Tweet with the hashtag(s) <a href="https://twitter.com/search?q=%23ushahidi&src=typd">#marchoncityhall</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        {{> Fab target='submit-new-survey'}}
+
+        {{> Search }}
+
+        <div class="button-group">
+            <button data-modal="share">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                </svg>
+                <span class="button-label">Share</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="main-col">
+
+        <div class="theater">
+            <!--//-->
+            <div class="theater-screen">
+                {{#postFromHash}}
+                {{> Postcard checkbox=false show_tasks=false editable=true thumb=false video=true}}
+                {{/postFromHash}}
+            </div>
+            <!--//-->
+
+            <div class="grid">
+                {{#each deployment.responses}}
+                    <div class="grid-item">
+                    {{> Postcard checkbox=false show_tasks=false editable=false thumb=true video=true}}
+                    </div>
+                {{/each}}
+            </div>
+
+            <div class="toolbox hide-until-small">
+
+                {{> toolStatus }}
+
+                <div class="tool">
+                    <h6 class="tool-heading">Date range</h6>
+
+                    <span class="tool-trigger" data-toggle="toggle-content">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                        <span class="label hidden">Show/hide</span>
+                    </span>
+
+                    <div class="toggle-content active">
+                        <fieldset>
+                            <legend class="hidden">Date range</legend>
+
+                            <div class="form-field date">
+                                <label class="hidden">Start date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" placeholder="Start date" />
+                                </div>
+                                <span class="date-joiner">to</span>
+                            </div>
+
+                            <div class="form-field date">
+                                <label class="hidden">End date</label>
+                                <div class="input-with-icon">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                                    </svg>
+                                    <input type="date" placeholder="End date" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

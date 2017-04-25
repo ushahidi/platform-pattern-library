@@ -8,6 +8,7 @@
     <div class="postcard-body">
         <header class="postcard-header">
             <ul class="metadata">
+                {{#ifCond thumb false}}
                 <li>
                     {{#ifCond properties.status 'published'}}
                     <a href="post-detail.html#{{@index}}" class="status-indicator">
@@ -38,14 +39,14 @@
                     {{/ifCond}}
                 </li>
 
-                {{#if properties.author.avatar}}
                 <li>
+                    {{#if properties.author.avatar}}
                     <img src="{{properties.author.avatar}}" class="avatar" />
+                    {{/if}}
                     <strong class="label">{{properties.author.name}}</strong>
                 </li>
-                {{else}}
-                <li><strong class="label">{{properties.author.name}}</strong></li>
-                {{/if}}
+                {{/ifCond}}
+
                 <li class="tooltip">
                     <span class="label">{{properties.date.post}}</span>
                     <span class="bug">2016-05-12 4:32pm</span>
@@ -113,108 +114,46 @@
         </header>
 
         <div class="postcard-overflow">
-            {{#each answers}}
-                {{#if @first}}
-                <div class="postcard-title">
-                    <a href="post-detail.html#{{@../index}}">
-                {{/if}}
+            {{#ifCond video true}}
 
-                    {{postcardField ../properties.survey @../index @index true}}
+                {{#ifCond thumb true}}
 
-                {{#if @first}}
-                    </a>
-                </div>
-                {{/if}}
-            {{/each}}
-
-            {{#ifCond show_tasks true}}
-
-                <div class="postcard-tasks">
-                    <a href="" class="postcard-tasks-title status-indicator yellow">
-                        <span class="label"><strong>{{tasks.length}}</strong> incomplete tasks</span>
-                    </a>
-
-                {{#each tasks}}
-
-                    {{#ifCond complete false}}
-                        {{#ifCond disabled false}}
-                        <div class="postcard-field task">
-                            <h2 class="task-title"><a href="post-edit.html">{{taskInfo "name" @../index @index}}</a></h2>
-
-                            <div class="task-actions">
-                                {{#if assignee}}
-                                <span class="tooltip">
-                                    <span class="bug">Assigned to {{assignee.name}}</span>
-                                    <img src="{{assignee.avatar}}" class="avatar" />
-                                    {{#if assignee.locked}}
-                                    <span class="status-indicator">
-                                        <svg class="iconic">
-                                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                        </svg>
-                                    </span>
-                                    {{/if}}
-                                </span>
-                                {{/if}}
-
-                                <button class="button-gamma button-flat" data-toggle="dropdown-menu">
-                                    <svg class="iconic">
-                                      <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                                    </svg>
-                                    <span class="nodisplay">More</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="">
-                                            <svg class="iconic">
-                                                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
-                                            </svg>
-                                            <span class="label">Mark complete</span>
-                                        </a>
-                                    </li>
-                                    <div class="divider"></div>
-                                    <li>
-                                        <a href="" data-modal="task-assignment">
-                                        <svg class="iconic">
-                                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                                        </svg>
-                                        {{#if assignee}}
-                                        <span class="label">Change assignment</span>
-                                        {{else}}
-                                        <span class="label">Assign to...</span>
-                                        {{/if}}
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="" data-modal="task-due">
-                                        <svg class="iconic">
-                                            <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                                        </svg>
-                                        {{#if due}}
-                                        <span class="label">Change due date</span>
-                                        {{else}}
-                                        <span class="label">Add due date</span>
-                                        {{/if}}
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="task-body">
-                                {{#if description}}
-                                {{{description}}}
-                                {{/if}}
-
-                                {{#if due}}
-                                <p><strong>Due</strong>: {{due}}</p>
-                                {{/if}}
-                            </div>
+                    <div class="postcard-field">
+                        <h2 class="form-label">Video of the damage</h2>
+                        <div class="postcard-video">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#media-play"></use>
+                            </svg>
+                            <img src="https://i.ytimg.com/vi/1LpiX7uJn5A/hqdefault.jpg?custom=true&w=246&h=138&stc=true&jpg444=true&jpgq=90&sp=68&sigh=XkzkCiYXMzi9PaQ1MNiwvjYCpBQ" />
                         </div>
-                        {{/ifCond}}
-                    {{/ifCond}}
+                    </div>
 
-                {{/each}}
-                </div>
+                {{else}}
+
+                    <div class="postcard-field">
+                        <h2 class="form-label">Video of the damage</h2>
+                        <div class="video_embed-fluid">
+                            <iframe src="http://www.youtube.com/embed/1LpiX7uJn5A?modestbranding=1&rel=0&theme=light&color=white" frameborder="0"></iframe>
+                        </div>
+                    </div>
+
+                {{/ifCond}}
 
             {{else}}
+
+                {{#each answers}}
+                    {{#if @first}}
+                    <div class="postcard-title">
+                        <a href="post-detail.html#{{@../index}}">
+                    {{/if}}
+
+                        {{postcardField ../properties.survey @../index @index true}}
+
+                    {{#if @first}}
+                        </a>
+                    </div>
+                    {{/if}}
+                {{/each}}
 
                 {{postcardMoreFields ../properties.survey @index}}
 
