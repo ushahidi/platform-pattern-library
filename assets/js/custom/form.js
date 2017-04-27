@@ -1,4 +1,4 @@
-$('[draggable]').on('click', function(){
+$('.form-field, .form-sheet').on('click', function(){
     var formField = $(this);
 
     formField.addClass('focus');

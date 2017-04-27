@@ -19,6 +19,32 @@
 
     <div class="mode-context-body">
         {{{deployment.description}}}
+
+        <div class="tool">
+            <h6 class="tool-heading">Surveys</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#unless datasource}}
+                        {{> SurveyFilterCheckbox tasks='true'}}
+                    {{/unless}}
+                {{/each}}
+            </form>
+        </div>
+
+        {{#if user.logged_in}}
+        <div class="tool">
+            <h6 class="tool-heading">Data sources</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#if datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/if}}
+                {{/each}}
+            </form>
+        </div>
+        {{/if}}
     </div>
 </div>
 

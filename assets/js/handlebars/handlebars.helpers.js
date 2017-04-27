@@ -204,7 +204,7 @@ Handlebars.registerHelper('postcardMoreFields', function(surveyIndex, postIndex)
     }
 });
 
-Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldIndex, value) {
+Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldIndex, value, task) {
     var fieldType = session.deployment.surveys[surveyIndex].fields[fieldIndex].type.control,
         fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
         fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon,
@@ -226,26 +226,62 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                                     </a> \
                                 </li> \
                             </ul> \
-                        </div>';
-/*
+                        </div>',
+        fieldTask = task == undefined ? '' : '<div class="toolbox"> \
+                        ' + '<div class="post-band" style="background-color: #' + session.deployment.surveys[surveyIndex].color + '"></div>' + ' \
+                        <div class="tool"> \
+                            <div class="tool-actions"> \
+                                <button class="button-link" data-toggle="dropdown-menu"> \
+                                    <svg class="iconic"> \
+                                        <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_more_vert_24px"></use> \
+                                    </svg> \
+                                    <span class="hidden">More</span> \
+                                </button> \
+                                <ul class="dropdown-menu"> \
+                                    <li> \
+                                        <a href=""> \
+                                            <svg class="iconic"> \
+                                                <use xlink:href="../../img/iconic-sprite.svg#person"></use> \
+                                            </svg> \
+                                            <span class="label">Change assignee</span> \
+                                        </a> \
+                                    </li> \
+                                    <li> \
+                                        <a href=""> \
+                                            <svg class="iconic"> \
+                                                <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use> \
+                                            </svg> \
+                                            <span class="label">Remove task</span> \
+                                        </a> \
+                                    </li> \
+                                </ul> \
+                            </div> \
+                            <div class="form-field checkbox task"> \
+                                <label for="task-field-'+fieldIndex+'" class="task-label">'+fieldLabel+'</label> \
+                                <input type="checkbox" id="task-field-'+fieldIndex+'" class="task-checkbox" /> \
+                                <p class="metadata">Assigned to <br/ ><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/david-m.png" class="avatar" /> <strong class="label">David McNamara</strong></p> \
+                            </div> \
+                        </div> \
+                    </div>';
+
     console.log({
         "survey" : surveyIndex,
         "post" : postIndex,
         "field" : fieldIndex,
-        "value" : value
+        "value" : value,
+        "task" : task
     });
-*/
 
     if (fieldType == 'text') {
         return new Handlebars.SafeString(
-            '<div class="form-field"><label>'+fieldLabel+'</label><input type="text" value="'+value+'" />'+fieldActions+'</div>'
+            '<div class="form-field"><label>'+fieldLabel+'</label><input type="text" value="'+value+'" />'+fieldActions+fieldTask+'</div>'
         );
     } else if (fieldType == 'textarea') {
         return new Handlebars.SafeString(
             '<div class="form-field"> \
             <label>'+fieldLabel+'</label> \
             <textarea>'+Handlebars.helpers.striptags(value)+'</textarea> \
-            '+fieldActions+'</div>'
+            '+fieldActions+fieldTask+'</div>'
         );
     } else if (fieldType == 'select') {
         var optionElems = '';
@@ -260,7 +296,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                 <div class="custom-select"> \
                     <select>' + optionElems + '</select> \
                 </div> \
-                ' + fieldActions + ' \
+                ' + fieldActions + fieldTask + ' \
             </div>'
         );
     } else if (fieldType == 'checkboxes' || fieldType == 'radio') {
@@ -282,7 +318,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
             '<fieldset>' + fieldActions + ' \
                 <legend>' + fieldLabel + '</legend>'
                 + optionElems +
-                fieldActions +
+                fieldActions + fieldTask +
             '</fieldset>'
         );
     } else if (fieldType == 'time' || fieldType == 'date') {
@@ -295,7 +331,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                     </svg> \
                     <input type="' + fieldType + '" value="'+value+'" /> \
                 </div> \
-                ' + fieldActions + ' \
+                ' + fieldActions + fieldTask + ' \
             </div>'
         );
     } else if (fieldType == 'file') {
@@ -320,7 +356,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                         </label> \
                     </div> \
                 </figure> \
-                ' + fieldActions + ' \
+                ' + fieldActions + fieldTask + ' \
             </div>'
         );
     } else if (fieldType == 'location') {
@@ -361,7 +397,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                     </form> \
                     <p><em>You can search or click the area of map where you want to place the marker.</em></p> \
                 </div> \
-                ' + fieldActions + ' \
+                ' + fieldActions + fieldTask + ' \
             </div>'
         );
     }

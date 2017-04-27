@@ -52,23 +52,50 @@
         </div>
     </div>
 
-    {{#if categories}}
+    {{#if tasks}}
     <fieldset class="survey-filter-children">
-        <legend data-toggle="form-fieldgroup">{{categories.length}} categories</legend>
+        <legend data-toggle="form-fieldgroup">2 tasks</legend>
 
         <div class="form-fieldgroup">
 
-            {{#each categories}}
             <div class="form-field checkbox">
                 <label>
                     <input type="checkbox" checked />
-                    {{name}}
+                    Categories
                 </label>
             </div>
-            {{/each}}
+
+            <div class="form-field checkbox">
+                <label>
+                    <input type="checkbox" checked />
+                    Report to department
+                </label>
+            </div>
 
         </div>
-
     </fieldset>
+
+    {{else}}
+
+        {{#if categories}}
+        <fieldset class="survey-filter-children">
+            <legend data-toggle="form-fieldgroup">{{categories.length}} categories</legend>
+
+            <div class="form-fieldgroup">
+
+                {{#each categories}}
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox" checked />
+                        {{name}}
+                    </label>
+                </div>
+                {{/each}}
+
+            </div>
+
+        </fieldset>
+        {{/if}}
+
     {{/if}}
 </div>

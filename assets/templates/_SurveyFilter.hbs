@@ -1,9 +1,15 @@
 <form class="survey-filter">
 
     {{#if user.logged_in}}
-        {{#each deployment.surveys}}
-            {{> SurveyFilterCheckbox}}
-        {{/each}}
+        {{#if tasks}}
+            {{#each deployment.surveys}}
+                {{> SurveyFilterCheckbox tasks='true'}}
+            {{/each}}
+        {{else}}
+            {{#each deployment.surveys}}
+                {{> SurveyFilterCheckbox}}
+            {{/each}}
+        {{/if}}
 
         <div class="form-field">
             <a href="settings-survey-add.html" class="button button-link">
