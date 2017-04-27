@@ -119,6 +119,9 @@ $('[data-fieldset-type="color"]').each(function(){
         ],
         change: function(hex, opacity) {
             fieldsetLegend.children('.swatch').attr('style', 'background-color: '+hex+';');
+            
+            // DEMO: Update the post band on this form sheet or postcard
+            fieldsetLegend.closest('.form-sheet, .postcard').find('.post-band').attr('style', 'background-color: '+hex+';')
         },
         theme: 'default'
     });

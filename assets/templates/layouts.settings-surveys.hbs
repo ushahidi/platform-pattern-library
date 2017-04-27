@@ -27,12 +27,12 @@
 
     <div class="toolbar">
         <div class="fab">
-            <button type="button" class="button-alpha button-fab">
+            <a href="settings-survey-add.html" class="button button-alpha button-fab">
                 <svg class="iconic">
                   <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                 </svg>
                 <span class="hidden">Add</span>
-            </button>
+            </a>
         </div>
     </div>
 
@@ -41,14 +41,43 @@
         <div class="listing card">
 
             {{#each deployment.surveys}}
-            <div class="listing-item">
+            {{#unless datasource}}
+            <article class="listing-item">
                 <span class="post-band" style="background-color:#{{color}};"></span>
+
+                <div class="listing-item-secondary">
+                    <button class="button-beta button-flat" data-toggle="dropdown-menu">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                        </svg>
+                        <span class="hidden">More</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/material/svg-sprite-content-symbol.svg#ic_content_copy_24px"></use>
+                                </svg>
+                                <span class="label">Duplicate</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                                </svg>
+                                <span class="label">Delete</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
                 <div class="listing-item-primary">
                     <h2 class="listing-item-title"><a href="settings-survey-edit.html">{{name}}</a></h2>
                     <p class="listing-item-secondary">{{description}}</p>
                 </div>
-            </div>
+            </article>
+            {{/unless}}
             {{/each}}
 
         </div>

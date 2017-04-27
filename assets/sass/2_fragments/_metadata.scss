@@ -4,24 +4,13 @@
     font-size: .857142857rem;
     line-height: 1.4;
 
-    .chip {
-        margin: 4px;
-    }
-
-    hr {
+    .label {
         display: inline-block;
-        width: 1px;
-        height: $base-spacing;
         vertical-align: middle;
-        background: $color-light-beta;
-        border: 0;
-        margin: 4px;
     }
 
     .avatar {
         display: inline-block;
-        position: relative;
-        top: -2px;
         width: 20px;
         height: 20px;
         vertical-align: middle;
@@ -32,31 +21,38 @@
         }
     }
 
+    sup {
+        position: relative;
+        top: 3px;
+        font-size: 9px;
+        margin-right: 1px;
+    }
+
+    // DEPRECATED
     .metadata-status {
         display: block;
         margin: $tiny-spacing 0;
-
-        @include media($medium) {
-
-        }
     }
 
     li {
         display: inline-block;
+        vertical-align: middle;
         list-style: none;
         margin: 0;
+        margin-bottom: $tiny-spacing;
 
         &:after {
             content: '\00b7';
             display: inline-block;
+            vertical-align: middle;
             color: $color-dark-gamma;
-            margin: 0 2px;
+            margin: 0 4px;
         }
 
         &:last-child {
 
             &:after {
-                content: none;
+                color: transparent;
             }
         }
     }
@@ -84,7 +80,23 @@
 
     .status-indicator {
         vertical-align: middle;
-        margin-right: 2px;
+
+        .label {
+
+            @include media($small-down) {
+                display: none;
+            }
+        }
+    }
+
+    .map & {
+
+        .status-indicator {
+
+            .label {
+                display: none;
+            }
+        }
     }
 }
 

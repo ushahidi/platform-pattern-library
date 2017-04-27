@@ -20,34 +20,67 @@
     <div class="mode-context-body">
         {{{deployment.description}}}
     </div>
-
 </div>
 
-{{#with (lookup deployment.posts 0)}} <!--// Choose the post index that will be the context for this template //-->
+<!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
+{{#postFromHash}}
 <main role="main">
 
     <div class="toolbar">
+        <!--// SAVED //
+        <span class="status-indicator tooltip success">
+            <svg class="iconic">
+                <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+            </svg>
+            <span class="label">All changes saved</span>
+            <span class="bug">Every change you make is automatically saved</span>
+        </span>
+        //-->
+
+        <!--// SAVING //
+        <span class="status-indicator">
+            <span class="label">Saving...</span>
+        </span>
+        //-->
+
+        <!--// EDIT MULTIPLE //
         <div class="button-group">
-            <button type="button" class="button-flat">Cancel</button>
-            <button type="button" class="button-alpha">Save</button>
+            <button class="button-beta">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-left"></use>
+                </svg>
+                <span class="button-label hidden">Previous</span>
+            </button>
+
+            <span class="button button-plain button-link">1 of 4</span>
+
+            <button class="button-beta">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-right"></use>
+                </svg>
+                <span class="button-label hidden">Next</span>
+            </button>
+        </div>
+        //-->
+
+        <!--// EDIT SINGLE RESPONSE //-->
+        <div class="button-group">
+            <button class="button-flat">Cancel</button>
+            <button class="button-alpha">Save</button>
         </div>
     </div>
 
-    <div class="main-col">
+    <div class="{{#ifPostIsDataSource}}main{{else}}full{{/ifPostIsDataSource}}-col">
 
-        <div class="form-sheet">
+        <div class="form-sheet" role="article">
             {{postBand}}
 
             <header class="form-sheet-summary">
                 {{#postSurvey}}
                 <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                <p>{{description}}</p>
                 {{/postSurvey}}
             </header>
-
-            <div class="form-field title" style="margin-left:4px;">
-                <label class="hidden">Title</label>
-                <input type="text" value="{{title}}">
-            </div>
 
             <ul class="metadata">
                 <li>
@@ -63,7 +96,7 @@
                     </a>
                     {{/ifCond}}
                     {{#ifCond properties.status 'review'}}
-                    <a class="chip yellow" data-toggle="post-status">
+                    <a class="chip yellow" disabled>
                         <span class="chip-icon">
                             <span class="label">Status</span>
                         </span>
@@ -111,192 +144,166 @@
                 </li>
             </ul>
 
-            <div class="form-field">
-                <label>
-                    Description
-                </label>
-                <textarea name="description" data-min-rows='1' rows='1'>{{striptags description}}</textarea>
-            </div>
+            {{#each answers}}
+                {{formField ../properties.survey 0 @index value}}
+            {{/each}}
 
-            <div class="form-field file">
-                <label>
-                    Photo of the encounter
-                </label>
-
-                {{#if fields.photo}}
-
-                <figure>
-                    <img src="{{fields.photo}}" />
-
-                    <div class="form-field">
-                        <button class="button-destructive">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                            </svg>
-                            <span class="hidden">Delete photo</span>
-                        </button>
-
-                        <input type="file" id="photo" />
-                        <label for="photo" class="button button-gamma">
-                            <svg class="iconic">
-                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#image"></use>
-                            </svg>
-                            <span class="button-label">Replace image</span>
-                        </label>
-                    </div>
-                </figure>
-
-                <div class="form-field">
-                    <label class="hidden">Caption</label>
-                    <input type="text" placeholder="Add caption..." />
-                </div>
-
-                {{else}}
-
-                <input type="file" id="photo" />
-                <label for="photo" class="button button-gamma">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                    </svg>
-                    <span class="button-label">Add photo</span>
-                </label>
-
-                {{/if}}
-            </div>
-
-            <div class="form-field location">
-                <label>Location</label>
-                <div class="location-wrapper">
-                    {{mapEmbed 0 false}}
-
-                    <form role="search" class="searchbar" data-message="search">
-                        <div class="searchbar-input">
-                            <div class="form-field">
-                                <input type="search" maxlength="250" placeholder="Find a location" value="1234 Main St. Austin, TX USA" />
-                            </div>
-                            <div class="searchbar-results dropdown-menu">
-                                <div class="form-field">
-                                    <button class="button-plain">
-                                        <svg class="iconic">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
-                                        </svg>
-                                        <span class="button-label">Search for "<em>123 Main St</em>"</span>
-                                    </button>
-
-                                    <button class="button-beta button-plain">
-                                        <svg class="iconic">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                                        </svg>
-                                        <span class="button-label">Use your current location</span>
-                                    </button>
-                                </div>
-
-                                <div class="tool">
-                                    <h6 class="tool-heading">Search results</h6>
-                                    <dl class="dropdown-menu-body">
-                                        <dt class="list-item"><a href="#"><em>123 Main St</em>reet Austin, TX USA</a></dt>
-                                        <dt class="list-item"><a href="#"><em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA</a></dt>
-                                    </dl>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <p><em>You can search or click the area of map where you want to place the marker.</em></p>
-                </div>
-            </div>
-
-            <fieldset id="categories">
+            <fieldset>
                 <legend>Categories</legend>
 
                 <div class="form-field checkbox">
-                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
+                    <label for="cat1"><input type="checkbox" id="cat1">Surface issues</label>
+                    <div class="form-field checkbox">
+                        <label for="cat1A"><input type="checkbox" id="cat1A">Child category</label>
+                    </div>
                 </div>
                 <div class="form-field checkbox">
-                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
+                    <label for="cat2"><input type="checkbox" id="cat2">Signage</label>
+                    <div class="form-field checkbox">
+                        <label for="cat2A"><input type="checkbox" id="cat2A">Child category</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat2B"><input type="checkbox" id="cat2B">Another child category</label>
+                    </div>
                 </div>
                 <div class="form-field checkbox">
-                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
+                    <label for="cat3"><input type="checkbox" id="cat3">Obstructions</label>
+                </div>
+                <!--div class="form-field checkbox" data-toggle-target="new-label">
+                    <label for="cat4"><input type="checkbox" id="cat4" checked>Emergency</label>
+                </div-->
+                <div class="form-field inline" data-toggle-target="add-label">
+                    <label class="hidden">Category name</label>
+                    <input type="text" placeholder="Label name..." style="width: 240px;" />
+                    <button class="button-alpha button-flat" disabled>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                        </svg>
+                        <span class="hidden">Add</span>
+                    </button>
+                    <button class="button-beta button-flat">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="hidden">Delete</span>
+                    </button>
+                </div>
+                <div class="form-field">
+                    <button class="button-link" data-toggle="add-label">+ Add new category</button>
                 </div>
             </fieldset>
         </div>
 
-        <div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Tasks</h3>
-            </div>
+        {{#ifPostIsDataSource}}
+        <div class="toolbox">
+            <div class="tool">
+                <fieldset>
+                    <legend>Convert this into a survey response to...</legend>
 
-            <!-- IF: User has permission to see other 'Tasks' -->
-            <nav class="tabs-menu" data-tabs="tabs-tasks" data-tabs-hash>
-                <ul>
-                    <li class="active">
-                        <a href="#tasks-verify">Verify</a>
-                    </li>
-                    <li>
-                        <a href="#tasks-translate">Translate to Spanish</a>
-                    </li>
-                </ul>
-            </nav>
-            <!--// END IF -->
-
-            <div id="tasks-verify" class="tabs-tasks">
-                <div class="form-field switch">
-                    <label for="verified">Task completed</label>
-                    <div class="toggle-switch">
-                        <input class="tgl" id="verified" type="checkbox">
-                        <label class="tgl-btn" for="verified"></label>
-                    </div>
-                </div>
+                    {{#global}}
+                        {{#each deployment.surveys}}
+                            {{#unless datasource}}
+                            <div class="form-field radio">
+                                <input type="radio" name="add-to-survey" id="survey-{{@index}}" />
+                                <label for="survey-{{@index}}">{{name}}</label>
+                            </div>
+                            {{/unless}}
+                        {{/each}}
+                    {{/global}}
+                </fieldset>
 
                 <div class="form-field">
-                    <label>
-                        Notes
-                    </label>
-                    <textarea></textarea>
-                </div>
-            </div>
-
-            <div id="tasks-translate" class="tabs-tasks">
-                <div class="form-field switch">
-                    <label for="translated">Task completed</label>
-                    <div class="toggle-switch">
-                        <input class="tgl" id="translated" type="checkbox">
-                        <label class="tgl-btn" for="translated"></label>
-                    </div>
-                </div>
-
-                <div class="form-field title">
-                    <label>Title</label>
-                    <input type="text" value="El hacinamiento entre los días 5 y St. Salem Ave.">
-                </div>
-
-                <div class="form-field">
-                    <label>
-                        Description
-                    </label>
-                    <textarea></textarea>
+                    <button class="button-flat" disabled>Convert &amp; edit</button>
                 </div>
             </div>
         </div>
+        {{/ifPostIsDataSource}}
 
         <div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h3 class="form-sheet-title">Delete this post</h3>
-                <p><strong>If you delete this post</strong>, all of its comments and messages will also be deleted. Proceed with caution.</p>
+            <header class="form-sheet-summary">
+                <h1 class="form-sheet-title section-title">Verify</h1>
+            </header>
 
-                <button class="button-destructive">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                    </svg>
-                    <span class="button-label">Delete post</span>
-                </button>
+            <div class="form-field">
+                <label>Source</label>
+                <input type="text" value="Jane Doe" />
+            </div>
+
+            <div class="form-field">
+                <label>Notes</label>
+                <textarea>Confirmed damage on April 1, 2017.</textarea>
             </div>
         </div>
 
     </div>
 
 </main>
-{{/with}}
+
+{{#each tasks}}
+<div id="task-{{@index}}" class="modal">
+    <div class="modal-window">
+        <h3 class="modal-title {{#if complete}}complete{{/if}}">{{taskInfo "name" 0 @index}}</h3>
+
+        <div class="form-field">
+            {{#if disabled}}
+                <p><em>This task can't be completed until "Verify" is completed.</em></p>
+            {{else}}
+                {{taskInfo "description" 0 @index}}
+            {{/if}}
+        </div>
+
+        <div class="modal-body">
+            <div class="form-field">
+                <label>Notes</label>
+                <textarea></textarea>
+            </div>
+
+
+            <div class="form-field required">
+                <label>Police officer</label>
+                <input type="text" />
+            </div>
+
+            <div class="form-field required">
+                <label>Case number</label>
+                <input type="number" />
+            </div>
+
+            <div class="form-field">
+                <label>Notes</label>
+                <textarea></textarea>
+            </div>
+
+
+
+
+            <div class="form-field switch">
+                <label>
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
+                    </svg>
+                    Mark this task {{#unless complete}}in{{/unless}}complete
+                </label>
+                <div class="toggle-switch">
+                    <input {{#if complete}}checked{{/if}} class="tgl" id="task-{{@index}}-complete" type="checkbox">
+                    <label class="tgl-btn" for="task-{{@index}}-complete"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button class="button-beta button-flat modal-trigger">Cancel</button>
+                <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+{{/each}}
+
+{{/postFromHash}}
 
 {{> Modals }}
 
@@ -308,9 +315,9 @@
     </div>
 
     <div class="message-body">
-        <p><strong>You'll need to complete the "Verify" task</strong> before you can re-publish this post. You can either complete the necessary task or give your post a different status, like "under review."</p>
+        <p><strong>Please complete the 'Time &amp; date of encounter' field</strong> before posting to this survey.</p>
 
-        <a href="#tasks-verify" class="button button-beta button-flat message-trigger">Manage task</a>
+        <a href="#time-date-encounter" class="button button-beta button-flat message-trigger">Edit field</a>
 
         <button class="button-flat message-trigger">
             Dismiss
@@ -318,8 +325,8 @@
     </div>
 </div>
 
-<script>
+<!--script>
 setTimeout(function() {
     messageToggle($('#required'), true);
 }, 1000);
-</script>
+</script-->

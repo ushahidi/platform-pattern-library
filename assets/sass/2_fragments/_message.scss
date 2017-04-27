@@ -1,6 +1,6 @@
 .message {
     position: relative;
-    @extend .sheet;
+    @include containerSheet;
     color: $color-light-delta;
     @include equal-radius(0px);
     background-color: $color-primary;
@@ -131,6 +131,29 @@
             height: 20px;
             fill: $white;
             margin-top: 10px;
+        }
+    }
+
+    &.transient {
+
+        .message-image {
+            position: absolute;
+            top: 12px;
+            left: $base-spacing;
+            width: $base-spacing;
+            height: $base-spacing;
+            margin: 0;
+
+            svg.iconic {
+                width: 14px;
+                height: 14px;
+                margin-top: 6px;
+            }
+
+            + .message-body {
+                padding-left: 56px;
+                margin-top: 0;
+            }
         }
     }
 }

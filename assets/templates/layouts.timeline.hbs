@@ -28,7 +28,40 @@
     <div class="mode-context-body">
         {{{deployment.description}}}
 
-        {{> SurveyFilter }}
+        <div class="tool">
+            <h6 class="tool-heading">Surveys</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#unless datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/unless}}
+                {{/each}}
+
+                <div class="form-field">
+                    <a href="settings-survey-add.html" class="button button-link">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                        </svg>
+                        <span class="button-label">Create new survey</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        {{#if user.logged_in}}
+        <div class="tool">
+            <h6 class="tool-heading">Data sources</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#if datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/if}}
+                {{/each}}
+            </form>
+        </div>
+        {{/if}}
 
         <div class="tool">
             <h6 class="tool-heading">How to add a post</h6>
@@ -52,12 +85,12 @@
 <main role="main">
 
     <div class="toolbar">
-        {{> Fab }}
+        {{> Fab target='submit-new-survey'}}
 
         {{> Search }}
 
         <div class="button-group">
-            <button type="button" data-modal="share">
+            <button data-modal="share">
                 <svg class="iconic">
                   <use xlink:href="../../img/iconic-sprite.svg#share"></use>
                 </svg>
@@ -116,13 +149,13 @@
             <h2 class="listing-heading-section">Today</h2>
 
             {{#if user.logged_in}}
-                {{#each deployment.posts}}
-                    {{> Postcard}}
+                {{#each deployment.responses}}
+                    {{> Postcard checkbox=true show_tasks=false editable=true}}
                 {{/each}}
             {{else}}
-                {{#each deployment.posts}}
+                {{#each deployment.responses}}
                     {{#ifCond properties.status 'published'}}
-                    {{> Postcard}}
+                    {{> Postcard checkbox=false show_tasks=false editable=false}}
                     {{/ifCond}}
                 {{/each}}
             {{/if}}
@@ -149,7 +182,7 @@
                     </button>
                     <ul class="dropdown-menu toggle-content">
                         <li>
-                            <a href="">
+                            <a href="" data-message="publish-success">
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                                 </svg>
@@ -157,7 +190,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="" data-message="under_review-success">
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                                 </svg>
@@ -165,52 +198,48 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="" data-message="archive-success">
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#box"></use>
                                 </svg>
                                 <span class="label">Archived</span>
                             </a>
                         </li>
-                        <div class="divider"></div>
-                        <li>
-                            <a href="">
-                                Spam
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                Duplicates
-                            </a>
-                        </li>
                     </ul>
 
-                    <button type="button" class="button-beta" data-modal="add-to-collection">
+                    <button class="button-beta" data-modal="add-to-collection">
                         <svg class="iconic">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
                         </svg>
-                        <span class="button-label">Add to Collection</span>
+                        <span class="button-label hide-until-small">Add to Collection</span>
                     </button>
 
-                    <button type="button" class="button-destructive">
+                    <button class="button-beta">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Edit</span>
+                    </button>
+
+                    <button class="button-destructive" data-modal="delete-post">
                         <svg class="iconic">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
                         </svg>
                         <span class="button-label hidden">Delete</span>
                     </button>
 
-                    <button type="button" class="listing-toolbar-toggle more">
+                    <button class="listing-toolbar-toggle more">
                         <svg class="iconic">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
                         </svg>
-                        <span class="button-label">Show more</span>
+                        <span class="button-label hide-until-small">Edit</span>
                     </button>
 
-                    <button type="button" class="listing-toolbar-toggle less">
+                    <button class="listing-toolbar-toggle less">
                         <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
                         </svg>
-                        <span class="button-label">Show less</span>
+                        <span class="button-label hidden">Delete</span>
                     </button>
                 </div>
             </div>
@@ -234,7 +263,7 @@
         <p><strong>There are no posts</strong> in this deployment, yet.</p>
 
         <div class="form-button">
-            <button type="button" class="button-alpha button-dropdown" data-toggle="dropdown-menu">
+            <button class="button-alpha button-dropdown" data-toggle="dropdown-menu">
                 <svg class="iconic">
                     <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                 </svg>

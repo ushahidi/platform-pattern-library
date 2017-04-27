@@ -1,19 +1,26 @@
 messageToggle = function(element, sustain) {
-   var target = typeof element !== 'undefined' ? element : '.message';
+    var target = typeof element !== 'undefined' ? element : '.message';
 
-   $(target).toggleClass('active');
+    if ($(target).hasClass('active')) {
+        $(target).removeClass('active')
+        $('.button-fab').removeClass('slide-up');
+    } else {
+        $(target).addClass('active')
+        $('.button-fab').addClass('slide-up');
+    }
 
-   // IF 'sustain' is false or undefined, inactivate the message after five seconds.
-   if (!sustain) {
-    setTimeout(function() {
-        $(target).toggleClass('active');
-    }, 5000);
-   }
+    // IF 'sustain' is false or undefined, inactivate the message after five seconds.
+    if (!sustain) {
+        setTimeout(function() {
+            $(target).removeClass('active');
+            $('.button-fab').removeClass('slide-up');
+        }, 5000);
+    }
 }
 
 $('[data-message], .message-trigger').click(function(e) {
     if ($(this)[0].hasAttribute('data-message')) {
-        messageToggle('#'+$(this).attr('data-message'));
+        messageToggle('#'+$(this).attr('data-message'), $(this)[0].hasAttribute('data-message-sustain') ? true : false);
     } else {
         messageToggle($(this).closest('.message'));
     }
@@ -27,4 +34,6 @@ $('[data-message], .message-trigger').click(function(e) {
         // !!For demonstration purposes only!! Adding an "error" class to a field to demonstrate validation error
         $($(this).attr('href')).addClass('error');
     }
+
+    e.preventDefault();
 });

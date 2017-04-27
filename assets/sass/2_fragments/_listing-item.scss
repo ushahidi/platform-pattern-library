@@ -86,18 +86,25 @@
         button,
         .button {
             line-height: normal;
-            margin-top: -$base-spacing;
-//             padding: $base-spacing 35px;
+            margin-top: -$tiny-spacing;
 
-/*
-            svg.iconic {
-                width: 1.142857143em;
-                height: 1.142857143em;
-            }
-*/
             .button-label {
                 display: none;
             }
+
+            &.listing-item-toggle {
+
+                svg.iconic {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+
+        svg.iconic {
+            width: $base-font-size;
+            height: $base-font-size;
+            vertical-align: middle;
         }
 
         + .listing-item-primary {
@@ -106,6 +113,31 @@
             @include media($medium) {
                 padding-right: 80px;
             }
+        }
+
+        .dropdown-menu {
+            top: 0 !important;
+            left: auto !important;
+            right: 0 !important;
+            @include typeBase;
+            text-align: left;
+        }
+    }
+
+    .listing-item-summary {
+        position: relative;
+
+        .listing-item-primary {
+
+            .listing-item-secondary {
+                position: static;
+                margin-top: 4px;
+            }
+        }
+
+        .listing-item-secondary {
+            top: 50%;
+            margin-top: -12px;
         }
     }
 
@@ -161,18 +193,30 @@
             margin-top: 0;
             margin-bottom: $sm-spacing;
         }
+
+        .task {
+
+            &:first-child {
+                border-top: none;
+            }
+        }
     }
 
     .listing-item-image {
         width: $lg-spacing;
+        font-size: $sm-spacing;
         text-align: center;
+        vertical-align: middle;
 
         svg.iconic {
             width: 1em;
             height: 1em;
+            fill: $color-primary-beta;
+            vertical-align: middle;
         }
 
         img {
+            vertical-align: middle;
 
             + svg.iconic {
                 position: absolute;
@@ -188,6 +232,17 @@
     .listing-item-title {
         @include typeGamma;
 
+        &.required {
+
+            &:after {
+                content: '\2217';
+                position: relative;
+                top: -4px;
+                color: $red;
+                margin-left: 4px;
+            }
+        }
+
         em {
             color: $color-dark-delta;
             font-style: normal;
@@ -202,9 +257,25 @@
 
         .status-indicator {
             width: $tiny-spacing;
+            min-width: initial;
             height: $tiny-spacing;
             margin-right: $tiny-spacing;
             margin-left: $tiny-spacing;
+        }
+
+        .listing-item-image {
+            margin-right: $tiny-spacing;
+            margin-left: $tiny-spacing;
+
+            svg.iconic {
+                width: .75em;
+                height: .75em;
+                fill: $color-light-alpha;
+            }
+        }
+
+        + p {
+            margin-top: $sm-spacing;
         }
     }
 
@@ -213,6 +284,10 @@
         &:hover {
             cursor: pointer;
         }
+    }
+
+    .toolbox-body {
+        margin-top: -$sm-spacing;
     }
 
 }
@@ -275,6 +350,7 @@
 
         .dropdown-menu {
             top: auto !important;
+            left: auto !important;
             margin-top: 4px;
         }
 
@@ -304,6 +380,7 @@
         }
     }
 
+    // DEPRECATE ALL TRUNCATION STUFF
     &.truncated {
 
         .listing-toolbar-actions {

@@ -1,3 +1,15 @@
+$('.form-field[draggable], .contenteditable, [contenteditable="true"]').on('click', function(){
+    var formField = $(this);
+
+    formField.addClass('focus');
+
+    formField.oneClickOutside({
+        callback:function(){
+            formField.removeClass('focus');
+        }, calledFromClickInsideHandler: true
+    });
+});
+
 // "Adapt" fields
 $('.form-field-adapt').each(function(){
     var field = $(this),
@@ -29,10 +41,10 @@ $('.form-field-adapt').each(function(){
 // Toggle visibility of fields in long fieldsets and forms
 $('.form-field-toggle').each(function(){
 	var fieldgroup = $(this).closest('fieldset, .form-fieldgroup'),
-		fieldCount = fieldgroup.find('.form-field').length;
+		fieldCount = fieldgroup.children('.form-field').length;
 
 		if (fieldCount > 2) {
-			fieldgroup.find('.form-field:eq(1)').nextAll('.form-field').addClass('overflow');
+			fieldgroup.children('.form-field:eq(1)').nextAll('.form-field').addClass('overflow');
             fieldgroup.addClass('has-overflow');
 
             $(this).on('click', function(){
@@ -142,3 +154,5 @@ $('.form-field.video_embed').each(function(){
         }
     });
 });
+
+autosize($('textarea'));

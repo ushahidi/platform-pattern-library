@@ -3,11 +3,14 @@
     .mainsheet-window {
         @include containerSheet;
         @include transition(0.3s);
+
+        .listing {
+            border-top: 2px solid $color-light-gamma;
+        }
     }
 
     .mainsheet-heading {
         @include typeAlpha;
-
         margin: $sm-spacing;
 
         @include media($medium) {
@@ -84,12 +87,14 @@
 }
 
 .mainsheet-overlay {
+    display: none;
     position: fixed;
     z-index: $dropdown - 1;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    opacity: 0;
     width: auto;
     height: auto;
     overflow: hidden;

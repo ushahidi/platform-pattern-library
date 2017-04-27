@@ -2,12 +2,15 @@
     @include typeBeta;
     margin-bottom: $sm-spacing;
 
-    &.survey-title {
+    &.survey-title,
+    &.section-title {
         color: $color-dark-delta;
+        text-shadow: 0 1px 0 $white;
+    }
+
+    &.survey-title {
         font-size: 24px;
         font-size: 1.714285714rem;
-        // text-align: center;
-        text-shadow: 0 1px 0 $white;
 
         @include media($mobile) {
             font-size: 28px;
@@ -68,7 +71,8 @@
                 }
             }
 
-            input[type="text"] {
+            input[type="text"],
+            textarea {
                 width: 100%;
                 border-right-color: transparent;
                 border-left-color: transparent;
@@ -91,6 +95,19 @@
                 }
             }
 
+            .alert {
+
+                @include media($mobile) {
+                    margin-right: 10%;
+                    margin-left: 10%;
+                }
+
+                @include media($xlarge) {
+                    margin-right: 20%;
+                    margin-left: 20%;
+                }
+            }
+
             &.form-field-adapt {
                 margin-right: $sm-spacing;
                 margin-left: $sm-spacing;
@@ -106,10 +123,87 @@
             }
         }
 
-        &.survey-title {
+        &.survey-title,
+        &.section-title {
             margin-left: 4px;
+
+            input[type="text"],
+            textarea {
+                border-color: transparent;
+                background-color: transparent;
+                @include no-shadow;
+
+                &:hover {
+                    cursor: pointer;
+                    border-top-color: lighten($color-secondary, 16%);
+                    border-bottom-color: lighten($color-secondary, 16%);
+                }
+
+                &:focus {
+                    background-color: $white;
+                }
+            }
+
+            input[type="text"] {
+                color: $color-dark-delta;
+                padding-top: $tiny-spacing;
+                padding-bottom: $tiny-spacing;
+            }
+
+            .section-title-actions {
+                position: absolute;
+                top: 4px;
+                right: $sm-spacing;
+                z-index: $body;
+
+                @include media($small) {
+                    right: 10%;
+                }
+
+                button,
+                .button {
+                    margin-right: 0;
+                    margin-left: $tiny-spacing;
+                }
+
+                .dropdown-menu {
+                    top: $huge-spacing !important;
+                    right: 0 !important;
+                }
+            }
         }
 
+        &.survey-title {
+
+            input[type="text"] {
+                font-size: 28px;
+                font-size: 2rem;
+
+                @include media($medium) {
+                    font-size: 34px;
+                    font-size: 2.428571429rem;
+                }
+            }
+        }
+
+/*
+        &.section-title {
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: -$sm-spacing;
+                right: 0;
+                left: $sm-spacing;
+                height: 1px;
+                background-color: $color-light-beta;
+
+                @include media($small) {
+                    left: 10%;
+                }
+            }
+        }
+*/
         .form-field {
             margin-right: 0;
             margin-left: 0;
@@ -171,12 +265,12 @@
         background-color: rgba(0,0,0,0.04);
         padding: $sm-spacing;
 
-        @include media($mobile) {
+        @include media($small) {
             padding-right: 10%;
             padding-left: 10%;
         }
 
-        @include media($xlarge) {
+        @include media($large) {
             padding-right: 20%;
             padding-left: 20%;
         }

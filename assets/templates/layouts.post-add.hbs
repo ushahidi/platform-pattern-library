@@ -22,258 +22,261 @@
     </div>
 </div>
 
+<!--// Uses numeric hash to determine which survey to render by its index; falls back to index 0 //-->
+{{#surveyFromHash}}
 <main role="main">
 
-    <div class="toolbar">
+    <div class="full-col">
 
-        <div class="button-group">
-            <button class="button-flat" data-modal="share">
-                <svg class="iconic">
-                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
-                </svg>
-                <span class="button-label">Share</span>
-            </button>
+        <div class="form-sheet" role="article">
+            <span class="post-band" style="background-color: #{{color}}"></span>
 
-            <button class="button-alpha">Submit</button>
-        </div>
-        
-    </div>
+            <header class="form-sheet-summary">
+                <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                <p>{{description}}</p>
+            </header>
 
-    <div class="main-col">
+            <ul class="metadata">
+                {{#if ../user.logged_in}}
 
-        <div class="form-sheet">
-            {{#with (lookup deployment.surveys 0)}} <!--// Choose the survey index that will be the context for this template //-->
-                <span class="post-band" style="background-color: #{{color}}"></span>
-
-                <header class="form-sheet-summary">
-                    <h1 class="form-sheet-title survey-title">{{name}}</h1>
-                </header>
-            {{/with}}
-
-            <div class="form-field title" style="margin-left:4px;">
-                <label class="hidden">Title</label>
-                <input type="text" placeholder="Title"/>
-            </div>
-
-            <div class="toolbox">
-                {{#if user.logged_in}}
-
-                <div class="tool">
-                    <fieldset class="custom-fieldset">
-                        <legend><span class="custom-fieldset-value">Status</span></legend>
-                        <div class="form-field radio icon-input">
-                            <label for="status-published">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-published" />
-                                Published
-                            </label>
-                        </div>
-                        <div class="form-field radio icon-input">
-                            <label for="status-review">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-review" checked />
-                                Under review
-                            </label>
-                        </div>
-                        <div class="form-field radio icon-input">
-                            <label for="status-archive">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                </svg>
-                                <input type="radio" name="status" id="status-archive" />
-                                Archived
-                            </label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="tool">
-                    <h6 class="tool-heading">Post date</h6>
-                    <span class="tool-trigger" data-toggle="toggle-content">
+                <li>
+                    <a class="chip yellow" data-toggle="post-status" {{#if tasks}}disabled{{/if}}>
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
                         <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
-                        <span class="label hidden">Show/hide</span>
-                    </span>
-                    <div class="toggle-content active">
-                        <fieldset>
-                            <legend class="hidden">Post date</legend>
-                            <div class="form-field date">
-                                <label class="hidden">Date</label>
-                                <div class="input-with-icon">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
-                                    </svg>
-                                    <input type="date" value="2016-06-22" placeholder="Date" />
-                                </div>
-                            </div>
-                            <div class="form-field date">
-                                <label class="hidden">Time</label>
-                                <div class="input-with-icon">
-                                    <svg class="iconic">
-                                        <use xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                                    </svg>
-                                    <input type="time" value="11:39:57" placeholder="Time" />
-                                </div>
-                            </div>
-                        </fieldset>
-                    </div>
-                </div>
+                        <span class="label">Under review</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="chip" data-modal="edit-author">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        {{#if ../../user.avatar}}
+                            <img src="{{../../../user.avatar}}" class="avatar">
+                        {{/if}}
+                        <span class="label">{{../../user.name}}</span>
+                    </a>
+                </li>
+
+                <!--li>
+                    {{#if ../../user.avatar}}
+                        <img src="{{../../../user.avatar}}" class="avatar">
+                    {{/if}}
+                    <strong>{{../../user.name}}</strong>
+                </li-->
+
+                <li>
+                    <a href="" class="chip" data-modal="post-date">
+                        <span class="chip-icon">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            </svg>
+                            <span class="label">Date</span>
+                        </span>
+                        <span class="label">Now</span>
+                    </a>
+                </li>
 
                 {{else}}
 
-                <div class="tool">
+                <li>
+                    <span class="status-indicator yellow tooltip">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                    </span>
                     <strong>This post will need to be reviewed</strong> before it's published.
-                </div>
+                </li>
+
+                <li>
+                    <a class="chip" data-modal="edit-author">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                        </svg>
+                        <span class="label">Anonymous</span>
+                    </a>
+                </li>
 
                 {{/if}}
-            </div>
+            </ul>
 
-            <div class="form-field">
-                <label>Description</label>
-                <textarea></textarea>
-            </div>
+            {{#each fields}}
+                {{#ifCond type.control 'text'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <input type="text" {{#if required}}required{{/if}} />
+                </div>
+                {{/ifCond}}
 
-            <div class="form-field file">
-                <label>Photo of the problem</label>
-                <input type="file" id="photo" />
-                <label for="photo" class="button button-gamma">
-                    <svg class="iconic">
-                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#plus"></use>
-                    </svg>
-                    <span class="button-label">Add photo</span>
-                </label>
-            </div>
+                {{#ifCond type.control 'textarea'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <textarea {{#if required}}required{{/if}}></textarea>
+                </div>
+                {{/ifCond}}
 
-            <div class="form-field video_embed">
-                <label>Video of the problem</label>
-                <p>Enter a <span id="wordmark-youtube" class="wordmark-replace" style="background-image: url(../../img/youtube.png);">YouTube</span> or <span id="wordmark-vimeo" class="wordmark-replace" style="background-image: url(../../img/vimeo.png);">Vimeo</span> video URL</p>
-                <input type="url" placeholder="https://youtu.be/123456" />
-
-                <div class="form-field-preview"></div>
-            </div>
-
-            <fieldset>
-                <legend>Time &amp; date</legend>
-
-                <div class="form-field inline required">
-                    <label class="hidden">Time</label>
-                    <div class="input-with-icon">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#clock"></use>
-                        </svg>
-                        <input type="time" required />
+                {{#ifCond type.control 'select'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <div class="custom-select">
+                        <select {{#if required}}required{{/if}}>
+                            {{#each options}}
+                            <option>{{label}}</option>
+                            {{/each}}
+                        </select>
                     </div>
                 </div>
+                {{/ifCond}}
 
-                <div class="form-field inline required">
-                    <label class="hidden">Date</label>
+                {{#ifCond type.control 'checkboxes'}}
+                <fieldset>
+                    <legend>{{../label}}</legend>
+
+                    {{#each options}}
+                    <div class="form-field checkbox">
+                        <label for="form-field-checkbox-{{@index}}">
+                            {{label}}
+                            <input type="checkbox" id="form-field-checkbox-{{@index}}" />
+                        </label>
+                    </div>
+                    {{/each}}
+                </fieldset>
+                {{/ifCond}}
+
+                {{#ifCond type.control 'radio'}}
+                <fieldset>
+                    <legend>{{../label}}</legend>
+
+                    {{#each options}}
+                    <div class="form-field radio">
+                        <label for="form-field-radio-{{@../index}}-{{@index}}">
+                            {{label}}
+                            <input type="radio" id="form-field-radio-{{@../index}}-{{@index}}" name="form-field-radio-{{@../index}}" />
+                        </label>
+                    </div>
+                    {{/each}}
+                </fieldset>
+                {{/ifCond}}
+
+                {{#ifCond type.control 'time'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
                     <div class="input-with-icon">
                         <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            <use xlink:href="{{../icon}}"></use>
                         </svg>
-                        <input type="date" required />
+                        <input type="{{type.control}}" {{#if required}}required{{/if}} />
                     </div>
                 </div>
-            </fieldset>
+                {{/ifCond}}
 
-            <div class="form-field location">
-                <label>Location</label>
-                <div class="location-wrapper">
-                    {{mapEmbed 0 false}}
+                {{#ifCond type.control 'date'}}
+                <div class="form-field">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <div class="input-with-icon">
+                        <svg class="iconic">
+                            <use xlink:href="{{../icon}}"></use>
+                        </svg>
+                        <input type="{{type.control}}" {{#if required}}required{{/if}} />
+                    </div>
+                </div>
+                {{/ifCond}}
 
-                    <form role="search" class="searchbar" data-message="search">
-                        <div class="searchbar-input">
-                            <div class="form-field">
-                                <input type="search" maxlength="250" placeholder="Pick a location" value="" />
-                            </div>
-                            <div class="searchbar-results dropdown-menu">
+                {{#ifCond type.control 'file'}}
+                <div class="form-field file">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <input type="file" id="photo" {{#if required}}required{{/if}} />
+                    <label for="photo" class="button button-plain button-gamma">
+                        <svg class="iconic block">
+                            <use xlink:href="../../img/iconic-sprite.svg#camera-slr"></use>
+                        </svg>
+                        <span class="button-label">Add photo</span>
+                    </label>
+                </div>
+                {{/ifCond}}
+
+                {{#ifCond type.control 'location'}}
+                <div class="form-field location">
+                    <label {{#if required}}class="required"{{/if}}>{{../label}}</label>
+                    <div class="location-wrapper">
+                        {{mapEmbed 0 false}}
+
+                        <form role="search" class="searchbar" data-message="search">
+                            <div class="searchbar-input">
                                 <div class="form-field">
-                                    <!--button class="button-plain">
-                                        <svg class="iconic">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use>
-                                        </svg>
-                                        <span class="button-label">Search for "<em>123 Main St</em>"</span>
-                                    </button-->
-
-                                    <button class="button-beta button-plain">
-                                        <svg class="iconic">
-                                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
-                                        </svg>
-                                        <span class="button-label">Use your current location</span>
-                                    </button>
+                                    <input type="search" maxlength="250" placeholder="Pick a location" value="" {{#if required}}required{{/if}} />
                                 </div>
+                                <div class="searchbar-results dropdown-menu">
+                                    <div class="form-field">
+                                        <button class="button-beta button-plain">
+                                            <svg class="iconic">
+                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use>
+                                            </svg>
+                                            <span class="button-label">Use your current location</span>
+                                        </button>
+                                    </div>
 
-                                <div class="tool">
-                                    <h6 class="tool-heading">Search results</h6>
-                                    <dl class="dropdown-menu-body">
-                                        <dt class="list-item">
-                                            <a href="#">
-                                                <svg class="iconic">
-                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                                </svg>
-                                                <em>30.316855</em> latitude, <em>-97.674815</em> longitude
-                                            </a>
-                                        </dt>
-                                        <dt class="list-item">
-                                            <a href="#">
-                                                <svg class="iconic">
-                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                                </svg>
-                                                <em>123 Main St</em>reet Austin, TX USA
-                                            </a>
-                                        </dt>
-                                        <dt class="list-item">
-                                            <a href="#">
-                                                <svg class="iconic">
-                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                                </svg>
-                                                <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
-                                            </a>
-                                        </dt>
-                                        <dt class="list-item">
-                                            <a href="#">
-                                                <svg class="iconic">
-                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                                </svg>
-                                                <em>123 Main St</em>reet Austin, TX USA
-                                            </a>
-                                        </dt>
-                                        <dt class="list-item">
-                                            <a href="#">
-                                                <svg class="iconic">
-                                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                                                </svg>
-                                                <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
-                                            </a>
-                                        </dt>
-                                    </dl>
+                                    <div class="tool">
+                                        <h6 class="tool-heading">Search results</h6>
+                                        <dl class="dropdown-menu-body">
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>30.316855</em> latitude, <em>-97.674815</em> longitude
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123 Main St</em>reet Austin, TX USA
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123 Main St</em>reet Austin, TX USA
+                                                </a>
+                                            </dt>
+                                            <dt class="list-item">
+                                                <a href="#">
+                                                    <svg class="iconic">
+                                                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                                                    </svg>
+                                                    <em>123</em> Paint Supply, 416 Lamar Blvd. Austin, TX USA
+                                                </a>
+                                            </dt>
+                                        </dl>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-
-                    <p><em>You can search or click the area of map where you want to place the marker.</em></p>
+                        </form>
+                        <p><em>You can search or click the area of map where you want to place the marker.</em></p>
+                    </div>
                 </div>
-            </div>
-
-            <fieldset>
-                <legend>Categories</legend>
-
-                <div class="form-field checkbox">
-                    <label for="cat1"><input type="checkbox" id="cat1">Category 1</label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="cat2"><input type="checkbox" id="cat2">Category 2</label>
-                </div>
-                <div class="form-field checkbox">
-                    <label for="cat3"><input type="checkbox" id="cat3">Category 3</label>
-                </div>
-            </fieldset>
+                {{/ifCond}}
+            {{/each}}
 
             <div class="form-sheet-actions">
                 <div class="form-field">
@@ -288,12 +291,14 @@
 
 </main>
 
+{{/surveyFromHash}}
+
 {{> Modals }}
 
-<div id="required" class="message">
+<div id="required" class="message modal">
     <div class="message-image error">
         <svg class="iconic">
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+            <use xlink:href="../../img/iconic-sprite.svg#warning"></use>
         </svg>
     </div>
 

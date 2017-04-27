@@ -28,7 +28,31 @@
     <div class="mode-context-body">
         {{{deployment.description}}}
 
-        @@include('../partials/_survey-filter.html')
+        <div class="tool">
+            <h6 class="tool-heading">Surveys</h6>
+            {{> SurveyFilter }}
+        </div>
+
+        <div class="tool">
+            <h6 class="tool-heading">Language</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+            <div class="toggle-content">
+                <div class="form-field select">
+                    <div class="custom-select">
+                        <select>
+                            <option selected>English (US)</option>
+                            <option>Spanish</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="tool">
             <h6 class="tool-heading">How to add a post</h6>

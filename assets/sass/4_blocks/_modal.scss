@@ -5,10 +5,13 @@
 .modal-window {
     position: relative;
     @include containerSheet;
+    overflow-y: hidden;
     padding: 0 $sm-spacing;
+    padding-top: 1px;
 
     @include media($mobile) {
-        padding: 0 $base-spacing;
+        padding-right: $base-spacing;
+        padding-left: $base-spacing;
     }
 
     .modal-title {
@@ -48,6 +51,13 @@
 
         @include media($small) {
             padding-bottom: 96px;
+        }
+
+        .form-field {
+
+            &.switch {
+                margin-top: 4px;
+            }
         }
     }
 
@@ -125,13 +135,10 @@
         }
 
         .listing-heading {
+            @include typeGamma;
             border-bottom: 1px solid $color-light-beta;
             background-color: $color-light-beta;
             padding: $sm-spacing;
-
-            @include media($medium) {
-                padding: $sm-spacing $base-spacing;
-            }
 
             + .listing-item {
                 margin-top: 0;
@@ -143,16 +150,39 @@
         }
     }
 
+    label {
+        @include typeGamma;
+    }
+
     .form-field,
     fieldset {
         margin-top: 0;
-        margin-bottom: $base-spacing;
+        margin-bottom: $lg-spacing;
+
+        .form-field {
+            margin-bottom: $tiny-spacing;
+        }
+    }
+
+    .form-field {
+
+        &.radio,
+        &.checkbox {
+            margin-bottom: $sm-spacing;
+        }
 
         &.switch {
 
             > label {
                 margin-bottom: 0;
             }
+        }
+    }
+
+    fieldset {
+
+        legend {
+            @include typeGamma;
         }
     }
 
@@ -268,11 +298,13 @@
 }
 
 .modal-overlay {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    opacity: 0;
     width: auto;
     height: auto;
     overflow: hidden;
