@@ -25,7 +25,7 @@
                 <svg class="iconic">
                     <use xlink:href="../../img/iconic-sprite.svg#arrow-left"></use>
                 </svg>
-                <span class="button-label">Show all columns</span>
+                <span class="button-label">Show all stages</span>
             </button>
         </div>
     </div>
@@ -41,7 +41,7 @@
                 <svg class="iconic">
                     <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_view_column_24px"></use>
                 </svg>
-                <span class="button-label hide-until-medium">Edit columns</span>
+                <span class="button-label hide-until-medium">Edit stages</span>
             </button>
         </div>
     </div>
@@ -50,21 +50,25 @@
 
         <div class="lanes">
             <div class="lane collapsed">
-                <h2 class="lane-heading"><a href="">Review</a></h2>
+                <h2 class="lane-heading"><a href="">Review</a> <span class="status-indicator"><span class="label">16</span></span></h2>
             </div>
 
             <div class="lane">
-                <h2 class="lane-heading">Investigate</h2>
+                <h2 class="lane-heading"><a href="workflow-column.html">Investigate</a> <span class="status-indicator"><span class="label">9</span></span></h2>
 
                 <div class="lane-body listing tasks">
                     {{#each deployment.responses}}
-                        {{> Postcard checkbox=false show_tasks=true editable=true}}
+                        {{> Postcard checkbox=false show_tasks=false editable=false draggable=true}}
                     {{/each}}
                 </div>
             </div>
 
             <div class="lane collapsed">
-                <h2 class="lane-heading"><a href="">Contact department</a></h2>
+                <h2 class="lane-heading"><a href="">Contact department</a> <span class="status-indicator"><span class="label">5</span></span></h2>
+            </div>
+
+            <div class="lane collapsed">
+                <h2 class="lane-heading"><a href="">Resolved</a> <span class="status-indicator"><span class="label">45</span></span></h2>
             </div>
         </div>
 

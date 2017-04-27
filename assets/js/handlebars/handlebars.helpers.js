@@ -209,7 +209,24 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
         fieldLabel = session.deployment.surveys[surveyIndex].fields[fieldIndex].label,
         fieldIcon = session.deployment.surveys[surveyIndex].fields[fieldIndex].icon,
         fieldOptions = session.deployment.surveys[surveyIndex].fields[fieldIndex].options,
-        fieldActions = '<button class="button-link button-plain form-field-label_button" data-modal="task-add"><svg class="iconic"><use xlink:href="../../img/iconic-sprite.svg#task"></use></svg><span class="hide-until-medium button-label">Add task</span></button>';
+        fieldActions = '<div class="form-field-actions"> \
+                            <button class="button-link" data-toggle="dropdown-menu"> \
+                                <svg class="iconic"> \
+                                    <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use> \
+                                </svg> \
+                                <span class="hidden">More</span> \
+                            </button> \
+                            <ul class="dropdown-menu"> \
+                                <li> \
+                                    <a data-toggle="task-field-x-add"> \
+                                        <svg class="iconic"> \
+                                            <use xlink:href="../../img/iconic-sprite.svg#task"></use> \
+                                        </svg> \
+                                        <span class="label">Add task</span> \
+                                    </a> \
+                                </li> \
+                            </ul> \
+                        </div>';
 /*
     console.log({
         "survey" : surveyIndex,
@@ -221,13 +238,14 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
 
     if (fieldType == 'text') {
         return new Handlebars.SafeString(
-            '<div class="form-field">' + fieldActions + '<label>'+fieldLabel+'</label><input type="text" value="'+value+'" /></div>'
+            '<div class="form-field"><label>'+fieldLabel+'</label><input type="text" value="'+value+'" />'+fieldActions+'</div>'
         );
     } else if (fieldType == 'textarea') {
         return new Handlebars.SafeString(
             '<div class="form-field"> \
-            <label>'+fieldLabel+'</label><textarea>'+Handlebars.helpers.striptags(value)+'</textarea> \
-            </div>'
+            <label>'+fieldLabel+'</label> \
+            <textarea>'+Handlebars.helpers.striptags(value)+'</textarea> \
+            '+fieldActions+'</div>'
         );
     } else if (fieldType == 'select') {
         var optionElems = '';
@@ -242,6 +260,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                 <div class="custom-select"> \
                     <select>' + optionElems + '</select> \
                 </div> \
+                ' + fieldActions + ' \
             </div>'
         );
     } else if (fieldType == 'checkboxes' || fieldType == 'radio') {
@@ -256,13 +275,14 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                                 <label for="form-field-' + fieldType + '-' + i + '">' + fieldOptions[i].label + '\
                                     <input type="' + fieldType + '" id="form-field-' + fieldType + '-' + fieldsetID + '-' + i + '" ' + nameAttr + ' ' + attribute + ' /> \
                                 </label> \
-                            </div>';
+                                </div>';
         }
 
         return new Handlebars.SafeString(
             '<fieldset>' + fieldActions + ' \
                 <legend>' + fieldLabel + '</legend>'
                 + optionElems +
+                fieldActions +
             '</fieldset>'
         );
     } else if (fieldType == 'time' || fieldType == 'date') {
@@ -275,6 +295,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                     </svg> \
                     <input type="' + fieldType + '" value="'+value+'" /> \
                 </div> \
+                ' + fieldActions + ' \
             </div>'
         );
     } else if (fieldType == 'file') {
@@ -299,6 +320,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                         </label> \
                     </div> \
                 </figure> \
+                ' + fieldActions + ' \
             </div>'
         );
     } else if (fieldType == 'location') {
@@ -339,6 +361,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                     </form> \
                     <p><em>You can search or click the area of map where you want to place the marker.</em></p> \
                 </div> \
+                ' + fieldActions + ' \
             </div>'
         );
     }

@@ -1,5 +1,5 @@
 <div class="tool">
-    <h6 class="tool-heading">Response status</h6>
+    <h6 class="tool-heading">Stage</h6>
 
     <span class="tool-trigger" data-toggle="toggle-content">
         <svg class="iconic">
@@ -10,37 +10,47 @@
 
     <div class="toggle-content {{#if active}}active{{/if}}">
         <fieldset>
-            <legend class="hidden">Response status</legend>
-
-            <div class="form-field checkbox icon-input">
-                <label for="published">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                    </svg>
-                    <input checked type="checkbox" id="published">
-                    Published
-                </label>
-            </div>
+            <legend class="hidden">Stage</legend>
 
             {{#if user.logged_in}}
             <div class="form-field checkbox icon-input">
-                <label for="review">
+                <label for="stage-review">
                     <svg class="iconic">
                         <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                     </svg>
-                    <input checked type="checkbox" id="review" />
-                    Under review
+                    <input checked type="checkbox" id="stage-review" />
+                    Review
+                </label>
+            </div>
+
+            <div class="form-field checkbox icon-input">
+                <label for="stage-investigate">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                    </svg>
+                    <input checked type="checkbox" id="stage-investigate" />
+                    Investigate
+                </label>
+            </div>
+
+            <div class="form-field checkbox icon-input">
+                <label for="stage-contact_department">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                    </svg>
+                    <input checked type="checkbox" id="stage-contact_department" />
+                    Contact department
                 </label>
             </div>
             {{/if}}
 
             <div class="form-field checkbox icon-input">
-                <label for="archive">
+                <label for="stage-resolved">
                     <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                        <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                     </svg>
-                    <input {{#if user.logged_in}}checked{{/if}} type="checkbox" id="archive" />
-                    Archive
+                    <input checked type="checkbox" id="stage-resolved">
+                    Resolved
                 </label>
             </div>
         </fieldset>

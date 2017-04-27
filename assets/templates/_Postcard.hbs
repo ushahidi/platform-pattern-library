@@ -6,78 +6,47 @@
     {{/ifCond}}
 
     <div class="postcard-body">
-        {{#ifCond show_tasks true}}
-        <div class="postcard-field task">
-            <div class="task-checkbox">
-                <input type="checkbox" id="task-{{@index}}-done" disabled />
-                <label for="task-{{@index}}-done">Report to department</label>
-            </div>
-
-            <label for="task-{{@index}}-done"><a href="post-edit.html#0">Report to department</a></label>
-
-            <p class="metadata"><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/daudi.png" class="avatar" /> <strong class="label">Daudi Were</strong></p>
-
-            <div class="task-actions">
-                <button class="button-gamma button-plain" data-toggle="dropdown-menu">
-                    <svg class="iconic">
-                      <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                    </svg>
-                    <span class="hidden">More</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#person"></use>
-                            </svg>
-                            <span class="label">Change assignee</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
-                            </svg>
-                            <span class="label">Remove task</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        {{/ifCond}}
-
         <header class="postcard-header">
             <ul class="metadata">
                 <li>
-                    {{#ifCond properties.status 'published'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                        </svg>
-
-                        <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Published</span>
-                    </a>
-                    {{/ifCond}}
-
-                    {{#ifCond properties.status 'review'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator yellow">
+                    {{#ifCond properties.status 'Review'}}
+                    <span class="status-indicator {{#ifCond editable false}}tooltip{{/ifCond}}">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
-                        <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Under review</span>
-                    </a>
+                        <span class="{{#ifCond editable false}}bug{{else}}label{{/ifCond}}">Review</span>
+                    </span>
                     {{/ifCond}}
 
-                    {{#ifCond properties.status 'archived'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator dark">
+                    {{#ifCond properties.status 'Investigate'}}
+                    <span class="status-indicator {{#ifCond editable false}}tooltip{{/ifCond}}">
                         <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
-                        <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Archived</span>
-                    </a>
+                        <span class="{{#ifCond editable false}}bug{{else}}label{{/ifCond}}">Investigate</span>
+                    </span>
+                    {{/ifCond}}
+
+                    {{#ifCond properties.status 'Contact department'}}
+                    <span class="status-indicator {{#ifCond editable false}}tooltip{{/ifCond}}">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <span class="{{#ifCond editable false}}bug{{else}}label{{/ifCond}}">Contact department</span>
+                    </span>
+                    {{/ifCond}}
+
+                    {{#ifCond properties.status 'Resolved'}}
+                    <span class="status-indicator {{#ifCond editable false}}tooltip{{/ifCond}}">
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <span class="{{#ifCond editable false}}bug{{else}}label{{/ifCond}}">Resolved</span>
+                    </span>
                     {{/ifCond}}
                 </li>
 
+                {{#ifCond show_tasks false}}
                 <li>
                     {{#if properties.author.avatar}}
                     {{#ifCond show_tasks false}}
@@ -86,6 +55,8 @@
                     {{/if}}
                     <strong class="label">{{properties.author.name}}</strong>
                 </li>
+                {{/ifCond}}
+
                 <li class="tooltip">
                     <span class="label">{{properties.date.post}}</span>
                     <span class="bug">2016-05-12 4:32pm</span>
@@ -157,9 +128,43 @@
         <div class="postcard-overflow">
             {{#ifCond show_tasks true}}
 
-                {{#each-limit answers 1}}
-                    {{postcardField ../properties.survey @../index 0 true}}
-                {{/each-limit}}
+            <div class="postcard-field task">
+                <div class="tool">
+                    <div class="tool-actions">
+                        <button class="button-link" data-toggle="dropdown-menu">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_more_vert_24px"></use>
+                            </svg>
+                            <span class="hidden">More</span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <p>This task asks that the field <strong>Categories</strong> be completed.</p>
+                            <div class="divider"></div>
+                            <ul>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                        </svg>
+                                        <span class="label">Change assignee</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                                        </svg>
+                                        <span class="label">Remove task</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h1 class="form-label"><a href="post-edit.html">Categories</a></h1>
+                    <p class="metadata">Assigned to <img src="https://www.ushahidi.com/uploads/team-members/_teamImage/hazel.jpg" class="avatar" /> <strong class="label">Hazel Mugo</strong></p>
+                </div>
+            </div>
 
             {{else}}
 

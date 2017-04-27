@@ -136,39 +136,38 @@
             </fieldset>
 
             <fieldset>
-                <legend>Status</legend>
+                <legend>Stage</legend>
 
-                <div class="form-field checkbox icon-input">
-                    <label for="published">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                        </svg>
-                        <input checked type="checkbox" name="status" id="published" />
-                        Published
+                {{#if user.logged_in}}
+                <div class="form-field checkbox">
+                    <label for="stage-review">
+                        <input type="checkbox" id="stage-review" />
+                        Review
                     </label>
                 </div>
 
-                {{#if user.logged_in}}
-                <div class="form-field checkbox icon-input">
-                    <label for="underreview">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                        </svg>
-                        <input type="checkbox" name="status" id="underreview" />
-                        Under review
+                <div class="form-field checkbox">
+                    <label for="stage-investigate">
+                        <input type="checkbox" id="stage-investigate" />
+                        Investigate
+                    </label>
+                </div>
+
+                <div class="form-field checkbox">
+                    <label for="stage-contact_department">
+                        <input type="checkbox" id="stage-contact_department" />
+                        Contact department
                     </label>
                 </div>
                 {{/if}}
 
                 <div class="form-field checkbox">
-                    <label for="archive">
-                        <svg class="iconic">
-                          <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                        </svg>
-                        <input type="checkbox" name="archive" id="archive" />
-                        Archive
+                    <label for="stage-resolved">
+                        <input checked type="checkbox" id="stage-resolved" />
+                        Resolved
                     </label>
                 </div>
+
                 <span class="form-field-toggle">
                     <svg class="iconic">
                       <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
@@ -178,7 +177,7 @@
             </fieldset>
 
             <fieldset>
-                <legend>Labels</legend>
+                <legend>Categories</legend>
 
                 <div class="form-field checkbox">
                     <label for="speakers">
@@ -206,12 +205,6 @@
             <fieldset>
                 <legend>Data Source</legend>
 
-                <div class="form-field checkbox">
-                    <label for="web">
-                        <input type="checkbox" id="web" />
-                        Web
-                    </label>
-                </div>
                 <div class="form-field checkbox">
                     <label for="sms">
                         <input type="checkbox" id="sms" />

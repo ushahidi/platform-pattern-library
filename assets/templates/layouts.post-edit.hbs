@@ -42,31 +42,6 @@
 
     <div class="main-col">
 
-        <div class="toolbox">
-            <div class="tool">
-                <div class="listing">
-                    <h3 class="listing-heading">
-                        <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
-                            </svg>
-                        Tasks
-                    </h3>
-
-                    <div class="listing-item checked">
-                        <div class="listing-item-primary">
-                            <h4 class="listing-item-title"><a href="#field-0">Categories</a></h4>
-                        </div>
-                    </div>
-
-                    <div class="listing-item">
-                        <div class="listing-item-primary">
-                            <h4 class="listing-item-title"><a href="#section-0">Report to department</a></h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <section class="form-sheet" role="article">
             {{postBand}}
 
@@ -178,7 +153,28 @@
                     <a data-toggle="add-label">+ Add new category</a>
                 </div>
 
-                <div class="toolbox">
+                <div class="form-field-actions">
+                    <button class="button-link" data-toggle="dropdown-menu">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                        </svg>
+                        <span class="hidden">More</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a data-toggle="task-field-x-add">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                                </svg>
+                                <span class="label">Add task</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!--// New task //-->
+                <div class="toolbox" data-toggle-target="task-field-x-add">
+                    {{postBand}}
                     <div class="tool">
                         <div class="tool-actions">
                             <button class="button-link" data-toggle="dropdown-menu">
@@ -208,12 +204,54 @@
                         </div>
 
                         <div class="form-field checkbox task">
-                            <label for="task-field-x"><strong>Complete this field</strong></label>
-                            <input type="checkbox" checked id="task-field-x" />
+                            <input type="checkbox" id="task-field-x" class="task-checkbox" />
+                            <label for="task-field-x" class="task-label">Categories</label>
+                            <p class="metadata">Assigned to <br/ ><strong class="label" data-modal="edit-author">Anybody</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <!--//-->
+
+                <!--// Existing task //
+                <div class="toolbox">
+                    {{postBand}}
+
+                    <div class="tool">
+                        <div class="tool-actions">
+                            <button class="button-link" data-toggle="dropdown-menu">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/material/svg-sprite-navigation-symbol.svg#ic_more_vert_24px"></use>
+                                </svg>
+                                <span class="hidden">More</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                                        </svg>
+                                        <span class="label">Change assignee</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <svg class="iconic">
+                                            <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                                        </svg>
+                                        <span class="label">Remove task</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="form-field checkbox task">
+                            <label for="task-field-x" class="task-label">Categories</label>
+                            <input type="checkbox" id="task-field-x" class="task-checkbox" checked />
                             <p class="metadata">Completed by <br/ ><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/hazel.jpg" class="avatar" /> <strong class="label">Hazel Mugo</strong></p>
                         </div>
                     </div>
                 </div>
+                //-->
             </fieldset>
         </section>
 
@@ -249,6 +287,8 @@
                 <h1 class="form-sheet-title section-title">Report to department</h1>
 
                 <div class="toolbox">
+                    {{postBand}}
+
                     <div class="tool">
                         <div class="tool-actions">
                             <button class="button-link" data-toggle="dropdown-menu">
@@ -278,8 +318,8 @@
                         </div>
 
                         <div class="form-field checkbox task">
-                            <label for="task-section-x"><strong>Complete this section</strong></label>
-                            <input type="checkbox" id="task-section-x" />
+                            <label for="task-section-x" class="task-label">Report to department</label>
+                            <input type="checkbox" id="task-section-x" class="task-checkbox" />
                             <p class="metadata">Assigned to <br/ ><img src="https://www.ushahidi.com/uploads/team-members/_teamImage/david-m.png" class="avatar" /> <strong class="label">David McNamara</strong></p>
                         </div>
                     </div>
@@ -307,6 +347,32 @@
                 <input type="number" />
             </div>
         </section>
+
+        <div class="toolbox hide-until-small">
+            <div class="tool">
+                <div class="listing">
+                    <h3 class="listing-heading">
+                        <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
+                            </svg>
+                        Tasks
+                    </h3>
+
+                    <div class="listing-item checked">
+                        <div class="listing-item-primary">
+                            <h4 class="listing-item-title"><a href="#field-0">Categories</a></h4>
+                        </div>
+                    </div>
+
+                    <div class="listing-item">
+                        <div class="listing-item-primary">
+                            <h4 class="listing-item-title"><a href="#section-0">Report to department</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </main>

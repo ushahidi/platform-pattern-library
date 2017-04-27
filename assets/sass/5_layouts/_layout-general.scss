@@ -462,34 +462,36 @@
             margin-bottom: $base-spacing;
 
             .toolbox {
+                position: absolute;
+                top: -$sm-spacing;
+                right: 0;
+                z-index: $body;
+                width: 40px;
+                height: 60px;
+                overflow: hidden;
+                border: none;
+                @include no-shadow;
 
-                @include media($small) {
-                    position: relative;
-                    top: 0;
-                    right: 0;
+                .post-band,
+                .tool-actions,
+                .task:before,
+                p {
+                    opacity: 0;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: clip;
+                    @include transition(0.3s);
                 }
 
-                @include media($medium) {
-                    position: absolute;
-                    top: -12px;
-                    right: 100%;
-                    z-index: $body;
-                    width: 30px;
-                    height: 50px;
-                    overflow: hidden;
-                    border: none;
-                    margin-right: $base-spacing;
-                    @include no-shadow;
+                @include media($mobile) {
+                    margin-right: -27px;
+                }
 
-                    .tool-actions,
-                    label,
-                    p {
-                        opacity: 0;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: clip;
-                        @include transition(0.3s);
-                    }
+                @include media($small) {
+                    right: auto;
+                    left: 100%;
+                    margin-right: 0;
+                    margin-left: -13px;
                 }
             }
 
@@ -497,26 +499,26 @@
             .focus {
 
                 .toolbox {
+                    width: 206px;
+                    height: auto;
+                    overflow: visible;
+                    background-color: $color-light-delta;
+                    box-shadow: 0 0 16px rgba(0,0,0,0.12),
+                        0 16px 16px rgba(0,0,0,0.24);
 
-                    @include media($medium) {
-                        width: 206px;
-                        height: auto;
+                    .post-band,
+                    .tool-actions,
+                    .task:before,
+                    p {
+                        opacity: 1;
+                        white-space: normal;
                         overflow: visible;
-                        box-shadow: 0 0 16px rgba(0,0,0,0.12),
-                            0 16px 16px rgba(0,0,0,0.24);
-
-                        .tool-actions,
-                        label,
-                        p {
-                            opacity: 1;
-                            white-space: normal;
-                            overflow: visible;
-                            text-overflow: inherit;
-                        }
+                        text-overflow: inherit;
                     }
 
-                    @include media($medium) {
-                        margin-right: $base-spacing;
+                    @include media($small) {
+                        right: auto;
+                        left: 100%;
                     }
                 }
             }

@@ -308,6 +308,8 @@
         </section>
 
         <section class="form-sheet">
+            <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
+            
             <div class="form-sheet-toolbar">
                 <div class="form-sheet-mark">
                     <h1>Section 2 of 2</h1>
@@ -1022,6 +1024,14 @@
 
         <ul>
             <li>
+                <a>
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
+                    </svg>
+                    <span class="label">Move up</span>
+                </a>
+            </li>
+            <li>
                 <a href="" data-modal="section-settings">
                     <svg class="iconic">
                         <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
@@ -1121,56 +1131,41 @@
                 </fieldset>
             </div>
 
-            <div class="form-field switch">
-                <label>Require responses be reviewed before they're published</label>
-                <div data-fieldgroup-target="require-review-message" style="margin-top: 8px;">
-                    <p>
-                        <em>New responses to this survey will be put "under review," and therefore not immediately visible to the public. Users with permission to review the response can review and "publish" them, which would then make them visible to everyone.</em>
-                        <a class="button button-link">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#task"></use>
-                            </svg>
-                            <span class="button-label">Add task</span>
-                        </a>
+            <fieldset>
+                <legend>Default stage for new responses</legend>
+
+                <div class="form-field radio">
+                    <label for="survey-default_stage-review">
+                        <input type="radio" name="survey-default_stage" id="survey-default_stage-review" data-fieldgroup-toggle="survey-default_stage-review-message" checked />
+                        <span class="label">Review</span>
+                    </label>
+
+                    <p class="alert" data-fieldgroup-target="survey-default_stage-review-message">
+                        New responses to this survey will be put into the <em>Review</em> stage, which is <a href="">configured</a> to keep them visible <em>only to users with permission to edit them</em>.
                     </p>
-
-                    <!--div class="task">
-                        <div class="task-definition">
-                            Change the response status to <strong>Publish</strong>
-                        </div>
-                        <div class="task-definition">
-                            for <strong>every new response</strong> to <strong>Street maintenance</strong>.
-                        </div>
-                        <ul class="metadata">
-                            <li>
-                                <a class="chip" data-modal="edit-author">
-                                    <span class="chip-icon">
-                                        <span class="label">Assignee</span>
-                                    </span>
-                                    <span class="label">Anyone</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="chip">
-                                    <span class="chip-icon">
-                                        <span class="label">Column</span>
-                                    </span>
-                                    <span class="label">Review</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="task-checkbox">
-                            <input type="checkbox" id="task-0-done" disabled />
-                            <label for="task-0-done">Task complete</label>
-                        </div>
-                    </div-->
                 </div>
 
-                <div class="toggle-switch">
-                    <input class="tgl" id="require-review" type="checkbox" data-fieldgroup-toggle="require-review-message">
-                    <label class="tgl-btn" for="require-review"></label>
+                <div class="form-field radio">
+                    <label for="survey-default_stage-investigate">
+                        <input type="radio" name="survey-default_stage" id="survey-default_stage-investigate" />
+                        <span class="label">Investigate</span>
+                    </label>
                 </div>
-            </div>
+
+                <div class="form-field radio">
+                    <label for="survey-default_stage-contact">
+                        <input type="radio" name="survey-default_stage" id="survey-default_stage-contact" />
+                        <span class="label">Contact department</span>
+                    </label>
+                </div>
+
+                <div class="form-field radio">
+                    <label for="survey-default_stage-resolved">
+                        <input type="radio" name="survey-default_stage" id="survey-default_stage-resolved" />
+                        <span class="label">Resolved</span>
+                    </label>
+                </div>
+            </fieldset>
 
             <div class="form-field switch">
                 <label>Hide author information</label>
@@ -1285,24 +1280,26 @@
         </h3>
 
         <div class="modal-body">
+            <p>The following task will be assigned for <strong>all new responses</strong> to this survey.</p>
 
-            <div class="task">
-                <div class="task-definition">
-                    Complete the field <strong>Witness</strong> for <strong>every new response</strong> to <strong>Street maintenance</strong>.
-                </div>
-                <ul class="metadata">
-                    <li>
-                        <a class="chip" data-modal="edit-author">
-                            <span class="chip-icon">
-                                <span class="label">Assignee</span>
-                            </span>
-                            <span class="label">Anyone</span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="task-checkbox">
-                    <input type="checkbox" id="task-0-done" disabled />
-                    <label for="task-0-done">Task complete</label>
+            <div class="toolbox">
+                <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
+
+                <div class="tool">
+                    <div class="form-field checkbox task">
+                        <input type="checkbox" id="task-field-x" class="task-checkbox" disabled />
+                        <label for="task-field-x" class="task-label">Witness</label>
+                        <ul class="metadata">
+                            <li>
+                                <a class="chip" data-modal="edit-author">
+                                    <span class="chip-icon">
+                                        <span class="label">Assigned to</span>
+                                    </span>
+                                    <span class="label">Anyone</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 

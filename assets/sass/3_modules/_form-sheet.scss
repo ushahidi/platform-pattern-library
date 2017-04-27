@@ -194,6 +194,30 @@
             margin-right: 0;
             margin-left: 0;
         }
+
+        .form-field-actions {
+            position: absolute;
+            top: 0;
+            right: -$tiny-spacing;
+            z-index: $body;
+            margin-right: 0;
+
+            @include media($mobile) {
+                right: -$huge-spacing;
+            }
+
+            button,
+            .button {
+                margin-right: 0;
+                margin-left: $tiny-spacing;
+            }
+
+            .dropdown-menu {
+                top: 0 !important;
+                right: 0 !important;
+                left: auto !important;
+            }
+        }
     }
 
     .form-field {
@@ -455,70 +479,6 @@
 
         .metadata {
             padding: 0;
-        }
-    }
-
-    .toolbox {
-
-        @include media($medium-down) {
-            width: auto;
-            background-color: transparent;
-            @include no-shadow;
-            padding-top: 0;
-            padding-bottom: 0;
-            margin: $sm-spacing 0;
-        }
-
-        .tool {
-            margin-right: 0;
-            margin-left: 0;
-
-            @include media($medium) {
-                margin-right: $sm-spacing;
-                margin-left: $sm-spacing;
-            }
-        }
-    }
-
-    .tool {
-        max-width: 450px;
-        margin: $base-spacing $sm-spacing;
-
-        @include media($medium) {
-            margin: $lg-spacing $base-spacing;
-        }
-
-        .form-field,
-        fieldset {
-            margin: $sm-spacing 0;
-        }
-
-        fieldset {
-
-            &.custom-fieldset.init {
-                margin-top: $tiny-spacing;
-            }
-
-            .form-field {
-                margin: 0 0 $tiny-spacing;
-            }
-
-            fieldset {
-                margin-top: 0;
-            }
-
-            .task {
-
-                .form-field {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        .metadata {
-            background-color: transparent;
-            padding-right: 0;
-            padding-left: 0;
         }
     }
 

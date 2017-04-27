@@ -4,6 +4,7 @@
     max-width: 575px;
 
     .post-band {
+        z-index: 1;
         @include radius(2px, 0, 0, 2px);
     }
 
@@ -15,13 +16,6 @@
         + .postcard-body {
             padding-right: $base-spacing;
             padding-left: $huge-spacing;
-
-            .postcard-field {
-
-                &.task {
-                    margin-left: 0;
-                }
-            }
         }
 
         .status-indicator {
@@ -76,14 +70,6 @@
             @include media($medium) {
                 margin-top: $base-spacing;
             }
-        }
-    }
-
-    .dropdown-menu {
-        display: none;
-
-        &.active {
-            display: block;
         }
     }
 
@@ -181,6 +167,41 @@
         line-height: 1.357142857;
         margin-bottom: $sm-spacing;
 
+        &.task {
+            border-top: 1px solid $color-light-gamma;
+            background-color: $color-light-delta;
+            padding-top: 10px;
+            padding-right: $sm-spacing;
+            padding-bottom: $sm-spacing;
+            padding-left: $huge-spacing !important;
+            margin-bottom: 0;
+            margin-right: -$base-spacing;
+            margin-left: -$huge-spacing;
+
+            &:before {
+                z-index: 2;
+                background: repeating-linear-gradient(
+                    45deg,
+                    rgba(255,255,255,0.8),
+                    rgba(255,255,255,0.8) 10px,
+                    rgba(255,255,255,0.24) 10px,
+                    rgba(255,255,255,0.24) 20px
+                );
+            }
+        }
+
+        &.checkboxes,
+        &.radio,
+        &.select,
+        &.task {
+
+            .form-label {
+                display: block;
+                padding-top: 0;
+                margin-bottom: $tiny-spacing;
+            }
+        }
+
         .form-label {
             display: none;
             padding-top: $base-spacing;
@@ -253,91 +274,6 @@
             top: 4px !important;
             right: 4px !important;
             left: auto !important;
-        }
-
-        &.task {
-            top: -$sm-spacing;
-            border-right: none;
-            border-left: none;
-            border-top-right-radius: 2px;
-            border-top-left-radius: 2px;
-            margin-right: -$sm-spacing;
-            margin-bottom: 0;
-            margin-left: -$sm-spacing;
-        }
-    }
-
-    .postcard-tasks {
-
-        @include media($medium) {
-            padding-left: $base-spacing;
-        }
-
-        .postcard-tasks-title {
-            position: relative;
-            z-index: $body;
-            margin-bottom: $sm-spacing;
-
-            @include media($medium) {
-                margin-left: -$base-spacing;
-            }
-        }
-
-        .task {
-            @include equal-radius;
-            border: 1px solid $color-light-beta;
-            background-color: $color-light-gamma;
-            padding: $sm-spacing;
-
-            &:before,
-            &:after {
-                content: '';
-                visibility: visible;
-                position: absolute;
-                z-index: 0;
-                width: 2px;
-                background-color: $color-light-beta;
-            }
-
-            &:before {
-                bottom: 100%;
-                left: $tiny-spacing + 3;
-                height: $sm-spacing + 1;
-
-                @include media($medium) {
-                    position: absolute;
-                    z-index: $body;
-                    top: -$sm-spacing - 1;
-                    bottom: -1px;
-                    left: -$sm-spacing + 3;
-                    width: 1px;
-                    height: auto;
-                }
-            }
-
-            &:after {
-                content: none;
-
-                @include media($medium) {
-                    content: '';
-                    top: $base-spacing;
-                    left: -$sm-spacing + 3;
-                    width: $sm-spacing - 3;
-                    height: 1px;
-                    background-color: $color-light-beta;
-                }
-            }
-
-            &:last-of-type {
-
-                &:before {
-
-                    @include media($medium) {
-                        bottom: auto;
-                        height: 42px;
-                    }
-                }
-            }
         }
     }
 
@@ -457,23 +393,6 @@
             @include media($medium) {
                 margin-right: -$base-spacing;
                 margin-left: -$base-spacing;
-            }
-        }
-    }
-
-    .postcard-overflow {
-
-        .postcard-field {
-
-            &.checkboxes,
-            &.radio,
-            &.select {
-
-                .form-label {
-                    display: block;
-                    padding-top: 0;
-                    margin-bottom: $tiny-spacing;
-                }
             }
         }
     }

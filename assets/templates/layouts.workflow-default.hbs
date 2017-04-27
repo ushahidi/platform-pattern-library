@@ -32,7 +32,7 @@
                 <svg class="iconic">
                     <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_view_column_24px"></use>
                 </svg>
-                <span class="button-label hide-until-medium">Edit columns</span>
+                <span class="button-label hide-until-medium">Edit stages</span>
             </button>
         </div>
     </div>
@@ -146,7 +146,7 @@
         <div class="lanes">
 
             <div class="lane">
-                <h2 class="lane-heading">To-do</h2>
+                <h2 class="lane-heading"><a href="">Under review</a> <span class="status-indicator"><span class="label">5</span></span></h2>
 
                 <div class="lane-body listing tasks">
                     {{#each deployment.responses}}
@@ -155,12 +155,30 @@
                 </div>
             </div>
 
+            <div class="lane">
+                <h2 class="lane-heading"><a href="">Published</a> <span class="status-indicator"><span class="label">19</span></span></h2>
+
+                <div class="lane-body listing tasks">
+                    {{#each deployment.responses}}
+                        {{> Postcard checkbox=false show_tasks=false editable=false draggable=true}}
+                    {{/each}}
+                </div>
+            </div>
+
+            <div class="lane">
+                <h2 class="lane-heading"><a href="">Archived</a> <span class="status-indicator"><span class="label">0</span></span></h2>
+
+                <div class="lane-body listing tasks">
+
+                </div>
+            </div>
+
             <div class="lane-holder">
                 <button class="button-beta button-flat button-plain" data-toggle="dropdown-menu">
                     <svg class="iconic">
                       <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                     </svg>
-                    <span class="button-label">Add column</span>
+                    <span class="button-label">Add stage</span>
                 </button>
             </div>
         </div>

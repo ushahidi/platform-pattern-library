@@ -30,9 +30,9 @@
         <div class="button-group">
             <button>
                 <svg class="iconic">
-                    <use xlink:href="../../img/material/svg-sprite-action-symbol.svg#ic_view_column_24px"></use>
+                    <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
                 </svg>
-                <span class="button-label hide-until-medium">Edit columns</span>
+                <span class="button-label hide-until-medium">Configure tasks</span>
             </button>
         </div>
     </div>
@@ -43,6 +43,59 @@
             {{#each deployment.responses}}
                 {{> Postcard checkbox=true show_tasks=true editable=true}}
             {{/each}}
+
+            <div class="listing-toolbar">
+                <div class="listing-toolbar-summary">
+                    <strong><span class="total"></span> selected</strong>
+                    <button class="button-link">Deselect</button>
+                </div>
+
+                <div class="listing-toolbar-actions">
+
+                    <button class="button-beta" data-toggle="toggle-content">
+                        <span class="button-label">Mark as</span>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu toggle-content">
+                        <li>
+                            <a href="" data-message="publish-success">
+                                Incomplete
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" data-message="under_review-success">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                                </svg>
+                                <span class="label">Complete</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button class="button-beta" data-modal="add-to-collection">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Change assignee</span>
+                    </button>
+
+                    <button class="button-beta">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Edit</span>
+                    </button>
+
+                    <button class="button-gamma">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#circle-x"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Remove task</span>
+                    </button>
+                </div>
+            </div>
         </div>
 
         <div class="toolbox hide-until-small">

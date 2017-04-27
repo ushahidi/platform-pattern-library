@@ -1,5 +1,6 @@
 .task {
     position: relative;
+    padding-left: 36px !important;
 
     &:before {
         content: '';
@@ -7,7 +8,9 @@
         top: 0;
         bottom: 0;
         left: 0;
+        z-index: 1;
         width: 4px;
+        /*
         background: repeating-linear-gradient(
             45deg,
             $color-secondary,
@@ -15,220 +18,84 @@
             #ffe9b4 10px,
             #ffe9b4 20px
         );
+        */
+        background: repeating-linear-gradient(
+            45deg,
+            rgba(255,255,255,0.8),
+            rgba(255,255,255,0.8) 10px,
+            rgba(255,255,255,0.24) 10px,
+            rgba(255,255,255,0.24) 20px
+        );
+        @include transition(0.3s);
     }
 
-    &.checked {
+    .task-label {
+        position: relative;
+        left: -36px;
+        font-size: 16px !important;
+        font-size: 1.142857143rem !important;
+        padding-left: 36px;
 
         &:before {
-            content: none;
-            //background: $color-light-alpha;
-        }
-    }
-
-/*
-
-    .task-definition {
-        color: $color-dark-gamma;
-        font-size: 16px;
-        font-size: 1.142857143rem;
-        padding-left: 76px;
-        margin-top: $sm-spacing;
-        margin-bottom: $sm-spacing;
-
-        &:before {
-            content: '';
+            display: inline-block;
+            content: '\2713';
             position: absolute;
             top: 0;
-            bottom: 0;
-            left: 56px;
-            width: 1px;
-            background-color: $color-light-beta;
+            left: 0;
+            width: $base-spacing;
+            height: $base-spacing;
+            color: $color-light-beta;
+            font-size: 18px;
+            text-align: center;
+            line-height: $base-spacing;
+            @include equal-radius;
+            border: 1px solid $color-light-beta;
+            background-color: $color-primary-zeta;
+            @include transition(0.3s);
         }
 
-        strong {
-            color: $color-dark-alpha;
-            font-style: italic;
+        em {
             font-weight: 600;
         }
 
-        select {
-            height: $base-spacing;
-            line-height: 1;
-            padding-top: 4px;
-            padding-bottom: 4px;
+        &:hover {
+            cursor: pointer;
+            color: $color-dark-alpha;
+
+            &:before {
+                border-color: $color-primary-epsilon;
+            }
         }
     }
 
     .task-checkbox {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        padding: $sm-spacing;
+        display: none;
 
-        input[type="checkbox"] {
-            display: none;
+        &:disabled {
 
-            &:checked + label {
-                border-color: $color-primary-beta;
-                background-color: $color-primary-gamma;
+            + .task-label {
 
-                &:after {
-                    opacity: 1;
-                    content: '';
+                &:hover:before {
+                    border-color: $color-light-beta;
                 }
             }
-
-            &:disabled + label {
-                cursor: auto;
-                background-color: transparent;
-                @include no-shadow;
-            }
-        }
-
-        label {
-            display: inline-block;
-            position: relative;
-            cursor: pointer;
-            width: $base-spacing;
-            height: $base-spacing;
-            overflow: hidden;
-            text-indent: -9999px;
-            @include equal-radius;
-            border: 1px solid $color-light-beta;
-            background-color: $color-light-delta;
-            @include box-shadow(0px, 0px, 3px, 0, rgba(0,0,0,.16), true);
-
-            &:after {
-                opacity: 0.2;
-            	content: none;
-            	position: absolute;
-            	width: 14px;
-            	height: 8px;
-            	background: transparent;
-            	top: 5px;
-            	left: 4px;
-            	border: 3px solid $color-secondary;
-            	border-top: none;
-            	border-right: none;
-            	transform: rotate(-45deg);
-            }
-        }
-
-        &.checkbox {
-
-            &.checked {
-
-                label {
-                    font-weight: normal;
-                    text-decoration: line-through;
-                }
-
-                + .task-body {
-                    display: none;
-                }
-            }
-
-            + .task-body {
-                padding-left: 22px;
-            }
-        }
-    }
-
-    .task-actions {
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: $body;
-
-        button,
-        .button {
-            background-color: transparent;
-            padding: 4px $tiny-spacing;
-            margin-right: 0;
-            @include no-shadow;
-        }
-
-        .dropdown-menu {
-            top: 4px !important;
-            right: 4px;
-            left: auto !important;
-        }
-    }
-
-    .metadata {
-        font-style: normal;
-        margin-left: 76px;
-        margin-bottom: $sm-spacing;
-
-        li {
-            margin-bottom: 0;
-        }
-
-        .chip {
-            vertical-align: baseline;
-            background-color: $color-light-delta;
-            margin-right: 2px;
-            margin-left: 2px;
         }
     }
 
     &.checked {
-        background-color: transparent;
 
         &:before {
             content: none;
         }
 
-        label,
-        .task-definition,
-        .task-definition * {
+        .task-label {
             text-decoration: line-through;
-        }
-
-        label {
 
             &:before {
-                background-color: $color-light-gamma;
+                color: $color-secondary;
+                border-color: $color-primary-alpha;
+                background-color: $color-primary;
             }
         }
     }
-
-    &.form-field,
-    &.postcard-field,
-    &.form-sheet {
-        padding-top: $sm-spacing;
-        padding-right: $lg-spacing;
-        padding-bottom: $sm-spacing;
-        padding-left: 76px;
-
-        .task-checkbox {
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 56px;
-                width: 1px;
-                background-color: $color-light-beta;
-            }
-        }
-
-        .metadata {
-            margin: 0;
-            margin-top: $tiny-spacing;
-        }
-    }
-
-    &.form-field {
-
-        label {
-
-            + .metadata {
-                margin-top: -$tiny-spacing;
-            }
-        }
-    }
-    */
 }
