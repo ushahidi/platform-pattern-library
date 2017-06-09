@@ -614,34 +614,6 @@ Handlebars.registerPartial("Search", Handlebars.template({"compiler":[6,">= 2.0.
 this["Ushahidi"]["templates"]["_Search"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<form role=\"search\" class=\"searchbar\" data-message=\"search\">\n    <div class=\"searchbar-input\">\n        <div class=\"form-field\">\n            <label class=\"hidden\">Search</label>\n            <div class=\"input-with-icon input-with-ghost\">\n                <input type=\"search\" maxlength=\"250\" placeholder=\"Search\" value=\"\" />\n                <div class=\"input-ghost\"></div>\n                <svg class=\"iconic\">\n                    <use xlink:href=\"../../img/iconic-sprite.svg#magnifying-glass\"></use>\n                </svg>\n            </div>\n        </div>\n        <div class=\"searchbar-results dropdown-menu\">\n            <div class=\"form-field\">\n                <button class=\"button-plain\" search-string>Search all posts for <em>keyword</em></button>\n            </div>\n\n            <!-- IF: LOADING SEARCH SUGGESTIONS //\n            <div class=\"loading\">\n                <div class=\"line\"></div>\n                <div class=\"line\"></div>\n                <div class=\"line\"></div>\n            </div>\n            // END IF -->\n\n            <div class=\"tool\">\n                <h6 class=\"tool-heading\">Suggestions</h6>\n                <dl class=\"dropdown-menu-body\">\n                    <dt class=\"list-item\"><a href=\"#\"><em>Polic</em>e</a></dt>\n                </dl>\n            </div>\n\n            <div class=\"tool\">\n                <h6 class=\"tool-heading\">\n                    <svg class=\"iconic\">\n                      <use xlink:href=\"../../img/iconic-sprite.svg#star\"></use>\n                    </svg>\n                    Saved\n                </h6>\n                <dl class=\"dropdown-menu-body\">\n                    <dt class=\"list-item\"><a href=\"#\">City <em>Polic</em>e Hearings</a></dt>\n                    <dt class=\"list-item\"><a href=\"#\">Incidents involving <em>Polic</em>e</a></dt>\n                </dl>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"searchbar-options\">\n        <a href=\"#\" class=\"button\" data-modal=\"saved_searches\">\n            <svg class=\"iconic\">\n              <use xlink:href=\"../../img/iconic-sprite.svg#star\"></use>\n            </svg>\n            <span class=\"button-label hidden\">Saved Searches</span>\n        </a>\n\n        <a href=\"#\" class=\"button searchbar-options-filter\" data-modal=\"filter_by\">\n            <svg class=\"iconic\">\n                <use xlink:href=\"../../img/material/svg-sprite-content-symbol.svg#ic_filter_list_24px\"></use>\n            </svg>\n            <span class=\"button-label\">Filters</span>\n        </a>\n    </div>\n</form>\n";
 },"useData":true});
-Handlebars.registerPartial("SurveyFilter", Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.deployment : depth0)) != null ? stack1.surveys : stack1),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n        <div class=\"form-field\">\n            <a href=\"settings-survey-add.html\" class=\"button button-link\">\n                <svg class=\"iconic\">\n                    <use xlink:href=\"../../img/iconic-sprite.svg#plus\"></use>\n                </svg>\n                <span class=\"button-label\">Create new survey</span>\n            </a>\n        </div>\n";
-},"2":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials.SurveyFilterCheckbox,depth0,{"name":"SurveyFilterCheckbox","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"4":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.deployment : depth0)) != null ? stack1.surveys : stack1),{"name":"each","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
-},"5":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.datasource : depth0),{"name":"if","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
-},"6":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return ((stack1 = this.invokePartial(partials.SurveyFilterCheckbox,depth0,{"name":"SurveyFilterCheckbox","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<form class=\"survey-filter\">\n\n"
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(4, data, 0),"data":data})) != null ? stack1 : "")
-    + "\n</form>\n";
-},"usePartial":true,"useData":true}));
 this["Ushahidi"]["templates"]["_SurveyFilter"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
 
@@ -670,55 +642,34 @@ this["Ushahidi"]["templates"]["_SurveyFilter"] = Handlebars.template({"1":functi
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(4, data, 0),"data":data})) != null ? stack1 : "")
     + "\n</form>\n";
 },"usePartial":true,"useData":true});
-Handlebars.registerPartial("SurveyFilterCheckbox", Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "checked";
-},"3":function(depth0,helpers,partials,data) {
-    var helper;
+Handlebars.registerPartial("SurveyFilter", Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    var stack1;
 
-  return "                <li>\n                    <a href=\"post-add.html#"
-    + this.escapeExpression(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#plus\"></use>\n                    </svg>\n                    <span class=\"label\">Respond to this survey</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#task\"></use>\n                    </svg>\n                    <span class=\"label\">Assign someone to respond</span>\n                    </a>\n                </li>\n                <div class=\"divider\"></div>\n";
+  return ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.deployment : depth0)) != null ? stack1.surveys : stack1),{"name":"each","hash":{},"fn":this.program(2, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n        <div class=\"form-field\">\n            <a href=\"settings-survey-add.html\" class=\"button button-link\">\n                <svg class=\"iconic\">\n                    <use xlink:href=\"../../img/iconic-sprite.svg#plus\"></use>\n                </svg>\n                <span class=\"button-label\">Create new survey</span>\n            </a>\n        </div>\n";
+},"2":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = this.invokePartial(partials.SurveyFilterCheckbox,depth0,{"name":"SurveyFilterCheckbox","data":data,"indent":"            ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
+},"4":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers.each.call(depth0,((stack1 = (depth0 != null ? depth0.deployment : depth0)) != null ? stack1.surveys : stack1),{"name":"each","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"5":function(depth0,helpers,partials,data) {
     var stack1;
 
-  return "    <fieldset class=\"survey-filter-children\">\n        <legend data-toggle=\"form-fieldgroup\">"
-    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.categories : depth0)) != null ? stack1.length : stack1), depth0))
-    + " categories</legend>\n\n        <div class=\"form-fieldgroup\">\n\n"
-    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.categories : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n        </div>\n\n    </fieldset>\n";
+  return ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.datasource : depth0),{"name":"if","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "");
 },"6":function(depth0,helpers,partials,data) {
-    var helper;
+    var stack1;
 
-  return "            <div class=\"form-field checkbox\">\n                <label>\n                    <input type=\"checkbox\" checked />\n                    "
-    + this.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
-    + "\n                </label>\n\n                <div class=\"form-fieldgroup\">\n                    <div class=\"form-field checkbox\">\n                        <label>\n                            <input type=\"checkbox\" checked />\n                            Child category\n                        </label>\n                    </div>\n\n                    <div class=\"form-field checkbox\">\n                        <label>\n                            <input type=\"checkbox\" checked />\n                            Another child category\n                        </label>\n                    </div>\n                </div>\n            </div>\n";
+  return ((stack1 = this.invokePartial(partials.SurveyFilterCheckbox,depth0,{"name":"SurveyFilterCheckbox","data":data,"indent":"                ","helpers":helpers,"partials":partials})) != null ? stack1 : "");
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+    var stack1;
 
-  return "<div class=\"survey-filter-checkbox\">\n    <div class=\"survey-filter-parent\">\n        <div class=\"survey-filter-label\">\n            <span class=\"post-band\" style=\"background-color:#"
-    + alias3(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"color","hash":{},"data":data}) : helper)))
-    + ";\"></span>\n            <label>\n                <input type=\"checkbox\" "
-    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.datasource : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + " />\n                "
-    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
-    + "\n            </label>\n        </div>\n        <span class=\"survey-filter-total\" data-toggle=\"dropdown-menu\">\n            18\n            <svg class=\"iconic\">\n                <use xlink:href=\"../../img/iconic-sprite.svg#chevron-bottom\"></use>\n            </svg>\n        </span>\n        <div class=\"dropdown-menu\">\n            <span class=\"post-band\" style=\"background-color:#"
-    + alias3(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"color","hash":{},"data":data}) : helper)))
-    + ";\"></span>\n            <p><em>"
-    + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
-    + "</em></p>\n            <div class=\"divider\"></div>\n            <ul>\n"
-    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.datasource : depth0),{"name":"unless","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "                <li><a href=\"\">Show only "
-    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
-    + "</a></li>\n                <li><a href=\"\">Hide "
-    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
-    + "</a></li>\n                <div class=\"divider\"></div>\n                <li>\n                    <a href=\"settings-survey-edit.html#"
-    + alias3(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
-    + "\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#pencil\"></use>\n                    </svg>\n                    <span class=\"label\">Edit "
-    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
-    + "</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n    </div>\n\n"
-    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.categories : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "</div>\n";
-},"useData":true}));
+  return "<form class=\"survey-filter\">\n\n"
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.program(4, data, 0),"data":data})) != null ? stack1 : "")
+    + "\n</form>\n";
+},"usePartial":true,"useData":true}));
 this["Ushahidi"]["templates"]["_SurveyFilterCheckbox"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "checked";
 },"3":function(depth0,helpers,partials,data) {
@@ -768,28 +719,64 @@ this["Ushahidi"]["templates"]["_SurveyFilterCheckbox"] = Handlebars.template({"1
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.categories : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>\n";
 },"useData":true});
-this["Ushahidi"]["templates"]["_SurveyFormField"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"form-field\" draggable=\"true\">\n    <div class=\"form-field-body\">\n        <label contenteditable=\"true\">"
-    + this.escapeExpression((helpers.Describe || (depth0 && depth0.Describe) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.the : depth0),(depth0 != null ? depth0.problem : depth0),{"name":"Describe","hash":{},"data":data}))
-    + "</label>\n\n        <fieldset class=\"custom-fieldset form-field-type\" data-toggle=\"field-type\">\n            <legend>\n                <svg class=\"iconic\">\n                    <use xlink:href=\"../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px\"></use>\n                </svg>\n                Long text\n            </legend>\n        </fieldset>\n    </div>\n\n\n    <div class=\"form-field-actions\">\n\n        <span class=\"dragger\">\n            <svg class=\"iconic\">\n                <use xlink:href=\"../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px\"></use>\n            </svg>\n        </span>\n\n        <div class=\"form-field switch\">\n            <label>Required</label>\n            <div class=\"toggle-switch\">\n                <input class=\"tgl\" id=\"require-field-0\" type=\"checkbox\">\n                <label class=\"tgl-btn\" for=\"require-field-0\"></label>\n            </div>\n        </div>\n\n        <div>\n            <button class=\"button-beta button-flat\">\n                <svg class=\"iconic\">\n                    <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"../../img/iconic-sprite.svg#trash\"></use>\n                </svg>\n                <span class=\"hidden\">Delete</span>\n            </button>\n\n            <button class=\"button-beta button-flat\" data-toggle=\"field-type\">\n                <svg class=\"iconic\">\n                    <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"../../img/iconic-sprite.svg#ellipses\"></use>\n                </svg>\n                <span class=\"hidden\">More</span>\n            </button>\n        </div>\n\n    </div>\n</div>\n";
-},"useData":true});
+Handlebars.registerPartial("SurveyFilterCheckbox", Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "checked";
+},"3":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "                <li>\n                    <a href=\"post-add.html#"
+    + this.escapeExpression(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
+    + "\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#plus\"></use>\n                    </svg>\n                    <span class=\"label\">Respond to this survey</span>\n                    </a>\n                </li>\n                <li>\n                    <a href=\"\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#task\"></use>\n                    </svg>\n                    <span class=\"label\">Assign someone to respond</span>\n                    </a>\n                </li>\n                <div class=\"divider\"></div>\n";
+},"5":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "    <fieldset class=\"survey-filter-children\">\n        <legend data-toggle=\"form-fieldgroup\">"
+    + this.escapeExpression(this.lambda(((stack1 = (depth0 != null ? depth0.categories : depth0)) != null ? stack1.length : stack1), depth0))
+    + " categories</legend>\n\n        <div class=\"form-fieldgroup\">\n\n"
+    + ((stack1 = helpers.each.call(depth0,(depth0 != null ? depth0.categories : depth0),{"name":"each","hash":{},"fn":this.program(6, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n        </div>\n\n    </fieldset>\n";
+},"6":function(depth0,helpers,partials,data) {
+    var helper;
+
+  return "            <div class=\"form-field checkbox\">\n                <label>\n                    <input type=\"checkbox\" checked />\n                    "
+    + this.escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\n                </label>\n\n                <div class=\"form-fieldgroup\">\n                    <div class=\"form-field checkbox\">\n                        <label>\n                            <input type=\"checkbox\" checked />\n                            Child category\n                        </label>\n                    </div>\n\n                    <div class=\"form-field checkbox\">\n                        <label>\n                            <input type=\"checkbox\" checked />\n                            Another child category\n                        </label>\n                    </div>\n                </div>\n            </div>\n";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1, helper, alias1=helpers.helperMissing, alias2="function", alias3=this.escapeExpression;
+
+  return "<div class=\"survey-filter-checkbox\">\n    <div class=\"survey-filter-parent\">\n        <div class=\"survey-filter-label\">\n            <span class=\"post-band\" style=\"background-color:#"
+    + alias3(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"color","hash":{},"data":data}) : helper)))
+    + ";\"></span>\n            <label>\n                <input type=\"checkbox\" "
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.datasource : depth0),{"name":"unless","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " />\n                "
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "\n            </label>\n        </div>\n        <span class=\"survey-filter-total\" data-toggle=\"dropdown-menu\">\n            18\n            <svg class=\"iconic\">\n                <use xlink:href=\"../../img/iconic-sprite.svg#chevron-bottom\"></use>\n            </svg>\n        </span>\n        <div class=\"dropdown-menu\">\n            <span class=\"post-band\" style=\"background-color:#"
+    + alias3(((helper = (helper = helpers.color || (depth0 != null ? depth0.color : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"color","hash":{},"data":data}) : helper)))
+    + ";\"></span>\n            <p><em>"
+    + alias3(((helper = (helper = helpers.description || (depth0 != null ? depth0.description : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"description","hash":{},"data":data}) : helper)))
+    + "</em></p>\n            <div class=\"divider\"></div>\n            <ul>\n"
+    + ((stack1 = helpers.unless.call(depth0,(depth0 != null ? depth0.datasource : depth0),{"name":"unless","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "                <li><a href=\"\">Show only "
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</a></li>\n                <li><a href=\"\">Hide "
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</a></li>\n                <div class=\"divider\"></div>\n                <li>\n                    <a href=\"settings-survey-edit.html#"
+    + alias3(((helper = (helper = helpers.index || (data && data.index)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"index","hash":{},"data":data}) : helper)))
+    + "\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#pencil\"></use>\n                    </svg>\n                    <span class=\"label\">Edit "
+    + alias3(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias1),(typeof helper === alias2 ? helper.call(depth0,{"name":"name","hash":{},"data":data}) : helper)))
+    + "</span>\n                    </a>\n                </li>\n            </ul>\n        </div>\n    </div>\n\n"
+    + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.categories : depth0),{"name":"if","hash":{},"fn":this.program(5, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "</div>\n";
+},"useData":true}));
 Handlebars.registerPartial("SurveyFormField", Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"form-field\" draggable=\"true\">\n    <div class=\"form-field-body\">\n        <label contenteditable=\"true\">"
     + this.escapeExpression((helpers.Describe || (depth0 && depth0.Describe) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.the : depth0),(depth0 != null ? depth0.problem : depth0),{"name":"Describe","hash":{},"data":data}))
     + "</label>\n\n        <fieldset class=\"custom-fieldset form-field-type\" data-toggle=\"field-type\">\n            <legend>\n                <svg class=\"iconic\">\n                    <use xlink:href=\"../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px\"></use>\n                </svg>\n                Long text\n            </legend>\n        </fieldset>\n    </div>\n\n\n    <div class=\"form-field-actions\">\n\n        <span class=\"dragger\">\n            <svg class=\"iconic\">\n                <use xlink:href=\"../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px\"></use>\n            </svg>\n        </span>\n\n        <div class=\"form-field switch\">\n            <label>Required</label>\n            <div class=\"toggle-switch\">\n                <input class=\"tgl\" id=\"require-field-0\" type=\"checkbox\">\n                <label class=\"tgl-btn\" for=\"require-field-0\"></label>\n            </div>\n        </div>\n\n        <div>\n            <button class=\"button-beta button-flat\">\n                <svg class=\"iconic\">\n                    <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"../../img/iconic-sprite.svg#trash\"></use>\n                </svg>\n                <span class=\"hidden\">Delete</span>\n            </button>\n\n            <button class=\"button-beta button-flat\" data-toggle=\"field-type\">\n                <svg class=\"iconic\">\n                    <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"../../img/iconic-sprite.svg#ellipses\"></use>\n                </svg>\n                <span class=\"hidden\">More</span>\n            </button>\n        </div>\n\n    </div>\n</div>\n";
 },"useData":true}));
-this["Ushahidi"]["templates"]["_toolStatus"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
-    return "            <div class=\"form-field checkbox icon-input\">\n                <label for=\"review\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#lock-locked\"></use>\n                    </svg>\n                    <input checked type=\"checkbox\" id=\"review\" />\n                    Under review\n                </label>\n            </div>\n";
-},"3":function(depth0,helpers,partials,data) {
-    return "checked";
-},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    var stack1;
-
-  return "<div class=\"tool\">\n    <h6 class=\"tool-heading\">Status</h6>\n\n    <span class=\"tool-trigger\" data-toggle=\"toggle-content\">\n        <svg class=\"iconic\">\n            <use xlink:href=\"../../img/iconic-sprite.svg#chevron-bottom\"></use>\n        </svg>\n        <span class=\"label hidden\">Show/hide</span>\n    </span>\n\n    <div class=\"toggle-content active\">\n        <fieldset>\n            <legend class=\"hidden\">Status</legend>\n\n            <div class=\"form-field checkbox icon-input\">\n                <label for=\"published\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#globe\"></use>\n                    </svg>\n                    <input checked type=\"checkbox\" id=\"published\">\n                    Published\n                </label>\n            </div>\n\n"
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + "\n            <div class=\"form-field checkbox icon-input\">\n                <label for=\"archive\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#box\"></use>\n                    </svg>\n                    <input "
-    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
-    + " type=\"checkbox\" id=\"archive\" />\n                    Archive\n                </label>\n            </div>\n        </fieldset>\n    </div>\n</div>\n";
+this["Ushahidi"]["templates"]["_SurveyFormField"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"form-field\" draggable=\"true\">\n    <div class=\"form-field-body\">\n        <label contenteditable=\"true\">"
+    + this.escapeExpression((helpers.Describe || (depth0 && depth0.Describe) || helpers.helperMissing).call(depth0,(depth0 != null ? depth0.the : depth0),(depth0 != null ? depth0.problem : depth0),{"name":"Describe","hash":{},"data":data}))
+    + "</label>\n\n        <fieldset class=\"custom-fieldset form-field-type\" data-toggle=\"field-type\">\n            <legend>\n                <svg class=\"iconic\">\n                    <use xlink:href=\"../../img/material/svg-sprite-editor-symbol.svg#ic_format_align_left_24px\"></use>\n                </svg>\n                Long text\n            </legend>\n        </fieldset>\n    </div>\n\n\n    <div class=\"form-field-actions\">\n\n        <span class=\"dragger\">\n            <svg class=\"iconic\">\n                <use xlink:href=\"../../img/material/svg-sprite-editor-symbol.svg#ic_drag_handle_24px\"></use>\n            </svg>\n        </span>\n\n        <div class=\"form-field switch\">\n            <label>Required</label>\n            <div class=\"toggle-switch\">\n                <input class=\"tgl\" id=\"require-field-0\" type=\"checkbox\">\n                <label class=\"tgl-btn\" for=\"require-field-0\"></label>\n            </div>\n        </div>\n\n        <div>\n            <button class=\"button-beta button-flat\">\n                <svg class=\"iconic\">\n                    <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"../../img/iconic-sprite.svg#trash\"></use>\n                </svg>\n                <span class=\"hidden\">Delete</span>\n            </button>\n\n            <button class=\"button-beta button-flat\" data-toggle=\"field-type\">\n                <svg class=\"iconic\">\n                    <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"../../img/iconic-sprite.svg#ellipses\"></use>\n                </svg>\n                <span class=\"hidden\">More</span>\n            </button>\n        </div>\n\n    </div>\n</div>\n";
 },"useData":true});
 Handlebars.registerPartial("toolStatus", Handlebars.template({"1":function(depth0,helpers,partials,data) {
     return "            <div class=\"form-field checkbox icon-input\">\n                <label for=\"review\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#lock-locked\"></use>\n                    </svg>\n                    <input checked type=\"checkbox\" id=\"review\" />\n                    Under review\n                </label>\n            </div>\n";
@@ -804,6 +791,19 @@ Handlebars.registerPartial("toolStatus", Handlebars.template({"1":function(depth
     + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + " type=\"checkbox\" id=\"archive\" />\n                    Archive\n                </label>\n            </div>\n        </fieldset>\n    </div>\n</div>\n";
 },"useData":true}));
+this["Ushahidi"]["templates"]["_toolStatus"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+    return "            <div class=\"form-field checkbox icon-input\">\n                <label for=\"review\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#lock-locked\"></use>\n                    </svg>\n                    <input checked type=\"checkbox\" id=\"review\" />\n                    Under review\n                </label>\n            </div>\n";
+},"3":function(depth0,helpers,partials,data) {
+    return "checked";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    var stack1;
+
+  return "<div class=\"tool\">\n    <h6 class=\"tool-heading\">Status</h6>\n\n    <span class=\"tool-trigger\" data-toggle=\"toggle-content\">\n        <svg class=\"iconic\">\n            <use xlink:href=\"../../img/iconic-sprite.svg#chevron-bottom\"></use>\n        </svg>\n        <span class=\"label hidden\">Show/hide</span>\n    </span>\n\n    <div class=\"toggle-content active\">\n        <fieldset>\n            <legend class=\"hidden\">Status</legend>\n\n            <div class=\"form-field checkbox icon-input\">\n                <label for=\"published\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#globe\"></use>\n                    </svg>\n                    <input checked type=\"checkbox\" id=\"published\">\n                    Published\n                </label>\n            </div>\n\n"
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(1, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + "\n            <div class=\"form-field checkbox icon-input\">\n                <label for=\"archive\">\n                    <svg class=\"iconic\">\n                        <use xlink:href=\"../../img/iconic-sprite.svg#box\"></use>\n                    </svg>\n                    <input "
+    + ((stack1 = helpers['if'].call(depth0,((stack1 = (depth0 != null ? depth0.user : depth0)) != null ? stack1.logged_in : stack1),{"name":"if","hash":{},"fn":this.program(3, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
+    + " type=\"checkbox\" id=\"archive\" />\n                    Archive\n                </label>\n            </div>\n        </fieldset>\n    </div>\n</div>\n";
+},"useData":true});
 this["Ushahidi"]["templates"]["layouts"] = this["Ushahidi"]["templates"]["layouts"] || {};
 this["Ushahidi"]["templates"]["layouts"]["account"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
     var stack1;
