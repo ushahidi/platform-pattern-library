@@ -194,7 +194,6 @@ fieldset {
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
-            margin-bottom: 0;
 
             &:hover {
                 cursor: pointer;
@@ -316,6 +315,14 @@ fieldset {
         }
     }
 
+    // SURVEY TITLE
+    &.survey-title {
+
+        input[type="text"] {
+            text-align: center;
+        }
+    }
+
     &.location {
 
         input[type="text"] {
@@ -396,15 +403,10 @@ fieldset {
         select {
             display: inline-block;
             margin-top: 0;
-
-            + label {
-                margin-left: $tiny-spacing;
-            }
         }
     }
 
-    &.file,
-    &.photo {
+    &.file {
 
         input[type="file"] {
             width: 0.1px;
@@ -416,8 +418,6 @@ fieldset {
 
             + label {
                 display: inline-block;
-                font-size: 16px;
-                font-size: 1.142857143rem;
 
                 &:hover {
                     cursor: pointer;
@@ -435,15 +435,6 @@ fieldset {
 	                outline: -webkit-focus-ring-color auto 5px;
                 }
             }
-
-            &[disabled] {
-
-                + label {
-                    opacity: 0.75;
-                    background-color: $color-light-gamma;
-                    box-shadow: none;
-                }
-            }
         }
     }
 
@@ -457,16 +448,6 @@ fieldset {
 
             + .domain {
                 margin-left: $tiny-spacing;
-            }
-        }
-    }
-
-    &.video_embed {
-
-        input[type="url"] {
-
-            + .form-field-preview {
-                margin-top: $sm-spacing;
             }
         }
     }
@@ -583,7 +564,7 @@ fieldset {
 
         .toggle-switch {
             position: absolute;
-            top: 2px;
+            top: 0;
             right: 0;
 
             label {
@@ -593,6 +574,10 @@ fieldset {
 
         > label {
             display: block;
+            color: $text-color;
+            @include typeBase;
+            text-transform: none;
+            letter-spacing: 0;
             padding-right: 72px;
         }
 
@@ -636,8 +621,7 @@ fieldset {
     input[type="tel"],
     input[type="time"],
     input[type="url"],
-    input[type="week"],
-    textarea {
+    input[type="week"] {
         @include padding-left(38px);
     }
 
@@ -663,7 +647,7 @@ fieldset {
 fieldset {
 
     .custom-select {
-        // margin-top: -6px;
+        margin-top: -6px;
     }
 }
 

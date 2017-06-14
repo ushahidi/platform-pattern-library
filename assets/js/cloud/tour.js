@@ -4,7 +4,7 @@ var tourPin = function(prevStep, nextStep, target, position) {
         targetHeight = $(target).outerHeight();
 
     $('#'+prevStep).removeClass('active'); // Remove 'active' state from previous step
-    
+
     // Apply correct state to pin
     // IF: Previous step was a modal
     if ($('#'+prevStep).hasClass('tour-modal')) {

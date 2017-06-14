@@ -1,4 +1,4 @@
-/* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript&plugins=autolinker */
+/* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript&plugins=autolinker+toolbar+normalize-whitespace+copy-to-clipboard */
 /**
  * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
@@ -8,12 +8,13 @@
 code[class*="language-"],
 pre[class*="language-"] {
 	color: black;
-	font-family: Consolas, Monaco, 'Andale Mono', monospace;
-	direction: ltr;
+	background: none;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
+	word-wrap: normal;
 	line-height: 1.5;
 
 	-moz-tab-size: 4;
@@ -30,20 +31,14 @@ pre[class*="language-"] {
 pre[class*="language-"] {
 	position: relative;
 	margin: .5em 0;
-	-webkit-box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
-	-moz-box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
 	box-shadow: -1px 0px 0px 0px #358ccb, 0px 0px 0px 1px #dfdfdf;
 	border-left: 10px solid #358ccb;
 	background-color: #fdfdfd;
-	background-image: -webkit-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-	background-image: -moz-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-	background-image: -ms-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
-	background-image: -o-linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
 	background-image: linear-gradient(transparent 50%, rgba(69, 142, 209, 0.04) 50%);
 	background-size: 3em 3em;
 	background-origin: content-box;
 	overflow: visible;
-	max-height: 30em;
+	padding: 0;
 }
 
 code[class*="language"] {
@@ -68,13 +63,11 @@ pre[class*="language-"] {
 :not(pre) > code[class*="language-"] {
 	position: relative;
 	padding: .2em;
-	-webkit-border-radius: 0.3em;
-	-moz-border-radius: 0.3em;
-	-ms-border-radius: 0.3em;
-	-o-border-radius: 0.3em;
 	border-radius: 0.3em;
 	color: #c92c2c;
 	border: 1px solid rgba(0, 0, 0, 0.1);
+	display: inline;
+	white-space: normal;
 }
 
 pre[class*="language-"]:before,
@@ -87,8 +80,7 @@ pre[class*="language-"]:after {
 	left: 0.18em;
 	width: 40%;
 	height: 20%;
-	-webkit-box-shadow: 0px 13px 8px #979797;
-	-moz-box-shadow: 0px 13px 8px #979797;
+	max-height: 13em;
 	box-shadow: 0px 13px 8px #979797;
 	-webkit-transform: rotate(-2deg);
 	-moz-transform: rotate(-2deg);
@@ -190,8 +182,6 @@ pre[class*="language-"]:after {
 	pre[class*="language-"]:before,
 	pre[class*="language-"]:after {
 		bottom: 14px;
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
 		box-shadow: none;
 	}
 
@@ -230,6 +220,65 @@ pre[data-line] code {
 pre .line-highlight {
 	margin-top: 0;
 }
+
 .token a {
 	color: inherit;
+}
+pre.code-toolbar {
+	position: relative;
+}
+
+pre.code-toolbar > .toolbar {
+	position: absolute;
+	top: .3em;
+	right: .2em;
+	transition: opacity 0.3s ease-in-out;
+	opacity: 0;
+}
+
+pre.code-toolbar:hover > .toolbar {
+	opacity: 1;
+}
+
+pre.code-toolbar > .toolbar .toolbar-item {
+	display: inline-block;
+}
+
+pre.code-toolbar > .toolbar a {
+	cursor: pointer;
+}
+
+pre.code-toolbar > .toolbar button {
+	background: none;
+	border: 0;
+	color: inherit;
+	font: inherit;
+	line-height: normal;
+	overflow: visible;
+	padding: 0;
+	-webkit-user-select: none; /* for button */
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+pre.code-toolbar > .toolbar a,
+pre.code-toolbar > .toolbar button,
+pre.code-toolbar > .toolbar span {
+	color: #bbb;
+	font-size: .8em;
+	padding: 0 .5em;
+	background: #f5f2f0;
+	background: rgba(224, 224, 224, 0.2);
+	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
+	border-radius: .5em;
+}
+
+pre.code-toolbar > .toolbar a:hover,
+pre.code-toolbar > .toolbar a:focus,
+pre.code-toolbar > .toolbar button:hover,
+pre.code-toolbar > .toolbar button:focus,
+pre.code-toolbar > .toolbar span:hover,
+pre.code-toolbar > .toolbar span:focus {
+	color: inherit;
+	text-decoration: none;
 }
