@@ -7,9 +7,6 @@ New Platform UI (w/ Pattern Library) based on the Platform Design Framework
 * [Browserify](http://browserify.org/)
 * [Handlebars](http://handlebarsjs.com/)
 
-### Install Build Requirements
-`npm install -g gulp`
-
 ### Install Packages
 `npm install`
 
