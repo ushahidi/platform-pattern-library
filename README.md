@@ -1,18 +1,11 @@
 # platform-pattern-library
 New Platform UI (w/ Pattern Library) based on the Platform Design Framework
 
-### Libraries/Packages/Dependencies
-
-* Nodejs
-* Bower
-* Browserify
-* Gulp (and various gulp plugins)
-* Libsass/node-sass (via gulp-sass)
-* Bourbon
-* Neat
-
-### Install Build Requirements
-`npm install -g gulp`
+### Dependencies
+* [Nodejs](https://nodejs.org/en/)
+* [Bower](https://bower.io/)
+* [Browserify](http://browserify.org/)
+* [Handlebars](http://handlebarsjs.com/)
 
 ### Install Packages
 `npm install`
