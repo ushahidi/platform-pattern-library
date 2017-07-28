@@ -2,6 +2,7 @@
     @include containerSheet;
     @extend .list-reset;
     @include typeGamma;
+    @include direction;
 
     @include media($small) {
         text-align: center;
@@ -18,7 +19,7 @@
                 content: '\232A';
                 color: $color-light-alpha;
                 font-size: 12px;
-                margin-left: $sm-spacing;
+                @include margin-left($sm-spacing);
             }
 
             &:last-child {
@@ -31,18 +32,18 @@
 
         svg.iconic {
             fill: $color-dark-delta;
-            margin-right: 2px;
+            @include margin-right(2px);
         }
 
         &.active {
             color: $color-dark-alpha;
             border: 1px solid $border-color;
-            border-left: 4px solid $color-secondary;
+            @include border-left(4px solid $color-secondary);
             background-color: $white;
-            padding-right: $base-spacing;
+            @include padding-right($base-spacing);
 
             @include media($small) {
-                border-left: 1px solid $border-color;
+                @include border-left(1px solid $border-color);
                 border-bottom: 2px solid $color-secondary;
             }
         }

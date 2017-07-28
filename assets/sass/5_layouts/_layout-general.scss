@@ -53,7 +53,7 @@
 
         @include media($medium) {
             bottom: 0;
-            left: 64px;
+            @include left(64px);
             width: 224px
         }
 
@@ -92,7 +92,7 @@
         @include transition(0.3s);
 
         @include media($medium) {
-            left: 288px;
+            @include left(288px);
         }
 
         &.transient {
@@ -174,17 +174,17 @@
 
         @include media($medium) {
             padding-top: 68px;
-            padding-left: 288px;
+            @include padding-left(288px);
         }
 
         .main-col {
 
             @include media($small) {
-                margin-right: 222px;
+                @include margin-right(222px);
             }
 
             @include media($medium) {
-                margin-right: 230px;
+                @include margin-right(230px);
                 // margin-right: 32%;
             }
         }
@@ -194,12 +194,12 @@
 
             .ushahidi-bug {
                 top: auto;
-                right: $sm-spacing;
+                @include right($sm-spacing);
                 bottom: $sm-spacing;
-                left: auto;
+                @include left(auto);
 
                 @include media($small) {
-                    right: $huge-spacing;
+                    @include right($huge-spacing);
                 }
 
                 @include media($medium-down) {
@@ -220,8 +220,8 @@
 
             @include media($medium) {
                 top: 0;
-                right: 0;
-                left: 288px;
+                @include right(0);
+                @include left(288px);
                 width: auto;
             }
 
@@ -239,7 +239,7 @@
                 @include media($medium-down) {
                     display: flex;
                     position: fixed;
-                    right: $sm-spacing;
+                    @include right($sm-spacing);
                     bottom: $sm-spacing+45;
                     z-index: $toolbar;
 
@@ -269,7 +269,7 @@
 
             @include media($medium) {
                 top: 68px;
-                left: 288px;
+                @include left(288px);
             }
         }
 
@@ -298,11 +298,11 @@
                         .listing-item-image {
 
                             @include media($mobile) {
-                                left: 10%;
+                                @include left(10%);
                             }
 
                             @include media($xlarge) {
-                                left: 20%;
+                                @include left(20%);
                             }
                         }
                     }
@@ -326,11 +326,11 @@
                 .listing-item-secondary {
 
                     @include media($mobile) {
-                        right: 10%;
+                        @include right(10%);
                     }
 
                     @include media($xlarge) {
-                        right: 20%;
+                        @include right(20%);
                     }
                 }
             }
@@ -338,7 +338,7 @@
             &.timeline {
 
                 .listing-heading {
-                    padding-left: 0;
+                    @include padding-left(0);
                 }
 
                 .listing-item {
@@ -364,7 +364,7 @@
                 background-color: $color-primary-gamma;
 
                 @include media($medium) {
-                    left: 288px;
+                    @include left(288px);
                 }
 
                 &.expanded {
@@ -407,7 +407,7 @@
                 @include media($medium) {
                     top: 0;
                     bottom: 0;
-                    left: 288px;
+                    @include left(288px);
                 }
             }
 
@@ -488,7 +488,7 @@
                     }
 
                     .listing-item-secondary {
-                        right: 16px;
+                        @include right(16px);
                     }
 
                     .listing-item-body {
@@ -510,7 +510,7 @@
             margin-top: -$sm-spacing;
 
             @include media($medium) {
-                left: 288px;
+                @include left(288px);
             }
 
             .line {
@@ -524,14 +524,14 @@
             display: inline-block;
             position: fixed;
             top: 71px;
-            left: $sm-spacing;
+            @include left($sm-spacing);
             z-index: $toolbar;
 
             @include media($medium) {
                 top: auto;
-                right: $base-spacing;
+                @include right($base-spacing);
                 bottom: $base-spacing;
-                left: auto;
+                @include left(auto);
             }
 
             svg.ushahidi-logo {
@@ -551,7 +551,7 @@
         .picker__holder {
 
             @include media($medium) {
-                left: 288px;
+                @include left(288px);
             }
         }
 
@@ -597,7 +597,7 @@
             z-index: $modal + 1;
             opacity: 0;
             width: 90%;
-            left: 5%;
+            @include left(5%);
             top: $base-spacing;
             margin-top: -999px;
             margin-bottom: $base-spacing;
@@ -605,9 +605,9 @@
 
             @include media($small) {
                 top: 8%;
-                left: 50%;
+                @include left(50%);
                 width: 480px;
-                margin-left: -240px;
+                @include margin-left(-240px);
             }
 
             .message {

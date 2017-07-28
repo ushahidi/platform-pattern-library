@@ -35,7 +35,7 @@
             @include equal-radius;
             border: $base-border-dark;
             background-color: $color-light-delta;
-            padding-right: $huge-spacing;
+            @include padding-right($huge-spacing);
             margin-bottom: 0;
             @include transition(0.3s);
 
@@ -66,7 +66,7 @@
                 &.chevron {
                     position: absolute;
                     top: 50%;
-                    right: $sm-spacing;
+                    @include right($sm-spacing);
                     z-index: $body;
                     margin-top: -5px;
                 }
@@ -111,7 +111,7 @@
 
         .dropdown-menu {
             top: 0 !important;
-            left: 0 !important;
+            @include left(0 !important);
             padding-top: $lg-spacing;
 
             @include media($medium) {

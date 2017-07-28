@@ -53,7 +53,7 @@
             border: none;
 
             .listing-item-select, .listing-item-primary {
-                margin-left: $base-spacing;
+                @include margin-left($base-spacing);
             }
         }
     }
@@ -79,7 +79,7 @@
                         margin: 0 auto $tiny-spacing;
 
                         + .listing-item-title {
-                            padding-left: 0;
+                            @include padding-left(0);
                         }
                     }
                 }
@@ -111,8 +111,8 @@
         @include transition(0.3s);
 
         @include media($medium) {
-            right: $base-spacing;
-            left: 298px;
+            @include right($base-spacing);
+            @include left(298px);
         }
     }
 
@@ -136,7 +136,7 @@
     &.timeline {
 
         @include media($medium) {
-            padding-left: 78px;
+            @include padding-left(78px);
         }
 
         .listing-heading {
@@ -144,9 +144,9 @@
             margin: $lg-spacing $sm-spacing $sm-spacing;
 
             @include media($medium) {
-                text-align: left;
+                @include text-align(left);
                 margin-bottom: $lg-spacing;
-                margin-left: -78px;
+                @include margin-left(-78px);
             }
         }
 
@@ -163,11 +163,11 @@
                 position: absolute;
                 z-index: 0;
                 top: 100%;
-                left: 50%;
+                @include left(50%);
                 width: 4px;
                 height: $sm-spacing;
                 background-color: $color-light-beta;
-                margin-left: -2px;
+                @include margin-left(-2px);
             }
 
             @include media($medium) {
@@ -175,9 +175,9 @@
                 &:after {
                     top: 0;
                     bottom: -16px;
-                    left: -54px;
+                    @include left(-54px);
                     height: auto;
-                    margin-left: 0;
+                    @include margin-left(0);
                 }
             }
         }
@@ -191,13 +191,13 @@
                     position: absolute;
                     z-index: $body;
                     top: $sm-spacing;
-                    left: -54px;
+                    @include left(-54px);
                     width: $sm-spacing;
                     height: $sm-spacing;
                     border: 4px solid $color-light-beta;
                     @include equal-radius(100%);
                     background-color: $color-primary-zeta;
-                    margin-left: -6px;
+                    @include margin-left(-6px);
                 }
             }
 

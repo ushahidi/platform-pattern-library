@@ -13,6 +13,7 @@ fieldset {
     label {
         display: block;
         margin-bottom: $sm-spacing;
+        @include direction;
 
         + p {
             font-style: italic;
@@ -29,7 +30,7 @@ fieldset {
         }
 
         svg.iconic {
-            margin-right: 4px;
+            @include margin-right(4px);
         }
 
         .tooltip {
@@ -55,7 +56,7 @@ fieldset {
 
     button,
     .button {
-        margin-right: $tiny-spacing;
+        @include margin-right($tiny-spacing);
         margin-bottom: $tiny-spacing;
     }
 
@@ -74,10 +75,10 @@ fieldset {
     .post-band {
 
         + label {
-            margin-left: $sm-spacing;
+            @include margin-left($sm-spacing);
 
             + input {
-                margin-left: $sm-spacing;
+                @include margin-left($sm-spacing);
             }
         }
     }
@@ -120,7 +121,7 @@ fieldset {
                 content: '\2217';
                 color: $red;
                 font-weight: normal;
-                font-size: 1.75em;
+                font-size: 1.05em;
                 @include margin-left($tiny-spacing);
             }
         }
@@ -186,7 +187,7 @@ fieldset {
     &.radio {
         position: relative;
         @include padding-left(14px + $tiny-spacing);
-        margin: 0 0 $tiny-spacing 2px;
+        @include lrswap(margin, 0 0 $tiny-spacing 2px);
 
         label {
             color: $text-color;
@@ -208,14 +209,14 @@ fieldset {
 
         svg.iconic {
             fill: $color-light-alpha;
-            margin-right: 4px;
+            @include margin-right(4px);
         }
 
         img.avatar {
             display: inline-block;
             width: $base-spacing;
             height: $base-spacing;
-            margin-right: 4px;
+            @include margin-right(4px);
         }
 
         .custom-select {
@@ -265,7 +266,7 @@ fieldset {
                 &:before {
                     position: absolute;
                     top: -2px;
-                    left: 0;
+                    @include left(0);
                     width: $sm-spacing;
                     height: $sm-spacing;
                     color: $color-primary;
@@ -354,7 +355,7 @@ fieldset {
 
                         + button,
                         + .button {
-                            margin-left: 4px;
+                            @include margin-left(4px);
                         }
                     }
 
@@ -390,11 +391,11 @@ fieldset {
             letter-spacing: 0;
 
             .custom-select {
-                margin-right: $tiny-spacing;
+                @include margin-right($tiny-spacing);
             }
 
             + .custom-select {
-                margin-left: $tiny-spacing;
+                @include margin-left($tiny-spacing);
             }
         }
 
@@ -446,7 +447,7 @@ fieldset {
             width: auto;
 
             + .domain {
-                margin-left: $tiny-spacing;
+                @include margin-left($tiny-spacing);
             }
         }
     }
@@ -463,7 +464,7 @@ fieldset {
 
 
     input[type="date"] {
-        padding-right: 4px;
+        @include padding-right(4px);
     }
 
     .date-joiner {
@@ -500,7 +501,7 @@ fieldset {
 
         .location-range {
             display: inline-block;
-            border-right: $base-border;
+            @include border-right($base-border);
             border-bottom: $base-border;
             @include border-left($base-border);
             padding: 10px;
@@ -564,7 +565,7 @@ fieldset {
         .toggle-switch {
             position: absolute;
             top: 0;
-            right: 0;
+            @include right(0);
 
             label {
                 margin: 0;
@@ -577,7 +578,7 @@ fieldset {
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
-            padding-right: 72px;
+            @include padding-right(72px);
         }
 
         .form-field,
@@ -658,8 +659,8 @@ fieldset {
     }
 
     .form-field-type {
-        border-left: none;
-        padding-left: 0;
+        @include border-left(none);
+        @include padding-left(0);
         margin: 0;
     }
 
@@ -671,7 +672,7 @@ fieldset {
 
             ol,
             ul {
-                margin-left: $base-spacing;
+                @include margin-left($base-spacing);
             }
 
             .listing {
@@ -683,7 +684,7 @@ fieldset {
 
                 .listing-item-secondary {
                     top: $sm-spacing;
-                    right: 0 !important;
+                    @include right(0 !important);
 
                     button,
                     .button {
@@ -693,12 +694,12 @@ fieldset {
 
                 .listing-item-select {
                     top: $sm-spacing;
-                    left: 0;
+                    @include left(0);
 
                     .dragger {
                         opacity: 0.5;
                         top: 5px;
-                        margin-left: 0;
+                        @include margin-left(0);
 
                         &:hover {
                             opacity: 1;
@@ -723,15 +724,15 @@ fieldset {
                 &.switch {
 
                     > label {
-                        padding-right: 56px;
+                        @include padding-right(56px);
                     }
                 }
             }
 
             .dropdown-menu {
                 top: $sm-spacing !important;
-                right: 0 !important;
-                left: auto !important;
+                @include right(0 !important);
+                @include left(auto !important);
                 max-width: 300px;
             }
         }
@@ -741,8 +742,8 @@ fieldset {
             opacity: 0;
             position: absolute;
             top: -$sm-spacing;
-            left: 50%;
-            margin-left: -12px;
+            @include left(50%);
+            @include margin-left(-12px);
             @include transition(0.3s);
         }
 
@@ -808,9 +809,9 @@ fieldset {
 
                     .dragger {
                         opacity: 0.5;
-                        left: 0;
+                        @include left(0);
                         margin-top: 4px;
-                        margin-left: -28px;
+                        @include margin-left(-28px);
                     }
 
                     &.focus {
@@ -855,7 +856,7 @@ fieldset,
         display: none;
         color: $color-primary;
         padding: $tiny-spacing;
-        padding-left: 0;
+        @include padding-left(0);
 
         &:hover {
             cursor: pointer;
@@ -866,24 +867,24 @@ fieldset,
             width: 8px;
             height: 8px;
             fill: $color-primary;
-            margin-right: $tiny-spacing;
+            @include margin-right($tiny-spacing);
             @include transition(0.3s);
         }
     }
 
     .form-field &,
     fieldset & {
-        border-left: 2px solid $color-light-beta;
-        padding-left: $sm-spacing;
+        @include border-left(2px solid $color-light-beta);
+        @include padding-left($sm-spacing);
         margin-top: $sm-spacing;
         margin-bottom: $sm-spacing;
 
         fieldset {
-            border-left: none;
-            padding-left: 0;
+            @include border-left(none);
+            @include padding-left(0);
 
             legend {
-                left: 0;
+                @include left(0);
             }
         }
     }
@@ -915,6 +916,7 @@ fieldset,
     &.init {
         position: relative;
         margin-top: $tiny-spacing;
+        @include direction;
 
         label {
             position: absolute;

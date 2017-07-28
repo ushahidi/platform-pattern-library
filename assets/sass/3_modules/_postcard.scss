@@ -2,24 +2,25 @@
     position: relative;
     @include containerCard;
     max-width: 575px;
+    display: inline-block;
 
     .post-band {
         @include radius(2px, 0, 0, 2px);
-    }
+        }
 
     .listing-item-select {
         position: absolute;
         top: $sm-spacing + 2;
-        left: $sm-spacing;
+        @include left($sm-spacing);
 
         + .postcard-body {
-            padding-right: $base-spacing;
-            padding-left: $huge-spacing;
+            @include padding-right($base-spacing);
+            @include padding-left($huge-spacing);
         }
 
         .status-indicator {
             display: block;
-            margin-left: -1px;
+            @include margin-left(-1px);
         }
 
         input[type="checkbox"] {
@@ -43,6 +44,10 @@
                 flex-shrink: 1;
             }
 
+            .rtl & .postcard-title {
+                order: 2;
+            }
+
             .postcard-actions {
                 flex-shrink: 0;
             }
@@ -50,7 +55,7 @@
 
         .postcard-actions {
             margin-top: -$tiny-spacing;
-            margin-right: -$tiny-spacing;
+            @include margin-right(-$tiny-spacing);
         }
 
         > .postcard-field {
@@ -96,14 +101,14 @@
             position: absolute;
             z-index: $body;
             top: 0;
-            right: auto;
-            left: 0;
+            @include right(auto);
+            @include left(0);
             vertical-align: middle;
             margin: 2px;
             @include transition(0.3s);
 
             + .label {
-                margin-left: $base-spacing;
+                @include margin-left($base-spacing);
             }
         }
 
@@ -120,6 +125,7 @@
         font-size: 20px;
         font-size: 1.428571429rem;
         line-height: 1.125;
+        @include direction;
 
         .postcard-field {
             line-height: 1.125;
@@ -127,32 +133,33 @@
 
         .postcard-id {
             margin-top: -3px;
-            margin-right: 4px;
+            @include margin-right(4px);
         }
 
         .post-band {
-            left: -$sm-spacing;
+            @include left(-$sm-spacing);
         }
     }
 
     .postcard-image {
         position: absolute;
         top: $sm-spacing;
-        left: $sm-spacing;
+        @include left(-$sm-spacing);
         width: $huge-spacing;
 
         + .postcard-title {
-            padding-left: 56px;
-            margin-right: 0;
+            @include padding-left(56px);
+            @include margin-right(0);
 
             + .metadata {
-                padding-left: 56px;
+                @include padding-left(56px);
             }
         }
     }
 
     .metadata {
-        margin-bottom: 4px;
+        margin: 5px 0 10px;
+        @include direction;
     }
 
     .postcard-title,
@@ -190,8 +197,7 @@
 
         img.postcard-image {
             position: static;
-            max-width: 100%;
-            width: auto;
+            width: 100%;
             border: 1px solid rgba(0,0,0,.1);
             box-shadow: 0 1px 1px rgba(0,0,0,.1);
         }
@@ -221,18 +227,18 @@
 
         .dropdown-trigger {
             padding: 0;
-            padding-right: $sm-spacing + 4;
+            @include padding-right($sm-spacing + 4);
 
             &:after {
                 content: '';
                 position: absolute;
                 top: 50%;
-                right: 4px;
+                @include right(4px);
                 width: 7px;
                 height: 7px;
                 background: transparent;
                 border-top: 2.5px solid $color-light-alpha;
-                border-right: 2.5px solid $color-light-alpha;
+                @include border-right(2.5px solid $color-light-alpha);
                 margin-top: -6px;
                 @include transform(rotate(135deg));
             }
@@ -244,15 +250,15 @@
 
         .dropdown-menu {
             top: 4px !important;
-            right: 4px !important;
-            left: auto !important;
+            @include right(4px !important);
+            @include left(auto !important);
         }
     }
 
     .postcard-tasks {
 
         @include media($medium) {
-            padding-left: $base-spacing;
+            @include padding-left($base-spacing);
         }
 
         .postcard-tasks-title {
@@ -261,7 +267,7 @@
             margin-bottom: $sm-spacing;
 
             @include media($medium) {
-                margin-left: -$base-spacing;
+                @include margin-left(-$base-spacing);
             }
         }
 
@@ -283,7 +289,7 @@
 
             &:before {
                 bottom: 100%;
-                left: $tiny-spacing + 3;
+                @include left($tiny-spacing + 3);
                 height: $sm-spacing + 1;
 
                 @include media($medium) {
@@ -291,7 +297,7 @@
                     z-index: $body;
                     top: -$sm-spacing - 1;
                     bottom: -1px;
-                    left: -$sm-spacing + 3;
+                    @include left(-$sm-spacing + 3);
                     width: 1px;
                     height: auto;
                 }
@@ -303,7 +309,7 @@
                 @include media($medium) {
                     content: '';
                     top: $base-spacing;
-                    left: -$sm-spacing + 3;
+                    @include left(-$sm-spacing + 3);
                     width: $sm-spacing - 3;
                     height: 1px;
                     background-color: $color-light-beta;
@@ -332,8 +338,8 @@
 
         .dropdown-menu {
             top: 4px !important;
-            right: 4px !important;
-            left: auto !important;
+            @include right(4px !important);
+            @include left(auto !important);
         }
     }
 
@@ -361,8 +367,8 @@
             top: $base-spacing;
 
             @include media($mobile) {
-                left: 5%;
-                margin-left: -6px;
+                @include left(5%);
+                @include margin-left(-6px);
             }
 
             @include media($medium) {
@@ -370,8 +376,8 @@
             }
 
             @include media($xlarge) {
-                left: 20%;
-                margin-left: -$huge-spacing;
+                @include left(20%);
+                @include margin-left(-$huge-spacing);
             }
 
             .status-indicator {
@@ -387,7 +393,7 @@
                     width: 20px;
                     height: 20px;
                     padding: 1.5px;
-                    margin-left: -2px;
+                    @include margin-left(-2px);
 
                     svg.iconic {
                         width: 14px;

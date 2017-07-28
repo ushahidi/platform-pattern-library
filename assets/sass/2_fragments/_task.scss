@@ -12,7 +12,7 @@
 */
 
     .task-title {
-        float: left;
+        @include float(left);
         width: 50%;
         color: $color-dark-alpha;
         font-size: 14px;
@@ -29,7 +29,7 @@
             width: $tiny-spacing;
             min-width: initial;
             height: $tiny-spacing;
-            margin-right: $tiny-spacing;
+            @include margin-right($tiny-spacing);
         }
     }
 
@@ -97,8 +97,8 @@
         }
 
         fieldset {
-            border-left: none;
-            padding-left: 0;
+            @include border-left(none);
+            @include padding-left(0);
         }
 
         .custom-fieldset {
@@ -106,12 +106,12 @@
             &.init {
 
                 legend {
-                    padding-right: 25px;
+                    @include padding-right(25px);
 
                     svg.iconic {
 
                         &.chevron {
-                            right: $tiny-spacing;
+                            @include right($tiny-spacing);
                         }
                     }
                 }
@@ -120,7 +120,7 @@
     }
 
     .task-actions {
-        float: right;
+        @include float(right);
         margin-top: -5px;
 /*
         position: absolute;
@@ -143,7 +143,7 @@
             height: 16px;
             text-align: center;
             margin-top: -28px;
-            margin-left: 15px;
+            @include margin-left(15px);
 
             svg.iconic {
                 width: 10px;
@@ -164,13 +164,13 @@
         .dropdown-menu {
             z-index: $dropdown;
             top: 0 !important;
-            right: 0 !important;
+            @include right(0 !important);
         }
 
         .tooltip {
 
             .bug {
-                right: 100%;
+                @include right(100%);
             }
         }
     }

@@ -11,7 +11,7 @@
     .main-col {
 
         @include media($medium) {
-            padding-right: 234px;
+            @include padding-right(234px);
         }
     }
 
@@ -20,7 +20,7 @@
         @include media($medium) {
             position: fixed;
             top: 68px;
-            right: 0;
+            @include right(0);
             bottom: 0;
             z-index: $body;
             width: 234px;
@@ -30,7 +30,7 @@
         .listing {
 
             &.timeline {
-                padding-left: 0;
+                @include padding-left(0);
 
                 .listing-heading,
                 .listing-heading-section {
@@ -41,7 +41,7 @@
                     margin: $sm-spacing;
 
                     @include media($medium) {
-                        text-align: left;
+                        @include text-align(left);
                         margin: $tiny-spacing 0;
                     }
                 }
@@ -54,11 +54,11 @@
                         position: absolute;
                         z-index: -1;
                         top: 100%;
-                        left: 50%;
+                        @include left(50%);
                         width: 4px;
                         height: $sm-spacing;
                         background-color: $color-light-beta;
-                        margin-left: -2px;
+                        @include margin-left(-2px);
                     }
                 }
 

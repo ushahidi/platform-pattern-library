@@ -60,7 +60,7 @@
                 position: relative;
 
                 @include media($mobile) {
-                    left: -4px;
+                    @include left(-4px);
                     margin-right: 10%;
                     margin-left: 10%;
                 }
@@ -125,7 +125,7 @@
 
         &.survey-title,
         &.section-title {
-            margin-left: 4px;
+            @include margin-left(4px);
 
             input[type="text"],
             textarea {
@@ -153,7 +153,7 @@
             .section-title-actions {
                 position: absolute;
                 top: 4px;
-                right: $sm-spacing;
+                @include right($sm-spacing);
                 z-index: $body;
 
                 @include media($small) {
@@ -162,13 +162,13 @@
 
                 button,
                 .button {
-                    margin-right: 0;
-                    margin-left: $tiny-spacing;
+                    @include margin-right(0);
+                    @include margin-left($tiny-spacing);
                 }
 
                 .dropdown-menu {
                     top: $huge-spacing !important;
-                    right: 0 !important;
+                    @include right(0 !important);
                 }
             }
         }
@@ -232,7 +232,7 @@
 
             @include media($mobile-down) {
                 margin-right: 0;
-                margin-left: 4px;
+                @include margin-left(4px);
             }
         }
     }
@@ -260,7 +260,7 @@
 
     .form-sheet-actions {
         position: relative;
-//        text-align: right;
+        // text-align: right;
         border-top: 1px solid rgba(0,0,0,0.04);
         background-color: rgba(0,0,0,0.04);
         padding: $sm-spacing;
@@ -337,8 +337,8 @@
                 padding: $sm-spacing;
 
                 @include media($mobile-down) {
-                    margin-right: 0;
-                    margin-left: 4px;
+                    @include margin-right(0);
+                    @include margin-left(4px);
                 }
 
                 &:before {

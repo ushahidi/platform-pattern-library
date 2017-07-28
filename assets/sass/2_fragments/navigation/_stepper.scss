@@ -1,5 +1,9 @@
 .stepper {
 
+    li {
+        list-style: none;
+    }
+
     .stepper-heading {
         @include typeBeta;
         color: $color-dark-gamma;
@@ -27,11 +31,11 @@
     .stepper-item {
         position: relative;
         padding-bottom: $tiny-spacing;
-        padding-left: $lg-spacing;
+        @include padding-left($lg-spacing);
         margin-bottom: $tiny-spacing;
 
         @include media($small) {
-            padding-left: $huge-spacing;
+            @include padding-left($huge-spacing);
         }
 
         &:after {
@@ -40,7 +44,7 @@
             z-index: $body;
             top: $base-spacing + 4;
             bottom: 0;
-            left: $base-spacing/2;
+            @include left($base-spacing/2);
             width: 1px;
             background-color: $color-light-beta;
         }
@@ -54,7 +58,7 @@
             position: absolute;
             z-index: $body;
             top: 0;
-            left: 0;
+            @include left(0);
         }
 
         &.active,

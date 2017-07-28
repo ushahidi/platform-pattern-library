@@ -41,13 +41,13 @@
     @include media($small) {
         width: 50%;
         margin: 0;
-        margin-left: -25%;
+        @include margin-left(-25%);
     }
 
     @include media($medium) {
         width: 60%;
         padding: $base-spacing;
-        margin-left: -34%;
+        @include margin-left(-34%);
     }
 
     .tour-tagline {
@@ -78,7 +78,7 @@
     a[data-cue="plans"] {
         position: absolute;
         top: $tiny-spacing;
-        right: $sm-spacing;
+        @include right($sm-spacing);
 
         @include media($medium) {
             top: $sm-spacing;
@@ -115,9 +115,9 @@
 
                 @include media($small) {
                     position: relative;
-                    text-align: left;
+                    @include text-align(left);
                     background-color: transparent;
-                    padding-right: 35%;
+                    @include padding-right(35%);
                     padding-bottom: $base-spacing;
                 }
             }
@@ -129,9 +129,9 @@
                 @include media($small) {
                     position: absolute;
                     top: 50%;
-                    right: $base-spacing;
-                    left: 66.6666667%;
-                    text-align: right;
+                    @include right($base-spacing);
+                    @include left(66.6666667%);
+                    @include text-align(right);
                     margin-top: -$base-spacing;
                 }
             }
@@ -235,7 +235,7 @@
     &:after {
         position: absolute;
         top: -190px;
-        left: -190px;
+        @include left(-190px);
         display: block;
         width: 400px;
         height: 400px;
@@ -275,7 +275,7 @@
             content: '';
             position: absolute;
             top: 100%;
-            left: 5px;
+            @include left(5px);
             width: 6px;
             height: 33px;
             border-right: 2px solid $black;

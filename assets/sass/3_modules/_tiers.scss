@@ -79,7 +79,7 @@
             position: absolute;
             z-index: 1;
             top: 0;
-            left: 0;
+            @include left(0);
             min-height: 100%;
             min-width: 100%;
             max-width: 100%;
@@ -147,8 +147,8 @@
 
     .tier-action {
         position: absolute;
-        right: 0;
-        left: 0;
+        @include right(0);
+        @include left(0);
         z-index: $body;
         text-align: center;
         margin-top: -$base-spacing;
@@ -213,7 +213,7 @@
     }
 
     .tier-form {
-        text-align: left;
+        @include text-align(left);
         margin: 0 $sm-spacing;
     }
 }
@@ -235,7 +235,7 @@
         @include transition(0.85s ease-in-out);
 
         @include media($medium) {
-            float: left;
+            @include float(left);
             width: 25%;
             @include no-shadow;
             background-color: transparent;
@@ -257,7 +257,7 @@
                 position: absolute;
                 z-index: 3;
                 top: $lg-spacing;
-                right: 0;
+                @include right(0);
                 bottom: $lg-spacing;
                 width: 1px;
                 background-color: $color-light-gamma;
@@ -357,20 +357,20 @@
     .payment {
         display: none;
         position: relative;
-        float: right;
+        @include float(right);
         width: 100%;
         @extend .card;
         padding: $sm-spacing;
-        margin-right: -125%;
+        @include margin-right(-125%);
         @include transition(0.8s ease-in-out);
 
         @include media($medium) {
             position: absolute;
             opacity: 1;
             top: 10px;
-            right: -110%;
+            @include right(-110%);
             bottom: 10px;
-            left: 110%;
+            @include left(110%);
             width: 75%;
             padding: $sm-spacing $base-spacing;
             @include transition(0.75s ease-in-out);
@@ -380,25 +380,25 @@
     &.show-payment {
 
         .tier {
-            margin-right: 125%;
-            margin-left: -125%;
+            @include margin-right(125%);
+            @include margin-left(-125%);
 
             @include media($medium) {
-                margin-right: auto;
-                margin-left: -1000px;
+                @include margin-right(auto);
+                @include margin-left(-1000px);
 
                 &.selected {
-                    margin-left: 0;
+                    @include margin-left(0);
                 }
             }
         }
 
         .payment {
-            margin-right: 0;
+            @include margin-right(0);
 
             @include media($medium) {
-                right: 10%;
-                left: 25%;
+                @include right(10%);
+                @include left(25%);
             }
         }
 

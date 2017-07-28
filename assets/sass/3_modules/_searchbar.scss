@@ -9,6 +9,10 @@
     .searchbar-input {
         flex: 1;
 
+        .rtl & {
+            order: 2;
+        }
+
         .form-field {
             margin: 0;
 
@@ -44,10 +48,10 @@
                     white-space: pre;
                     -webkit-user-select: none;
                     outline: rgb(85, 84, 89) none 0px;
-                    padding-right: $huge-spacing;
-                    padding-left: 2px;
+                    @include padding-right($huge-spacing);
+                    @include padding-left(2px);
                     margin: 1px $sm-spacing;
-                    margin-right: $tiny-spacing;
+                    @include margin-right($tiny-spacing);
 
                     &.active {
 
@@ -88,7 +92,7 @@
                 &.input-with-icon {
 
                     .input-ghost {
-                        margin-left: 37px;
+                        @include margin-left(37px);
                     }
 
                     svg.iconic {
@@ -167,7 +171,7 @@
 
         button,
         .button {
-            float: left;
+            @include float(left);
             height: 36px;
             font-weight: normal;
             text-transform: none;
@@ -266,7 +270,7 @@
             @include media($medium) {
                 border-bottom: 1px solid $color-light-gamma;
                 padding-top: 0;
-                padding-left: 25%;
+                @include padding-left(25%);
                 margin-top: $base-spacing !important;
                 margin-bottom: $base-spacing !important;
 
@@ -283,19 +287,19 @@
                 @include media($medium) {
                     position: absolute;
                     top: 0;
-                    left: 0;
+                    @include left(0);
                     width: 23%;
                     font-weight: 600;
-                    padding-right: 2%;
+                    @include padding-right(2%);
                 }
             }
 
             .form-field {
 
                 @include media($medium) {
-                    float: left;
+                    @include float(left);
                     width: 48%;
-                    padding-right: 1%;
+                    @include padding-right(1%);
                     margin-bottom: $sm-spacing !important;
                 }
 
@@ -323,19 +327,19 @@
             .form-field-toggle {
                 font-size: 12px;
                 font-size: .857142857rem;
-                margin-left: 3px;
+                @include margin-left(3px);
 
                 @include media($medium) {
                     position: absolute;
                     top: -$tiny-spacing;
-                    right: 0;
+                    @include right(0);
                     width: 8px;
                     height: 8px;
                     overflow: hidden;
 
                     svg.iconic {
                         fill: $color-light-alpha;
-                        margin-right: 0;
+                        @include margin-right(0);
                     }
                 }
             }
@@ -352,9 +356,9 @@
                         position: absolute;
                         z-index: $body;
                         top: 50%;
-                        right: -12px;
+                        @include right(-12px);
                         margin-top: -10px;
-                        margin-left: 0;
+                        @include margin-left(0);
                     }
                 }
             }

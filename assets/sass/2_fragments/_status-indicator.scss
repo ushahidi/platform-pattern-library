@@ -25,7 +25,7 @@
 
         + .label {
             margin-top: auto;
-            margin-left: -2px;
+            @include margin-left(-2px);
         }
     }
 
@@ -145,7 +145,7 @@
 
         .bug {
             top: -$tiny-spacing;
-            left: 100%;
+            @include left(100%);
         }
     }
 }
@@ -180,12 +180,12 @@ a.status-indicator {
 
 @-webkit-keyframes status-indicator-change {
     0% {
-        left: -$sm-spacing;
+        @include left(-$sm-spacing);
         opacity: 0;
         transform: scale(0);
     }
     75% {
-        left: 0;
+        @include left(0);
         opacity: 1;
         transform: scale(1.5);
     }
@@ -196,12 +196,12 @@ a.status-indicator {
 
 @keyframes status-indicator-change {
     0% {
-        left: -$sm-spacing;
+        @include left(-$sm-spacing);
         opacity: 0;
         transform: scale(0);
     }
     75% {
-        left: 0;
+        @include left(0);
         opacity: 1;
         transform: scale(1.5);
     }
@@ -212,7 +212,7 @@ a.status-indicator {
 
 @-webkit-keyframes status-indicator-alert {
     0% {
-        left: -$sm-spacing;
+        @include left(-$sm-spacing);
         opacity: 0;
         transform: scale(0);
     }
@@ -226,7 +226,7 @@ a.status-indicator {
         transform: rotate(-45deg);
     }
     50% {
-        left: 0;
+        @include left(0);
         opacity: 1;
         transform: scale(2.5) rotate(0deg);
     }
@@ -246,7 +246,7 @@ a.status-indicator {
 
 @keyframes status-indicator-alert {
     0% {
-        left: -$sm-spacing;
+        @include left(-$sm-spacing);
         opacity: 0;
         transform: scale(0);
     }
@@ -260,7 +260,7 @@ a.status-indicator {
         transform: rotate(-45deg);
     }
     50% {
-        left: 0;
+        @include left(0);
         opacity: 1;
         transform: scale(2) rotate(0deg);
     }

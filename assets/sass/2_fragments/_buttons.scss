@@ -160,7 +160,7 @@ input[type="button"] {
         z-index: $body;
 
         @include media($medium-down) {
-            margin-left: auto;
+            @include margin-left(auto);
         }
 
         &.active {
@@ -185,7 +185,7 @@ input[type="button"] {
         box-shadow: 0 0 8px rgba(0,0,0,0.12),
             0 8px 18px rgba(0,0,0,0.24);
         padding-top: 12px;
-        margin-right: $tiny-spacing;
+        @include margin-right($tiny-spacing);
 
         svg.iconic {
             fill: $white;
@@ -268,13 +268,13 @@ input[type="button"] {
         @include media($medium-down) {
 
             .bug {
-                float: right
+                @include float(right);
             }
 
             .fab-action-type {
-                float: right;
-                margin-right: 0;
-                margin-left: $tiny-spacing;
+                @include float(right);
+                @include margin-right(0);
+                @include margin-left($tiny-spacing);
             }
         }
 
@@ -293,6 +293,8 @@ input[type="button"] {
     button {
         display: block;
         padding: 2px 6px;
+        @include float(left);
+        @include clear(left);
 
         svg.iconic {
             width: .714285714em;

@@ -42,19 +42,19 @@
         font-size: .857142857rem;
         padding: 4px $tiny-spacing;
         margin: $tiny-spacing;
-        margin-left: 0;
+        @include margin-left(0);
 
         + .button-link {
             padding-right: $sm-spacing;
             padding-left: $sm-spacing;
             margin: $tiny-spacing;
-            margin-left: 0;
+            @include margin-left(0);
         }
 
         svg.iconic {
 
             + .button-label {
-                margin-left: 4px;
+                @include margin-left(4px);
             }
         }
     }
@@ -63,7 +63,7 @@
         color: $color-tertiary;
         padding-right: 0;
         padding-left: 0;
-        margin: 0 $tiny-spacing 0 0;
+        @include lrswap(margin, 0 $tiny-spacing 0 0);
 
         svg.iconic {
             fill: $color-tertiary;
@@ -71,7 +71,7 @@
     }
 
     .dropdown-menu {
-        left: auto !important;
+        @include left(auto !important);
         margin-top: $tiny-spacing;
 
         &.init {
@@ -110,10 +110,10 @@
         @include media($medium) {
             position: absolute;
             top: $tiny-spacing;
-            left: $base-spacing;
+            @include left($base-spacing);
 
             + .message-body {
-                padding-left: 56px;
+                @include padding-left(56px);
                 margin-top: 0;
             }
         }
@@ -139,7 +139,7 @@
         .message-image {
             position: absolute;
             top: 12px;
-            left: $base-spacing;
+            @include left($base-spacing);
             width: $base-spacing;
             height: $base-spacing;
             margin: 0;
@@ -151,7 +151,7 @@
             }
 
             + .message-body {
-                padding-left: 56px;
+                @include padding-left(56px);
                 margin-top: 0;
             }
         }

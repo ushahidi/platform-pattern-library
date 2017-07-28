@@ -133,7 +133,7 @@
                     li {
                         float: none;
                         width: auto;
-                        text-align: left;
+                        @include text-align(left);
                         background-color: transparent;
                     }
                 }
@@ -145,7 +145,7 @@
 
                     @include media($medium-down) {
                         @include typeBase;
-                        text-align: left;
+                        @include text-align(left);
                         padding: $sm-spacing;
 
                         svg.iconic {
@@ -155,7 +155,7 @@
                             width: 1em;
                             height: 1em;
                             margin: 0;
-                            margin-right: $tiny-spacing;
+                            @include margin-right($tiny-spacing);
                         }
                     }
                 }
@@ -188,7 +188,7 @@
             @include media($medium-down) {
                 color: $color-tertiary;
                 @include typeBase;
-                text-align: left;
+                @include text-align(left);
                 padding: $sm-spacing;
 
                 &:hover {
@@ -208,14 +208,14 @@
                     width: 1em;
                     height: 1em;
                     margin: 0;
-                    margin-right: $tiny-spacing;
+                    @include margin-right($tiny-spacing);
                 }
 
                 .avatar {
-                    float: left;
+                    @include float(left);
                     width: 20px;
                     height: 20px;
-                    margin: -3px 7px 0 -3px;
+                    @include lrswap(margin, -3px 7px 0 -3px);
                 }
             }
 
@@ -237,7 +237,7 @@
                 display: none;
                 position: absolute;
                 top: $tiny-spacing;
-                left: 90%;
+                @include left(90%);
                 z-index: $modal;
                 color: $white;
                 @include typeBase;
@@ -246,7 +246,7 @@
                 border-radius: 25px;
                 background: $color-primary;
                 padding: $tiny-spacing $sm-spacing;
-                margin-left: 0;
+                @include margin-left(0);
                 box-shadow: 0 0 16px rgba(0,0,0,0.12),
                     0 16px 16px rgba(0,0,0,0.24);
             }

@@ -12,7 +12,7 @@
             position: absolute;
             top: $sm-spacing;
             bottom: 0;
-            left: 22px;
+            @include left(22px);
             width: 2px;
             background-color: $color-primary-delta;
         }
@@ -40,17 +40,17 @@
 
     .survey-filter-label {
         position: relative;
-        float: left;
+        @include float(left);
         width: 72.9613734%;
 
         label {
             padding: $tiny-spacing*1.5 0;
-            padding-left: $base-spacing+15;
+            @include padding-left($base-spacing+15);
         }
 
         input[type="checkbox"] {
             position: absolute;
-            left: $sm-spacing;
+            @include left($sm-spacing);
         }
     }
 
@@ -65,22 +65,23 @@
     .survey-filter-total {
         position: absolute;
         top: 50%;
-        right: 0;
+        @include right(0);
         box-shadow: 0 0 $tiny-spacing 2px #292E34;
         margin-top: -10px;
-        margin-right: $sm-spacing;
+        @include margin-right($sm-spacing);
 
         @include media($medium) {
-            margin-right: $base-spacing;
+            @include margin-right($base-spacing);
         }
 
         svg.iconic {
             position: relative;
             top: 1px;
+            @include float(right);
             fill: #292E34;
             width: 10px;
             height: 10px;
-            margin-left: 6px;
+            @include margin-left(6px);
             @include transition(0.3s);
         }
 
@@ -97,10 +98,10 @@
 
     .dropdown-menu {
         top: 90% !important;
-        right: $sm-spacing !important;
-        left: auto !important;
+        @include right($sm-spacing !important);
+        @include left(auto !important);
         max-width: 300px;
-        margin-left: $sm-spacing;
+        @include margin-left($sm-spacing);
     }
 
     .survey-filter-children {
@@ -109,7 +110,7 @@
         margin: 0;
 
         @include media($medium) {
-            padding-left: $base-spacing;
+            @include padding-left($base-spacing);
         }
 
         legend {
@@ -122,19 +123,19 @@
                 top: 4px;
                 // color: $color-light-beta;
                 color: $color-primary-epsilon;
-                padding-right: $base-spacing;
+                @include padding-right($base-spacing);
                 @include transition(0.3s);
 
                 &:after {
                     content: '';
                     position: absolute;
                     top: 50%;
-                    right: 10px;
+                    @include right(10px);
                     width: 6px;
                     height: 6px;
                     background: transparent;
                     border-top: 2.5px solid $color-light-alpha;
-                    border-right: 2.5px solid $color-light-alpha;
+                    @include border-right(2.5px solid $color-light-alpha);
                     margin-top: -4px;
                     @include transition(0.3s);
                     @include transform(rotate(135deg));
@@ -159,7 +160,7 @@
 
             &.checkbox,
             &.radio {
-                text-align: left;
+                @include text-align(left);
                 margin-top: $tiny-spacing;
                 margin-bottom: $tiny-spacing;
 
@@ -171,11 +172,11 @@
 
                     &.checkbox,
                     &.radio {
-                        margin-left: $sm-spacing;
+                        @include margin-left($sm-spacing);
 
                         input[type="checkbox"],
                         input[type="radio"] {
-                            left: -56px;
+                            @include left(-56px);
                         }
                     }
                 }
@@ -186,16 +187,16 @@
 
                         &.checkbox,
                         &.radio {
-                            margin-left: $base-spacing;
+                            @include margin-left($base-spacing);
 
                             input[type="checkbox"],
                             input[type="radio"] {
-                                left: -$base-spacing;
+                                @include left(-$base-spacing);
                             }
                         }
 
                         &:hover {
-                            padding-left: 0;
+                            @include padding-left(0);
                         }
                     }
                 }
@@ -203,7 +204,7 @@
         }
 
         .form-fieldgroup {
-            border-left: none;
+            @include border-left(none);
             padding: 0;
             margin: 0;
 
@@ -224,12 +225,12 @@
 
             label {
                 position: relative;
-                left: 0;
+                @include left(0);
                 @include transition(0.3s);
 
                 @include media($medium) {
-                    left: -$sm-spacing;
-                    padding-left: $huge-spacing;
+                    @include left(-$sm-spacing);
+                    @include padding-left($huge-spacing);
                 }
             }
 
@@ -238,7 +239,7 @@
                 @include transition(0.3s);
 
                 @include media($medium) {
-                    left: 0;
+                    @include left(0);
                 }
             }
 
@@ -249,12 +250,12 @@
 
                     label {
                         cursor: pointer;
-                        left: 0;
+                        @include left(0);
                     }
 
                     input[type="checkbox"] {
                         cursor: pointer;
-                        left: $sm-spacing;
+                        @include left($sm-spacing);
                     }
                 }
             }
@@ -269,7 +270,7 @@
                 &.checkbox,
                 &.radio {
                     opacity: 0.5;
-                    padding-left: 0;
+                    @include padding-left(0);
                     @include transition(opacity, 0.3s);
 
                     label {
@@ -277,7 +278,7 @@
                         &:before {
                             position: absolute;
                             top: 2px;
-                            left: -18px;
+                            @include left(-18px);
                             color: $color-tertiary;
                             font-weight: bold;
                             font-size: 10px;
@@ -286,7 +287,7 @@
 
                     input[type="checkbox"],
                     input[type="radio"] {
-                        left: -$huge-spacing;
+                        @include left(-$huge-spacing);
                         @include transition(0.3s);
                     }
 
@@ -300,7 +301,7 @@
 
                     &:hover {
                         opacity: 0.8;
-                        padding-left: 18px;
+                        @include padding-left(18px);
 
                         label:before {
                             content: none;
@@ -308,7 +309,7 @@
 
                         input[type="checkbox"],
                         input[type="radio"] {
-                            left: -$tiny-spacing;
+                            @include left(-$tiny-spacing);
                         }
                     }
                 }
