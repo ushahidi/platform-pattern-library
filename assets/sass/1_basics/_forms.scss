@@ -130,23 +130,36 @@ input[type="file"] {
 .input-inline { //for when a button is next to the input
     @include direction;
     clear: both;
+    @include media($small) {
+        display: flex;
+        margin: $sm-spacing auto;
+    }
 
     input {
-        display: inline;
-        @include margin-right($sm-spacing);
-        margin-bottom: $sm-spacing;
-        //width: 70%;
-
         @include media($small) {
-            width: 70%;
+            margin: auto !important;
+            margin-right: $sm-spacing !important;
+            max-width: 100%;
         }
     }
 
     button {
-        //height: 35px;
         @include lrswap(padding, 7px 15px 9px);
+        @include media($small) {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 35px;
+            margin: auto !important;
+        }
+        
+        .loading {
+            @include media($small) {
+                display: flex;
+                justify-content: space-between;
+                width: 40px;
+            }
+        }
     }
-
 }
 
 input[type="checkbox"],
