@@ -157,7 +157,7 @@
                 z-index: $body;
 
                 @include media($small) {
-                    right: 10%;
+                    @include right(10%);
                 }
 
                 button,
@@ -207,6 +207,7 @@
         .form-field {
             margin-right: 0;
             margin-left: 0;
+            @include direction;
         }
     }
 
@@ -270,12 +271,8 @@
             padding-left: 10%;
         }
 
-        @include media($large) {
-            padding-right: 20%;
-            padding-left: 20%;
-        }
-
         .form-field {
+            @include direction;
             margin: 0;
         }
     }
