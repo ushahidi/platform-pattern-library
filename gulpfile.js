@@ -31,7 +31,7 @@ function errorHandler (err) {
 */
 gulp.task('webserver', function() {
     connect.server({
-        port: 8000,
+        port: process.env.PORT || 8000,
         livereload: true
     });
 });
