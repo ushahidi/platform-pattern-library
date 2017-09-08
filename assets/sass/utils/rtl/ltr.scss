@@ -5,5 +5,11 @@ $left: left;
 $right: right;
 
 @import "rtl-sass";
-@import "test";
-@import "../../style";
+@import "../../dependencies";
+// Hack: Include top level styles outside of namespace
+@import "../../1_basics/base";
+
+.ltr-namespace {
+	//@import "test";
+	@import "../../style";
+}
