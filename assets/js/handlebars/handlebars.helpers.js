@@ -75,6 +75,15 @@ Handlebars.registerHelper('mapEmbed', function(postIndex, fullsize) {
     );
 });
 
+Handlebars.registerHelper('mapOnlyEmbed', function(postIndex, mapOnly) {
+    var dataAttr = postIndex == 'all' ? '' : 'data-post-index="'+postIndex+'"',
+        className = mapOnly == true ? 'map-only' : '';
+
+    return new Handlebars.SafeString(
+        '<div id="map" ' + dataAttr + ' class="map ' + className + '"></div>'
+    );
+});
+
 Handlebars.registerHelper('deployment', function(options) {
     return options.fn(session.deployment);
 });
