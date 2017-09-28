@@ -1,86 +1,100 @@
 &.layout-d {
+    height: 100%;
 
     [role="main"] {
-        padding-top: 107px;
+        display: -webkit-flex; /* Safari */
+        display: flex;
+        -webkit-flex-direction: column; /* Safari */
+        flex-direction: column;
+        justify-content: flex-start;
+        @include padding-left(0);
 
         @include media($medium) {
-            padding-top: 68px;
-        }
-    }
-
-    .main-col {
-
-        @include media($medium) {
-            @include padding-right(234px);
-        }
-    }
-
-    .secondary-col {
-
-        @include media($medium) {
-            position: fixed;
-            top: 68px;
-            @include right(0);
-            bottom: 0;
-            z-index: $body;
-            width: 234px;
-            overflow-y: auto;
+            -webkit-flex-direction: row; /* Safari */
+            flex-direction: row;
+            justify-content: space-between;
+            @include padding-left($lg-spacing*2);
+            @include padding-right($lg-spacing);
         }
 
-        .listing {
+        .toolbar {
+            top: 0;
+            @include left(0px);
+            padding: 0 $lg-spacing;
 
-            &.timeline {
-                @include padding-left(0);
+            @include media($medium) {
+                @include left($lg-spacing*2);
+            }
 
-                .listing-heading,
-                .listing-heading-section {
-                    text-align: center;
-                }
+            .searchbar {
+                width: 60%;
+                @include padding-right($lg-spacing);
 
-                .listing-heading {
-                    margin: $sm-spacing;
-
-                    @include media($medium) {
-                        @include text-align(left);
-                        margin: $tiny-spacing 0;
-                    }
-                }
-
-                .postcard,
-                .listing-heading-section {
-
-                    &:after {
-                        content: '';
-                        position: absolute;
-                        z-index: -1;
-                        top: 100%;
-                        @include left(50%);
-                        width: 4px;
-                        height: $sm-spacing;
-                        background-color: $color-light-beta;
-                        @include margin-left(-2px);
-                    }
-                }
-
-                .postcard {
-
-                    &:last-of-type {
-
-                        &:after {
-                            content: none;
-                        }
-                    }
-                }
-
-                .listing-heading-section {
-
-                    @include media($medium) {
-                        display: block;
-                        color: $color-dark-delta;
-                        background-color: transparent;
-                    }
+                @include media($medium) {
+                    width: 35%;
                 }
             }
         }
+
+        .timeline-col,
+        .post-col {
+
+            @include media($medium) {
+                overflow-y: scroll;
+            }
+
+        }
+
+        .timeline-col {
+            padding-top: 55px;
+
+            @include media($medium) {
+                width: 35%;
+                padding-top: $sm-spacing;
+                @include padding-right($lg-spacing);
+                @include border-right(1px solid $color-light-beta)
+            }
+
+            .listing.timeline {
+
+                @include media($medium) {
+                    @include padding-left($lg-spacing);
+                }
+
+                .postcard:before {
+                    content: none;
+                }
+
+                .listing-heading-section:after {
+                    content: none;
+                }
+            }
+
+            .postcard {
+                max-width: none;
+            }
+
+            button {
+                @include margin-left(16px);
+
+                @include media($medium) {
+                    @include margin-left(0);
+                }
+            }
+        }
+
+        .post-col {
+            padding: 0 $sm-spacing;
+            margin-bottom: 45px;
+
+            @include media($medium) {
+                width: 65%;
+                padding-top: $lg-spacing;
+                @include padding-left($lg-spacing);
+                margin-bottom: 0;
+            }
+        }
+
     }
+
 }
