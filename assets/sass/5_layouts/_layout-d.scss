@@ -14,7 +14,6 @@
             flex-direction: row;
             justify-content: space-between;
             @include padding-left($lg-spacing*2);
-            @include padding-right($lg-spacing);
         }
 
         .toolbar {
@@ -72,6 +71,15 @@
 
             .postcard {
                 max-width: none;
+                @include transition(all 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530));
+
+                &:after {
+                    content: none;
+                }
+
+                &.selected {
+                    @include transform(translate(2.2em, 0))
+                }
             }
 
             button {
@@ -91,6 +99,7 @@
                 width: 65%;
                 padding-top: $lg-spacing;
                 @include padding-left($lg-spacing);
+                @include padding-right($lg-spacing);
                 margin-bottom: 0;
             }
         }

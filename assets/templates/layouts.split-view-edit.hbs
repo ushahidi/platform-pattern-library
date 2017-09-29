@@ -1,0 +1,346 @@
+{{> ModeBar }}
+
+<main role="main">
+
+    <div class="toolbar">
+
+        {{> Search }}
+
+        <div class="button-group">
+            <button class="button-flat">Cancel</button>
+            <a class="button button-alpha" href="split-view.html#{{@../index}}">Save</a>
+        </div>
+    </div>
+
+    <div class="timeline-col">
+
+        <div class="listing timeline">
+
+            {{#if user.logged_in}}
+                {{#each deployment.responses}}
+                    {{> Postcard checkbox=true show_tasks=false editable=true}}
+                {{/each}}
+            {{else}}
+                {{#each deployment.responses}}
+                    {{#ifCond properties.status 'published'}}
+                    {{> Postcard checkbox=false show_tasks=false editable=false}}
+                    {{/ifCond}}
+                {{/each}}
+            {{/if}}
+
+            <button class="button-gamma button-flat">Load more</button>
+
+            <div class="listing-toolbar">
+                <div class="listing-toolbar-summary">
+                    <strong><span class="total"></span> selected</strong>
+                    <button class="button-link">Deselect</button>
+                </div>
+
+                <div class="listing-toolbar-actions">
+
+                    <button class="button-beta" data-toggle="toggle-content">
+                        <span class="button-label">Mark as</span>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu toggle-content">
+                        <li>
+                            <a href="" data-message="publish-success">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                                </svg>
+                                <span class="label">Published</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" data-message="under_review-success">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                                </svg>
+                                <span class="label">Under Review</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" data-message="archive-success">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                                </svg>
+                                <span class="label">Archived</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <button class="button-beta" data-modal="add-to-collection">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Add to Collection</span>
+                    </button>
+
+                    <button class="button-beta">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Edit</span>
+                    </button>
+
+                    <button class="button-destructive" data-modal="delete-post">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label hidden">Delete</span>
+                    </button>
+
+                    <button class="listing-toolbar-toggle more">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                        </svg>
+                        <span class="button-label hide-until-small">Edit</span>
+                    </button>
+
+                    <button class="listing-toolbar-toggle less">
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="button-label hidden">Delete</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!--// Uses numeric hash to determine which response to render by its index; falls back to index 0 //-->
+    {{#postFromHash}}
+    <div class="post-col">
+
+        <div class="form-sheet" role="article">
+            {{postBand}}
+
+            <header class="form-sheet-summary">
+                {{#postSurvey}}
+                <h1 class="form-sheet-title survey-title">{{name}}</h1>
+                <p>{{description}}</p>
+                {{/postSurvey}}
+            </header>
+
+            <ul class="metadata">
+                <li>
+                    {{#ifCond properties.status 'published'}}
+                    <a class="chip" data-toggle="post-status">
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                        </svg>
+                        <span class="label">Published</span>
+                    </a>
+                    {{/ifCond}}
+                    {{#ifCond properties.status 'review'}}
+                    <a class="chip yellow" disabled>
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                        <span class="label">Under review</span>
+                    </a>
+                    {{/ifCond}}
+                    {{#ifCond properties.status 'archived'}}
+                    <a class="chip" data-toggle="post-status">
+                        <span class="chip-icon">
+                            <span class="label">Status</span>
+                        </span>
+                        <svg class="iconic">
+                          <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                        </svg>
+                        <span class="label">Archived</span>
+                    </a>
+                    {{/ifCond}}
+                </li>
+
+                <li>
+                    <a href="" class="chip" data-modal="edit-author">
+                        <span class="chip-icon">
+                            <span class="label">Author</span>
+                        </span>
+                        {{#if properties.author.avatar}}
+                        <img src="{{properties.author.avatar}}" class="avatar" />
+                        {{/if}}
+                        <span class="label">{{properties.author.name}}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="" class="chip" data-modal="post-date">
+                        <span class="chip-icon">
+                            <svg class="iconic">
+                              <use xlink:href="../../img/iconic-sprite.svg#calendar"></use>
+                            </svg>
+                            <span class="label">Date</span>
+                        </span>
+                        <span class="label">{{properties.date.post}}</span>
+                    </a>
+                </li>
+            </ul>
+
+            {{#each answers}}
+                {{formField ../properties.survey 0 @index value}}
+            {{/each}}
+
+            <fieldset>
+                <legend>Categories</legend>
+
+                <div class="form-field checkbox">
+                    <label for="cat1"><input type="checkbox" id="cat1">Surface issues</label>
+                    <div class="form-field checkbox">
+                        <label for="cat1A"><input type="checkbox" id="cat1A">Child category</label>
+                    </div>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="cat2"><input type="checkbox" id="cat2">Signage</label>
+                    <div class="form-field checkbox">
+                        <label for="cat2A"><input type="checkbox" id="cat2A">Child category</label>
+                    </div>
+                    <div class="form-field checkbox">
+                        <label for="cat2B"><input type="checkbox" id="cat2B">Another child category</label>
+                    </div>
+                </div>
+                <div class="form-field checkbox">
+                    <label for="cat3"><input type="checkbox" id="cat3">Obstructions</label>
+                </div>
+                <!--div class="form-field checkbox" data-toggle-target="new-label">
+                    <label for="cat4"><input type="checkbox" id="cat4" checked>Emergency</label>
+                </div-->
+                <div class="form-field inline" data-toggle-target="add-label">
+                    <label class="hidden">Category name</label>
+                    <input type="text" placeholder="Label name..." style="width: 240px;" />
+                    <button class="button-alpha button-flat" disabled>
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#check"></use>
+                        </svg>
+                        <span class="hidden">Add</span>
+                    </button>
+                    <button class="button-beta button-flat">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                        </svg>
+                        <span class="hidden">Delete</span>
+                    </button>
+                </div>
+                <div class="form-field">
+                    <button class="button-link" data-toggle="add-label">+ Add new category</button>
+                </div>
+            </fieldset>
+        </div>
+
+        {{#ifPostIsDataSource}}
+        <div class="toolbox">
+            <div class="tool">
+                <fieldset>
+                    <legend>Convert this into a survey response to...</legend>
+
+                    {{#global}}
+                        {{#each deployment.surveys}}
+                            {{#unless datasource}}
+                            <div class="form-field radio">
+                                <input type="radio" name="add-to-survey" id="survey-{{@index}}" />
+                                <label for="survey-{{@index}}">{{name}}</label>
+                            </div>
+                            {{/unless}}
+                        {{/each}}
+                    {{/global}}
+                </fieldset>
+
+                <div class="form-field">
+                    <button class="button-flat" disabled>Convert &amp; edit</button>
+                </div>
+            </div>
+        </div>
+        {{/ifPostIsDataSource}}
+
+        <div class="form-sheet">
+            <header class="form-sheet-summary">
+                <h1 class="form-sheet-title section-title">Verify</h1>
+            </header>
+
+            <div class="form-field">
+                <label>Source</label>
+                <input type="text" value="Jane Doe" />
+            </div>
+
+            <div class="form-field">
+                <label>Notes</label>
+                <textarea>Confirmed damage on April 1, 2017.</textarea>
+            </div>
+        </div>
+
+    </div>
+
+    {{#each tasks}}
+    <div id="task-{{@index}}" class="modal">
+        <div class="modal-window">
+            <h3 class="modal-title {{#if complete}}complete{{/if}}">{{taskInfo "name" 0 @index}}</h3>
+
+            <div class="form-field">
+                {{#if disabled}}
+                    <p><em>This task can't be completed until "Verify" is completed.</em></p>
+                {{else}}
+                    {{taskInfo "description" 0 @index}}
+                {{/if}}
+            </div>
+
+            <div class="modal-body">
+                <div class="form-field">
+                    <label>Notes</label>
+                    <textarea></textarea>
+                </div>
+
+
+                <div class="form-field required">
+                    <label>Police officer</label>
+                    <input type="text" />
+                </div>
+
+                <div class="form-field required">
+                    <label>Case number</label>
+                    <input type="number" />
+                </div>
+
+                <div class="form-field">
+                    <label>Notes</label>
+                    <textarea></textarea>
+                </div>
+
+                <div class="form-field switch">
+                    <label>
+                        <svg class="iconic">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#check"></use>
+                        </svg>
+                        Mark this task {{#unless complete}}in{{/unless}}complete
+                    </label>
+                    <div class="toggle-switch">
+                        <input {{#if complete}}checked{{/if}} class="tgl" id="task-{{@index}}-complete" type="checkbox">
+                        <label class="tgl-btn" for="task-{{@index}}-complete"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <div class="form-field">
+                    <button class="button-beta button-flat modal-trigger">Cancel</button>
+                    <button class="button-alpha modal-trigger">Done</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-overlay"></div>
+    </div>
+    {{/each}}
+
+    {{/postFromHash}}
+</main>
