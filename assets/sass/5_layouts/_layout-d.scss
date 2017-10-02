@@ -20,10 +20,11 @@
         .toolbar {
             top: 0;
             @include left(0px);
-            padding: 0 $lg-spacing;
+            padding: 0 $sm-spacing;
 
             @include media($medium) {
                 @include left($lg-spacing*2);
+                padding: 0 $lg-spacing;
             }
 
             &.toolbar-secondary {
@@ -34,12 +35,21 @@
             }
 
             .searchbar {
-                width: 60%;
-                @include padding-right($lg-spacing);
+                width: 53%;
 
                 @include media($medium) {
                     width: 35%;
+                    @include padding-right(42px);
                 }
+            }
+
+            .button-group button {
+                padding: 10px 10px;
+
+                @include media($medium) {
+                    padding: 10px $sm-spacing;
+                }
+
             }
         }
 
