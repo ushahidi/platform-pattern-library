@@ -8,6 +8,7 @@
         flex-direction: column;
         justify-content: flex-start;
         @include padding-left(0);
+        @include direction;
 
         @include media($medium) {
             -webkit-flex-direction: row; /* Safari */
@@ -59,6 +60,7 @@
                 padding-top: $sm-spacing;
                 @include padding-right($lg-spacing);
                 @include border-right(1px solid $color-light-beta)
+                direction: ltr;
             }
 
             .listing.timeline {
@@ -79,6 +81,11 @@
             .postcard {
                 max-width: none;
                 @include transition(all 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530));
+
+                    @include media($medium) {
+                        margin-left: 0;
+                        margin-right: 0;
+                    }
 
                 &:after {
                     content: none;
@@ -108,6 +115,7 @@
                 @include padding-left($lg-spacing);
                 @include padding-right($lg-spacing);
                 margin-bottom: 0;
+                direction: ltr;
             }
         }
 
