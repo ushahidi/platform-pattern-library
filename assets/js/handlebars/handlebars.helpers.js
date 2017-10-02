@@ -437,14 +437,6 @@ Handlebars.registerHelper('taskInfo', function(key, postIndex, taskIndex) {
     }
 });
 
-Handlebars.registerHelper('postCheckbox', function() {
-    if (session.user.logged_in) {
-        return new Handlebars.SafeString(
-            '<div class="listing-item-select"><input type="checkbox"></div>'
-        );
-    }
-});
-
 hbUserStatus = function() {
     if (session.user.logged_in) {
         session.user.logged_in = false;
