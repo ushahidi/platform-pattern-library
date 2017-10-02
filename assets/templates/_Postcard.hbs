@@ -1,4 +1,4 @@
-<article class="postcard">
+<article class="postcard" onclick="goToDetail({{@index}})">
     {{postBand}}
 
     {{#ifCond checkbox true}}
@@ -8,28 +8,24 @@
     <div class="postcard-body">
         <header class="postcard-header">
             <ul class="metadata">
-                <li>
                     {{#ifCond properties.status 'published'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator">
+                    <li class="status-indicator">
                         <svg class="iconic">
                           <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                         </svg>
-
                         <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Published</span>
-                    </a>
                     {{/ifCond}}
 
                     {{#ifCond properties.status 'review'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator yellow">
+                    <li class="status-indicator yellow">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
                         <span class="label {{#ifCond editable false}}hidden{{/ifCond}}">Under review</span>
-                    </a>
                     {{/ifCond}}
 
                     {{#ifCond properties.status 'archived'}}
-                    <a href="post-detail.html#{{@index}}" class="status-indicator dark">
+                    <li class="status-indicator dark">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#box"></use>
                         </svg>
@@ -107,13 +103,11 @@
             {{#each answers}}
                 {{#if @first}}
                 <div class="postcard-title">
-                    <a href="post-detail.html#{{@../index}}">
                 {{/if}}
 
                     {{postcardField ../properties.survey @../index @index true}}
 
                 {{#if @first}}
-                    </a>
                 </div>
                 {{/if}}
             {{/each}}
