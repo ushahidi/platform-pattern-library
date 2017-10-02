@@ -478,3 +478,8 @@ hbLoadLayout = function() {
         }, 1000);
     });
 }
+
+goToDetail = function(postId) {
+    // when new layout, also add a class to postcard to make it go right (left on rtl).
+    window.location ="post-detail.html#"+postId;
+}
