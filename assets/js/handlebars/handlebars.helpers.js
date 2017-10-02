@@ -437,6 +437,14 @@ Handlebars.registerHelper('taskInfo', function(key, postIndex, taskIndex) {
     }
 });
 
+Handlebars.registerHelper('postLocked', function() {
+    if (session.user.logged_in) {
+        return new Handlebars.SafeString(
+            '<div class="listing-item-locked"><svg class="iconic"><use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use></svg></div>'
+        );
+    }
+});
+
 hbUserStatus = function() {
     if (session.user.logged_in) {
         session.user.logged_in = false;
