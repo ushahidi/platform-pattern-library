@@ -7,7 +7,7 @@
         {{> Search }}
 
         <div class="button-group">
-            <button class="button-flat">Cancel</button>
+            <button class="button-flat" data-modal="cancel-without-saving">Cancel</button>
             <a class="button button-alpha" href="split-view.html#{{@../index}}">Save</a>
         </div>
     </div>
@@ -279,6 +279,13 @@
             </div>
         </div>
 
+        <div class="toolbar toolbar-secondary">
+            <div class="button-group">
+                <button class="button-flat" data-modal="cancel-without-saving">Cancel</button>
+                <a class="button button-alpha" href="split-view.html#{{@../index}}">Save</a>
+            </div>
+        </div>
+
     </div>
 
     {{#each tasks}}
@@ -343,4 +350,34 @@
     {{/each}}
 
     {{/postFromHash}}
+
 </main>
+
+{{> Modals }}
+
+<div id="cancel-without-saving" class="modal">
+    <div class="modal-window">
+        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
+            <svg class="iconic">
+                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+            </svg>
+            <span class="hidden">Close</span>
+        </button>
+
+        <h3 class="modal-title">Do you want to leave this report without saving</h3>
+
+        <dl class="modal-body">
+            If you continue without saving, all of your changes will be lost.
+        </dl>
+
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button modal-trigger">Continue without Saving</button>
+
+                <button type="button" class="button-alpha modal-trigger">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
