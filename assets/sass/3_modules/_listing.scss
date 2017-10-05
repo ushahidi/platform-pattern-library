@@ -100,10 +100,6 @@
             margin-right: 0;
         }
 
-        @include media($large) {
-            @include margin-right(915px);
-            @include margin-left(0);
-        }
     }
 
     .listing-toolbar {
@@ -229,22 +225,6 @@
                 padding: $tiny-spacing $sm-spacing;
                 margin: 0 auto;
 
-                /*
-                text-shadow: 0 0 $sm-spacing $color-primary-zeta,
-                    0 4px $tiny-spacing $color-primary-zeta,
-                    0 -4px $sm-spacing $color-primary-zeta;
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    z-index: -1;
-                    top: 50%;
-                    right: 0;
-                    left: 0;
-                    height: 1px;
-                    background-color: $color-light-beta;
-                }
-*/
                 &:after {
                     top: -$sm-spacing;
                 }
@@ -262,5 +242,23 @@
         .listing-toolbar {
             display: block;
         }
+    }
+
+    &.change-log {
+
+        .change-log-header {
+            position: relative;
+
+            .button-group {
+                position: absolute;
+                margin: auto 0;
+                top: 0;
+                @include right(2.5%);
+                bottom: 0;
+                height: 35px;
+            }
+
+        }
+
     }
 }
