@@ -118,23 +118,24 @@
             <article class="postcard" role="article">
                 {{postBand}}
 
-                <div class="notification-bar locked">
-                    <span class="circle-icon">
+                <div class="message message-alt active">
+                    <div class="message-image error">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
-                    </span>
+                    </div>
 
-                    {{#global}}
-                        <p>The report is locked because <strong>{{user.name}}</strong> is working on it right now. Try editing a different post.</p>
+                    <div class="message-body">
+                        {{#global}}
+                            <p>The report is locked because <strong>{{user.name}}</strong> is working on it right now. Try editing a different post.</p>
 
-                        {{#ifCond user.role 'Administrator'}}
-                            <div class="button-group">
-                                <button class="button button-alpha">Unlock</button>
-                            </div>
-                        {{/ifCond}}
-                    {{/global}}
-
+                            {{#ifCond user.role 'Administrator'}}
+                                <div class="button-group">
+                                    <button class="button button-alpha">Unlock</button>
+                                </div>
+                            {{/ifCond}}
+                        {{/global}}
+                    </div>
                 </div>
 
                 <div class="postcard-body">
