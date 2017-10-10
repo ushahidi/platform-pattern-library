@@ -2,18 +2,9 @@
     height: 100%;
 
     [role="main"] {
-        display: -webkit-flex; /* Safari */
-        display: flex;
-        -webkit-flex-direction: column; /* Safari */
-        flex-direction: column;
-        justify-content: flex-start;
         @include padding-left(0);
-        @include direction;
 
         @include media($medium) {
-            -webkit-flex-direction: row; /* Safari */
-            flex-direction: row;
-            justify-content: space-between;
             @include padding-left($lg-spacing*2);
         }
 
@@ -68,7 +59,11 @@
         }
 
         .timeline-col {
-            padding-top: 55px;
+            padding-top: 112px;
+
+            @include media($small) {
+                padding-top: 55px;
+            }
 
             @include media($medium) {
                 width: 35%;

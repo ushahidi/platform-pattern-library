@@ -15,6 +15,21 @@ $LAYOUT
     @include outer-container;
 }
 
+.flex-container {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction: column;
+    justify-content: flex-start;
+    @include direction;
+
+    @include media($medium) {
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 .center {
     text-align: center;
 }
