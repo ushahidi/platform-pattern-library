@@ -480,7 +480,7 @@ hbLoadLayout = function() {
 }
 
 goToDetail = function(postId) {
-    if (window.location.pathname !=='/assets/html/5_layouts/split-view.html') {
+    if (window.location.pathname !=='/assets/html/5_layouts/data.html') {
         var id = postId || 0;
         // when new layout, also add a class to postcard to make it go right (left on rtl).
         window.location ="post-detail.html#"+id;

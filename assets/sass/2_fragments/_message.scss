@@ -4,21 +4,54 @@
     color: $color-light-delta;
     @include equal-radius(0px);
     background-color: $color-primary;
+    @include direction;
+    padding: $sm-spacing;
 
-    .message-body {
-        padding: $tiny-spacing $sm-spacing;
+    @include media($medium) {
+        padding: $tiny-spacing;
+    }
+
+    .message-image {
+        @include circle-icon;
 
         @include media($medium) {
-            padding: $tiny-spacing $base-spacing;
+            position: absolute;
+            margin: auto 0;
+            top: 0;
+            @include left($base-spacing);
+            bottom: 0;
+            @include right(0);
+        }
+
+        &.confirmation {
+            background-color: $confirmation-color;
+        }
+
+        &.error {
+            background-color: $error-color;
+        }
+
+    }
+
+    .message-body {
+        padding: $sm-spacing 0 0;
+        text-align: center;
+
+        @include media($medium) {
+            padding: $sm-spacing $base-spacing;
+            @include padding-left(90px);
+            @include text-align(left);
         }
     }
 
     p {
         display: inline-block;
-        margin: $tiny-spacing 0;
+        margin: 0;
 
         @include media($medium) {
             max-width: 600px;
+            margin: $tiny-spacing 0;
+            @include margin-right(100px);
         }
 
         a {
@@ -39,15 +72,30 @@
         color: $white;
     }
 
+    .button-group {
+        margin-top: $sm-spacing;
+
+        @include media($medium) {
+            position: absolute;
+            margin: auto 0;
+            top: 0;
+            @include right(24px);
+            bottom: 0;
+            height: 35px;
+        }
+    }
+
     button,
     .button {
         display: inline-block;
-        @include float(left);
         font-size: 12px;
         font-size: .857142857rem;
         padding: 4px $tiny-spacing;
-        margin: $tiny-spacing;
         @include margin-left(0);
+
+        @include media($medium) {
+            margin: $tiny-spacing;
+        }
 
         + .button-link {
             padding-right: $sm-spacing;
@@ -97,45 +145,6 @@
                     display: block;
                 }
             }
-        }
-    }
-
-    .message-image {
-        width: 40px;
-        height: 40px;
-        @include equal-radius(100%);
-        text-align: center;
-        background-color: $color-primary-delta;
-        margin: $tiny-spacing auto;
-
-        + .message-body {
-            margin-top: $sm-spacing;
-        }
-
-        @include media($medium) {
-            position: absolute;
-            top: $tiny-spacing;
-            @include left($base-spacing);
-
-            + .message-body {
-                @include padding-left(56px);
-                margin-top: 0;
-            }
-        }
-
-        &.confirmation {
-            background-color: $confirmation-color;
-        }
-
-        &.error {
-            background-color: $error-color;
-        }
-
-        svg.iconic {
-            width: 20px;
-            height: 20px;
-            fill: $white;
-            margin-top: 10px;
         }
     }
 

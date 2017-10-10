@@ -4,11 +4,11 @@
 
     <div class="toolbar">
 
-        {{> Search }}
+        {{> Search-d }}
 
         <div class="button-group">
             <button class="button-flat">Cancel</button>
-            <a class="button button-alpha" href="split-view-edit.html#{{@../index}}">Edit</a>
+            <a class="button button-alpha" href="data-edit.html#{{@../index}}">Edit</a>
         </div>
     </div>
 
@@ -131,21 +131,24 @@
             <article class="postcard" role="article">
                 {{postBand}}
 
-                <div class="lock-bar">
-                    <span class="circle-icon">
+                <div class="message message-alt active">
+                    <div class="message-image error">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
                         </svg>
-                    </span>
-
-                    <p>The report is locked because <strong>{{user.name}}</strong> is working on it right now. Try editing a different post.</p>
-
-                {{#ifCond user.role 'Administrator'}}
-                    <div class="button-group">
-                        <button class="button button-alpha">Unlock</button>
                     </div>
-                {{/ifCond}}
 
+                    <div class="message-body">
+                        {{#global}}
+                            <p>The report is locked because <strong>{{user.name}}</strong> is working on it right now. Try editing a different post.</p>
+
+                            {{#ifCond user.role 'Administrator'}}
+                                <div class="button-group">
+                                    <button class="button button-alpha">Unlock</button>
+                                </div>
+                            {{/ifCond}}
+                        {{/global}}
+                    </div>
                 </div>
 
                 <div class="postcard-body">
