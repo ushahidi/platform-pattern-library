@@ -17,10 +17,18 @@
             @include padding-left($lg-spacing*2);
         }
 
+        input[type=checkbox] {
+            margin: 10px;
+        }
+        
         .listing {
             .listing-item {
                 .listing-item-secondary { 
-                    right: 0px
+                    right: 10px;
+
+                    @include media($medium) {
+                        right: 0px
+                    }
                 };
             }
         }
@@ -29,9 +37,52 @@
             width: 50%;
             top: 0px;
             right: 0px;
-            padding-right: 0px;
+            padding-right: 10px;
+
+            @include media($medium) {
+                        right: 0px;
+                        padding-right: 0px;
+                    }
+        }
+
+        .listing {
+            &.timeline {
+
+                .listing-item {
+
+                    .listing-item-primary {
+
+                        @include media($mobile) {
+                            padding: 8px 16px;
+                        }
+
+                        @include media($medium) {
+                            padding: 8px 0px;
+                        }
+
+                    }
+                }
+            }
+
+            &.toolbar-active {
+                margin-top: 87px;
+
+                @include media($medium) {
+                    margin-top: 80px;
+                }
+
+                .listing-toolbar {
+                    top: 52px;
+
+                    @include media($medium) {
+                        top: 68px;
+                    }
+                }
+            }
 
         }
+
+        
 
         .listing-item-primary {
             padding: 8px 16px;
@@ -44,10 +95,16 @@
                 .listing-item-secondary {
                     width: auto;
                     top: 0px;
-                    right: 0px;
-                    padding: 8px 15px;
+                    right: 10px;
+                    padding: 8px 14px;
                     text-align: center;
-                    margin-right: 8px;
+                    
+
+                    @include media($medium) {
+                        right: 0px;
+                        margin-right: 8px;
+                        padding: 8px 15px;
+                    }
 
                 }
             }
