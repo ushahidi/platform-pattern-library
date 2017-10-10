@@ -15,10 +15,14 @@
     <div class="timeline-col">
 
         <div class="listing timeline">
+            <div class="listing-item">
+            <button id="bulk-action" class="button-link listing-item-secondary">Bulk Actions</button>
+            <div class="listing-item-primary">X of X Posts</div>
+            </div>
 
             {{#if user.logged_in}}
                 {{#each deployment.responses}}
-                    {{> Postcard locked=true show_tasks=false editable=true}}
+                    {{> Postcard checkbox=true locked=true show_tasks=false editable=true}}
                 {{/each}}
             {{else}}
                 {{#each deployment.responses}}
@@ -31,9 +35,18 @@
             <button class="button-gamma button-flat">Load more</button>
 
             <div class="listing-toolbar">
-                <div class="listing-toolbar-summary">
+            <div class="listing-item">
+            <button href="" id="bulk-close" class="button-beta button-flat listing-item-secondary">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                    </svg>
+                    <span class="hidden">Close</span>
+                </button>
+                <div class="listing-toolbar-summary listing-item-primary">
                     <strong><span class="total"></span> selected</strong>
                     <button class="button-link">Deselect</button>
+                </div>
+                
                 </div>
 
                 <div class="listing-toolbar-actions">
