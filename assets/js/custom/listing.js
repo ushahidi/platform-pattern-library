@@ -1,5 +1,5 @@
 // Initialize each toggle pair
-$('.listing').each(function(){
+$('.timeline-col, .listing').each(function(){
     var context = $(this),
     toolbar = $(context).find('.listing-toolbar'),
     toggle_button = $(context).find('.listing-item-toggle'),
@@ -37,7 +37,7 @@ $('.listing').each(function(){
             $('.button-fab').prop('disabled', false).removeClass('disabled');
         });
 
-        
+
     }
 
     /*
