@@ -486,3 +486,11 @@ goToDetail = function(postId) {
         window.location ="post-detail.html#"+id;
     }
 }
+
+Handlebars.registerHelper('postCheckbox', function() {
+    if (session.user.logged_in) {
+        return new Handlebars.SafeString(
+            '<div class="listing-item-select"><input type="checkbox"></div>'
+        );
+    }
+});

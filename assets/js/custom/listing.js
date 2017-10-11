@@ -1,5 +1,5 @@
 // Initialize each toggle pair
-$('.listing').each(function(){
+$('.timeline-col, .listing').each(function(){
     var context = $(this),
     toolbar = $(context).find('.listing-toolbar'),
     toggle_button = $(context).find('.listing-item-toggle'),
@@ -26,19 +26,18 @@ $('.listing').each(function(){
 
     // If one or more items are checked, toggle the visibility of the listing's toolbar
     if ($(toolbar).length) {
-        $(select_checkboxes).on('change', function(e){
-            select_checkboxes_checked = $(context).find('.listing-item-select input[type="checkbox"]:checked');
-
-            if ($(select_checkboxes_checked).length) {
-                $(context).addClass('toolbar-active');
-                $('.button-fab').prop('disabled', true).addClass('disabled');
-            } else {
-                $(context).removeClass('toolbar-active');
-                $('.button-fab').prop('disabled', false).removeClass('disabled');
-            }
-
+        $('#bulk-action').on('click', function(e){
+            $(context).addClass('toolbar-active');
+            $('.button-fab').prop('disabled', true).addClass('disabled');
             $(toolbar).find('.listing-toolbar-summary .total').text($(select_checkboxes_checked).length);
         });
+
+         $('#bulk-close').on('click', function(e){
+            $(context).removeClass('toolbar-active');
+            $('.button-fab').prop('disabled', false).removeClass('disabled');
+        });
+
+
     }
 
     /*
