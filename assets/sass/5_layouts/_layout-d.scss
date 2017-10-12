@@ -155,11 +155,7 @@
             }
 
             button {
-                @include margin-left(16px);
-
-                @include media($medium) {
-                    @include margin-left(0);
-                }
+                @include margin-left(0);
             }
 
             .button-link {
@@ -171,6 +167,15 @@
             .toolbar-close-button {
                 float: right;
                 margin-top: -20px;
+
+                @include media($small) {
+                    margin-top: -20px;
+                }
+
+                @include media($medium) {
+                    margin-top: -30px;
+                    margin-right: -10px;
+                }
             }
         }
 
