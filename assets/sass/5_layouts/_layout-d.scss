@@ -12,10 +12,6 @@
             margin: 10px;
         }
 
-        .listing-toolbar {
-
-        }
-
         .toolbar {
             top: 0;
             @include left(0px);
@@ -67,6 +63,7 @@
         }
 
         .timeline-col {
+            width: 100%;
             padding-top: 119px;
             @include transition(0.3s);
 
@@ -84,31 +81,25 @@
             }
 
             .listing-toolbar {
-                display: block;
-                width: 100%;
                 position: fixed;
+                width: inherit;
+                max-width: inherit;
                 top: -200px;
-                right: auto;
                 z-index: $top;
-                @include equal-radius(0);
                 background-color: $color-primary-gamma;
+                @include equal-radius(0);
                 @include transition(0.3s);
 
-                @include media($medium) {
-                    width: 33.5%;
-                    max-width: inherit;
-                    // @include left(64px);
+                button {
+                    @include margin-left(0);
                 }
             }
 
             &.toolbar-active {
-                margin-top: 139px;
+                margin-top: 90px;
 
                 .listing-toolbar {
-                    display: block;
                     top: 103px;
-                    width: 100%;
-                    max-width: inherit;
 
                     @include media($small) {
                         top: 52px;
@@ -116,7 +107,6 @@
 
                     @include media($medium) {
                         top: 68px;
-                        width: 33.5%;
                     }
                 }
             }
@@ -165,16 +155,18 @@
             }
 
             .toolbar-close-button {
-                float: right;
-                margin-top: -20px;
-
-                @include media($small) {
-                    margin-top: -20px;
-                }
+                position: absolute;
+                top: 10px;
+                @include right(10px);
+                margin: 0;
+                padding: 8px;
 
                 @include media($medium) {
-                    margin-top: -30px;
-                    margin-right: -10px;
+                    @include right(24px);
+                }
+
+                svg.iconic {
+                    fill: $color-tertiary;
                 }
             }
         }
