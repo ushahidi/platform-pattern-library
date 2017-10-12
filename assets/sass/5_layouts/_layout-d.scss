@@ -12,10 +12,6 @@
             margin: 10px;
         }
 
-        .listing-toolbar {
-
-        }
-
         .toolbar {
             top: 0;
             @include left(0px);
@@ -99,10 +95,14 @@
                     max-width: inherit;
                     // @include left(64px);
                 }
+
+                button {
+                    @include margin-left(0);
+                }
             }
 
             &.toolbar-active {
-                margin-top: 139px;
+                margin-top: 90px;
 
                 .listing-toolbar {
                     display: block;
@@ -169,8 +169,19 @@
             }
 
             .toolbar-close-button {
-                float: right;
-                margin-top: -20px;
+                position: absolute;
+                top: 10px;
+                @include right(10px);
+                margin: 0;
+                padding: 8px;
+
+                @include media($medium) {
+                    @include right(27px);
+                }
+
+                svg.iconic {
+                    fill: $color-tertiary;
+                }
             }
         }
 
