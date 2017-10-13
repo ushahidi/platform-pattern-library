@@ -86,10 +86,15 @@
                 width: inherit;
                 max-width: inherit;
                 top: -200px;
-                z-index: $top;
                 background-color: $color-primary-gamma;
                 @include equal-radius(0);
                 @include transition(0.3s);
+                z-index: $top;
+
+                @include media($medium) {
+                    margin: 0 -23px;
+                    @include padding-left(56px);
+                }
 
                 strong {
                     margin-right: $tiny-spacing;
@@ -101,7 +106,15 @@
             }
 
             &.toolbar-active {
-                padding-top: 100px;
+                padding-top: 205px;
+
+                @include media($small) {
+                    padding-top: 160px;
+                }
+
+                @include media($medium) {
+                    padding-top: 107px;
+                }
 
                 .listing-toolbar {
                     top: 103px;
@@ -112,6 +125,21 @@
 
                     @include media($medium) {
                         top: 68px;
+                    }
+                }
+
+                .listing.timeline {
+
+                    .button-group {
+                        top: 190px;
+
+                        @include media($small) {
+                            top: 141px;
+                        }
+
+                        @include media($medium) {
+                            top: 87px;
+                        }
                     }
                 }
             }
@@ -134,18 +162,21 @@
                     position: -webkit-sticky;
                     position: sticky;
                     top: 102px;
-                    margin-top: $sm-spacing;
-                    padding: 0 $sm-spacing;
-                    z-index: $toolbar;
+                    @include lrswap(margin, 0 -31px 0 -32px);
+                    padding: $sm-spacing 0;
+                    background-color: $color-primary-zeta;
+                    z-index: $top - 1;
 
                     @include media($small) {
                         top: 51px;
-                        padding: 0;
                     }
 
                     @include media($medium) {
                         top: -2px;
-                        padding: 0;
+                    }
+
+                    button {
+                        @include equal-radius(0);
                     }
                 }
             }
