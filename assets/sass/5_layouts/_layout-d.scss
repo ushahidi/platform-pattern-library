@@ -164,7 +164,11 @@
                 }
 
                 &.selected {
-                    @include transform(translate(2.2em, 0))
+                    @include transform(none)
+
+                    @include media($medium) {
+                        @include transform(translate(2.2em, 0))
+                    }
                 }
             }
 
@@ -206,6 +210,13 @@
                 @include padding-right($lg-spacing);
                 margin-bottom: 0;
                 direction: ltr;
+            }
+
+            .postcard.locked {
+
+                .postcard-body {
+                    padding-top: 50px;
+                }
             }
         }
 
