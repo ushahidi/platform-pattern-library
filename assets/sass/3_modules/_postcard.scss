@@ -11,15 +11,21 @@
         @include radius(2px, 0, 0, 2px);
         }
 
-    .listing-item-locked {
+    .listing-item-select {
         position: absolute;
-        top: $base-spacing + 1;
-        @include left($sm-spacing);
+        top: 15px;
+        left: 8px;
 
         + .postcard-body {
-            @include padding-right($base-spacing);
-            @include padding-left($huge-spacing);
+            @include padding-left($huge-spacing+10);
         }
+    }
+
+    .listing-item-locked {
+        position: relative;
+        top: -1px;
+        display: inline;
+        @include margin-right($tiny-spacing);
 
         .status-indicator {
             display: block;
@@ -29,7 +35,7 @@
 
     .postcard-body {
         @include clearfix;
-        padding: $sm-spacing;
+        @include lrswap(padding, $sm-spacing $sm-spacing $sm-spacing $sm-spacing+2);
         padding-bottom: 0;
 
         .postcard-header {

@@ -8,6 +8,9 @@
     <div class="postcard-body">
         <header class="postcard-header">
             <ul class="metadata">
+                {{#ifCond locked true}}
+                    {{postLocked}}
+                {{/ifCond}}
                     {{#ifCond properties.status 'published'}}
                     <li class="status-indicator">
                         <svg class="iconic">
