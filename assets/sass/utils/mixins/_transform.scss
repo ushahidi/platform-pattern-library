@@ -14,8 +14,7 @@
     transform: scale($size);
 }
 
-@mixin translateZ-siblings() {
-    $siblings:100;
+@mixin translateZ-siblings($siblings) {
     @for $i from 1 through $siblings {
         &:nth-child(#{$i}) {
             transform: translateZ(-$i*1px);
