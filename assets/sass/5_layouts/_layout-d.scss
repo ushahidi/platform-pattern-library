@@ -114,6 +114,29 @@
                 }
             }
 
+            .button-group {
+                position: fixed;
+                z-index: 499;
+                padding: 0;
+                width: inherit;
+                margin: 0;
+                overflow:hidden;
+                background-color: $color-primary-zeta;
+
+                @include media($small) {
+                    top: 60px;
+                }
+
+                @include media($medium) {
+                    margin: 0 -23px;
+                    top: 102px;
+                }
+
+                button {
+                    @include equal-radius(0);
+                }
+            }
+
             &.toolbar-active {
                 padding-top: 205px;
 
@@ -166,28 +189,6 @@
 
                 .listing-heading-section:after {
                     content: none;
-                }
-
-                .button-group {
-                    position: -webkit-sticky;
-                    position: sticky;
-                    top: 102px;
-                    @include lrswap(margin, 0 -31px 0 -32px);
-                    padding: $sm-spacing 0;
-                    background-color: $color-primary-zeta;
-                    z-index: $top - 1;
-
-                    @include media($small) {
-                        top: 51px;
-                    }
-
-                    @include media($medium) {
-                        top: -2px;
-                    }
-
-                    button {
-                        @include equal-radius(0);
-                    }
                 }
             }
 
