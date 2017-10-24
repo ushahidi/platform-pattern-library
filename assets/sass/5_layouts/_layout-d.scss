@@ -192,7 +192,6 @@
 
             .postcard {
                 max-width: none;
-                @include transition(all 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530));
 
                     @include media($medium) {
                         margin-left: 0;
@@ -204,10 +203,10 @@
                 }
 
                 &.selected {
-                    @include transform(none)
+                    @include left(0);
 
                     @include media($medium) {
-                        @include transform(translate(2.2em, 0))
+                        @include left(32px);
                     }
                 }
             }
