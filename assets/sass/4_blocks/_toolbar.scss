@@ -103,9 +103,29 @@
         }
 
         .dropdown-menu {
-
+            min-height: 100vh;
+            @include media($small) {
+                max-width: none;
+            }
             .dropdown-menu-body {
-                max-height: 300px;
+                min-height: 90vh;
+                max-height: 93vh !important;
+
+                @include media($medium-down) {
+                    min-height: 85vh;
+                    max-height: 85vh !important;
+
+                }
+
+                @include media($small-down) {
+                    min-height:60vh;
+                    max-height: 75vh !important;
+                }
+
+                 @include media($mobile-down) {
+                    min-height:60vh;
+                    max-height: 75vh !important;
+                }
             }
         }
 
