@@ -90,6 +90,14 @@
         .timeline-col {
             width: 100%;
             padding-top: 119px;
+            @include media($medium-down) {
+                display: none;
+            }
+            &.active {
+                @include media($medium-down) {
+                    display: block;
+                }
+            }
             @include transition(0.3s);
 
             @include media($small) {
@@ -260,7 +268,9 @@
         .post-col {
             padding: 0 $sm-spacing;
             margin-bottom: 45px;
-
+            @include media($medium-down) {
+                display: none;
+            }
             @include media($medium) {
                 width: 65%;
                 padding-top: $lg-spacing;
@@ -268,6 +278,28 @@
                 @include padding-right($lg-spacing);
                 margin-bottom: 0;
                 direction: ltr;
+            }
+
+            &.active {
+                @include media($medium-down) {
+                    display: block;
+                    margin-top: 68px;
+                }
+                @include media($small-down) {
+                    margin-top: 120px;
+                }
+            }
+            .postcard-close {
+                position: absolute;
+                top: $base-spacing;
+                @include media($medium-down) {
+                    display: inline;
+                }
+                @include right($sm-spacing);
+                    margin-top: -$tiny-spacing;
+                @include media($mobile) {
+                    @include right($base-spacing);
+                }
             }
 
             .postcard.locked {
