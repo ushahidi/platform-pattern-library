@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="timeline-col">
+    <div class="timeline-col active">
             <div class="load-more">
             <button class="button-gamma button-flat full-width">
                 <span>
@@ -132,8 +132,12 @@
 
             <article class="postcard locked" role="article">
                 {{postBand}}
-
-                <div class="message message-alt active">
+                <button class="button-beta button-flat postcard-close" onclick=closePostcard()>
+                    <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                    </svg>
+                </button>
+                <!-- <div class="message message-alt active">
                     <div class="message-image error">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
@@ -151,9 +155,11 @@
                             {{/ifCond}}
                         {{/global}}
                     </div>
-                </div>
+                </div> -->
+               
 
                 <div class="postcard-body">
+
                     {{#postSurvey}}
                     <h1 class="form-sheet-title survey-title">{{name}}</h1>
                     <p>{{description}}</p>
