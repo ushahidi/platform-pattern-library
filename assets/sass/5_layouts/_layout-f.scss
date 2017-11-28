@@ -18,6 +18,24 @@
                 padding: 0 $lg-spacing;
             }
 
+            a.md-actions {
+                float: left;
+                padding: 13px 0;
+                font-weight: 800;
+                font-size: em(30px);
+                color: $white;
+
+                @include media($medium) {
+                    padding: 20px 0;
+                }
+
+                svg.iconic {
+                    fill: $white;
+                    width: em(8px);
+                    height: em(8px);
+                }
+            }
+
             .button-group button {
                 padding: 10px 10px;
 
@@ -29,25 +47,38 @@
         }
 
         .main-col {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            width: 100%;
+            float: left;
             @include margin-right(0);
+            padding: 52px 16px 0;
+
+            @include media($medium) {
+                padding: 0 32px 0;
+            }
+
+            .deployment-card-wrapper {
+
+                @include media($small) {
+                    width: 49%;
+                }
+
+                @include media($large) {
+                    width: 100%;
+                }
+            }
 
             .deployment-card {
                 display: flex;
                 flex-direction: column;
-                max-width: 945px;
-                margin: $base-spacing;
+                max-width: 1042px;
+                margin: $base-spacing 0 0 0;
 
-                @include media($mobile-up) {
-                    width: 50%;
+                @include media($large) {
                     flex-direction: row;
-                }
-
-                @include media($small) {
-                    width: 50%;
-                }
-
-                @include media($medium) {
-                    width: 100%;
                 }
 
                 .dc-main {
@@ -85,6 +116,10 @@
 
                     .dc-map {
 
+                        img {
+                            height: 281px;
+                            object-fit: cover;
+                        }
                     }
                 }
 
@@ -92,8 +127,37 @@
                     flex: 1 0 0;
                     padding: $sm-spacing;
 
-                    .dc-stats-title {
-                        text-transform: uppercase;
+                    .dc-stat-wrapper {
+                        margin-bottom: $lg-spacing;
+                        font-size: 12px;
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+
+                        .dc-stats-title {
+                            text-transform: uppercase;
+                            margin-bottom: $tiny-spacing;
+                        }
+
+                        .dc-report-total {
+                            font-weight: 800;
+                            // font-size: em(26px);
+                            font-size: em(50px);
+
+                            // @include media($medium) {
+                            //     font-size: em(50px);
+                            // }
+                        }
+
+                        ul {
+                            margin-bottom: 0;
+
+                            li {
+                                margin: 0px 16px 4px auto;
+                            }
+                        }
+
                     }
                 }
             }
