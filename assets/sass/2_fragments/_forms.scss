@@ -377,7 +377,7 @@ fieldset {
             .searchbar-results {
 
                 .bug {
-                    @include margin-left($sm-spacing); 
+                    @include margin-left($sm-spacing);
                     margin-top: $sm-spacing;
 
                 }
@@ -1056,6 +1056,28 @@ span[data-fieldgroup-target] {
 
         &.active {
             display: inline-block;
+        }
+    }
+}
+
+.form-field-addon {
+    display: flex;
+    flex-direction: row;
+
+    input {
+        @include equal-radius(0);
+    }
+
+    .addon {
+        padding: 12px;
+        background-color: $color-tertiary;
+
+        &.before {
+            @include radius(2px, 0, 0, 2px);
+        }
+
+        &.after {
+            @include radius(0, 2px, 2px, 0);
         }
     }
 }

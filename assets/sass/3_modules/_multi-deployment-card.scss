@@ -1,0 +1,152 @@
+.deployment-card-wrapper {
+
+    @include media($small) {
+        width: 49%;
+    }
+
+    @include media($large) {
+        width: 100%;
+    }
+
+    .deployment-card {
+        display: flex;
+        flex-direction: column;
+        @include float(left);
+        width: 100%;
+        max-width: 1042px;
+        margin: $base-spacing 0 0 0;
+
+        @include media($large) {
+            flex-direction: row;
+        }
+
+        .dc-main {
+            position: relative;
+            flex: 3 0 0;
+
+            .dc-toolbar {
+                display: flex;
+                justify-content: space-between;
+                color: $white;
+                background-color: $color-primary;
+
+                a.dc-deployment-title {
+                    font-weight: bold;
+                    font-size: em(20px);
+                    color: $white;
+                    padding: $sm-spacing;
+                    cursor: pointer;
+
+                    svg.iconic {
+                        fill: $white;
+                        width: 0.657143em;
+                        height: 0.657143em;
+                    }
+                }
+
+                .dc-actions {
+                    background-color: transparent;
+                    box-shadow: none;
+
+                    svg.iconic {
+                        fill: $white;
+                    }
+                }
+            }
+
+            .dc-map {
+
+                img {
+                    height: 281px;
+                    object-fit: cover;
+                }
+            }
+
+            .button-group {
+                @include float(right);
+            }
+        }
+
+        .dc-info {
+            position: relative;
+            flex: 1 0 0;
+            padding: $sm-spacing;
+
+            .dc-info-wrapper {
+                margin-bottom: $lg-spacing;
+                font-size: 12px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .dc-info-title {
+                    text-transform: uppercase;
+                    margin-bottom: $tiny-spacing;
+                }
+
+                .dc-report-total {
+                    font-weight: 800;
+                    font-size: em(50px);
+                }
+
+                ul {
+                    margin-bottom: 0;
+
+                    li {
+                        @include lrswap(margin, 0px $sm-spacing 4px auto);
+                    }
+                }
+
+            }
+
+            button {
+                @include float(right);
+
+                @include media($medium) {
+                    position: absolute;
+                    bottom: $sm-spacing;
+                    @include right($sm-spacing);
+                }
+            }
+        }
+    }
+
+    &.create,
+    &.new,
+    &.archive {
+        width: 100%;
+    }
+
+    &.new {
+
+        .deployment-card {
+            @include media($medium) {
+                flex-direction: row;
+            }
+        }
+    }
+
+    &.create,
+    &.archive {
+
+        .deployment-card {
+            display: block;
+            padding: $base-spacing;
+
+            .form-field {
+                width: 100%;
+                max-width: 450px;
+                margin: $base-spacing 0;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                p {
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+}
