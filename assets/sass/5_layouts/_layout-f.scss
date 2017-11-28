@@ -1,0 +1,104 @@
+&.layout-f {
+    height: 100%;
+
+    [role="main"] {
+        @include padding-left(0);
+
+        @include media($medium) {
+            @include padding-left($lg-spacing*2);
+        }
+
+        .toolbar {
+            top: 0;
+            @include left(0px);
+            padding: 0 $sm-spacing;
+
+            @include media($medium) {
+                @include left(64px);
+                padding: 0 $lg-spacing;
+            }
+
+            .button-group button {
+                padding: 10px 10px;
+
+                @include media($medium) {
+                    padding: 10px $sm-spacing;
+                }
+
+            }
+        }
+
+        .main-col {
+            @include margin-right(0);
+
+            .deployment-card {
+                display: flex;
+                flex-direction: column;
+                max-width: 945px;
+                margin: $base-spacing;
+
+                @include media($mobile-up) {
+                    width: 50%;
+                    flex-direction: row;
+                }
+
+                @include media($small) {
+                    width: 50%;
+                }
+
+                @include media($medium) {
+                    width: 100%;
+                }
+
+                .dc-main {
+                    flex: 3 0 0;
+
+                    .dc-toolbar {
+                        display: flex;
+                        justify-content: space-between;
+                        color: $white;
+                        background-color: $color-primary;
+
+                        a.dc-deployment-title {
+                            font-weight: bold;
+                            font-size: em(20px);
+                            color: $white;
+                            padding: 16px;
+                            cursor: pointer;
+
+                            svg.iconic {
+                                fill: $white;
+                                width: 0.657143em;
+                                height: 0.657143em;
+                            }
+                        }
+
+                        .dc-actions {
+                            background-color: transparent;
+                            box-shadow: none;
+
+                            svg.iconic {
+                                fill: $white;
+                            }
+                        }
+                    }
+
+                    .dc-map {
+
+                    }
+                }
+
+                .dc-stats {
+                    flex: 1 0 0;
+                    padding: $sm-spacing;
+
+                    .dc-stats-title {
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
