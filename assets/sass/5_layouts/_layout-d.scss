@@ -1,20 +1,19 @@
 &.layout-d {
     height: 100%;
 
+    @include media($medium) {
+        overflow: hidden;
+    }
+
     [role="main"] {
-        display: -webkit-flex; /* Safari */
-        display: flex;
-        -webkit-flex-direction: column; /* Safari */
-        flex-direction: column;
-        justify-content: flex-start;
         @include padding-left(0);
-        @include direction;
 
         @include media($medium) {
-            -webkit-flex-direction: row; /* Safari */
-            flex-direction: row;
-            justify-content: space-between;
             @include padding-left($lg-spacing*2);
+        }
+
+        input[type=checkbox] {
+            margin: 0px;
         }
 
         .toolbar {
@@ -34,12 +33,37 @@
                 margin-bottom: $base-spacing;
             }
 
-            .searchbar {
-                width: 53%;
+            .fab {
+                display: flex;
+                position: fixed;
+                right: $sm-spacing;
+                bottom: $sm-spacing;
+                top: unset;
+                left: unset;
+                @include media($medium-down) {
+                    bottom: $sm-spacing+45;
+                }
+            }
 
-                @include media($medium) {
+            .searchbar {
+                width: 50%;
+                @include media($small-down) {
+                    width: 100%;
+                }
+
+                @include media($large) {
+                    width: 50%;
+                }
+
+                @include media($xxlarge) {
                     width: 35%;
-                    @include padding-right(42px);
+                }
+                .dropdown-menu {
+                    .filter-actions {
+                        @include media($medium-down) {
+                            bottom:73px;
+                        }
+                    }
                 }
             }
 
@@ -58,23 +82,128 @@
 
             @include media($medium) {
                 overflow-y: scroll;
+                max-height: 94vh;
             }
 
         }
 
         .timeline-col {
-            padding-top: 55px;
+            width: 100%;
+            padding-top: 119px;
+            @include media($medium-down) {
+                display: none;
+            }
+            &.active {
+                @include media($medium-down) {
+                    display: block;
+                }
+            }
+            @include transition(0.3s);
+
+            @include media($small) {
+                padding-top: 68px;
+            }
 
             @include media($medium) {
                 width: 35%;
-                padding-top: $sm-spacing;
+                max-width: 35%;
+                padding-top: $lg-spacing + 10;
                 @include padding-right($lg-spacing);
                 @include border-right(1px solid $color-light-beta)
                 direction: ltr;
             }
 
-            .listing.timeline {
+            .listing-toolbar {
+                position: fixed;
+                width: inherit;
+                max-width: inherit;
+                top: -200px;
+                background-color: $color-primary-gamma;
+                @include equal-radius(0);
+                @include transition(0.3s);
+                z-index: $top;
 
+                @include media($medium) {
+                    margin: 0 -23px;
+                    @include padding-left(56px);
+                }
+
+                strong {
+                    margin-right: $tiny-spacing;
+                }
+
+                button {
+                    @include margin-left(0);
+                }
+            }
+
+            .load-more {
+                position: fixed;
+                z-index: 499;
+                padding-left: 32px;
+                padding-right: 55px;
+                width: inherit;
+                border-radius: 2px;
+                top: 102px;
+
+
+                @include media($small-down) {
+                    top: 112px !important;
+                }
+
+                @include media($medium-down) {
+                    top: 60px;
+                    padding-left:16px;
+                    padding-right: 16px;
+                }
+
+                button {
+                    @include equal-radius(0);
+                }
+            }
+
+
+
+            &.toolbar-active {
+                padding-top: 205px;
+
+                @include media($small) {
+                    padding-top: 160px;
+                }
+
+                @include media($medium) {
+                    padding-top: 107px;
+                }
+
+                .listing-toolbar {
+                    top: 103px;
+
+                    @include media($small) {
+                        top: 52px;
+                    }
+
+                    @include media($medium) {
+                        top: 68px;
+                    }
+                }
+
+                .listing.timeline {
+
+                    .button-group {
+                        top: 190px;
+
+                        @include media($small) {
+                            top: 141px;
+                        }
+
+                        @include media($medium) {
+                            top: 87px;
+                        }
+                    }
+                }
+            }
+
+            .listing.timeline {
                 @include media($medium) {
                     @include padding-left($lg-spacing);
                 }
@@ -90,7 +219,6 @@
 
             .postcard {
                 max-width: none;
-                @include transition(all 0.2s cubic-bezier(0.550, 0.085, 0.680, 0.530));
 
                     @include media($medium) {
                         margin-left: 0;
@@ -102,15 +230,37 @@
                 }
 
                 &.selected {
-                    @include transform(translate(2.2em, 0))
+                    @include left(0);
+
+                    @include media($medium) {
+                        @include left(32px);
+                    }
                 }
             }
 
             button {
-                @include margin-left(16px);
+                @include margin-left(0);
+            }
+
+            .button-link {
+                @include media($medium) {
+                    @include margin-left(16px);
+                }
+            }
+
+            .toolbar-close-button {
+                position: absolute;
+                top: 10px;
+                @include right(10px);
+                margin: 0;
+                padding: 8px;
 
                 @include media($medium) {
-                    @include margin-left(0);
+                    @include right(24px);
+                }
+
+                svg.iconic {
+                    fill: $color-tertiary;
                 }
             }
         }
@@ -118,7 +268,9 @@
         .post-col {
             padding: 0 $sm-spacing;
             margin-bottom: 45px;
-
+            @include media($medium-down) {
+                display: none;
+            }
             @include media($medium) {
                 width: 65%;
                 padding-top: $lg-spacing;
@@ -127,8 +279,65 @@
                 margin-bottom: 0;
                 direction: ltr;
             }
-        }
 
+            &.active {
+                @include media($medium-down) {
+                    display: block;
+                    margin-top: 68px;
+                }
+                @include media($small-down) {
+                    margin-top: 120px;
+                }
+            }
+            .postcard-close {
+                position: absolute;
+                top: $base-spacing;
+                @include media($medium-down) {
+                    display: inline;
+                }
+                @include right($sm-spacing);
+                    margin-top: -$tiny-spacing;
+                @include media($mobile) {
+                    @include right($base-spacing);
+                }
+            }
+
+            .postcard.locked {
+
+                .message {
+                    box-shadow: none;
+                }
+
+                .postcard-body {
+                    padding-top: 101px;
+                }
+            }
+        }
     }
 
+    .message {
+
+        @include media($medium) {
+            @include left(64px);
+        }
+    }
+
+    .postcard .message {
+        @include media($medium) {
+            @include left(0);
+        }
+    }
+
+    .dropdown-menu-body {
+
+        @include media($medium-down) {
+            padding-bottom: 150px;
+        }
+
+        @include media($mobile-down) {
+            padding-bottom: 200px;
+        }
+    }
+
+    
 }

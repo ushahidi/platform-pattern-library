@@ -1,7 +1,7 @@
 .postcard {
     position: relative;
     @include containerCard;
-    // max-width: 575px;
+    max-width: 575px;
     display: block;
 
     &:hover {
@@ -10,30 +10,36 @@
     .post-band {
         @include radius(2px, 0, 0, 2px);
         }
+        
+    .postcard-close {
+        display: none;
+    }
 
     .listing-item-select {
         position: absolute;
-        top: $sm-spacing + 2;
-        @include left($sm-spacing);
+        top: 15px;
+        left: 8px;
 
         + .postcard-body {
-            @include padding-right($base-spacing);
-            @include padding-left($huge-spacing);
+            @include padding-left($huge-spacing+10);
         }
+    }
+
+    .listing-item-locked {
+        position: relative;
+        top: -1px;
+        display: inline;
+        @include margin-right($tiny-spacing);
 
         .status-indicator {
             display: block;
             @include margin-left(-1px);
         }
-
-        input[type="checkbox"] {
-            margin-bottom: 13px;
-        }
     }
 
     .postcard-body {
         @include clearfix;
-        padding: $sm-spacing;
+        @include lrswap(padding, $sm-spacing $sm-spacing $sm-spacing $sm-spacing+2);
         padding-bottom: 0;
 
         .postcard-header {

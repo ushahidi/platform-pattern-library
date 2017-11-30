@@ -437,6 +437,14 @@ Handlebars.registerHelper('taskInfo', function(key, postIndex, taskIndex) {
     }
 });
 
+Handlebars.registerHelper('postLocked', function() {
+    if (session.user.logged_in) {
+        return new Handlebars.SafeString(
+            '<div class="listing-item-locked"><svg class="iconic"><use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use></svg></div>'
+        );
+    }
+});
+
 hbUserStatus = function() {
     if (session.user.logged_in) {
         session.user.logged_in = false;
@@ -472,6 +480,30 @@ hbLoadLayout = function() {
 }
 
 goToDetail = function(postId) {
-    // when new layout, also add a class to postcard to make it go right (left on rtl).
-    window.location ="post-detail.html#"+postId;
+
+    if (window.location.pathname !=='/assets/html/5_layouts/data.html' && window.location.pathname !== '/assets/html/5_layouts/data-edit.html') {
+        var id = postId || 0;
+        // when new layout, also add a class to postcard to make it go right (left on rtl).
+        window.location ="post-detail.html#"+id;
+    } else {
+        var postcard = document.querySelector(".post-col");
+        var list = document.querySelector(".timeline-col");
+        postcard.className = 'post-col active';
+        list.className = 'timeline-col';
+    }
 }
+
+closePostcard = function() {
+    var postcard = document.querySelector(".post-col");
+    var list = document.querySelector(".timeline-col");
+    postcard.className = 'post-col';
+    list.className = 'timeline-col active';
+}
+
+Handlebars.registerHelper('postCheckbox', function() {
+    if (session.user.logged_in) {
+        return new Handlebars.SafeString(
+            '<div class="listing-item-select"><input type="checkbox"></div>'
+        );
+    }
+});

@@ -1,113 +1,128 @@
 {{> ModeBar }}
 
-<main role="main">
+<main role="main" class="flex-container">
 
     <div class="toolbar">
 
-        {{> Search }}
+        {{> Fab }}
 
+        {{> Search-d }}
         <div class="button-group">
             <button class="button-flat">Cancel</button>
-            <a class="button button-alpha" href="split-view-edit.html#{{@../index}}">Edit</a>
+            <a class="button button-alpha" href="data-edit.html#{{@../index}}">Edit</a>
         </div>
     </div>
 
-    <div class="timeline-col">
+    <div class="timeline-col active">
+            <div class="load-more">
+            <button class="button-gamma button-flat full-width">
+                <span>
+                    <span>See new posts</span>
+                </span>
+            </button>
+        </div>
+
+        <div class="listing-toolbar">
+            <div class="listing-toolbar-summary">
+                <strong>0 selected</strong>
+                <button class="button-link">Deselect</button>
+                <button class="button-link">Select all</button>
+            </div>
+
+            <div class="listing-toolbar-actions">
+                <button class="button-beta" data-toggle="toggle-content">
+                    <span class="button-label">Mark as</span>
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                    </svg>
+                </button>
+
+                <ul class="dropdown-menu toggle-content">
+                    <li>
+                        <a href="" data-message="publish-success">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
+                            </svg>
+                            <span class="label">Published</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-message="under_review-success">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                            </svg>
+                            <span class="label">Under Review</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" data-message="archive-success">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#box"></use>
+                            </svg>
+                            <span class="label">Archived</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <button class="button-beta" data-modal="add-to-collection">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
+                    </svg>
+                    <span class="button-label hidden">Add to Collection</span>
+                </button>
+
+                <button class="button-destructive" data-modal="delete-post">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                    </svg>
+                    <span class="button-label hidden">Delete</span>
+                </button>
+
+                <button class="listing-toolbar-toggle more">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                    </svg>
+                    <span class="button-label hidden">Edit</span>
+                </button>
+
+                <button class="listing-toolbar-toggle less">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
+                    </svg>
+                    <span class="button-label hidden">Delete</span>
+                </button>
+
+                <button href="" id="bulk-close" class="button-link toolbar-close-button">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                    </svg>
+                    <span class="hidden">Close</span>
+                </button>
+            </div>
+        </div>
 
         <div class="listing timeline">
 
+            <div class="bulk-action">
+                <div class="bulk-action-primary">6 of 6 Reports</div>
+                <button id="bulk-action" class="button-link bulk-action-secondary">Bulk Actions</button>
+            </div>
+
+           
+
             {{#if user.logged_in}}
                 {{#each deployment.responses}}
-                    {{> Postcard show_tasks=false editable=true}}
+                    {{> Postcard checkbox=true locked=true show_tasks=false editable=true}}
                 {{/each}}
             {{else}}
                 {{#each deployment.responses}}
                     {{#ifCond properties.status 'published'}}
-                    {{> Postcard checkbox=false show_tasks=false editable=false}}
+                    {{> Postcard locked=true show_tasks=false editable=false}}
                     {{/ifCond}}
                 {{/each}}
             {{/if}}
 
             <button class="button-gamma button-flat">Load more</button>
-
-            <div class="listing-toolbar">
-                <div class="listing-toolbar-summary">
-                    <strong><span class="total"></span> selected</strong>
-                    <button class="button-link">Deselect</button>
-                </div>
-
-                <div class="listing-toolbar-actions">
-
-                    <button class="button-beta" data-toggle="toggle-content">
-                        <span class="button-label">Mark as</span>
-                        <svg class="iconic">
-                            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                        </svg>
-                    </button>
-                    <ul class="dropdown-menu toggle-content">
-                        <li>
-                            <a href="" data-message="publish-success">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
-                                </svg>
-                                <span class="label">Published</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" data-message="under_review-success">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
-                                </svg>
-                                <span class="label">Under Review</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="" data-message="archive-success">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#box"></use>
-                                </svg>
-                                <span class="label">Archived</span>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <button class="button-beta" data-modal="add-to-collection">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
-                        </svg>
-                        <span class="button-label hide-until-small">Add to Collection</span>
-                    </button>
-
-                    <button class="button-beta">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#pencil"></use>
-                        </svg>
-                        <span class="button-label hide-until-small">Edit</span>
-                    </button>
-
-                    <button class="button-destructive" data-modal="delete-post">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                        </svg>
-                        <span class="button-label hidden">Delete</span>
-                    </button>
-
-                    <button class="listing-toolbar-toggle more">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                        </svg>
-                        <span class="button-label hide-until-small">Edit</span>
-                    </button>
-
-                    <button class="listing-toolbar-toggle less">
-                        <svg class="iconic">
-                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#trash"></use>
-                        </svg>
-                        <span class="button-label hidden">Delete</span>
-                    </button>
-                </div>
-            </div>
-
         </div>
 
     </div>
@@ -115,10 +130,36 @@
     {{#postFromHash}}
         <div class="post-col">
 
-            <article class="postcard" role="article">
+            <article class="postcard locked" role="article">
                 {{postBand}}
+                <button class="button-beta button-flat postcard-close" onclick=closePostcard()>
+                    <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                    </svg>
+                </button>
+                <!-- <div class="message message-alt active">
+                    <div class="message-image error">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#lock-locked"></use>
+                        </svg>
+                    </div>
+
+                    <div class="message-body">
+                        {{#global}}
+                            <p>The report is locked because <strong>{{user.name}}</strong> is working on it right now. Try editing a different post.</p>
+
+                            {{#ifCond user.role 'Administrator'}}
+                                <div class="button-group">
+                                    <button class="button button-alpha">Unlock</button>
+                                </div>
+                            {{/ifCond}}
+                        {{/global}}
+                    </div>
+                </div> -->
+               
 
                 <div class="postcard-body">
+
                     {{#postSurvey}}
                     <h1 class="form-sheet-title survey-title">{{name}}</h1>
                     <p>{{description}}</p>
@@ -170,13 +211,6 @@
                         </ul>
 
                         <div class="postcard-actions">
-                            <a href="post-edit.html#{{indexFromHash}}" class="button button-gamma button-flat hide-until-small">
-                                <svg class="iconic">
-                                    <use xlink:href="../../img/iconic-sprite.svg#pencil"></use>
-                                </svg>
-                                <span class="hidden">Edit</span>
-                            </a>
-
                             <button class="button-gamma button-flat" data-toggle="dropdown-menu">
                                 <svg class="iconic">
                                     <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>

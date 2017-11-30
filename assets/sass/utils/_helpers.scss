@@ -15,8 +15,31 @@ $LAYOUT
     @include outer-container;
 }
 
+.flex-container {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    -webkit-flex-direction: column; /* Safari */
+    flex-direction: column;
+    justify-content: flex-start;
+    @include direction;
+
+    @include media($medium) {
+        -webkit-flex-direction: row; /* Safari */
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
 .center {
     text-align: center;
+}
+
+.right {
+    float: right;
+}
+
+.full-width {
+    width: 100%;
 }
 
 .wordmark-replace {
@@ -248,14 +271,14 @@ $LAYOUT
 
 .badge {
     display: inline-block;
-    height: $base-spacing;
-    width: $base-spacing;
+    height: $base-spacing - 4;
+    width: $base-spacing - 4;
     color: black;
-    font-size: 13px;
-    font-size: .928571429rem;
+    font-size: em(13);
+    // font-size: .828571rem;
     font-weight: 800;
     text-align: center;
-    line-height: 1.9;
+    line-height: 1.8;
     white-space: nowrap;
     vertical-align: middle;
     @include equal-radius(100%);

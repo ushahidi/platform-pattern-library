@@ -1,4 +1,4 @@
-// animates postcard when selected in split-view
+// animates postcard when selected in Data view
 $('.timeline .postcard a').click(function(e) {
     e.preventDefault();
 });

@@ -38,7 +38,11 @@
 
     .listing-item-primary {
         position: relative;
-        padding: $base-spacing $sm-spacing;
+        padding: $tiny-spacing $sm-spacing;
+
+        @include media($medium) {
+            padding: $base-spacing;
+        }
 
         .listing-item-image {
             position: absolute;
@@ -79,6 +83,7 @@
         width: 56px;
         font-size: .857142857em;
         @include text-align(right);
+        font-style: italic;
 
         @include media($medium) {
             @include right($base-spacing);
@@ -238,6 +243,8 @@
             &:after {
                 content: '\2217';
                 position: relative;
+                font-weight: normal;
+                font-size: 1.05em;
                 top: -4px;
                 color: $red;
                 @include margin-left(4px);
@@ -295,13 +302,14 @@
 
 .listing-toolbar {
     @extend .sheet;
+    box-shadow: none;
     @include clearfix;
     background-color: $color-primary;
     padding: $sm-spacing;
 
     @include media($medium) {
-        padding-right: $base-spacing;
-        padding-left: $base-spacing;
+        padding-right: $lg-spacing;
+        padding-left: $lg-spacing;
     }
 
     .listing-toolbar-summary {
@@ -311,7 +319,7 @@
 
         .button-link {
             padding: 0;
-            @include margin-left($sm-spacing);
+            @include margin-right($tiny-spacing);
         }
     }
 

@@ -135,6 +135,20 @@
         }
     }
 
+    .message-alt {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: auto;
+        left: 0;
+        z-index: $toolbox;
+        @include transition(0.3s);
+
+        &.active {
+            bottom: auto;
+        }
+    }
+
     > .progress-bar {
         position: fixed;
         top: 0;
@@ -247,6 +261,7 @@
                     .button-fab {
 
                         &:disabled,
+                        &.disabled,
                         &.slide-up:disabled {
                             bottom: -400px;
                         }
@@ -358,14 +373,16 @@
                 display: block;
                 position: fixed;
                 top: -200px;
-                right: 0;
-                left: 0;
+                left: 0px;
+                right: auto;
                 z-index: $toolbar - 1;
                 @include equal-radius(0);
                 background-color: $color-primary-gamma;
+                width: 100%;
 
                 @include media($medium) {
                     @include left(288px);
+
                 }
 
                 &.expanded {

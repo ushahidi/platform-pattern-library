@@ -373,6 +373,18 @@ fieldset {
                 margin: 0;
                 @include containerCard;
             }
+
+            .searchbar-results {
+
+                .bug {
+                    @include margin-left($sm-spacing);
+                    margin-top: $sm-spacing;
+
+                }
+
+            }
+
+
         }
 
         .form-field-preview {
@@ -632,6 +644,10 @@ fieldset {
         top: 13px;
         @include left(16px);
         fill: $color-primary;
+    }
+
+    input[type="search"]::-webkit-search-cancel-button {
+        -webkit-appearance: none;
     }
 }
 
@@ -1040,6 +1056,28 @@ span[data-fieldgroup-target] {
 
         &.active {
             display: inline-block;
+        }
+    }
+}
+
+.form-field-addon {
+    display: flex;
+    flex-direction: row;
+
+    input {
+        @include equal-radius(0);
+    }
+
+    .addon {
+        padding: 12px;
+        background-color: $color-tertiary;
+
+        &.before {
+            @include radius(2px, 0, 0, 2px);
+        }
+
+        &.after {
+            @include radius(0, 2px, 2px, 0);
         }
     }
 }

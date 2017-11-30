@@ -1,18 +1,18 @@
 {{> ModeBar }}
 
-<main role="main">
+<main role="main" class="flex-container">
 
     <div class="toolbar">
 
-        {{> Search }}
+        {{> Search-d }}
 
         <div class="button-group">
             <button class="button-flat" data-modal="cancel-without-saving">Cancel</button>
-            <a class="button button-alpha" href="split-view.html#{{@../index}}">Save</a>
+            <a class="button button-alpha" href="data.html#{{@../index}}">Save</a>
         </div>
     </div>
 
-    <div class="timeline-col">
+    <div class="timeline-col active">
 
         <div class="listing timeline">
 
@@ -118,6 +118,11 @@
 
         <div class="form-sheet" role="article">
             {{postBand}}
+             <button class="button-beta button-flat postcard-close" onclick=closePostcard()>
+                    <svg class="iconic">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
+                    </svg>
+                </button>
 
             <header class="form-sheet-summary">
                 {{#postSurvey}}
@@ -282,7 +287,7 @@
         <div class="toolbar toolbar-secondary">
             <div class="button-group">
                 <button class="button-flat" data-modal="cancel-without-saving">Cancel</button>
-                <a class="button button-alpha" href="split-view.html#{{@../index}}">Save</a>
+                <a class="button button-alpha" href="data.html#{{@../index}}">Save</a>
             </div>
         </div>
 
