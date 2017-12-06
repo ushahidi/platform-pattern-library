@@ -7,7 +7,12 @@
         @include media($medium) {
             @include padding-left($lg-spacing*2);
         }
-
+        .dc-toolbar {
+            .dropdown-menu{
+                margin-top: $lg-spacing;
+                right: $sm-spacing;
+            }
+        }
         .toolbar {
             top: 0;
             @include left(0px);
@@ -33,6 +38,13 @@
                     fill: $white;
                     width: em(8px);
                     height: em(8px);
+                }
+            }
+            .dropdown-menu {
+                margin-left: -$tiny-spacing;
+                margin-top: 2 * $lg-spacing;
+                @include media($medium-down) {
+                    margin-top: 2 * $base-spacing;
                 }
             }
 
