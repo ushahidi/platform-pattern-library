@@ -111,12 +111,13 @@ dropdownXpos = function(trigger, target) {
     // IF: Right-to-left language OR trigger is within 200px of the right of the screen
     if (($(trigger).css('direction') == 'rtl') || (triggerPos.left >= ($(window).width() - 200))) {
         $(target).css('right', ($(window).width() - (triggerPos.left + $(trigger).outerWidth())));
-    } else {
-        $(target).css('left', triggerPos.left);
-    }
+    } 
+    // else {
+    //     $(target).css('left', triggerPos.left);
+    // }
 
     // Give the target the same top positioning as its trigger
-    $(target).css('top', triggerPos.top + $(trigger).outerHeight());
+    // $(target).css('top', triggerPos.top + $(trigger).outerHeight());
 
     if ($(target).find('.dropdown-menu-body').length) {
         $(target).find('.dropdown-menu-body').css('max-height', ($(window).height() * 0.5));
