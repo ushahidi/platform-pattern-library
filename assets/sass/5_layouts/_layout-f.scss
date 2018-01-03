@@ -1,12 +1,89 @@
 &.layout-f {
     height: 100%;
 
+    .login-main {
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+    }
+
+    .login-window {
+        background-color: #FAFAFA;
+        border-radius: 2px;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.24);
+        margin-left: 5%;
+        margin-top: 24px;
+        padding-top: 1px;
+        overflow-y: hidden;
+        width: 90%;
+        @include media($small) {
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+
+        @include media($medium) {
+            width: 36%;
+            margin-left: 32%;
+            margin-right: 32%;
+        }
+
+    }
+
+    .alert.error {
+        float: none;
+        clear: none;
+        margin-left: 24px;
+    }
+
+    .login-body {
+        padding: 0 24px 24px 24px;
+    }
+
+    .login-actions {
+        background-color: #eee;
+        border-top: 1px solid #eee;
+        padding: 16px 24px;
+    }
+
+    .link {
+        margin-top: 8px;
+        margin-bottom: 24px;
+    }
+
+    h3 {
+        padding-left: 24px;
+
+    }
+
+    input {
+        margin: 8px 0;
+        padding-left: 8px;
+    }
+
+    a {
+        margin: 8px 0;
+        border-bottom: 1px dotted #373E46;
+    }
+
+    label > span {
+        display: block;
+    }
+
+    .login-title {
+        font-weight: 800;
+        font-size: 20px;
+        font-size: 1.428571429rem;
+        line-height: 1.3em;
+        margin: 24px 0;
+    }
+
     [role="main"] {
         @include padding-left(0);
 
         @include media($medium) {
             @include padding-left($lg-spacing*2);
         }
+
         .dc-toolbar {
             .dropdown-menu{
                 margin-top: $lg-spacing;
@@ -82,5 +159,4 @@
             @include left(64px);
         }
     }
-
 }
