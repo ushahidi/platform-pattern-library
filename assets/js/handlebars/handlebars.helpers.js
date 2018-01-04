@@ -465,6 +465,7 @@ hbLoadLayout = function() {
     // If the page is a "layout"...
     if (!currentTemplate == '') {
         session.mode = currentMode;
+        console.log(Ushahidi.templates.layouts)
 
         $('body').html(Ushahidi.templates.layouts[currentTemplate](session));
     }
