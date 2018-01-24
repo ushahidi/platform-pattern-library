@@ -8,14 +8,17 @@
         width: 100%;
     }
 
+    margin: $base-spacing 0 0 0;
+
     .deployment-card {
+        @include radius();
+        @include box-shadow();
         display: flex;
         flex-direction: column;
         @include float(left);
         width: 100%;
         max-width: 1042px;
-        margin: $base-spacing 0 0 0;
-
+        margin:0;
         @include media($large) {
             flex-direction: row;
         }
@@ -25,6 +28,11 @@
             flex: 3 0 0;
 
             .dc-toolbar {
+                @include radius(2px, 2px, 0, 0);
+                @include media($large) {
+                    @include radius(0, 0, 0, 0);
+                }
+
                 display: flex;
                 justify-content: space-between;
                 color: $white;
