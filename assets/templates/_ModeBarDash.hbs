@@ -1,6 +1,6 @@
 <div class="mode-bar">
     <nav>
-        <ul class="deployment-menu">
+        <ul class="deployment-menu dash">
             <li {{#ifCond mode 'dash'}}class="active"{{/ifCond}}>
                 <a href="md-list.html">
                     <svg class="iconic">
@@ -15,6 +15,26 @@
                 <span class="rtl-switcher">RTL</span>
             </li>
 
+            <li>
+                <a href="#" class="more-menu-trigger">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                    </svg>
+                    More
+                </a>
+                <ul>
+                    {{#if user.logged_in}}
+                    <li {{#ifCond mode 'settings'}}class="active"{{/ifCond}}>
+                        <a href="settings.html">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                            </svg>
+                            Settings
+                        </a>
+                    </li>
+                    {{/if}}
+                </ul>
+            </li>
         </ul>
 
         <ul class="account-menu">
