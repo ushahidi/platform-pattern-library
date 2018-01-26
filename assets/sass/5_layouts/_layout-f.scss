@@ -1,6 +1,101 @@
 &.layout-f {
     height: 100%;
 
+    .login-container {
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
+
+    .login-window {
+        background-color: #FAFAFA;
+        border-radius: 2px;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.12), 0 16px 16px rgba(0, 0, 0, 0.24);
+        margin-left: 5%;
+        margin-top: 24px;
+        padding-top: 1px;
+        overflow-y: hidden;
+        width: 90%;
+        @include media($small) {
+            width: 50%;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+
+        @include media($medium) {
+            width: 36%;
+            margin-left: 32%;
+            margin-right: 32%;
+        }
+
+    }
+
+    .alert.error {
+        float: none;
+        clear: none;
+        margin-left: 24px;
+    }
+
+    .login-body {
+        padding: 0 24px 24px 24px;
+    }
+
+    .form-field {
+        margin: 0;
+    }
+
+    .login-actions {
+        background-color: #eee;
+        border-top: 1px solid #eee;
+        padding: 16px 24px;
+    }
+
+    .link {
+        margin-top: 8px;
+        margin-bottom: 24px;
+    }
+
+    h3 {
+        padding-left: 24px;
+
+    }
+
+    input {
+        margin: 8px 0;
+        padding-left: 8px;
+    }
+
+    .login-body a {
+        margin: 8px 0;
+        border-bottom: 1px dotted #373E46;
+    }
+
+    label > span {
+        display: block;
+        font-weight: 600;
+        font-size: 1.142857143rem;
+        line-height: 1.2;
+    }
+
+    label > p {
+        font-style: italic;
+        margin: 8px 0;
+        font-weight: normal;
+        font-size: 1rem;
+    }
+
+    .login-title {
+        font-weight: 800;
+        font-size: 20px;
+        font-size: 1.428571429rem;
+        line-height: 1.3em;
+        margin: 24px 0;
+    }
+
     [role="main"] {
         @include padding-left(0);
 
@@ -8,6 +103,12 @@
             @include padding-left($lg-spacing*2);
         }
 
+        .dc-toolbar {
+            .dropdown-menu{
+                margin-top: $lg-spacing;
+                right: $sm-spacing;
+            }
+        }
         .toolbar {
             top: 0;
             @include left(0px);
@@ -33,6 +134,13 @@
                     fill: $white;
                     width: em(8px);
                     height: em(8px);
+                }
+            }
+            .dropdown-menu {
+                margin-left: -$tiny-spacing;
+                margin-top: 2 * $lg-spacing;
+                @include media($medium-down) {
+                    margin-top: 2 * $base-spacing;
                 }
             }
 
@@ -70,5 +178,4 @@
             @include left(64px);
         }
     }
-
 }

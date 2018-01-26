@@ -86,8 +86,8 @@ var buildSass = function(rtl, compressed) {
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths : [
-                'bower_components/bourbon/app/assets/stylesheets',
-                'bower_components/neat/app/assets/stylesheets'
+                'node_modules/bourbon/core',
+                'node_modules/bourbon-neat/app/assets/stylesheets'
             ],
             sourceComments: true,
             outputStyle : compressed ? 'compressed' : 'nested'

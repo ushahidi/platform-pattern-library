@@ -1,15 +1,35 @@
-@mixin transform-origin($origin: 50% 50% 0) {
-    -webkit-transform-origin: $origin;
-    -moz-transform-origin: $origin;
-    -ms-transform-origin: $origin;
-    -o-transform-origin: $origin;
-    transform-origin: $origin;
+// Browser Prefixes
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-moz-transform: $transforms;
+	-ms-transform: $transforms;
+	transform: $transforms;
 }
 
-@mixin scale($size: 1) {
-    -webkit-transform: scale($size);
-    -moz-transform: scale($size);
-    -ms-transform: scale($size);
-    -o-transform: scale($size);
-    transform: scale($size);
+// Rotate
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+// Scale
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+// Translate
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+// Skew
+@mixin skew ($x, $y) {
+	@include transform(skew(#{$x}deg, #{$y}deg));
+}
+
+// Transform Origin
+@mixin transform-origin ($origin) {
+    	-webkit-transform-origin: $origin;
+    	-moz-transform-origin: $origin;
+	-ms-transform-origin: $origin;
+	transform-origin: $origin;
 }
