@@ -3,14 +3,13 @@ New Platform UI (w/ Pattern Library) based on the Platform Design Framework
 
 ### Dependencies
 * [Nodejs](https://nodejs.org/en/)
-* [Bower](https://bower.io/)
 * [Browserify](http://browserify.org/)
 * [Handlebars](http://handlebarsjs.com/)
 
 ### Install Packages
 `npm install`
 
-*This will install both NPM and Bower dependencies! No separate `bower install` command is required.*
+*This will install all NPM dependencies!
 
 ### Download and Activate Live Reload Plugin
 
