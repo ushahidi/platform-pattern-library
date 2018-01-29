@@ -81,7 +81,54 @@
                     <div class="pl-sub-pattern">
                         <h4 class="pl-h4">&nbsp;</h4>
                         <div class="pl-sub-pattern-markup">
-                            @@include('../partials/_mode-context.html')
+                            <div class="mode-context">
+
+                                <!--// Loading the mode context //
+                               <div class="loading">
+                                  <div class="line"></div>
+                                  <div class="line"></div>
+                                  <div class="line"></div>
+                               </div>
+                               // END: Loading the mode context//-->
+
+                                <header class="mode-context-header has-logo">
+                                    <h1 class="mode-context-title"><a href="">City of Austin service requests</a></h1>
+
+                                    <img src="http://www.austintexas.gov/sites/all/themes/branded_site/images/coa_seal_trans.png" class="deployment-logo" />
+                                </header>
+
+                                <div id="mode-context"></div>
+
+                                <span class="mode-context-trigger">
+                                    <svg class="iconic">
+                                        <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                    </svg>
+                                    <span class="label hidden">Show more/less</span>
+                                </span>
+
+                                <div class="mode-context-body">
+                                    <p>Reports and communication about the protest march Wednesday, Aug.19 to City Hall.</p>
+
+                                    @@include('../partials/_survey-filter.html')
+
+                                    <div class="tool">
+                                        <h6 class="tool-heading">How to add a post</h6>
+
+                                        <span class="tool-trigger" data-toggle="toggle-content">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                                            </svg>
+                                            <span class="label hidden">Show/hide</span>
+                                        </span>
+                                        <div class="toggle-content active">
+                                            <p>Use the <a href="#">web form</a>.</p>
+                                            <p>Send a text message to </br> <a href="tel:15551234567">+1-555-123-4567</a>.</p>
+                                            <p>Send an email to <a href="mailto:cityhallmarch@domain.com" title="Subject">cityhallmarch@domain.com</a>.</p>
+                                            <p>Tweet with the hashtag(s) <a href="https://twitter.com/search?q=%23ushahidi&src=typd">#marchoncityhall</a>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -96,7 +143,61 @@
                 <div class="container">
                     <div class="pl-sub-pattern">
                         <h4 class="pl-h4">&nbsp;</h4>
-                            @@include('../partials/_toolbar.html')
+                        <div class="pl-sub-pattern-markup">
+                            <div class="pl-sub-pattern">
+                                <h4 class="pl-h4">Normal toolbar</h4>
+                                <div class="toolbar">
+                                    @@include('../partials/_fab.html')
+                                    @@include('../partials/_search.html')
+                                    <div class="button-group">
+                                        <button type="button" data-modal="share">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                                            </svg>
+                                            <span class="button-label">Share</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pl-sub-pattern-markup">
+                            <div class="pl-sub-pattern">
+                                <h4 class="pl-h4">Layout-d toolbar, map-view</h4>
+                                <div class="toolbar">
+                                    @@include('../partials/_fab.html')
+                                    @@include('../partials/_search-d.html')
+                                    <div class="button-group">
+                                        <button type="button" data-modal="share">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                                            </svg>
+                                            <span class="button-label">Share</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pl-sub-pattern-markup">
+                            <div class="pl-sub-pattern">
+                                <h4 class="pl-h4">Layout-d toolbar, data-view, logged in</h4>
+                                <div class="toolbar">
+                                    @@include('../partials/_search-d.html')
+                                    <div class="button-group">
+                                        <button type="button" data-modal="share">
+                                            <svg class="iconic">
+                                                <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                                            </svg>
+                                            <span class="button-label">Share</span>
+                                        </button>
+                                          <button type="button" class="button-alpha" data-modal="share">
+                                            <span class="button-label">Edit</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
