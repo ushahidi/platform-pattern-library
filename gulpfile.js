@@ -48,7 +48,6 @@ gulp.task('html', function() {
         ])
     .pipe(fileinclude())
     .pipe(gulp.dest('./assets/html/'))
-//    .pipe(notify('HTML reloaded'))
     .pipe(livereload());
 });
 
@@ -109,7 +108,6 @@ var buildSass = function(rtl, compressed) {
 * Task: `sass`
 * Converts Sass files to CSS (includes RTL support)
 */
-
 gulp.task('sass', ['rtl', 'sassMin', 'rtlMin'], function() {
     return buildSass(false, false);
 });
@@ -118,7 +116,6 @@ gulp.task('sass', ['rtl', 'sassMin', 'rtlMin'], function() {
 * Task: `rtl`
 * Converts RTL Sass files to RTL CSS
 */
-
 gulp.task('rtl', function() {
     return buildSass(true, false);
 });
@@ -131,8 +128,10 @@ gulp.task('sassMin', function() {
     return buildSass(false, true);
 });
 
-// Handlebars
-
+/**
+* Task: `templates`
+* Handlebars templates
+*/
 gulp.task('templates', function(){
     // Assume all partials start with an underscore
     // You could also put them in a folder such as source/templates/partials/*.hbs
@@ -193,7 +192,6 @@ gulp.task('uglifyHandlebars', function() {
     .pipe(notify('Handlebars JS minified and concatenated into handlebars.js'))
     .pipe(livereload());
 });
-
 
 gulp.task('uglifyCloudJS', function() {
     return gulp.src([
