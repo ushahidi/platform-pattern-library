@@ -8,14 +8,16 @@
         width: 100%;
     }
 
+    margin: $base-spacing 0 0 0;
+
     .deployment-card {
+        @include radius();
         display: flex;
         flex-direction: column;
         @include float(left);
         width: 100%;
         max-width: 1042px;
-        margin: $base-spacing 0 0 0;
-
+        margin:0;
         @include media($large) {
             flex-direction: row;
         }
@@ -23,13 +25,24 @@
         .dc-main {
             position: relative;
             flex: 3 0 0;
-
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.24);
+            @include media($large) {
+                box-shadow: none;
+            }
             .dc-toolbar {
+                @include radius(2px, 2px, 0, 0);
+                @include media($large) {
+                    @include radius(0, 0, 0, 0);
+                }
+
+                box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 0 2px rgba(0, 0, 0, 0.24);
                 display: flex;
                 justify-content: space-between;
                 color: $white;
                 background-color: $color-primary;
-
+                .iconic {
+                    margin-left: 2px;
+                }
                 a.dc-deployment-title {
                     font-weight: bold;
                     font-size: em(20px);
