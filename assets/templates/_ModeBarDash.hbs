@@ -1,7 +1,7 @@
 <div class="mode-bar">
     <nav>
-        <ul class="deployment-menu">
-            <li {{#ifCond mode 'dash'}}class="active"{{/ifCond}}>
+        <ul class="deployment-menu dash">
+            <li {{#ifCond mode 'dash'}} class="active"{{/ifCond}}>
                 <a href="md-list.html">
                     <svg class="iconic">
                         <use xlink:href="../../img/iconic-sprite.svg#grid-two-up"></use>
@@ -10,11 +10,30 @@
                 </a>
             </li>
 
-            <li class="pl-read-direction-nav-layout">
-                <span class="ltr-switcher active">LTR</span>
-                <span class="rtl-switcher">RTL</span>
+            <li>
+                <a href="#" class="more-menu-trigger">
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                    </svg>
+                    More
+                </a>
+                <ul>
+                    {{#if user.logged_in}}
+                    <li {{#ifCond mode 'settings'}}class="active"{{/ifCond}}>
+                        <a href="settings.html">
+                            <svg class="iconic">
+                                <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                            </svg>
+                            Settings
+                        </a>
+                    </li>
+                    {{/if}}
+                     <li class="pl-read-direction-nav-layout">
+                        <span class="ltr-switcher active">LTR</span>
+                        <span class="rtl-switcher">RTL</span>
+                    </li>
+                </ul>
             </li>
-
         </ul>
 
         <ul class="account-menu">
@@ -52,6 +71,7 @@
                 </a>
             </li>
             {{/if}}
+
         </ul>
     </nav>
 </div>
