@@ -3,6 +3,11 @@
 
     .main-col {
         max-width: 700px;
+        padding: 0;
+
+        @include media($small) {
+           padding: $base-spacing;
+        }
     }
 
     .pl-pattern-description {
@@ -35,7 +40,7 @@
     .page-content {
         @include span-columns(12);
         float: none;
-        background-color: $white;
+        // background-color: $white;
         padding: 0;
         margin: 0;
 
@@ -43,15 +48,11 @@
             padding: 0;
 
             & aside {
-                padding: 0;
+                padding: $base-spacing;
 
                 @include media($small) {
                    @include span-columns(4);
                    border: none;
-                }
-
-                @include media($medium) {
-                    padding: $base-spacing * 2 $sm-spacing $base-spacing * 2 $base-spacing;
                 }
 
                 @include media($xlarge) {
@@ -98,7 +99,7 @@
                         }
 
                         &.active {
-                            border-left: 3px solid #CC6699;
+                            border-left: 3px solid $yellow;
                             background-color: $lt-gray-bg;
                             color: $black;
                             font-weight: bold;
