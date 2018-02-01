@@ -1,0 +1,66 @@
+<div class="front-end-guidelines wrapper">
+
+    <div class="page-content has-aside">
+
+        {{> Header }}
+
+        {{> SideNav }}
+
+        <div class="main-col">
+
+            <section class="pl-pattern">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Helpers
+                    </h2>
+                    <div class="pl-divider"></div>
+                    <p>
+                        The <code>assets/sass/utils/_helpers.scss</code> file provides a handful of helper classes.
+                    </p>
+                </div>
+
+                <div class="container">
+                    <h3>Example</h3>
+                    <p>The <code>.divider</code> helper class provides a quick way to display a page/section divider.</p>
+
+                    <h4>Sass</h4>
+                    <pre>
+                        <code class="language-css">
+                            .divider  {
+                                height: 1px;
+                                width: 100%;
+                                background: $lt-gray;
+                                margin: $sm-spacing 0;
+                                clear: both;
+
+                                &.padded {
+                                    margin: $base-spacing 0;
+                                }
+
+                                &.white {
+                                    background: $white;
+                                }
+                            }
+                        </code>
+                    </pre>
+
+                    <h4>HTML</h4>
+                    <code>class="divider"</code>(default)
+                    <div class="divider" style="background: #000;"></div>
+
+                    <code>class="divider padded"</code>(with padding)
+                    <div class="divider padded" style="background: #000;"></div>
+
+                    <code>class="divider white"</code>(to be used over a dark background)
+                    <div style="background-color: #000; height: 50px; margin-top: 5px;">
+                        <div class="divider white" style="display: inline-block; margin: 25px 0;"></div>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>

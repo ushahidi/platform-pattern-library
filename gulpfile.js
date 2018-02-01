@@ -135,7 +135,7 @@ gulp.task('sassMin', function() {
 gulp.task('templates', function(){
     // Assume all partials start with an underscore
     // You could also put them in a folder such as source/templates/partials/*.hbs
-    var partials = gulp.src(['./assets/templates/partials/_*.hbs'])
+    var partials = gulp.src(['./assets/templates/partials/_*.hbs', './assets/templates/front-end-guidelines/partials/_*.hbs'])
         .pipe(handlebars())
         .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
             imports: {
@@ -147,7 +147,7 @@ gulp.task('templates', function(){
             }
         }));
 
-    var templates = gulp.src('./assets/templates/*.hbs')
+    var templates = gulp.src('./assets/templates/**/*.hbs')
         .pipe(handlebars({
             handlebars: require('handlebars')
         }))
@@ -221,7 +221,7 @@ gulp.task('default', ['webserver'], function() {
     livereload.listen();
 
     // Watch Handlebars templates
-    gulp.watch('./assets/templates/*.hbs', ['templates']);
+    gulp.watch('./assets/templates/**/*.hbs', ['templates']);
 
     // Watch JS
     gulp.watch(['./assets/js/pattern-library/*', './assets/js/custom/*'], ['uglifyJS']);

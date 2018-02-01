@@ -1,0 +1,61 @@
+<div class="front-end-guidelines wrapper">
+
+    <div class="page-content has-aside">
+
+        {{> Header }}
+
+        {{> SideNav }}
+
+        <div class="main-col">
+
+            <section class="pl-pattern">
+                <div class="pl-pattern-description">
+                    <h2>
+                        Variables
+                    </h2>
+                    <div class="pl-divider"></div>
+                </div>
+
+                <div class="container">
+                    <p>
+                        A wide variety of variables are defined in <code><a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/sass/_settings.scss">_settings.scss</a></code>.
+                    </p>
+
+                    <h3>Color Variables</h3>
+                    <p>When using a color more than once, store it in a variable with a meaningful name representing the color.</p>
+                    <pre>
+                        <code class="language-css">
+                            $blue: #2274b4;
+                        </code>
+                    </pre>
+                    <p>Then use that variable wherever you would like.</p>
+                    <pre>
+                        <code class="language-css">
+                            $link-color: $blue;
+                        </code>
+                    </pre>
+
+                    <h3>Lightening and Darkening Colors</h3>
+                    <p>This is an example of lighten/darken color functions and color variables.</p>
+                    <pre>
+                        <code class="language-css">
+                            $link-color: $blue;
+                            $link-hover-color: darken( $link-color, 20% );
+                            $link-color-lt: lighten( $link-color, 25% );
+                            $link-color-dark-bg: $link-color-lt;
+                            $link-color-dark-bg-hover: lighten( $link-color-lt, 10% );
+                        </code>
+                    </pre>
+
+                    <p>
+                        Writing variables this way allows us to update the whole code base just by editing one instance ex. <code>$blue</code>.
+                    </p>
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
