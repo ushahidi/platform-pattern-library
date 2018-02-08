@@ -1,21 +1,62 @@
+&.landing-page {
+
+    .pl-pattern {
+        padding: $base-spacing;
+
+        .pl-pattern-description {
+            margin-bottom: 0;
+        }
+
+    }
+
+}
+
 .front-end-guidelines {
+    width: 100%;
     background: $lt-gray;
 
+    @include media($medium) {
+        width: 90%;
+    }
+
+    @include media($xlarge) {
+        width: 75%;
+    }
+
+    @include media($xxlarge) {
+        width: 65%;
+    }
+
     .main-col {
-        max-width: 700px;
         padding: 0;
 
         @include media($small) {
            padding: $base-spacing;
         }
+
+        .container {
+            max-width: 1580px;
+            margin: 0 0 $base-spacing 0;
+        }
+
+        a {
+            border-bottom: 1px dotted $color-primary;
+        }
+
+    }
+
+    .pl-pattern {
+        padding: $base-spacing;
     }
 
     .pl-pattern-description {
         @include span-columns(12);
         margin: 0;
 
-        h2, p {
-            @include text-align(left);
+        h1 {
+            text-align: left;
+            font-size: 2em;
+            margin-top: 0;
         }
 
         .pl-divider {
@@ -25,7 +66,7 @@
     }
 
     p {
-        margin-bottom: 30px;
+        margin-bottom: 15px;
 
         &.alert {
             margin-bottom: 20px;
@@ -100,8 +141,8 @@
 
                         &.active {
                             border-left: 3px solid $yellow;
-                            background-color: $lt-gray-bg;
-                            color: $black;
+                            background-color: $color-dark-alpha;
+                            color: $white;
                             font-weight: bold;
                         }
 
@@ -115,18 +156,13 @@
 
     }
 
-    .container {
-        max-width: 1580px;
-        margin: 0;
-    }
-
     .half-wrapper {
         @include span-columns(12);
         margin-bottom: 20px;
     }
 
     ul.bullets {
-        margin: 0 0 $base-spacing * 2 $base-spacing;
+        margin: 0 0 $base-spacing $base-spacing * 2;
 
         &.half {
             @include span-columns(12);
@@ -150,38 +186,19 @@
         font-style: italic;
     }
 
-    pre[class*="language-"] {
-        overflow: hidden;
-    }
-
-    code[class*="language-"] {
-        margin-left: -230px;
-        margin-bottom: -41px;
-    }
-
-    code:not([class*="language-"]) {
-        padding: 4px 0 3px;
+    .code {
+        margin: 0 5px;
+        padding: 4px 8px;
         background: $lt-gray;
         font-size: 15px;
         font-weight: bold;
         border-radius: 3px;
-
-        &:before,
-        &:after {
-            letter-spacing: -0.2em;
-            content: "\00a0";
-        }
-
+        line-height: 2em;
+        // white-space: nowrap
     }
 
-}
-
-a.button.front-end-guidelines-button {
-    background-color: $sass;
-    margin-top: 10px;
-
-    &:hover {
-        background-color: darken( $sass, 20% );
+    pre.code-toolbar > .toolbar {
+        display: none;
     }
 
 }

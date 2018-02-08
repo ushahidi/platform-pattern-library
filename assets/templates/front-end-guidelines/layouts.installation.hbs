@@ -10,125 +10,104 @@
 
             <section class="pl-pattern" id="syntax-and-formatting">
                 <div class="pl-pattern-description">
-                    <h2>
-                        Installation
-                    </h2>
+                    <h1>
+                        Installation & Set Up
+                    </h1>
                     <div class="pl-divider"></div>
                 </div>
 
+                <p>
+                    The Ushahidi Platform requires a few steps to get started.
+                </p>
+
                 <div class="container">
-
-                    <p>
-                        The Ushahidi Platform requires a few steps to get started.
-                    </p>
-
-                    <h3>Download or Clone from Github</h3>
+                    <h2>Download or Clone the project from Github</h2>
 
                     <ul class="bullets">
                         <li>Visit <a href="https://github.com/ushahidi/platform-pattern-library">Github</a> to download the repo to your local environment</li>
-                        <li>or use <code>git clone</code></li>
+                        <li>or use <span class="code">git clone https://github.com/ushahidi/platform-pattern-library.git</span></li>
                     </ul>
+                </div>
 
-                    <pre>
-                        <code class="language-css">
-                            git clone https://github.com/ushahidi/platform-pattern-library.git
-                        </code>
-                    </pre>
-
-                    <h3>Install Dev Dependencies</h3>
+                <div class="container">
+                    <h2>Install Dev Dependencies</h2>
 
                     <p>
-                        You will need to install the following dependencies to run the Ushahidi Platform.
+                        Install the following dependencies to run the Ushahidi Platform.
                     </p>
 
                     <ul class="bullets">
                         <li>NodeJS - Install via <a href="http://brew.sh/">Homebrew</a> or <a href="https://nodejs.org/">the NodeJS homepage</a></li>
-                        <li><a href="http://browserify.org/">Browserify</a></li>
-                        <li><a href="http://gulpjs.com/">Gulp</a></li>
+                        <li><a href="http://browserify.org/">Browserify</a> <span class="code">npm install -g browserify</span></li>
+                        <li><a href="http://gulpjs.com/">Gulp</a> <span class="code">npm install -g gulp</span></li>
+                    </ul>
+                    <p class="alert info">
+                        NodeJS will automaticaly install Node Package Manager (npm).
+                    </p>
+                </div>
+
+                <div class="container">
+                    <h2>Install Required Packages</h2>
+
+                    <p>
+                        Install the required packages by running <span class="code">npm install</span> from the root of the project.
+                    </p>
+
+                    <p>This command does the following:</p>
+                    <ul class="bullets">
+                        <li>creates a <span class="code">node_modules</span> folder in the project root.</li>
+                        <li>installs all dependecies contained within <a href="https://github.com/ushahidi/platform-pattern-library/blob/master/package.json">package.json.</a></li>
                     </ul>
 
-                    <p>
-                        After installing NodeJS, run the following commands to install each dev dependency globally.
-                    </p>
+                    <span class="alert info">
+                        The Ushahidi Platform uses <a href="https://github.com/sass/node-sass">node-sass</a> (via the <a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a> plugin), which is a node front end for <a href="https://github.com/sass/libsass">LibSass</a>. We chose Libsass over <a href="http://sass-lang.com/">RubySass</a> because of its speed and Node over Ruby dependency.
+                    </span>
+                </div>
 
-                    <pre>
-                        <code class="language-css">
-                            npm install -g browserify
-                            npm install -g gulp
-                        </code>
-                    </pre>
+                <div class="container">
+                    <h2>Download and Activate Live Reload Plugin</h2>
 
-                    <h3>Install Required Packages</h3>
+                    <p><a href="http://livereload.com/extensions/">http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions</a></p>
+                </div>
 
-                    <p>
-                        After installing the dev dependencies you will need to install the following packages:
-                    </p>
+                <div class="container">
+                    <h2>Navigate to project root and run the following commands:</h2>
 
-                    <h3>Node</h3>
+                    <p><span class="code">gulp build</span></p>
+
                     <ul class="bullets">
-                        <li>Gulp plugins (these plugins are used for a variety of build tasks located within <a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/gulpfile.js"><code>gulpfile.js</code></a>)</li>
-                        <li>The Ushahidi Platform uses <a href="https://github.com/sass/node-sass">node-sass</a> (via the <a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a> plugin), which is a node front end for <a href="https://github.com/sass/libsass">LibSass</a>. We chose Libsass over <a href="http://sass-lang.com/">RubySass</a> because of its speed and Node over Ruby dependency.</li>
-                        <li><a href="https://github.com/substack/watchify">Watchify</a></li>
+                        <li>compiles sass</li>
+                        <li>minifies and concatenates js</li>
+                        <li>builds html files</li>
+                        <li>generates font files</li>
                     </ul>
 
-                    <p>
-                        Navigate to the root of your project and install Node packages by simply running ...
-                    </p>
+                    <span class="alert info">
+                        These files will build within the <a href="https://github.com/ushahidi/platform-pattern-library/tree/master/assets">assets</a> folder.
+                    </span>
 
-                    <pre>
-                        <code class="language-css">
-                            npm install
-                        </code>
-                    </pre>
-
-                    <p>
-                        This will install <em>all</em> NPM dependencies!
-                    </p>
-
-                    <h3>Download and Activate Live Reload Plugin</h3>
-
-                    <p><a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions">http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions</a></p>
-
-                    <h3>Navigate to project root and run ...</h3>
-
-                    <pre>
-                        <code class="language-css">
-                            gulp build
-                        </code>
-                    </pre>
+                    <p><span class="code">gulp</span></p>
 
                     <ul class="bullets">
-                        <li>compiles sass into <code><a href="https://github.com/ushahidi/platform-pattern-library/tree/gh-pages/assets/css">assets/css</a></code></li>
-                        <li>minifies and concatenates js into <code><a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/js/app.js">assets/js/app.js</a></code></li>
-                        <li>builds html files into <code><a href="https://github.com/ushahidi/platform-pattern-library/tree/gh-pages/assets/html">assets/html</a></code></li>
-                        <li>generates font files into <code><a href="https://github.com/ushahidi/platform-pattern-library/tree/gh-pages/assets/fonts">assets/fonts</a></code></li>
-                        <li>generates font sass files into <code><a href="https://github.com/ushahidi/platform-pattern-library/tree/gh-pages/assets/sass/utils/font-awesome">assets/sass/utils/font-awesome</a></code></li>
-                    </ul>
-
-                    <pre>
-                        <code class="language-css">
-                            gulp
-                        </code>
-                    </pre>
-
-                    <ul class="bullets">
-                        <li>starts a webserver accessible at <a href="http://localhost:8080/">http://localhost:8080/</a></li>
+                        <li>starts a webserver accessible at <a href="http://localhost:8000/">http://localhost:8000/</a></li>
                         <li>watches the project directory for changes</li>
-                        <li>compiles sass into <code><a href="https://github.com/ushahidi/platform-pattern-library/tree/gh-pages/assets/css">assets/css</a></code></li>
-                        <li>minifies and concatenates js into <code><a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/js/app.js">assets/js/app.js</a></code></li>
-                        <li>builds html files into <code><a href="https://github.com/ushahidi/platform-pattern-library/tree/gh-pages/assets/html">assets/html</a></code></li>
+                        <li>compiles sass</li>
+                        <li>minifies and concatenates js </li>
+                        <li>builds html files</li>
                         <li>live reloads appropriate files (sass, js or html)</li>
                         <li>sends a success notification</li>
                     </ul>
+                </div>
+
+                <div class="container">
+                    <h2>Open Project in Browser</h2>
 
                     <p>
-                        Now visit <a href="http://localhost:8080/">http://localhost:8080/</a> to view the website in action.
+                        Now visit <a href="http://localhost:8000/">http://localhost:8000/</a> to view the Pattern Library in action.
                     </p>
-
                 </div>
 
             </section>
-
 
         </div>
 
