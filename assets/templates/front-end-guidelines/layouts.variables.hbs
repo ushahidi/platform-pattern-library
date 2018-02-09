@@ -18,38 +18,31 @@
 
                 <div class="container">
                     <p>
-                        A wide variety of variables are defined in <span class="code"><a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/sass/_settings.scss">_settings.scss</a></span>.
+                        Variables are defined in <span class="code"><a href="https://github.com/ushahidi/platform-pattern-library/blob/gh-pages/assets/sass/_settings.scss">_settings.scss</a></span>. A few common variables are breakpoints, color, z-index and spacing, but other variables are available.
                     </p>
 
-                    <h2>Color Variables</h2>
+                    <h2>Example use</h2>
                     <p>When using a color more than once, store it in a variable with a meaningful name representing the color.</p>
                     <pre>
                         <code class="language-css">
+                            // The variable is set within the .setting.scss file then used across the .scss files.
+                            // This allows you to update the whole code base just by editing one instance, in this example $blue.
+
                             $blue: #2274b4;
-                        </code>
-                    </pre>
-                    <p>Then use that variable wherever you would like.</p>
-                    <pre>
-                        <code class="language-css">
-                            $link-color: $blue;
-                        </code>
-                    </pre>
 
-                    <h2>Lightening and Darkening Colors</h2>
-                    <p>This is an example of lighten/darken color functions and color variables.</p>
-                    <pre>
-                        <code class="language-css">
-                            $link-color: $blue;
-                            $link-hover-color: darken( $link-color, 20% );
-                            $link-color-lt: lighten( $link-color, 25% );
-                            $link-color-dark-bg: $link-color-lt;
-                            $link-color-dark-bg-hover: lighten( $link-color-lt, 10% );
+                            .class {
+                                color: $blue;
+                            }
+
+                            .class-2 {
+                                border-color: $blue;
+                            }
+
+                            .class- {
+                                background-color: $blue;
+                            }
                         </code>
                     </pre>
-
-                    <p>
-                        Writing variables this way allows us to update the whole code base just by editing one instance ex. <span>$blue</code>.
-                    </p>
                 </div>
 
             </section>

@@ -45,10 +45,13 @@
                     </ul>
                 </div>
 
-                <h2>Stylesheet</h2>
+                <h2>LTR/RTL body class</h2>
                 <p>
-                    Ushahidi loads <span class="code">style.css</span> by default, but if a user selects an RTL language when creating a deployment, the app will load <span class="code">rtl-style.css</span>. Both stylesheets are compiled into the css folder via <span class="code">gulpfile.js</span>.
+                    <span class="code">ltr-namespace</span> is the default body class, but if a user selects an RTL language when creating a deployment, that body class will change to <span class="code">rtl-namespace</span> and display all UI elements as RTL.
                 </p>
+
+                <div class="pl-divider"></div>
+
                 <h2>Conflicts</h2>
                 <p>
                     The Ushahidi UI uses the lightweight semantic grid <a href="http://neat.bourbon.io/">Bourbon Neat</a> and this Neat <span class="code">span-columns</span> mixin:
@@ -60,7 +63,7 @@
                     </code>
                 </pre>
 
-                <p>compiles to:</p>
+                <p>which compiles to:</p>
                 <pre>
                     <code class="language-css">
                             float: left;
