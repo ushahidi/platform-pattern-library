@@ -23,35 +23,150 @@
     </div>
 </div>
 
-<main role="main">
-
-    <div class="full-col">
-
-        <div class="form-sheet">
-            <div class="form-sheet-summary">
-                <h2 class="form-sheet-title">CSV</h2>
-                <p>Export data from the following surveys to a CSV spreadsheet.</p>
-            </div>
-
-            <fieldset>
-                <legend>Surveys</legend>
-
-                {{#each deployment.surveys}}
-                <div class="form-field checkbox">
-                    <input type="checkbox" id="collection-{{@index}}" />
-                    <label for="collection-{{@index}}">{{name}}</label>
+    <main role="main">
+        <div class="main-col">
+            <!-- note, class export-options below is only needed for PL-functionality, not needed in client -->
+            <div class="form-sheet export-options">
+                <div class="form-sheet-summary">
+                    <h2 class="form-sheet-title">
+                    Export data
+                    </h2>
+                    <!-- note, classes below is only needed for PL-functionality, not needed in client -->
+                    <p class="description">Export all of your data as a CSV or choose specific survey fields you want to export.</p>
+                    <p class="in-progress hidden">Export in progress...</p>
                 </div>
-                {{/each}}
-
-            </fieldset>
-
+                <div class="form-field">
+                    <button class="button-alpha" onclick="exportAll()">Export all data</button>
+                    <button class="button" onclick="exportSelected()">Select fields</button>
+                </div>
+            </div>
+        <!-- note, class export-selected below is only needed for PL-functionality, not needed in client -->
+        <div class="form-sheet hidden export-selected">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">
+                Select fields to export...
+                </h2>
+                <p>If you don't want to export all of your data at once, you can select specific fields from each survey for export.</p>
+            </div>
             <div class="form-field">
-                <button type="submit" class="button-alpha" disabled>Export to CSV</button>
+                <label>Survey 1</label>
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox">
+                        <em><span >Select All</span></em>
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Location
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Title
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Description
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Categories
+                  </label>
+                </div>
+            </div>
+            <div class="form-field">
+                <label>Survey 2</label>
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox">
+                        <em><span>Select All</span></em>
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Title
+                  </label>
+                </div>
+                    <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Description
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Categories
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Location
+                  </label>
+                </div>
+            </div>
+            <div class="form-field">
+                <label>Survey 3</label>
+                <div class="form-field checkbox">
+                    <label>
+                        <input type="checkbox">
+                        <em><span>Select All</span></em>
+                    </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Title
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Description
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Number
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Image
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Markdown
+                  </label>
+                </div>
+                <div class="form-field checkbox">
+                  <label>
+                      <input type="checkbox">
+                      Categories 2
+                  </label>
+                </div>
+            </div>
+            <div class="form-field">
+                <button class="button-alpha">Export selected fields
+                </button>
+                <button class="button" onclick="exportSelected()">Cancel</button>
             </div>
         </div>
-
     </div>
-
 </main>
+
 
 {{> Modals }}
