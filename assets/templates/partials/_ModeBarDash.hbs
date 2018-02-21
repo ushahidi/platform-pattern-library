@@ -1,6 +1,6 @@
-<div class="mode-bar">
+<div class="mode-bar dashboard">
     <nav>
-        <ul class="deployment-menu dash">
+        <ul class="deployment-menu">
             <li {{#ifCond mode 'dash'}} class="active"{{/ifCond}}>
                 <a href="md-list.html">
                     <svg class="iconic">
@@ -10,33 +10,6 @@
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="more-menu-trigger">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                    </svg>
-                    More
-                </a>
-                <ul>
-                    {{#if user.logged_in}}
-                    <li {{#ifCond mode 'settings'}}class="active"{{/ifCond}}>
-                        <a href="settings.html">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
-                            </svg>
-                            Settings
-                        </a>
-                    </li>
-                    {{/if}}
-                     <li class="pl-read-direction-nav-layout">
-                        <span class="ltr-switcher active">LTR</span>
-                        <span class="rtl-switcher">RTL</span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-
-        <ul class="account-menu">
             <li>
                 <a href="https://www.ushahidi.com/support" data-modal="json">
                     <svg class="iconic">
@@ -55,12 +28,6 @@
                     <span class="label">Log out</span>
                 </a>
             </li>
-            <li>
-                <a href="#" data-modal="account">
-                    <img src="{{user.avatar}}" class="avatar" />
-                    <span class="label">Account settings <span class="subtext">for {{user.name}}</span></span>
-                </a>
-            </li>
             {{else}}
             <li>
                 <a href="#" data-modal="login">
@@ -72,6 +39,11 @@
             </li>
             {{/if}}
 
+            <li class="pl-read-direction-nav-layout">
+                <span class="ltr-switcher active">LTR</span>
+                <span class="rtl-switcher">RTL</span>
+            </li>
         </ul>
+
     </nav>
 </div>

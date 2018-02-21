@@ -8,12 +8,13 @@ $('.mode-bar').each(function(){
 
    // Add 'click' handler to toggle trigger
    $(trigger).on('click', function(e){
+       $(context).toggleClass('active');
 
       // IF: Mode Bar isn't already active
-      if (!$(context).hasClass('active')) {
-          $(trigger).addClass('active');
-          $(context).addClass('active');
-      }
+      // if (!$(context).hasClass('active')) {
+      //     $(trigger).addClass('active');
+      //     $(context).addClass('active');
+      // }
 
       e.preventDefault();
    });
