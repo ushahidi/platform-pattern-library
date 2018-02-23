@@ -1,4 +1,5 @@
-/* http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript&plugins=autolinker+toolbar+normalize-whitespace+copy-to-clipboard */
+/* PrismJS 1.11.0
+ http://prismjs.com/download.html?themes=prism-coy&languages=markup+css+clike+javascript&plugins=autolinker+toolbar+normalize-whitespace+copy-to-clipboard */
 /**
  * prism.js Coy theme for JavaScript, CoffeeScript, CSS and HTML
  * Based on https://github.com/tshedor/workshop-wp-theme (Example: http://workshop.kansan.com/category/sessions/basics or http://workshop.timshedor.com/category/sessions/basics);
@@ -44,7 +45,7 @@ pre[class*="language-"] {
 code[class*="language"] {
 	max-height: inherit;
 	height: 100%;
-	padding: 0 1em;
+	padding: 2em;
 	display: block;
 	overflow: auto;
 }
@@ -56,7 +57,7 @@ pre[class*="language-"] {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	margin-bottom: 1em;
+	margin-bottom: 4em;
 }
 
 /* Inline code */
@@ -230,15 +231,16 @@ pre.code-toolbar {
 
 pre.code-toolbar > .toolbar {
 	position: absolute;
-	top: .3em;
-	right: .2em;
+	top: 5px;
+	right: -24px;
 	transition: opacity 0.3s ease-in-out;
-	opacity: 0;
+	background: transparent;
+    box-shadow: none;
 }
 
-pre.code-toolbar:hover > .toolbar {
-	opacity: 1;
-}
+// pre.code-toolbar:hover > .toolbar {
+// 	opacity: 1;
+// }
 
 pre.code-toolbar > .toolbar .toolbar-item {
 	display: inline-block;
@@ -264,13 +266,10 @@ pre.code-toolbar > .toolbar button {
 pre.code-toolbar > .toolbar a,
 pre.code-toolbar > .toolbar button,
 pre.code-toolbar > .toolbar span {
-	color: #bbb;
+	color: $white;
 	font-size: .8em;
-	padding: 0 .5em;
-	background: #f5f2f0;
-	background: rgba(224, 224, 224, 0.2);
-	box-shadow: 0 2px 0 0 rgba(0,0,0,0.2);
-	border-radius: .5em;
+	padding: .5em;
+	background: $blue;
 }
 
 pre.code-toolbar > .toolbar a:hover,
@@ -279,6 +278,6 @@ pre.code-toolbar > .toolbar button:hover,
 pre.code-toolbar > .toolbar button:focus,
 pre.code-toolbar > .toolbar span:hover,
 pre.code-toolbar > .toolbar span:focus {
-	color: inherit;
+	background: darken($blue, 30%);
 	text-decoration: none;
 }

@@ -1,0 +1,305 @@
+<div class="front-end-guidelines wrapper">
+
+    <div class="page-content has-aside">
+
+        {{> Header }}
+
+        {{> SideNav }}
+
+        <div class="main-col">
+
+            <section class="pl-pattern" id="syntax-and-formatting">
+                <div class="pl-pattern-description">
+                    <h1>
+                        Syntax and Formatting
+                    </h1>
+                    <div class="pl-divider"></div>
+                </div>
+
+                <div class="container">
+                    <p>
+                        The Ushahidi Platform uses the SCSS syntax because it is more consistent and familiar with vanilla CSS.
+                    </p>
+                    <p>Indentation should be 4 space tabs. CSS rules should be written on multi-lines.</p>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .foo {
+                                display: block;
+                                overflow: hidden;
+                                padding: 0 1em;
+                            }
+
+                            // No
+                            .foo {
+                              display: block; overflow: hidden;
+
+                              padding: 0 1em;
+                            }
+                        </code>
+                    </pre>
+
+                    <p>White space after each declaration and after each ending curly brace.</p>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            p {
+                                font-size: em(16);
+
+                                @include media($small) {
+                                    font-size: em(18);
+                                }
+
+                            }
+
+                            // No
+                            p {
+                                font-size: em(16);
+                                @include media($small) {
+                                    font-size: em(18);
+                                }
+                            }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="container">
+                    <h2>Nesting</h2>
+                    <p>
+                        Nesting is one of the best features in Sass, but it can be overused and create unwanted CSS. A best practice is to nest no more than 3 levels deep and to only nest classes when that relationship is absolutely necessary to declare in order to achieve the desired style. Nesting for the sake of organizing the stylesheet is discouraged.
+                    </p>
+
+                    <h3>Sass</h3>
+                    <pre>
+                        <code class="language-css">
+                            .unordered-list {
+                                list-style-type: none;
+
+                                .unordered-list__item {
+                                    display: inline;
+
+                                    a {
+                                        color: blue;
+
+                                        span {
+                                            text-decoration: underline;
+                                        }
+
+                                    }
+
+                                }
+
+                            }
+                        </code>
+                    </pre>
+
+                    <h3>Compiled CSS Output</h3>
+                    <pre>
+                        <code class="language-css">
+                            .unordered-list {
+                                list-style-type: none;
+                            }
+                            .unordered-list .unordered-list__item {
+                                display: inline;
+                            }
+                            .unordered-list .unordered-list__item a {
+                                color: blue;
+                            }
+                            .unordered-list .unordered-list__item a span {
+                                text-decoration: underline;
+                            }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="container">
+                    <h2>Color Formats</h2>
+                    <p>Hex is the default color format with RGBA being used when opacity is needed.</p>
+                    <h3>Hex</h3>
+                    <p>Hex values should be written in all caps.</p>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .foo {
+                              color: #FF0000;
+                            }
+
+                            // No
+                            .foo {
+                              color: red;
+                            }
+                        </code>
+                    </pre>
+
+                    <h3>RGB</h3>
+                    <p>When using RGB, single space after commas and no spaces after parentheses.</p>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .foo {
+                              color: rgba(0, 0, 0, 0.1);
+                            }
+
+                            // No
+                            .foo {
+                              color: rgba( 0,0,0,0.1 );
+                            }
+                        </code>
+                    </pre>
+
+                </div>
+
+                <div class="container">
+                    <h2>Numbers</h2>
+                    <p>Numbers should display leading zeros before a decimal value less than one and never display trailing zeros.</p>
+                    <h3>Zeros:</h3>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .foo {
+                              padding: 2em;
+                              opacity: 0.5;
+                            }
+
+                            // No
+                            .foo {
+                              padding: 2.0em;
+                              opacity: .5;
+                            }
+                        </code>
+                    </pre>
+
+                    <h3>Units:</h3>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            $length: 2em;
+
+                            // No
+                            $length: 2;
+                        </code>
+                    </pre>
+
+                    <h3>Calculations</h3>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .foo {
+                              width: (100% / 3);
+                            }
+
+                            // No
+                            .foo {
+                              width: 100% / 3;
+                            }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="container">
+                    <h2>Strings</h2>
+                    <p>Single quotes should be used with strings.</p>
+                    <h3>Font Stack Example:</h3>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            $font-stack: 'Helvetica Neue Light', 'Helvetica', 'Arial', sans-serif;
+
+                            // No
+                            $font-stack: "Helvetica Neue Light", "Helvetica", "Arial", sans-serif;
+
+                            // No
+                            $font-stack: Helvetica Neue Light, Helvetica, Arial, sans-serif;
+                        </code>
+                    </pre>
+
+                    <h3>Image URL Example:</h3>
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .foo {
+                              background-image: url('/images/kittens.jpg');
+                            }
+
+                            // No
+                            .foo {
+                              background-image: url(/images/kittens.jpg);
+                            }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="container">
+                    <h2>Commenting</h2>
+                    <p>Commenting is CSS is an essential practice that can help explain why and how code is written. Ushahidi's CSS commenting is simple.</p>
+
+                    <pre>
+                        <code class="language-css">
+                            // Comments are preceeded by two backslashes
+                            .foo {
+                                background: #000;
+                            }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="container">
+                    <h2>Css Rulesets</h2>
+                    <ul>
+                        <li>related selectors on the same line; unrelated selectors on new lines;</li>
+                        <li>the opening brace ({) spaced from the last selector by a single space;</li>
+                        <li>each declaration on its own new line;</li>
+                        <li>a space after the colon (:);</li>
+                        <li>a trailing semi-colon (;) at the end of all declarations;</li>
+                        <li>the closing brace (}) on its own new line;</li>
+                        <li>a new line after the closing brace (}).</li>
+                    </ul>
+
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .foo, .foo-bar,
+                            .baz {
+                              display: block;
+                              overflow: hidden;
+                              margin: 0 auto;
+                            }
+
+                            // No
+                            .foo,
+                            .foo-bar, .baz {
+                                display: block;
+                                overflow: hidden;
+                                margin: 0 auto }
+                        </code>
+                    </pre>
+                </div>
+
+                <div class="container">
+                    <h2>Letter Case Usage & Naming Conventions</h2>
+                    <p>
+                        When naming classes use lower case letters and a hypen between words.
+                    </p>
+
+                    <pre>
+                        <code class="language-css">
+                            // Yes
+                            .button-primary
+
+                            //No
+                            .ButtonPrimary
+
+                            //No
+                            .button_primary
+                        </code>
+                    </pre>
+                </div>
+
+            </section>
+
+
+        </div>
+
+    </div>
+
+</div>
