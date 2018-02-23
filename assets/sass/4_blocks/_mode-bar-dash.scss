@@ -1,10 +1,42 @@
-.deployment-menu.dash {
-    li {
-        width: 100%;
-    }
-    @include media($medium-down) {
-        li {
-            width: 50%;
+.mode-bar.dashboard {
+
+    .deployment-menu {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: row;
+
+        @include media($medium) {
+            flex-direction: column;
         }
+
+        li {
+            width: 33.3%;
+
+            @include media($medium) {
+                width: 100%;
+            }
+
+            &:nth-last-child(2) {
+
+                @include media($medium) {
+                    position: absolute;
+                    bottom: 70px;
+                }
+            }
+
+            &:last-child {
+
+                @include media($medium) {
+                    position: absolute;
+                    bottom: 0;
+                }
+            }
+
+        }
+
     }
+
 }

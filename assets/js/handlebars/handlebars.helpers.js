@@ -508,3 +508,23 @@ Handlebars.registerHelper('postCheckbox', function() {
         );
     }
 });
+exportAll = function () {
+    var inProgress = $('.in-progress');
+    var description = $('.description');
+
+    $(inProgress).toggleClass('hidden');
+    $(description).toggleClass('hidden');
+
+    setTimeout(function() {
+        $(inProgress).toggleClass('hidden');
+        $(description).toggleClass('hidden');
+    }, 5000);
+}
+
+exportSelected = function () {
+    var options = $('.export-options');
+    var selected = $('.export-selected');
+
+    $(options).toggleClass('hidden');
+    $(selected).toggleClass('hidden');
+}

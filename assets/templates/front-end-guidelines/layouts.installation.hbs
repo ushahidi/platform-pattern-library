@@ -1,0 +1,116 @@
+<div class="front-end-guidelines wrapper">
+
+    <div class="page-content has-aside">
+
+        {{> Header }}
+
+        {{> SideNav }}
+
+        <div class="main-col">
+
+            <section class="pl-pattern" id="syntax-and-formatting">
+                <div class="pl-pattern-description">
+                    <h1>
+                        Installation & Set Up
+                    </h1>
+                    <div class="pl-divider"></div>
+                </div>
+
+                <p>
+                    The Ushahidi Platform requires a few steps to get started.
+                </p>
+
+                <div class="container">
+                    <h2>Download or Clone the project from Github</h2>
+
+                    <ul class="bullets">
+                        <li>Visit <a href="https://github.com/ushahidi/platform-pattern-library">Github</a> to download the repo to your local environment</li>
+                        <li>or use <span class="code">git clone https://github.com/ushahidi/platform-pattern-library.git</span></li>
+                    </ul>
+                </div>
+
+                <div class="container">
+                    <h2>Install Dev Dependencies</h2>
+
+                    <p>
+                        Install the following dependencies to run the Ushahidi Platform.
+                    </p>
+
+                    <ul class="bullets">
+                        <li>NodeJS - Install via <a href="http://brew.sh/">Homebrew</a> or <a href="https://nodejs.org/">the NodeJS homepage</a></li>
+                        <li><a href="http://browserify.org/">Browserify</a> <span class="code">npm install -g browserify</span></li>
+                        <li><a href="http://gulpjs.com/">Gulp</a> <span class="code">npm install -g gulp</span></li>
+                    </ul>
+                    <p class="alert info">
+                        NodeJS will automaticaly install Node Package Manager (npm).
+                    </p>
+                </div>
+
+                <div class="container">
+                    <h2>Install Required Packages</h2>
+
+                    <p>
+                        Install the required packages by running <span class="code">npm install</span> from the root of the project.
+                    </p>
+
+                    <p>This command does the following:</p>
+                    <ul class="bullets">
+                        <li>creates a <span class="code">node_modules</span> folder in the project root.</li>
+                        <li>installs all dependecies contained within <a href="https://github.com/ushahidi/platform-pattern-library/blob/master/package.json">package.json.</a></li>
+                    </ul>
+
+                    <span class="alert info">
+                        The Ushahidi Platform uses <a href="https://github.com/sass/node-sass">node-sass</a> (via the <a href="https://github.com/dlmanning/gulp-sass">gulp-sass</a> plugin), which is a node front end for <a href="https://github.com/sass/libsass">LibSass</a>. We chose Libsass over <a href="http://sass-lang.com/">RubySass</a> because of its speed and Node over Ruby dependency.
+                    </span>
+                </div>
+
+                <div class="container">
+                    <h2>Download and Activate Live Reload Plugin</h2>
+
+                    <p><a href="http://livereload.com/extensions/">http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions</a></p>
+                </div>
+
+                <div class="container">
+                    <h2>Navigate to project root and run the following commands:</h2>
+
+                    <p><span class="code">gulp build</span></p>
+
+                    <ul class="bullets">
+                        <li>compiles sass</li>
+                        <li>minifies and concatenates js</li>
+                        <li>builds html files</li>
+                        <li>generates font files</li>
+                    </ul>
+
+                    <span class="alert info">
+                        These files will build within the <a href="https://github.com/ushahidi/platform-pattern-library/tree/master/assets">assets</a> folder.
+                    </span>
+
+                    <p><span class="code">gulp</span></p>
+
+                    <ul class="bullets">
+                        <li>starts a webserver accessible at <a href="http://localhost:8000/">http://localhost:8000/</a></li>
+                        <li>watches the project directory for changes</li>
+                        <li>compiles sass</li>
+                        <li>minifies and concatenates js </li>
+                        <li>builds html files</li>
+                        <li>live reloads appropriate files (sass, js or html)</li>
+                        <li>sends a success notification</li>
+                    </ul>
+                </div>
+
+                <div class="container">
+                    <h2>Open Project in Browser</h2>
+
+                    <p>
+                        Now visit <a href="http://localhost:8000/">http://localhost:8000/</a> to view the Pattern Library in action.
+                    </p>
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</div>
