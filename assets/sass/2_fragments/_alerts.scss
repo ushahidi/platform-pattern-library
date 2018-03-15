@@ -3,8 +3,8 @@
     @include direction;
     font-style: italic;
     line-height: 1.4;
-    @include border-left(2px solid $color-secondary);
-    background-color: lighten( $color-secondary, 32% );
+    @include border-left(2px solid $gold);
+    background-color: lighten( $gold, 20% );
     margin-bottom: $sm-spacing;
     padding: $tiny-spacing $sm-spacing;
 
@@ -19,20 +19,20 @@
     &.error {
         @include float(left);
         @include clear(left);
-        border-color: $error-color;
-        background-color: lighten( $error-color, 50% );
+        @include border-left(2px solid $error-red);
+        background-color: lighten( $error-red, 20% );
 
         svg.iconic {
-            fill: $error-color;
+            fill: $error-red;
         }
     }
 
     &.confirmation {
-        border-color: $confirmation-color;
-        background-color: lighten( $confirmation-color, 50% );
+        @include border-left(2px solid $success-green);
+        background-color: lighten( $success-green, 20% );
 
         svg.iconic {
-            fill: $confirmation-color;
+            fill: $success-green;
         }
     }
 

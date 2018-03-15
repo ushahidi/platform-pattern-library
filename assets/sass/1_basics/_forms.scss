@@ -9,12 +9,12 @@ label,
     svg.iconic {
         width: 0.8em;
         height: 0.8em;
-        fill: $color-light-alpha;
+        fill: $dark-gray;
         @include margin-left($tiny-spacing);
     }
 
     &.error {
-        color: $error-color;
+        color: $error-red;
     }
 
     &.required {
@@ -23,7 +23,7 @@ label,
             content: '\2217';
             position: relative;
             top: -2px;
-            color: $red;
+            color: $error-red;
             font-weight: normal;
             font-size: 1.05em;
             @include margin-left(4px);
@@ -46,12 +46,12 @@ textarea {
     display: inline-block;
     width: 100%;
     max-width: 450px;
-    color: $text-color;
+    color: $black;
     @include typeBase;
     font-family: $base-font-family;
     line-height: 1.4;
     @include text-align(left);
-    outline-color: $white;
+    outline-color: $bg-white;
     border: $base-border-dark;
     @include border-top-radius($global-radius);
     @include border-bottom-radius($global-radius);
@@ -60,10 +60,10 @@ textarea {
     @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,.1), $inset: true);
 
     &.error {
-        border-color: $error-color;
+        border-color: $error-red;
 
         &:focus {
-            border-color: $error-color;
+            border-color: $error-red;
         }
 
     }
@@ -79,27 +79,27 @@ textarea {
     }
 
     &:focus {
-        box-shadow: 0 0 4px 1px $color-secondary,
+        box-shadow: 0 0 4px 1px $gold,
             inset 0 1px 1px rgba(0,0,0,.3);
         border-color: $black;
     }
 
     &[disabled] {
         @include box-shadow($top: 1px, $left: 0, $blur: 1px, $spread: 0, $color: rgba(0,0,0,0), $inset: true);
-        border-color: $lt-gray;
+        border-color: $bg-gray;
     }
 
     &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-        color: $color-dark-gamma;
+        color: $dark-gray;
     }
     &::-moz-placeholder { /* Firefox 19+ */
-        color: $color-dark-gamma;
+        color: $dark-gray;
     }
     &:-ms-input-placeholder { /* IE 10+ */
-        color: $color-dark-gamma;
+        color: $dark-gray;
     }
     &:-moz-placeholder { /* Firefox 18- */
-        color: $color-dark-gamma;
+        color: $dark-gray;
     }
 }
 
@@ -177,7 +177,7 @@ input[type="radio"] {
         }
 
         + label {
-            color: $dk-gray;
+            color: $dark-gray;
         }
     }
 }
@@ -196,14 +196,14 @@ textarea {
 select {
     @include direction;
     height: 37px;
-    color: $text-color;
+    color: $black;
     font-size: $base-font-size;
     font-family: $base-font-family;
     line-height: 1.4;
     @include equal-radius;
     border: $base-border-dark;
-    //background: $color-light-delta url(../img/icons/chevron-bottom.svg) 90% center no-repeat;
-    background-color: $color-light-delta;
+    //background: $bg-white url(../img/icons/chevron-bottom.svg) 90% center no-repeat;
+    background-color: $disabled-gray;
     @include lrswap(padding, $tiny-spacing 26px $tiny-spacing $tiny-spacing);
 }
 
@@ -219,8 +219,8 @@ select {
         width: 7px;
         height: 7px;
         background: transparent;
-        border-top: 2.5px solid $color-light-alpha;
-        border-right: 2.5px solid $color-light-alpha;
+        border-top: 2.5px solid $dark-gray;
+        border-right: 2.5px solid $dark-gray;
         margin-top: -6px;
         @include rotate(135deg);
     }
@@ -250,7 +250,7 @@ fieldset {
                 content: '\2217';
                 position: relative;
                 top: -2px;
-                color: $red;
+                color: $error-red;
                 font-weight: normal;
                 font-size: 1.428571429em;
                 @include margin-left(4px);
@@ -258,7 +258,7 @@ fieldset {
         }
 
         svg.iconic {
-            fill: $text-color;
+            fill: $black;
             @include margin-right(4px);
         }
 
@@ -272,8 +272,8 @@ form, .form {
 
     &.dk-bg {
         @include equal-radius;
-        border: 2px solid darken( $dk-brown, 10% );
-        background-color: $dk-brown;
+        border: 2px solid $bg-white;
+        background-color: $bg-white;
         padding: $base-spacing;
 
         table {
@@ -283,7 +283,7 @@ form, .form {
                 tr {
 
                     &:nth-child(even) {
-                        background-color: $lt-bg;
+                        background-color: $bg-white;
                     }
                 }
             }
@@ -319,7 +319,7 @@ form, .form {
         cursor: pointer;
         user-select: none;
         border-radius: 2em;
-        background: $color-light-beta;
+        background: $bg-gray;
         transition: all .4s ease;
 
         &:after, &:before {
@@ -336,7 +336,7 @@ form, .form {
         &:after {
             @include left(0);
             border-radius: 50%;
-            background: $lt-bg;
+            background: $bg-white;
             transition: all .2s ease;
         }
 
@@ -349,11 +349,11 @@ form, .form {
     &:checked{
 
         + .tgl-btn {
-            background: lighten( $confirmation-color, 40% );
+            background: lighten( $success-green, 40% );
 
             &:after {
                 @include left(50%);
-                background: $confirmation-color;
+                background: $success-green;
             }
 
         }
@@ -363,10 +363,10 @@ form, .form {
     &:disabled {
 
         + .tgl-btn {
-            background: $color-light-gamma;
+            background: $bg-white;
 
             &:after {
-                background-color: $color-light-beta;
+                background-color: $bg-gray;
                 @include no-shadow;
             }
 
@@ -403,11 +403,11 @@ form, .form {
     @include transition(0.3s);
 
     &:focus {
-        outline-color: $white;
+        outline-color: $bg-white;
         @include border-top-radius($global-radius);
         @include border-bottom-radius($global-radius);
         padding: $tiny-spacing $sm-spacing;
-        box-shadow: 0 0 4px 1px $color-secondary,
+        box-shadow: 0 0 4px 1px $gold,
             inset 0 1px 1px rgba(0,0,0,.3);
     }
 
