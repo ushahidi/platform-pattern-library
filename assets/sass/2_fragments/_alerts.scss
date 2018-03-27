@@ -1,26 +1,16 @@
 .alert {
+    position: relative;
     display: inline-block;
     @include direction;
-    font-style: italic;
     line-height: 1.4;
-    @include border-left(2px solid $gold);
-    background-color: lighten( $gold, 20% );
     margin-bottom: $sm-spacing;
-    padding: $tiny-spacing $sm-spacing;
-
-    svg.iconic {
-        @include margin-right($tiny-spacing);
-    }
-
-    p {
-        margin: 0;
-    }
+    padding: $tiny-spacing 0;
+    color: $dark-gray;
 
     &.error {
         @include float(left);
         @include clear(left);
-        @include border-left(2px solid $error-red);
-        background-color: lighten( $error-red, 20% );
+        color: $error-red;
 
         svg.iconic {
             fill: $error-red;
@@ -28,12 +18,22 @@
     }
 
     &.confirmation {
-        @include border-left(2px solid $success-green);
-        background-color: lighten( $success-green, 20% );
+        color:$success-green;
 
         svg.iconic {
             fill: $success-green;
         }
+    }
+
+    svg.iconic {
+        position: absolute;
+        top: 12px;
+        @include margin-right($tiny-spacing);
+    }
+
+    p {
+        margin: 0;
+        @include padding-left(20px);
     }
 
 }
