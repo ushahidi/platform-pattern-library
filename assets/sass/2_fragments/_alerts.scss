@@ -5,15 +5,14 @@
     line-height: 1.4;
     margin-bottom: $sm-spacing;
     padding: $tiny-spacing 0;
-    color: $dark-gray;
+    font-weight: 400;
 
-    &.error {
-        @include float(left);
-        @include clear(left);
-        color: $error-red;
+    &.neutral {
+        color: $dark-gray;
 
         svg.iconic {
-            fill: $error-red;
+            fill: $dark-gray;
+            top: 12px;
         }
     }
 
@@ -22,12 +21,23 @@
 
         svg.iconic {
             fill: $success-green;
+            top: 11px;
+        }
+    }
+
+    &.error {
+        @include float(left);
+        @include clear(left);
+        color: $error-red;
+
+        svg.iconic {
+            fill: $error-red;
+            top: 10px;
         }
     }
 
     svg.iconic {
         position: absolute;
-        top: 12px;
         @include margin-right($tiny-spacing);
     }
 
