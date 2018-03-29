@@ -1,0 +1,167 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+
+        <h1 class="mode-context-title">Surveys</h1>
+        <a href="settings-surveys.html"><span>< Go back to crowd-sourced surveys</span></a>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+
+    </div>
+</div>
+
+
+<main role="main">
+    <div class="toolbar">
+    </div>
+
+    <div class="main-col">
+        <div class="form-sheet">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">Create a new targeted survey</h2>
+                <p>Send questions via SMS to a list of those phone numbers.</p>
+            </div>
+            <div class="stepper" data-accordion-items="stepper-item">
+                <div class="stepper-item active">
+                    <h2 class="stepper-heading" data-accordion-trigger>
+                        <span class="stepper-badge">1</span>
+                        Name your survey
+                    </h2>
+
+                    <div class="form-field">
+                        <label>Survey name</label>
+                        <input type="text">
+                    </div>                    
+                    <div class="form-field">
+                        <label>Survey description</label>
+                        <textarea></textarea>
+                    </div>
+                    <div class="form-field">
+                        <div class="button-group">
+                            <button class="button-alpha">Continue</button>
+                            <button class="button">Back</button>
+                        </div>
+                </div>
+            </div>
+
+            <div class="stepper-item">
+                <h2 class="stepper-heading" data-accordion-trigger>
+                        <span class="stepper-badge">2</span>
+                            Choose your audience                    
+                </h2>
+                <div class="form-field">
+                    <label for="country-code">
+                        Country code 
+                    </label>
+                    <div class="custom-select">
+                        <select id="country-code">
+                            <option selected>Kenya +254</option>
+                            <option>Sweden +46</option>
+                            <option>United States +1</option>
+                            <option>France +33</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label>Phone numbers</label>
+                    <p>Please type in 10-digit phone numbers you'd like to contact. Place a comma between each phone number.</p>
+                    <textarea></textarea>
+                </div>
+                <div class="form-field">
+                    <div class="button-group">
+                        <button class="button-alpha">Continue</button>
+                        <button class="button">Back</button>
+                    </div>
+                </div>
+            </div>
+            <div class="stepper-item">
+                <h2 class="stepper-heading" data-accordion-trigger>
+                        <span class="stepper-badge">3</span>
+                            Add your questions
+                </h2>
+                <div class="alert">
+                    <p>We will send each question as a separate SMS. After someone responds, we will send the next question in the survey.</p>
+                </div>
+
+                <div class="form-field">
+                    <ul id="listWithHandle" class="sortble-list">
+                        <li class="sortable-list-item">
+                             <span class="list-handle">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#grid-four-up"></use>
+                                </svg>
+                            </span>
+                            <a href="#" class="list-handle" data-modal="targeted-survey-question"> Hello Beneficiary. Did you attend the trainin session held at Ipsum Public School last week? Your reply is free. Please begin your reply with "Program Name:"</a>
+                        </li>
+                        <li class="sortable-list-item">
+                            <span class="list-handle">
+                                <svg class="iconic">
+                                    <use xlink:href="../../img/iconic-sprite.svg#grid-four-up"></use>
+                                </svg>
+                            </span>
+                            <a class="list-handle" href="#"> Why did you choose to attend or not attend the training? Your reply is free. Please begin your reply with "Program Name:"</a>
+                        </li>
+                    </ul>
+                    <a href="#">Add another question...</a>
+                </div>
+                <div class="form-field">
+                    <div class="button-group">
+                        <button class="button-alpha">Continue</button>
+                        <button class="button">Back</button>
+                    </div>
+                </div>
+            </div>
+        <div class="stepper-item">
+            <h2 class="stepper-heading" data-accordion-trigger>
+                    <span class="stepper-badge">4</span>
+                        Publish
+            </h2>
+            <div class="alert">
+                <p class="section">We will send 2 questions to 1, 182 people via SMS for a total of 2,364 messages. This could cost up to USD $2, 500.</p>
+                <p>If you are messaging a number that you have messaged in the past, that person's responses will always apply to the most recent survey. They will no longer be able to reply to a previous unanswered survey questions.</p>
+            </div>
+
+                <div class="form-field switch">
+                    <label for="switch1">Require posts to be reviewed before they're published</label>
+                    <p>New responses to this survey will be put 'under review', and therefore not immediately visible to the public. Users with permission to review the response can review and 'publish' them, which would then make them visible to everyone.
+                    </p>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="switch1" type="checkbox">
+                        <label class="tgl-btn" for="switch1"></label>
+                    </div>
+                </div>
+                <div class="form-field switch">
+                    <label for="switch2"> Hide information about responders</label>
+                    <p>The phone numbers of the people who respond to your questions will remain hidden from the public site. Only the team members with edit permissions will be able to see them.</p>
+                    <div class="toggle-switch">
+                        <input class="tgl" id="switch2" type="checkbox">
+                        <label class="tgl-btn" for="switch2"></label>
+                    </div>
+                </div>
+                <div class="form-field">
+                    <div class="button-group">
+                        <button class="button-alpha">Publish</button>
+                        <button class="button">Back</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+{{> Modals }}

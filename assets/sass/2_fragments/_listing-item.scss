@@ -54,11 +54,23 @@
             + .listing-item-title {
                 @include padding-left(48px);
 
+                @include media($small) {
+                    @include padding-left(0);
+                }
+
                 + .listing-item-secondary {
                     @include padding-left(48px);
 
+                    @include media($small) {
+                        @include padding-left(0);
+                    }
+
                     + p {
                         @include padding-left(48px);
+
+                        @include media($small) {
+                            @include padding-left(0);
+                        }
                     }
                 }
             }
@@ -145,7 +157,7 @@
     }
 
     .listing-item-body {
-        background-color: $white;
+        background-color: $bg-white;
         box-shadow: 0 1px 4px rgba(0,0,0,.24) inset;
         padding: $sm-spacing;
 
@@ -158,20 +170,20 @@
         }
 
         .listing {
-            border: 1px solid $color-light-beta;
+            border: 1px solid $bg-gray;
             @include radius;
-            background-color: $color-light-gamma;
+            background-color: $bg-white;
 
             .listing-heading {
                 @extend .caps;
-                color: $color-dark-gamma;
-                border-bottom: 1px solid $color-light-beta;
-                background-color: $color-light-beta;
+                color: $dark-gray;
+                border-bottom: 1px solid $bg-gray;
+                background-color: $bg-gray;
                 padding: $sm-spacing;
             }
 
             .listing-item {
-                border-bottom-color: $color-light-beta;
+                border-bottom-color: $bg-gray;
             }
         }
 
@@ -214,7 +226,7 @@
         svg.iconic {
             width: 1em;
             height: 1em;
-            fill: $color-primary-beta;
+            fill: $black;
             vertical-align: middle;
         }
 
@@ -226,7 +238,7 @@
                 z-index: $body;
                 top: 50%;
                 @include left(-$tiny-spacing);
-                fill: $color-primary;
+                fill: $dark-blue;
                 margin-top: -$tiny-spacing;
             }
         }
@@ -244,13 +256,13 @@
                 font-weight: normal;
                 font-size: 1.05em;
                 top: -4px;
-                color: $red;
+                color: $error-red;
                 @include margin-left(4px);
             }
         }
 
         em {
-            color: $color-dark-delta;
+            color: $dark-gray;
             font-style: normal;
             font-size: .857142857em;
         }
@@ -276,7 +288,7 @@
             svg.iconic {
                 width: .75em;
                 height: .75em;
-                fill: $color-light-alpha;
+                fill: $dark-gray;
             }
         }
 
@@ -302,7 +314,7 @@
     @extend .sheet;
     box-shadow: none;
     @include clearfix;
-    background-color: $color-primary;
+    background-color: $dark-blue;
     padding: $sm-spacing;
 
     @include media($medium) {
@@ -312,7 +324,7 @@
 
     .listing-toolbar-summary {
         display: block;
-        color: $white;
+        color: $bg-white;
         margin-bottom: $tiny-spacing;
 
         .button-link {
@@ -372,18 +384,18 @@
         .listing-toolbar-toggle {
             display: none;
             font-style: italic;
-            background-color: $color-primary-gamma;
+            background-color: $black;
             box-shadow: 0 0 16px rgba(55,62,70,.8);
         }
     }
 
     .button-link {
-        color: $color-tertiary;
+        color: $disabled-gray;
         font-size: .857142857em;
         padding: 0 $sm-spacing;
 
         &:hover {
-            color: $white;
+            color: $bg-white;
         }
     }
 
