@@ -1,9 +1,9 @@
 .mode-context {
     position: relative;
-    color: $bg-white;
+    color: $white;
     @extend .menu;
     @include equal-radius(0);
-    background-color: $black;
+    background-color: $color-primary-alpha;
     @include transition(all .25s);
 
     .breadcrumbs {
@@ -11,7 +11,7 @@
         li {
 
             &:after {
-                background: $black !important;
+                background: $color-primary-alpha !important;
             }
         }
     }
@@ -25,14 +25,14 @@
     }
 
     .mode-context-title {
-        color: $bg-white;
+        color: $white;
         @include typeAlpha;
         @include direction;
 
         svg.iconic {
             width: .769230769em;
             height: .769230769em;
-            fill: $disabled-gray;
+            fill: $color-tertiary;
             @include margin-right(4px);
         }
     }
@@ -46,7 +46,7 @@
         }
 
         a {
-            color: $bg-white;
+            color: $white;
         }
 
         .mode-context-back {
@@ -87,8 +87,8 @@
             @include left($sm-spacing);
             height: 34px;
             width: 34px;
-            box-shadow: 0 1px 4px $black,
-                0 0 0 1px $black;
+            box-shadow: 0 1px 4px $color-primary-alpha,
+                0 0 0 1px $color-primary-alpha;
             margin-top: -6px;
 
             @include media($medium) {
@@ -141,12 +141,12 @@
         position: absolute;
         top: 0;
         @include right(0);
-        background-color: $black;
+        background-color: $color-primary-alpha;
         @include box-shadow($top: 0, $left: -1px, $blur: 4px, $spread: 0, $color: rgba(30,35,42,1), $inset: false);
         padding: $sm-spacing+4 $sm-spacing;
 
         svg.iconic {
-            fill: $disabled-gray;
+            fill: $color-tertiary;
             @include transition(0.3s);
         }
 
@@ -161,7 +161,7 @@
     .button-link {
 
         svg.iconic {
-            fill: $bg-white;
+            fill: $white;
         }
 
         &:hover {
@@ -174,12 +174,10 @@
         @include direction;
 
         a {
-            color: $bg-white;
-            font-weight: 900;
-            letter-spacing: 0.5px;
+            color: $color-secondary;
 
             &:hover {
-                color: darken($bg-white, 20%);
+                color: darken($color-secondary, 20%);
             }
         }
     }
@@ -208,17 +206,17 @@
         }
 
         a {
-            color: $disabled-gray;
+            color: $color-tertiary;
 
             &:hover {
-                color: $bg-white;
+                color: $white;
             }
         }
 
         li {
 
             &:after {
-                background-color: $bg-white;
+                background-color: $color-light-gamma;
             }
 
             &:first-child {
@@ -230,19 +228,19 @@
     .tool {
 
         .tool-heading {
-            color: $disabled-gray;
+            color: $color-tertiary;
         }
 
         .tool-trigger {
 
             svg.iconic {
-                fill: $disabled-gray;
+                fill: $color-tertiary;
             }
 
             &:hover {
 
                 svg.iconic {
-                    fill: $bg-white;
+                    fill: $color-light-gamma;
                 }
             }
         }
@@ -251,10 +249,7 @@
             margin-top: $sm-spacing;
 
             a {
-                color: $bg-white;
-                font-weight: 900;
-                letter-spacing: 0.5px;
-                border-bottom: 1px dotted $bg-white;
+                color: $color-secondary;
             }
         }
     }
@@ -292,8 +287,8 @@
             .custom-select {
 
                 select {
-                    color: $bg-white;
-                    border-color: $black;
+                    color: $white;
+                    border-color: $color-primary-gamma;
                     background-color: transparent;
                 }
             }
@@ -308,11 +303,11 @@
         }
 
         .button-link {
-            color: $gold;
+            color: $color-secondary;
             padding: 0;
 
             svg.iconic {
-                fill: $gold;
+                fill: $color-secondary;
             }
         }
 
@@ -410,6 +405,13 @@
 
     .tool {
         margin: $huge-spacing auto 0 auto;
+
+        p {
+
+            a:hover {
+                border-bottom-color: $color-secondary;
+            }
+        }
 
         .survey-filter {
             margin-top: $tiny-spacing;

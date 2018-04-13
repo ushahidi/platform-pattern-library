@@ -35,21 +35,21 @@ fieldset {
 
         .tooltip {
             display: inline-block;
-            color: $bg-white;
+            color: $white;
             width: 1.142857143em;
             height: 1.142857143em;
             font-weight: $bold;
             font-size: .857142857em;
             text-align: center;
             @include equal-radius(100%);
-            background-color: $dark-blue;
+            background-color: $color-primary;
             padding: 2px;
             margin: 0 4px;
 
             svg.iconic {
                 width: 10px;
                 height: 10px;
-                fill: $bg-white;
+                fill: $white;
             }
         }
     }
@@ -80,15 +80,15 @@ fieldset {
     }
 
     .bug {
-        color: $black;
-        border: 1px solid $bg-gray;
-        background-color: $bg-white;
+        color: $color-dark-alpha;
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-gamma;
 
         svg.iconic {
-            fill: $black;
+            fill: $color-primary-gamma;
 
             &:hover {
-                fill: darken($black, 20%);
+                fill: darken($color-primary-gamma, 20%);
             }
         }
     }
@@ -115,7 +115,7 @@ fieldset {
 
             &:after {
                 content: '\2217';
-                color: $error-red;
+                color: $red;
                 font-weight: normal;
                 font-size: 1.05em;
                 @include margin-left($tiny-spacing);
@@ -129,7 +129,7 @@ fieldset {
         label,
         legend,
         p {
-            color: $error-red;
+            color: $error-color;
         }
 
         input,
@@ -141,19 +141,19 @@ fieldset {
         select {
             @include float(left);
             @include clear(left);
-            border-color: $error-red;
-            box-shadow: 0 0 $tiny-spacing $error-red;
+            border-color: $error-color;
+            box-shadow: 0 0 $tiny-spacing $error-color;
             margin-bottom: $sm-spacing;
 
             &:focus {
-                border-color: $error-red;
+                border-color: $error-color;
             }
         }
 
         .form-field {
 
             label {
-                color: $error-red;
+                color: $error-color;
             }
         }
 
@@ -173,10 +173,10 @@ fieldset {
         input[type="search"],
         textarea,
         select {
-            border-color: $success-green;
+            border-color: $confirmation-color;
 
             &:focus {
-                border-color: $success-green;
+                border-color: $confirmation-color;
             }
         }
     }
@@ -193,7 +193,7 @@ fieldset {
         @include lrswap(margin, 0 0 $tiny-spacing 2px);
 
         label {
-            color: $black;
+            color: $text-color;
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
@@ -211,7 +211,7 @@ fieldset {
         }
 
         svg.iconic {
-            fill: $dark-gray;
+            fill: $color-light-alpha;
             @include margin-right(4px);
         }
 
@@ -244,7 +244,7 @@ fieldset {
         &.checked {
 
             .modal-title {
-                color: $dark-gray;
+                color: $color-dark-delta;
                 font-weight: normal;
                 text-decoration: line-through;
             }
@@ -253,7 +253,7 @@ fieldset {
         &.disabled {
 
             label {
-                color: $dark-gray;
+                color: $color-dark-delta;
 
                 &:hover {
                     cursor: not-allowed;
@@ -272,12 +272,12 @@ fieldset {
                     @include left(0);
                     width: $sm-spacing;
                     height: $sm-spacing;
-                    color: $dark-blue;
+                    color: $color-primary;
                     font-weight: bold;
                     font-size: 13px;
                     line-height: 13px;
                     @include equal-radius(100%);
-                    background-color: $gold;
+                    background-color: $color-secondary;
                     padding: 2px;
                 }
 
@@ -341,7 +341,7 @@ fieldset {
 
             .map {
                 height: 400px;
-                border: 1px solid $bg-gray;
+                border: 1px solid $color-light-beta;
                 margin-bottom: $tiny-spacing;
 
                 + .form-field {
@@ -400,7 +400,7 @@ fieldset {
 
         label {
             display: inline-block;
-            color: $black;
+            color: $text-color;
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
@@ -487,8 +487,8 @@ fieldset {
         @extend .caps;
         text-align: center;
         @include equal-radius();
-        border: 1px solid $bg-gray;
-        background-color: $bg-white;
+        border: 1px solid $color-light-beta;
+        background-color: $color-light-delta;
         padding: 4px;
         margin-top: $tiny-spacing;
         margin-right: $tiny-spacing;
@@ -520,7 +520,7 @@ fieldset {
             border-bottom: $base-border;
             @include border-left($base-border);
             padding: 10px;
-            background-color: $bg-white;
+            background-color: $lt-brown;
 
             label {
                 margin-top: 10px;
@@ -589,7 +589,7 @@ fieldset {
 
         > label {
             display: block;
-            color: $black;
+            color: $text-color;
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
@@ -606,14 +606,14 @@ fieldset {
         &.disabled {
 
             > label {
-                color: $dark-gray;
+                color: $color-dark-delta;
 
                 &:hover {
                     cursor: not-allowed;
                 }
 
                 svg.iconic {
-                    fill: $dark-gray;
+                    fill: $color-dark-delta;
                 }
             }
         }
@@ -644,7 +644,7 @@ fieldset {
         position: absolute;
         top: 13px;
         @include left(16px);
-        fill: $dark-blue;
+        fill: $color-primary;
     }
 
     input[type="search"]::-webkit-search-cancel-button {
@@ -808,7 +808,7 @@ fieldset {
 
             [contenteditable] {
                 position: relative;
-                outline-color: $bg-white;
+                outline-color: $white;
                 @include border-top-radius($global-radius);
                 @include border-bottom-radius($global-radius);
                 border: $base-border-dark;
@@ -820,7 +820,7 @@ fieldset {
                 }
 
                 &:focus {
-                    box-shadow: 0 0 4px 1px $dark-gray,
+                    box-shadow: 0 0 4px 1px $color-secondary,
                         inset 0 1px 1px rgba(0,0,0,.3);
                 }
 
@@ -873,19 +873,19 @@ fieldset,
 
     .form-field-toggle {
         display: none;
-        color: $dark-blue;
+        color: $color-primary;
         padding: $tiny-spacing;
         @include padding-left(0);
 
         &:hover {
             cursor: pointer;
-            color: $dark-blue;
+            color: $color-primary-alpha;
         }
 
         svg.iconic {
             width: 8px;
             height: 8px;
-            fill: $dark-blue;
+            fill: $color-primary;
             @include margin-right($tiny-spacing);
             @include transition(0.3s);
         }
@@ -983,12 +983,12 @@ fieldset,
         &.focus {
 
             label {
-                color: $dark-gray;
+                color: darken( $color-secondary, 20% );
             }
 
             input[type="text"],
             textarea {
-                border-bottom-color: $dark-gray;
+                border-bottom-color: $color-secondary;
             }
         }
 
@@ -1008,12 +1008,12 @@ fieldset,
         &.error {
 
             label {
-                color: $error-red !important;
+                color: $error-color !important;
             }
 
             input,
             textarea {
-                border-color: $error-red !important;
+                border-color: $error-color !important;
             }
         }
     }
@@ -1026,7 +1026,7 @@ svg.iconic {
         width: 1.142857143em;
         height: 1.142857143em;
         vertical-align: sub;
-        fill: $dark-blue;
+        fill: $color-primary;
     }
 }
 
@@ -1071,7 +1071,7 @@ span[data-fieldgroup-target] {
 
     .addon {
         padding: 12px;
-        background-color: $disabled-gray;
+        background-color: $color-tertiary;
 
         &.before {
             @include radius(2px, 0, 0, 2px);

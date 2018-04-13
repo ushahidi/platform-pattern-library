@@ -8,7 +8,7 @@ input[type="button"] {
    display: inline-block;
    outline: none;
    @include direction;
-   color: $bg-white;
+   color: $white;
    font-weight: 800;
    font-size: 14px;
    font-size: 1rem;
@@ -21,7 +21,7 @@ input[type="button"] {
    border: 0px;
    @include border-top-radius($global-radius);
    @include border-bottom-radius($global-radius);
-   background-color: $black;
+   background-color: $color-primary-gamma;
    box-shadow: 0 0 2px rgba(0,0,0,0.12),
     0 2px 2px rgba(0,0,0,0.24);
    @include lrswap(padding, $tiny-spacing $sm-spacing);
@@ -29,28 +29,28 @@ input[type="button"] {
 
    &:hover {
       cursor: pointer;
-      color: $bg-white;
-      background-color: $black;
+      color: $white;
+      background-color: $color-primary-beta;
       box-shadow: 0 0 2px rgba(0,0,0,0.12),
        0 3px 5px rgba(0,0,0,0.24);
    }
 
    &:active {
-      color: $bg-white;
-      background-color: $dark-blue;
+      color: $white;
+      background-color: $color-primary-alpha;
       @include no-transition;
       box-shadow: 0 0 2px rgba(0,0,0,0.12),
        0 3px 5px rgba(0,0,0,0.24);
    }
 
    &:focus {
-       color: $bg-white;
+       color: $white;
    }
 
    &.disabled, &[disabled] {
       cursor: not-allowed;
       opacity: 0.5;
-      background-color: $disabled-gray;
+      background-color: $color-light-gamma;
       box-shadow: none;
    }
 
@@ -71,56 +71,56 @@ input[type="button"] {
 }
 
 .button-alpha {
-    color: $black;
-   background-color: $gold;
+    color: $color-primary-beta;
+   background-color: $color-secondary;
 
    &:hover,
    &:active,
    &:focus {
-      color: $black;
-      background-color: darken( $gold, 10% );
+      color: $color-primary-beta;
+      background-color: darken( $color-secondary, 10% );
    }
 
    &.disabled, &[disabled] {
 
       &:hover {
-          background-color: $disabled-gray;
+          background-color: $color-light-gamma;
           box-shadow: none;
       }
    }
 }
 
 .button-beta {
-   color: $black;
-   background-color: $bg-gray;
+   color: $link-color;
+   background-color: $color-light-delta;
 
    &:hover {
-       color: $black;
-       background-color: darken( $bg-gray, 10% );
+       color: $link-hover-color;
+       background-color: darken( $color-light-delta, 10% );
    }
 
    &.disabled, &[disabled] {
 
       &:hover {
-          background-color: $dark-gray;
+          background-color: $color-light-delta;
           box-shadow: none;
       }
    }
 }
 
 .button-gamma {
-    color: $black;
-    background-color: $bg-white;
+    color: $link-color;
+    background-color: $white;
 
     &:hover, &:active {
-       color: darken( $black, 20% );
-       background-color: darken( $bg-white, 10% );
+       color: $link-hover-color;
+       background-color: darken( $white, 10% );
    }
 
    &.disabled, &[disabled] {
 
       &:hover {
-          background-color: $disabled-gray;
+          background-color: $white;
           box-shadow: none;
       }
    }
@@ -148,16 +148,16 @@ input[type="button"] {
 
     &:disabled,
     &.disabled {
-        color: $disabled-gray;
+        color: $color-dark-beta;
 
         svg.iconic {
-            fill: $dark-gray;
+            fill: $color-dark-beta;
         }
     }
 }
 
 .button-link {
-    color: $link-blue;
+    color: $link-color;
     font-weight: normal;
     font-size: 1em;
     letter-spacing: normal;
@@ -165,7 +165,7 @@ input[type="button"] {
     @include no-shadow;
 
     &:hover {
-        color: darken( $link-blue, 20% );
+        color: $link-hover-color;
         background-color: transparent;
         @include no-shadow;
     }
@@ -218,17 +218,17 @@ a.button-fab {
 */
 
 .button-destructive {
-   color: $bg-white;
-   background-color: $error-red;
+   color: $white;
+   background-color: $red;
 
    &:hover {
-      background-color: darken( $error-red, 10% );
+      background-color: darken( $red, 10% );
    }
 
    &.disabled, &[disabled] {
       cursor: default;
-      color: $dark-gray;
-      background-color: $disabled-gray;
+      color: $dk-gray;
+      background-color: $white;
 
       &:hover {
          border: $base-border;

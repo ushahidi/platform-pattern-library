@@ -3,6 +3,8 @@
     display: inline-block;
     @include direction;
     line-height: 1.4;
+    @include border-left(2px solid $color-secondary);
+    background-color: lighten( $color-secondary, 32% );
     margin-bottom: $sm-spacing;
     padding: $tiny-spacing 0;
     color: $dark-gray;
@@ -10,18 +12,20 @@
     &.error {
         @include float(left);
         @include clear(left);
-        color: $error-red;
+        border-color: $error-color;
+        background-color: lighten( $error-color, 50% );
 
         svg.iconic {
-            fill: $error-red;
+            fill: $error-color;
         }
     }
 
     &.confirmation {
-        color:$success-green;
+        border-color: $confirmation-color;
+        background-color: lighten( $confirmation-color, 50% );
 
         svg.iconic {
-            fill: $success-green;
+            fill: $confirmation-color;
         }
     }
 
