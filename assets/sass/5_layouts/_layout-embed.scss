@@ -1,29 +1,81 @@
 &.layout-embed {
 
+    .mode-bar {
+        @include media($medium-down) {
+            display: none;
+        }
+    }
+
     .mode-context {
 
-        @include media($medium) {
-            @include left(0);
-        }
-
         &.active {
-
             @include media($medium-down) {
                 bottom: 0;
             }
         }
     }
 
+    &.layout-d {
+        @include padding-left(0);
+
+        .mode-context {
+            @include media($medium) {
+                display:none;
+            }
+        }
+
+        [role="main"] {
+
+            @include media($medium) {
+                @include padding-left($lg-spacing*2);
+            }
+
+            .timeline-col {
+                @include media($medium-down) {
+                    padding-top: 72px;
+                }
+            }
+
+            .post-col {
+                &.active {
+                    @include media($medium-down) {
+                        margin-top: 72px;
+                    }
+                }
+            }
+
+            .load-more {
+             @include media($medium-down) {
+                    top: 68px;
+                }
+            }
+        }
+
+        .embed-survey-filter {
+            display: none;
+        }
+
+        .ushahidi-bug {
+            right: 23px;
+            left: auto;
+            bottom: 86px;
+            top: auto;
+        }
+    }
+
     [role="main"] {
 
         @include media($medium) {
-            @include padding-left(224px);
+            @include padding-left(288px);
         }
 
         .toolbar {
+            .searchbar {
+                margin-left: 78px;
 
-            @include media($medium) {
-                @include left(224px);
+                @include media($medium-down) {
+                    display: none;
+                }
             }
 
             .fab {
@@ -55,7 +107,7 @@
 
             &.full-size {
                 bottom: 0;
-                top:0;
+                top: 0;
 
                 @include media($medium) {
                     @include left(224px);
@@ -78,6 +130,7 @@
             bottom: 0;
         }
     }
+
 
     .mainsheet {
 
