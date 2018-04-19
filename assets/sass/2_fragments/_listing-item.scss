@@ -1,6 +1,7 @@
 .listing-item {
     position: relative;
     @include clearfix;
+    padding: $sm-spacing 0;
 
     .listing-item-select {
         position: absolute;
@@ -11,7 +12,7 @@
         input[type="checkbox"],
         input[type="radio"] {
             position: relative;
-            top: $base-spacing+1;
+            top: $base-spacing*2;
         }
 
         .buttons-updown {
@@ -74,7 +75,7 @@
 
     .listing-item-secondary {
         position: absolute;
-        top: 18px;
+        top: 20px;
         @include right($sm-spacing);
         z-index: $body;
         width: 56px;
@@ -89,7 +90,7 @@
         button,
         .button {
             line-height: normal;
-            margin-top: -$tiny-spacing;
+            margin-top: 18px;
 
             .button-label {
                 display: none;
@@ -233,6 +234,7 @@
     }
 
     .listing-item-title {
+        padding-bottom: 16px;
         @include typeGamma;
 
         &.required {

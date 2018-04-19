@@ -1,0 +1,56 @@
+.survey-card-wrapper {
+
+    @include media($large) {
+        width: 100%;
+    }
+    margin: $base-spacing 0 $base-spacing 0;
+
+    .survey-card {
+        display: flex;
+        flex-direction: column;
+        min-height: 80px;
+        @include media($large) {
+            flex-direction: row;
+            min-height: 80px;
+        }
+
+        .survey-info-card {
+            position: relative;
+            flex: 1 0 0;
+            @include padding($sm-spacing 10%);
+            @include media($xlarge) {
+                @include padding($sm-spacing 20%);
+            }
+
+            @include media($small-down) {
+                padding-bottom: $huge-spacing;
+            }
+
+            p {
+                font-style: italic;
+            }
+
+            .survey-card-title {
+                font-weight: 600;
+                font-size: 16px;
+            }
+            .survey-button {
+                @include float (right);
+                    position: absolute;
+                    @include right(10%);
+                    bottom: 35%;
+                @include media($xlarge) {
+                    @include right(20%);
+                }
+
+                @include media($small-down) {
+                    display: block;
+                    @include float(left);
+                    @include left(10%);
+                    bottom: 10%;
+                }
+
+            }
+        }
+    }
+}

@@ -174,7 +174,7 @@
                             <span class="label">Author</span>
                         </span>
                         {{#if properties.author.avatar}}
-                        <img src="{{properties.author.avatar}}" class="avatar" />
+                        <img src="{{properties.author.avatar}}" class="avatar" alt="Author Avatar" />
                         {{/if}}
                         <span class="label">{{properties.author.name}}</span>
                     </a>
@@ -192,7 +192,18 @@
                     </a>
                 </li>
             </ul>
-
+            <div class="form-field init required error">
+                <label class="required" for="title">
+                    Title
+                </label>
+                <input id="title" name="title" type="text" required="required" />
+                <div class="alert error">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                    </svg>
+                    <p>A title is required</p>
+                </div>
+            </div>
             {{#each answers}}
                 {{formField ../properties.survey 0 @index value}}
             {{/each}}
