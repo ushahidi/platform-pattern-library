@@ -1,49 +1,40 @@
 .alert {
-    position: relative;
     display: inline-block;
     @include direction;
+    font-style: italic;
     line-height: 1.4;
+    @include border-left(2px solid $color-secondary);
+    background-color: lighten( $color-secondary, 32% );
     margin-bottom: $sm-spacing;
-    padding: $tiny-spacing 0;
-    font-weight: 400;
+    padding: $tiny-spacing $sm-spacing;
 
-    &.neutral {
-        color: $dark-gray;
-
-        svg.iconic {
-            fill: $dark-gray;
-            top: 12px;
-        }
+    svg.iconic {
+        @include margin-right($tiny-spacing);
     }
 
-    &.confirmation {
-        color:$success-green;
-
-        svg.iconic {
-            fill: $success-green;
-            top: 11px;
-        }
+    p {
+        @include float(right);
+        margin: 0;
     }
 
     &.error {
         @include float(left);
         @include clear(left);
-        color: $error-red;
+        border-color: $error-color;
+        background-color: lighten( $error-color, 50% );
 
         svg.iconic {
-            fill: $error-red;
-            top: 10px;
+            fill: $error-color;
         }
     }
 
-    svg.iconic {
-        position: absolute;
-        @include margin-right($tiny-spacing);
-    }
+    &.confirmation {
+        border-color: $confirmation-color;
+        background-color: lighten( $confirmation-color, 50% );
 
-    p {
-        margin: 0;
-        @include padding-left(20px);
+        svg.iconic {
+            fill: $confirmation-color;
+        }
     }
 
 }

@@ -54,23 +54,11 @@
             + .listing-item-title {
                 @include padding-left(48px);
 
-                // @include media($small) {
-                //     @include padding-left(0);
-                // }
-
                 + .listing-item-secondary {
                     @include padding-left(48px);
 
-                    @include media($small) {
-                        @include padding-left(0);
-                    }
-
                     + p {
                         @include padding-left(48px);
-
-                        @include media($small) {
-                            @include padding-left(0);
-                        }
                     }
                 }
             }
@@ -157,7 +145,7 @@
     }
 
     .listing-item-body {
-        background-color: $bg-white;
+        background-color: $white;
         box-shadow: 0 1px 4px rgba(0,0,0,.24) inset;
         padding: $sm-spacing;
 
@@ -170,20 +158,20 @@
         }
 
         .listing {
-            border: 1px solid $bg-gray;
+            border: 1px solid $color-light-beta;
             @include radius;
-            background-color: $bg-white;
+            background-color: $color-light-gamma;
 
             .listing-heading {
                 @extend .caps;
-                color: $dark-gray;
-                border-bottom: 1px solid $bg-gray;
-                background-color: $bg-gray;
+                color: $color-dark-gamma;
+                border-bottom: 1px solid $color-light-beta;
+                background-color: $color-light-beta;
                 padding: $sm-spacing;
             }
 
             .listing-item {
-                border-bottom-color: $bg-gray;
+                border-bottom-color: $color-light-beta;
             }
         }
 
@@ -226,7 +214,7 @@
         svg.iconic {
             width: 1em;
             height: 1em;
-            fill: $black;
+            fill: $color-primary-beta;
             vertical-align: middle;
         }
 
@@ -238,7 +226,7 @@
                 z-index: $body;
                 top: 50%;
                 @include left(-$tiny-spacing);
-                fill: $dark-blue;
+                fill: $color-primary;
                 margin-top: -$tiny-spacing;
             }
         }
@@ -256,13 +244,13 @@
                 font-weight: normal;
                 font-size: 1.05em;
                 top: -4px;
-                color: $error-red;
+                color: $red;
                 @include margin-left(4px);
             }
         }
 
         em {
-            color: $dark-gray;
+            color: $color-dark-delta;
             font-style: normal;
             font-size: .857142857em;
         }
@@ -288,7 +276,7 @@
             svg.iconic {
                 width: .75em;
                 height: .75em;
-                fill: $dark-gray;
+                fill: $color-light-alpha;
             }
         }
 
@@ -314,7 +302,7 @@
     @extend .sheet;
     box-shadow: none;
     @include clearfix;
-    background-color: $dark-blue;
+    background-color: $color-primary;
     padding: $sm-spacing;
 
     @include media($medium) {
@@ -324,7 +312,7 @@
 
     .listing-toolbar-summary {
         display: block;
-        color: $bg-white;
+        color: $white;
         margin-bottom: $tiny-spacing;
 
         .button-link {
@@ -384,18 +372,18 @@
         .listing-toolbar-toggle {
             display: none;
             font-style: italic;
-            background-color: $black;
+            background-color: $color-primary-gamma;
             box-shadow: 0 0 16px rgba(55,62,70,.8);
         }
     }
 
     .button-link {
-        color: $disabled-gray;
+        color: $color-tertiary;
         font-size: .857142857em;
         padding: 0 $sm-spacing;
 
         &:hover {
-            color: $bg-white;
+            color: $white;
         }
     }
 
