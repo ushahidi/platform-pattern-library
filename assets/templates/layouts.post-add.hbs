@@ -6,7 +6,7 @@
         <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
 
         {{#if deployment.logo}}
-            <img src="{{deployment.logo}}" class="deployment-logo" />
+            <img src="{{deployment.logo}}" class="deployment-logo" alt="Deployment Logo" />
         {{/if}}
     </header>
 
@@ -57,7 +57,7 @@
                             <span class="label">Author</span>
                         </span>
                         {{#if ../../user.avatar}}
-                            <img src="{{../../../user.avatar}}" class="avatar">
+                            <img src="{{../../../user.avatar}}" class="avatar" alt="User Avatar" />
                         {{/if}}
                         <span class="label">{{../../user.name}}</span>
                     </a>
@@ -65,7 +65,7 @@
 
                 <!--li>
                     {{#if ../../user.avatar}}
-                        <img src="{{../../../user.avatar}}" class="avatar">
+                        <img src="{{../../../user.avatar}}" class="avatar" alt="User Avatar" />
                     {{/if}}
                     <strong>{{../../user.name}}</strong>
                 </li-->
@@ -107,7 +107,18 @@
 
                 {{/if}}
             </ul>
-
+            <div class="form-field init required error">
+                <label class="required" for="title">
+                    Title
+                </label>
+                <input id="title" name="title" type="text" required="required" />
+                <div class="alert error">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                    </svg>
+                    <p>A title is required</p>
+                </div>
+            </div>
             {{#each fields}}
                 {{#ifCond type.control 'text'}}
                 <div class="form-field">

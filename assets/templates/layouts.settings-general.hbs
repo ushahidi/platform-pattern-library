@@ -35,9 +35,15 @@
     <div class="main-col">
 
         <div class="form-sheet">
-            <div class="form-field title">
-                <label class="hidden">Deployment name</label>
-                <input type="text" placeholder="Deployment name" value="{{deployment.name}}">
+            <div class="form-field title init required error">
+                <label class="hidden required">Deployment name</label>
+                <input type="text" placeholder="Deployment name" value="{{deployment.name}}" />
+                <div class="alert error">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                    </svg>
+                    <span>A title is required</span>
+                </div>
             </div>
 
             <div class="form-field">
@@ -51,7 +57,7 @@
                 {{#if deployment.logo}}
 
                 <figure>
-                    <img src="{{deployment.logo}}" class="postcard-image deployment-logo" />
+                    <img src="{{deployment.logo}}" class="postcard-image deployment-logo" alt="Deployment Logo" >
                 </figure>
                 <div class="form-field">
                     <input type="file" id="photo" />
