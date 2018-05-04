@@ -528,3 +528,11 @@ exportSelected = function () {
     $(options).toggleClass('hidden');
     $(selected).toggleClass('hidden');
 }
+
+hdxApiKey = function () {
+    var nokey = $('.no-key');
+    var key = $('.key');
+
+    $(nokey).toggleClass('hidden');
+    $(key).toggleClass('hidden');
+}
