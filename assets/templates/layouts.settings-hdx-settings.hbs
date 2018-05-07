@@ -1,0 +1,122 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+        <h1 class="mode-context-title">Export</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+    </div>
+</div>
+
+<main role="main">
+    <div class="main-col">
+        <div class="form-sheet hdx">
+            <div class="form-sheet-summary">
+                <h2 class="form-sheet-title">Add details</h2>
+                <p>To upload to the Humanitarian Data Exchange (HDX) some extra details are required.</p>
+            </div>
+            <img class="field-logo" src="../../img/hdx-logo.png" />
+            <div class="form-field">
+                <h2>Privacy Settings</h2>
+                <p>You have a choice of sharing your dataset publicly or restricting access to other members of the organisation which owns the dataset.</p>
+            </div>
+
+            <form>
+                <fieldset>
+                    <legend class="required">This data set is:</legend>
+                    <div class="form-field radio">
+                        <label>
+                            <input type="radio">
+                            <strong>Private</strong> (Only you and other HDX members of your organisation can <strong>search, view/edit</strong> or <strong> download </strong> this dataset)
+                        </label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="public"><strong>Public</strong> (Anyone can <strong>search, view/edit</strong> or <strong> download </strong> this dataset)</label>
+                        <input id="public" type="radio">
+                    </div>
+                </fieldset>
+
+                <div class="form-field">
+                    <h2>Dataset Title & Description</h2>
+                    <p>When users search for data on HDX, their search terms will be matched to terms in your title. Avoid using abbreviations in the title which may not be familiar to all users. Also,
+                        avoid using words such as current, latest or previous when referring to the time period (e.g Latest 3W) as these terms become misleading as the dataset ages.</p>
+                    <p>Example dataset title: <strong>Who is Doing What Where in Afghanistan, Jan-Dec 2015</strong></p>
+                </div>
+
+                <div class="form-field">
+                    <label class="required">Title of data set</label>
+                        <input placeholder="e.g a descriptive title" type="text">
+                </div>
+
+                <div class="form-field">
+                    <h2>Metadata</h2>
+                    <p>Metadata is additional information about your dataset that will make it easier for others to understand and put your data into context. Datasets on HDX must include a set of metadata fields</p>
+                </div>
+
+                <div class="form-field">
+                    <label for="source" class="required">Source</label>
+                    <div class="custom-select">
+                        <select id="source">
+                        <option>COMRADES</option>
+                        <option>Ushahidi</option>
+                     </select>
+                  </div>
+                </div>
+
+                <div class="form-field">
+                    <label class="required" for="organisation">Organisation</label>
+                    <div class="custom-select">
+                        <select id="organisation">
+                            <option>COMRADES</option>
+                            <option>Ushahidi</option>
+                         </select>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="maintainer" class="required">Maintainer</label>
+                    <div class="custom-select">
+                        <select id="maintainer">
+                            <option>Eriol-2924</option>
+                            <option>Anna-3031</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label class="required" for="license">License</label>
+                    <div class="custom-select">
+                         <select id="license">
+                            <option>Creative Commons License</option>
+                            <option>GNU General Public License</option>
+                         </select>
+                    </div>
+                    <a href="#" class="link-blue">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#external-link"></use>
+                        </svg>
+                    Read more about licenses
+                    </a>
+                </div>
+
+                <div class="form-field button-group">
+                    <button class="button button-alpha">Submit to HDX Account</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</main>
