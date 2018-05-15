@@ -2,6 +2,21 @@
     $TYPOGRAPHY
 \*------------------------------------*/
 
+a {
+    font-family: Lato;
+    font-weight: 900; //Lato heavy
+    color: $link-blue;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    @include transition;
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        color: darken( $link-blue, 20% );
+    }
+}
+
 p {
     line-height: 1.357142857;
     margin: $sm-spacing 0;
@@ -33,18 +48,6 @@ strong {
     letter-spacing: 1px;
 }
 
-a {
-    color: $link-blue;
-    text-decoration: none;
-    @include transition;
-
-    &:hover,
-    &:focus {
-        cursor: pointer;
-        color: darken( $link-blue, 20% );
-    }
-}
-
 img {
     display: block;
     max-width: 100%;
@@ -55,7 +58,6 @@ img {
 }
 
 caption { }
-
 
 code {
     font: 12px/1 'Courier New', Courier, monospace;
