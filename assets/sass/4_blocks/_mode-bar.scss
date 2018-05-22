@@ -2,13 +2,14 @@
     @include clearfix;
     position: relative;
     width: 100%;
+    height: 100vh;
     background-color: $black;
     @include equal-radius(0);
     z-index: $modebar;
 
     @include media($medium) {
-        width: 144px;
-        max-width: 144px;
+        width: 183px;
+        max-width: 183px;
     }
 
     ul {
@@ -137,6 +138,24 @@
             display: -ms-flex;
             display: -o-flex;
             display: flex;
+        }
+    }
+
+    .made-by-logo {
+        position: absolute;
+        bottom: 0;
+        padding: $sm-spacing;
+
+        img {
+            position: absolute;
+            width: 20px;
+        }
+
+        span {
+            color: $bg-white;
+            font-size: 14px;
+            @include padding-left(30px);
+            line-height: 1.4;
         }
     }
 }
