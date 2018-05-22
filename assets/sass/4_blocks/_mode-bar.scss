@@ -2,7 +2,6 @@
     @include clearfix;
     position: relative;
     width: 100%;
-    height: 100vh;
     background-color: $black;
     @include equal-radius(0);
     z-index: $modebar;
@@ -10,6 +9,7 @@
     @include media($medium) {
         width: 183px;
         max-width: 183px;
+        height: 100vh;
     }
 
     ul {
@@ -142,20 +142,40 @@
     }
 
     .made-by-logo {
-        position: absolute;
-        bottom: 0;
-        padding: $sm-spacing;
+
+        @include media($medium) {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: $sm-spacing;
+        }
+
+        a {
+            position: relative;
+            margin: 0;
+            top: 0;
+        }
 
         img {
-            position: absolute;
-            width: 20px;
+            width: 30px;
+
+            @include media($medium) {
+                position: absolute;
+                width: 20px;
+            }
+
         }
 
         span {
+            display: none;
             color: $bg-white;
             font-size: 14px;
             @include padding-left(30px);
             line-height: 1.4;
+
+            @include media($medium) {
+                display: block;
+            }
         }
     }
 }
