@@ -1,19 +1,28 @@
 &.layout-g {
 
     [role="main"] {
-        padding-top: 0;
-        @include padding-left(180px);
-
         display: -webkit-flex;
         display: -moz-flex;
         display: -ms-flex;
         display: -o-flex;
         display: flex;
+        flex-direction: column;
+        margin-bottom: 67px;
+
+        @include media($medium) {
+            flex-direction: row;
+            padding-top: 0;
+            @include padding-left(180px);
+            margin-bottom: 0;
+        }
     }
 
     .pane {
-        flex-grow: 1;
-        max-width: 784px;
+
+        @include media($medium) {
+            flex-grow: 1;
+            max-width: 784px;
+        }
     }
 
 }
