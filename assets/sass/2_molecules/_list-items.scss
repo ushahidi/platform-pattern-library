@@ -1,9 +1,12 @@
 .list-item {
+    position: relative;
     display: block;
     list-style-type: none;
     border-bottom: $base-border;
     border-bottom-width: 1px;
     padding: $base-spacing 0;
+    margin: 0;
+    height: inherit;
 
     &:last-child {
         border-bottom-color: transparent;
@@ -19,6 +22,17 @@
         display: block;
         color: $dark-gray;
         margin-top: $sm-spacing;
+    }
+
+    &.selected:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        @include left(-20px);
+        width: 5px;
+        background: $accent-purple;
+        border-radius: 5px;
     }
 }
 

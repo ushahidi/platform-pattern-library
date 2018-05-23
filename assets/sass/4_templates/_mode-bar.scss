@@ -1,86 +1,96 @@
 .mode-bar {
     @include clearfix;
     position: relative;
-    z-index: $modebar;
-    max-width: $lg-spacing*2;
+    width: 100%;
+    background-color: $black;
     @include equal-radius(0);
-    background-color: $dark-blue;
-
-    @include media($medium-down) {
-        display: block;
-        max-width: none;
-        background-color: $bg-white;
-    }
+    z-index: $modebar;
 
     @include media($medium) {
-        padding-bottom: 140px;
+        width: 183px;
+        max-width: 183px;
+        height: 100vh;
     }
 
     ul {
         @extend .list-reset;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        @include media($medium) {
+            flex-direction: column;
+        }
     }
 
     li {
-        /*
-        display: flex;
-        flex-grow: 1;
-        justify-content: space-around;
-        */
+        position: relative;
+        text-align: center;
+        padding: 15px 0 13px;
 
-        a {
-            display: block;
-            color: $disabled-gray;
-            font-size: 12px;
-            text-align: center;
-            padding: $sm-spacing 2px;
-            @include transition(0.3s);
+        @include media($medium) {
+            text-align: inherit;
+            padding: $sm-spacing;
+        }
 
-            @include media($medium-down) {
-                font-size: 11px;
-                padding: $tiny-spacing/2 0;
-            }
+        &:hover {
+            cursor: hand;
 
             svg.iconic {
-                display: block;
-                width: $sm-spacing;
-                height: $sm-spacing;
-                fill: $disabled-gray;
-                margin: 4px auto 6px;
-                @include transition(0.3s);
+                fill: $gold;
             }
 
-            svg.ushahidi-logo {
-                display: block;
-                width: $base-spacing;
-                height: $base-spacing;
-                fill: $disabled-gray;
-                margin: 4px auto 6px;
-            }
-
-            .avatar {
-                width: $lg-spacing;
-                height: $lg-spacing;
-                margin: 4px auto 6px;
-            }
-
-
-            &:hover {
-                color: $bg-white;
-
-                svg.iconic {
-                    fill: $bg-white;
-                }
+            a {
+                color: $gold;
             }
         }
 
-        .more-menu-trigger {
-            display: none;
+        &.active {
 
-            @include media($medium-down) {
+            svg.iconic {
+                fill: $gold;
+            }
+
+            a {
+                color: $gold;
+            }
+        }
+
+        svg.iconic {
+            width: $sm-spacing+2;
+            height: $sm-spacing+2;
+            fill: $bg-white;
+            @include transition(0.3s);
+        }
+
+        a {
+            display: block;
+            color: $bg-white;
+            font-size: em(11px);
+            @include transition(0.3s);
+            padding: $tiny-spacing/2 0;
+
+            @include media($medium) {
+                display: inline-block;
+                position: absolute;
+                top: 14px;
+                margin-left: 10px;
+                font-size: em(16px);
+            }
+        }
+
+        &.more-menu-trigger {
+
+            svg.iconic,
+            a {
                 display: block;
 
-                &.active + ul {
-                    display: block;
+                @include media($medium) {
+                    display: none;
                 }
             }
         }
@@ -90,240 +100,81 @@
 
         @include media($medium-down) {
             @include clearfix;
-            box-shadow: 0 0 4px rgba(0,0,0,0.12),
-                0 0 4px rgba(0,0,0,0.24);
         }
 
-        li {
-
-            @include media($medium-down) {
-                display: block;
-                position: static;
-                @include float(left);
-                width: 25%;
-                list-style-type: none;
-                text-align: center;
-                background-color: $dark-blue;
-            }
-
-            &.active {
-
-                @include media($medium) {
-
-                    a {
-                        color: $gold;
-
-                        svg.iconic {
-                            fill: $gold;
-                        }
-                    }
-                }
-            }
-
-            ul {
-
-                @include media($medium-down) {
-                    display: none;
-                    position: absolute;
-                    right: 0;
-                    bottom: 100%;
-                    left: 0;
-                    z-index: $modebar;
-
-                    li {
-                        float: none;
-                        width: auto;
-                        @include text-align(left);
-                        background-color: transparent;
-                    }
-                }
-            }
-
-            li {
-
-                a {
-
-                    @include media($medium-down) {
-                        @include typeBase;
-                        @include text-align(left);
-                        padding: $sm-spacing;
-
-                        svg.iconic {
-                            display: inline-block;
-                            position: relative;
-                            top: 2px;
-                            width: 1em;
-                            height: 1em;
-                            margin: 0;
-                            @include margin-right($tiny-spacing);
-                        }
-                    }
-                }
-            }
+        &:after {
+            content: none;
         }
+
     }
 
     .account-menu {
-        display: flex;
-        -webkit-flex-direction: column-reverse;
-        flex-direction: column-reverse;
-
-        @include media($medium-down) {
-            display: none;
-            position: static;
-            background-color: $dark-blue;
-            padding-bottom: $huge-spacing*3;
-        }
+        background: $dark-blue;
+        display: none;
 
         @include media($medium) {
-            // position: fixed;
-            width: $lg-spacing*2;
-            bottom: 0;
-//            box-shadow: 0 -4px 4px $dark-blue;
+            display: block;
+            background: $black;
+        }
+
+        svg.iconic {
+            width: 13px;
+            height: 13px;
         }
 
         a {
-            padding: $tiny-spacing 2px;
-
-            @include media($medium-down) {
-                color: $disabled-gray;
-                @include typeBase;
-                @include text-align(left);
-                padding: $sm-spacing;
-
-                &:hover {
-                    color: $bg-white;
-
-                    svg.iconic {
-                        fill: $bg-white;
-                    }
-                }
-
-                svg.iconic,
-                svg.ushahidi-logo {
-                    display: inline-block;
-                    position: relative;
-                    top: 2px;
-                    fill: $disabled-gray;
-                    width: 1em;
-                    height: 1em;
-                    margin: 0;
-                    @include margin-right($tiny-spacing);
-                }
-
-                .avatar {
-                    @include float(left);
-                    width: 20px;
-                    height: 20px;
-                    @include lrswap(margin, -3px 7px 0 -3px);
-                }
-            }
-
-            @include media($medium) {
-                position: relative;
-
-                &:hover {
-
-                    .label {
-                        display: block;
-                    }
-                }
-            }
-        }
-
-        .label {
-
-            @include media($medium) {
-                display: none;
-                position: absolute;
-                top: $tiny-spacing;
-                @include left(90%);
-                z-index: $modal;
-                color: $bg-white;
-                @include typeBase;
-                text-align: center;
-                white-space: nowrap;
-                border-radius: 25px;
-                background: $dark-blue;
-                padding: $tiny-spacing $sm-spacing;
-                @include margin-left(0);
-                box-shadow: 0 0 16px rgba(0,0,0,0.12),
-                    0 16px 16px rgba(0,0,0,0.24);
-            }
-
-            .badge {
-                display: inline-block;
-                height: $sm-spacing;
-                width: $sm-spacing;
-                color: $black;
-                font-size: 10px;
-                font-weight: bold;
-                text-align: center;
-                line-height: 1.4;
-                white-space: nowrap;
-                vertical-align: middle;
-                @include equal-radius(100%);
-                background: $gold;
-                @include lrswap(margin, 0 0 3px 8px);
-            }
-
-            .subtext {
-                margin-top: 4px;
-                font-size: .857142857em;
-                color: $dark-gray;
-
-                @include media($medium) {
-                    display: block;
-                }
-            }
+            font-size: em(13px);
         }
     }
 
     &.active {
 
-        @include media($medium-down) {
+        .account-menu {
+            position: absolute;
+            top: -65px;
+            width: 100%;
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+        }
+    }
 
-            .deployment-menu {
+    .made-by-logo {
+
+        @include media($medium) {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: $sm-spacing;
+        }
+
+        a {
+            position: relative;
+            margin: 0;
+            top: 0;
+        }
+
+        img {
+            width: 30px;
+
+            @include media($medium) {
                 position: absolute;
-                right: 0;
-                bottom: 0;
-                left: 0;
+                width: 20px;
             }
 
-            .account-menu {
+        }
+
+        span {
+            display: none;
+            color: $bg-white;
+            font-size: 14px;
+            @include padding-left(30px);
+            line-height: 1.4;
+
+            @include media($medium) {
                 display: block;
-            }
-
-            .deployment-menu li {
-
-                &.persist {
-
-                    &.active {
-
-                        a {
-                            color: $disabled-gray;
-
-                            svg.iconic {
-                                fill: $disabled-gray;
-                            }
-                        }
-                    }
-
-                    &.more-menu-trigger {
-
-                        a {
-                            color: $gold;
-
-                            svg.iconic {
-                                fill: $gold;
-                            }
-                        }
-                    }
-                }
-
-                &.tuck {
-                    display: block;
-                }
             }
         }
     }

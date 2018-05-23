@@ -1,113 +1,87 @@
 <div class="mode-bar">
     <nav>
         <ul class="deployment-menu">
-            <li {{#ifCond mode 'map'}}class="active"{{/ifCond}}>
-                <a href="map.html">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
-                    </svg>
-                    Map
+            <li {{#ifCond mode 'dash'}}class="hidden"{{/ifCond}}>
+                 <svg class="iconic">
+                     <use xlink:href="../../img/iconic-sprite.svg#grid-two-up"></use>
+                 </svg>
+                <a href="md-list.html">
+                    Dash
                 </a>
             </li>
 
-            <li {{#ifCond mode 'timeline'}}class="active"{{/ifCond}}>
+            <li {{#ifCond mode 'map'}}class="active"{{/ifCond}} data-message="views">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#map-marker"></use>
+                </svg>
+                <a href="map.html">Map</a>
+            </li>
+
+            <li {{#ifCond mode 'data'}}class="active"{{/ifCond}}>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#list-rich"></use>
+                </svg>
                 <a href="data.html">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#list-rich"></use>
-                    </svg>
                     Data
                 </a>
             </li>
 
             <li {{#ifCond mode 'activity'}}class="active"{{/ifCond}}>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#pulse"></use>
+                </svg>
                 <a href="activity.html">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#pulse"></use>
-                    </svg>
                     Activity
                 </a>
             </li>
 
-            <li>
-                <a href="#" class="more-menu-trigger">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
-                    </svg>
+            <li {{#ifCond mode 'settings'}}class="active"{{/ifCond}}>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
+                </svg>
+                <a href="settings.html">
+                    Settings
+                </a>
+            </li>
+
+            <li class="more-menu-trigger">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#ellipses"></use>
+                </svg>
+                <a href="#">
                     More
                 </a>
-                <ul>
-                    {{#if user.logged_in}}
-                    <li {{#ifCond mode 'settings'}}class="active"{{/ifCond}}>
-                        <a href="settings.html">
-                            <svg class="iconic">
-                                <use xlink:href="../../img/iconic-sprite.svg#cog"></use>
-                            </svg>
-                            Settings
-                        </a>
-                    </li>
-                    {{/if}}
-                </ul>
             </li>
-
-            <li class="pl-read-direction-nav-layout">
-                <span class="ltr-switcher active">LTR</span>
-                <span class="rtl-switcher">RTL</span>
-            </li>
-
         </ul>
 
         <ul class="account-menu">
             <li>
-                <a href="https://www.ushahidi.com/support" data-modal="json">
-                    {{> Logomark }}
-                    <span class="label">Ushahidi Support</span>
-                </a>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
+                </svg>
+                <a href="#" data-modal="collections">Collections</a>
             </li>
 
-            {{#if user.logged_in}}
             <li>
-                <a href="#" onclick="hbUserStatus()">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#account-logout"></use>
-                    </svg>
-                    <span class="label">Log out</span>
-                </a>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#person"></use>
+                </svg>
+                <a href="#" data-modal="account">User</a>
             </li>
-            <li>
-                <a href="#" data-modal="account">
-                    <img src="{{user.avatar}}" class="avatar" alt="User Avatar" />
-                    <span class="label">Account settings <span class="subtext">for {{user.name}}</span></span>
-                </a>
-            </li>
-            {{else}}
-            <li>
-                <a href="#" data-modal="login">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#account-login"></use>
-                    </svg>
-                    Log in
-                </a>
-            </li>
-            {{/if}}
 
             <li>
-                <a href="#" data-modal="collections">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#grid-three-up"></use>
-                    </svg>
-                    <span class="label">Collections</span>
-                </a>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#account-logout"></use>
+                </svg>
+                <a href="#">Log out</a>
             </li>
-            <!-- FUTURE FEATURE
+
             <li>
-                <a href="#">
-                    <svg class="iconic">
-                        <use xlink:href="../../img/iconic-sprite.svg#bell"></use>
-                    </svg>
-                    <span class="label">Alerts <span class="badge">2</span></span>
-                </a>
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#question-mark"></use>
+                </svg>
+                <a href="https://www.ushahidi.com/support">Support</a>
             </li>
-            END: FUTURE FEATURE -->
         </ul>
     </nav>
 </div>
