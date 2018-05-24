@@ -1,0 +1,77 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <header class="mode-context-header">
+        <ol class="breadcrumbs">
+            <li><a href="map.html">{{deployment.name}}</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ol>
+        <h1 class="mode-context-title">Configure HDX API</h1>
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+    </div>
+</div>
+
+    <main role="main">
+        <div class="main-col">
+            <div class="form-sheet">
+
+                <div class="form-sheet-summary">
+                    <h2 class="form-sheet-title">
+                    Configure HDX API
+                    </h2>
+                    <p>Here you can add your unique key for your Humanitarian Data Exchange (HDX) account.</p>
+                    <p>Once you set it up, this will enable you to upload data directly to a Humanitarian Data Exchange (HDX) account.</p>
+                    <p>You can find your API key on your Humanitarian Data Exchange (HDX) profile once you're logged in.</p>
+
+                    <a href="#" class="link-blue">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#external-link"></use>
+                        </svg>
+                        View the guide to your API key
+                    </a>
+                </div>
+
+                <img class="field-logo" src="../../img/hdx-logo.png" />
+
+                <div class="form-field alert error">
+                    <svg class="iconic">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#warning"></use>
+                    </svg>
+                    <p>A valid key is required</p>
+                </div>
+
+                <div class="form-field init required no-key">
+                    <label class="required" for="api-key">
+                        Api key
+                    </label>
+                    <p> Found on your Humanitarian Data Exchange (HDX) profile page</p>
+                    <input id="api-key" name="api-key" type="text" required="required"/>
+                </div>
+
+                <div class="form-field no-key">
+                    <button class="button button-alpha" onclick=hdxApiKey()>Save</button>
+                </div>
+
+                <div class="form-field init required key hidden">
+                    <label class="required" for="api-key">
+                        Api key
+                    </label>
+                    <p> Found on your Humanitarian Data Exchange (HDX) profile page</p>
+                    <span id="api-key">*****_****_******_91db
+                        <a class="link-blue" onclick=hdxApiKey()>Change your API key</a>
+                    </span>
+                </div>
+
+            </div>
+    </div>
+</main>
