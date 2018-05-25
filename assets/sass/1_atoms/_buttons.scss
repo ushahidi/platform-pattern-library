@@ -5,239 +5,160 @@ $BUTTONS
 button,
 .button,
 input[type="button"] {
-   display: inline-block;
-   outline: none;
-   @include direction;
-   color: $bg-white;
-   font-weight: 800;
-   font-size: 14px;
-   font-size: 1rem;
-   font-family: $base-font-family;
-   text-align: center;
-   text-transform: uppercase;
-   text-decoration: none;
-   line-height: 1.35;
-   letter-spacing: 1px;
-   border: 0px;
-   @include border-top-radius($global-radius);
-   @include border-bottom-radius($global-radius);
-   background-color: $black;
-   box-shadow: 0 0 2px rgba(0,0,0,0.12),
-    0 2px 2px rgba(0,0,0,0.24);
-   @include lrswap(padding, $tiny-spacing $sm-spacing);
-   @include transition(0.3s);
+    @include direction;
+    display: inline-block;
+    outline: none;
+    font-family: $base-font-family;
+    font-weight: 800;
+    font-size: em(14px);
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1.35;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: $global-radius;
+    @include lrswap(padding, $tiny-spacing $sm-spacing);
+    @include transition(0.3s);
+    color: $bg-white;
+    background-color: $black;
 
-   &:hover {
-      cursor: pointer;
-      color: $bg-white;
-      background-color: $black;
-      box-shadow: 0 0 2px rgba(0,0,0,0.12),
-       0 3px 5px rgba(0,0,0,0.24);
-   }
-
-   &:active {
-      color: $bg-white;
-      background-color: $dark-blue;
-      @include no-transition;
-      box-shadow: 0 0 2px rgba(0,0,0,0.12),
-       0 3px 5px rgba(0,0,0,0.24);
-   }
-
-   &:focus {
-       color: $bg-white;
-   }
-
-   &.disabled, &[disabled] {
-      cursor: not-allowed;
-      opacity: 0.5;
-      background-color: $disabled-gray;
-      box-shadow: none;
-   }
-
-   &.button-flat {
-       font-weight: normal;
-       box-shadow: 0 1px 1px rgba(0,0,0,0.16);
-
-       &:hover {
-           box-shadow: 0 0 2px rgba(0,0,0,0.12),
-            0 3px 5px rgba(0,0,0,0.24);
-       }
-   }
-
-   &[data-button-type="color"] {
-       border-top: 4px solid transparent;
-   }
-
-}
-
-.button-alpha {
-    color: $black;
-   background-color: $gold;
-
-   &:hover,
-   &:active,
-   &:focus {
-      color: $black;
-      background-color: darken( $gold, 10% );
-   }
-
-   &.disabled, &[disabled] {
-
-      &:hover {
-          background-color: $disabled-gray;
-          box-shadow: none;
-      }
-   }
-}
-
-.button-beta {
-   color: $black;
-   background-color: $bg-gray;
-
-   &:hover {
-       color: $black;
-       background-color: darken( $bg-gray, 10% );
-   }
-
-   &.disabled, &[disabled] {
-
-      &:hover {
-          background-color: $dark-gray;
-          box-shadow: none;
-      }
-   }
-}
-
-.button-gamma {
-    color: $black;
-    background-color: $bg-white;
-
-    &:hover, &:active {
-       color: darken( $black, 20% );
-       background-color: darken( $bg-white, 10% );
-   }
-
-   &.disabled, &[disabled] {
-
-      &:hover {
-          background-color: $disabled-gray;
-          box-shadow: none;
-      }
-   }
-}
-
-.button-beta,
-.button-gamma {
-
+    &:hover,
+    &:active,
     &:focus {
-        color: $black;
+        cursor: pointer;
+        background-color: lighten( $black, 10% );
     }
 
-}
+    &[disabled] {
+        cursor: not-allowed;
+        color: $bg-white;
+        background-color: $disabled-gray;
+        box-shadow: none;
 
-.button-plain {
-    font-weight: normal;
-    // font-size: 1em;
-    text-transform: none;
-    letter-spacing: normal;
-
-    em {
-        font-style: normal;
-        font-weight: $bold;
-    }
-
-    &:disabled,
-    &.disabled {
-        color: $disabled-gray;
-
-        svg.iconic {
-            fill: $dark-gray;
+        &:hover {
+            background: $disabled-gray;
         }
     }
+
+    &.button-beta[disabled] {
+        color: $disabled-gray;
+        border-color: $disabled-gray;
+
+        &:hover {
+            background: transparent;
+            border-color: $disabled-gray;
+        }
+    }
+
+    &.button-loading {
+        position: relative;
+        padding-top: 14px;
+
+        .button-progress-bar {
+            position: absolute;
+            top: 2px;
+            @include left(2px);
+            height: 5px;
+            width: 40%;
+            background-color: $gold;
+            border-radius: 2px;
+        }
+    }
+
+    &.button-beta {
+        color: $black;
+        background-color: transparent;
+        border: 3px solid $black;
+
+        &:hover {
+            border-color: lighten( $black, 10% );
+        }
+
+        &.button-loading {
+
+            .button-progress-bar {
+                top: 1px;
+                @include left(1px);
+            }
+        }
+
+    }
+
+    &.button-gamma {
+        color: $accent-purple;
+
+        &:hover,
+        &:active {
+            color: darken( $accent-purple, 10% );
+        }
+    }
+
 }
 
-.button-link {
-    color: $link-blue;
-    font-weight: normal;
-    font-size: 1em;
-    letter-spacing: normal;
+.button-alt {
+    @extend .button;
+    color: $black;
+    background-color: $gold;
+    border: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: darken( $gold, 10% );
+    }
+
+    &.button-loading {
+
+        .button-progress-bar {
+            background-color: $black;
+        }
+    }
+
+    &.button-beta {
+        color: $gold;
+        border: 3px solid $gold;
+
+        &:hover {
+            background: transparent;
+            border-color: lighten( $gold, 10% );
+        }
+
+        &.button-loading {
+
+            .button-progress-bar {
+                top: 2px;
+                @include left(2px);
+                background-color: $gold;
+            }
+        }
+    }
+
+    &.button-gamma {
+        color: $bg-white;
+
+        &:hover,
+        &:active {
+            color: darken( $bg-white, 10% );
+        }
+    }
+
+}
+
+.button-gamma {
     background-color: transparent;
-    @include no-shadow;
+    border: none;
 
     &:hover {
-        color: darken( $link-blue, 20% );
-        background-color: transparent;
-        @include no-shadow;
-    }
-
-    &.disabled, &[disabled] {
-        background-color: transparent;
-
-       &:hover {
-           background-color: transparent;
-       }
+        background: transparent;
     }
 }
-
-// Floating action button
-.button-fab {
-    width: 54px;
-    height: 54px;
-    font-size: 18px;
-    @include equal-radius(100%);
-    box-shadow: 0 0 6px rgba(0,0,0,0.12),
-            0 6px 6px rgba(0,0,0,0.24);
-    padding: 0;
-
-    svg.iconic {
-        position: relative;
-        top: 2px;
-        @include transition(0.3s);
-    }
-
-    &.active {
-        box-shadow: 0 0 8px rgba(0,0,0,0.12),
-            0 8px 18px rgba(0,0,0,0.24);
-    }
-}
-
-a.button-fab {
-    line-height: 54px;
-}
-
-/*
-.button-flat {
-    font-weight: normal;
-    box-shadow: none;
-    padding: 0;
-
-   &:hover, &:active {
-       box-shadow: none;
-   }
-}
-*/
 
 .button-destructive {
-   color: $bg-white;
-   background-color: $error-red;
+    color: $bg-white;
+    background-color: $error-red;
 
-   &:hover {
-      background-color: darken( $error-red, 10% );
-   }
-
-   &.disabled, &[disabled] {
-      cursor: default;
-      color: $dark-gray;
-      background-color: $disabled-gray;
-
-      &:hover {
-         border: $base-border;
-      }
-
-      &:active {
-         border: $base-border;
-      }
-
-   }
-
+    &:hover {
+        background-color: darken( $error-red, 10% );
+    }
 }

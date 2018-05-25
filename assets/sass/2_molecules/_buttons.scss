@@ -35,24 +35,6 @@ input[type="button"] {
         }
     }
 
-    .loading {
-        display: inline-block;
-        position: relative;
-        top: -6px;
-
-        .line {
-            width: $tiny-spacing;
-            height: $tiny-spacing;
-            @include equal-radius($tiny-spacing);
-            background-color: $bg-white;
-            margin: 2px;
-        }
-
-        + .button-label {
-            @include margin-left($tiny-spacing);
-        }
-    }
-
     .badge {
         position: relative;
         top: 2px;
@@ -118,20 +100,6 @@ input[type="button"] {
     }
 }
 
-.button-link {
-
-    svg.iconic {
-        fill: $link-blue;
-    }
-
-    .loading {
-
-        .line {
-            background-color: $link-blue;
-        }
-    }
-}
-
 .button-dropdown {
 
     &.active {
@@ -142,150 +110,6 @@ input[type="button"] {
             @include rotate(45deg);
         }
     }
-}
-
-// FLOATING ACTION BUTTON
-.fab {
-    display: flex;
-    flex-direction: column-reverse;
-    flex-wrap: wrap;
-    @include transition(0.3s);
-
-    @include media($medium) {
-        display: block;
-    }
-
-    .button-fab {
-        position: relative;
-        z-index: $body;
-
-        @include media($medium-down) {
-            @include margin-left(auto);
-        }
-
-        &.active {
-            background: $bg-white;
-
-            svg.iconic {
-                fill: $dark-blue;
-                @include rotate(45deg);
-            }
-        }
-    }
-
-//*--// DEPRECATED: Should be removed once the FAB's dropdown list is revised in the client //--*//
-    .fab-action-type {
-        display: inline-block;
-        width: 40px;
-        height: 40px;
-        font-size: 16px;
-        text-align: center;
-        @include equal-radius(100%);
-        background: $dark-gray;
-        box-shadow: 0 0 8px rgba(0,0,0,0.12),
-            0 8px 18px rgba(0,0,0,0.24);
-        padding-top: 12px;
-        @include margin-right($tiny-spacing);
-
-        svg.iconic {
-            fill: $bg-white;
-            margin: 0 auto;
-        }
-    }
-
-    .bug {
-        box-shadow: 0 0 8px rgba(0,0,0,0.12),
-        0 8px 18px rgba(0,0,0,0.24);
-        @include transition(all, .3s);
-    }
-
-    .fab-options {
-        display: none;
-        opacity: 0;
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
-        @extend .list-reset;
-        margin: $tiny-spacing 6px;
-
-        li {
-            position: relative;
-            top: 48px;
-            margin: 5px 0;
-            @include transition(all, 0.24s);
-
-            @include media($medium) {
-                top: -48px;
-            }
-
-            &:hover {
-                @include scale(1.025);
-
-                .bug {
-                    background-color: $dark-blue;
-                }
-            }
-
-            &:nth-child(2) {
-                transition-delay: 0.025s;
-            }
-
-            &:nth-child(3) {
-                transition-delay: 0.05s;
-            }
-
-            &:nth-child(4) {
-                transition-delay: 0.075s;
-            }
-
-            &:nth-child(5) {
-                transition-delay: 0.1s;
-            }
-
-            &:nth-child(6) {
-                transition-delay: 0.125s;
-            }
-
-            &:nth-child(7) {
-                transition-delay: 0.15s;
-            }
-
-            &:nth-child(8) {
-                transition-delay: 0.175s;
-            }
-
-            &:nth-child(9) {
-                transition-delay: 0.2s;
-            }
-        }
-
-        &.active {
-
-            li {
-                top: 0;
-            }
-        }
-
-        @include media($medium-down) {
-
-            .bug {
-                @include float(right);
-            }
-
-            .fab-action-type {
-                @include float(right);
-                @include margin-right(0);
-                @include margin-left($tiny-spacing);
-            }
-        }
-
-        @include media($medium) {
-            top: 100px;
-            bottom: 0;
-            flex-direction: column;
-        }
-    }
-//*--// END: DEPRECATED //--*//
-
 }
 
 .buttons-updown {

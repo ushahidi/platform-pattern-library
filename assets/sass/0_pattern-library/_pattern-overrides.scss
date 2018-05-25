@@ -66,4 +66,24 @@ positioning, etc.)
     .postcard {
         display: inline-block;
     }
+
+    button {
+        @include lrswap (margin, 0 $sm-spacing $lg-spacing 0);
+
+        @include media($medium) {
+            @include lrswap (margin, 0 $sm-spacing 0 0);
+        }
+    }
+
+    .button-group {
+
+        button {
+            display: inline;
+        }
+    }
+
+    .button-alt-background {
+        background: $black;
+        @include padding($base-spacing);
+    }
 }

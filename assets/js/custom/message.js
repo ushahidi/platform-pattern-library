@@ -3,17 +3,14 @@ messageToggle = function(element, sustain) {
 
     if ($(target).hasClass('active')) {
         $(target).removeClass('active')
-        $('.button-fab').removeClass('slide-up');
     } else {
         $(target).addClass('active')
-        $('.button-fab').addClass('slide-up');
     }
 
     // IF 'sustain' is false or undefined, inactivate the message after five seconds.
     if (!sustain) {
         setTimeout(function() {
             $(target).removeClass('active');
-            $('.button-fab').removeClass('slide-up');
         }, 5000);
     }
 }

@@ -28,13 +28,11 @@ $('.timeline-col, .listing').each(function(){
     if ($(toolbar).length) {
         $('#bulk-action').on('click', function(e){
             $(context).addClass('toolbar-active');
-            $('.button-fab').prop('disabled', true).addClass('disabled');
             $(toolbar).find('.listing-toolbar-summary .total').text($(select_checkboxes_checked).length);
         });
 
          $('#bulk-close').on('click', function(e){
             $(context).removeClass('toolbar-active');
-            $('.button-fab').prop('disabled', false).removeClass('disabled');
         });
 
 
