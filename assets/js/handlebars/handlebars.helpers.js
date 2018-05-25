@@ -298,7 +298,7 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                             <span class="hidden">Delete photo</span> \
                         </button> \
                         <input type="file" id="photo" /> \
-                        <label for="photo" class="button button-gamma"> \
+                        <label for="photo" class="button"> \
                             <svg class="iconic"> \
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#image"></use> \
                             </svg> \
@@ -321,13 +321,13 @@ Handlebars.registerHelper('formField', function(surveyIndex, postIndex, fieldInd
                             </div> \
                             <div class="searchbar-results dropdown-menu"> \
                                 <div class="form-field"> \
-                                    <button class="button-plain"> \
+                                    <button class="button-gamma"> \
                                         <svg class="iconic"> \
                                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#magnifying-glass"></use> \
                                         </svg> \
                                         <span class="button-label">Search for "<em>123 Main St</em>"</span> \
                                     </button> \
-                                    <button class="button-beta button-plain"> \
+                                    <button class="button-beta"> \
                                         <svg class="iconic"> \
                                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#location"></use> \
                                         </svg> \
@@ -403,7 +403,7 @@ Handlebars.registerHelper('surveyFieldPreview', function() {
     } else if (fieldControl == 'file') {
         return new Handlebars.SafeString(
             '<input type="file" id="photo" disabled /> \
-            <label for="photo" class="button button-plain button-gamma"> \
+            <label for="photo" class="button-beta"> \
                 <svg class="iconic block"> \
                     <use xlink:href="' + this.icon + '"></use> \
                 </svg> \
