@@ -158,36 +158,37 @@ input[type="file"] {
     }
 }
 
-.checkbox {
-    input[type="checkbox"] {
-        opacity: 0;
-        width: 20px;
+input[type="checkbox"], input[type="radio"] {
+    opacity: 0;
+    width: 20px;
+    + label {
+        position: relative;
+    }
 
-        /*Unhide the checkmark on the checked state*/
-        &:checked {
-            + label::after {
-                content: "";
-            }
-        }
-
-        /*Adding focus styles on the outer-box of the fake checkbox*/
-        &:focus {
-            + label::before {
-                outline: rgb(59, 153, 252) auto 2px;
-            }
-        }
-        &:disabled {
-            +label, &::before, &::after   {
-                color: $disabled-gray;
-                border-color: $disabled-gray;
-                background-color: $disabled-gray;
-            }
+    /*Unhide the mark on the checked state*/
+    &:checked {
+        + label::after {
+            content: "";
         }
     }
 
-    label {
-        position: relative;
-
+    /*Adding focus styles on the outer-box of the fake checkbox*/
+    &:focus {
+        + label::before {
+            outline: rgb(59, 153, 252) auto 2px;
+        }
+    }
+    &:disabled {
+        +label, &::before, &::after   {
+            color: $disabled-gray;
+            border-color: $disabled-gray;
+            background-color: $disabled-gray;
+        }
+    }
+}
+ /* Specific styles for checkboxes*/
+input[type="checkbox"] {
+    + label {
         &::before {
             /*Outer-box*/
             content: "";
@@ -196,12 +197,11 @@ input[type="file"] {
             width: 20px;
             @include border-top-radius($global-radius);
             @include border-bottom-radius($global-radius);
-            border: 1px solid black;
+            border: 2px solid $black;
             position: absolute;
             top: 0;
             @include left(-22px);
         }
-
         &::after {
             /*Checkmark*/
             content: none;
@@ -216,6 +216,40 @@ input[type="file"] {
         }
     }
 }
+
+/*Specific styles for radio-buttons*/
+input[type="radio"] {
+    + label {
+        &::before {
+            /*Outer-box*/
+            content: "";
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            @include border-top-radius(50%);
+            @include border-bottom-radius(50%);
+            border: 2px solid $black;
+            position: absolute;
+            top: 0;
+            @include left(-22px);
+            background-color: $bg-white;
+        }
+        &::after {
+            /*Checkmark*/
+            content: none;
+            display: inline-block;
+            height: 6px;
+            width: 6px;
+            border: 2px solid;
+            background-color: $black;
+            border-radius: 50%;
+            position: absolute;
+            @include left(-15px);
+            top: 7px;
+        }
+    }
+}
+
 
 textarea {
     width: 100%;
