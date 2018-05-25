@@ -7,96 +7,14 @@ input[type="button"] {
         width: .866666667em;
         height: .866666667em;
         fill: $bg-white;
-        @include transition(0.3s);
 
         + .button-label {
             @include margin-left(5px);
         }
-
-        &.block {
-            display: block;
-            width: 1.25em;
-            height: 1.25em;
-            margin: 4px auto;
-
-            + .button-label {
-                display: inline-block;
-                margin: 4px auto;
-            }
-        }
     }
 
-    .button-label {
-
-        + svg.iconic {
-            width: .571428571em;
-            height: .571428571em;
-            @include margin-left($tiny-spacing);
-        }
-    }
-
-    .badge {
-        position: relative;
-        top: 2px;
-        color: $dark-gray;
-        background-color: $dark-gray;
-        margin-top: -$tiny-spacing;
-        margin-right: 2px;
-    }
-
-    &[data-toggle] {
-
-        &.active {
-
-            .button-label {
-
-                + svg.iconic {
-                    @include rotate(180deg);
-                }
-            }
-        }
-    }
-}
-
-.button-alpha {
-
-    svg.iconic {
-        fill: $black;
-    }
-
-    .loading {
-
-        .line {
-            background-color: $black;
-        }
-    }
-}
-
-.button-beta {
-
-    svg.iconic {
-        fill: $black;
-    }
-
-    .loading {
-
-        .line {
-            background-color: $bg-white;
-        }
-    }
-}
-
-.button-gamma {
-
-    svg.iconic {
-        fill: $black;
-    }
-
-    .loading {
-
-        .line {
-            background-color: $black;
-        }
+    &.button-icon {
+        padding: 10px 16px 8px;
     }
 }
 
@@ -110,29 +28,4 @@ input[type="button"] {
             @include rotate(45deg);
         }
     }
-}
-
-.buttons-updown {
-
-    button {
-        display: block;
-        padding: 2px 6px;
-        @include float(left);
-        @include clear(left);
-
-        svg.iconic {
-            width: .714285714em;
-            height: .714285714em;
-        }
-
-        &:first-child {
-            @include border-bottom-radius(0);
-        }
-
-        &:last-child {
-            @include border-top-radius(0);
-        }
-
-   }
-
 }
