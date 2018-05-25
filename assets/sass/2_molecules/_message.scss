@@ -40,17 +40,17 @@
         @include media($medium) {
             padding: $sm-spacing $base-spacing;
             @include padding-left(90px);
+            @include padding-right(290px);
             @include text-align(left);
+
         }
     }
 
     p {
-        display: inline-block;
         margin: 0;
 
         @include media($medium) {
             margin: $tiny-spacing 0;
-            @include margin-right(100px);
         }
 
         a {
@@ -73,6 +73,7 @@
 
     .button-group {
         margin-top: $sm-spacing;
+        text-align: center;
 
         @include media($medium) {
             position: absolute;
@@ -81,6 +82,15 @@
             @include right(24px);
             bottom: 0;
             height: 35px;
+        }
+
+        button,
+        .button {
+            margin-bottom: 0;
+
+            &:last-child {
+                margin: 0;
+            }
         }
     }
 
