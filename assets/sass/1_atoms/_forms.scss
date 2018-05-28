@@ -175,7 +175,8 @@ input[type="checkbox"], input[type="radio"] {
     /*Adding focus styles on the outer-box of the fake checkbox*/
     &:focus {
         + label::before {
-            outline: rgb(59, 153, 252) auto 2px;
+            outline: 1px dotted #777777;
+            outline-offset: 2px;
         }
     }
     &:disabled {
@@ -199,8 +200,8 @@ input[type="checkbox"] {
             @include border-bottom-radius($global-radius);
             border: 2px solid $black;
             position: absolute;
-            top: 0;
-            @include left(-22px);
+            top: -2px;
+            @include left(-25px);
         }
         &::after {
             /*Checkmark*/
@@ -211,8 +212,8 @@ input[type="checkbox"] {
             border: 2px solid $black;
             background-color: $black;
             position: absolute;
-            @include left(-17px);
-            top: 5px;
+            @include left(-20px);
+            top: 3px;
         }
     }
 }
