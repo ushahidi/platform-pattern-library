@@ -73,6 +73,14 @@ $LAYOUT
     display: none !important;
 }
 
+.hidden-when-small {
+    display: none;
+
+    @include media($medium) {
+        display: inline;
+    }
+}
+
 .hide-when-mobile {
     display: inline-block;
     position: relative;
@@ -180,11 +188,6 @@ $LAYOUT
         position: relative;
         padding: 0;
         z-index: $bottom;
-    }
-
-    button.button-primary {
-        margin: 0;
-        float: none;
     }
 
 }

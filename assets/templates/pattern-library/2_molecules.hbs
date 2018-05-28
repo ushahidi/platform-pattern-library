@@ -1,7 +1,6 @@
         <div class="wrapper">
 
-        {{> PlPageHeader molecules=true}}
-
+            {{> PlPageHeader molecules=true}}
             <nav class="pl-jump-nav">
                 <ul class="pl-jump-nav-list">
                     <li><a href="#pl-pattern-buttons">Buttons</a></li>
@@ -16,8 +15,7 @@
                 {{> ReadDirection }}
             </nav>
 
-            {{> PlThanks }}
-
+                {{> PlThanks}}
             <section class="pl-pattern" id="pl-pattern-buttons">
                 <div class="pl-pattern-description">
                     <h2>
@@ -25,15 +23,15 @@
                     </h2>
                     <div class="pl-divider"></div>
                     <p>
-                        Our front-end guidelines explain <a href="../../../assets/html/front-end-guidelines/icons.html">how to use our mixin to add icons to buttons</a>.
+                        Our front-end guidelines explain <a href="../../../assets/html/front-end-guidelines/icons.html">how to add icons to buttons</a>.
                     </p>
                 </div>
 
                 <div class="container">
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Button, with icon left-aligned</h4>
+                        <h4 class="pl-h4">Button, with icon & label</h4>
                         <div class="pl-sub-pattern-markup">
-                            <button type="button" class="button-primary">
+                            <button type="button" class="button-icon">
                                 <svg class="iconic">
                                   <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                                 </svg>
@@ -43,9 +41,9 @@
                     </div>
 
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Button, with icon only</h4>
+                        <h4 class="pl-h4">Button, with icon</h4>
                         <div class="pl-sub-pattern-markup">
-                            <button type="button">
+                            <button type="button" class="button-icon">
                                 <svg class="iconic">
                                   <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                                 </svg>
@@ -55,9 +53,21 @@
                     </div>
 
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Beta Button, icon only on small screens</h4>
+                        <h4 class="pl-h4">Button, as an icon</h4>
                         <div class="pl-sub-pattern-markup">
-                            <button type="button" class="button-beta">
+                            <button type="button" class="button-as-icon">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                                </svg>
+                                <span class="button-label hidden">Button</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="pl-sub-pattern">
+                        <h4 class="pl-h4">Button, with icon only on small screens</h4>
+                        <div class="pl-sub-pattern-markup">
+                            <button type="button" class="button-icon">
                                 <svg class="iconic">
                                   <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                                 </svg>
@@ -68,71 +78,12 @@
                     </div>
 
                     <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Button, loading</h4>
+                        <h4 class="pl-h4">Button Group</h4>
                         <div class="pl-sub-pattern-markup">
-                            <button type="button">
-                                <div class="loading">
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                    <div class="line"></div>
-                                </div>
-                                <span class="button-label">Saving</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Full-width button, loading</h4>
-                        <div class="pl-sub-pattern-markup">
-                            <button type="button" class="button full-width">
-                            <div class="loading">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
+                            <div class="button-group">
+                                <button type="button" class="button">Button #1</button>
+                                <button type="button" class="button-alt">Button #2</button>
                             </div>
-                            <span class="button-label">Loading</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Full-width button, beta, loading</h4>
-                        <div class="pl-sub-pattern-markup">
-                            <button type="button" class="button full-width button-beta">
-                            <div class="loading">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
-                            <span class="button-label">Loading</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Buttons Up/Down</h4>
-                        <div class="pl-sub-pattern-markup">
-                            <div class="buttons-updown">
-                               <button type="button" class="button-beta" disabled>
-                                   <svg class="iconic">
-                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-top"></use>
-                                   </svg>
-                                   <span class="label hidden">Move up</span>
-                               </button>
-                               <button type="button" class="button-beta">
-                                   <svg class="iconic">
-                                       <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
-                                   </svg>
-                                   <span class="label hidden">Move down</span>
-                               </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="pl-sub-pattern">
-                        <h4 class="pl-h4">Floating Action Button</h4>
-                        <div class="pl-sub-pattern-markup">
-                            {{> Fab}}
                         </div>
                     </div>
                 </div>
@@ -596,7 +547,7 @@
                                 <div class="message-body">
                                     <p>The report is locked because user is working on it right now. Try editing a different post.</p>
                                     <div class="button-group">
-                                        <button class="button button-alpha">Unlock</button>
+                                        <button class="button-alt">Unlock</button>
                                     </div>
                                 </div>
 
@@ -619,7 +570,7 @@
 
                                 <div class="message-body">
                                     <p>We are preparing 1,234 records for your CSV file. This may take a few moments. You can leave this page if you want. We will let you know when we're done.</p>
-                                    <div class="buttons-export">
+                                    <div class="button-group">
                                         <button class="button">Got it</button>
                                         <button class="button-destructive">Cancel export</button>
                                     </div>
@@ -640,7 +591,7 @@
                                 </span>
                                 <div class="message-body">
                                     <p>Export done. We exported 1,234 records to CSV. You should see your file in your downloads.</p>
-                                    <div class="buttons-export">
+                                    <div class="button-group">
                                         <button class="button">Got it</button>
                                     </div>
                                 </div>
@@ -660,7 +611,7 @@
                                 </div>
                                 <div class="message-body">
                                     <p>Uh oh... you need to select some fields to export first.</p>
-                                    <div class="buttons-export">
+                                    <div class="button-group">
                                         <button class="button">Got it</button>
                                     </div>
                                 </div>
@@ -683,7 +634,7 @@
                         <h4 class="pl-h4">Timeline/Data Sub-Header</h4>
                         <div class="pl-sub-pattern-markup">
                             <div class="bulk-action">
-                                <button id="bulk-action" class="button-link bulk-action-secondary">Bulk Actions</button>
+                                <button id="bulk-action" class="button-gamma bulk-action-secondary">Bulk Actions</button>
                                 <div class="bulk-action-primary">6 of 6 Reports</div>
                             </div>
                         </div>
@@ -775,4 +726,4 @@
                 </div>
             </section>
 
-        </div>
+            </div><!--end wrapper-->
