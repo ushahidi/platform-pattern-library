@@ -459,9 +459,8 @@ hbLoadLayout = function() {
         currentTemplate,
         currentMode,
         currentURL = window.location.href.split('/').pop();
-
     // If the page is a "layout"...
-    if (!currentTemplate == '') {
+    if (!currentURL == '') {
         currentHash = window.location.hash.substr(1);
         currentTemplate = currentURL.split('#')[0].slice(0, -5),
         currentMode = currentTemplate.split(/-(.+)?/)[0];
