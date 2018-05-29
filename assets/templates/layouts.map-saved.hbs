@@ -164,13 +164,13 @@
             <div class="toggle-content">
                 <fieldset>
                     <div class="form-field radio">
-                        <label for="streets"><input type="radio" name="layers" id="streets" checked />Streets</label>
+                        <input type="radio" name="layers" id="streets" checked /><label for="streets">Streets</label>
                     </div>
                     <div class="form-field radio">
-                        <label for="satellite"><input type="radio" name="layers" id="satellite" />Satellite</label>
+                        <input type="radio" name="layers" id="satellite" /><label for="satellite">Satellite</label>
                     </div>
                     <div class="form-field radio">
-                        <label for="terrain"><input type="radio" name="layers" id="terrain" />Terrain</label>
+                        <input type="radio" name="layers" id="terrain" /><label for="terrain">Terrain</label>
                     </div>
                 </fieldset>
             </div>
@@ -269,34 +269,19 @@
                    <legend>Surveys</legend>
 
                    <div class="form-field checkbox">
-                       <label for="traffic">
-                           <input type="checkbox" name="getting-around" checked>
-                           Getting around
-                       </label>
+                        {{> Checkbox label="Getting around" }}
                    </div>
                    <div class="form-field checkbox">
-                       <label for="police-encounters">
-                           <input type="checkbox" name="police-encounters" checked>
-                           Police encounters
-                       </label>
+                       {{> Checkbox label="Police encounters" }}
                    </div>
                    <div class="form-field checkbox">
-                       <label for="protester-photos">
-                           <input type="checkbox" name="protester-photos" checked>
-                           Protester photos
-                       </label>
+                       {{> Checkbox label="Protester photos" }}
                    </div>
                    <div class="form-field checkbox">
-                       <label for="police-encounters">
-                           <input type="checkbox" name="official-events" checked>
-                           Official events
-                       </label>
+                       {{> Checkbox label="Official events" }}
                    </div>
                    <div class="form-field checkbox">
-                       <label for="protester-photos">
-                           <input type="checkbox" name="unknown">
-                           Unknown
-                       </label>
+                       {{> Checkbox label="Unknown" }}
                    </div>
                    <span class="form-field-toggle">
                        <svg class="iconic">
@@ -310,14 +295,10 @@
                    <legend>Categories</legend>
 
                    <div class="form-field checkbox">
-                       <label for="speakers">
-                           <input type="checkbox" name="speakers" value="Speakers" id="speakers"> Speakers
-                       </label>
+                       {{> Checkbox label="Speakers" }}
                    </div>
                    <div class="form-field checkbox">
-                       <label for="opposition">
-                           <input type="checkbox" name="opposition" value="Opposition" id="opposition"> Opposition
-                       </label>
+                       {{> Checkbox label="Opposition" }}
                    </div>
                    <span class="form-field-toggle">
                        <svg class="iconic">
@@ -331,20 +312,20 @@
                    <legend>Who it's visible to</legend>
 
                    <div class="form-field radio">
+                       <input type="radio" name="visibility" value="Everyone" checked>
                        <label for="everyone">
-                           <input type="radio" name="visibility" value="Everyone" checked>
                            Everyone
                        </label>
                    </div>
                    <div class="form-field radio">
+                       <input type="radio" name="visibility" value="Members">
                        <label for="members">
-                           <input type="radio" name="visibility" value="Members">
                            Members
                        </label>
                    </div>
                    <div class="form-field radio">
+                       <input type="radio" name="visibility" value="Administrators">
                        <label for="administrators">
-                           <input type="radio" name="visibility" value="Administrators">
                            Administrators
                        </label>
                    </div>

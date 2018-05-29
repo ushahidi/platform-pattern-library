@@ -455,25 +455,30 @@ hbUserStatus = function() {
 }
 
 hbLoadLayout = function() {
-    var currentURL = window.location.href.split('/').pop(),
-        currentHash = window.location.hash.substr(1),
+    var currentHash,
+        currentTemplate,
+        currentMode,
+        currentURL = window.location.href.split('/').pop();
+    // If the page is a "layout"...
+    if (!currentURL == '') {
+        currentHash = window.location.hash.substr(1);
         currentTemplate = currentURL.split('#')[0].slice(0, -5),
         currentMode = currentTemplate.split(/-(.+)?/)[0];
-
-    console.log('template: '+ currentTemplate + '; mode: '+ currentMode);
-
-    // If the page is a "layout"...
-    if (!currentTemplate == '') {
         session.mode = currentMode;
-        console.log(Ushahidi.templates.layouts)
-
         $('body').html(Ushahidi.templates.layouts[currentTemplate](session));
+    } else {
+        currentURL = window.location.href.split('/');
+        currentTemplate = currentURL[5];
+        currentMode = 'pattern-library ' + currentTemplate;
+        session.mode = currentMode;
+        $('body').html(Ushahidi.templates[currentTemplate](session));
     }
+    console.log('template: '+ currentTemplate + '; mode: '+ currentMode);
 
     $.getScript('../../js/app.js', function(data, textStatus ) {
         // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
         setTimeout(function() {
-            if (window.location.hash.substr(1) == 'new_response') {
+            if (currentHash && window.location.hash.substr(1) == 'new_response') {
                 messageToggle($('#new_response-success'));
             }
         }, 1000);

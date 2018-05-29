@@ -153,10 +153,7 @@
 
                     {{#each options}}
                     <div class="form-field checkbox">
-                        <label for="form-field-checkbox-{{@index}}">
-                            {{label}}
-                            <input type="checkbox" id="form-field-checkbox-{{@index}}" />
-                        </label>
+                        {{> Checkbox label=label }}
                     </div>
                     {{/each}}
                 </fieldset>
@@ -168,9 +165,9 @@
 
                     {{#each options}}
                     <div class="form-field radio">
+                        <input type="radio" id="form-field-radio-{{@../index}}-{{@index}}" name="form-field-radio-{{@../index}}" />
                         <label for="form-field-radio-{{@../index}}-{{@index}}">
                             {{label}}
-                            <input type="radio" id="form-field-radio-{{@../index}}-{{@index}}" name="form-field-radio-{{@../index}}" />
                         </label>
                     </div>
                     {{/each}}

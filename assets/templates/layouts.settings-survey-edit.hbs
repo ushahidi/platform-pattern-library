@@ -354,21 +354,21 @@
                     <legend>Who can submit responses to this survey</legend>
 
                     <div class="form-field radio icon-input">
+                        <input type="radio" name="survey-add" id="survey-add_everyone" checked />
                         <label for="survey-add_everyone">
                             <svg class="iconic">
                                 <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                             </svg>
-                            <input type="radio" name="survey-add" id="survey-add_everyone" checked />
                             <span class="label">Everyone</span>
                         </label>
                     </div>
 
                     <div class="form-field radio icon-input">
+                        <input type="radio" name="survey-add" id="survey-add_roles" data-fieldgroup-toggle="survey-add_roles" />
                         <label for="survey-add_roles">
                             <svg class="iconic">
                                 <use xlink:href="../../img/iconic-sprite.svg#people"></use>
                             </svg>
-                            <input type="radio" name="survey-add" id="survey-add_roles" data-fieldgroup-toggle="survey-add_roles" />
                             Specific roles...
                         </label>
 
@@ -396,11 +396,11 @@
                     </div>
 
                     <div class="form-field radio icon-input">
+                        <input type="radio" name="survey-add" id="survey-add_nobody" data-fieldgroup-toggle="survey-off-message" />
                         <label for="survey-add_nobody">
                             <svg class="iconic">
                                 <use xlink:href="../../img/iconic-sprite.svg#ban"></use>
                             </svg>
-                            <input type="radio" name="survey-add" id="survey-add_nobody" data-fieldgroup-toggle="survey-off-message" />
                             <span class="label">Nobody</span>
                         </label>
                         <p data-fieldgroup-target="survey-off-message">Your survey's existing responses will remain visible, but it will not allow new responses.</p>
@@ -640,21 +640,21 @@
                     <legend>Who can contribute to fields in this section</legend>
 
                     <div class="form-field radio icon-input">
+                        <input type="radio" name="section-add" id="section-add_everyone" />
                         <label for="section-add_everyone">
                             <svg class="iconic">
                                 <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                             </svg>
-                            <input type="radio" name="section-add" id="section-add_everyone" />
                             <span class="label">Everyone</span>
                         </label>
                     </div>
 
                     <div class="form-field radio icon-input">
+                        <input type="radio" name="section-add" id="section-add_roles" data-fieldgroup-toggle="section-add_roles" checked />
                         <label for="section-add_roles">
                             <svg class="iconic">
                                 <use xlink:href="../../img/iconic-sprite.svg#people"></use>
                             </svg>
-                            <input type="radio" name="section-add" id="section-add_roles" data-fieldgroup-toggle="section-add_roles" checked />
                             Specific roles...
                         </label>
 
@@ -811,28 +811,19 @@
                 <legend>Which categories should be available?</legend>
 
                 <div class="form-field checkbox">
-                    <label>
-                        <input type="checkbox" checked />
-                        Surface issues
-                    </label>
+                    {{> Checbox label="Surface issues" }}
                 </div>
                 <div class="form-field checkbox">
-                    <label>
-                        <input type="checkbox" checked />
-                        Signage
-                    </label>
+                        {{> Checbox label="Signage" }}
                     <div class="form-field checkbox">
-                        <label for="cat2A"><input type="checkbox" id="cat2A" checked>Child category</label>
+                        {{> Checbox label="Child category" }}
                     </div>
                     <div class="form-field checkbox">
-                        <label for="cat2B"><input type="checkbox" id="cat2B">Another child category</label>
+                        <{{> Checbox label="Another child category" }}
                     </div>
                 </div>
                 <div class="form-field checkbox">
-                    <label>
-                        <input type="checkbox" checked />
-                        Obstructions
-                    </label>
+                    {{> Checbox label="Obstructions" }}
                 </div>
             </fieldset>
 
@@ -957,21 +948,22 @@
                 <legend>Who can see the response to this field</legend>
 
                 <div class="form-field radio icon-input">
+                    <input type="radio" name="field-visibility-new" id="field-visibility-new-everyone" checked />
                     <label for="field-visibility-new-everyone">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#globe"></use>
                         </svg>
-                        <input type="radio" name="field-visibility-new" id="field-visibility-new-everyone" checked />
                         <span class="label">Everyone</span>
                     </label>
                 </div>
 
                 <div class="form-field radio icon-input">
+                    <input type="radio" name="field-visibility-new" id="field-visibility-new-roles" data-fieldgroup-toggle="field-visibility-new-roles_def" />
                     <label for="field-visibility-new-roles">
                         <svg class="iconic">
                             <use xlink:href="../../img/iconic-sprite.svg#people"></use>
                         </svg>
-                        <input type="radio" name="field-visibility-new" id="field-visibility-new-roles" data-fieldgroup-toggle="field-visibility-new-roles_def" />
+
                         Specific roles...
                     </label>
 
