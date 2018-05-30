@@ -455,14 +455,12 @@ hbUserStatus = function() {
 }
 
 hbLoadLayout = function() {
-    var currentHash,
-        currentTemplate,
-        currentMode,
-        currentURL = window.location.href.split('/').pop();
-    // If the page is a "layout"...
-    if (!currentURL == '') {
-        currentHash = window.location.hash.substr(1);
+    var currentMode,
+        currentURL = window.location.href.split('/').pop(),
         currentTemplate = currentURL.split('#')[0].slice(0, -5),
+        currentHash = window.location.hash.substr(1);
+    // If the page is a "layout"...
+    if (!currentTemplate == '') {
         currentMode = currentTemplate.split(/-(.+)?/)[0];
         session.mode = currentMode;
         $('body').html(Ushahidi.templates.layouts[currentTemplate](session));
@@ -478,7 +476,7 @@ hbLoadLayout = function() {
     $.getScript('../../js/app.js', function(data, textStatus ) {
         // console.log( '"' + currentTemplate +'" layout: ' + textStatus);
         setTimeout(function() {
-            if (currentHash && window.location.hash.substr(1) == 'new_response') {
+            if (window.location.hash.substr(1) == 'new_response') {
                 messageToggle($('#new_response-success'));
             }
         }, 1000);
