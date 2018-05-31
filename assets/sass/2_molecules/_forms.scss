@@ -15,11 +15,6 @@ fieldset {
         margin-bottom: $sm-spacing;
         @include direction;
 
-        + p {
-            font-style: italic;
-            margin: $tiny-spacing 0;
-        }
-
         input[type="text"],
         input[type="email"],
         input[type="tel"],
@@ -127,9 +122,9 @@ fieldset {
     &.error {
 
         label,
-        legend,
-        p {
+        legend {
             color: $error-red;
+            font-weight: 700;
         }
 
         input,
@@ -141,8 +136,7 @@ fieldset {
         select {
             @include float(left);
             @include clear(left);
-            border-color: $error-red;
-            box-shadow: 0 0 $tiny-spacing $error-red;
+            border: 2px solid $error-red;
             margin-bottom: $sm-spacing;
 
             &:focus {
@@ -150,10 +144,44 @@ fieldset {
             }
         }
 
-        .form-field {
+        + .form-field {
+            clear: both;
+        }
 
-            label {
-                color: $error-red;
+        span.error {
+            @include float(left);
+            @include clear(left);
+            color: $error-red;
+
+            svg.iconic {
+                fill: $error-red;
+                @include margin-right(5px)
+            }
+        }
+    }
+
+    // WARNING FIELD
+    &.warning {
+
+        label,
+        legend {
+            font-weight: 700;
+        }
+
+        input,
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        textarea,
+        select {
+            @include float(left);
+            @include clear(left);
+            border: 2px solid $black;
+            margin-bottom: $sm-spacing;
+
+            &:focus {
+                border-color: $error-red;
             }
         }
 
@@ -161,6 +189,14 @@ fieldset {
             clear: both;
         }
 
+        span.warning {
+            @include float(left);
+            @include clear(left);
+
+            svg.iconic {
+                @include margin-right(4px)
+            }
+        }
     }
 
     // VALID FORM FIELD VALUE
