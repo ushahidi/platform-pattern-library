@@ -6,7 +6,8 @@
 
     .stepper-heading {
         @include typeBeta;
-        color: $dark-gray;
+        font-weight: 900;
+        color: $black;
         margin-bottom: $base-spacing;
     }
 
@@ -33,20 +34,10 @@
         padding-bottom: $tiny-spacing;
         @include padding-left($lg-spacing);
         margin-bottom: $tiny-spacing;
+        max-width: 450px;
 
         @include media($small) {
             @include padding-left($huge-spacing);
-        }
-
-        &:after {
-            content: '';
-            position: absolute;
-            z-index: $body;
-            top: $base-spacing + 4;
-            bottom: 0;
-            @include left($base-spacing/2);
-            width: 1px;
-            background-color: $bg-gray;
         }
 
         &:last-child {
@@ -56,23 +47,31 @@
 
         .stepper-badge {
             position: absolute;
+            font-weight: 900;
             z-index: $body;
             top: 0;
             @include left(0);
         }
-
         &.active,
         &.complete {
 
             .stepper-badge {
                 color: $black;
-                font-weight: normal;
+                font-weight: 900;
                 background-color: $gold;
 
                 svg.iconic {
                     fill: $black;
                 }
             }
+        }
+        input[type="checkbox"] {
+            + label {
+                margin-left: $huge-spacing;
+            }
+        }
+        legend {
+            font-weight: 900;
         }
 
         &.active {
