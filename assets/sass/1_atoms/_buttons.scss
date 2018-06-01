@@ -16,8 +16,9 @@ input[type="button"] {
     text-decoration: none;
     line-height: 1.35;
     letter-spacing: 1px;
-    border: none;
+    border: 3px solid $black;
     border-radius: $global-radius;
+    @include margin-right($sm-spacing);
     @include lrswap(padding, $tiny-spacing $sm-spacing);
     @include transition(0.3s);
     color: $bg-white;
@@ -28,12 +29,14 @@ input[type="button"] {
     &:focus {
         cursor: pointer;
         background-color: lighten( $black, 10% );
+        border: 3px solid lighten( $black, 10% );
     }
 
     &[disabled] {
         cursor: not-allowed;
         color: $bg-white;
         background-color: $disabled-gray;
+        border: 3px solid $disabled-gray;
         box-shadow: none;
 
         &:hover {
@@ -91,6 +94,7 @@ input[type="button"] {
         &:hover,
         &:active {
             color: darken( $accent-purple, 10% );
+            border: none;
         }
     }
 
@@ -100,12 +104,13 @@ input[type="button"] {
     @extend .button;
     color: $black;
     background-color: $gold;
-    border: none;
+    border: 3px solid $gold;
 
     &:hover,
     &:active,
     &:focus {
         background-color: darken( $gold, 10% );
+        border: 3px solid darken( $gold, 10% );
     }
 
     &.button-loading {
@@ -157,15 +162,18 @@ input[type="button"] {
 .button-destructive {
     color: $bg-white;
     background-color: $error-red;
+    border: 3px solid $error-red;
 
     &:hover {
         background-color: darken( $error-red, 10% );
+        border: 3px solid darken( $error-red, 10% );
     }
 }
 
 .button-group {
     @include direction
     margin-top: $sm-spacing;
+    margin-bottom: $lg-spacing;
 
     button,
     .button {
