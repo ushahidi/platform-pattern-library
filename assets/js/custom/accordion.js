@@ -4,7 +4,7 @@ $('[data-accordion-items]').each(function(){
         accordionItems = accordion.find(accordionSelector);
 
     accordionItems.each(function(){
-        $(this).children().not('[data-accordion-trigger]').wrapAll('<div class="accordion-content" style="display:none;" />');
+        $(this).children().not('[data-accordion-trigger], [data-accordion-value]').wrapAll('<div class="accordion-content" style="display:none;" />');
     });
 
     accordionItems.first().addClass('active').children('.accordion-content').show();

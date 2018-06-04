@@ -5,7 +5,7 @@
     }
 
     .stepper-heading {
-        @include typeBeta;
+        @include typeGamma;
         font-weight: 900;
         color: $black;
         margin-bottom: $base-spacing;
@@ -52,6 +52,14 @@
             top: 0;
             @include left(0);
         }
+
+        .value {
+
+            p span {
+                color: $dark-gray;
+            }
+        }
+
         &.active,
         &.complete {
 
@@ -65,20 +73,16 @@
                 }
             }
         }
-        input[type="checkbox"] {
-            + label {
-                margin-left: $huge-spacing;
-            }
-        }
-        legend {
-            font-weight: 900;
-        }
 
         &.active {
 
             .stepper-heading {
                 color: $black;
                 font-weight: 800;
+            }
+
+            .value {
+                display: none;
             }
         }
 
@@ -103,4 +107,9 @@
             }
         }
     }
+
+    legend {
+        font-weight: 900;
+    }
+
 }

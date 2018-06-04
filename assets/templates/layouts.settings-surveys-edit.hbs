@@ -1,0 +1,146 @@
+{{> ModeBar }}
+
+<main role="main">
+
+    <div class="full-col">
+        <ol class="breadcrumbs">
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="settings-surveys.html">Surveys</a></li>
+            <li><a href="settings-surveys-view.html">{{deployment.name}}</a></li>
+            <li>Edit</li>
+        </ol>
+
+        <div class="list-item">
+            <div class="stepper" data-accordion-items="stepper-item">
+                <div class="stepper-item">
+                    <h2 class="stepper-heading" data-accordion-trigger="">
+                        <span class="stepper-badge">1</span>
+                        Name your survey
+                    </h2>
+
+                    <div class="form-field value" data-accordion-value>
+                        <p><span>Name:</span> This is the name of the survey.</p>
+                    </div>
+
+                    <fieldset>
+                        <div class="form-field">
+                            <label for="title">Survey name</label>
+                            <input type="text" name="title" id="title" placeholder="What is this survey called?">
+                        </div>
+                        <div class="form-field">
+                            <label for="description">Survey Description (optional)</label>
+                            <textarea name="description" id="description" placeholder="Describe this survey"></textarea>
+                        </div>
+                    </fieldset>
+
+                    <div class="button-group">
+                        <button class="button-beta" data-accordion-trigger="0">Cancel</button>
+                        <button class="button" data-accordion-trigger="1">Next</button>
+                    </div>
+                </div>
+
+                <div class="stepper-item">
+                    <h2 class="stepper-heading" data-accordion-trigger="">
+                        <span class="stepper-badge">2</span>
+                        Add questions
+                    </h2>
+
+                    <div class="form-field value" data-accordion-value>
+                        <p><span>Long text field:</span> Describe your incident.</p>
+                        <p><span>Long text field:</span> What happened.</p>
+                    </div>
+
+                    <ul id="listWithHandle" class="sortable-list">
+                        <li class="sortable-list-item">
+                            <span class="list-handle">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#grid-four-up"></use>
+                                </svg>
+                            </span>
+                            Name your incident
+                            <p>Short text field</p>
+                        </li>
+                        <li class="sortable-list-item">
+                            <span class="list-handle">
+                                <svg class="iconic">
+                                  <use xlink:href="../../img/iconic-sprite.svg#grid-four-up"></use>
+                                </svg>
+                            </span>
+                            Describe your incident
+                            <p>Long text field</p>
+                        </li>
+                    </ul>
+
+                    <a href="#">Add another question</a>
+
+                    <div class="button-group">
+                        <button class="button-beta" data-accordion-trigger="0">Cancel</button>
+                        <button class="button" data-accordion-trigger="2">Next</button>
+                    </div>
+                </div>
+
+                <div class="stepper-item">
+                    <h2 class="stepper-heading" data-accordion-trigger="">
+                        <span class="stepper-badge">3</span>
+                        Publish
+                    </h2>
+
+                    <div class="form-field value" data-accordion-value>
+                        <p class="value"><span>Required post to be reviewed before they're published:</span> No.</p>
+                        <p class="value"><span>Hide author information:</span> Yes.</p>
+                        <p class="value"><span>Make responses private:</span> Yes.</p>
+                        <p class="value"><span>Permissions:</span> Only admin roles can view and add to this survey.</p>
+                    </div>
+
+                    <fieldset>
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="checkbox_1">
+                            <label for="checkbox_1">Require posts to be reviewed before they're published</label>
+                            <p class="helper-text">New responses to this survey will be put 'under review', and therefore not immediately visible to the public. Users with permissions to review the response can review and 'publish' them, which would then make them visible to everyone.</p>
+                        </div>
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="checkbox_2">
+                            <label for="checkbox_2">Hide author information</label>
+                        </div>
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="checkbox_3">
+                            <label for="checkbox_3">Make responses private</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Who can add to this survey?</legend>
+                        <div class="form-field radio">
+                            <input type="radio" id="radio_1">
+                            <label for="radio_1">Everyone</label>
+
+                            <input type="radio" id="radio_2">
+                            <label for="radio_2">Only specific roles...</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Which roles can add to this survey?</legend>
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="checkbox_4">
+                            <label for="checkbox_4">Member</label>
+                        </div>
+                        <div class="form-field checkbox">
+                            <input type="checkbox" id="checkbox_5">
+                            <label for="checkbox_5">Admin</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="button-group">
+                        <button class="button-beta" data-accordion-trigger="0">Cancel</button>
+                        <button class="button" data-accordion-trigger="1">Publish</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+{{> Modals }}
