@@ -15,8 +15,10 @@
     }
 
     .modal-title {
-        @include typeAlpha;
+        font-weight: 700;
+        font-size: em(20px);
         margin: $base-spacing 0;
+        // @include padding-right($lg-spacing);
 
         em {
             @include typeGamma;
@@ -24,12 +26,17 @@
             font-style: normal;
         }
 
-        svg.iconic {
-            width: .833333333em;
-            height: .833333333em;
-            fill: $dark-gray;
-            @include margin-right($tiny-spacing);
-        }
+        // svg.iconic {
+        //     width: 15px;
+        //     height: 15px;
+        //     fill: $black;
+        //
+        //     &.modal-trigger-close {
+        //         position: absolute;
+        //         top: $lg-spacing;
+        //         @include right($base-spacing);
+        //     }
+        // }
 
         input[type="checkbox"] {
             position: relative;
@@ -58,17 +65,6 @@
             &.switch {
                 margin-top: 4px;
             }
-        }
-    }
-
-    .modal-trigger-close {
-        position: absolute;
-        top: $base-spacing;
-        @include right($sm-spacing);
-        margin-top: -$tiny-spacing;
-
-        @include media($mobile) {
-            @include right($base-spacing);
         }
     }
 
@@ -148,10 +144,6 @@
         .listing-item {
             border-bottom-color: $bg-gray;
         }
-    }
-
-    label {
-        @include typeGamma;
     }
 
     .form-field,
@@ -242,51 +234,12 @@
         }
     }
 
-/*
-    .custom-fieldset {
-
-        &.init {
-            position: static;
-
-            legend {
-                z-index: 1;
-
-                &.active {
-                    border-color: $dark-gray;
-                }
-            }
-
-            .dropdown-menu {
-                z-index: $modal;
-                top: auto !important;
-                right: 0;
-                bottom: 1500px;
-                left: 0;
-                overflow-y: auto;
-                @include containerSheet();
-                border-top: 1px solid $bg-gray;
-                padding-top: 0 !important;
-                @include transition(0.3s);
-
-                &.active {
-                    bottom: 0;
-                }
-            }
-        }
-    }
-*/
     [data-toggle] {
         color: $link-blue;
 
         &:hover {
             color: darken( $link-blue, 20% );
         }
-
-/*
-        &.active {
-            display: none;
-        }
-*/
     }
 
     .toggle-content {
