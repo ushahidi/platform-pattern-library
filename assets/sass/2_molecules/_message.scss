@@ -188,3 +188,49 @@
        }
     }
 }
+
+.confirmation {
+    @include equal-radius(3px);
+    max-width: 330px;
+    padding: 24px;
+
+    .confirmation-message {
+        position: relative;
+
+        svg.iconic {
+            position: absolute;
+            @include left(0);
+            width: 20px;
+            height: 20px;
+        }
+
+        p {
+            margin-top: 0;
+            @include padding-left($lg-spacing);
+        }
+    }
+
+    &.success {
+        border: 3px solid $success-green;
+
+        .confirmation-message {
+
+            svg.iconic {
+                fill: $success-green;
+                top: -3px;
+            }
+        }
+    }
+
+    &.error {
+        border: 3px solid $error-red;
+
+        .confirmation-message {
+
+            svg.iconic {
+                fill: $error-red;
+                top: 3px;
+            }
+        }
+    }
+}
