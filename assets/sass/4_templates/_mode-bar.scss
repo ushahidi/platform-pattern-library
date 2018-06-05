@@ -50,7 +50,12 @@
         }
 
         &.active {
-            border-left: 4px solid $gold;
+            border-bottom: 4px solid $gold;
+
+            @include media($medium) {
+                @include border-left(4px solid $gold);
+                border-bottom: none;
+            }
 
             svg.iconic {
                 fill: $gold;

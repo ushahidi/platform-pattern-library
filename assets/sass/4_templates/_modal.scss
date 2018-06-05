@@ -18,7 +18,7 @@
         font-weight: 700;
         font-size: em(20px);
         margin: $base-spacing 0;
-        // @include padding-right($lg-spacing);
+        @include padding-right($lg-spacing);
 
         em {
             @include typeGamma;
@@ -26,17 +26,21 @@
             font-style: normal;
         }
 
-        // svg.iconic {
-        //     width: 15px;
-        //     height: 15px;
-        //     fill: $black;
-        //
-        //     &.modal-trigger-close {
-        //         position: absolute;
-        //         top: $lg-spacing;
-        //         @include right($base-spacing);
-        //     }
-        // }
+        svg.iconic {
+            width: 10px;
+            height: 10px;
+            fill: $black;
+
+            &.modal-trigger-close {
+                position: absolute;
+                top: 29px;
+                @include right($sm-spacing);
+
+                @include media($small) {
+                    @include right($base-spacing);
+                }
+            }
+        }
 
         input[type="checkbox"] {
             position: relative;
