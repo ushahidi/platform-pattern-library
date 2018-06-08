@@ -1,0 +1,83 @@
+{{> ModeBar }}
+
+<main role="main">
+
+    <div class="full-col">
+        <ol class="breadcrumbs">
+            <li><a href="settings.html">Settings</a></li>
+            <li><a href="settings-categories.html">Categories</a></li>
+            <li>Category name</li>
+        </ol>
+
+        <div class="list-item">
+            <!-- <h3>Category Details</h3> -->
+            <fieldset>
+                <div class="form-field">
+                    <label for="title">Category name</label>
+                    <input type="text" name="title" id="title" value="Category name">
+                </div>
+                <div class="form-field">
+                    <label for="description">Category Description (optional)</label>
+                    <textarea name="description" id="description" placeholder="Describe this category"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Who can see this category?</legend>
+                <div class="form-field radio">
+                    <input type="radio" id="radio_1">
+                    <label for="radio_1">Everyone</label>
+                </div>
+                <div class="form-field radio">
+                    <input type="radio" id="radio_2" checked>
+                    <label for="radio_2">Only specific roles</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Which roles can see this category?</legend>
+                <div class="form-field checkbox">
+                    <input type="checkbox" id="checkbox_1">
+                    <label for="checkbox_1">Member</label>
+                </div>
+                <div class="form-field checkbox">
+                    <input type="checkbox" id="checkbox_2" checked>
+                    <label for="checkbox_2">Admin</label>
+                </div>
+            </fieldset>
+
+            <button class="button-destructive">Delete category</button>
+        </div>
+
+        <div class="list-item">
+            <fieldset>
+                <div class="form-field">
+                    <label for="title">Sub-category name</label>
+                    <input type="text" name="title" id="title" value="Sub category name">
+                </div>
+                <div class="form-field">
+                    <label for="description">Sub-category Description (optional)</label>
+                    <textarea name="description" id="description" placeholder="Describe this sub-category"></textarea>
+                </div>
+            </fieldset>
+
+            <div class="button-group">
+                <button class="button-destructive">Delete sub-category</button>
+                <button class="button-gamma">Add a sub-category</button>
+            </div>
+
+        </div>
+
+        <div class="list-item">
+
+            <div class="button-group">
+                <button class="button-beta" disabled>Cancel</button>
+                <button class="button" disabled>Next</button>
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+{{> Modals }}

@@ -92,9 +92,10 @@ input[type="button"] {
         color: $accent-purple;
 
         &:hover,
-        &:active {
+        &:active,
+        &:focus {
             color: darken( $accent-purple, 10% );
-            border: none;
+            background-color: transparent;
         }
     }
 
@@ -152,10 +153,17 @@ input[type="button"] {
 
 .button-gamma {
     background-color: transparent;
-    border: none;
+    border-color: transparent;
+    margin-top: $sm-spacing !important;
+    @include padding-left(0);
+
+    @include media($medium) {
+        margin-top: 0;
+    }
 
     &:hover {
         background: transparent;
+        border-color: transparent;
     }
 }
 

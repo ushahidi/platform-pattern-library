@@ -3,7 +3,8 @@
     display: block;
     list-style-type: none;
     border-bottom: $base-border;
-    @include lrswap(padding, $lg-spacing $lg-spacing $lg-spacing 0);
+    // @include lrswap(padding, $lg-spacing $lg-spacing $lg-spacing 0);
+    padding: $lg-spacing;
     margin: 0;
     height: inherit;
 
@@ -23,6 +24,40 @@
 
     p {
         margin: $sm-spacing 0 0 0;
+
+        &.sub-category {
+            @include padding-left($sm-spacing);
+            color: $dark-gray;
+        }
+    }
+
+    fieldset {
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .form-field {
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    form {
+
+        .form-field {
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+
     }
 
     &.selected:before {
@@ -84,6 +119,38 @@ dt.list-item {
 
         &:last-of-type {
             border-bottom-color: transparent;
+        }
+    }
+}
+
+.multiple-select {
+    margin: 0;
+
+    .list-item {
+        background-color: $bg-gray;
+        border: none;
+        padding: $lg-spacing;
+
+        &.selected {
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                width: 5px;
+                @include left(0);
+                background: $accent-purple;
+                border-radius: 0;
+            }
+
+            &:first-child:before {
+                border-radius: 5px 5px 0 0;
+            }
+
+            &:last-child:before {
+                border-radius: 0 0 5px 5px;
+            }
         }
     }
 }
