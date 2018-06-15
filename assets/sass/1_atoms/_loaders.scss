@@ -1,0 +1,76 @@
+.loading-bar {
+    position: absolute;
+    height: 6px;
+    width: 40%;
+    background-color: $gold;
+    border-radius: 0 6px 6px 0;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        @include right(-1px);
+        width: 6px;
+        height: 6px;
+        border-radius: 6px;
+        background-color: $black;
+    }
+
+}
+
+.loading-bar-alt {
+    position: absolute;
+    height: 6px;
+    width: 100%;
+    background-color: $bg-gray;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &:before {
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        @include left(-200px);
+        width: 40%;
+        height: 6px;
+        border-radius: 6px;
+        background-color: $gold;
+        animation: loading 2s linear infinite;
+    }
+
+    @keyframes loading {
+        from {left: -200px; width: 30%;}
+        50% {width: 30%;}
+        70% {width: 70%;}
+        80% { left: 50%;}
+        95% {left: 120%;}
+        to {left: 100%;}
+    }
+}
+
+.loader-logo {
+    position: relative;
+    width: 300px;
+
+    img {
+        width: 125px;
+        margin: 0 auto $lg-spacing;
+    }
+
+    .loading-bar-alt {
+
+        &:before {
+            @include left(-100px);
+        }
+
+        @keyframes loading {
+            from {left: -100px; width: 30%;}
+            50% {width: 30%;}
+            70% {width: 70%;}
+            80% { left: 50%;}
+            95% {left: 120%;}
+            to {left: 100%;}
+        }
+    }
+}

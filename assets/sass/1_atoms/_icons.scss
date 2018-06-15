@@ -45,9 +45,13 @@ span.required:after {
 }
 
 .circle-icon {
-    @include circle-icon($error-red, $bg-white);
+    @include circle-icon;
 
-    &.confirmation {
+    &.error {
+        @include circle-icon($error-red, $bg-white);
+    }
+
+    &.success {
         background-color: $success-green;
     }
 }

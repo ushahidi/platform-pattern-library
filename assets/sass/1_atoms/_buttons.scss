@@ -58,14 +58,14 @@ input[type="button"] {
         position: relative;
         padding-top: 14px;
 
-        .button-progress-bar {
-            position: absolute;
-            top: 2px;
-            @include left(2px);
-            height: 5px;
-            width: 40%;
-            background-color: $gold;
-            border-radius: 2px;
+        .loading-bar {
+            top: 0;
+            @include left(0);
+            border-radius: 5px;
+
+            &:after {
+                content: none;
+            }
         }
     }
 
@@ -80,9 +80,9 @@ input[type="button"] {
 
         &.button-loading {
 
-            .button-progress-bar {
-                top: 1px;
-                @include left(1px);
+            .loading-bar {
+                top: 2px;
+                @include left(2px);
             }
         }
 
@@ -116,7 +116,7 @@ input[type="button"] {
 
     &.button-loading {
 
-        .button-progress-bar {
+        .loading-bar {
             background-color: $black;
         }
     }
@@ -132,7 +132,7 @@ input[type="button"] {
 
         &.button-loading {
 
-            .button-progress-bar {
+            .loading-bar {
                 top: 2px;
                 @include left(2px);
                 background-color: $gold;
