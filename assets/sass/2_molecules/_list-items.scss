@@ -22,8 +22,17 @@
         margin: 0;
     }
 
+    h3 {
+        margin: $sm-spacing 0;
+    }
+
+    img {
+        width: 100%;
+        max-width: 400px;
+    }
+
     p {
-        margin: $sm-spacing 0 0 0;
+        // margin: $sm-spacing 0 0 0;
 
         &.sub-category {
             @include padding-left($sm-spacing);
@@ -151,6 +160,23 @@ dt.list-item {
             &:last-child:before {
                 border-radius: 0 0 5px 5px;
             }
+        }
+    }
+}
+
+.data-list {
+
+    .list-item {
+        max-width: 400px;
+        padding: 0;
+
+        h3 {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-height: 1.1;
         }
     }
 }
