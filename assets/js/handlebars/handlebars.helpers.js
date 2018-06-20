@@ -459,8 +459,9 @@ hbLoadLayout = function() {
         currentURL = window.location.href.split('/').pop(),
         currentTemplate = currentURL.split('#')[0].slice(0, -5),
         currentHash = window.location.hash.substr(1);
-        console.log(currentHash);
+        console.log(currentTemplate);
     // If the page is a "layout"...
+    console.log(Ushahidi.templates)
     if (!currentTemplate == '') {
         currentMode = currentTemplate.split(/-(.+)?/)[0];
         session.mode = currentMode;
@@ -469,6 +470,7 @@ hbLoadLayout = function() {
         currentURL = window.location.href.split('/');
         currentTemplate = currentURL[5];
         currentMode = 'pattern-library ' + currentTemplate;
+        console.log(currentTemplate)
         session.mode = currentMode;
         $('body').html(Ushahidi.templates[currentTemplate](session));
     }
