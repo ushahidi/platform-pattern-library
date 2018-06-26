@@ -161,7 +161,7 @@ fieldset {
 
             svg.iconic {
                 fill: $error-red;
-                @include margin-right(5px)
+                @include margin-right(5px);
             }
         }
     }
@@ -240,7 +240,7 @@ fieldset {
             @include typeBase;
             text-transform: none;
             letter-spacing: 0;
-            @include padding-left(10px);
+            @include padding-left(2px);
 
             &:hover {
                 cursor: pointer;
@@ -681,11 +681,23 @@ fieldset {
         @include padding-left(38px);
     }
 
+    input:focus {
+
+        ~ svg.iconic {
+            fill: $black
+        }
+
+        ~ svg.iconic,
+        ~ svg.iconic.close {
+            top: 14px;
+        }
+    }
+
     svg.iconic {
         position: absolute;
         top: 13px;
         @include left(16px);
-        fill: $black;
+        fill: $dark-gray;
 
         &.close {
             width: 10px;
