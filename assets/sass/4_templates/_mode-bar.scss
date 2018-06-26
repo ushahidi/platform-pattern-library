@@ -31,10 +31,13 @@
         position: relative;
         text-align: center;
         padding: 15px 0 13px;
+        width: 16.6%;
 
         @include media($medium) {
             text-align: inherit;
             padding: $sm-spacing;
+            width: inherit;
+            height: 55px;
         }
 
         &:hover {
@@ -55,6 +58,7 @@
             @include media($medium) {
                 @include border-left(4px solid $gold);
                 border-bottom: none;
+                @include padding-left(9px);
             }
 
             svg.iconic {
@@ -67,6 +71,8 @@
         }
 
         svg.iconic {
+            position: relative;
+            top: 6px;
             width: $sm-spacing+2;
             height: $sm-spacing+2;
             fill: $bg-white;
@@ -83,7 +89,7 @@
             @include media($medium) {
                 display: inline-block;
                 position: absolute;
-                top: 14px;
+                top: 16px;
                 margin-left: 10px;
                 font-size: em(16px);
             }
@@ -93,25 +99,12 @@
 
             svg.iconic,
             a {
-                display: block;
 
                 @include media($medium) {
                     display: none;
                 }
             }
         }
-    }
-
-    .deployment-menu {
-
-        @include media($medium-down) {
-            @include clearfix;
-        }
-
-        &:after {
-            content: none;
-        }
-
     }
 
     .account-menu {
@@ -121,6 +114,13 @@
         @include media($medium) {
             display: block;
             background: $black;
+        }
+
+        li {
+
+            @include media($medium) {
+                height: 34px;
+            }
         }
 
         svg.iconic {
