@@ -30,12 +30,10 @@
     li {
         position: relative;
         text-align: center;
-        padding: 15px 0 13px;
         width: 16.6%;
 
         @include media($medium) {
             text-align: inherit;
-            padding: $sm-spacing;
             width: inherit;
             height: 55px;
         }
@@ -54,11 +52,24 @@
 
         &.active {
             border-bottom: 4px solid $gold;
+            border-radius: 3px 3px 0 0;
+
+            &:before {
+
+                @include media($medium) {
+                    display: block;
+                    content:'';
+                    position: absolute;
+                    width: 5px;
+                    height: 55px;
+                    background-color: $gold;
+                    border-radius: 0 3px 3px 0;
+                }
+            }
 
             @include media($medium) {
-                @include border-left(4px solid $gold);
+                // @include border-left(4px solid $gold);
                 border-bottom: none;
-                @include padding-left(9px);
             }
 
             svg.iconic {
@@ -72,26 +83,35 @@
 
         svg.iconic {
             position: relative;
-            top: 6px;
+            top: 21px;
             width: $sm-spacing+2;
             height: $sm-spacing+2;
             fill: $bg-white;
             @include transition(0.3s);
+
+            @include media($medium) {
+                position: absolute;
+                top: 20px;
+                @include left($base-spacing);
+            }
         }
 
         a {
             display: block;
             color: $bg-white;
             font-size: em(11px);
+            letter-spacing: 0.2px;
             @include transition(0.3s);
-            padding: $tiny-spacing/2 0;
+            margin-top: -19px;
+            padding: 42px 0 23px 0;
 
             @include media($medium) {
                 display: inline-block;
                 position: absolute;
-                top: 16px;
-                margin-left: 10px;
+                margin-top: 0;
+                @include lrswap (padding, $base-spacing 41px $base-spacing 51px);
                 font-size: em(16px);
+                width: 100%;
             }
         }
 
@@ -121,15 +141,68 @@
             @include media($medium) {
                 height: 34px;
             }
-        }
 
-        svg.iconic {
-            width: 13px;
-            height: 13px;
-        }
+            a {
+                font-size: em(13px);
 
-        a {
-            font-size: em(13px);
+                @include media($medium) {
+                    @include lrswap (padding, 12px 41px 11px 51px);
+                }
+            }
+
+            svg.iconic {
+                width: 13px;
+                height: 13px;
+
+                @include media($medium) {
+                    top: 11px;
+                }
+            }
+
+            &.made-by-logo {
+
+                @include media($medium) {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: inherit;
+                    padding: 0;
+                }
+
+                a {
+                    position: relative;
+                    top: 0;
+                    margin: 0;
+                    padding: 23px;
+
+                    @include media($medium) {
+                        padding: 18px 16px;
+                    }
+                }
+
+                img {
+                    width: 30px;
+                    margin: auto;
+
+                    @include media($medium) {
+                        position: absolute;
+                        width: 20px;
+                    }
+
+                }
+
+                span {
+                    display: none;
+                    color: $bg-white;
+                    font-size: 14px;
+                    @include padding-left(30px);
+                    line-height: 1.4;
+
+                    @include media($medium) {
+                        display: block;
+                    }
+                }
+            }
         }
     }
 
@@ -137,7 +210,7 @@
 
         .account-menu {
             position: absolute;
-            top: -65px;
+            top: -75px;
             width: 100%;
             display: -webkit-flex;
             display: -moz-flex;
@@ -147,41 +220,4 @@
         }
     }
 
-    .made-by-logo {
-
-        @include media($medium) {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            padding: $sm-spacing;
-        }
-
-        a {
-            position: relative;
-            margin: 0;
-            top: 0;
-        }
-
-        img {
-            width: 30px;
-
-            @include media($medium) {
-                position: absolute;
-                width: 20px;
-            }
-
-        }
-
-        span {
-            display: none;
-            color: $bg-white;
-            font-size: 14px;
-            @include padding-left(30px);
-            line-height: 1.4;
-
-            @include media($medium) {
-                display: block;
-            }
-        }
-    }
 }
