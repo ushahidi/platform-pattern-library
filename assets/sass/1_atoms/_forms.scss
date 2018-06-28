@@ -49,8 +49,8 @@ textarea {
     @include text-align(left);
     outline-color: $bg-white;
     border: $form-input-border;
-    @include border-top-radius($global-radius);
-    @include border-bottom-radius($global-radius);
+    @include border-top-radius($global-radius - 3);
+    @include border-bottom-radius($global-radius - 3);
     padding: $tiny-spacing $sm-spacing;
     @include transition;
 
@@ -69,6 +69,8 @@ textarea {
         outline: none;
         border: 2px solid $black;
         @include input-placeholder($black);
+        @include border-top-radius($global-radius);
+        @include border-bottom-radius($global-radius);
     }
 
     &[disabled] {
@@ -135,15 +137,33 @@ input[type="file"] {
     }
 }
 
+.form-field.checkbox.checked,
+.form-field.radio.checked {
+
+    label:before {
+        border: 2px solid $black;
+    }
+}
+
 input[type="checkbox"], input[type="radio"] {
     opacity: 0;
-    width: 20px;
+    width: 16px;
+
     + label {
         position: relative;
+
+        &.disabled {
+            cursor: not-allowed;
+
+            &:before {
+                border-color: $disabled-gray;
+            }
+        }
     }
 
     /*Unhide the mark on the checked state*/
     &:checked {
+
         + label::after {
             content: "";
         }
@@ -151,12 +171,15 @@ input[type="checkbox"], input[type="radio"] {
 
     /*Adding focus styles on the outer-box of the fake checkbox*/
     &:focus {
+
         + label::before {
             outline: 1px dotted #777777;
             outline-offset: 2px;
         }
     }
+
     &:disabled {
+
         +label, &::before, &::after   {
             color: $disabled-gray;
             border-color: $disabled-gray;
@@ -164,32 +187,36 @@ input[type="checkbox"], input[type="radio"] {
         }
     }
 }
+
  /* Specific styles for checkboxes*/
 input[type="checkbox"] {
+
     + label {
+
         &::before {
             /*Outer-box*/
             content: "";
             display: inline-block;
             height: 20px;
             width: 20px;
-            @include border-top-radius($global-radius);
-            @include border-bottom-radius($global-radius);
-            border: 2px solid $black;
+            @include border-top-radius($global-radius - 3);
+            @include border-bottom-radius($global-radius - 3);
+            border: 1px solid $dark-gray;
             position: absolute;
             top: -2px;
-            @include left(-25px);
+            @include left(-40px);
         }
+
         &::after {
             /*Checkmark*/
             content: none;
             display: inline-block;
             height: 8px;
             width: 8px;
-            border: 2px solid $black;
+            border: 1px solid $black;
             background-color: $black;
             position: absolute;
-            @include left(-19px);
+            @include left(-34px);
             top: 4px;
         }
     }
@@ -197,7 +224,9 @@ input[type="checkbox"] {
 
 /*Specific styles for radio-buttons*/
 input[type="radio"] {
+
     + label {
+
         &::before {
             /*Outer-box*/
             content: "";
@@ -206,10 +235,10 @@ input[type="radio"] {
             width: 20px;
             @include border-top-radius(50%);
             @include border-bottom-radius(50%);
-            border: 2px solid $black;
+            border: 1px solid $dark-gray;
             position: absolute;
             top: 0;
-            @include left(-25px);
+            @include left(-40px);
             background-color: $bg-white;
         }
         &::after {
@@ -222,12 +251,11 @@ input[type="radio"] {
             background-color: $black;
             border-radius: 50%;
             position: absolute;
-            @include left(-18px);
+            @include left(-33px);
             top: 7px;
         }
     }
 }
-
 
 textarea {
     width: 100%;
@@ -251,7 +279,7 @@ select {
     @include equal-radius;
     border: $form-input-border;
     background-color: $bg-white;
-    @include lrswap(padding, $tiny-spacing 26px $tiny-spacing $tiny-spacing);
+    @include lrswap(padding, $tiny-spacing 41px $tiny-spacing + 1 $base-spacing);
 
     &:focus {
         outline: none;
@@ -266,8 +294,8 @@ select {
     &:after {
         content: '';
         position: absolute;
-        top: 50%;
-        @include right(10px);
+        top: 53%;
+        @include right(23px);
         width: 7px;
         height: 7px;
         background: transparent;
@@ -381,14 +409,13 @@ form, .form {
             top: -3px;
             width: 50%;
             height: 22px;
-            box-shadow: 0 0 2px rgba(0,0,0,0.12),
-            0 2px 2px rgba(0,0,0,0.24);
         }
 
         &:after {
             @include left(0);
+            border: none;
             border-radius: 50%;
-            background: $bg-white;
+            background: $dark-gray;
             transition: all .2s ease;
         }
 
