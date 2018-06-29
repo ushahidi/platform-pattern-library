@@ -31,21 +31,12 @@
         content: '';
         position: absolute;
         top: 0;
-        @include left(-200px);
+        @include left(-28%);
         width: 40%;
         height: 8px;
         border-radius: 6px;
         background-color: $gold;
-        animation: loading 2s linear infinite;
-    }
-
-    @keyframes loading {
-        from {left: -200px; width: 30%;}
-        50% {width: 30%;}
-        70% {width: 70%;}
-        80% { left: 50%;}
-        95% {left: 120%;}
-        to {left: 100%;}
+        @include animation(loading, 2s, ease-in-out, 0s, infinite);
     }
 }
 
@@ -58,19 +49,50 @@
         margin: 0 auto $lg-spacing;
     }
 
-    .loading-bar-alt {
+}
 
-        &:before {
-            @include left(-100px);
-        }
-
-        @keyframes loading {
-            from {left: -100px; width: 30%;}
-            50% {width: 30%;}
-            70% {width: 70%;}
-            80% { left: 50%;}
-            95% {left: 120%;}
-            to {left: 100%;}
-        }
+@keyframes loading {
+    0% {
+        transform: translate(-28%, 0px);
     }
+
+    100% {
+        transform: translate(320%, 0px);
+    }
+}
+
+@-moz-keyframes loading {
+  0% {
+    -moz-transform: translate(-28%, 0px)  ;
+  }
+  100% {
+    -moz-transform: translate(320%, 0px)  ;
+  }
+}
+
+@-webkit-keyframes loading {
+  0% {
+    -webkit-transform: translate(-28%, 0px)  ;
+  }
+  100% {
+    -webkit-transform: translate(320%, 0px)  ;
+  }
+}
+
+@-o-keyframes loading {
+  0% {
+    -o-transform: translate(-28%, 0px)  ;
+  }
+  100% {
+    -o-transform: translate(320%, 0px)  ;
+  }
+}
+
+@-ms-keyframes loading {
+  0% {
+    -ms-transform: translate(-28%, 0px)  ;
+  }
+  100% {
+    -ms-transform: translate(320%, 0px)  ;
+  }
 }
