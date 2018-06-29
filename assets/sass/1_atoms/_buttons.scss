@@ -15,11 +15,11 @@ input[type="button"] {
     text-transform: capitalize;
     text-decoration: none;
     line-height: 1.35;
-    letter-spacing: 1px;
+    letter-spacing: 0.2px;
     border: 3px solid $black;
     border-radius: $global-radius;
     @include margin-right($sm-spacing);
-    @include lrswap(padding, $tiny-spacing $sm-spacing);
+    @include lrswap(padding, $tiny-spacing $lg-spacing);
     @include transition(0.3s);
     color: $bg-white;
     background-color: $black;
@@ -57,8 +57,10 @@ input[type="button"] {
     &.button-loading {
         position: relative;
         padding-top: 14px;
+        color: $black;
         background-color: $disabled-gray;
         border-color: $disabled-gray;
+        cursor: not-allowed;
 
         .loading-bar {
             position: absolute;
@@ -114,11 +116,18 @@ input[type="button"] {
     &:focus {
         background-color: darken( $gold, 10% );
         border: 3px solid darken( $gold, 10% );
+        color: $black;
     }
 
     &.button-loading {
 
         &:hover {
+            background-color: $disabled-gray;
+            border-color: $disabled-gray;
+        }
+
+        &:active,
+        &:focus {
             background-color: $disabled-gray;
             border-color: $disabled-gray;
         }
@@ -133,8 +142,21 @@ input[type="button"] {
             border-color: lighten( $gold, 10% );
         }
 
+        &:active,
+        &:focus {
+            background-color: $black;
+            border: 3px solid darken( $gold, 10% );
+        }
+
         &.button-loading {
             border-color: $disabled-gray;
+
+            &:active,
+            &:focus {
+                background: transparent;
+                border-color: $disabled-gray;
+                color: $black;
+            }
         }
     }
 
@@ -142,7 +164,8 @@ input[type="button"] {
         color: $bg-white;
 
         &:hover,
-        &:active {
+        &:active,
+        &:focus, {
             color: darken( $bg-white, 10% );
         }
     }
