@@ -37,16 +37,17 @@
             background-color: $bg-white;
             @include padding-right($huge-spacing);
             margin-bottom: 0;
-            @include transition(0.3s);
 
             &:hover {
                 cursor: pointer;
             }
 
             &.active {
-                z-index: $dropdown+1;
-                border-color: transparent;
+                border: 2px solid $black;
+                border-bottom: none;
+                border-radius: 5px 5px 0 0;
                 @include no-shadow;
+                z-index: $dropdown+1;
 
                 .custom-fieldset-value {
 
@@ -54,6 +55,14 @@
                         visibility: hidden;
                     }
                 }
+
+                .legend-label {
+                    color: $black;
+                }
+            }
+
+            .legend-label {
+                color: $dark-gray;
             }
 
             .custom-fieldset-value {
@@ -113,10 +122,6 @@
             top: 0 !important;
             @include left(0 !important);
             padding-top: $lg-spacing;
-
-            @include media($medium) {
-                min-width: 250px;
-            }
 
             [data-toggle].active {
                 display: none;

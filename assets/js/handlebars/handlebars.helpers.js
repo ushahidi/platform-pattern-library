@@ -468,7 +468,7 @@ hbLoadLayout = function() {
         $('body').html(Ushahidi.templates.layouts[currentTemplate](session));
     } else {
         currentURL = window.location.href.split('/');
-        currentTemplate = currentURL[7];
+        currentTemplate = currentURL[5];
         currentMode = 'pattern-library ' + currentTemplate;
         console.log(currentTemplate)
         session.mode = currentMode;

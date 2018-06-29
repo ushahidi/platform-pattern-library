@@ -229,7 +229,7 @@ fieldset {
     &.radio {
         position: relative;
         @include padding-left(40px);
-        margin: 24px 0;
+        margin: 24px 13;
 
         label {
             color: $black;
@@ -722,6 +722,40 @@ fieldset {
 }
 
 fieldset {
+    position: relative;
+    border: none;
+
+    legend {
+        @include typeGamma;
+        margin-bottom: $tiny-spacing;
+
+        [role="article"] & {
+            font-size: 20px;
+            font-size: 1.428571429rem;
+        }
+
+        &.required {
+
+            &:after {
+                content: '\2217';
+                position: relative;
+                top: -2px;
+                color: $error-red;
+                font-weight: normal;
+                font-size: 1.428571429em;
+                @include margin-left(4px);
+            }
+        }
+
+        svg.iconic {
+            fill: $black;
+            @include margin-right(4px);
+        }
+
+        + p {
+            margin-top: -5px;
+        }
+    }
 
     .custom-select {
         margin-top: -6px;
