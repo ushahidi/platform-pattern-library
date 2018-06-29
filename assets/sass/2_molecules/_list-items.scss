@@ -4,12 +4,12 @@
     list-style-type: none;
     border-bottom: $base-border;
     // @include lrswap(padding, $lg-spacing $lg-spacing $lg-spacing 0);
-    padding: $lg-spacing;
+    padding: 0 $lg-spacing;
     margin: 0;
     height: inherit;
 
     @include media($medium) {
-        padding: 1px $base-spacing;
+        padding: 0;
     }
 
     &:last-child {
@@ -35,6 +35,7 @@
         color: $dark-gray;
 
         &.sub-category {
+            margin: $sm-spacing 0;
             @include padding-left($sm-spacing);
             color: $dark-gray;
         }
@@ -43,7 +44,8 @@
     fieldset {
 
         &:first-of-type {
-            margin-top: 0;
+            padding-top: $base-spacing;
+            margin: 0 0 $base-spacing 0;
         }
 
         &:last-of-type {
@@ -75,13 +77,15 @@
     }
 
     button {
-        margin-top: $lg-spacing;
+        @include lrswap (margin, $base-spacing $base-spacing $base-spacing 0);
+        // @include lrswap (margin, 0 $base-spacing 0 0);
     }
 
     .button-group {
+        margin: 0 0 $base-spacing 0;
 
         button {
-            margin-top: 0;
+            @include lrswap(margin, $base-spacing $base-spacing 0 0);
         }
     }
 
@@ -97,6 +101,7 @@
 
             h4 {
                 margin: 16px 0;
+                font-weight: 600;
             }
         }
     }
@@ -129,6 +134,8 @@ dt.list-item {
         border: none;
 
         &.selected {
+            padding: 1px $base-spacing;
+
 
             &:before {
                 content: '';
