@@ -280,7 +280,7 @@ select {
     @include equal-radius;
     border: $form-input-border;
     background-color: $bg-white;
-    @include lrswap(padding, $tiny-spacing 41px $tiny-spacing + 1 $base-spacing);
+    @include lrswap(padding, $tiny-spacing 41px 6px $base-spacing);
 
     &:focus {
         outline: none;
@@ -289,8 +289,9 @@ select {
 }
 
 .custom-select {
-    display: inline-block;
+    display: block;
     position: relative;
+    @include float(left);
 
     &:after {
         content: '';
@@ -302,7 +303,7 @@ select {
         background: transparent;
         border-top: 2.5px solid $dark-gray;
         border-right: 2.5px solid $dark-gray;
-        margin-top: -6px;
+        margin-top: -12px;
         @include rotate(135deg);
     }
 
