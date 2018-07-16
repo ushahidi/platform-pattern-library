@@ -1,205 +1,46 @@
-.message {
-    position: relative;
-    @include containerSheet;
-    color: $bg-white;
-    @include equal-radius(0px);
-    background-color: $dark-blue;
-    @include direction;
-    padding: $sm-spacing;
-
-    @include media($medium) {
-        padding: $tiny-spacing;
-    }
-
-    .loading-bar {
-        top: 0;
-        @include left(0);
-    }
-
-    .message-image {
-        @include circle-icon;
-
-        @include media($medium) {
-            position: absolute;
-            margin: auto 0;
-            top: 0;
-            @include left($base-spacing);
-            bottom: 0;
-            @include right(0);
-        }
-
-        &.success {
-            background-color: $success-green;
-        }
-
-        &.error {
-            background-color: $error-red;
-        }
-
-    }
-
-    .message-body {
-        padding: $sm-spacing 0 0;
-        text-align: center;
-
-        @include media($medium) {
-            padding: $sm-spacing $base-spacing;
-            @include padding-left(90px);
-            @include padding-right(290px);
-            @include text-align(left);
-
-        }
-    }
-
-    p {
-        margin: 0;
-
-        @include media($medium) {
-            margin: $tiny-spacing 0;
-        }
-
-        a {
-            color: $gold;
-            border-bottom: 1px dotted $gold;
-
-            &:hover {
-                border-bottom-style: solid;
-            }
-        }
-
-        em {
-            color: $bg-white;
-        }
-    }
-
-    strong {
-        color: $bg-white;
-    }
-
-    .button-group {
-        text-align: center;
-        margin-top: $sm-spacing;
-
-        @include media($medium) {
-            position: absolute;
-            margin: auto 0;
-            top: 0;
-            @include right(24px);
-            bottom: 0;
-            height: 35px;
-        }
-
-        button,
-        .button {
-            margin-bottom: 0;
-
-            &:last-child {
-                margin: 0;
-            }
-        }
-    }
-
-    button,
-    .button {
-        display: inline-block;
-        font-size: 12px;
-        font-size: .857142857rem;
-        @include margin-left(0);
-
-        @include media($medium) {
-            margin: 2px $tiny-spacing;
-        }
-
-        + .button-gamma {
-            padding-right: $sm-spacing;
-            padding-left: $sm-spacing;
-            margin: $tiny-spacing;
-            @include margin-left(0);
-        }
-
-        svg.iconic {
-
-            + .button-label {
-                @include margin-left(4px);
-            }
-        }
-    }
-
-    .button-gamma {
-        color: $disabled-gray;
-        padding-right: 0;
-        padding-left: 0;
-        @include lrswap(margin, 0 $tiny-spacing 0 0);
-
-        svg.iconic {
-            fill: $disabled-gray;
-        }
-    }
-    .buttons-export {
-        padding-top: $tiny-spacing;
-
-    }
-    .dropdown-menu {
-        @include left(auto !important);
-        margin-top: $tiny-spacing;
-
-        &.init {
-
-            &.active {
-                display: none;
-            }
-        }
-    }
-
-    &.active {
-
-        .dropdown-menu {
-
-            &.init {
-
-                &.active {
-                    display: block;
-                }
-            }
-        }
-    }
-
-    &.transient {
-
-        .message-image {
-            position: absolute;
-            top: 12px;
-            @include left($base-spacing);
-            width: $base-spacing;
-            height: $base-spacing;
-            margin: 0;
-
-            svg.iconic {
-                width: 14px;
-                height: 14px;
-                margin-top: 6px;
-            }
-
-            + .message-body {
-                @include padding-left(56px);
-                margin-top: 0;
-            }
-        }
-    }
-    .loading-bar {
-       margin: -8px -8px 0 -8px;
-       @include media($medium-down) {
-            margin: -16px -16px $sm-spacing -16px;
-       }
-    }
-}
-
-.confirmation {
+.notification {
     @include equal-radius(3px);
     max-width: 330px;
     padding: 24px;
+    border: 3px solid $black;
 
-    .confirmation-message {
+    &.neutral {
+        border-color: $accent-purple;
+
+        .notification-message {
+
+            svg.iconic {
+                fill: $accent-purple;
+                top: -3px;
+            }
+        }
+    }
+
+    &.success {
+        border-color: $success-green;
+
+        .notification-message {
+
+            svg.iconic {
+                fill: $success-green;
+                top: -3px;
+            }
+        }
+    }
+
+    &.error {
+        border-color: $error-red;
+
+        .notification-message {
+
+            svg.iconic {
+                fill: $error-red;
+                top: 3px;
+            }
+        }
+    }
+
+    .notification-message {
         position: relative;
 
         svg.iconic {
@@ -215,27 +56,4 @@
         }
     }
 
-    &.success {
-        border: 3px solid $success-green;
-
-        .confirmation-message {
-
-            svg.iconic {
-                fill: $success-green;
-                top: -3px;
-            }
-        }
-    }
-
-    &.error {
-        border: 3px solid $error-red;
-
-        .confirmation-message {
-
-            svg.iconic {
-                fill: $error-red;
-                top: 3px;
-            }
-        }
-    }
 }
