@@ -4,6 +4,22 @@
     padding: 24px;
     border: 3px solid $black;
 
+    .notification-message {
+        position: relative;
+
+        svg.iconic {
+            position: absolute;
+            @include left(0);
+            width: 20px;
+            height: 20px;
+        }
+
+        p {
+            margin-top: 0;
+            @include padding-left($lg-spacing);
+        }
+    }
+
     &.neutral {
         border-color: $accent-purple;
 
@@ -40,20 +56,55 @@
         }
     }
 
-    .notification-message {
-        position: relative;
+}
 
-        svg.iconic {
+.notification-beta {
+    position: relative;
+    padding: 24px;
+
+    .notification-image {
+        display: block;
+        width: 40px;
+        height: 40px;
+        background-color: $black;
+        border-radius: 100px;
+        margin: 0 auto $base-spacing auto;
+        padding: 9px;
+        text-align: center;
+
+        @include media($small) {
             position: absolute;
-            @include left(0);
-            width: 20px;
-            height: 20px;
+            margin: auto 0;
+            top: 0;
+            @include left(24px);
+            bottom: 0;
+            @include right(0);
+        }
+
+    }
+
+    svg.iconic {
+        width: 21px;
+        height: 21px;
+        fill: $bg-white;
+    }
+
+    .notification-body {
+        @include padding-left(0);
+        text-align: center;
+
+        @include media($small) {
+            @include padding-left(61px);
+            @include text-align(left);
         }
 
         p {
-            margin-top: 0;
-            @include padding-left($lg-spacing);
+            font-weight: bold;
+            margin: 0 0 $base-spacing 0;
         }
     }
 
+    &.demo {
+        background-color: $gold;
+    }
 }
