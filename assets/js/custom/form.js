@@ -107,20 +107,6 @@ $('input[type="radio"], input[type="checkbox"]').on('change', function(){
     }
 });
 
-// Initialize date fields with 'PickaDate.js'
-$('input[type="date"]').pickadate({
-    format: 'mmmm d, yyyy',
-    today: 'Choose today'
-});
-
-// Initialize time fields with 'PickaDate.js'
-$('input[type="time"]').pickatime({
-    format: 'h:i A',
-    klass: {
-        buttonClear: 'picker__button--clear button'
-    }
-});
-
 // Display dropdown when input is in focus and has a value
 $('.input-with-dropdown').each(function(){
     var input = $(this).find('input'),
