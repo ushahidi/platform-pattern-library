@@ -1,0 +1,179 @@
+{{> ModeBar }}
+
+<div class="mode-context">
+
+    <!--// Loading the mode context //
+   <div class="loading">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+   </div>
+   // END: Loading the mode context//-->
+
+    <header class="mode-context-header {{#if deployment.logo}}has-logo{{/if}}">
+        <h1 class="mode-context-title"><a href="">{{deployment.name}}</a></h1>
+
+        {{#if deployment.logo}}
+            <img src="{{deployment.logo}}" class="deployment-logo" alt="Deployment Logo" />
+        {{/if}}
+    </header>
+
+    <span class="mode-context-trigger">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+        </svg>
+        <span class="label hidden">Show more/less</span>
+    </span>
+
+    <div class="mode-context-body">
+        {{{deployment.description}}}
+
+        <div class="tool">
+            <p>There are <a href=""><strong>12 posts</strong></a> not shown on the map because they don't include location information.</p>
+        </div>
+
+        <div class="tool">
+            <h6 class="tool-heading">Surveys</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#unless datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/unless}}
+                {{/each}}
+
+                <div class="form-field">
+                    <a href="settings-survey-add.html" class="button button-link">
+                        <svg class="iconic">
+                            <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
+                        </svg>
+                        <span class="button-label">Create new survey</span>
+                    </a>
+                </div>
+            </form>
+        </div>
+
+        {{#if user.logged_in}}
+        <div class="tool">
+            <h6 class="tool-heading">Data sources</h6>
+
+            <form class="survey-filter">
+                {{#each deployment.surveys}}
+                    {{#if datasource}}
+                        {{> SurveyFilterCheckbox}}
+                    {{/if}}
+                {{/each}}
+            </form>
+        </div>
+        {{/if}}
+
+        <div class="tool">
+            <h6 class="tool-heading">Language</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+            <div class="toggle-content">
+                <div class="form-field select">
+                    <div class="custom-select">
+                        <select>
+                            <option selected>English (US)</option>
+                            <option>Spanish</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tool">
+            <h6 class="tool-heading">How to add a post</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+            <div class="toggle-content {{#unless user.logged_in}}active{{/unless}}">
+                <p>Use the <a href="#">web form</a>.</p>
+                <p>Send a text message to </br> <a href="tel:15551234567">+1-555-123-4567</a>.</p>
+                <p>Send an email to <a href="mailto:cityhallmarch@domain.com" title="Subject">cityhallmarch@domain.com</a>.</p>
+                <p>Tweet with the hashtag(s) <a href="https://twitter.com/search?q=%23ushahidi&src=typd">#marchoncityhall</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<main role="main">
+
+    <div class="toolbar">
+        {{> Fab target='submit-new-survey'}}
+
+        {{> Search-d }}
+
+        <div class="button-group">
+            <button type="button" data-modal="share">
+                <svg class="iconic">
+                  <use xlink:href="../../img/iconic-sprite.svg#share"></use>
+                </svg>
+                <span class="button-label">Share</span>
+            </button>
+        </div>
+    </div>
+
+    <!--// Module: Toolbox //-->
+    <div class="toolbox hide-until-small">
+
+        {{> toolStatus }}
+
+        <div class="tool">
+            <h6 class="tool-heading">Layers</h6>
+
+            <span class="tool-trigger" data-toggle="toggle-content">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#chevron-bottom"></use>
+                </svg>
+                <span class="label hidden">Show/hide</span>
+            </span>
+
+            <div class="toggle-content">
+                <fieldset>
+                    <div class="form-field radio">
+                        <label for="streets"><input type="radio" name="layers" id="streets" checked />Streets</label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="satellite"><input type="radio" name="layers" id="satellite" />Satellite</label>
+                    </div>
+                    <div class="form-field radio">
+                        <label for="terrain"><input type="radio" name="layers" id="terrain" />Terrain</label>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+    </div>
+    <!--// END // Module: Toolbox //-->
+
+    {{mapEmbed 'all' true}}
+</main>
+<div class="message demo active">
+    <div class="message-image">
+        <svg class="iconic">
+            <use xlink:href="../../img/iconic-sprite.svg#star"></use>
+        </svg>
+    </div>
+
+    <div class="message-body">
+        <p><bdi>Nice work! You have more than 25 posts. Upgrade now to see the rest of your posts or reach out to our team about a full-service enterprise partnership for your project.</bdi></p>
+
+        <div class="button-group">
+            <button class="button">Upgrade now</button>
+        </div>
+    </div>
+</div>
+<div class="message-overlay"></div>
+
+{{> Modals }}
