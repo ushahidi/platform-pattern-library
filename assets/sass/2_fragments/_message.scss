@@ -177,52 +177,22 @@
             margin: -16px -16px $sm-spacing -16px;
        }
     }
-}
 
+    &.demo {
+        background-color: $color-secondary;
+        // need !important here to override previous z-index and make slider visible above overlay
+        z-index: $modal + 1 !important;
 
-.notification-beta {
-    position: relative;
-    padding: 24px;
-
-    .notification-image {
-        display: block;
-        width: 40px;
-        height: 40px;
-        background-color: $black;
-        border-radius: 100px;
-        margin: 0 auto $base-spacing auto;
-        padding: 9px;
-        text-align: center;
-
-        @include media($small) {
-            position: absolute;
-            margin: auto 0;
-            top: 0;
-            @include left(24px);
-            bottom: 0;
-            @include right(0);
-        }
-    }
-
-    svg.iconic {
-        width: 21px;
-        height: 21px;
-        fill: white;
-    }
-
-    .notification-body {
-        @include padding-left(0);
-        text-align: center;
-
-        @include media($small) {
-            @include padding-left(61px);
-            @include text-align(left);
+        .message-image {
+            background-color: $black;
         }
 
-        p {
-            font-weight: bold;
-            margin: 0;
-            color: #1E232A;
+        .message-body {
+
+            p {
+                font-weight: bold;
+                color: #1E232A;
+            }
         }
 
         .button {
@@ -230,6 +200,9 @@
             text-transform: capitalize;
             padding: 8px 34px;
             border: 3px solid #1E232A;
+            @include margin-left(24px);
+            font-size: 14px;
+            font-size: 1rem;
 
             &:hover {
                 background-color: #333c48;
@@ -239,11 +212,28 @@
         }
 
         .button-group {
+            position: relative;
             margin-top: $base-spacing;
         }
-     }
+    }
+}
 
-    &.demo {
-        background-color: $color-secondary;
+// overlay that greys out the screen for demo-version
+.message-overlay {
+    position: fixed;
+    top: 0;
+    left: 64.1px;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: $modal;
+
+    @include media($medium-down) {
+        left: 0;
+        bottom: 50px;
     }
 }
