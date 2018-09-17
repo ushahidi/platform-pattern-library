@@ -177,4 +177,63 @@
             margin: -16px -16px $sm-spacing -16px;
        }
     }
+
+    &.demo {
+        background-color: $color-secondary;
+        // need !important here to override previous z-index and make slider visible above overlay
+        z-index: $modal + 1 !important;
+
+        .message-image {
+            background-color: $black;
+        }
+
+        .message-body {
+
+            p {
+                font-weight: bold;
+                color: #1E232A;
+            }
+        }
+
+        .button {
+            background-color: #1E232A;
+            text-transform: capitalize;
+            padding: 8px 34px;
+            border: 3px solid #1E232A;
+            @include margin-left(24px);
+            font-size: 14px;
+            font-size: 1rem;
+
+            &:hover {
+                background-color: #333c48;
+                border: 3px solid #333c48;
+                cursor: pointer;
+            }
+        }
+
+        .button-group {
+            position: relative;
+            margin-top: $base-spacing;
+        }
+    }
+}
+
+// overlay that greys out the screen for demo-version
+.message-overlay {
+    position: fixed;
+    top: 0;
+    left: 64.1px;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: $modal;
+
+    @include media($medium-down) {
+        left: 0;
+        bottom: 50px;
+    }
 }
