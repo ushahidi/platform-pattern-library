@@ -14,9 +14,8 @@
 
     &.hide-on-mobile {
         display: none;
-        box-shadow: none;
         padding-bottom: $base-spacing;
-
+        margin-top: $base-spacing;
         @include media($medium) {
             display: block;
         }
@@ -175,6 +174,13 @@
             font-size: em(12);
             color: $color-dark-gamma;
             font-style: italic;
+        }
+
+        .form-heading {
+            font-weight: 900;
+            font-size: 1.2rem;
+            padding-top: 10px;
+            margin-bottom: 16px;
         }
 
     }
@@ -351,4 +357,101 @@
             padding: $base-spacing 40px;
         }
     }
+}
+
+.case-studies {
+
+    @include media($medium) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+    }
+
+    .section-title {
+
+        @include media($medium) {
+            flex: 0 0 100%;
+        }
+    }
+
+    .case-studies-group {
+        padding-top: 20px;
+
+        @include media($medium) {
+            flex: 0 0 50%;
+        }
+
+        .case-studies-item {
+
+            img {
+                max-width: 100px;
+            }
+
+            .section-heading {
+                display: none;
+            }
+        }
+    }
+
+    .case-studies-feature {
+
+        @include media($medium) {
+            flex: 0 0 45%;
+            margin-left: $base-spacing;
+            align-self: flex-start;
+        }
+
+        .case-studies-feature-body {
+
+            @include media($medium) {
+                margin-top: 380px;
+            }
+        }
+    }
+}
+
+.case-studies-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .case-studies-item {
+        padding: $sm-spacing;
+        text-align: center;
+
+        @include media($small) {
+            flex: 0 0 50%;
+            padding: $base-spacing;
+        }
+        .section-heading {
+            font-size: 1.7rem;
+            margin-top: 16px;
+        }
+    }
+}
+.section-faq {
+    background-color: #fff;
+    padding-top: 32px;
+    @include media($medium-down) {
+        padding-bottom: 25px;
+    }
+    .section-title {
+        text-align: center;
+        font-size: 2.8rem;
+        font-weight: 300;
+        margin-bottom: 24px;
+    }
+    .faq-grid {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+    }
+    .wrapper {
+        max-width: 1048px;
+    }
+}
+.faq {
+    margin: -67px 0 $base-spacing 0;
+    padding: 67px $sm-spacing 0;
 }
