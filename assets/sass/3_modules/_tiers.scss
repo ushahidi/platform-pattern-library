@@ -1,409 +1,457 @@
-.tier {
-    position: relative;
-    @include containerCard;
-    text-align: center;
-    margin: $base-spacing auto;
-
-    @include media($small) {
-        max-width: 60%;
-        margin: $lg-spacing auto;
-    }
-
-    .tier-header {
-        padding: $base-spacing $sm-spacing 35px;
-
-        @include media($small) {
-            padding-right: $base-spacing;
-            padding-left: $base-spacing;
-        }
-
-        .tier-header-body {
-            position: relative;
-            z-index: 1;
-            color: $white;
-
-            .tier-heading {
-                color: $white;
-            }
-
-            .tier-feature,
-            .tier-feature em {
-                color: $lt-gray;
-            }
-        }
-    }
-
-    &.selected {
-
-        .tier-header {
-            background-color: $white;
-        }
-    }
-
-    .tier-summary {
-        position: relative;
-        overflow: hidden;
-        background-color: #1E232A;
-        padding: 0 $base-spacing 35px;
-
-        .tier-heading {
-            margin-top: $base-spacing;
-        }
-
-        .tier-summary-body {
-            position: relative;
-            z-index: 1;
-            color: $white;
-
-            .tier-heading {
-                color: $white;
-            }
-
-            .tier-feature,
-            .tier-feature em {
-                color: $lt-gray;
-            }
-        }
-    }
-
-    &.selected {
-
-        .tier-summary {
-            background-color: $white;
-        }
-    }
-
-    .tier-image {
-
-        img {
-            position: absolute;
-            z-index: 1;
-            top: 0;
-            @include left(0);
-            min-height: 100%;
-            min-width: 100%;
-            max-width: 100%;
-        }
-    }
-
-    .tier-name {
-        color: $black;
-        font-size: em(28);
-	    font-weight: $bold;
-    }
-
-    .tier-heading {
-        font-weight: $body-font-weight;
-        margin-top: $lg-spacing;
-    }
-
-    .tier-price {
-        display: block;
-        color: $black;
-        font-weight: $body-font-weight;
-        font-size: em(50);
-        margin: $base-spacing 0;
-
-        em {
-            position: relative;
-            top: -1em;
-        }
-
-        span {
-            font-size: em(9);
-            margin-top: 4px;
-        }
-    }
-
-    .tier-status {
-        display: block;
-        color: $mid-black;
-        font-weight: $body-font-weight;
-        font-size: em(30);
-        margin: 30px 0;
-    }
-
-    .tier-feature {
-        color: $black;
-        font-weight: $bold;
-        font-size: em(19);
-
-        em {
-            display: block;
-            margin-top: $tiny-spacing;
-        }
-    }
-
-    .tier-price,
-    .tier-feature {
-
-        em {
-            color: $dk-gray;
-            font-weight: $body-font-weight;
-            font-style: normal;
-            font-size: 12px;
-        }
-    }
-
-    .tier-action {
-        position: absolute;
-        @include right(0);
-        @include left(0);
-        z-index: $body;
-        text-align: center;
-        margin-top: -$base-spacing;
-
-        button,
-        .button {
-
-            &[disabled],
-            &:disabled,
-            &.disabled {
-                opacity: 1;
-                color: $color-dark-delta;
-            }
-        }
-    }
-
-    &.selected {
-
-        .tier-action {
-
-            button,
-            .button {
-                color: $color-dark-gamma;
-                background-color: $color-light-gamma;
-            }
-        }
-    }
-
-    .tier-feature-list {
-        padding-top: $sm-spacing;
-
-        p {
-            margin: 0 $sm-spacing;
-        }
-
-        ul, ol {
-            @extend .list-reset;
-
-            li {
-                display: block;
-                border-bottom: $base-border;
-                padding: $sm-spacing;
-                margin: 0 $sm-spacing;
-
-                strong {
-                    color: $color-dark-alpha;
-                    font-weight: normal;
-                }
-
-                em {
-                    display: block;
-                    color: $color-dark-gamma;
-                    font-size: .857142857em;
-                    margin-top: 2px;
-                }
-
-                &:last-child {
-                    border-bottom-color: transparent;
-                }
-            }
-        }
-    }
-
-    .tier-form {
-        @include text-align(left);
-        margin: 0 $sm-spacing;
-    }
-}
-
 .tiers {
     @include clearfix;
+    position: relative;
+    z-index: $body;
+    @include containerSheet;
 
-    @include media($small) {
-        position: relative;
+    .show-on-mobile {
+        padding-top: $base-spacing;
+
+        @include media($medium) {
+            display: none;
+        }
     }
 
-    @include media($medium) {
-        @include containerSheet;
+    &.hide-on-mobile {
+        display: none;
+        padding-bottom: $base-spacing;
+        margin-top: $base-spacing;
+        @include media($medium) {
+            display: block;
+        }
+    }
+
+    .hide-on-mobile {
+        display: none;
+        box-shadow: none;
+
+        @include media($medium) {
+            display: block;
+        }
+    }
+
+    .tabs-menu {
+
+        @include media($medium) {
+            display: none;
+        }
+
+        .tabs-label {
+            display: block;
+            width: 80px;
+            font-size: 10px;
+            font-weight: bold;
+            margin: 10px auto 0;
+            padding: 4px 8px;
+            background-color: $yellow;
+            color: $black;
+            border-radius: 10px;
+
+            &.alt {
+                background-color: $black;
+                color: $yellow;
+            }
+        }
+    }
+
+    .tabs-target {
+
+        @include media($medium) {
+            display: block !important;
+        }
+
     }
 
     .tier {
-        max-width: none;
-        margin: $base-spacing $sm-spacing;
-        @include transition(0.85s ease-in-out);
 
         @include media($medium) {
-            @include float(left);
+            position: relative;
+            float: left;
             width: 25%;
-            @include no-shadow;
-            background-color: transparent;
-            margin: 0;
 
-            &:before {
-                content: '';
-                position: absolute;
-                z-index: 1;
-                top: 0;
-                right: 0;
-                left: 0;
-                height: $tiny-spacing;
-                background-color: $color-secondary;
-            }
+            // &:before {
+            //     content: '';
+            //     position: absolute;
+            //     z-index: 1;
+            //     top: 0;
+            //     right: 0;
+            //     left: 0;
+            //     height: $tiny-spacing;
+            //     background-color: $color-secondary;
+            // }
 
             &:after {
                 content: '';
                 position: absolute;
-                z-index: 3;
+                z-index: 1;
                 top: $lg-spacing;
-                @include right(0);
-                bottom: $lg-spacing;
+                right: 0;
+                bottom: $base-spacing;
                 width: 1px;
-                background-color: $color-light-gamma;
+                background-color: $color-light-beta;
             }
 
-            &:nth-child(1) {
+            // &:nth-child(2) {
+            //
+            //     &:before {
+            //         background-color: lighten( $color-secondary, 25% );
+            //     }
+            // }
+            //
+            // &:nth-child(3) {
+            //
+            //     &:before {
+            //         background-color: lighten( $color-secondary, 15% );
+            //     }
+            // }
+            //
+            // &:nth-child(4) {
+            //
+            //     &:before {
+            //         background-color: lighten( $color-secondary, 5% );
+            //     }
+            // }
 
-                &:before {
-                    background-color: lighten( $color-secondary, 25% );
-                }
-            }
+            .tier-name {
 
-            &:nth-child(2) {
-
-                &:before {
-                    background-color: lighten( $color-secondary, 15% );
-                }
-            }
-
-            &:nth-child(3) {
-
-                &:before {
-                    background-color: lighten( $color-secondary, 5% );
-                }
-            }
-
-            .tier-header {
-
-                p {
-                    height: 55px;
-                }
-            }
-
-            .tier-feature-list {
-                padding-bottom: $base-spacing;
-            }
-
-/*
-            &:hover {
-                z-index: 2;
-                @include scale(1.025);
-                @include box-shadow($top: 0, $left: 0, $blur: 0, $spread: 4px, $color: rgba(0,0,0,.1), $inset: false);
-                @include transition(0.15s ease-in-out);
-
-                .tier-action {
-
-                    button,
-                    .button {
-                        color: $white;
-                        background-color: $blue;
-                    }
-                }
-            }
-*/
-        }
-
-        &.recommended {
-
-            @include media($small) {
-                position: relative;
-                z-index: 2;
-                top: -$base-spacing;
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    z-index: -1;
-                    top: 4px;
-                    right: -4px;
-                    bottom: 46px;
-                    left: -4px;
-                    background-color: rgba(0,0,0,.05);
-                }
-
-                &.selected:after {
-                    background-color: rgba(0,0,0,.15);
-                }
-
-                .tier-header {
-                    padding-top: $base-spacing;
-                }
-
+                // + p {
+                //     min-height: 45px;
+                // }
             }
         }
+
     }
 
-    .tier-view-all {
+    .tiers-view-all {
         clear: both;
         text-align: center;
-        margin: $sm-spacing;
+        margin: $base-spacing 0;
 
-        @include media($medium) {
-            padding-top: $sm-spacing;
+        .button,
+        button {
+            margin: 0 auto;
         }
     }
 
-    .payment {
-        display: none;
+    .tier-section {
+        margin-top: $base-spacing;
+
+        .tier-section-heading {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            padding: $tiny-spacing;
+            background-color :$yellow;
+        }
+    }
+}
+
+.tier {
+    text-align: center;
+
+    &.blank {
+        visibility: hidden;
+    }
+    .tier-summary {
         position: relative;
-        @include float(right);
-        width: 100%;
-        @extend .card;
-        padding: $sm-spacing;
-        @include margin-right(-125%);
-        @include transition(0.8s ease-in-out);
+        margin-right: $sm-spacing;
+        margin-left: $sm-spacing;
 
-        @include media($medium) {
-            position: absolute;
-            opacity: 1;
-            top: 10px;
-            @include right(-110%);
-            bottom: 10px;
-            @include left(110%);
-            width: 75%;
-            padding: $sm-spacing $base-spacing;
-            @include transition(0.75s ease-in-out);
+        @include media($small) {
+            margin-right: $base-spacing;
+            margin-left: $base-spacing;
+        }
+
+        .tier-name {
+            padding-top: $base-spacing;
+        }
+
+        .button {
+            margin-top: $base-spacing;
+        }
+
+        .small {
+            font-size: em(12);
+            color: $color-dark-gamma;
+            font-style: italic;
+        }
+
+        .form-heading {
+            font-weight: 900;
+            font-size: 1.2rem;
+            padding-top: 10px;
+            margin-bottom: 16px;
+        }
+
+    }
+
+    .tier-name {
+        color: $color-dark-alpha;
+        font-size: 24px;
+        font-size: 1.5rem;
+    }
+
+    .tier-price {
+        display: block;
+        font-weight: 300;
+        font-size: 34px;
+        font-size: 2.125rem;
+
+        em {
+            color: $color-dark-gamma;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 20px;
+            font-size: 1.25rem;
         }
     }
 
-    &.show-payment {
+    .tier-heading {
+        color: $color-dark-gamma;
+        font-weight: normal;
+        font-size: 16px;
+        font-size: 1rem;
+        line-height: 1.3;
 
-        .tier {
-            @include margin-right(125%);
-            @include margin-left(-125%);
+        strong {
+            color: $color-dark-alpha;
+            font-weight: normal;
 
-            @include media($medium) {
-                @include margin-right(auto);
-                @include margin-left(-1000px);
+        }
 
-                &.selected {
-                    @include margin-left(0);
+    }
+
+    .tier-features {
+        margin-top: $base-spacing;
+    }
+
+    .tier-feature {
+        border-top: 1px solid $border-color;
+        padding-top: $sm-spacing;
+        margin-top: $sm-spacing;
+        margin-right: $base-spacing;
+        margin-left: $base-spacing;
+
+        &:first-of-type {
+            border-top: none;
+        }
+        .tier-heading {
+            margin-bottom: $sm-spacing;
+
+            sub {
+                display: block;
+                margin-top: $tiny-spacing;
+            }
+        }
+
+        a {
+            font-size: em(12);
+            color: $blue;
+        }
+
+        p {
+            margin-top: 0;
+        }
+
+        .small {
+            font-size: em(12);
+            color: $color-dark-gamma;
+            font-style: italic;
+        }
+
+        svg.iconic {
+            width: 0.8em;
+            height: 0.8em;
+            fill: $color-primary-delta;
+        }
+
+        ul {
+            @extend .list-reset;
+
+            li {
+                display: inline-block;
+                font-size: 16px;
+                font-size: 1rem;
+
+                svg.iconic {
+                    width: .8125em;
+                    height: .8125em;
+                    margin-right: 4px;
                 }
             }
         }
+    }
 
-        .payment {
-            @include margin-right(0);
+    form {
+        text-align: left;
+        padding: 0;
+    }
 
-            @include media($medium) {
-                @include right(10%);
-                @include left(25%);
-            }
-        }
+    .form-field {
+        margin-right: $sm-spacing;
+        margin-left: $sm-spacing;
 
-        .tier-view-all {
-            display: none;
+        @include media($small) {
+            margin-right: $base-spacing;
+            margin-left: $base-spacing;
         }
     }
+
+}
+
+.tier-label {
+    display: block;
+    font-weight: bold;
+    padding: 8px;
+    background-color: $yellow;
+    color: $black;
+    text-align: center;
+    clear: both;
+    text-transform: capitalize;
+
+    &.alt {
+        background-color: $black;
+        color: $yellow;
+    }
+
+    &.blank {
+        background-color: transparent;
+        padding: $huge-spacing 0 0 0;
+    }
+}
+
+@include media($medium) {
+
+    .tier:nth-of-type(1) .tier-feature-list{
+        background-color: lighten( #EFECE8, 3% );
+    }
+
+    .tier:nth-of-type(2) .tier-feature-list{
+        background-color: #EFECE8;
+    }
+
+    // CURRENTLY DISABLED
+
+    // .tier:nth-of-type(3) .tier-feature-list{
+    //     background-color: darken( #EFECE8, 3% );
+    // }
+
+
+
+    //.tier:nth-of-type(4) .tier-feature-list{
+    //    background-color: darken( #EFECE8, 6% );
+    //}
+
+}
+
+.plans-free {
+    margin: $base-spacing auto;
+    align-items: flex-start;
+
+    @include media($small) {
+        margin: $lg-spacing auto;
+    }
+
+    @include media($small) {
+        .flex-item-2 {
+            padding: $base-spacing 40px;
+        }
+    }
+}
+
+.case-studies {
+
+    @include media($medium) {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+    }
+
+    .section-title {
+
+        @include media($medium) {
+            flex: 0 0 100%;
+        }
+    }
+
+    .case-studies-group {
+        padding-top: 20px;
+
+        @include media($medium) {
+            flex: 0 0 50%;
+        }
+
+        .case-studies-item {
+
+            img {
+                max-width: 100px;
+            }
+
+            .section-heading {
+                display: none;
+            }
+        }
+    }
+
+    .case-studies-feature {
+
+        @include media($medium) {
+            flex: 0 0 45%;
+            margin-left: $base-spacing;
+            align-self: flex-start;
+        }
+
+        .case-studies-feature-body {
+
+            @include media($medium) {
+                margin-top: 380px;
+            }
+        }
+    }
+}
+
+.case-studies-group {
+    display: flex;
+    flex-wrap: wrap;
+
+    .case-studies-item {
+        padding: $sm-spacing;
+        text-align: center;
+
+        @include media($small) {
+            flex: 0 0 50%;
+            padding: $base-spacing;
+        }
+        .section-heading {
+            font-size: 1.7rem;
+            margin-top: 16px;
+        }
+    }
+}
+.section-faq {
+    background-color: #fff;
+    padding-top: 32px;
+    @include media($medium-down) {
+        padding-bottom: 25px;
+    }
+    .section-title {
+        text-align: center;
+        font-size: 2.8rem;
+        font-weight: 300;
+        margin-bottom: 24px;
+    }
+    .faq-grid {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+        -webkit-box-align: center;
+    }
+    .wrapper {
+        max-width: 1048px;
+    }
+}
+.faq {
+    margin: -67px 0 $base-spacing 0;
+    padding: 67px $sm-spacing 0;
 }
