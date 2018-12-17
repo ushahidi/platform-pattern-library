@@ -156,13 +156,18 @@ var tourInit = function(step) {
     $('*').not('[data-cue], [data-payment], .tour-link').on('click', function(e){
         e.preventDefault();
     }).off('click');
-
     // Click event for cue buttons
-    $('[data-cue]').on('click', function() {
-        tourStep($(this).attr('data-cue'));
-    });
+
     // Animate in the appropriate step
+    // TODO: Remember to check if timeout is needed/ has implications in cloud. Its needed for pl.
+    // $('[data-cue]').on('click', function() {
+    //     tourStep($(this).attr('data-cue'));
+    // });
     setTimeout(function(){
+        $('[data-cue]').on('click', function() {
+            tourStep($(this).attr('data-cue'));
+        });
+
         tourStep(tourStepLookup(step), true);
     }, 500);
 
