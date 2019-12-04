@@ -228,7 +228,7 @@ task('uglifyCloudJS',uglifyCloudJS);
 * Task: `default`
 * Default task optimized for development
 */
-function watchFiles () {
+function watchFiles (done) {
 // LiveReload
 livereload.listen();
 
@@ -245,6 +245,7 @@ watch(['./assets/sass/**/*.scss'], series('sass'));
 
 // Watch HTML
 watch(['./*.html', './pattern-library/**/*.html'], series('html'));
+done();
 }
 task('default', series('webserver', watchFiles));
 
