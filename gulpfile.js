@@ -5,7 +5,6 @@ var {src, task, series, dest, watch} = require('gulp'),
     connect = require('gulp-connect'),
     declare = require('gulp-declare'),
     fileinclude = require('gulp-file-include'),
-    gutil = require('gulp-util'),
     handlebars = require('gulp-handlebars'),
     html5Lint = require('gulp-html5-lint'),
     insert = require('gulp-insert'),
@@ -18,11 +17,11 @@ var {src, task, series, dest, watch} = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'),
-    wrap = require('gulp-wrap');
+    wrap = require('gulp-wrap'),
+    log = require('fancy-log');
 
 function errorHandler (err) {
-    gutil.beep();
-    gutil.log(err);
+    log(err);
     notify.onError('Error: <%= error.message %>')(err);
 }
 
