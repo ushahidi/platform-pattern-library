@@ -6,11 +6,9 @@ var {src, task, series, dest, watch} = require('gulp'),
     declare = require('gulp-declare'),
     fileinclude = require('gulp-file-include'),
     handlebars = require('gulp-handlebars'),
-    html5Lint = require('gulp-html5-lint'),
     insert = require('gulp-insert'),
     livereload = require('gulp-livereload'),
     merge = require('merge-stream'),
-    notify = require('gulp-notify'),
     path = require('path'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
@@ -18,11 +16,11 @@ var {src, task, series, dest, watch} = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'),
     wrap = require('gulp-wrap'),
-    log = require('fancy-log');
+    log = require('fancy-log'),
+    c = require('ansi-colors');
 
 function errorHandler (err) {
-    log(err);
-    notify.onError('Error: <%= error.message %>')(err);
+    log(c.red(err));
 }
 
 /**
@@ -55,19 +53,6 @@ function html() {
     .pipe(livereload());
 };
 task('html', html);
-
-/**
- * HTML5 Lint
- */
-function html5Lint () {
-    return src([
-            './*.html',
-            './assets/html/**/*.html',
-            '!./assets/html/partials/**/*.html'
-        ])
-        .pipe(html5Lint());
-};
-task('html5-lint', html5Lint);
 
 var buildSass = function(rtl, compressed) {
     var destName, source;
@@ -106,7 +91,9 @@ var buildSass = function(rtl, compressed) {
         .pipe(rename(dest))
         .pipe(sourcemaps.write('./'))
         .pipe(dest('./assets/css'))
-        .pipe(notify('CSS compiled'))
+        .on('end', function () {
+            log.info(c.yellow('CSS compiled'));
+        })
         .pipe(livereload());
 };
 
@@ -184,7 +171,9 @@ function uglifyJS() {
     .pipe(concat('app.js'))
     .pipe(plumber.stop())
     .pipe(dest('./assets/js'))
-    .pipe(notify('JS minified and concatenated into app.js'))
+    .on('end', function () {
+        log.info(c.yellow('JS minified and concatenated into app.js'));
+    })
     .pipe(livereload());
 };
 task('uglifyJS', uglifyJS);
@@ -198,7 +187,9 @@ function uglifyHandlebars () {
     .pipe(concat('handlebars.js'))
     .pipe(plumber.stop())
     .pipe(dest('./assets/js'))
-    .pipe(notify('Handlebars JS minified and concatenated into handlebars.js'))
+    .on('end', function () {
+        log.info(c.yellow('Handlebars JS minified and concatenated into handlebars.js'));
+    })
     .pipe(livereload());
 };
 task('uglifyHandlebars', uglifyHandlebars);
@@ -218,7 +209,9 @@ function uglifyCloudJS () {
     .pipe(concat('cloud.js'))
     .pipe(plumber.stop())
     .pipe(dest('./assets/js'))
-    .pipe(notify('JS minified and concatenated into cloud.js'))
+    .on('end', function () {
+        log.info(c.yellow('JS minified and concatenated into cloud.js'));
+    })
     .pipe(livereload());
 };
 task('uglifyCloudJS',uglifyCloudJS);
