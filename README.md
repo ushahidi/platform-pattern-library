@@ -45,5 +45,5 @@ http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and
 
 `NPM Publish`
 * ```npm publish```
-* ```git tag <new_version>
+* ```git tag <new_version>```
 * ```git push origin <new_version_tag>```
