@@ -1,4 +1,7 @@
 # platform-pattern-library
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/ushahidi/platform-pattern-library.svg)](https://greenkeeper.io/)
+
 New Platform UI (w/ Pattern Library) based on the Platform Design Framework
 
 ### Dependencies
