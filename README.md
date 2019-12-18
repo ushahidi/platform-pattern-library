@@ -1,5 +1,7 @@
+[![Build Status](https://travis-ci.org/ushahidi/platform-pattern-library.svg?branch=master)](https://travis-ci.org/ushahidi/platform-pattern-library)
+
 # platform-pattern-library
-New Platform UI (w/ Pattern Library) based on the Platform Design Framework
+Platform UI (w/ Pattern Library) based on the Platform Design Framework
 
 ### Dependencies
 * [Nodejs](https://nodejs.org/en/)
