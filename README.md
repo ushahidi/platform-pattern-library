@@ -35,14 +35,15 @@ http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and
 ### Publish to NPM
 
 `NPM User`
-* npm adduser <user_name>
+* ```npm adduser <user_name>```
 
 `Pre-Release`
-* npm version prerelease
+* ```npm version prerelease```
 
 `Release`
-* npm version release
+* ```npm version release```
 
 `NPM Publish`
-* npm publish
-* git push origin <new_version_tag>
+* ```npm publish```
+* ```git tag <new_version>```
+* ```git push origin <new_version_tag>```
