@@ -1,84 +1,75 @@
-var gulp = require('gulp'),
+
+var {src, task, series, dest, watch} = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     concat = require('gulp-concat'),
     connect = require('gulp-connect'),
     declare = require('gulp-declare'),
     fileinclude = require('gulp-file-include'),
-    gutil = require('gulp-util'),
     handlebars = require('gulp-handlebars'),
-    html5Lint = require('gulp-html5-lint'),
     insert = require('gulp-insert'),
     livereload = require('gulp-livereload'),
     merge = require('merge-stream'),
-    notify = require('gulp-notify'),
     path = require('path'),
     plumber = require('gulp-plumber'),
     rename = require('gulp-rename'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     uglify = require('gulp-uglify'),
-    wrap = require('gulp-wrap');
+    wrap = require('gulp-wrap'),
+    log = require('fancy-log'),
+    c = require('ansi-colors');
 
 function errorHandler (err) {
-    gutil.beep();
-    gutil.log(err);
-    notify.onError('Error: <%= error.message %>')(err);
+    log(c.red(err));
 }
 
 /**
 * Task: `gulp webserver`
 * spins up a webserver and livereloads
 */
-gulp.task('webserver', function() {
+
+function webserver (done) {
     connect.server({
         port: process.env.PORT || 8000,
         livereload: true
     });
-});
+    done();
+}
+task('webserver', webserver)
 
 /**
 * Task: `gulp html`
 * livereloads when html changes
 */
-gulp.task('html', function() {
-    return gulp.src([
+
+function html() {
+    return src([
         './*.html',
         './pattern-library/**/*.html',
         //'!./pattern-library/partials/*.html'
         ])
     .pipe(fileinclude())
-    .pipe(gulp.dest('./assets/html/'))
+    .pipe(dest('./assets/html/'))
     .pipe(livereload());
-});
-
-/**
- * HTML5 Lint
- */
-gulp.task('html5-lint', function() {
-    return gulp.src([
-            './*.html',
-            './assets/html/**/*.html',
-            '!./assets/html/partials/**/*.html'
-        ])
-        .pipe(html5Lint());
-});
+};
+task('html', html);
 
 var buildSass = function(rtl, compressed) {
-    var dest, source;
+    var destName, source;
     if (rtl) {
         source = './assets/sass/utils/rtl/rtl.scss';
-        dest = 'rtl-style';
+        destName = 'rtl-style';
     } else {
         source = './assets/sass/utils/rtl/ltr.scss';
-        dest = 'style';
+        destName = 'style';
     }
 
     if (compressed) {
-        dest = dest + '.min';
+        destName = destName + '.min';
     }
-    dest = dest + '.css';
+    destName = destName + '.css';
 
-    return gulp.src([source])
+    return src([source])
         .pipe(plumber({
             errorHandler: errorHandler
         }))
@@ -97,10 +88,12 @@ var buildSass = function(rtl, compressed) {
         // gulp-insert appends '/* @generated */' to the style.css file
         // which automatically folds file in Phabricator
         .pipe(insert.append('/* @generated */'))
-        .pipe(rename(dest))
+        .pipe(rename(destName))
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./assets/css'))
-        .pipe(notify('CSS compiled'))
+        .pipe(dest('./assets/css'))
+        .on('end', function () {
+            log.info(c.yellow('CSS compiled'));
+        })
         .pipe(livereload());
 };
 
@@ -108,34 +101,35 @@ var buildSass = function(rtl, compressed) {
 * Task: `sass`
 * Converts Sass files to CSS (includes RTL support)
 */
-gulp.task('sass', ['rtl', 'sassMin', 'rtlMin'], function() {
-    return buildSass(false, false);
-});
 
 /**
 * Task: `rtl`
 * Converts RTL Sass files to RTL CSS
 */
-gulp.task('rtl', function() {
+task('rtl', function() {
     return buildSass(true, false);
 });
 
-gulp.task('rtlMin', function() {
+task('rtlMin', function() {
     return buildSass(true, true);
 });
 
-gulp.task('sassMin', function() {
+task('sassMin', function() {
     return buildSass(false, true);
 });
+
+task('sass', series('rtl', 'sassMin', 'rtlMin', function() {
+    return buildSass(false, false);
+}));
 
 /**
 * Task: `templates`
 * Handlebars templates
 */
-gulp.task('templates', function(){
+function templates (){
     // Assume all partials start with an underscore
     // You could also put them in a folder such as source/templates/partials/*.hbs
-    var partials = gulp.src(['./assets/templates/partials/_*.hbs', './assets/templates/front-end-guidelines/partials/_*.hbs'])
+    var partials = src(['./assets/templates/partials/_*.hbs', './assets/templates/front-end-guidelines/partials/_*.hbs'])
         .pipe(handlebars())
         .pipe(wrap('Handlebars.registerPartial(<%= processPartialName(file.relative) %>, Handlebars.template(<%= contents %>));', {}, {
             imports: {
@@ -147,10 +141,8 @@ gulp.task('templates', function(){
             }
         }));
 
-    var templates = gulp.src('./assets/templates/**/*.hbs')
-        .pipe(handlebars({
-            handlebars: require('handlebars')
-        }))
+    var templates = src('./assets/templates/**/*.hbs')
+        .pipe(handlebars())
         .pipe(wrap('Handlebars.template(<%= contents %>)'))
         .pipe(declare({
             namespace: 'Ushahidi.templates',
@@ -160,41 +152,48 @@ gulp.task('templates', function(){
     // Output both the partials and the templates as build/js/templates.js
     return merge(partials, templates)
         .pipe(concat('handlebars.compiled.js'))
-        .pipe(gulp.dest('./assets/js/handlebars'));
-});
+        .pipe(dest('./assets/js/handlebars'));
+};
+task('templates', templates); 
 
 /**
 * Task: `uglify`
 * Minimizes and concatenates js files
 */
-gulp.task('uglifyJS', function() {
-    return gulp.src(['./assets/js/pattern-library/*','./assets/js/custom/*'])
+function uglifyJS() {
+    return src(['./assets/js/pattern-library/*','./assets/js/custom/*'])
     .pipe(plumber({
         errorHandler: errorHandler
     }))
     .pipe(uglify())
     .pipe(concat('app.js'))
     .pipe(plumber.stop())
-    .pipe(gulp.dest('./assets/js'))
-    .pipe(notify('JS minified and concatenated into app.js'))
+    .pipe(dest('./assets/js'))
+    .on('end', function () {
+        log.info(c.yellow('JS minified and concatenated into app.js'));
+    })
     .pipe(livereload());
-});
+};
+task('uglifyJS', uglifyJS);
 
-gulp.task('uglifyHandlebars', function() {
-    return gulp.src('./assets/js/handlebars/*')
+function uglifyHandlebars () {
+    return src('./assets/js/handlebars/*')
     .pipe(plumber({
         errorHandler: errorHandler
     }))
     .pipe(uglify())
     .pipe(concat('handlebars.js'))
     .pipe(plumber.stop())
-    .pipe(gulp.dest('./assets/js'))
-    .pipe(notify('Handlebars JS minified and concatenated into handlebars.js'))
+    .pipe(dest('./assets/js'))
+    .on('end', function () {
+        log.info(c.yellow('Handlebars JS minified and concatenated into handlebars.js'));
+    })
     .pipe(livereload());
-});
+};
+task('uglifyHandlebars', uglifyHandlebars);
 
-gulp.task('uglifyCloudJS', function() {
-    return gulp.src([
+function uglifyCloudJS () {
+    return src([
         './assets/js/custom/_toggle.js',
         './assets/js/custom/survey-filter.js',
         './assets/js/custom/map.js',
@@ -207,37 +206,41 @@ gulp.task('uglifyCloudJS', function() {
     .pipe(uglify())
     .pipe(concat('cloud.js'))
     .pipe(plumber.stop())
-    .pipe(gulp.dest('./assets/js'))
-    .pipe(notify('JS minified and concatenated into cloud.js'))
+    .pipe(dest('./assets/js'))
+    .on('end', function () {
+        log.info(c.yellow('JS minified and concatenated into cloud.js'));
+    })
     .pipe(livereload());
-});
+};
+task('uglifyCloudJS',uglifyCloudJS);
 
 /**
 * Task: `default`
 * Default task optimized for development
 */
-gulp.task('default', ['webserver'], function() {
-    // LiveReload
-    livereload.listen();
+function watchFiles (done) {
+// LiveReload
+livereload.listen();
 
-    // Watch Handlebars templates
-    gulp.watch('./assets/templates/**/*.hbs', ['templates']);
+// Watch Handlebars templates
+watch('./assets/templates/**/*.hbs', series('templates'))
 
-    // Watch JS
-    gulp.watch(['./assets/js/pattern-library/*', './assets/js/custom/*'], ['uglifyJS']);
-    gulp.watch(['./assets/js/handlebars/*'], ['uglifyHandlebars']);
-    gulp.watch(['./assets/js/cloud/*'], ['uglifyCloudJS']);
+// Watch JS
+watch(['./assets/js/pattern-library/*', './assets/js/custom/*'], series('uglifyJS'));
+watch(['./assets/js/handlebars/*'], series('uglifyHandlebars'));
+watch(['./assets/js/cloud/*'], series('uglifyCloudJS'));
 
-    // Watch Sass
-    gulp.watch(['./assets/sass/**/*.scss'], ['sass']);
+// Watch Sass
+watch(['./assets/sass/**/*.scss'], series('sass'));
 
-    // Watch HTML
-    gulp.watch(['./*.html', './pattern-library/**/*.html'], ['html']);
-});
+// Watch HTML
+watch(['./*.html', './pattern-library/**/*.html'], series('html'));
+done();
+}
+task('default', series('webserver', watchFiles));
 
 /**
 * Task: `build`
 * Builds sass, fonts and js
 */
-gulp.task('build', ['sass', 'templates', 'uglifyJS', 'uglifyHandlebars', 'uglifyCloudJS', 'html'], function() {
-});
+task('build', series('sass', 'templates', 'uglifyJS', 'uglifyHandlebars', 'uglifyCloudJS', 'html'));
