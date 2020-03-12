@@ -88,7 +88,7 @@ var buildSass = function(rtl, compressed) {
         // gulp-insert appends '/* @generated */' to the style.css file
         // which automatically folds file in Phabricator
         .pipe(insert.append('/* @generated */'))
-        .pipe(rename(dest))
+        .pipe(rename(destName))
         .pipe(sourcemaps.write('./'))
         .pipe(dest('./assets/css'))
         .on('end', function () {
@@ -142,9 +142,7 @@ function templates (){
         }));
 
     var templates = src('./assets/templates/**/*.hbs')
-        .pipe(handlebars({
-            handlebars: require('handlebars')
-        }))
+        .pipe(handlebars())
         .pipe(wrap('Handlebars.template(<%= contents %>)'))
         .pipe(declare({
             namespace: 'Ushahidi.templates',
