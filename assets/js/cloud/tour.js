@@ -157,12 +157,11 @@ var tourInit = function(step) {
         e.preventDefault();
     }).off('click');
 
-    // Click event for cue buttons
-    $('[data-cue]').on('click', function() {
-        tourStep($(this).attr('data-cue'));
-    });
     // Animate in the appropriate step
     setTimeout(function(){
+        $('[data-cue]').on('click', function() {
+            tourStep($(this).attr('data-cue'));
+        });
         tourStep(tourStepLookup(step), true);
     }, 500);
 
