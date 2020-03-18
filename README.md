@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ushahidi/platform-pattern-library.svg?branch=master)](https://travis-ci.org/ushahidi/platform-pattern-library) [![Greenkeeper badge](https://badges.greenkeeper.io/ushahidi/platform-pattern-library.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/ushahidi/platform-pattern-library.svg?branch=develop)](https://travis-ci.org/ushahidi/platform-pattern-library)
 
 # platform-pattern-library
 Platform UI (w/ Pattern Library) based on the Platform Design Framework
