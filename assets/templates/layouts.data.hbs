@@ -129,7 +129,23 @@
 
     {{#postFromHash}}
         <div class="post-col">
-
+            <div class="button-group button-tab-section">
+                <button type="button" class="button button-tab active">
+                    English (default)
+                </button>
+                <button type="button" class="button button-tab">
+                    Swahili
+                    <svg class="iconic" >
+                        <use xlink:href="../../img/iconic-sprite.svg#x"></use>
+                    </svg>
+                </button>
+                <button type="button" class="button button-tab">
+                    Chinese
+                    <svg class="iconic">
+                        <use xlink:href="../../img/iconic-sprite.svg#x"></use>
+                    </svg>
+                </button>
+            </div>
             <article class="postcard locked" role="article">
                 {{postBand}}
                 <button class="button-beta button-flat postcard-close" onclick=closePostcard()>
@@ -159,7 +175,6 @@
 
 
                 <div class="postcard-body">
-
                     {{#postSurvey}}
                     <h1 class="form-sheet-title survey-title">{{name}}</h1>
                     <p>{{description}}</p>
@@ -316,10 +331,7 @@
                         </div>
                     </div>
 
-                    {{#each answers}}
-                        {{postcardField ../properties.survey 0 @index false}}
-                    {{/each}}
-
+                
                     <div class="postcard-field">
                         <h2 class="form-label">
                             Witness

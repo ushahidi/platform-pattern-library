@@ -2,18 +2,18 @@
     position: relative;
     @include clearfix;
     padding: $sm-spacing 0;
+    border-top: 1px solid $color-light-gamma;
+
+    &:first-child {
+        border-top: none;
+    }
 
     .listing-item-select {
         position: absolute;
-        top: 0;
-        @include left($sm-spacing);
+        top: 50%;
+        transform: translateY(-50%);
+        @include left($huge-spacing);
         z-index: $body;
-
-        input[type="checkbox"],
-        input[type="radio"] {
-            position: relative;
-            top: $base-spacing*2;
-        }
 
         .buttons-updown {
             position: relative;
@@ -143,6 +143,12 @@
             top: 50%;
             margin-top: -12px;
         }
+    }
+
+    .listing-item-languages {
+        font-size: .857142857em;
+        margin-bottom: 0;
+        padding-top: 10px;
     }
 
     .listing-item-body {
@@ -297,6 +303,13 @@
         margin-top: -$sm-spacing;
     }
 
+     &.child-listing-item {
+        border-top: none;
+
+        .listing-item-select, .listing-item-primary {
+            @include left(60px);
+        }
+    }
 }
 
 .listing-toolbar {

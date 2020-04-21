@@ -215,6 +215,59 @@ a.button-fab {
    }
 }
 */
+.button-tab-section  {
+    padding-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include media($small-down) {
+        padding: 20px 5px;
+    }
+
+    button {
+        padding: 15px;
+        margin: 5px;
+        text-transform: none;
+        font-weight: 400;
+        
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;    
+        }
+
+        svg.iconic   {
+            height: 11px;
+            width: 11px;
+            padding-top: 2px;
+        }
+    }
+
+    .button-tab {
+        background-color: $color-primary-zeta;
+        color: $color-dark-beta;
+
+        &:hover {
+            background-color:$color-light-delta;
+            color: $color-dark-beta;
+        }
+
+        &.active {
+            background-color: $blue;
+            color: $white;
+        }
+
+        svg.iconic   {
+            fill: $red;
+        }
+    }
+
+    .button-right {
+        margin-left: auto;
+    }
+}
 
 .button-destructive {
    color: $white;
