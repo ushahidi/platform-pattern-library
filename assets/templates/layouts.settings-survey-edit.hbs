@@ -52,7 +52,7 @@
                     <use xlink:href="../../img/iconic-sprite.svg#x"></use>
                 </svg>
             </button>
-            <button type="button" class="button button-right">
+            <button type="button" data-modal="add-language" class="button button-right modal-trigger">
                 <svg class="iconic">
                     <use xlink:href="../../img/iconic-sprite.svg#plus"></use>
                 </svg>
@@ -60,7 +60,7 @@
             </button>
         </div>
 
-        <section class="form-sheet">
+        {{!-- <section class="form-sheet">
             <span class="post-band" style="background-color: #{{deployment.surveys.0.color}}"></span>
 
             <div class="form-field title survey-title">
@@ -79,7 +79,7 @@
                 </ul>
             </nav>
 
-            <div id="survey-build" class="survey-details tabs-target">
+            <div id="survey-build" class="survey-details tabs-target active">
                 <div class="listing" style="margin-left: 4px;">
                     <h3 class="listing-heading hidden">Fields</h3>
 
@@ -718,7 +718,11 @@
                     <span class="button-label">Add section</span>
                 </button>
             </div>
-        </div>
+            <div class="listing-item">
+                <strong>NOTE:</strong> <p>The fields you add will automatically be added to the other languages selected.</p>
+            </div>
+
+        </div> --}}
 
     </div>
 
@@ -1249,42 +1253,7 @@
     <div class="mainsheet-overlay"></div>
 </div>
 
-<div id="add-task" class="modal">
-    <div class="modal-window">
-        <h3 class="modal-title">Add task</h3>
-        <button href="" class="button-beta button-flat modal-trigger modal-trigger-close">
-            <svg class="iconic">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../../img/iconic-sprite.svg#x"></use>
-            </svg>
-            <span class="hidden">Close</span>
-        </button>
 
-        <p>Choose a pre-built task, or create one from scratch.</p>
-        <div class="listing">
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="">Review</a></h2>
-                    <p class="listing-item-secondary">Make sure the contents of the post are appropriate.</p>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="">Publish</a></h2>
-                    <p class="listing-item-secondary">Change the post's status to <em>Published</em>.</p>
-                </div>
-            </div>
-
-            <div class="listing-item">
-                <div class="listing-item-primary">
-                    <h2 class="listing-item-title"><a href="" data-modal="add-task-custom">Custom</a></h2>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay"></div>
-</div>
 
 <div id="add-task-custom" class="modal">
     <div class="modal-window">
@@ -1760,6 +1729,157 @@
             <div class="form-field">
                 <button class="button-beta button-flat modal-trigger">Cancel</button>
                 <button class="button-alpha modal-trigger">Done</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay"></div>
+</div>
+
+<div id="add-language" class="modal">
+
+    <div class="modal-window modal-wide">
+        <h3 class="modal-title">Select language</h3>
+
+        <dl class="modal-body">
+            Please select the language you would like the survey to be viewed in
+                <fieldset class="form-list">
+                    <legend>Lanugages</legend>
+                    <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-field checkbox">
+                            <label for="Abkhaz">
+                                <input type="checkbox" id="Abkhaz">Abkhaz</label>
+                        </div>
+    
+                        <div class="form-field checkbox">
+                            <label for="Afar">
+                                <input type="checkbox" id="Afar">Afar</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Afrikaans">
+                                <input type="checkbox" id="Afrikaans">Afrikaans</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Akan">
+                                <input type="checkbox" id="Akan">Akan</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Albanian">
+                                <input type="checkbox" id="Albanian">Albanian</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Amharic">
+                                <input type="checkbox" id="Amharic">Amharic</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Arabic">
+                                <input type="checkbox" id="Arabic">Arabic</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Aragonese">
+                                <input type="checkbox" id="Aragonese">Aragonese</label>
+                        </div>
+                    </div>
+                    <div class="form-column">
+
+                        <div class="form-field checkbox">
+                            <label for="Armenian">
+                                <input type="checkbox" id="Armenian">Armenian</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Assamese">
+                                <input type="checkbox" id="Assamese">Assamese</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Avaric">
+                                <input type="checkbox" id="Avaric">Avaric</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Avestan">
+                                <input type="checkbox" id="Avestan">Avestan</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Aymara">
+                                <input type="checkbox" id="Aymara">Aymara</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Azerbaijani">
+                                <input type="checkbox" id="Azerbaijani">Azerbaijani</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Bambara">
+                                <input type="checkbox" id="Bambara">Bambara</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Bashkir">
+                                <input type="checkbox" id="Bashkir">Bashkir</label>
+                        </div>
+                    </div>
+                    <div class="form-column">
+
+                        <div class="form-field checkbox">
+                            <label for="Basque">
+                                <input type="checkbox" id="Basque">Basque</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Belarusian">
+                                <input type="checkbox" id="Belarusian">Belarusian</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Bengali">
+                                <input type="checkbox" id="Bengali">Bengali</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Bihari">
+                                <input type="checkbox" id="Bihari">Bihari</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Bislama">
+                                <input type="checkbox" id="Bislama">Bislama</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Bosnian">
+                                <input type="checkbox" id="Bosnian">Bosnian</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Breton">
+                                <input type="checkbox" id="Breton">Breton</label>
+                        </div>
+        
+                        <div class="form-field checkbox">
+                            <label for="Bulgarian">
+                                <input type="checkbox" id="Bulgarian">Bulgarian</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </dl>
+             
+        <div class="modal-actions">
+            <div class="form-field">
+                <button type="button" class="button modal-trigger">Save</button>
+
+                <button type="button" class="button-alpha modal-trigger">Cancel</button>
             </div>
         </div>
     </div>
