@@ -182,6 +182,12 @@
 //            box-shadow: 0 -4px 4px $color-primary;
         }
 
+        @each $key, $order in $listOrder {
+            li:nth-child(#{$key}) {
+                order: $order;
+            }
+        }
+
         a {
             padding: $tiny-spacing 2px;
 
