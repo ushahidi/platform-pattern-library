@@ -27,7 +27,7 @@
             @include left($base-spacing);
             margin-top: -27px;
 
-            + .searchbar {
+            +.searchbar {
                 @include margin-left($base-spacing+54);
             }
         }
@@ -51,7 +51,7 @@
                     background-color: $color-primary-delta;
 
                     &::placeholder {
-                       color: $white;
+                        color: $white;
                     }
                 }
 
@@ -61,7 +61,7 @@
 
                         &:focus {
 
-                            + svg.iconic {
+                            +svg.iconic {
                                 fill: $color-primary-beta;
                             }
                         }
@@ -91,8 +91,8 @@
             }
         }
 
-        + .button-group,
-        + .fab + .button-group {
+        +.button-group,
+        +.fab+.button-group {
 
             // button,
             // .button {
@@ -104,6 +104,7 @@
 
         .dropdown-menu {
             min-height: 100vh;
+
             @include media($small) {
                 max-width: none;
             }
@@ -111,21 +112,28 @@
             .dropdown-menu-body {
                 min-height: 100vh;
                 max-height: 100vh !important;
-                padding-bottom: 100px;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    padding-bottom: 100px;
+                }
 
                 @include media($medium-down) {
-                    padding-bottom: 200px;
+                    &:after {
+                        content: '';
+                        display: block;
+                        padding-bottom: 250px;
+                    }
                 }
-                @include media($medium-down) {
-                    padding-bottom: 250px;
-                }
-                .saved-search{
+
+                .saved-search {
 
                     &:before {
-                        content:'';
+                        content: '';
                         position: absolute;
                         top: $sm-spacing;
-                        bottom:15px;
+                        bottom: 15px;
                         left: -5px;
                         border-left: $base-border-dark;
                     }
@@ -136,7 +144,7 @@
                         margin-right: -13px;
 
                         &:before {
-                            content:'';
+                            content: '';
                             position: absolute;
                             width: 100%;
                             left: -22px;
@@ -159,30 +167,30 @@
                 border-top: 1px solid $color-light-gamma;
                 padding: $sm-spacing;
 
-                    @include media($medium-down) {
-                        bottom: 125px;
-                    }
+                @include media($medium-down) {
+                    bottom: 125px;
+                }
 
-                    &:before {
-                        content: '';
-                        position: absolute;
-                        z-index: -1;
-                        top: 0;
-                        right: 0;
-                        bottom: 36px;
-                        left: 0;
-                        background-color: $color-light-gamma;
-                        -webkit-filter: blur(10px);
-                        -moz-filter: blur(10px);
-                        -o-filter: blur(10px);
-                        -ms-filter: blur(10px);
-                        filter: blur(10px);
-                        opacity: 0.8;
-                    }
+                &:before {
+                    content: '';
+                    position: absolute;
+                    z-index: -1;
+                    top: 0;
+                    right: 0;
+                    bottom: 36px;
+                    left: 0;
+                    background-color: $color-light-gamma;
+                    -webkit-filter: blur(10px);
+                    -moz-filter: blur(10px);
+                    -o-filter: blur(10px);
+                    -ms-filter: blur(10px);
+                    filter: blur(10px);
+                    opacity: 0.8;
+                }
 
-                    .form-field {
-                        margin: 0;
-                    }
+                .form-field {
+                    margin: 0;
+                }
             }
         }
 
@@ -230,7 +238,7 @@
         &.error {
 
             svg.iconic {
-                stroke: rgba(255,255,255,0.8);
+                stroke: rgba(255, 255, 255, 0.8);
                 stroke-width: 0.5;
             }
         }
@@ -274,7 +282,7 @@
 
             svg.iconic {
 
-                + .button-label {
+                +.button-label {
 
                     @include media($mobile-down) {
                         display: none;
