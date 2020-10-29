@@ -144,6 +144,7 @@
         background-color: $color-primary-alpha;
         @include box-shadow($top: 0, $left: -1px, $blur: 4px, $spread: 0, $color: rgba(30,35,42,1), $inset: false);
         padding: $sm-spacing+4 $sm-spacing;
+        margin: 3px;
 
         svg.iconic {
             fill: $color-tertiary;
@@ -155,6 +156,12 @@
             svg.iconic {
                 @include rotate(180deg);
             }
+        }
+
+        &:focus {
+            outline: 2px solid $white;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: unset;
         }
     }
 
