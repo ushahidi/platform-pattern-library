@@ -27,7 +27,7 @@
         justify-content: space-around;
         */
 
-        a {
+        a, button {
             display: block;
             color: $color-tertiary;
             font-size: 12px;
@@ -64,12 +64,25 @@
             }
 
 
-            &:hover {
+            &:hover, &:focus {
                 color: $white;
 
                 svg.iconic {
                     fill: $white;
                 }
+            }
+        }
+
+        button {
+            width: 100%;
+            box-shadow: none;
+            background-color: transparent;
+            text-transform: unset;
+            font-weight: unset;
+
+            &:focus {
+                outline: 1px solid white;
+                outline: 5px auto -webkit-focus-ring-color;
             }
         }
 
@@ -120,6 +133,10 @@
                 }
             }
 
+            button {
+                padding: 2.5px 0;
+            }
+
             ul {
 
                 @include media($medium-down) {
@@ -141,7 +158,7 @@
 
             li {
 
-                a {
+                a, button {
 
                     @include media($medium-down) {
                         @include typeBase;
@@ -182,7 +199,13 @@
 //            box-shadow: 0 -4px 4px $color-primary;
         }
 
-        a {
+        @each $key, $order in $listOrder {
+            li:nth-child(#{$key}) {
+                order: $order;
+            }
+        }
+
+        button {
             padding: $tiny-spacing 2px;
 
             @include media($medium-down) {

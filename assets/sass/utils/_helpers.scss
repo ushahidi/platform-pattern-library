@@ -36,6 +36,7 @@ $LAYOUT
 
 .right {
     float: right;
+    @include float(right);
 }
 
 .full-width {
@@ -71,6 +72,16 @@ $LAYOUT
 
 .hidden {
     display: none !important;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
 }
 
 .hide-when-mobile {
