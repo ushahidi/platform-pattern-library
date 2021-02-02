@@ -377,10 +377,17 @@ form, .form {
         width: 100%;
         max-width: 100%;
     }
-}
+    }
 
-.tgl {//http://codepen.io/mallendeo/pen/eLIiG
-    display: none !important;
+    .tgl {//http://codepen.io/mallendeo/pen/eLIiG
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+
     // add default box-sizing for this scope
     &, &:after, &:before,
     & *, & *:after, & *:before,
@@ -459,6 +466,10 @@ form, .form {
 
         }
     }
+
+    &:focus+.tgl-btn {
+       outline-color: transparent;
+       box-shadow: 0 0 3px 5px $color-secondary, inset 0 1px 1px rgba(0,0,0,.3);      }
 
 }
 
