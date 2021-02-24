@@ -35,10 +35,12 @@
 
     .searchbar {
         @include float(left);
-        width: 72.7272727%;
+        width: 50%;
 
-        @include media($small) {
-            width: 47.6814516%;
+        .button-label {
+            @include media($small-down) {
+                display: none;
+            }
         }
 
         .searchbar-input {
@@ -245,16 +247,24 @@
         @include float(right);
 
         button,
-        .button {
+        .button, .toolbar-donating {
             height: 36px;
-            padding-top: 10px;
-            padding-bottom: 10px;
             @include margin-left($tiny-spacing);
 
             &.button-link {
                 color: $white;
                 padding-right: $tiny-spacing;
                 padding-left: $tiny-spacing;
+            }
+        }
+        .toolbar-donating {
+            color: #C7CCD4;
+            display: inline-block;
+            p {
+                margin: 0;
+            }
+            .iconic {
+                fill:#C7CCD4;
             }
         }
     }
@@ -281,7 +291,7 @@
 
                 +.button-label {
 
-                    @include media($mobile-down) {
+                    @include media($small-down) {
                         display: none;
                     }
                 }
