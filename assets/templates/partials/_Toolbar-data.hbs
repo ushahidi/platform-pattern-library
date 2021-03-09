@@ -1,0 +1,21 @@
+<div class="toolbar">
+
+        {{> Fab target='submit-new-survey'}}
+
+        {{> Search-d }}
+        <div class="button-group">
+            {{#if edit}}
+                <button class="button-flat" data-modal="cancel-without-saving">Cancel</button>
+                <button class="button button-alpha" href="data.html#{{@../index}}">Save</button>
+            {{/if}}
+            {{#else}}
+            <button class="button button-alpha" href="data-edit.html#{{@../index}}">Edit</button>
+            {{/else}}
+            <button type="button" class="button button-alpha button-plain" data-modal="donate">
+                <svg class="iconic">
+                    <use xlink:href="../../img/iconic-sprite.svg#heart"></use>
+                </svg>
+                <span>Donate</span>
+            </button>
+        </div>
+    </div>
