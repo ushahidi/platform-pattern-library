@@ -16,7 +16,7 @@
 
     .modal-title {
         @include typeAlpha;
-        margin: $base-spacing 0;
+        margin: $base-spacing 60px $base-spacing 0;
 
         em {
             @include typeGamma;
@@ -296,41 +296,22 @@
             display: block;
         }
     }
-    &.modal-large {
-        p {
-            font-size: 12px;
-            line-height: 1.8;
-            font-weight: 400;
-            white-space: pre-line;
-        }
-        .modal-header {
-            height: 60px;
-            margin: 0 -24px;
-            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-
-            .button-flat {
-                box-shadow: none;
-            }
-        }
-        .modal-title {
-            font-size: 16px;
-        }
-        .modal-images {
-            max-width: 100%;
-            display: flex;
-            justify-content: space-between;
-            @include media($mobile-down) {
-                flex-direction: column;
-                img {
-                    min-width: 80%;
-                    justify-self: center;
-                }
-            }
+    
+    .modal-images {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        @include media($mobile-down) {
+            flex-direction: column;
             img {
-                min-width: 20%;
-                border-radius: 2px;
-                margin: 10px;
+                min-width: 80%;
+                justify-self: center;
             }
+        }
+        img {
+            max-width: 20%;
+            border-radius: 2px;
+            margin: 10px;
         }
     }
 }
