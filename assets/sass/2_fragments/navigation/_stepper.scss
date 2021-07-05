@@ -60,6 +60,37 @@
             top: 0;
             @include left(0);
         }
+        .stepper-images {
+            display: flex;
+            @include media($mobile-down) {
+                flex-direction: column;
+
+                img {
+                    min-width: 80%;
+                    justify-self: center;
+                }
+            }
+        }
+        .stepper-image {
+            max-width: 80%;
+            margin: 10px;
+
+            @include media($mobile) {
+                &:first-child {
+                    @include margin-left(0);
+                }
+                max-width: 30%;
+            }
+            
+            img {
+                border-radius: 2px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+        
+
 
         &.active,
         &.complete {

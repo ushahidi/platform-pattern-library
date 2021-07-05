@@ -16,7 +16,7 @@
 
     .modal-title {
         @include typeAlpha;
-        margin: $base-spacing 0;
+        margin: $base-spacing 60px $base-spacing 0;
 
         em {
             @include typeGamma;
@@ -294,6 +294,24 @@
 
         &.active {
             display: block;
+        }
+    }
+    
+    .modal-images {
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        @include media($mobile-down) {
+            flex-direction: column;
+            img {
+                min-width: 80%;
+                justify-self: center;
+            }
+        }
+        img {
+            max-width: 20%;
+            border-radius: 2px;
+            margin: 10px;
         }
     }
 }

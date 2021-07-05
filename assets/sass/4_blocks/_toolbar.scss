@@ -35,10 +35,12 @@
 
     .searchbar {
         @include float(left);
-        width: 72.7272727%;
+        width: 50%;
 
-        @include media($small) {
-            width: 47.6814516%;
+        .button-label {
+            @include media($small-down) {
+                display: none;
+            }
         }
 
         .searchbar-input {
@@ -243,12 +245,12 @@
 
     .button-group {
         @include float(right);
+        display: inline-flex;
+        align-items: center;
 
         button,
         .button {
             height: 36px;
-            padding-top: 10px;
-            padding-bottom: 10px;
             @include margin-left($tiny-spacing);
 
             &.button-link {
@@ -256,6 +258,25 @@
                 padding-right: $tiny-spacing;
                 padding-left: $tiny-spacing;
             }
+        } 
+    }
+    
+    .toolbar-donating {
+        color: #C7CCD4;
+        display: inline-flex;
+        justify-content: space-evenly;
+        align-items: center;
+        max-width: 130px;
+        .coins {
+            width: 23px;
+            height: 23px;
+            
+        }
+        .iconic {
+            fill:#C7CCD4;
+        }
+        .button-label {
+            padding: 0 $tiny-spacing;
         }
     }
 
@@ -281,7 +302,7 @@
 
                 +.button-label {
 
-                    @include media($mobile-down) {
+                    @include media($small-down) {
                         display: none;
                     }
                 }
