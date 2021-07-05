@@ -35,10 +35,47 @@
                 }
             }
 
+            .tab-button {
+                display: inline-block;
+                color: $color-primary-epsilon;
+                padding: $sm-spacing $base-spacing;
+                font-weight: 400;
+                text-transform: none;
+                background: none;
+                box-shadow: none;
+                letter-spacing: 0px;
+
+                svg.iconic {
+                    fill: $color-primary-epsilon;
+                    position: relative;
+                    top: 2px;
+                    @include margin-right(4px);
+                }
+
+                &:hover {
+                    color: $color-primary;
+                    box-shadow: none;
+                    background: none;
+                    svg.iconic {
+                        fill: $color-primary;
+                    }
+                }
+            }
+
             &.active {
 
                 a {
                     color: $color-primary-alpha;
+                    border-bottom: 2px solid $color-secondary;
+
+                    svg.iconic {
+                        fill: $color-primary-alpha;
+                    }
+                }
+
+                .tab-button {
+                    color: $color-primary-alpha;
+                    opacity: 1;
                     border-bottom: 2px solid $color-secondary;
 
                     svg.iconic {

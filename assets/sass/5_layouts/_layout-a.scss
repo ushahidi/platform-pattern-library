@@ -28,5 +28,45 @@
                 top: 92px;
             }
         }
+
+        .toolbar-secondary{
+            position: relative;
+            left: 0;
+            right: 0;
+            margin-bottom: $base-spacing;
+            background-color: $color-primary;
+            padding: $sm-spacing $lg-spacing;
+            text-align: $end;
+
+            .button-group {
+                
+                button,
+                .button {
+                    @include margin-left($tiny-spacing);
+                    
+                    svg.iconic {
+        
+                        + .button-label {
+        
+                            @include media($mobile-down) {
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .button-group {
+            &.donations {
+                width: 100%;
+                .button {
+                    @include float(right);
+                    &.button-left {
+                        @include float(left);
+                    }
+                }
+            }
+        }
     }
 }
