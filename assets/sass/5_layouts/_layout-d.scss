@@ -35,12 +35,11 @@
 
             .fab {
                 display: flex;
-                flex-direction: row-reverse;
-                position: absolute;
-                right: $sm-spacing;
-                left: $sm-spacing;
-                top: 93vh;
-
+                position: fixed;
+                @include right($sm-spacing);
+                bottom: $sm-spacing;
+                top: unset;
+                @include left(unset);
                 @include media($medium-down) {
                     bottom: $sm-spacing+45;
                 }
